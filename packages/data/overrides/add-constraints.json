@@ -214,5 +214,17 @@
       "value": 1
     },
     "source": "Wahapedia datasheet 000002479 (Morvenn Vahl): \"Your army can only include 1 MORVENN VAHL model.\" BSData v9.8.0 has no limit on this entry; a second copy was only flagged while BSData made each copy the Warlord (now left to must-be-warlord.json), so the limit is one per army."
+  },
+  {
+    "catalogueName": "Unaligned - Monsters and Gribblies",
+    "entryId": "d943-e9ca-4807-d60c",
+    "entryName": "The Archivist",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002093 (The Archivist): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
   }
 ]
