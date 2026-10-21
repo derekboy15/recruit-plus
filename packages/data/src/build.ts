@@ -89,7 +89,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       library,
       units,
       rules: catalogueRules(cat),
-      stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems),
+      stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems, overrides.stratagemDetails),
     };
     writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
     index.catalogues.push({
@@ -159,11 +159,13 @@ function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogue
 /**
  * Checks the stratagem overrides against the Wahapedia snapshot and the playable catalogue names: one
  * stratagem-factions.json entry per playable catalogue, known faction and subfaction ids (a subfaction's parent_id is the
- * entry's faction), and known stratagem ids whose title-cased name matches in stratagems.json and core-stratagems.json.
+ * entry's faction), `groups` that each name a group the entry would otherwise list, and known stratagem ids whose
+ * title-cased name matches in stratagems.json, stratagem-details.json (whose subfaction must be a child of the
+ * stratagem's faction) and core-stratagems.json.
  */
 export function validateStratagemOverrides(
   w: Wahapedia,
-  o: Pick<Overrides, 'stratagemFactions' | 'excludedStratagems' | 'coreStratagems'>,
+  o: Pick<Overrides, 'stratagemFactions' | 'excludedStratagems' | 'stratagemDetails' | 'coreStratagems'>,
   playable: Set<string>,
 ): void {
   const factions = new Map(w.factions.map((f) => [f.id, f]));
@@ -179,13 +181,25 @@ export function validateStratagemOverrides(
       if (factions.get(sub)?.parent_id !== e.factionId) throw new Error(`${where} names unknown subfaction "${sub}" of "${e.factionId}"`);
     }
   }
+  const excluded = new Set(o.excludedStratagems.map((x) => x.id));
+  for (const e of o.stratagemFactions.filter((x) => x.groups)) {
+    const present = new Set(selectStratagems(w, { ...e, groups: undefined }, excluded, o.stratagemDetails).map((s) => s.group));
+    for (const g of e.groups!) if (!present.has(g)) throw new Error(`stratagem-factions.json (${e.catalogueName}) names unknown group "${g}"`);
+  }
   for (const name of playable) if (!seen.has(name)) throw new Error(`no stratagem-factions entry for catalogue "${name}"`);
   const byId = new Map(w.stratagems.map((s) => [s.id, s]));
-  for (const [file, list] of [['stratagems.json', o.excludedStratagems], ['core-stratagems.json', o.coreStratagems]] as const) {
+  for (const [file, list] of [['stratagems.json', o.excludedStratagems], ['stratagem-details.json', o.stratagemDetails], ['core-stratagems.json', o.coreStratagems]] as const) {
     for (const e of list) {
       const row = byId.get(e.id);
       if (!row) throw new Error(`${file} names unknown stratagem "${e.id}"`);
       if (titleCase(row.name) !== e.name) throw new Error(`${file}: stratagem ${e.id} is "${titleCase(row.name)}", not "${e.name}"`);
+    }
+  }
+  for (const d of o.stratagemDetails) {
+    const row = byId.get(d.id)!;
+    if (!d.group && !d.subfactionId) throw new Error(`stratagem-details.json (${d.id}) sets neither group nor subfactionId`);
+    if (d.subfactionId && factions.get(d.subfactionId)?.parent_id !== row.faction_id) {
+      throw new Error(`stratagem-details.json (${d.id}) names unknown subfaction "${d.subfactionId}" of "${row.faction_id}"`);
     }
   }
 }

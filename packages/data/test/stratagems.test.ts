@@ -97,7 +97,7 @@ test('every matched-play stratagem of a mapped faction appears in a catalogue', 
   expect(missing).toEqual([]);
 });
 
-test('stratagem overrides naming an unknown catalogue or id throw', () => {
+test('stratagem overrides naming an unknown catalogue, id, subfaction or group throw', () => {
   const playable = new Set(index.catalogues.filter((c) => !c.library).map((c) => c.name));
   expect(() => validateStratagemOverrides(w, overrides, playable)).not.toThrow();
   const bad = (patch: Partial<Overrides>) => () => validateStratagemOverrides(w, { ...overrides, ...patch }, playable);
@@ -105,7 +105,75 @@ test('stratagem overrides naming an unknown catalogue or id throw', () => {
   expect(bad({ stratagemFactions: [{ ...first, catalogueName: 'Nope' }, ...rest] })).toThrow(/unknown catalogue "Nope"/);
   expect(bad({ stratagemFactions: [{ ...first, factionId: 'XX' }, ...rest] })).toThrow(/unknown faction "XX"/);
   expect(bad({ stratagemFactions: [{ ...first, subfactions: ['CHXX'] }, ...rest] })).toThrow(/CHXX/);
+  expect(bad({ stratagemFactions: [{ ...first, groups: ['No Such Group'] }, ...rest] })).toThrow(/unknown group "No Such Group"/);
   expect(bad({ stratagemFactions: rest })).toThrow(/no stratagem-factions entry/);
   expect(bad({ excludedStratagems: [{ id: '000000000000', name: 'X', reason: 'x', source: 'x' }] })).toThrow(/unknown stratagem "000000000000"/);
   expect(bad({ coreStratagems: [{ id: '000002134002', name: 'Wrong Name', source: 'x' }] })).toThrow(/Wrong Name/);
+  const details = overrides.stratagemDetails.filter((d) => d.id !== '000003187002');
+  const swordBrethren = { id: '000003187002', name: 'Sword Brethren', group: 'Sword Brethren (Specialist Detachment)', source: 'x' };
+  expect(bad({ stratagemDetails: [...details, { ...swordBrethren, subfactionId: 'LGBL' }] })).toThrow(/LGBL/);
+  expect(bad({ stratagemDetails: [...details, { ...swordBrethren, group: undefined }] })).toThrow(/neither group nor subfactionId/);
+});
+
+const names = (slug: string) => catalogue(slug).stratagems.map((s) => s.name);
+const groups = (slug: string) => [...new Set(catalogue(slug).stratagems.map((s) => s.group))].sort();
+
+test('Agents of the Imperium has no matched-play stratagems', () => {
+  expect(catalogue('imperium-agents-of-the-imperium').stratagems).toEqual([]);
+});
+
+test('Specialist Detachment stratagems are grouped under their detachment', () => {
+  const csm = catalogue('chaos-chaos-space-marines').stratagems;
+  const bringers = csm.filter((s) => s.group === 'Bringers of Despair (Specialist Detachment)').map((s) => s.name).sort();
+  expect(bringers).toEqual(['Bringers of Despair', 'Brutal Subjugation', 'Chosen Enforcers']);
+  expect(csm.find((s) => s.name === 'Bringers of Despair' && s.group === 'Black Legion')).toBeDefined();
+  const swift = catalogue('imperium-adeptus-astartes-dark-angels').stratagems.filter((s) => s.name === 'Swift Strike');
+  expect(swift.map((s) => s.group).sort()).toEqual(['Dark Angels', 'Ravenwing Attack Squadron (Specialist Detachment)']);
+  // Every stratagem from the Vigilus books belongs to a Specialist Detachment; none is left under a bare label.
+  const vigilus = new Set(w.stratagems.filter((r) => r.source_id === '000000051' || r.source_id === '000000060').map((r) => r.id));
+  for (const c of catalogues()) {
+    for (const s of c.stratagems) {
+      expect(s.group, `${c.name}: ${s.name}`).not.toBe('Specialist Detachment');
+      if (vigilus.has(s.id)) expect(s.group, `${c.name}: ${s.name}`).toMatch(/ \(Specialist Detachment\)$/);
+    }
+  }
+});
+
+test("chapter catalogues don't list other chapters' stratagems", () => {
+  const ba = names('imperium-adeptus-astartes-blood-angels');
+  for (const n of ['Sword Brethren', 'Victrix Guard', 'Stalker Pack', 'Crimson Fists Liberator Strike Force', 'Attack Squadron', 'Uphold the Honour of the Emperor', 'Specialism Extremis']) {
+    expect(ba, n).not.toContain(n);
+  }
+  expect(names('imperium-adeptus-astartes-black-templars')).toContain('Sword Brethren');
+  expect(names('imperium-adeptus-astartes-ultramarines')).toContain('Victrix Guard');
+  // Kill Team Strike Force is the Deathwatch Army of Renown; Vanguard Spearhead excludes DEATHWATCH.
+  const withKillTeam = catalogues().filter((c) => c.stratagems.some((s) => s.group === 'Kill Team Strike Force')).map((c) => c.name);
+  expect(withKillTeam).toEqual(['Imperium - Adeptus Astartes - Deathwatch']);
+  expect(groups('imperium-adeptus-astartes-deathwatch')).not.toContain('Vanguard Spearhead');
+});
+
+test('Harlequins list no craftworld stratagems; Craftworlds list the Harlequins ones', () => {
+  const hq = groups('aeldari-harlequins');
+  expect(hq.filter((g) => /Alaitoc|Biel-Tan|Iyanden|Saim-Hann|Ulthwé|Altansar|Ynnari|Windrider|Wraith/.test(g))).toEqual([]);
+  expect(hq).toContain('Aeldari (Harlequins)');
+  expect(groups('aeldari-craftworlds')).toEqual(expect.arrayContaining(['Aeldari (Alaitoc)', 'Aeldari (Harlequins)', 'Ynnari']));
+});
+
+test('catalogues limited to some groups list exactly those', () => {
+  for (const e of overrides.stratagemFactions.filter((x) => x.groups)) {
+    const slug = index.catalogues.find((c) => c.name === e.catalogueName)!.slug;
+    expect(groups(slug), e.catalogueName).toEqual([...e.groups!].sort());
+  }
+  expect(groups('fallen')).toEqual(['Fallen Angels']);
+  expect(groups('imperium-legion-of-the-damned')).toEqual(['Adeptus Astartes']);
+});
+
+test('an "X Stratagem" type that names no kind is group X, kind Stratagem', () => {
+  expect(catalogue('imperium-adeptus-astartes-ultramarines').stratagems.find((s) => s.name === 'Chief Librarian')).toMatchObject({
+    group: 'Blood Ravens',
+    kind: 'Stratagem',
+  });
+  const gellerpox = catalogue('chaos-death-guard').stratagems.filter((s) => s.group === 'Gellerpox Infected');
+  expect(gellerpox).toHaveLength(8);
+  for (const s of gellerpox) expect(s.kind).toBe('Stratagem');
 });
