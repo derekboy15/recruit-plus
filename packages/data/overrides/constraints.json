@@ -304,6 +304,55 @@
     "source": "The Silent King's own rule: Wahapedia datasheet 000002360, ability 000004775 (The Silent King): \"If your army is Battle-forged, Szarekh must be your army's WARLORD.\" BSData v9.8.0 makes his Warlord compulsory (min 1 on link e6c1-3438-58bd-c091), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Szarekhan): The Triarch's Will",
+    "constraintId": "fe49-a268-ff57-c86e",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes The Silent King's fixed trait itself compulsory once he is the Warlord (link cbc8-69f0-1334-45f4: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 5): Implacable Conqueror (Aura)",
+    "constraintId": "3d76-68e8-b219-971d",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Anrakyr the Traveller's fixed trait itself compulsory once he is the Warlord (link 5187-2dcb-c728-c3fb: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 1): Enduring Will",
+    "constraintId": "088e-f115-c880-7140",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Illuminor Szeras's fixed trait itself compulsory once he is the Warlord (link f3f4-8ec5-fe7c-b351: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 1): Enduring Will",
+    "constraintId": "1695-336e-89cd-1e05",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Trazyn the Infinite's fixed trait itself compulsory once he is the Warlord (link 6fd2-185d-3221-2816: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 3): Immortal Pride",
+    "constraintId": "1ba4-3983-2912-356b",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Orikan the Diviner's fixed trait itself compulsory once he is the Warlord (link 07f7-cd9f-7a3c-ea4a: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 1): Enduring Will",
+    "constraintId": "c634-02ea-cb24-e1d0",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 also makes the Enduring Will entry (1f52-8365-63ed-7a0e) itself compulsory, in any mission pack, when its parent holds a Warlord and its ancestor is Trazyn the Infinite (00c8-26f8-e8b4-b58c) or Illuminor Szeras (2b74-5621-5b41-730f) (min set to 1), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 3): Immortal Pride",
+    "constraintId": "45a6-3a4a-cab0-e58f",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 also makes the Immortal Pride entry (c9d5-b167-79e1-dd37) itself compulsory, in any mission pack, when its parent holds a Warlord and its ancestor is Orikan the Diviner (de91-4514-2040-fe63) (min set to 1), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen (controller ruling, task 11b)."
+  },
+  {
     "catalogueName": "Orks",
     "entryName": "Warlord",
     "constraintId": "4f69-f8f3-6d21-ee88",

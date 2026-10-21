@@ -8,8 +8,11 @@
  * and joins any dynasty) and §4 (his fixed Warlord Trait is The Triarch's Will); Wahapedia datasheet 000002360 (The
  * Silent King: "Szarekh must be your army's WARLORD") and 000000532 (Trazyn the Infinite).
  *
- * The Silent King Warlord list pays for his trait: without the stratagem, BSData still demands The Triarch's Will
- * under Arks of Omen (option-required), which §5 doesn't (see the task 11a report).
+ * BSData v9.8.0 makes five named Warlords' fixed traits compulsory outside War Zone Nephilim, stratagem or not: The
+ * Silent King (The Triarch's Will), Anrakyr the Traveller (Implacable Conqueror), Illuminor Szeras and Trazyn the
+ * Infinite (Enduring Will) and Orikan the Diviner (Immortal Pride). Under Arks of Omen a Warlord only has a trait if
+ * the 1 CP Warlord Trait Requisition Stratagem is used (§5, §6), so overrides/constraints.json pins those minimums to
+ * 0. One list pays for the Silent King's trait; Trazyn leads another without one.
  */
 import type { CatalogueCorpus, DetachmentSpec, UnitSpec } from '../spec';
 
@@ -44,6 +47,14 @@ export default {
       detachments: [SAUTEKH],
       // 90 + 3 × 110 + 105 + 70 = 595; PL 6 + 3 × 6 + 6 + 4 = 34
       expect: { points: 595, powerLevel: 34 },
+    },
+    {
+      // A named Warlord without the Warlord Trait Requisition Stratagem has no Warlord Trait (§5, §6).
+      title: 'Arks of Omen Strike Force led by Trazyn the Infinite, with no Warlord Trait',
+      battleSize: 'strike-force',
+      detachments: [{ ...SAUTEKH, units: [{ ...TRAZYN, warlord: true }, WARRIORS, WARRIORS, WARRIORS] }],
+      // 90 + 3 × 110 = 420; PL 5 + 3 × 6 = 23
+      expect: { points: 420, powerLevel: 23 },
     },
     {
       // The Silent King is the Warlord (000002360) and takes his trait through the Requisition Stratagem (§5).

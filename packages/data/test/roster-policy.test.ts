@@ -244,14 +244,19 @@ describe('points, CP and Rule of Two/Three', () => {
       'imperium-adeptus-astartes-raven-guard': ['Kayvaan Shrike', 'Kayvaan Shrike [Legends]'],
       'imperium-adeptus-astartes-salamanders': ['Adrax Agatone', "Vulkan He'stan"],
       'imperium-adeptus-astartes-white-scars': ['Khan on Bike', "Kor'sarro Khan", "Kor'sarro Khan [Legends]", "Kor'sarro Khan on Moondrakkan [Legends]"],
+      // BSData demands these Warlords' fixed Warlord Trait itself (not the stratagem) outside War Zone Nephilim.
+      necrons: ['The Silent King', 'Anrakyr the Traveller', 'Illuminor Szeras', 'Trazyn the Infinite', 'Orikan the Diviner'],
     };
+    const SAUTEKH = { 'Dynasty Choice': 'Dynasty: Sautekh' };
     for (const [slug, names] of Object.entries(named)) for (const name of names) {
       const scope = realScope(slug);
       const catId = realCatalogueId(slug);
+      const necrons = slug === 'necrons';
+      const troops = { name: necrons ? 'Necron Warriors' : 'Intercessor Squad' };
       const spec: ListSpec = {
         title: name,
         battleSize: 'strike-force',
-        detachments: [{ detachment: 'Arks of Omen Detachment', army: name === 'Pedro Kantor' ? CRIMSON_FISTS : undefined, units: [{ name, warlord: true }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }] }],
+        detachments: [{ detachment: 'Arks of Omen Detachment', army: name === 'Pedro Kantor' ? CRIMSON_FISTS : necrons ? SAUTEKH : undefined, units: [{ name, warlord: true }, troops, troops, troops] }],
         expect: { points: 0, powerLevel: 0 },
       };
       // Raw BSData issues: validate() would merge this one with another issue on the same unit (Cassius' Litanies).
