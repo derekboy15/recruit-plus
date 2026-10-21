@@ -10,8 +10,9 @@ import { createRepository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 import { necronsListData } from './__fixtures__/necronsList';
+import { ShareSheet } from './ExportSheet';
 import { ListEditorPage } from './ListEditorPage';
-import { createList, type ListData } from './listStore';
+import { createList, saveList, type ListData } from './listStore';
 import { createLocalPublicSource, PublicSourceContext } from './publicSource';
 
 let db: RecruitDb;
@@ -104,6 +105,37 @@ test('turning sharing on saves the list as public and shows the link; turning it
   await u.click(toggle);
   await waitFor(async () => expect((await repo.getDoc<ListData>(id))!.isPublic).toBe(false));
   await waitFor(() => expect(within(sheet).queryByRole('textbox', { name: 'Share link' })).not.toBeInTheDocument());
+});
+
+test('the switch stays on while the list is being saved, even when the save shows the old setting first', async () => {
+  const u = userEvent.setup();
+  const repo = createRepository(db);
+  const id = await createList(repo, 'user-1', await necronsListData((r, add) => add(r, 'Necron Warriors')));
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => (release = resolve));
+  // Like the editor's flush: the pending edit is written (still private), and the save takes a moment to finish.
+  const flush = async () => {
+    const doc = (await repo.getDoc<ListData>(id))!;
+    await saveList(repo, doc, { ...doc.data, roster: { ...doc.data.roster, name: 'Edited' } });
+    await gate;
+  };
+  render(
+    <StorageProvider db={db}>
+      <PublicSourceContext.Provider value={{ source: createLocalPublicSource(db), linksWorkAnywhere: true }}>
+        <ShareSheet listId={id} flush={flush} onClose={() => {}} />
+      </PublicSourceContext.Provider>
+    </StorageProvider>,
+  );
+  const toggle = await screen.findByRole('checkbox', { name: 'Anyone with the link can view' });
+  await waitFor(() => expect(toggle).toBeEnabled());
+  await u.click(toggle);
+  await waitFor(async () => expect((await repo.getDoc<ListData>(id))!.data.roster.name).toBe('Edited'));
+  await act(() => new Promise((resolve) => setTimeout(resolve, 50)));
+  expect(toggle).toBeChecked();
+  act(() => release());
+  await waitFor(async () => expect((await repo.getDoc<ListData>(id))!.isPublic).toBe(true));
+  expect(toggle).toBeChecked();
+  expect(screen.getByRole('textbox', { name: 'Share link' })).toBeInTheDocument();
 });
 
 test('in local development the link comes with a note that it only works on this device', async () => {

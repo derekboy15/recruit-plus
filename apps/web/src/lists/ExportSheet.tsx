@@ -83,31 +83,33 @@ function useIsShared(repo: Repository, listId: string) {
 export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: () => Promise<void>; onClose: () => void }) {
   const { repo } = useStorage();
   const { linksWorkAnywhere } = usePublicSource();
-  const [shared, setShared] = useIsShared(repo, listId);
-  const [busy, setBusy] = useState(false);
+  const [stored, setStored] = useIsShared(repo, listId);
+  // The switch's new position while it is being saved: shown at once, and kept even when saving the pending edits
+  // first reports the old setting back from the database.
+  const [saving, setSaving] = useState<boolean | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const link = `${window.location.origin}/share/${listId}`;
+  const shared = saving ?? stored;
 
   const toggle = async (on: boolean) => {
-    setBusy(true);
+    setSaving(on);
     setError(null);
-    setShared(on); // shown at once; the database confirms it a moment later
     try {
       // Unsaved edits are saved first, so turning sharing on never saves an older copy over them.
       await flush();
       await setListPublic(repo, listId, on);
+      setStored(on); // the database confirms it a moment later
     } catch (e) {
-      setShared(!on);
       setError(e instanceof Error ? e : new Error(String(e)));
     } finally {
-      setBusy(false);
+      setSaving(null);
     }
   };
 
   return (
     <Panel title="Share list" kind="full" closeLabel="Done" onClose={onClose}>
       <label className="choices__option">
-        <input type="checkbox" checked={shared === true} disabled={shared === null || busy} onChange={(e) => void toggle(e.target.checked)} />
+        <input type="checkbox" checked={shared === true} disabled={shared === null || saving !== null} onChange={(e) => void toggle(e.target.checked)} />
         <span>Anyone with the link can view</span>
       </label>
       <p className="muted">
