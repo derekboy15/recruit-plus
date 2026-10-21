@@ -337,6 +337,24 @@ describe('points, CP and Rule of Two/Three', () => {
     }
   });
 
+  test('Magnus the Red must be the Warlord (Wahapedia datasheet 000001031, Daemon Primarch)', () => {
+    const slug = 'chaos-thousand-sons';
+    const scope = realScope(slug);
+    const list = (sorcererWarlord: boolean): ListSpec => ({
+      title: 'Magnus',
+      battleSize: 'strike-force',
+      detachments: [{
+        detachment: 'Arks of Omen Detachment',
+        units: [{ name: 'Exalted Sorcerer', warlord: sorcererWarlord }, { name: 'Rubric Marines' }, { name: 'Rubric Marines' }, { name: 'Rubric Marines' }, { name: 'Magnus the Red', warlord: !sorcererWarlord }],
+      }],
+      expect: { points: 0, powerLevel: 0 },
+    });
+    const rules = (spec: ListSpec) => validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy).issues.map((i) => i.rule);
+    expect(rules(list(false))).toEqual([]);
+    // Magnus is the Warlord as soon as he is in the army, so a second Warlord is one too many.
+    expect(rules(list(true))).toEqual(['warlord-extra']);
+  });
+
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
     const r0 = necronRoster('strike-force');
     const fs = r0.forces[0].id;

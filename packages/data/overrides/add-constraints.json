@@ -178,5 +178,17 @@
       "value": 1
     },
     "source": "Wahapedia datasheet 000001648 (Shalaxi Helbane): \"Your army can only include one SHALAXI HELBANE model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Chaos - Thousand Sons",
+    "entryId": "d5e1-3d49-96dc-7667",
+    "entryName": "Warlord",
+    "constraint": {
+      "type": "min",
+      "field": "selections",
+      "scope": "parent",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001031 (Magnus the Red), Daemon Primarch: \"If your army is Battle-forged, this model must be your army's WARLORD.\" (also research library 03_Codexes/Chaos/Thousand_Sons.md §6: must be Warlord). BSData v9.8.0 leaves Magnus's Warlord link (d5e1-3d49-96dc-7667) optional, unlike Mortarion's and Abaddon's, so another Warlord beside Magnus went unreported. A min of 1 on that link makes him the Warlord, like Abaddon's own link."
   }
 ]
