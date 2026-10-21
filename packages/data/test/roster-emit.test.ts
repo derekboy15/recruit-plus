@@ -240,11 +240,18 @@ describe('mini fixture', () => {
     expect(sys.forces[0].cats[0].constraints![0].value).toBe(2);
   });
 
+  test('constraint overrides set a new scope together with the value', () => {
+    const pin: ConstraintOverride = { catalogueName: 'Mini Faction', entryName: 'Warriors', constraintId: 'c-roster', value: 1, scope: 'force', source: 'test' };
+    const after = findNode(emitRosterFile(cat, 'mini-faction', { constraints: [pin] }).shared, 'se-warriors')!;
+    expect(after.constraints!.find((c) => c.id === 'c-roster')).toMatchObject({ type: 'max', value: 1, scope: 'force' });
+  });
+
   test('constraint overrides throw when no constraint has the id, or its owner has another name', () => {
     const emit = (o: Partial<ConstraintOverride>) => () =>
       emitRosterFile(cat, 'mini-faction', { constraints: [{ catalogueName: 'Mini Faction', entryName: 'Warriors', constraintId: 'c-roster', value: 0, source: 'test', ...o }] });
     expect(emit({ constraintId: 'missing' })).toThrow(/missing/);
     expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
+    expect(emit({ scope: 'detachment' as ConstraintOverride['scope'] })).toThrow(/unknown scope "detachment"/);
   });
 });
 

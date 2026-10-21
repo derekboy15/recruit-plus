@@ -44,7 +44,8 @@ export interface FactionKeywordOverride {
 
 /**
  * A BSData constraint pinned at another value (overrides/constraints.json): the constraint `constraintId` in the
- * catalogue's file gets `value`, and its owner's modifiers of that constraint are dropped, so it stays at `value`.
+ * catalogue's file gets `value` (and `scope`, when given), and its owner's modifiers of that constraint are dropped, so
+ * it stays at `value`.
  * Only the owning node's modifiers are dropped: a modifier of the constraint on any other node (a parent entry, a
  * link to the owner, another file) still applies.
  */
@@ -57,8 +58,11 @@ export interface ConstraintOverride {
   entryName: string;
   constraintId: string;
   value: number;
+  /** A new scope for the constraint (e.g. "force" for a once-per-detachment limit BSData counts per roster), set with the value. */
+  scope?: (typeof CONSTRAINT_SCOPES)[number];
   source: string;
 }
+const CONSTRAINT_SCOPES = ['self', 'parent', 'force', 'roster'] as const;
 
 /** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
 export interface EmitOverrides {
@@ -278,13 +282,14 @@ function applyConstraintOverrides(file: RosterFile, catalogueName: string, overr
     ...file.forces.flatMap((f) => f.cats).map((l) => ({ name: linkName(l), holder: l })),
   ];
   for (const o of relevant) {
+    if (o.scope !== undefined && !CONSTRAINT_SCOPES.includes(o.scope)) throw new Error(`Constraint override for "${catalogueName}" constraint ${o.constraintId} has unknown scope "${o.scope}"`);
     const found = holders.filter((h) => h.holder.constraints?.some((c) => c.id === o.constraintId));
     if (!found.length) throw new Error(`Constraint override for "${catalogueName}" names unknown constraint ${o.constraintId}`);
     for (const { name } of found) {
       if (name !== o.entryName) throw new Error(`Constraint override for "${catalogueName}" constraint ${o.constraintId} expects "${o.entryName}" but found "${name}"`);
     }
     for (const { holder: h } of found) {
-      h.constraints = h.constraints!.map((c) => (c.id === o.constraintId ? { ...c, value: o.value } : c));
+      h.constraints = h.constraints!.map((c) => (c.id === o.constraintId ? { ...c, value: o.value, ...(o.scope && { scope: o.scope }) } : c));
       const mods = (h.mods ?? []).filter((m) => m.field !== o.constraintId);
       if (mods.length) h.mods = mods;
       else delete h.mods;
