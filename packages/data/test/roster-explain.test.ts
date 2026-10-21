@@ -344,6 +344,16 @@ describe('explain (real Necrons)', () => {
     expect(row.fixLabel).toBe('Open Overlord');
   });
 
+  test("warlord-missing shown in that Character's own editor says to turn it on below", () => {
+    const r0 = necronRoster('strike-force');
+    const { roster, ids } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Overlord');
+    const { view, issues } = validate(necronsScope, roster, policy);
+    const issue = issues.find((i) => i.rule === 'warlord-missing')!;
+    expect(explain(issue, view, necronsScope, { shownUnitId: ids[0] }).text).toBe('Choose a Warlord. Turn on "Warlord" below.');
+    // In another unit's editor (or none) the hint still names the Character to open.
+    expect(explain(issue, view, necronsScope, { shownUnitId: 'another-unit' }).text).toBe('Choose a Warlord. Open a Character such as Overlord and turn on "Warlord".');
+  });
+
   test('points-over and cp-negative', () => {
     const view = evaluate(necronsScope, necronRoster('strike-force'));
     const over = validatePolicy(necronsScope, { ...view, total: { ...view.total, [COST_PTS]: 2150 } }, policy).find((i) => i.rule === 'points-over')!;

@@ -18,10 +18,15 @@ export interface Explanation { text: string; fixLabel?: string }
 
 const WARLORD = 'Warlord';
 
-interface Ctx { issue: Issue; view: RosterView; scope: Scope }
+export interface ExplainOptions {
+  /** The unit whose editor is showing the problem: a hint that would say "Open {unit}" points to its options below. */
+  shownUnitId?: string;
+}
 
-export function explain(issue: Issue, view: RosterView, scope: Scope): Explanation {
-  const ctx: Ctx = { issue, view, scope };
+interface Ctx { issue: Issue; view: RosterView; scope: Scope; shownUnitId?: string }
+
+export function explain(issue: Issue, view: RosterView, scope: Scope, options: ExplainOptions = {}): Explanation {
+  const ctx: Ctx = { issue, view, scope, shownUnitId: options.shownUnitId };
   const choice = choiceName(ctx);
   const text = choice ? `Your army needs a "${choice}" choice. Tap to add it.` : textFor(ctx);
   const fixLabel = labelFor(ctx, choice);
@@ -111,14 +116,18 @@ function textFor(ctx: Ctx): string {
       return `You've spent ${num(limit - actual)} CP more than you have. Remove a detachment or an upgrade that costs CP.`;
     case 'warlord-missing': {
       const fix = issue.fix;
+      // Shown in the editor of the unit the fix would open: its Warlord option is right below the hint.
+      const shown = fix?.kind === 'open' && fix.selId === ctx.shownUnitId ? fix.selId : undefined;
       // A unit that must be the Warlord (policy): one of `subjects` must be.
       if (issue.subjects?.length) {
         const names = issue.subjects.map((s) => clean(s.name));
+        if (shown) return `${selUnitName(ctx, shown)} must be your ${WARLORD}. Turn on "${WARLORD}" below.`;
         return names.length === 1
           ? `${names[0]} must be your ${WARLORD}. Open ${names[0]} and turn on "${WARLORD}".`
           : `${orList(names)} must be your ${WARLORD}. Open one of them and turn on "${WARLORD}".`;
       }
       if (fix?.kind !== 'open') return `Choose a Warlord. Add a Character, then turn on "${name}" on it.`;
+      if (shown) return `Choose a Warlord. Turn on "${warlordOption(ctx, shown)}" below.`;
       return `Choose a Warlord. Open a Character such as ${selUnitName(ctx, fix.selId)} and turn on "${warlordOption(ctx, fix.selId)}".`;
     }
     case 'warlord-extra':

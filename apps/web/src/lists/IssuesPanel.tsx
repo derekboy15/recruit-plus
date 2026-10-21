@@ -12,7 +12,10 @@ interface Props {
 /** Each problem in plain English, with a button that fixes it when the engine knows how. */
 export function IssueList({ issues, view, scope, dispatch, openUnitId }: Props) {
   // explain() looks up unit names and prices, so explanations are worked out once per validation.
-  const explained = useMemo(() => issues.map((issue) => ({ issue, ...explain(issue, view, scope) })), [issues, view, scope]);
+  const explained = useMemo(
+    () => issues.map((issue) => ({ issue, ...explain(issue, view, scope, { shownUnitId: openUnitId }) })),
+    [issues, view, scope, openUnitId],
+  );
   return (
     <ul className="issues">
       {explained.map(({ issue, text, fixLabel }, i) => (

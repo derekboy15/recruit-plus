@@ -251,6 +251,16 @@ test('a helper the list already has on stays in Army options, so it can be turne
   await waitFor(() => expect(screen.queryByRole('checkbox', { name: 'Use Beta Rules' })).not.toBeInTheDocument());
 });
 
+test("in a Character's own editor the Warlord hint points to the option below", async () => {
+  const u = user();
+  renderEditor(await necronsList('strike-force', (r, add) => add(r, 'Overlord')));
+  await opened();
+  await u.click(screen.getByRole('button', { name: /^Overlord/ }));
+  const editor = await screen.findByRole('dialog', { name: 'Overlord' });
+  expect(within(editor).getByText('Choose a Warlord. Turn on "Warlord" below.')).toBeInTheDocument();
+  expect(within(editor).queryByText(/Open a Character/)).not.toBeInTheDocument();
+});
+
 test('an item the rules data no longer has is shown with a Remove button', async () => {
   const u = user();
   const id = await necronsList('strike-force', (r) => ({

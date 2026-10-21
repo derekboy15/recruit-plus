@@ -889,7 +889,7 @@ describe('must-be-Warlord units (must-be-warlord.json)', () => {
       const v = view.forces.flatMap((f) => f.selections).find((s) => s.name.trim() === name)!;
       return { forceSelId: v.force.force.id, selId: v.sel.id };
     };
-    return { issues, unitAt, explained: issues.map((i) => ({ rule: i.rule, ...explain(i, view, scope) })) };
+    return { issues, unitAt, view, scope, explained: issues.map((i) => ({ rule: i.rule, ...explain(i, view, scope) })) };
   }
   /**
    * Warlord issues, and BSData's own "Warlord" option minimums (option-required). Named characters' Warlord Traits,
@@ -929,6 +929,12 @@ describe('must-be-Warlord units (must-be-warlord.json)', () => {
       limit: 1, actual: 0, fix: { kind: 'open', selId: unitAt('Magnus the Red').selId },
     }]);
     expect(explained.filter((x) => x.rule === 'warlord-missing').map((x) => x.text)).toEqual(['Magnus the Red must be your Warlord. Open Magnus the Red and turn on "Warlord".']);
+  });
+
+  test("in Magnus's own editor his warlord-missing says to turn it on below", () => {
+    const { issues, unitAt, view, scope } = run([TS], onslaught(magnus()));
+    const issue = issues.find((i) => i.rule === 'warlord-missing')!;
+    expect(explain(issue, view, scope, { shownUnitId: unitAt('Magnus the Red').selId }).text).toBe('Magnus the Red must be your Warlord. Turn on "Warlord" below.');
   });
 
   test('a detachment that needs the Warlord keeps its own warlord-missing beside the policy one (only the roster-wide one is dropped)', () => {
