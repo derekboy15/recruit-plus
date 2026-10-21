@@ -10,6 +10,10 @@
   --red: #9b2226;
   --red-strong: #c1373c;
   --focus: #e9c46a;
+  --ok: #7bd09a;
+  --ok-bg: #16301f;
+  --bad: #ff9b9b;
+  --bad-bg: #3a1618;
   --radius: 10px;
   --touch: 44px;
   --nav-h: 64px;
@@ -124,3 +128,31 @@ table.stats th:first-child { background: var(--surface-2); }
   background: var(--surface); border: 1px solid var(--border); color: var(--text); text-decoration: none;
 }
 .list__link:hover { border-color: var(--brass); }
+
+/* Buttons that look like list rows (the faction picker in the new-list wizard). */
+button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointer; }
+.list__link[aria-pressed='true'], .choice[aria-pressed='true'] { border-color: var(--brass-strong); background: var(--surface-2); box-shadow: inset 4px 0 0 var(--brass); }
+
+/* Saved list cards */
+.list__link--card { align-items: flex-start; }
+.list__main { display: grid; gap: 0.15rem; min-width: 0; }
+.list__side { display: grid; gap: 0.25rem; justify-items: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.status { font-size: 0.8rem; font-weight: 600; padding: 0.1rem 0.55rem; border-radius: 999px; border: 1px solid; }
+.status--ok { color: var(--ok); background: var(--ok-bg); border-color: var(--ok); }
+.status--bad { color: var(--bad); background: var(--bad-bg); border-color: var(--red-strong); }
+
+/* New-list wizard */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; margin-bottom: 1rem; }
+.steps__bar { height: 6px; border-radius: 3px; background: var(--border); }
+.steps__bar--done { background: var(--brass); }
+.choice {
+  display: grid; gap: 0.2rem; width: 100%; min-height: var(--touch); padding: 0.75rem 0.9rem; text-align: left;
+  border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; cursor: pointer;
+}
+.choice:hover { border-color: var(--brass); }
+.choice__head { display: flex; justify-content: space-between; gap: 0.75rem; }
+.choices { border: 1px solid var(--border); border-radius: var(--radius); margin: 0 0 1rem; padding: 0.5rem 0.75rem; }
+.choices legend { padding: 0 0.4rem; color: var(--brass-strong); font-weight: 600; }
+.choices__option { display: flex; align-items: center; gap: 0.75rem; min-height: var(--touch); }
+.choices__option input { width: 22px; height: 22px; flex: none; }
+.wizard-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }

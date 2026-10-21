@@ -6,6 +6,8 @@ import { Placeholder } from './pages/Placeholder';
 import { DatasheetPage } from './factions/DatasheetPage';
 import { FactionPage } from './factions/FactionPage';
 import { FactionsPage } from './factions/FactionsPage';
+import { ListsPage } from './lists/ListsPage';
+import { NewListPage } from './lists/NewListPage';
 
 /** Wraps routes that need a signed-in user (replaced by RequireAuth in Task 10). */
 export type Guard = (children: ReactNode) => ReactNode;
@@ -19,9 +21,11 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
         path="/learn"
         element={guard(<Placeholder title="Learn" milestone={6} blurb="Short lessons that teach each phase with real dice on a small board." />)}
       />
+      <Route path="/build" element={guard(<ListsPage />)} />
+      <Route path="/build/new" element={guard(<NewListPage />)} />
       <Route
-        path="/build"
-        element={guard(<Placeholder title="Build" milestone={2} blurb="The army builder, with plain-English explanations and fixes for every error." />)}
+        path="/build/:id"
+        element={guard(<Placeholder title="Your list" milestone={2} blurb="The list editor, with plain-English explanations and fixes for every error." />)}
       />
       <Route
         path="/play"
