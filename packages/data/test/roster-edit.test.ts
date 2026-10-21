@@ -364,6 +364,16 @@ describe('real BSData v9.8.0', () => {
     expect(code).toMatchObject({ kind: 'group', min: 1, count: 0 });
   });
 
+  test('removing the first force moves roster-wide configuration, not entries the next force already has', () => {
+    const real = realScope('necrons');
+    const necrons = realCatalogueId('necrons');
+    const patrol = 'a0c7-2a71-bae0-215d';
+    let r = addForce(real, { schema: 1, name: 'Necrons', catalogueId: necrons, battleSize: 'onslaught', forces: [] }, patrol, necrons);
+    r = addForce(real, r, patrol, necrons);
+    const names = (roster: Roster) => evaluate(real, roster).forces[0].selections.map((v) => v.name.trim()).sort();
+    expect(names(removeForce(real, r, r.forces[0].id))).toEqual(['Battle Size', 'Detachment Command Cost', 'Dynasty Choice', 'Game Type']);
+  });
+
   test('availableUnits for a 40-unit Ultramarines roster is fast', () => {
     const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[1];
     const firsts: number[] = [];

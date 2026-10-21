@@ -205,6 +205,7 @@ describe('real BSData v9.8.0', () => {
   beforeAll(() => {
     index = buildAll({ rawDir: join(ROOT, 'raw'), overridesDir: join(ROOT, 'overrides'), outDir: out }).index;
     for (const f of readdirSync(join(out, 'roster'))) {
+      if (f === 'policy.json') continue; // matched-play policy data (roster-policy.test.ts), not a roster file
       files.set(f.replace(/\.json$/, ''), JSON.parse(readFileSync(join(out, 'roster', f), 'utf8')));
     }
   });

@@ -288,12 +288,15 @@ describe('validateConstraints (real BSData v9.8.0)', () => {
       r = chooseInGroup(real, r, selId, optionNamed(r, selId, group).id, optionNamed(r, selId, option).id);
     };
 
-    const gameType = add('Game Type');
+    // addForce added the required root entries: Game Type and Battle Size (min 1 per roster), Detachment Command Cost
+    // and Dynasty Choice (min 1 per force).
+    const added = (name: string) => r.forces[0].selections.find((s) => s.entryId === rootNamed(name))!.id;
+    expect(r.forces[0].selections.map((s) => s.entryId)).toEqual(['Dynasty Choice', 'Game Type', 'Detachment Command Cost', 'Battle Size'].map(rootNamed));
+    const gameType = added('Game Type');
     choose(gameType, 'Matched', '1. Eternal War');
-    const battleSize = add('Battle Size');
+    const battleSize = added('Battle Size');
     choose(battleSize, 'Battle Size', '1. Combat Patrol (0-50 Total PL / 0-500 Points) ');
-    add('Detachment Command Cost'); // BattleScribe requires one per detachment (min 1 per force)
-    const dynasty = add('Dynasty Choice');
+    const dynasty = added('Dynasty Choice');
     expect(validate(real, r).filter((i) => i.rule === 'option-required').map((i) => i.subject.name)).toEqual(['-Dynastic Code-']);
     choose(dynasty, '-Dynastic Code-', 'Dynasty: Sautekh');
     const overlord = add('Overlord');

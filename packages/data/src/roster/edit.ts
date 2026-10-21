@@ -3,7 +3,7 @@
  * Edits given an unknown selection or force id return the roster unchanged. Browser-safe.
  */
 import { resolve, rootEntriesFor, type Scope } from './scope';
-import { childLimits, evaluateCandidate } from './children';
+import { childConstraintCount, childConstraints, childLimits, evaluateCandidate } from './children';
 import { childIndex, evaluate, type Found, type RosterView, type SelView } from './evaluate';
 import type { RNode, Roster, Sel } from './types';
 
@@ -69,17 +69,54 @@ const blank = (entryId: string, count: number): Sel => ({ id: newId(), entryId, 
 const freshCopy = (s: Sel): Sel => ({ ...s, id: newId(), children: (s.children ?? []).map(freshCopy) });
 const appendChildren = (r: Roster, selId: string, kids: Sel[]) => editSel(r, selId, (s) => [{ ...s, children: [...(s.children ?? []), ...kids] }]);
 
-export function addForce(_scope: Scope, r: Roster, forceId: string, catalogueId: string): Roster {
-  return { ...r, forces: [...r.forces, { id: newId(), forceId, catalogueId, selections: [] }] };
+/**
+ * Adds a force with its required root entries (and their required children): each non-hidden root entry in the
+ * force's slots with an effective minimum ≥ 1 per force (scope parent or force), such as Detachment Command Cost or a
+ * faction choice, and each with a roster-wide minimum ≥ 1 that the roster doesn't meet yet (Game Type, Battle Size).
+ */
+export function addForce(scope: Scope, r: Roster, forceId: string, catalogueId: string): Roster {
+  const force = { id: newId(), forceId, catalogueId, selections: [] };
+  let roster: Roster = { ...r, forces: [...r.forces, force] };
+  for (const [entryId, n] of requiredRootEntries(scope, roster, force.id)) {
+    for (let i = 0; i < n; i++) roster = addUnit(scope, roster, force.id, entryId).roster;
+  }
+  return roster;
 }
 
-/** Removing the first force moves its Configuration selections (battle size, army choices) to the new first force. */
+const REQUIRED_SCOPES = new Set(['parent', 'force', 'roster']);
+
+/** Root entry id → copies still required, for an empty force. */
+function requiredRootEntries(scope: Scope, r: Roster, forceSelId: string): Map<string, number> {
+  const view = evaluate(scope, r);
+  const fv = view.forces.find((f) => f.force.id === forceSelId);
+  const out = new Map<string, number>();
+  if (!fv?.entry) return out;
+  const slots = new Set(fv.entry.cats.map((c) => c.targetId));
+  for (const { node } of childIndex(scope, rootEntriesFor(scope, fv.force.catalogueId)).values()) {
+    const traits = evaluateCandidate(scope, view, fv, node);
+    if (traits.hidden || traits.primary === null || !slots.has(traits.primary)) continue;
+    let need = 0;
+    for (const c of childConstraints(scope, view, fv, node)) {
+      if (c.type !== 'min' || c.field !== 'selections' || c.percent || c.value < 1 || !REQUIRED_SCOPES.has(c.scope)) continue;
+      need = Math.max(need, c.value - childConstraintCount(scope, view, fv, node, c));
+    }
+    if (need > 0) out.set(node.id, need);
+  }
+  return out;
+}
+
+/**
+ * Removing the first force moves its Configuration selections (battle size, army choices) to the new first force,
+ * except entries that force already has (its own Detachment Command Cost or faction choice).
+ */
 export function removeForce(scope: Scope, r: Roster, forceSelId: string): Roster {
   const index = r.forces.findIndex((f) => f.id === forceSelId);
   if (index < 0) return r;
   const forces = r.forces.filter((_, i) => i !== index);
   if (index === 0 && forces.length) {
-    const config = evaluate(scope, r).forces[0].selections.filter((v) => v.primary !== null && scope.category(v.primary)?.name === CONFIGURATION);
+    const has = new Set(forces[0].selections.map((s) => s.entryId));
+    const config = evaluate(scope, r)
+      .forces[0].selections.filter((v) => v.primary !== null && scope.category(v.primary)?.name === CONFIGURATION && !has.has(v.sel.entryId));
     if (config.length) forces[0] = { ...forces[0], selections: [...config.map((v) => v.sel), ...forces[0].selections] };
   }
   return { ...r, forces };

@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Daemon Prince",
+    "categoryName": "Daemon Prince",
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: all Daemon Prince datasheets count as one)."
+  },
+  {
+    "name": "Chimera",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Cult Chimera",
+        "entryId": "9829-488e-364f-3dad"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Chimera",
+        "entryId": "8b0c-1be4-4ae4-23a3"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  },
+  {
+    "name": "Scout Sentinels",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Cult Scout Sentinels",
+        "entryId": "26bd-a844-711b-bdf6"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Scout Sentinels",
+        "entryId": "5d31-5e21-5ec2-7f79"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  },
+  {
+    "name": "Armoured Sentinels",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Cult Armoured Sentinels",
+        "entryId": "3b08-a032-7b88-2116"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Armoured Sentinels",
+        "entryId": "85c7-45a7-e283-2dba"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  },
+  {
+    "name": "Leman Russ Battle Tanks",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Cult Leman Russ",
+        "entryId": "f6f6-2f9e-c4e0-2998"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Leman Russ Battle Tanks",
+        "entryId": "af7a-3b6b-099c-c23b"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  },
+  {
+    "name": "Infantry Squad",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Brood Brothers Infantry Squad",
+        "entryId": "5668-0367-4457-b253"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Infantry Squad",
+        "entryId": "7905-3074-b98d-ce54"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  },
+  {
+    "name": "Heavy Weapons Squad",
+    "entries": [
+      {
+        "catalogueName": "Tyranids - Genestealer Cults",
+        "entryName": "Brood Brothers Heavy Weapons Squad",
+        "entryId": "88cf-eb41-b0b7-3955"
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "entryName": "Heavy Weapons Squad",
+        "entryId": "b796-7e12-3616-52e6"
+      }
+    ],
+    "source": "Grand Tournament 2021 and later packs (Rule of Two/Three): https://wahapedia.ru/wh40k9ed/the-rules/grand-tournament-2021/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.2: Genestealer Cults Cult and Brood Brothers datasheets count as the matching Astra Militarum datasheet)."
+  }
+]

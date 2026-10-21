@@ -41,8 +41,13 @@ const countOpts = (c: Constraint) => ({ childSel: !!c.childSel, childForces: !!c
 /** The root selection (the unit) a selection belongs to. */
 const unitOf = (s: SelView): SelView => (s.parent ? unitOf(s.parent) : s);
 
-export function validateConstraints(scope: Scope, view: RosterView): Issue[] {
-  return new Validator(scope, view).run();
+export interface ValidateOptions {
+  /** Force-level constraints (force entries, their category links and categories) on these fields aren't checked. */
+  ignoreFields?: string[];
+}
+
+export function validateConstraints(scope: Scope, view: RosterView, opts: ValidateOptions = {}): Issue[] {
+  return new Validator(scope, view, new Set(opts.ignoreFields ?? [])).run();
 }
 
 class Validator {
@@ -50,7 +55,7 @@ class Validator {
   /** Constraint checks already made against the same container and count. */
   private readonly checked = new Set<string>();
 
-  constructor(private readonly scope: Scope, private readonly view: RosterView) {}
+  constructor(private readonly scope: Scope, private readonly view: RosterView, private readonly ignoreFields: Set<string>) {}
 
   run(): Issue[] {
     const categories = categoriesWithConstraints(this.scope);
@@ -83,7 +88,7 @@ class Validator {
 
   /** The count when a force-level constraint fails (and wasn't already checked), else null. */
   private forceCount(ctx: EvalContext, c: Constraint, childId: string): number | null {
-    if (c.value < 0 || !this.firstCheck(ctx.at, c, childId, false)) return null;
+    if (c.value < 0 || this.ignoreFields.has(c.field) || !this.firstCheck(ctx.at, c, childId, false)) return null;
     const n = countIn(ctx, c.scope, c.field, childId, countOpts(c));
     return fails(c, n) ? n : null;
   }

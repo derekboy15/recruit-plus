@@ -1,0 +1,762 @@
+[
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Blood Angels",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Iron Hands",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Raven Guard",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Salamanders",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - White Scars",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astra Telepathica",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "onlyFactions": [
+          "Faction: Militarum Tempestus",
+          "Faction: Tempestus Scions"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Blackstone Fortress",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Imperial Knights",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Legion of the Damned",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Imperium - Titan Legions",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Agents of the Imperium",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Imperium - Imperial Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Leagues of Votann",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Aeldari - Craftworlds",
+    "allies": [
+      {
+        "catalogueName": "Aeldari - Harlequins",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Aeldari - Drukhari",
+    "allies": [
+      {
+        "catalogueName": "Aeldari - Harlequins",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ]
+      },
+      {
+        "catalogueName": "Aeldari - Drukhari",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "restriction": "A Kabal, Wych Cult or Haemonculus Coven Patrol of a different type from the Arks of Omen Detachment (not checked)."
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Tyranids - Genestealer Cults",
+    "allies": [
+      {
+        "catalogueName": "Imperium - Astra Militarum",
+        "detachments": [
+          "Patrol Detachment -2CP",
+          "Auxiliary Support Detachment -2CP",
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "restriction": "A Brood Brothers detachment (not checked)."
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Knights",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Chaos - Daemons",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "restriction": "Emperor’s Children take Slaanesh Daemons only (not checked)."
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Titan Legions",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Daemons",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Death Guard",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Chaos - Daemons",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "onlyFactions": [
+          "Faction: Nurgle"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Renegades & Heretics [LEGENDS]",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Servants of the Abyss",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - Thousand Sons",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Chaos - Daemons",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "onlyFactions": [
+          "Faction: Tzeentch"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      },
+      {
+        "catalogueName": "Chaos - Daemons",
+        "detachments": [
+          "Patrol Detachment -2CP"
+        ],
+        "onlyFactions": [
+          "Faction: Khorne"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  },
+  {
+    "catalogueName": "Fallen",
+    "allies": [
+      {
+        "catalogueName": "Chaos - Chaos Knights",
+        "detachments": [
+          "Super-Heavy Auxiliary Detachment -3CP"
+        ]
+      }
+    ],
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+  }
+]
