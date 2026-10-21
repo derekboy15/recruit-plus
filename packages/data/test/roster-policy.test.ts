@@ -274,6 +274,21 @@ describe('points, CP and Rule of Two/Three', () => {
     }
   });
 
+  test("an Onager Dunecrawler's smoke launchers or data-tether are optional (Wahapedia datasheet options)", () => {
+    const scope = realScope('imperium-adeptus-mechanicus');
+    const spec: ListSpec = {
+      title: 'Onager',
+      battleSize: 'strike-force',
+      detachments: [{
+        detachment: 'Arks of Omen Detachment',
+        army: { 'Forge World Choice': 'Forge World: Mars' },
+        units: [{ name: 'Tech-Priest Dominus', warlord: true }, { name: 'Skitarii Rangers' }, { name: 'Skitarii Rangers' }, { name: 'Skitarii Rangers' }, { name: 'Onager Dunecrawler' }],
+      }],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    expect(validate(scope, buildFromSpec(scope, realCatalogueId('imperium-adeptus-mechanicus'), spec), policy).issues.map((i) => i.rule)).toEqual([]);
+  });
+
   test('a Land Raider Banisher shares GREY KNIGHTS with its detachment (faction-keywords.json, catalogue category)', () => {
     const scope = realScope('imperium-grey-knights');
     const spec: ListSpec = {

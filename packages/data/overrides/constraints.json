@@ -239,5 +239,12 @@
     "constraintId": "27b6-47c2-7113-5f61",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Kor'sarro Khan on Moondrakkan [Legends] as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryName": "Wargear",
+    "constraintId": "3e17-d26f-716f-d7ef",
+    "value": 0,
+    "source": "Wahapedia datasheet 000000854 (Onager Dunecrawler) wargear options: \"This model can be equipped with one of the following: broad spectrum data-tether; smoke launchers.\" The choice is optional; BSData v9.8.0 makes the Onager Dunecrawler's Wargear group compulsory (min 1), so every Onager without one reported option-required. The minimum becomes 0 (the max of 1 stays)."
   }
 ]
