@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { BattlefieldRole, FactionGroup, UnitOut } from '../model/types';
+import type { CoreStratagem, StratagemExclusion, StratagemFaction } from '../extract/stratagems';
 import type { AddedConstraint, ConstraintOverride, CostOverride, FactionKeywordOverride } from '../roster/emit';
 import { htmlToText, normalizeName } from '../text';
 import type { Row, Wahapedia } from '../wahapedia/load';
@@ -30,6 +31,12 @@ export interface Overrides {
   constraints: ConstraintOverride[];
   /** Limits BSData leaves out, added to the roster files (overrides/add-constraints.json). */
   addedConstraints: AddedConstraint[];
+  /** The Wahapedia faction and subfactions whose stratagems each playable catalogue gets (overrides/stratagem-factions.json). */
+  stratagemFactions: StratagemFaction[];
+  /** Superseded Wahapedia stratagems left out of every catalogue (overrides/stratagems.json). */
+  excludedStratagems: StratagemExclusion[];
+  /** The core stratagems, in order (overrides/core-stratagems.json). */
+  coreStratagems: CoreStratagem[];
 }
 
 export function loadOverrides(dir: string): Overrides {
@@ -43,6 +50,9 @@ export function loadOverrides(dir: string): Overrides {
     factionKeywords: read('faction-keywords.json'),
     constraints: read('constraints.json'),
     addedConstraints: read('add-constraints.json'),
+    stratagemFactions: read('stratagem-factions.json'),
+    excludedStratagems: read('stratagems.json'),
+    coreStratagems: read('core-stratagems.json'),
   };
 }
 

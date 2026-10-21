@@ -16,6 +16,7 @@ export interface Wahapedia {
   abilities: Row[];
   wargearList: Row[];
   stratagems: Row[];
+  stratagemPhases: Row[];
   warlordTraits: Row[];
   psychicPowers: Row[];
   secondaries: Row[];
@@ -32,6 +33,7 @@ const FILES: Record<Exclude<keyof Wahapedia, 'lastUpdate'>, string> = {
   abilities: 'Abilities',
   wargearList: 'Wargear_list',
   stratagems: 'Stratagems',
+  stratagemPhases: 'StratagemPhases',
   warlordTraits: 'Warlord_traits',
   psychicPowers: 'PsychicPowers',
   secondaries: 'Secondaries',

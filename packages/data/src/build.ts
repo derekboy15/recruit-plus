@@ -1,18 +1,19 @@
-/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
+/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, roster/<slug>.json, roster/policy.json, report.json}. */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
+import { coreStratagems, selectStratagems } from './extract/stratagems';
 import { extractUnits } from './extract/units';
-import { joinWahapedia, loadOverrides } from './join/wahapedia';
+import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
 import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
-import { slugify } from './text';
-import { loadWahapedia } from './wahapedia/load';
+import { slugify, titleCase } from './text';
+import { loadWahapedia, type Wahapedia } from './wahapedia/load';
 
 export interface BuildOptions {
   rawDir: string;
@@ -25,6 +26,7 @@ export interface ReportEntry {
   matched: number;
   unmatched: string[];
   unitsWithoutProfiles: string[];
+  stratagems: number;
 }
 
 function catalogueRules(cat: RawCatalogue): CatalogueOut['rules'] {
@@ -67,6 +69,10 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const report: Record<string, ReportEntry> = {};
 
   const catalogues = [...gd.catalogues.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const playable = new Set(catalogues.filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues)).map((c) => c.name));
+  validateStratagemOverrides(w, overrides, playable);
+  const excludedStratagems = new Set(overrides.excludedStratagems.map((e) => e.id));
+  const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
   const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
@@ -74,14 +80,16 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     if (!faction) throw new Error(`No faction-map entry for catalogue "${cat.name}"`);
     const joined = joinWahapedia(extractUnits(gd, cat.id), cat.name, w, overrides);
     const units = [...joined.units].sort((a, b) => roleOrder(a) - roleOrder(b) || a.name.localeCompare(b.name));
+    const library = !playable.has(cat.name);
     const out: CatalogueOut = {
       id: cat.id,
       slug,
       name: cat.name,
       group: faction.group,
-      library: !isPlayableCatalogue(cat, overrides.playableCatalogues),
+      library,
       units,
       rules: catalogueRules(cat),
+      stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems),
     };
     writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
     index.catalogues.push({
@@ -99,8 +107,10 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       matched: units.length - joined.unmatched.length,
       unmatched: joined.unmatched,
       unitsWithoutProfiles: units.filter((u) => u.models.length === 0).map((u) => u.name),
+      stratagems: out.stratagems.length,
     };
   }
+  writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(coreStratagems(w, overrides.coreStratagems.map((c) => c.id))));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
@@ -144,6 +154,40 @@ function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogue
     }
   }
   return [...names].sort();
+}
+
+/**
+ * Checks the stratagem overrides against the Wahapedia snapshot and the playable catalogue names: one
+ * stratagem-factions.json entry per playable catalogue, known faction and subfaction ids (a subfaction's parent_id is the
+ * entry's faction), and known stratagem ids whose title-cased name matches in stratagems.json and core-stratagems.json.
+ */
+export function validateStratagemOverrides(
+  w: Wahapedia,
+  o: Pick<Overrides, 'stratagemFactions' | 'excludedStratagems' | 'coreStratagems'>,
+  playable: Set<string>,
+): void {
+  const factions = new Map(w.factions.map((f) => [f.id, f]));
+  const seen = new Set<string>();
+  for (const e of o.stratagemFactions) {
+    const where = `stratagem-factions.json (${e.catalogueName})`;
+    if (!playable.has(e.catalogueName)) throw new Error(`stratagem-factions.json names unknown catalogue "${e.catalogueName}" (or a library)`);
+    if (seen.has(e.catalogueName)) throw new Error(`${where} is listed twice`);
+    seen.add(e.catalogueName);
+    if (!factions.has(e.factionId)) throw new Error(`${where} names unknown faction "${e.factionId}"`);
+    if (e.subfactions === 'all') continue;
+    for (const sub of e.subfactions) {
+      if (factions.get(sub)?.parent_id !== e.factionId) throw new Error(`${where} names unknown subfaction "${sub}" of "${e.factionId}"`);
+    }
+  }
+  for (const name of playable) if (!seen.has(name)) throw new Error(`no stratagem-factions entry for catalogue "${name}"`);
+  const byId = new Map(w.stratagems.map((s) => [s.id, s]));
+  for (const [file, list] of [['stratagems.json', o.excludedStratagems], ['core-stratagems.json', o.coreStratagems]] as const) {
+    for (const e of list) {
+      const row = byId.get(e.id);
+      if (!row) throw new Error(`${file} names unknown stratagem "${e.id}"`);
+      if (titleCase(row.name) !== e.name) throw new Error(`${file}: stratagem ${e.id} is "${titleCase(row.name)}", not "${e.name}"`);
+    }
+  }
 }
 
 /**
@@ -205,8 +249,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     overridesDir: join(root, 'overrides'),
     outDir: join(root, 'generated'),
   });
-  const totals = Object.values(report).reduce((a, r) => ({ u: a.u + r.units, m: a.m + r.matched }), { u: 0, m: 0 });
+  const totals = Object.values(report).reduce((a, r) => ({ u: a.u + r.units, m: a.m + r.matched, s: a.s + r.stratagems }), { u: 0, m: 0, s: 0 });
   console.log(
-    `Built ${index.catalogues.length} catalogues, ${totals.u} units (${totals.m} matched to Wahapedia) in ${Date.now() - started} ms`,
+    `Built ${index.catalogues.length} catalogues, ${totals.u} units (${totals.m} matched to Wahapedia), ${totals.s} stratagems in ${Date.now() - started} ms`,
   );
 }

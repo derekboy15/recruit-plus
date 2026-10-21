@@ -34,6 +34,7 @@ export const necrons: CatalogueOut = {
   library: false,
   units: [necronWarriors],
   rules: [],
+  stratagems: [],
 };
 
 export const index: DataIndex = {
