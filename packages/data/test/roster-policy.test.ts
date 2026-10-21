@@ -643,6 +643,37 @@ describe('factions', () => {
     const tank = addNamed(scope, scions.roster, ally, am, 'Leman Russ Battle Tanks');
     expect(ofRule(validate(scope, tank.roster, policy).issues, 'detachment-faction')).toMatchObject([{ forceSelId: ally, selId: tank.ids[0] }]);
   });
+
+  test('a Chaos Knights Super-Heavy Auxiliary ally must hold a Dreadblade (§7.5)', () => {
+    const knightAllies = policy.aooAllies.flatMap((a) => a.allies.filter((x) => x.catalogueName === 'Chaos - Chaos Knights').map(() => a.catalogueName));
+    expect(knightAllies.length).toBeGreaterThan(0);
+    for (const name of knightAllies) {
+      const ally = policy.aooAllies.find((a) => a.catalogueName === name)!.allies.find((x) => x.catalogueName === 'Chaos - Chaos Knights')!;
+      expect(ally.onlyFactions, name).toEqual(['Faction: Dreadblade']);
+    }
+    const scope = realScope('chaos-renegades-heretics-legends', 'chaos-chaos-knights');
+    const list = (household: string[]): ListSpec => ({
+      title: 'Renegades with a Chaos Knights ally',
+      battleSize: 'incursion',
+      detachments: [
+        {
+          detachment: 'Arks of Omen Detachment',
+          army: { 'Arks of Omen Compulsory Type': 'Troops' },
+          units: [
+            { name: 'Malefic Lord', warlord: true },
+            { name: 'Renegade Militia Squad', options: ['Renegade Militia Champion > Autogun'] },
+            { name: 'Renegade Cultists' },
+            { name: 'Renegade Mutant Rabble' },
+          ],
+        },
+        { detachment: 'Super-Heavy Auxiliary Detachment -3CP', catalogue: 'Chaos - Chaos Knights', units: [{ name: 'War Dog Karnivore Squadron', options: household }] },
+      ],
+      expect: { points: 0, powerLevel: 0 },
+    });
+    const rules = (household: string[]) => validate(scope, buildFromSpec(scope, realCatalogueId('chaos-renegades-heretics-legends'), list(household)), policy).issues.map((i) => i.rule);
+    expect(rules(['Infernal Dreadblade', 'Biomechanical Fusion'])).toEqual([]);
+    expect(rules(['House Vextrix'])).toEqual(['detachment-faction']);
+  });
 });
 
 describe('validate', () => {

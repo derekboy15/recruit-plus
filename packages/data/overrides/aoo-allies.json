@@ -612,10 +612,13 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Chaos Space Marines",
@@ -624,6 +627,9 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       },
       {
@@ -634,7 +640,7 @@
         "restriction": "Emperor’s Children take Slaanesh Daemons only (not checked)."
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Chaos Titan Legions",
@@ -643,10 +649,13 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Daemons",
@@ -655,10 +664,14 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
-        ]
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
+        ],
+        "restriction": "A Disciples of Be'lakor army takes a House Korvax Knight here instead of a Dreadblade (not supported)."
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Death Guard",
@@ -667,6 +680,9 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       },
       {
@@ -679,7 +695,7 @@
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Renegades & Heretics [LEGENDS]",
@@ -688,10 +704,13 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Servants of the Abyss",
@@ -700,10 +719,13 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - Thousand Sons",
@@ -712,6 +734,9 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       },
       {
@@ -724,7 +749,7 @@
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Chaos - World Eaters",
@@ -733,6 +758,9 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       },
       {
@@ -745,7 +773,7 @@
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   },
   {
     "catalogueName": "Fallen",
@@ -754,9 +782,12 @@
         "catalogueName": "Chaos - Chaos Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
+        ],
+        "onlyFactions": [
+          "Faction: Dreadblade"
         ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
   }
 ]
