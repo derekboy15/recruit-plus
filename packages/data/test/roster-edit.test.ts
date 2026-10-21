@@ -396,6 +396,24 @@ describe('real BSData v9.8.0', () => {
     expect(units.filter((u) => /new entrylink/i.test(u.name))).toEqual([]);
   });
 
+  test('a unit that takes no slot is offered (Rogue Psyker beside Obsidius Mallex); a slot-free wrapper holding a unit is not', () => {
+    const real = realScope('chaos-servants-of-the-abyss');
+    const sota = realCatalogueId('chaos-servants-of-the-abyss');
+    let r = addForce(real, { schema: 1, name: 'SotA', catalogueId: sota, battleSize: 'strike-force', forces: [] }, 'fa51-993c-2f8b-9be4', sota);
+    const fs = r.forces[0].id;
+    const named = (name: string) => availableUnits(real, r, fs).filter((u) => u.name === name).map((u) => u.role);
+    expect(named('Rogue Psyker')).toEqual(['Elites']);
+    r = addUnit(real, r, fs, availableUnits(real, r, fs).find((u) => u.name === 'Obsidius Mallex')!.entryId).roster;
+    // Slaves to Mallex: with Mallex in the detachment, BSData offers the Rogue Psyker as an upgrade taking no slot.
+    expect(named('Rogue Psyker')).toEqual(['No Force Org Slot']);
+
+    // Brotherhood of the Cog only holds a Tech-Priest Enginseer or Technoarcheologist: it is not a unit itself.
+    const admech = realScope('imperium-adeptus-mechanicus');
+    const am = realCatalogueId('imperium-adeptus-mechanicus');
+    const a = addForce(admech, { schema: 1, name: 'AdMech', catalogueId: am, battleSize: 'strike-force', forces: [] }, 'fa51-993c-2f8b-9be4', am);
+    expect(availableUnits(admech, a, a.forces[0].id).filter((u) => u.role === 'No Force Org Slot').map((u) => u.name)).toEqual([]);
+  });
+
   test('availableUnits for a 40-unit Ultramarines roster is fast', () => {
     const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[1];
     const firsts: number[] = [];

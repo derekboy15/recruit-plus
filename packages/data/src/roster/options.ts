@@ -3,7 +3,7 @@ import { BATTLEFIELD_ROLES, type BattlefieldRole } from '../model/types';
 import { childLimits, evaluateCandidate } from './children';
 import { addUnit, findSelView } from './edit';
 import { childIndex, evaluate, type RosterView, type SelView } from './evaluate';
-import { resolve, rootEntriesFor, type Scope } from './scope';
+import { resolve, rootEntriesFor, type Merged, type Scope } from './scope';
 import { COST_PTS, type RNode, type Roster, type Sel } from './types';
 
 export interface UnitOption { entryId: string; name: string; role: string | null; points: number; legends: boolean }
@@ -16,22 +16,46 @@ export interface OptionNode {
 const LEGENDS = /\[legends\]/i;
 const CONFIGURATION = 'Configuration';
 const ARMY_ROLES = new Set([CONFIGURATION, 'Stratagems']);
+const NO_FORCE_ORG_SLOT = 'No Force Org Slot';
 const isBattlefieldRole = (role: string | null) => BATTLEFIELD_ROLES.includes(role as BattlefieldRole);
 
 /**
  * Root entries the user adds as units: unit and model entries, plus upgrade-typed ones with a battlefield role (the
- * Aquila Strongpoints are Fortification upgrades). Not hidden, primary category one of the force's; by role then name.
+ * Aquila Strongpoints are Fortification upgrades) or taking no slot (a Rogue Psyker beside Obsidius Mallex). Not
+ * hidden, primary category one of the force's; by role then name.
  */
 export function availableUnits(scope: Scope, r: Roster, forceSelId: string): UnitOption[] {
-  return rootOptions(scope, r, forceSelId, (type, role) => type === 'unit' || type === 'model' || (type === 'upgrade' && isBattlefieldRole(role)));
+  return rootOptions(scope, r, forceSelId, (m, role, name) => isUnitEntry(scope, m, role, name));
+}
+
+/**
+ * Whether a root entry, with its effective primary category name and name, is a unit: unit- and model-typed entries,
+ * and upgrade-typed ones with a battlefield role or with No Force Org Slot. A No Force Org Slot upgrade named "[…"
+ * (a reference entry) or holding a unit or model entry (Brotherhood of the Cog, which holds a Tech-Priest) is not.
+ */
+function isUnitEntry(scope: Scope, m: Merged, role: string | null, name: string): boolean {
+  if (m.type === 'unit' || m.type === 'model') return true;
+  if (m.type !== 'upgrade') return false;
+  return isBattlefieldRole(role) || (role === NO_FORCE_ORG_SLOT && !name.startsWith('[') && !holdsUnit(scope, m, new Set([m.target.id])));
+}
+
+/** Whether a unit- or model-typed entry is anywhere below the entry. */
+function holdsUnit(scope: Scope, m: Merged, seen: Set<string>): boolean {
+  return m.children.some((n) => {
+    const c = resolve(scope, n);
+    if (c.type === 'unit' || c.type === 'model') return true;
+    if (seen.has(c.target.id)) return false;
+    seen.add(c.target.id);
+    return holdsUnit(scope, c, seen);
+  });
 }
 
 /** Configuration and Stratagems upgrades (Battle Size, Dynasty Choice…), not hidden, without [Reference] entries. */
 export function armyOptions(scope: Scope, r: Roster, forceSelId: string): UnitOption[] {
-  return rootOptions(scope, r, forceSelId, (type, role, name) => type === 'upgrade' && ARMY_ROLES.has(role ?? '') && !name.startsWith('['));
+  return rootOptions(scope, r, forceSelId, (m, role, name) => m.type === 'upgrade' && ARMY_ROLES.has(role ?? '') && !name.startsWith('['));
 }
 
-type Wanted = (type: RNode['type'], role: string | null, name: string) => boolean;
+type Wanted = (m: Merged, role: string | null, name: string) => boolean;
 
 function rootOptions(scope: Scope, r: Roster, forceSelId: string, wanted: Wanted): UnitOption[] {
   const view = evaluate(scope, r);
@@ -44,7 +68,7 @@ function rootOptions(scope: Scope, r: Roster, forceSelId: string, wanted: Wanted
     const c = evaluateCandidate(scope, view, fv, node);
     if (c.hidden || c.primary === null || !slots.has(c.primary)) continue;
     const role = scope.category(c.primary)?.name ?? null;
-    if (!wanted(resolve(scope, node).type, role, c.name)) continue;
+    if (!wanted(resolve(scope, node), role, c.name)) continue;
     out.push({ entryId: node.id, name: c.name, role, points: price(node.id), legends: LEGENDS.test(c.name) });
   }
   return out.sort(byRoleThenName);
