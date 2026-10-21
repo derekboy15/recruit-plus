@@ -42,10 +42,22 @@ export interface FactionKeywordOverride {
   source: string;
 }
 
+/**
+ * A BSData constraint pinned at another value (overrides/constraints.json): the constraint `constraintId` in the
+ * catalogue's file gets `value`, and its owner's modifiers of that constraint are dropped, so it stays at `value`.
+ */
+export interface ConstraintOverride {
+  catalogueName: string;
+  constraintId: string;
+  value: number;
+  source: string;
+}
+
 /** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
 export interface EmitOverrides {
   costs: CostOverride[];
   factionKeywords: FactionKeywordOverride[];
+  constraints: ConstraintOverride[];
   /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
   systemCategories: Map<string, string>;
 }
@@ -243,6 +255,27 @@ function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, o
   }
 }
 
+function applyConstraintOverrides(file: RosterFile, catalogueName: string, overrides: ConstraintOverride[]): void {
+  const nodes = [...walk(file.rootEntries), ...walk(file.shared)];
+  const holders: { constraints?: Constraint[]; mods?: Mod[] }[] = [
+    ...nodes,
+    ...nodes.flatMap((n) => n.cats ?? []),
+    ...file.categories,
+    ...file.forces,
+    ...file.forces.flatMap((f) => f.cats),
+  ];
+  for (const o of overrides.filter((x) => x.catalogueName === catalogueName)) {
+    const owners = holders.filter((h) => h.constraints?.some((c) => c.id === o.constraintId));
+    if (!owners.length) throw new Error(`Constraint override for "${catalogueName}" names unknown constraint ${o.constraintId}`);
+    for (const h of owners) {
+      h.constraints = h.constraints!.map((c) => (c.id === o.constraintId ? { ...c, value: o.value } : c));
+      const mods = (h.mods ?? []).filter((m) => m.field !== o.constraintId);
+      if (mods.length) h.mods = mods;
+      else delete h.mods;
+    }
+  }
+}
+
 export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Partial<EmitOverrides> = {}): RosterFile {
   const charIds = new Set<string>();
   const collectChars = (n: RawNode) => {
@@ -265,5 +298,6 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   };
   applyCostOverrides(file, cat.name, overrides.costs ?? []);
   applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
+  applyConstraintOverrides(file, cat.name, overrides.constraints ?? []);
   return file;
 }

@@ -35,6 +35,21 @@ export default {
       expect: { points: 795, powerLevel: 45 },
     },
     {
+      // Arks of Omen: a Warlord only gets a Warlord Trait through the 1 CP Warlord Trait Requisition Stratagem (§5, §6),
+      // so a named Warlord may go without it (and without his trait).
+      title: 'Arks of Omen Strike Force with Uriel as Warlord and no Warlord Trait',
+      battleSize: 'strike-force',
+      detachments: [{
+        detachment: AOO,
+        units: [
+          { name: 'Uriel Ventris', warlord: true }, // 100, PL 6
+          ...THREE_INTERCESSORS, // each 18 × 5 = 90, PL 5
+        ],
+      }],
+      // 100 + 3 × 90 = 370; PL 6 + 3 × 5 = 21
+      expect: { points: 370, powerLevel: 21 },
+    },
+    {
       // Arks of Omen allies (§7.5): an IMPERIUM army may take one Agents of the Imperium Auxiliary Support Detachment.
       // (An Agents Patrol can't be legal: no Agents Troops unit may fill its compulsory Troops slot, see the illegal list.)
       title: 'Arks of Omen Strike Force with an Agents of the Imperium Auxiliary Support ally',

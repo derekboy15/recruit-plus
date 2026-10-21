@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { loadGameData } from '../src/bsdata/gamedata';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
-import { emitRosterFile, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
+import { emitRosterFile, type ConstraintOverride, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
 import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
 
 const ROOT = join(__dirname, '..');
@@ -225,6 +225,23 @@ describe('mini fixture', () => {
     expect(emit({ entryId: 'missing' })).toThrow(/missing/);
     expect(emit({ entryName: 'Wrong' })).toThrow(/Wrong/);
     expect(emit({ add: ['Chaos'] })).toThrow(/Faction: Chaos/);
+  });
+
+  test('constraint overrides pin a constraint at a value: its modifiers are dropped', () => {
+    const before = findNode(emitRosterFile(cat, 'mini-faction').shared, 'se-warriors')!;
+    expect(before.mods!.some((m) => m.field === 'c-roster')).toBe(true);
+    const pin: ConstraintOverride = { catalogueName: 'Mini Faction', constraintId: 'c-roster', value: 0, source: 'test' };
+    const after = findNode(emitRosterFile(cat, 'mini-faction', { constraints: [pin, { ...pin, catalogueName: 'Other', constraintId: 'nope' }] }).shared, 'se-warriors')!;
+    expect(after.constraints!.find((c) => c.id === 'c-roster')!.value).toBe(0);
+    expect(after.mods!.some((m) => m.field === 'c-roster')).toBe(false);
+    expect(after.mods!.length).toBe(before.mods!.length - 1);
+    // Force category link constraints too.
+    const sys = emitRosterFile(gd.system, 'system', { constraints: [{ catalogueName: 'Mini System', constraintId: 'c-f-troops', value: 2, source: 'test' }] });
+    expect(sys.forces[0].cats[0].constraints![0].value).toBe(2);
+  });
+
+  test('constraint overrides throw when no constraint has the id', () => {
+    expect(() => emitRosterFile(cat, 'mini-faction', { constraints: [{ catalogueName: 'Mini Faction', constraintId: 'missing', value: 0, source: 'test' }] })).toThrow(/missing/);
   });
 });
 

@@ -231,6 +231,23 @@ describe('points, CP and Rule of Two/Three', () => {
     });
   });
 
+  test('Arks of Omen named Warlords may go without the Warlord Trait Requisition Stratagem (§5, §6)', () => {
+    const scope = realScope('imperium-adeptus-astartes-ultramarines');
+    const um = realCatalogueId('imperium-adeptus-astartes-ultramarines');
+    const named = ['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'];
+    for (const name of named) {
+      const spec: ListSpec = {
+        title: name,
+        battleSize: 'strike-force',
+        detachments: [{ detachment: 'Arks of Omen Detachment', units: [{ name, warlord: true }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }] }],
+        expect: { points: 0, powerLevel: 0 },
+      };
+      // Raw BSData issues: validate() would merge this one with another issue on the same unit (Cassius' Litanies).
+      const issues = validateConstraints(scope, evaluate(scope, buildFromSpec(scope, um, spec)));
+      expect(issues.filter((i) => /Warlord Trait/.test(i.subject.name)), name).toEqual([]);
+    }
+  });
+
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
     const r0 = necronRoster('strike-force');
     const fs = r0.forces[0].id;
