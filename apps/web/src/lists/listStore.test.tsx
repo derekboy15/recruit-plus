@@ -9,6 +9,7 @@ import { isUuid } from '../storage/ids';
 import { createRepository, type Repository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
 import { createList, saveList, setListPublic, useLists, type ListData } from './listStore';
+import { keepPending } from './pendingEdits';
 
 const data = (name: string, over: Partial<ListData['summary']> = {}): ListData => ({
   roster: { schema: 1, name, catalogueId: 'cat-1', battleSize: 'strike-force', forces: [] },
@@ -106,6 +107,15 @@ describe('useLists', () => {
     const { result } = renderHook(() => useLists(), { wrapper: wrapper('user-1') });
     await waitFor(() => expect(result.current.loading).toBe(false));
     expect(result.current.lists).toEqual([]);
+  });
+
+  test('saves edits a closing editor kept aside, so the lists page shows them', async () => {
+    signedIn('user-1');
+    const id = await createList(repo, 'user-1', data('Before'));
+    keepPending(id, data('After closing', { points: 375 }), Date.now() + 1000);
+    const { result } = renderHook(() => useLists(), { wrapper: wrapper('user-1') });
+    await waitFor(() => expect(result.current.lists.map((l) => [l.data.roster.name, l.data.summary.points])).toEqual([['After closing', 375]]));
+    expect(localStorage.getItem(`recruit.pendingList.${id}`)).toBeNull();
   });
 
   test('a database that cannot be read gives an error instead of loading forever', async () => {

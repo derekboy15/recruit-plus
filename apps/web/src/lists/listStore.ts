@@ -6,6 +6,7 @@ import { newDocId } from '../storage/ids';
 import type { Repository } from '../storage/repository';
 import { useStorage } from '../storage/StorageContext';
 import type { Doc } from '../storage/types';
+import { recoverPending } from './pendingEdits';
 
 /** What a saved list holds: the roster itself, plus numbers cached for the lists page so it never has to load roster data. */
 export interface ListData {
@@ -32,6 +33,8 @@ export function useLists(): { lists: Doc<ListData>[]; loading: boolean; error: E
   const [state, setState] = useState<{ ownerId: string; lists: Doc<ListData>[]; error: Error | null } | null>(null);
   useEffect(() => {
     if (!ownerId) return;
+    // Edits a closing page kept aside are saved now; the live query below then shows them.
+    recoverPending(repo).catch((e: unknown) => console.warn('Could not restore unsaved list edits', e));
     const sub = liveQuery(() => repo.listDocs<ListData>('list', ownerId)).subscribe({
       next: (lists) => setState({ ownerId, lists, error: null }),
       error: (e: unknown) => setState({ ownerId, lists: [], error: e instanceof Error ? e : new Error(String(e)) }),

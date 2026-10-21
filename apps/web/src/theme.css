@@ -156,3 +156,133 @@ button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointe
 .choices__option { display: flex; align-items: center; gap: 0.75rem; min-height: var(--touch); }
 .choices__option input { width: 22px; height: 22px; flex: none; }
 .wizard-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }
+
+/* ---------- List editor ---------- */
+.btn--small { min-height: var(--touch); padding: 0 0.8rem; font-size: 0.9rem; }
+.btn--danger { border-color: var(--red-strong); color: var(--bad); }
+.hint { margin: 0 0 0.5rem; color: var(--bad); font-weight: 600; font-size: 0.9rem; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--red-strong); vertical-align: middle; margin-left: 0.35rem; }
+
+.editor { display: grid; gap: 1rem; }
+.editor__main { display: grid; gap: 1rem; min-width: 0; align-content: start; }
+
+/* The header sticks over the top bar while the list scrolls, so the totals stay in view. */
+.editor-head {
+  position: sticky; top: 0; z-index: 6; display: grid; gap: 0.4rem;
+  margin: -1rem -1rem 0; padding: 0.5rem 1rem 0.6rem; background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.editor-head__name { font-weight: 700; font-size: 1.1rem; background: transparent; border-color: transparent; padding: 0 0.4rem; }
+.editor-head__name:hover, .editor-head__name:focus { border-color: var(--border); background: var(--surface-2); }
+.editor-head__row { display: flex; align-items: center; gap: 0.6rem; }
+.editor-head__pl { font-size: 0.85rem; white-space: nowrap; }
+.points { flex: 1; min-width: 0; display: grid; gap: 0.25rem; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.points__bar { display: block; height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; }
+.points__fill { display: block; height: 100%; background: var(--brass); }
+.points[aria-invalid='true'] { color: var(--bad); }
+.points[aria-invalid='true'] .points__fill { background: var(--red-strong); }
+.issues-btn { min-height: var(--touch); padding: 0 0.75rem; font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+
+.army-options h2, .detachment__title { margin: 0 0 0.5rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.army-choice { border-top: 1px solid var(--border); }
+.army-choice summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--touch);
+  padding: 0.35rem 0; cursor: pointer; list-style: none;
+}
+.army-choice summary::-webkit-details-marker { display: none; }
+.army-choice summary::after { content: '▾'; color: var(--text-muted); }
+.army-choice[open] summary::after { content: '▴'; }
+.army-choice__title { font-weight: 600; }
+.army-choice__value { margin-left: auto; text-align: right; font-size: 0.9rem; }
+.army-choice__value--bad { color: var(--bad); font-weight: 600; }
+.army-choice .choices { border: 0; padding: 0 0 0.5rem; margin: 0; }
+.army-options > .opt:first-of-type { border-top: 1px solid var(--border); }
+.detachment { display: grid; gap: 0.25rem; }
+.detachment__ally { font-size: 0.95rem; font-weight: 400; }
+.detachment__actions, .unit-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.role-head { margin: 0.75rem 0 0.35rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+
+/* Full-width rows: units in a detachment and in the picker. */
+.row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; width: 100%; min-height: 52px;
+  padding: 0.5rem 0.9rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); font: inherit; text-align: left; cursor: pointer;
+}
+button.row:hover { border-color: var(--brass); }
+.row--static { cursor: default; }
+.row__name { min-width: 0; }
+.row__pts { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+
+.army-setup { display: grid; gap: 0.75rem; justify-items: start; }
+.army-setup__choices { width: 100%; display: grid; gap: 0.5rem; }
+.army-setup__size { display: grid; gap: 0.25rem; width: 100%; }
+.ally summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
+
+/* Option controls in the unit editor. */
+.opt { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--touch); }
+label.opt { justify-content: flex-start; cursor: pointer; }
+.opt input[type='checkbox'] { width: 22px; height: 22px; flex: none; }
+.opt__name { flex: 1; min-width: 0; }
+.opt__pts { margin-left: 0.4rem; color: var(--brass-strong); font-size: 0.85rem; white-space: nowrap; }
+.opt__range, .opt__included { margin: 0 0 0.4rem; font-size: 0.85rem; }
+.radio-card {
+  display: flex; align-items: center; gap: 0.75rem; min-height: var(--touch); padding: 0.4rem 0.75rem; margin-bottom: 0.4rem;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); cursor: pointer;
+}
+.radio-card:has(input:checked) { border-color: var(--brass-strong); background: var(--surface-2); }
+.radio-card input { width: 22px; height: 22px; flex: none; }
+.radio-card__name { flex: 1; }
+.stepper { display: inline-flex; align-items: center; gap: 0.25rem; flex: none; }
+.stepper button {
+  width: var(--touch); height: var(--touch); border-radius: var(--radius); border: 1px solid var(--brass);
+  background: transparent; color: var(--text); font: inherit; font-size: 1.3rem; cursor: pointer;
+}
+.stepper button:disabled { opacity: 0.35; cursor: not-allowed; }
+.stepper output { min-width: 2.5ch; text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; }
+.stack { margin: 0.25rem 0 0.75rem 0.5rem; padding-left: 0.75rem; border-left: 2px solid var(--border); }
+.stack__head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
+.unit-summary { display: flex; gap: 1rem; margin: 0 0 0.75rem; font-weight: 600; }
+.unit-issues { margin-bottom: 0.75rem; }
+
+.issues { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.issues__item { padding: 0.6rem 0.75rem; border: 1px solid var(--red-strong); border-radius: var(--radius); background: var(--bad-bg); }
+.issues__item p { margin: 0 0 0.5rem; }
+.issues__item p:last-child { margin: 0; }
+.picker__note { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Panels: full screen or a bottom sheet on phones, the right-hand column from 768px. */
+.panel { color: var(--text); }
+.panel--full {
+  position: fixed; inset: 0; z-index: 30; overflow-y: auto; background: var(--bg);
+  padding: 0 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+.panel--sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 80vh; overflow-y: auto;
+  background: var(--surface); border-top: 1px solid var(--border); border-radius: 16px 16px 0 0;
+  padding: 0 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+.panel__head {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.5rem 0; margin-bottom: 0.5rem; background: inherit; border-bottom: 1px solid var(--border);
+}
+.panel--full .panel__head { background: var(--bg); }
+.panel--sheet .panel__head { background: var(--surface); }
+.panel__head h2 { margin: 0; color: var(--text); }
+.panel__head h2:focus { outline: none; }
+.panel .input[type='search'] { margin-bottom: 0.5rem; }
+.backdrop { position: fixed; inset: 0; z-index: 29; border: 0; background: rgba(0, 0, 0, 0.6); }
+
+@media (min-width: 768px) {
+  .editor { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; }
+  /* Below the top bar (44px button + padding + border), which stays visible beside the main column. */
+  .editor-head { top: calc(var(--touch) + 1rem + 1px); margin: 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  .editor__aside {
+    position: sticky; top: calc(var(--touch) + 2rem + 1px); max-height: calc(100vh - var(--touch) - 3rem); overflow-y: auto;
+  }
+  .panel--full, .panel--sheet {
+    position: static; max-height: none; overflow: visible; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 0 1rem 1rem;
+  }
+  .panel--full .panel__head { background: var(--surface); }
+  .backdrop { display: none; }
+}
