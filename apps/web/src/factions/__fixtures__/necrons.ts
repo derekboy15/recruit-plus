@@ -39,5 +39,5 @@ export const necrons: CatalogueOut = {
 export const index: DataIndex = {
   generatedAt: '2026-10-20T00:00:00Z',
   sources: { bsdata: 'v9.8.0', wahapediaLastUpdate: '2023-06-26' },
-  catalogues: [{ id: 'nec', slug: 'necrons', name: 'Necrons', group: 'Xenos', library: false, unitCount: 1 }],
+  catalogues: [{ id: 'nec', slug: 'necrons', name: 'Necrons', group: 'Xenos', library: false, unitCount: 1, rosterScope: ['necrons', 'system'] }],
 };

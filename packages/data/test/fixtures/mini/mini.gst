@@ -6,10 +6,25 @@
   </profileTypes>
   <categoryEntries>
     <categoryEntry id="cat-troops" name="Troops" hidden="false"/>
-    <categoryEntry id="cat-core" name="Core" hidden="false"/>
+    <categoryEntry id="cat-core" name="Core" hidden="true">
+      <modifiers>
+        <modifier type="set" field="name" value="Core Units"/>
+      </modifiers>
+    </categoryEntry>
   </categoryEntries>
   <forceEntries>
-    <forceEntry id="force-patrol" name="Patrol Detachment" hidden="false"/>
+    <forceEntry id="force-patrol" name="Patrol Detachment" hidden="false">
+      <forceEntries>
+        <forceEntry id="force-nested" name="Nested Force" hidden="false"/>
+      </forceEntries>
+      <categoryLinks>
+        <categoryLink id="fcl-troops" name="Troops" hidden="false" targetId="cat-troops" primary="false">
+          <constraints>
+            <constraint field="selections" scope="parent" value="1.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="c-f-troops" type="min"/>
+          </constraints>
+        </categoryLink>
+      </categoryLinks>
+    </forceEntry>
   </forceEntries>
   <sharedRules>
     <rule id="rule-obsec" name="Objective Secured" hidden="false">

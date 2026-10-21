@@ -1,11 +1,12 @@
-/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, report.json}. */
+/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, roster/<slug>.json, report.json}. */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
+import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides } from './join/wahapedia';
+import { emitRosterFile } from './roster/emit';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
 import { slugify } from './text';
 import { loadWahapedia } from './wahapedia/load';
@@ -35,6 +36,9 @@ function catalogueRules(cat: RawCatalogue): CatalogueOut['rules'] {
     }));
 }
 
+/** The .gst's roster file is always `system`. */
+export const SYSTEM_ROSTER_SLUG = 'system';
+
 const roleOrder = (u: UnitOut) => (u.role ? BATTLEFIELD_ROLES.indexOf(u.role) : BATTLEFIELD_ROLES.length);
 
 export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry> } {
@@ -51,6 +55,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const report: Record<string, ReportEntry> = {};
 
   const catalogues = [...gd.catalogues.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
     const faction = overrides.factionMap[cat.name];
@@ -67,13 +72,31 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       rules: catalogueRules(cat),
     };
     writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
-    index.catalogues.push({ id: cat.id, slug, name: cat.name, group: faction.group, library: out.library, unitCount: units.length });
+    index.catalogues.push({
+      id: cat.id,
+      slug,
+      name: cat.name,
+      group: faction.group,
+      library: out.library,
+      unitCount: units.length,
+      rosterScope: catalogueScope(gd, cat.id).map(rosterSlug),
+    });
     report[slug] = {
       units: units.length,
       matched: units.length - joined.unmatched.length,
       unmatched: joined.unmatched,
       unitsWithoutProfiles: units.filter((u) => u.models.length === 0).map((u) => u.name),
     };
+  }
+
+  mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
+  const rosterSources = [...catalogues, gd.system];
+  for (const o of overrides.costs) {
+    if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`Cost override names unknown catalogue "${o.catalogueName}"`);
+  }
+  for (const cat of rosterSources) {
+    const slug = rosterSlug(cat);
+    writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(emitRosterFile(cat, slug, overrides.costs)));
   }
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));

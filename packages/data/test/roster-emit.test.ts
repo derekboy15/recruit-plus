@@ -1,0 +1,359 @@
+import { test, expect, describe, beforeAll } from 'vitest';
+import { mkdtempSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { loadGameData } from '../src/bsdata/gamedata';
+import { buildAll } from '../src/build';
+import type { DataIndex } from '../src/model/types';
+import { emitRosterFile, type CostOverride } from '../src/roster/emit';
+import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
+
+const ROOT = join(__dirname, '..');
+const FIX = join(__dirname, 'fixtures', 'mini');
+
+describe('mini fixture', () => {
+  const gd = loadGameData(FIX);
+  const cat = gd.catalogues.get('cat-mini')!;
+
+  test('emits the selection tree with flattened modifier groups and defaulted flags omitted', () => {
+    const coreWhen: Cond = { type: 'greaterThan', field: 'selections', scope: 'roster', childId: 'cat-core', value: 0, childSel: true };
+    const groupRepeat = { field: 'selections', scope: 'parent', childId: 'se-warrior-model', value: 5, repeats: 1, roundUp: true as const };
+    const expected: RosterFile = {
+      schema: 1,
+      id: 'cat-mini',
+      name: 'Mini Faction',
+      slug: 'mini-faction',
+      library: false,
+      links: [{ targetId: 'cat-lib', importRootEntries: true }],
+      rootEntries: [
+        {
+          id: 'el-unit',
+          kind: 'link',
+          name: 'Warriors',
+          targetId: 'se-warriors',
+          targetKind: 'entry',
+          cats: [{ id: 'cl-troops', targetId: 'cat-troops', primary: true }],
+        },
+      ],
+      shared: [
+        {
+          id: 'se-warriors',
+          kind: 'entry',
+          name: 'Warriors',
+          type: 'unit',
+          costs: { [COST_PL]: 5 },
+          cats: [{ id: 'cl-core', targetId: 'cat-core' }],
+          constraints: [
+            { id: 'c-roster', type: 'max', field: 'selections', scope: 'roster', value: 3, shared: false, childSel: true },
+          ],
+          mods: [
+            {
+              type: 'increment',
+              field: 'c-roster',
+              value: '1.0',
+              when: {
+                type: 'and',
+                conds: [],
+                groups: [
+                  {
+                    type: 'or',
+                    conds: [
+                      { type: 'instanceOf', field: 'selections', scope: 'force', childId: 'force-patrol', value: 0 },
+                      { type: 'atLeast', field: 'points', scope: 'roster', childId: 'any', value: 1000, shared: false, childForces: true },
+                    ],
+                    groups: [],
+                  },
+                ],
+              },
+              repeats: [{ field: 'selections', scope: 'roster', childId: 'cat-troops', value: 1, repeats: 1, childSel: true }],
+            },
+            // From the modifier group: the group's condition is ANDed in and its repeat appended.
+            { type: 'increment', field: 'points', value: '5.0', when: { type: 'and', conds: [coreWhen], groups: [] }, repeats: [groupRepeat] },
+            // The `page` modifier is dropped. The nested group wraps first, then the outer group.
+            {
+              type: 'set',
+              field: 'hidden',
+              value: 'true',
+              when: {
+                type: 'and',
+                conds: [coreWhen],
+                groups: [
+                  {
+                    type: 'and',
+                    conds: [],
+                    groups: [
+                      {
+                        type: 'and',
+                        conds: [{ type: 'lessThan', field: 'selections', scope: 'parent', childId: 'se-warrior-model', value: 15 }],
+                        groups: [],
+                      },
+                      {
+                        type: 'and',
+                        conds: [{ type: 'atMost', field: 'forces', scope: 'roster', childId: 'force-patrol', value: 2 }],
+                        groups: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+              repeats: [groupRepeat],
+            },
+          ],
+          children: [
+            {
+              id: 'seg-1',
+              kind: 'group',
+              name: 'Models',
+              defaultId: 'el-model',
+              constraints: [
+                { id: 'c-min', type: 'min', field: 'selections', scope: 'parent', value: 10 },
+                { id: 'c-max', type: 'max', field: 'selections', scope: 'parent', value: 20 },
+              ],
+              // "Crusade Relics" is dropped.
+              children: [
+                {
+                  id: 'el-model',
+                  kind: 'link',
+                  name: 'Warrior',
+                  targetId: 'se-warrior-model',
+                  targetKind: 'entry',
+                  collective: true,
+                  costs: { [COST_PTS]: 11, [COST_PL]: 0 },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      categories: [],
+      forces: [],
+    };
+    expect(emitRosterFile(cat, 'mini-faction', [])).toStrictEqual(expected);
+  });
+
+  test('library entries drop profiles and keep children', () => {
+    const lib = emitRosterFile(gd.catalogues.get('cat-lib')!, 'mini-library', []);
+    expect(lib.library).toBe(true);
+    expect(lib.shared).toStrictEqual([
+      {
+        id: 'se-warrior-model',
+        kind: 'entry',
+        name: 'Warrior',
+        type: 'model',
+        children: [{ id: 'el-gun', kind: 'link', name: 'Gauss gun', targetId: 'se-gun', targetKind: 'entry' }],
+      },
+      { id: 'se-gun', kind: 'entry', name: 'Gauss gun', type: 'upgrade' },
+    ]);
+  });
+
+  test('system file: categories with modifiers, top-level forces only', () => {
+    const sys = emitRosterFile(gd.system, 'system', []);
+    expect(sys.categories).toStrictEqual([
+      { id: 'cat-troops', name: 'Troops' },
+      { id: 'cat-core', name: 'Core', hidden: true, mods: [{ type: 'set', field: 'name', value: 'Core Units' }] },
+    ]);
+    expect(sys.forces).toStrictEqual([
+      {
+        id: 'force-patrol',
+        name: 'Patrol Detachment',
+        cats: [
+          {
+            id: 'fcl-troops',
+            targetId: 'cat-troops',
+            constraints: [{ id: 'c-f-troops', type: 'min', field: 'selections', scope: 'parent', value: 1 }],
+          },
+        ],
+      },
+    ]);
+  });
+
+  const override = (o: Partial<CostOverride>): CostOverride => ({
+    catalogueName: 'Mini Faction',
+    entryId: 'el-model',
+    entryName: 'Warrior',
+    costTypeId: COST_PTS,
+    value: 12,
+    source: 'test',
+    ...o,
+  });
+  const findNode = (nodes: RNode[], id: string): RNode | undefined => {
+    for (const n of nodes) {
+      if (n.id === id) return n;
+      const hit = findNode(n.children ?? [], id);
+      if (hit) return hit;
+    }
+    return undefined;
+  };
+
+  test('cost overrides replace one cost on the matching node', () => {
+    const out = emitRosterFile(cat, 'mini-faction', [override({}), override({ catalogueName: 'Other', entryId: 'nope' })]);
+    expect(findNode(out.shared, 'el-model')!.costs).toEqual({ [COST_PTS]: 12, [COST_PL]: 0 });
+  });
+
+  test('cost overrides throw when no node matches or the name differs', () => {
+    expect(() => emitRosterFile(cat, 'mini-faction', [override({ entryId: 'missing' })])).toThrow(/missing/);
+    expect(() => emitRosterFile(cat, 'mini-faction', [override({ entryName: 'Wrong' })])).toThrow(/Wrong/);
+  });
+});
+
+describe('real BSData v9.8.0', () => {
+  const out = mkdtempSync(join(tmpdir(), 'recruit-roster-'));
+  let index: DataIndex;
+  const files = new Map<string, RosterFile>();
+  const read = (slug: string) => files.get(slug)!;
+
+  beforeAll(() => {
+    index = buildAll({ rawDir: join(ROOT, 'raw'), overridesDir: join(ROOT, 'overrides'), outDir: out }).index;
+    for (const f of readdirSync(join(out, 'roster'))) {
+      files.set(f.replace(/\.json$/, ''), JSON.parse(readFileSync(join(out, 'roster', f), 'utf8')));
+    }
+  });
+
+  function* walk(nodes: RNode[]): Generator<RNode> {
+    for (const n of nodes) {
+      yield n;
+      yield* walk(n.children ?? []);
+    }
+  }
+  const allNodes = (f: RosterFile) => [...walk(f.rootEntries), ...walk(f.shared)];
+
+  test('one roster file per catalogue plus system, each under 4 MB', () => {
+    expect(files.size).toBe(53);
+    expect(read('system').name).toBe('Warhammer 40,000 9th Edition');
+    for (const c of index.catalogues) expect(files.has(c.slug), c.slug).toBe(true);
+    let total = 0;
+    for (const slug of files.keys()) {
+      const size = statSync(join(out, 'roster', `${slug}.json`)).size;
+      total += size;
+      expect(size, slug).toBeLessThan(4 * 1024 * 1024);
+    }
+    console.log(`generated/roster total: ${(total / 1024 / 1024).toFixed(2)} MB`);
+  });
+
+  test('rosterScope lists the catalogue, its linked catalogues, then system', () => {
+    for (const c of index.catalogues) {
+      expect(c.rosterScope[0], c.name).toBe(c.slug);
+      expect(c.rosterScope.at(-1), c.name).toBe('system');
+      for (const s of c.rosterScope) expect(files.has(s), `${c.name}: ${s}`).toBe(true);
+    }
+    const um = index.catalogues.find((c) => c.slug === 'imperium-adeptus-astartes-ultramarines')!;
+    expect(um.rosterScope.slice(0, 2)).toEqual(['imperium-adeptus-astartes-ultramarines', 'imperium-space-marines']);
+  });
+
+  test('every link resolves to an entry or group of its kind within the catalogue scope (or is a listed exception)', () => {
+    const allowed: { catalogue: string; targetId: string }[] = JSON.parse(
+      readFileSync(join(ROOT, 'overrides', 'unresolved-links.json'), 'utf8'),
+    );
+    const unresolved: string[] = [];
+    for (const c of index.catalogues) {
+      const scope = c.rosterScope.map(read);
+      const targets = new Map<string, RNode['kind']>();
+      for (const f of scope) for (const n of allNodes(f)) if (n.kind !== 'link' && !targets.has(n.id)) targets.set(n.id, n.kind);
+      for (const n of allNodes(read(c.slug))) {
+        if (n.kind !== 'link') continue;
+        if (targets.get(n.targetId!) === n.targetKind) continue;
+        if (allowed.some((a) => a.catalogue === c.name && a.targetId === n.targetId)) continue;
+        unresolved.push(`${c.name}: ${n.id} "${n.name}" -> ${n.targetId} (${n.targetKind}, found ${targets.get(n.targetId!) ?? 'nothing'})`);
+      }
+    }
+    // The system file resolves on its own.
+    const sysTargets = new Set(allNodes(read('system')).filter((n) => n.kind !== 'link').map((n) => n.id));
+    for (const n of allNodes(read('system'))) if (n.kind === 'link' && !sysTargets.has(n.targetId!)) unresolved.push(`system: ${n.id}`);
+    expect(unresolved).toEqual([]);
+  });
+
+  test('supported vocabulary: modifier, condition and constraint types, scopes and fields', () => {
+    const isId = (s: string) => /^[0-9a-f]{4}-/i.test(s) || /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s);
+    const modTypes = new Set<string>();
+    const condTypes = new Set<string>();
+    const scopes = new Set<string>();
+    const fields = new Set<string>();
+    const modFields = new Set<string>();
+    const constraintIds = new Set<string>();
+    const conds = (g: CondGroup | undefined): Cond[] => (g ? [...g.conds, ...g.groups.flatMap(conds)] : []);
+    const visitConstraints = (cs: Constraint[] | undefined) =>
+      (cs ?? []).forEach((c) => {
+        scopes.add(c.scope);
+        fields.add(c.field);
+        constraintIds.add(c.id);
+      });
+    const visitMods = (ms: Mod[] | undefined) =>
+      (ms ?? []).forEach((m) => {
+        modTypes.add(m.type);
+        modFields.add(m.field);
+        for (const c of conds(m.when)) {
+          condTypes.add(c.type);
+          scopes.add(c.scope);
+          if (c.type !== 'instanceOf' && c.type !== 'notInstanceOf') fields.add(c.field);
+        }
+        for (const r of m.repeats ?? []) {
+          scopes.add(r.scope);
+          fields.add(r.field);
+        }
+      });
+    const visitHolder = (h: { constraints?: Constraint[]; mods?: Mod[] }) => {
+      visitConstraints(h.constraints);
+      visitMods(h.mods);
+    };
+    for (const f of files.values()) {
+      for (const n of allNodes(f)) {
+        visitHolder(n);
+        (n.cats ?? []).forEach(visitHolder);
+      }
+      f.categories.forEach(visitHolder);
+      for (const force of f.forces) {
+        visitHolder(force);
+        force.cats.forEach(visitHolder);
+      }
+    }
+    const notId = (s: Set<string>) => [...s].filter((x) => !isId(x)).sort();
+    const MOD_TYPES = ['set', 'increment', 'decrement', 'append', 'add', 'remove', 'set-primary', 'unset-primary'];
+    const COND_TYPES = ['lessThan', 'greaterThan', 'equalTo', 'notEqualTo', 'atLeast', 'atMost', 'instanceOf', 'notInstanceOf'];
+    const SCOPES = ['self', 'parent', 'ancestor', 'force', 'roster', 'primary-catalogue'];
+    expect(notId(modTypes).filter((x) => !MOD_TYPES.includes(x))).toEqual([]);
+    expect(notId(condTypes).filter((x) => !COND_TYPES.includes(x))).toEqual([]);
+    expect(notId(scopes).filter((x) => !SCOPES.includes(x))).toEqual([]);
+    expect([...fields].filter((x) => !['selections', 'forces', COST_PTS, COST_PL, COST_CP].includes(x))).toEqual([]);
+    // Kept modifier fields: hidden, name, category, a cost type id, or the id of a constraint in some roster file.
+    // Cost types are declared in the .gst and in a few catalogues (Orks' Scrap Points, Thousand Sons' Cabal Points).
+    const gd = loadGameData(join(ROOT, 'raw', 'bsdata'));
+    const costTypeIds = [gd.system, ...gd.catalogues.values()].flatMap((c) =>
+      (c.root.children.find((n) => n.tag === 'costTypes')?.children ?? []).map((n) => n.attrs.id),
+    );
+    expect(costTypeIds).toEqual(expect.arrayContaining([COST_PTS, COST_PL, COST_CP]));
+    expect([...modFields].filter((x) => !['hidden', 'name', 'category', ...costTypeIds].includes(x) && !constraintIds.has(x))).toEqual([]);
+  });
+
+  test('Necron Warriors: 10-20 Warriors, Gauss Flayer model at 11 pts', () => {
+    const necrons = read('necrons');
+    const root = necrons.rootEntries.find((n) => n.name === 'Necron Warriors')!;
+    expect(root).toBeDefined();
+    const unit = root.kind === 'link' ? allNodes(necrons).find((n) => n.id === root.targetId)! : root;
+    const group = unit.children!.find((n) => n.name === 'Warriors')!;
+    expect(group.constraints).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ type: 'min', field: 'selections', scope: 'parent', value: 10 }),
+        expect.objectContaining({ type: 'max', field: 'selections', scope: 'parent', value: 20 }),
+      ]),
+    );
+    const link = group.children!.find((n) => n.kind === 'link' && n.name.includes('Gauss Flayer'))!;
+    const scope = index.catalogues.find((c) => c.slug === 'necrons')!.rosterScope.map(read);
+    const target = scope.flatMap(allNodes).find((n) => n.id === link.targetId)!;
+    expect(target.kind).toBe('entry');
+    expect(target.costs?.[COST_PTS]).toBe(11);
+  });
+
+  test("Aeldari Library: Harlequin's Kiss links carry their own 10 pts", () => {
+    const links = allNodes(read('aeldari-aeldari-library')).filter((n) => n.kind === 'link' && n.name === "Harlequin's Kiss");
+    expect(links.length).toBeGreaterThan(0);
+    expect(links.some((n) => n.costs?.[COST_PTS] === 10)).toBe(true);
+  });
+
+  test('dropped elements: no Crusade or Battle Honours nodes, no nested forces', () => {
+    for (const [slug, f] of files) {
+      const bad = allNodes(f).filter((n) => /^(battle honours|battle scars|crusade)\b/i.test(n.name));
+      expect(bad.map((n) => n.name), slug).toEqual([]);
+    }
+    expect(read('system').forces.length).toBeGreaterThan(0);
+  });
+});

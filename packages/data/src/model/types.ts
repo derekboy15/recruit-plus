@@ -77,6 +77,8 @@ export interface CatalogueSummary {
   group: FactionGroup;
   library: boolean;
   unitCount: number;
+  /** Roster file slugs (generated/roster/<slug>.json) of the catalogue's scope: itself, linked catalogues, then 'system'. */
+  rosterScope: string[];
 }
 
 export interface DataIndex {

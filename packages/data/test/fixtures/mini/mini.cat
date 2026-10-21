@@ -4,14 +4,64 @@
     <catalogueLink id="cl-1" name="Mini Library" targetId="cat-lib" type="catalogue" importRootEntries="true"/>
   </catalogueLinks>
   <entryLinks>
-    <entryLink id="el-unit" name="Warriors" hidden="false" targetId="se-warriors" type="selectionEntry">
+    <entryLink id="el-unit" name="Warriors" hidden="false" collective="false" import="true" targetId="se-warriors" type="selectionEntry">
       <categoryLinks>
         <categoryLink id="cl-troops" name="Troops" hidden="false" targetId="cat-troops" primary="true"/>
       </categoryLinks>
     </entryLink>
   </entryLinks>
   <sharedSelectionEntries>
-    <selectionEntry id="se-warriors" name="Warriors" hidden="false" type="unit">
+    <selectionEntry id="se-warriors" name="Warriors" hidden="false" collective="false" import="true" type="unit">
+      <modifiers>
+        <modifier type="increment" field="c-roster" value="1.0">
+          <repeats>
+            <repeat field="selections" scope="roster" value="1.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="cat-troops" repeats="1" roundUp="false"/>
+          </repeats>
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition field="selections" scope="force" value="0.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="force-patrol" type="instanceOf"/>
+                <condition field="points" scope="roster" value="1000.0" percentValue="false" shared="false" includeChildSelections="false" includeChildForces="true" childId="any" type="atLeast"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
+      <modifierGroups>
+        <modifierGroup>
+          <conditions>
+            <condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="cat-core" type="greaterThan"/>
+          </conditions>
+          <repeats>
+            <repeat field="selections" scope="parent" value="5.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="se-warrior-model" repeats="1" roundUp="true"/>
+          </repeats>
+          <modifiers>
+            <modifier type="increment" field="points" value="5.0"/>
+            <modifier type="set" field="page" value="12"/>
+          </modifiers>
+          <modifierGroups>
+            <modifierGroup>
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition field="selections" scope="parent" value="15.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="se-warrior-model" type="lessThan"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+              <modifiers>
+                <modifier type="set" field="hidden" value="true">
+                  <conditions>
+                    <condition field="forces" scope="roster" value="2.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="force-patrol" type="atMost"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </modifierGroup>
+          </modifierGroups>
+        </modifierGroup>
+      </modifierGroups>
+      <constraints>
+        <constraint field="selections" scope="roster" value="3.0" percentValue="false" shared="false" includeChildSelections="true" includeChildForces="false" id="c-roster" type="max"/>
+      </constraints>
       <infoLinks>
         <infoLink id="il-obsec" name="Objective Secured" hidden="false" targetId="rule-obsec" type="rule"/>
       </infoLinks>
@@ -19,16 +69,28 @@
         <categoryLink id="cl-core" name="Core" hidden="false" targetId="cat-core" primary="false"/>
       </categoryLinks>
       <selectionEntryGroups>
-        <selectionEntryGroup id="seg-1" name="Models" hidden="false">
+        <selectionEntryGroup id="seg-1" name="Models" hidden="false" collective="false" import="true" defaultSelectionEntryId="el-model">
           <constraints>
             <constraint field="selections" scope="parent" value="10.0" id="c-min" type="min"/>
             <constraint field="selections" scope="parent" value="20.0" id="c-max" type="max"/>
           </constraints>
+          <selectionEntries>
+            <selectionEntry id="se-crusade" name="Crusade Relics" hidden="false" type="upgrade"/>
+          </selectionEntries>
           <entryLinks>
-            <entryLink id="el-model" name="Warrior" hidden="false" targetId="se-warrior-model" type="selectionEntry"/>
+            <entryLink id="el-model" name="Warrior" hidden="false" collective="true" import="true" targetId="se-warrior-model" type="selectionEntry">
+              <costs>
+                <cost name="pts" typeId="points" value="11.0"/>
+                <cost name=" PL" typeId="e356-c769-5920-6e14" value="0.0"/>
+              </costs>
+            </entryLink>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
+      <costs>
+        <cost name="pts" typeId="points" value="0.0"/>
+        <cost name=" PL" typeId="e356-c769-5920-6e14" value="5.0"/>
+      </costs>
     </selectionEntry>
   </sharedSelectionEntries>
 </catalogue>
