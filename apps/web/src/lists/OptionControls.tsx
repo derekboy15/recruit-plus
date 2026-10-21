@@ -5,7 +5,7 @@
  */
 import { findSelView, type OptionNode, type RosterView, type Scope } from '@recruit/data/roster';
 import { cleanLabel } from './labels';
-import { fmt, hasChoices, leaves, plural } from './editorView';
+import { fmt, hasChoices, leaves } from './editorView';
 import type { EditorAction } from './useRosterEditor';
 
 export interface OptionCtx {
@@ -116,9 +116,13 @@ function OptionControl({ ctx, selId, option: o, room, spare, depth }: ControlPro
       </div>
     );
   }
-  // The stepper acts on the first stack; copies split off with "Customise one" are removed one by one.
+  // "+" grows the first stack. "−" takes one from the first stack with more than one copy, so a model set apart with
+  // "Customise one" is never dropped by the stepper; when every stack is a single copy, each is removed with its own
+  // Remove button (a lone stack is simply taken away).
   const first = o.selIds[0];
-  const step = (by: number) => (first ? ctx.dispatch({ type: 'set-count', selId: first, count: countOf(ctx, first) + by }) : add());
+  const shrinkable = o.selIds.length === 1 ? first : o.selIds.find((id) => countOf(ctx, id) > 1);
+  const grow = () => (first ? ctx.dispatch({ type: 'set-count', selId: first, count: countOf(ctx, first) + 1 }) : add());
+  const shrink = () => shrinkable && ctx.dispatch({ type: 'set-count', selId: shrinkable, count: countOf(ctx, shrinkable) - 1 });
   return (
     <div>
       <div className="opt">
@@ -127,11 +131,11 @@ function OptionControl({ ctx, selId, option: o, room, spare, depth }: ControlPro
           {cost(o)}
         </span>
         <span className="stepper">
-          <button type="button" aria-label={`Remove one ${o.name}`} disabled={o.count <= o.min || spare <= 0 || !first} onClick={() => step(-1)}>
+          <button type="button" aria-label={`Remove one ${o.name}`} disabled={o.count <= o.min || spare <= 0 || !shrinkable} onClick={shrink}>
             −
           </button>
           <output>{fmt(o.count)}</output>
-          <button type="button" aria-label={`Add one ${o.name}`} disabled={full || room <= 0} onClick={() => step(1)}>
+          <button type="button" aria-label={`Add one ${o.name}`} disabled={full || room <= 0} onClick={grow}>
             +
           </button>
         </span>
@@ -146,31 +150,31 @@ function Nested({ ctx, option, depth }: { ctx: OptionCtx; option: OptionNode; de
   if (depth >= MAX_DEPTH) return null;
   return (
     <>
-      {option.selIds.map((id, i) => {
+      {option.selIds.map((id) => {
         const nodes = ctx.optionsOf(id);
         if (!hasChoices(nodes)) return null;
-        return <StackBlock key={id} ctx={ctx} selId={id} nodes={nodes} copy={i > 0} depth={depth + 1} />;
+        return <StackBlock key={id} ctx={ctx} selId={id} nodes={nodes} removable={option.selIds.length > 1} depth={depth + 1} />;
       })}
     </>
   );
 }
 
-function StackBlock({ ctx, selId, nodes, copy, depth }: { ctx: OptionCtx; selId: string; nodes: OptionNode[]; copy: boolean; depth: number }) {
+/** One stack of a chosen option. `removable`: the option has several stacks, so each can be taken out on its own. */
+function StackBlock({ ctx, selId, nodes, removable, depth }: { ctx: OptionCtx; selId: string; nodes: OptionNode[]; removable: boolean; depth: number }) {
   const v = findSelView(ctx.view, selId);
   if (!v) return null;
   const n = v.sel.count;
-  const what = v.type === 'model' ? 'model' : 'one';
   return (
     <div className="stack">
       <div className="stack__head">
         <strong>{n > 1 ? `${v.name} ×${fmt(n)}` : v.name}</strong>
         {n > 1 && (
           <button type="button" className="btn btn--small" onClick={() => ctx.dispatch({ type: 'split', selId })}>
-            {`Customise one ${what}`}
+            {v.type === 'model' ? 'Customise one model' : 'Customise one'}
           </button>
         )}
-        {copy && (
-          <button type="button" className="btn btn--small" aria-label={`Remove ${plural(n, 'copy', 'copies')} of ${v.name}`} onClick={() => ctx.dispatch({ type: 'remove', selId })}>
+        {removable && (
+          <button type="button" className="btn btn--small" aria-label={n === 1 ? `Remove this ${v.name}` : `Remove these ${fmt(n)} ${v.name}`} onClick={() => ctx.dispatch({ type: 'remove', selId })}>
             Remove
           </button>
         )}

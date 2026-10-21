@@ -116,6 +116,37 @@ test('edits kept when the page closed before its save landed are used (and saved
   localStorage.clear();
 });
 
+test('a save still under way when the page closes is kept aside too', async () => {
+  const id = await necronsList();
+  const first = await openEditor(id);
+  const put = vi.spyOn(db.docs, 'put').mockImplementation(() => new Promise<string>(() => {}) as ReturnType<typeof db.docs.put>);
+  act(() => first.result.current.dispatch({ type: 'rename', name: 'In flight' }));
+  await waitFor(() => expect(put).toHaveBeenCalled(), { timeout: 1000 }); // the debounced save started and hangs
+  expect(localStorage.length).toBe(0);
+  window.dispatchEvent(new Event('pagehide'));
+  expect(localStorage.length).toBe(1);
+  first.unmount();
+  put.mockRestore();
+
+  const second = await openEditor(id);
+  expect(ready(second.result.current).roster.name).toBe('In flight');
+  second.unmount();
+});
+
+test('saves are stamped with the time the edit was captured, strictly increasing', async () => {
+  const id = await necronsList();
+  const before = (await saved(id)).updatedAt;
+  const { result } = await openEditor(id);
+  act(() => result.current.dispatch({ type: 'rename', name: 'One' }));
+  await act(() => result.current.flush());
+  const one = (await saved(id)).updatedAt;
+  act(() => result.current.dispatch({ type: 'rename', name: 'Two' }));
+  await act(() => result.current.flush());
+  const two = (await saved(id)).updatedAt;
+  expect(one).toBeGreaterThanOrEqual(before);
+  expect(two).toBeGreaterThan(one);
+});
+
 test('a kept copy older than the saved list is ignored', async () => {
   const id = await necronsList();
   const { keepPending } = await import('./pendingEdits');

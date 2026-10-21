@@ -1,7 +1,8 @@
 import type { RecruitDb } from './db';
 import type { Doc, DocKind } from './types';
 
-export type NewDoc<T> = Pick<Doc<T>, 'id' | 'kind' | 'ownerId' | 'data'> & Partial<Pick<Doc<T>, 'isPublic'>>;
+/** updatedAt defaults to now; give it to record when the edit was made (an edit saved later, e.g. recovered). */
+export type NewDoc<T> = Pick<Doc<T>, 'id' | 'kind' | 'ownerId' | 'data'> & Partial<Pick<Doc<T>, 'isPublic' | 'updatedAt'>>;
 
 export interface Repository {
   saveDoc<T>(doc: NewDoc<T>): Promise<Doc<T>>;
@@ -21,7 +22,7 @@ export function createRepository(db: RecruitDb, now: () => number = Date.now): R
         data: input.data,
         isPublic: input.isPublic ?? existing?.isPublic ?? false,
         deleted: false,
-        updatedAt: now(),
+        updatedAt: input.updatedAt ?? now(),
         dirty: true,
       };
       await db.docs.put(doc as Doc);

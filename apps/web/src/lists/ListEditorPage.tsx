@@ -150,7 +150,8 @@ function Editor({ editor, params, open, close, openUnit }: EditorProps) {
             fv={fv}
             first={i === 0}
             armyCatalogueId={roster.catalogueId}
-            canRemove={view.forces.length > 1}
+            // The army's own detachment stays while an ally needs it: the first one goes only if another of its own follows.
+            canRemove={i > 0 || view.forces[1]?.force.catalogueId === roster.catalogueId}
             flagged={flagged}
             dispatch={dispatch}
             onOpenUnit={openUnit}

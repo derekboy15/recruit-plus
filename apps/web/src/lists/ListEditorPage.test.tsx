@@ -144,6 +144,64 @@ test('Duplicate unit adds a copy; Remove unit closes the editor and takes the un
   expect(editor).toBeInTheDocument();
 });
 
+test('"−" never drops a customised model: it takes from a stack of identical models, else each model has Remove', async () => {
+  const u = user();
+  renderEditor(await necronsList('strike-force', (r, add) => add(r, 'Tomb Blades')));
+  await opened();
+  await u.click(screen.getByRole('button', { name: /^Tomb Blades/ }));
+  const editor = await screen.findByRole('dialog', { name: 'Tomb Blades' });
+  const plus = within(editor).getByRole('button', { name: 'Add one Tomb Blade' });
+  const minus = within(editor).getByRole('button', { name: 'Remove one Tomb Blade' });
+  await u.click(plus);
+  await u.click(plus); // 5 identical models
+  for (let i = 0; i < 3; i++) await u.click(within(editor).getAllByRole('button', { name: 'Customise one model' })[0]);
+  expect(within(editor).getByText('Tomb Blade ×2')).toBeInTheDocument();
+  expect(within(editor).getAllByRole('button', { name: 'Remove this Tomb Blade' })).toHaveLength(3);
+
+  await u.click(minus); // from the stack of 2, not a customised one
+  expect(within(editor).queryByText('Tomb Blade ×2')).not.toBeInTheDocument();
+  expect(within(editor).getAllByRole('button', { name: 'Remove this Tomb Blade' })).toHaveLength(4);
+  expect(within(editor).getByText('4 models')).toBeInTheDocument();
+  expect(minus).toBeDisabled(); // every model is now its own: remove one with its button
+
+  await u.click(within(editor).getAllByRole('button', { name: 'Remove this Tomb Blade' })[3]);
+  expect(within(editor).getByText('3 models')).toBeInTheDocument();
+  expect(within(editor).queryByRole('button', { name: 'Customise one one' })).not.toBeInTheDocument();
+});
+
+test('the army keeps its own detachment while an ally remains', async () => {
+  const u = user();
+  renderEditor(await necronsList('onslaught'));
+  await opened();
+  expect(screen.queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: '+ Add detachment' }));
+  await u.click(screen.getByText('Orks'));
+  const orks = screen.getByText('Orks').closest('details')!;
+  await u.click(within(orks).getByRole('button', { name: 'Patrol Detachment' }));
+  await waitFor(() => expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })).toHaveLength(2), { timeout: 15_000 });
+  const [own, ally] = screen.getAllByRole('region', { name: 'Patrol Detachment' });
+  expect(ally).toHaveTextContent('Orks');
+  expect(within(ally).getByRole('button', { name: 'Remove detachment' })).toBeInTheDocument();
+  expect(within(own).queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
+}, 20_000); // loads and builds the Orks rules too
+
+test('a fix whose suggested units can no longer be added says so', async () => {
+  const id = await necronsList();
+  const doc = await createRepository(db).getDoc<ListData>(id);
+  render(
+    <StorageProvider db={db}>
+      <MemoryRouter initialEntries={[`/build/${id}?add=${doc!.data.roster.forces[0].id}&only=no-such-unit`]}>
+        <Routes>
+          <Route path="/build/:id" element={<ListEditorPage />} />
+        </Routes>
+      </MemoryRouter>
+    </StorageProvider>,
+  );
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' }, { timeout: 5000 });
+  expect(within(picker).getByText(/None of the suggested units can be added here any more/)).toBeInTheDocument();
+  expect(within(picker).queryByText(/No units match/)).not.toBeInTheDocument();
+});
+
 test('an over-limit list shows the points bar as invalid', async () => {
   const id = await necronsList('combat-patrol', (r, add) => [1, 2, 3, 4, 5].reduce((out) => add(out, 'Necron Warriors'), r));
   renderEditor(id);

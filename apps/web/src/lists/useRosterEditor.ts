@@ -148,6 +148,8 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
   const dirtyRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const savingRef = useRef<Promise<void>>(Promise.resolve());
+  /** The last data handed to a save, when it was captured, and whether that save has landed. */
+  const lastSentRef = useRef<{ listId: string; data: ListData; at: number; landed: boolean } | null>(null);
   const uiRef = useRef(ui);
   uiRef.current = ui;
 
@@ -157,16 +159,26 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
     timerRef.current = null;
     const l = loadedRef.current;
     const r = rosterRef.current;
-    if (!dirtyRef.current || !l || !r) return savingRef.current;
+    const sent = lastSentRef.current;
+    if (!dirtyRef.current || !l || !r) {
+      // Nothing new, but the last save may still be in flight: keep a copy of what it carries in case it is cut off.
+      if (leaving && sent && !sent.landed) keepPending(sent.listId, sent.data, sent.at);
+      return savingRef.current;
+    }
     dirtyRef.current = false;
     const data = dataToSave(l, r);
-    if (leaving) keepPending(l.doc.id, data);
-    const from = Date.now();
+    // The save is stamped with the moment its data was captured (strictly increasing), so a safety copy and the save
+    // carrying the same data have the same time, and a later edit always has a later time.
+    const at = Math.max(Date.now(), (sent?.at ?? 0) + 1);
+    const current = { listId: l.doc.id, data, at, landed: false };
+    lastSentRef.current = current;
+    if (leaving) keepPending(l.doc.id, data, at);
     // Saves run one after another, so an older roster never lands after a newer one. isPublic is left as stored.
     savingRef.current = savingRef.current.then(() =>
-      repo.saveDoc<ListData>({ id: l.doc.id, kind: 'list', ownerId: l.doc.ownerId, data }).then(
+      repo.saveDoc<ListData>({ id: l.doc.id, kind: 'list', ownerId: l.doc.ownerId, data, updatedAt: at }).then(
         () => {
-          dropPending(l.doc.id, from);
+          current.landed = true;
+          dropPending(l.doc.id, at);
           setSaveError(null);
         },
         (e: unknown) => {

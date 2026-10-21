@@ -49,7 +49,15 @@ export function UnitPicker({ scope, roster, forceSelId, only, units, onAdd, onCl
           </button>
         </p>
       )}
-      {groups.length === 0 && <p className="muted">No units match “{query.trim()}”.</p>}
+      {groups.length === 0 && (
+        <p className="muted">
+          {query.trim()
+            ? `No units match “${query.trim()}”.`
+            : filtered
+              ? 'None of the suggested units can be added here any more. Show all units to pick another.'
+              : 'This detachment can’t take any units.'}
+        </p>
+      )}
       {groups.map(([role, list]) => (
         <section key={role}>
           <h3 className="role-head">{role}</h3>

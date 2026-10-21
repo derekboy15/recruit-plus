@@ -10,6 +10,7 @@ const PREFIX = 'recruit.pendingList.';
 
 interface Pending { data: ListData; at: number }
 
+/** `at`: when the data was captured, the same time its database save is stamped with. */
 export function keepPending(listId: string, data: ListData, at = Date.now()): void {
   try {
     localStorage.setItem(PREFIX + listId, JSON.stringify({ data, at } satisfies Pending));
@@ -52,7 +53,8 @@ export async function recoverPending(repo: Repository, listIds: string[] = pendi
     }
     const doc = await repo.getDoc<ListData>(id);
     if (doc && !doc.deleted && pending.at > doc.updatedAt && pending.data?.roster?.schema === 1) {
-      await repo.saveDoc<ListData>({ id, kind: 'list', ownerId: doc.ownerId, data: pending.data });
+      // Stamped with when the edit was made, not now: a newer copy from another device still wins the next sync.
+      await repo.saveDoc<ListData>({ id, kind: 'list', ownerId: doc.ownerId, data: pending.data, updatedAt: pending.at });
     }
     localStorage.removeItem(PREFIX + id);
   }
