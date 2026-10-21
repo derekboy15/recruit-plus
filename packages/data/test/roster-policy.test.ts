@@ -691,6 +691,21 @@ describe('factions', () => {
     expect(ofRule(issues, 'detachment-faction')).toEqual([]);
   });
 
+  test('Drukhari and Craftworlds Patrols share AELDARI for Army Faction (faction-keywords.json)', () => {
+    const scope = realScope('aeldari-drukhari', 'aeldari-craftworlds');
+    const spec: ListSpec = {
+      title: 'Drukhari and Craftworlds',
+      battleSize: 'onslaught',
+      detachments: [
+        { detachment: 'Patrol Detachment -2CP', army: { Obsession: 'Kabal of the Black Heart: Thirst for Power' }, units: [{ name: 'Archon', warlord: true }, { name: 'Kabalite Warriors' }] },
+        { detachment: 'Patrol Detachment -2CP', catalogue: 'Aeldari - Craftworlds', units: [{ name: 'Farseer' }, { name: 'Rangers' }] },
+      ],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    const issues = validate(scope, buildFromSpec(scope, realCatalogueId('aeldari-drukhari'), spec), policy).issues;
+    expect(issues.filter((i) => i.rule === 'army-faction' || i.rule === 'detachment-faction')).toEqual([]);
+  });
+
   test('a Militarum Tempestus-only ally Patrol must be all Militarum Tempestus', () => {
     const scope = realScope('imperium-astra-militarum');
     const am = realCatalogueId('imperium-astra-militarum');

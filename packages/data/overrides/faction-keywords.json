@@ -545,5 +545,340 @@
       "Sanctic Astartes"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000400 \"Venerable Dreadnought\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Venerable-Dreadnought) faction keywords: Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "c0ea-f722-6a2e-6d65",
+    "entryName": "The Yncarne",
+    "add": [
+      "Asuryani"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002544 \"The Yncarne\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/The-Yncarne) faction keywords: Ynnari, Asuryani, Aeldari. BSData v9.8.0 has no \"Faction: Asuryani\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "8a61-8b56-4ce5-893f",
+    "entryName": "Beastmaster",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000652 \"Beastmaster\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Beastmaster) faction keywords: Drukhari, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "6307-5f9d-2ddb-68e6",
+    "entryName": "Falcon",
+    "add": [
+      "Asuryani"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000609 \"Falcon\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/Falcon) faction keywords: Asuryani, Aeldari, <Craftworld>. BSData v9.8.0 has no \"Faction: Asuryani\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "4af8-033e-2933-ec79",
+    "entryName": "Fire Prism",
+    "add": [
+      "Asuryani"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000610 \"Fire Prism\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/Fire-Prism) faction keywords: Aeldari, <Craftworld>, Asuryani. BSData v9.8.0 has no \"Faction: Asuryani\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "aeed-5ff5-9b8c-c788",
+    "entryName": "Webway Gate",
+    "add": [
+      "Drukhari",
+      "Harlequins"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002459 \"Webway Gate\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/Webway-Gate) faction keywords: Drukhari, Aeldari, Harlequins, Asuryani. BSData v9.8.0 has no \"Faction: Drukhari\" or \"Faction: Harlequins\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "3ea9-f42c-d816-b91a",
+    "entryName": "Archon",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000634 \"Archon\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Archon) faction keywords: Aeldari, <Kabal>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "e640-d16e-aafa-7d7c",
+    "entryName": "Drazhar",
+    "add": [
+      "Aeldari",
+      "Incubi"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000643 \"Drazhar\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Drazhar) faction keywords: Aeldari, Drukhari, Incubi. BSData v9.8.0 has no \"Faction: Aeldari\" or \"Faction: Incubi\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "bcaa-5a3b-de61-6f41",
+    "entryName": "Haemonculus",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000641 \"Haemonculus\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Haemonculus) faction keywords: Aeldari, Drukhari, <Haemonculus Coven>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "4d2d-8f34-03e5-91ca",
+    "entryName": "Lelith Hesperax",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000640 \"Lelith Hesperax\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Lelith-Hesperax) faction keywords: Cult of Strife, Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "f82e-71e9-d0fd-dad8",
+    "entryName": "Succubus",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000639 \"Succubus\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Succubus) faction keywords: Drukhari, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "afb9-7509-4ba6-c415",
+    "entryName": "Urien Rakarth",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000642 \"Urien Rakarth\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Urien-Rakarth) faction keywords: Drukhari, Prophets of Flesh, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "ad5b-2e62-c7c7-50ce",
+    "entryName": "Corsair Reaver Band [Legends]",
+    "add": [
+      "Drukhari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002455 \"Corsair Reaver Band\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Corsair-Reaver-Band) faction keywords: Anhrathe, Aeldari, <Coterie>, Drukhari. BSData v9.8.0 has no \"Faction: Drukhari\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "a04b-3277-83b9-3d3f",
+    "entryName": "Corsair Skyreaver Band [Legends]",
+    "add": [
+      "Drukhari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002456 \"Corsair Skyreaver Band\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Corsair-Skyreaver-Band) faction keywords: Drukhari, <Coterie>, Anhrathe, Aeldari. BSData v9.8.0 has no \"Faction: Drukhari\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "1a60-f7ac-212f-41be",
+    "entryName": "Hekatrix Bloodbrides",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000647 \"Hekatrix Bloodbrides\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Hekatrix-Bloodbrides) faction keywords: Aeldari, <Wych Cult>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "8435-5bf3-35df-85a7",
+    "entryName": "Kabalite Trueborn",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000645 \"Kabalite Trueborn\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Kabalite-Trueborn) faction keywords: Aeldari, <Kabal>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "40a0-6ba1-e19a-1c60",
+    "entryName": "Kabalite Warriors",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000644 \"Kabalite Warriors\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Kabalite-Warriors) faction keywords: Drukhari, <Kabal>, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "870e-ddec-7fd6-366a",
+    "entryName": "Wracks",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000650 \"Wracks\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Wracks) faction keywords: Aeldari, <Haemonculus Coven>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "287c-0434-786c-9ba1",
+    "entryName": "Wyches",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000646 \"Wyches\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Wyches) faction keywords: <Wych Cult>, Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "65cd-a17c-d556-3734",
+    "entryName": "Court of the Archon",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002471 \"Court of the Archon\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Court-of-the-Archon) faction keywords: Aeldari, <Kabal>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "6897-8b55-f703-7d4e",
+    "entryName": "Grotesques",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000651 \"Grotesques\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Grotesques) faction keywords: <Haemonculus Coven>, Drukhari, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "0a1e-abbc-c986-0b6c",
+    "entryName": "Incubi",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000648 \"Incubi\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Incubi) faction keywords: Drukhari, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "8738-a567-5340-4450",
+    "entryName": "Mandrakes",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000649 \"Mandrakes\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Mandrakes) faction keywords: Drukhari, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "71d4-0f50-7358-6977",
+    "entryName": "Clawed Fiends",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000653 \"Clawed Fiends\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Clawed-Fiends) faction keywords: Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "2bd3-2b66-0d6e-ff43",
+    "entryName": "Hellions",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000659 \"Hellions\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Hellions) faction keywords: Aeldari, <Wych Cult>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "dbee-fddd-850a-9571",
+    "entryName": "Khymerae",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000654 \"Khymerae\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Khymerae) faction keywords: Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "2064-05c4-c968-9878",
+    "entryName": "Razorwing Flocks",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000655 \"Razorwing Flocks\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Razorwing-Flocks) faction keywords: Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "4da6-8b2a-acaf-d1fe",
+    "entryName": "Reavers",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000658 \"Reavers\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Reavers) faction keywords: Drukhari, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "ac7a-8b7f-4e94-ac7f",
+    "entryName": "Scourges",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000662 \"Scourges\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Scourges) faction keywords: Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "4f27-1486-dd47-0b85",
+    "entryName": "Ravager",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000665 \"Ravager\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Ravager) faction keywords: <Kabal>, Drukhari, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "7553-e71e-0216-8610",
+    "entryName": "Reaper",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000666 \"Reaper\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Reaper) faction keywords: Aeldari, Drukhari, <Haemonculus Coven> or <Kabal> or <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "f0f3-5144-6b79-b79a",
+    "entryName": "Tantalus",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000667 \"Tantalus\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Tantalus) faction keywords: Drukhari, <Haemonculus Coven> or <Kabal> or <Wych Cult>, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "d083-1adc-1385-58b4",
+    "entryName": "Raven Strike Fighter [Legends]",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001390 \"Raven Strike Fighter\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Raven-Strike-Fighter) faction keywords: Drukhari, <Kabal> or <Wych Cult>, Aeldari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "829b-aac7-d866-01ca",
+    "entryName": "Razorwing Jetfighter",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000660 \"Razorwing Jetfighter\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Razorwing-Jetfighter) faction keywords: Drukhari, <Kabal>, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "eb16-edc2-adda-2952",
+    "entryName": "Voidraven Bomber",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000661 \"Voidraven Bomber\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Voidraven-Bomber) faction keywords: Drukhari, <Kabal>, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "ac3c-0072-8a03-fe04",
+    "entryName": "Raider",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000656 \"Raider\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Raider) faction keywords: Drukhari, <Haemonculus Coven>, <Kabal>, Aeldari, <Wych Cult>. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "a74d-d706-214e-86a0",
+    "entryName": "Venom",
+    "add": [
+      "Aeldari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000657 \"Venom\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Venom) faction keywords: <Wych Cult>, Aeldari, <Kabal>, <Haemonculus Coven>, Drukhari. BSData v9.8.0 has no \"Faction: Aeldari\" category on this entry. Without it a Drukhari unit shares no Faction keyword with Asuryani or Harlequins units, so an army of Drukhari and other Aeldari detachments (Army Faction AELDARI) was reported as army-faction."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "57e7-3971-03d4-b37a",
+    "entryName": "Troupe",
+    "add": [
+      "Harlequins"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002536 \"Troupe\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/Troupe) faction keywords: Harlequins, Aeldari, <Saedath>, Ynnari. BSData v9.8.0 has no \"Faction: Harlequins\" category on this entry."
   }
 ]
