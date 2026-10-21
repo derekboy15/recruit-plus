@@ -9,7 +9,7 @@ import { addForce, addUnit, chooseInGroup } from './edit';
 import { evaluate, type ForceView, type RosterView, type SelView } from './evaluate';
 import { availableUnits } from './options';
 import { resolve, rootEntriesFor, type Scope } from './scope';
-import { COST_CP, COST_PTS, type BattleSizeId, type Fix, type Issue, type Roster } from './types';
+import { COST_CP, COST_PTS, type BattleSizeId, type CostMap, type Fix, type Issue, type Roster } from './types';
 import { validateConstraints } from './validate';
 
 // ---------- v9.8.0 .gst ids ----------
@@ -193,7 +193,44 @@ const MAX_SUGGESTIONS = 3;
  */
 export function validate(scope: Scope, roster: Roster, policy: PolicyData): { view: RosterView; issues: Issue[] } {
   const view = evaluate(scope, roster);
+  waiveDetachmentCommandCosts(view);
   return { view, issues: [...dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] })), ...validatePolicy(scope, view, policy)] };
+}
+
+/**
+ * Arks of Omen battle sizes (§2.3, §7.5): every detachment costs 0 CP, an allied Patrol, Super-Heavy Auxiliary or
+ * Auxiliary Support included. BSData charges those through the force's Detachment Command Cost selection, so its CP is
+ * set to 0 in the view (and the force and army totals). Starting CP (Battle Size) and stratagems are left as they are.
+ */
+function waiveDetachmentCommandCosts(view: RosterView): void {
+  for (const fv of view.forces) {
+    for (const v of fv.selections) {
+      const cp = detachmentCommandCp(view, v);
+      if (!cp) continue;
+      v.own = withoutCp(v.own, cp);
+      v.total = withoutCp(v.total, cp);
+      fv.total = withoutCp(fv.total, cp);
+      view.total = withoutCp(view.total, cp);
+    }
+  }
+}
+
+/** The CP an Arks of Omen battle size waives on this selection: a Detachment Command Cost selection's CP, else 0. */
+function detachmentCommandCp(view: RosterView, v: SelView): number {
+  if (BATTLE_SIZES[view.roster.battleSize]?.mode !== 'aoo' || v.merged?.target.id !== DETACHMENT_COMMAND_COST_ENTRY) return 0;
+  return v.total[COST_CP] ?? 0;
+}
+
+/** Detachment Command Cost CP an Arks of Omen battle size waives that is still in the view's total. */
+function unwaivedDetachmentCp(view: RosterView): number {
+  return view.forces.reduce((n, fv) => n + fv.selections.reduce((k, v) => k + detachmentCommandCp(view, v), 0), 0);
+}
+
+/** The cost map less `cp` CP, without a zero entry (cost maps keep only non-zero entries). */
+function withoutCp(costs: CostMap, cp: number): CostMap {
+  const { [COST_CP]: current = 0, ...rest } = costs;
+  const left = current - cp;
+  return left ? { ...rest, [COST_CP]: left } : rest;
 }
 
 /** Drops an issue whose fix is the same as an earlier issue's (one problem BSData reports twice, e.g. a second Warlord). Issues without a fix stay. */
@@ -247,7 +284,8 @@ class PolicyCheck {
       const pts = view.total[COST_PTS] ?? 0;
       if (pts > bs.points) this.issues.push({ rule: 'points-over', subject: { id: bs.id, name: bs.name }, limit: bs.points, actual: pts });
     }
-    const cp = view.total[COST_CP] ?? 0;
+    // validate() has already waived Arks of Omen detachment costs; a view straight from evaluate() still carries them.
+    const cp = (view.total[COST_CP] ?? 0) - unwaivedDetachmentCp(view);
     if (cp < 0) this.issues.push({ rule: 'cp-negative', subject: { id: COST_CP, name: 'CP' }, limit: 0, actual: cp });
     if (bs) this.detachmentCount(bs);
     for (const fv of view.forces) {

@@ -1,12 +1,15 @@
 import { test, expect, describe } from 'vitest';
 import {
+  addChild,
   addForce,
   addUnit,
   buildScope,
+  childOptions,
   evaluate,
   resolve,
   rootEntriesFor,
   validateConstraints,
+  COST_CP,
   COST_PTS,
   type Issue,
   type Roster,
@@ -28,6 +31,8 @@ import {
   validate,
   validatePolicy,
 } from '../src/roster/policy';
+import sororitas from './corpus/imperium/imperium-adepta-sororitas';
+import { buildFromSpec, type ListSpec } from './corpus/spec';
 import { realCatalogueId, realCatalogues, realFiles, realPolicy, realScope } from './helpers/realScope';
 
 const policy = realPolicy();
@@ -163,6 +168,63 @@ describe('points, CP and Rule of Two/Three', () => {
     expect(ofRule(validatePolicy(necronsScope, view, policy), 'cp-negative')).toEqual([]);
     const negative = { ...view, total: { ...view.total, '2d3b-b544-ad49-fb75': -1 } };
     expect(ofRule(validatePolicy(necronsScope, negative, policy), 'cp-negative')).toEqual([{ rule: 'cp-negative', subject: { id: '2d3b-b544-ad49-fb75', name: 'CP' }, limit: 0, actual: -1 }]);
+  });
+
+  describe('Arks of Omen detachments cost 0 CP (§2.3, §7.5)', () => {
+    const scope = realScope('imperium-adepta-sororitas', 'imperium-imperial-knights');
+    const sisters = realCatalogueId('imperium-adepta-sororitas');
+    // Sororitas Arks of Omen Strike Force + Imperial Knights Freeblade Super-Heavy Auxiliary (BSData: -3 CP).
+    const freeblade = sororitas.legal.find((s) => s.title.includes('Freeblade'))!;
+    const withCanoness = (options: string[]): ListSpec => ({
+      ...freeblade,
+      detachments: freeblade.detachments.map((d, i) => (i === 0 ? { ...d, units: d.units.map((u) => (u.name === 'Canoness' ? { ...u, options } : u)) } : d)),
+    });
+    const cpOf = (r: Roster) => validate(scope, r, policy).view.total[COST_CP] ?? 0;
+
+    test('an allied Super-Heavy Auxiliary costs nothing: 6 CP from the Battle Size', () => {
+      const r = buildFromSpec(scope, sisters, freeblade);
+      expect(evaluate(scope, r).total[COST_CP]).toBe(3); // BSData charges the ally 3 CP
+      const { view, issues } = validate(scope, r, policy);
+      expect(view.total[COST_CP]).toBe(6);
+      expect(issues).toEqual([]);
+      const ally = view.forces[1];
+      expect(ally.total[COST_CP] ?? 0).toBe(0);
+      expect(ally.selections.find((v) => v.name === 'Detachment Command Cost')!.total[COST_CP] ?? 0).toBe(0);
+    });
+
+    test('Requisition Stratagems still cost CP', () => {
+      expect(cpOf(buildFromSpec(scope, sisters, withCanoness(['Stratagem: Relic'])))).toBe(5);
+    });
+
+    test('cp-negative counts the ally as 0 CP', () => {
+      // Relic, Warlord Trait and two A Sacred Burden (twice at Strike Force, Wahapedia Stratagems): 4 CP of 6.
+      const spec = withCanoness(['Stratagem: Relic']);
+      const burden = { options: ['Sister Superior > Stratagem: A Sacred Burden'] };
+      spec.detachments[0].units = spec.detachments[0].units.map((u, i) => (i === 1 || i === 2 ? { ...u, ...burden } : u));
+      let r = buildFromSpec(scope, sisters, spec);
+      const canoness = evaluate(scope, r).forces[0].selections.find((v) => v.name === 'Canoness')!;
+      const trait = childOptions(scope, r, canoness.sel.id).find((o) => o.kind !== 'group' && o.name === 'Stratagem: Warlord Trait')!;
+      r = addChild(scope, r, canoness.sel.id, trait.id);
+      expect(evaluate(scope, r).total[COST_CP]).toBe(-1); // what BSData alone would say
+      const { view, issues } = validate(scope, r, policy);
+      expect(view.total[COST_CP]).toBe(2);
+      expect(ofRule(issues, 'cp-negative')).toEqual([]);
+    });
+
+    test('Combat Patrol and Onslaught still pay detachment CP as BSData says', () => {
+      const patrol = sororitas.legal.find((s) => s.battleSize === 'combat-patrol')!;
+      const cp = buildFromSpec(scope, sisters, patrol);
+      expect(cpOf(cp)).toBe(evaluate(scope, cp).total[COST_CP]);
+      // Onslaught: 18 CP; the Warlord's Patrol is refunded, a second Patrol costs 2 (§2.1, §5).
+      const onslaught: ListSpec = {
+        ...patrol,
+        battleSize: 'onslaught',
+        detachments: [patrol.detachments[0], { detachment: 'Patrol Detachment -2CP', units: [{ name: 'Palatine' }, { name: 'Battle Sister Squad' }] }],
+      };
+      const r = buildFromSpec(scope, sisters, onslaught);
+      expect(cpOf(r)).toBe(16);
+      expect(validate(scope, r, policy).view.forces[1].selections.find((v) => v.name === 'Detachment Command Cost')!.total[COST_CP]).toBe(-2);
+    });
   });
 
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
