@@ -57,7 +57,7 @@
       "scope": "roster",
       "value": 1
     },
-    "source": "Wahapedia datasheet 000000142 (The Emperor's Champion): \"Your army can only include one EMPEROR'S CHAMPION model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army. Codex Supplement: Black Templars has one Emperor's Champion per army as well (research library 03_Codexes/Imperium/Black_Templars.md)."
+    "source": "Wahapedia datasheet 000000142 (The Emperor's Champion), unit composition: \"Your army can only include one EMPEROR'S CHAMPION model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",

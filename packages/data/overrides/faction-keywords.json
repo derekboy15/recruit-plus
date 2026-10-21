@@ -41,9 +41,10 @@
     "entryName": "Exaction Squad",
     "add": [
       "Imperium",
-      "Agents of the Imperium"
+      "Agents of the Imperium",
+      "Adeptus Arbites"
     ],
-    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002685 \"Exaction Squad\" (https://wahapedia.ru/wh40k9ed/factions/agents-of-the-imperium/Exaction-Squad) faction keywords: Adeptus Arbites, Agents of the Imperium, Imperium. BSData v9.8.0 has neither \"Faction: Imperium\" nor \"Faction: Agents of the Imperium\" on this entry (both added so it shares a faction with the rest of an Agents detachment; ADEPTUS ARBITES is a catalogue category, not a .gst one, and is left out)."
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002685 \"Exaction Squad\" (https://wahapedia.ru/wh40k9ed/factions/agents-of-the-imperium/Exaction-Squad) faction keywords: Adeptus Arbites, Agents of the Imperium, Imperium. BSData v9.8.0 has none of \"Faction: Imperium\", \"Faction: Agents of the Imperium\", \"Faction: Adeptus Arbites\" on this entry (all added: IMPERIUM and AGENTS OF THE IMPERIUM so it shares a faction with the rest of an Agents detachment; ADEPTUS ARBITES is the Agents catalogue's own Faction category)."
   },
   {
     "catalogueName": "Imperium - Space Marines",
@@ -427,5 +428,122 @@
       "Grey Knights"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001363 \"Stormhawk Interceptor\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Stormhawk-Interceptor) faction keywords: Imperium, Sanctic Astartes, Grey Knights, <Brotherhood>. BSData v9.8.0 has no \"Faction: Grey Knights\" category on this entry (the Grey Knights catalogue's own category), so a detachment with it shares only IMPERIUM with Grey Knights units that lack SANCTIC ASTARTES, such as a Brother-Captain."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "32b5-5cdc-16af-2150",
+    "entryName": "Battle Sanctum",
+    "add": [
+      "Adepta Sororitas"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002068 \"Battle Sanctum\" (https://wahapedia.ru/wh40k9ed/factions/adepta-sororitas/Battle-Sanctum) faction keywords: Adepta Sororitas, Adeptus Ministorum, Imperium. BSData v9.8.0 has no \"Faction: Adepta Sororitas\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "70dc-3414-76ce-c58e",
+    "entryName": "Junith Eruita",
+    "add": [
+      "Adepta Sororitas"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002064 \"Junith Eruita\" (https://wahapedia.ru/wh40k9ed/factions/adepta-sororitas/Junith-Eruita) faction keywords: Adepta Sororitas, Adeptus Ministorum, Imperium, Order of Our Martyred Lady. BSData v9.8.0 has no \"Faction: Adepta Sororitas\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "afcb-6c0f-3557-c7fa",
+    "entryName": "Repressor [Legends]",
+    "add": [
+      "Adeptus Ministorum"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001199 \"Repressor\" (https://wahapedia.ru/wh40k9ed/factions/adepta-sororitas/Repressor) faction keywords: <Order>, Adepta Sororitas, Adeptus Ministorum, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Ministorum\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "entryId": "a223-6073-946a-8fee",
+    "entryName": "Blade Champion",
+    "add": [
+      "Adeptus Custodes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002518 \"Blade Champion\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-custodes/Blade-Champion) faction keywords: <Shield Host>, Adeptus Custodes, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Custodes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryId": "8d79-d7a1-6eff-431c",
+    "entryName": "Servitors",
+    "add": [
+      "Cult Mechanicus"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000847 \"Servitors\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Servitors) faction keywords: <Forge World>, Adeptus Mechanicus, Cult Mechanicus, Imperium. BSData v9.8.0 has no \"Faction: Cult Mechanicus\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryId": "81d1-1b5f-e97c-35ba",
+    "entryName": "Inquisitor Coteaz",
+    "add": [
+      "Inquisition"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000876 \"Inquisitor Coteaz\" (https://wahapedia.ru/wh40k9ed/factions/agents-of-the-imperium/Inquisitor-Coteaz) faction keywords: Agents of the Imperium, Imperium, Inquisition, Ordo Malleus. BSData v9.8.0 has no \"Faction: Inquisition\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryId": "bce8-c0d0-a780-4e8a",
+    "entryName": "Vigilant Squad",
+    "add": [
+      "Adeptus Arbites"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002683 \"Vigilant Squad\" (https://wahapedia.ru/wh40k9ed/factions/agents-of-the-imperium/Vigilant-Squad) faction keywords: Adeptus Arbites, Agents of the Imperium, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Arbites\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "f4b7-6f8e-448d-9c3b",
+    "entryName": "Brother-Captain",
+    "add": [
+      "Sanctic Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000376 \"Brother-Captain\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Brother-Captain) faction keywords: <Brotherhood>, Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "38ba-4407-1cdf-bd8b",
+    "entryName": "Dreadnought",
+    "add": [
+      "Sanctic Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000390 \"Dreadnought\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Dreadnought) faction keywords: <Brotherhood>, Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "30b4-cee3-1edf-7ee5",
+    "entryName": "Grand Master Voldus",
+    "add": [
+      "Sanctic Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000374 \"Grand Master Voldus\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Grand-Master-Voldus) faction keywords: Grey Knights, Imperium, Sanctic Astartes, Wardmakers. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "ad4f-aef9-b95b-10f3",
+    "entryName": "Grey Knights Thunderhawk Gunship",
+    "add": [
+      "Grey Knights"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001197 \"Grey Knights Thunderhawk Gunship\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Grey-Knights-Thunderhawk-Gunship) faction keywords: <Brotherhood>, Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Grey Knights\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "630a-1d50-0a37-a639",
+    "entryName": "Kaldor Draigo",
+    "add": [
+      "Sanctic Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000373 \"Kaldor Draigo\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Kaldor-Draigo) faction keywords: Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "4623-e156-ac81-26cd",
+    "entryName": "Venerable Dreadnought",
+    "add": [
+      "Sanctic Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000400 \"Venerable Dreadnought\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Venerable-Dreadnought) faction keywords: Grey Knights, Imperium, Sanctic Astartes. BSData v9.8.0 has no \"Faction: Sanctic Astartes\" category on this entry."
   }
 ]
