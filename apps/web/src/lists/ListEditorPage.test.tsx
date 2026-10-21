@@ -261,6 +261,44 @@ test("in a Character's own editor the Warlord hint points to the option below", 
   expect(within(editor).queryByText(/Open a Character/)).not.toBeInTheDocument();
 });
 
+/** A new Imperial Knights Strike Force list (Arks of Omen Detachment, no army options picked yet); returns its id. */
+async function knightsList() {
+  const [scope, policy, index] = await Promise.all([getRosterScope(['imperium-imperial-knights']), getPolicy(), getIndex()]);
+  const catalogue = index.catalogues.find((c) => c.slug === 'imperium-imperial-knights')!;
+  const roster = startingRoster(scope, { name: 'Knights', catalogueId: catalogue.id, sizeId: 'strike-force', forceId: FORCE.arksOfOmen });
+  return createList(createRepository(db), 'user-1', listData(scope, policy, roster, catalogue));
+}
+
+test('an army choice that takes two (Chivalric Oath) is a set of checkboxes, closed to a third once two are picked', async () => {
+  const u = user();
+  renderEditor(await knightsList());
+  await opened();
+  const oaths = screen.getByRole('group', { name: 'Chivalric Oath' });
+  expect(within(oaths).queryAllByRole('radio')).toHaveLength(0);
+  expect(within(oaths).getByText('Pick 2: your army needs this choice.')).toBeInTheDocument();
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' }));
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Lay Low The Tyrants' }));
+  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' })).toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Lay Low The Tyrants' })).toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Refuse No Challenge' })).toBeDisabled();
+  expect(within(oaths).queryByText(/Pick 2/)).not.toBeInTheDocument();
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' }));
+  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' })).not.toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Refuse No Challenge' })).toBeEnabled();
+});
+
+test('only the army choice that is still missing asks for a pick, not the other choices of the same option', async () => {
+  const u = user();
+  renderEditor(await knightsList());
+  await opened();
+  // Picking an allegiance reveals a second choice in the same army option: its households.
+  await u.click(within(screen.getByRole('group', { name: 'Questor Allegiance' })).getByRole('radio', { name: 'Questor Imperialis' }));
+  const allegiance = await screen.findByRole('group', { name: 'Questor Allegiance: Questor Allegiance Oath' });
+  expect(within(allegiance).getByRole('radio', { name: 'Questor Imperialis' })).toBeChecked();
+  expect(within(allegiance).queryByText(/Pick one/)).not.toBeInTheDocument();
+  expect(within(screen.getByRole('group', { name: 'Questor Allegiance: Noble Households' })).getByText(/Pick one/)).toBeInTheDocument();
+});
+
 test('an item the rules data no longer has is shown with a Remove button', async () => {
   const u = user();
   const id = await necronsList('strike-force', (r) => ({

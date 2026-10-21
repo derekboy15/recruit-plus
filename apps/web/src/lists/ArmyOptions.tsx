@@ -15,6 +15,12 @@ import type { EditorAction } from './useRosterEditor';
 
 interface Props { scope: Scope; roster: Roster; view: RosterView; army: ForceView; issues: Issue[]; dispatch: (a: EditorAction) => unknown }
 
+/** "Pick 2", "Pick 1–3", "Pick at least 1": how many a group that takes several needs. */
+function pickCount(c: ArmyChoice): string {
+  if (c.max === -1) return `Pick at least ${c.min}`;
+  return c.min === c.max ? `Pick ${c.max}` : `Pick ${c.min}–${c.max}`;
+}
+
 /**
  * Army-wide choices (Dynasty, Army of Renown, the Arks of Omen compulsory type…) as pick-one lists, and on/off army
  * options such as stratagems bought before the battle. They live in the first detachment.
@@ -32,14 +38,16 @@ export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Pro
   if (!choices.length && !toggles.length) return null;
 
   const selOf = (entryId: string) => army.selections.find((s) => s.sel.entryId === entryId);
-  /** A problem asks for this choice: nothing picked yet, or the army option itself is missing. */
+  /**
+   * A problem asks for this choice: too few picked in its group, or the army option itself is missing. A problem about
+   * the army option that names none of its groups (a choice nested deeper) marks all of them.
+   */
   const needsPick = (c: ArmyChoice) => {
     const sel = selOf(c.entryId);
-    return issues.some((i) =>
-      sel
-        ? i.rule === 'option-required' && i.selId === sel.sel.id
-        : i.fix?.kind === 'add-unit' && i.fix.entryIds.length === 1 && i.fix.entryIds[0] === c.entryId,
-    );
+    if (!sel) return issues.some((i) => i.fix?.kind === 'add-unit' && i.fix.entryIds.length === 1 && i.fix.entryIds[0] === c.entryId);
+    const own = issues.filter((i) => i.rule === 'option-required' && i.selId === sel.sel.id);
+    const groups = new Set(choices.filter((x) => x.entryId === c.entryId).map((x) => x.groupId));
+    return own.some((i) => i.subject.id === c.groupId || !groups.has(i.subject.id));
   };
   /** Optional army options (Army of Renown) can be taken out again; ones the army must have (Dynasty Choice) can't. */
   const optional = (c: ArmyChoice) => {
@@ -57,7 +65,11 @@ export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Pro
         const sel = selOf(c.entryId);
         const missing = needsPick(c);
         const none = optional(c);
-        const current = c.options.find((o) => o.id === c.current)?.name ?? (none && !sel ? 'None' : 'Not chosen');
+        // A group that takes more than one (Chivalric Oath: two) is a set of checkboxes.
+        const multi = c.max !== 1;
+        const picked = multi ? c.options.filter((o) => o.selIds.length > 0) : c.options.filter((o) => o.id === c.current);
+        const current = picked.length ? picked.map((o) => o.name).join(', ') : none && !sel ? 'None' : 'Not chosen';
+        const full = c.max !== -1 && picked.length >= c.max;
         // Collapsed to "Title: choice" so a phone reaches the units quickly; open while a choice is still needed.
         return (
           <details key={c.key} className="army-choice" open={missing || undefined}>
@@ -67,14 +79,30 @@ export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Pro
             </summary>
             <fieldset className="choices">
               <legend className="sr-only">{c.title}</legend>
-              {missing && <p className="hint">Pick one: your army needs this choice.</p>}
-              {none && (
+              {missing && <p className="hint">{`${multi ? pickCount(c) : 'Pick one'}: your army needs this choice.`}</p>}
+              {multi &&
+                c.options.map((o) => {
+                  const on = o.selIds.length > 0;
+                  const toggle = () =>
+                    on
+                      ? o.selIds.forEach((selId) => dispatch({ type: 'remove', selId }))
+                      : sel
+                        ? dispatch({ type: 'add-child', parentSelId: sel.sel.id, entryId: o.id })
+                        : dispatch({ type: 'army-choice', choice: c, optionId: o.id });
+                  return (
+                    <label key={o.id} className="opt">
+                      <input type="checkbox" checked={on} disabled={!on && full} onChange={toggle} />
+                      <span className="opt__name">{o.name}</span>
+                    </label>
+                  );
+                })}
+              {!multi && none && (
                 <label className="radio-card">
                   <input type="radio" name={c.key} checked={!sel} onChange={() => sel && dispatch({ type: 'remove', selId: sel.sel.id })} />
                   <span className="radio-card__name">None</span>
                 </label>
               )}
-              {c.options.map((o) => (
+              {!multi && c.options.map((o) => (
                 <label key={o.id} className="radio-card">
                   <input
                     type="radio"

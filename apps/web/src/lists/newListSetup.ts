@@ -101,8 +101,12 @@ export interface ArmyChoice {
   entryId: string;
   groupId: string;
   title: string;
-  options: { id: string; name: string }[];
-  /** The option the starting roster already has, if any. */
+  /** How many the group takes (max -1: no limit). Most take exactly one; Imperial Knights' Chivalric Oath takes two. */
+  min: number;
+  max: number;
+  /** selIds: the roster's selections of that option (none when the army option isn't in the roster yet). */
+  options: { id: string; name: string; selIds: string[] }[];
+  /** The option the starting roster already has, if any (the first, when the group takes several). */
   current: string | null;
 }
 
@@ -133,6 +137,7 @@ export function armyChoices(scope: Scope, roster: Roster): ArmyChoice[] {
   for (const option of armyOptions(scope, roster, forceSelId)) {
     if (isSetBySteps(scope, option.entryId)) continue;
     let selId = scratch.forces[0].selections.find((s) => s.entryId === option.entryId)?.id;
+    const inRoster = selId !== undefined;
     if (!selId) {
       const added = addUnit(scope, scratch, forceSelId, option.entryId);
       scratch = added.roster;
@@ -147,7 +152,9 @@ export function armyChoices(scope: Scope, roster: Roster): ArmyChoice[] {
         entryId: option.entryId,
         groupId: g.id,
         title: choiceTitle(option.name, groups.length > 1 ? g.name : null),
-        options: options.map((o) => ({ id: o.id, name: displayName(o.name) })),
+        min: g.min,
+        max: g.max,
+        options: options.map((o) => ({ id: o.id, name: displayName(o.name), selIds: inRoster ? o.selIds : [] })),
         current: options.find((o) => o.count > 0)?.id ?? null,
       });
     }
