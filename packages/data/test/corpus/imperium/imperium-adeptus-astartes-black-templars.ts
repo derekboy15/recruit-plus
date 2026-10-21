@@ -60,6 +60,14 @@ export default {
       expectRules: ['slot-max'],
     },
     {
+      // The Emperor's Champion: "Your army can only include one EMPEROR'S CHAMPION model" (Wahapedia datasheet
+      // 000000142; overrides/add-constraints.json). Two of one datasheet are within the Rule of Two at Incursion.
+      title: "two Emperor's Champions",
+      battleSize: 'incursion',
+      detachments: [{ detachment: AOO, units: [HELBRECHT, { name: "The Emperor's Champion" }, { name: "The Emperor's Champion" }, ...THREE_CRUSADERS] }],
+      expectRules: ['unique'],
+    },
+    {
       // §5: one Warlord per army.
       title: 'Helbrecht and Grimaldus both Warlord',
       battleSize: 'incursion',

@@ -6,7 +6,7 @@ import { loadGameData } from '../src/bsdata/gamedata';
 import type { RawCatalogue, RawNode } from '../src/bsdata/types';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
-import { emitRosterFile, type ConstraintOverride, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
+import { emitRosterFile, type AddedConstraint, type ConstraintOverride, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
 import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
 
 const ROOT = join(__dirname, '..');
@@ -253,6 +253,37 @@ describe('mini fixture', () => {
     expect(emit({ constraintId: 'missing' })).toThrow(/missing/);
     expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
     expect(emit({ scope: 'detachment' as ConstraintOverride['scope'] })).toThrow(/unknown scope "detachment"/);
+  });
+
+  const added = (o: Partial<AddedConstraint> = {}, c: Partial<AddedConstraint['constraint']> = {}): AddedConstraint => ({
+    catalogueName: 'Mini Faction',
+    entryId: 'se-warriors',
+    entryName: 'Warriors',
+    constraint: { type: 'max', field: 'selections', scope: 'roster', value: 1, ...c },
+    source: 'test',
+    ...o,
+  });
+
+  test('added constraints go on the matching node with a stable id', () => {
+    const out = emitRosterFile(cat, 'mini-faction', { addedConstraints: [added(), added({ catalogueName: 'Other', entryId: 'nope' })] });
+    const node = findNode(out.shared, 'se-warriors')!;
+    // Counted like BSData's own once-per-army limits: child selections and child forces included.
+    expect(node.constraints!.at(-1)).toEqual({ id: 'se-warriors-added-max-roster', type: 'max', field: 'selections', scope: 'roster', value: 1, childSel: true, childForces: true });
+    expect(node.constraints!.length).toBe(findNode(emitRosterFile(cat, 'mini-faction').shared, 'se-warriors')!.constraints!.length + 1);
+    // A link works too.
+    const link = findNode(emitRosterFile(cat, 'mini-faction', { addedConstraints: [added({ entryId: 'el-unit' }, { scope: 'force' })] }).rootEntries, 'el-unit')!;
+    expect(link.constraints).toEqual([{ id: 'el-unit-added-max-force', type: 'max', field: 'selections', scope: 'force', value: 1, childSel: true, childForces: true }]);
+  });
+
+  test('added constraints throw on an unknown entry, a different name, an unsupported constraint or a duplicate', () => {
+    const emit = (...list: AddedConstraint[]) => () => emitRosterFile(cat, 'mini-faction', { addedConstraints: list });
+    expect(emit(added({ entryId: 'missing' }))).toThrow(/missing/);
+    expect(emit(added({ entryName: 'Wrong' }))).toThrow(/expects "Wrong" but found "Warriors"/);
+    expect(emit(added({}, { scope: 'self' as never }))).toThrow(/unsupported constraint/);
+    expect(emit(added({}, { type: 'exactly' as never }))).toThrow(/unsupported constraint/);
+    expect(emit(added({}, { field: 'points' as never }))).toThrow(/unsupported constraint/);
+    expect(emit(added({}, { value: -1 }))).toThrow(/unsupported constraint/);
+    expect(emit(added(), added())).toThrow(/already has constraint se-warriors-added-max-roster/);
   });
 
   test("constraint overrides name a category link by a linked catalogue's category, or say the name is unknown", () => {

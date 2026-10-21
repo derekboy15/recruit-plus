@@ -273,6 +273,39 @@ describe('points, CP and Rule of Two/Three', () => {
     }
   });
 
+  test('one-per-army units BSData leaves unlimited or limits per detachment are unique per army (Wahapedia datasheets)', () => {
+    const MARINES = ['Primaris Captain', 'Intercessor Squad'];
+    const successor = (chapter: string, successors: string) => ({ '**Chapter Selector**': [successors, chapter] });
+    // [catalogue, unit, [HQ, Troops] to fill each Patrol, army choices that make the unit available]
+    const cases: [string, string, string[], Record<string, string[]>?][] = [
+      ['imperium-adeptus-astartes-imperial-fists', 'Tor Garadon', MARINES],
+      ['imperium-adeptus-astartes-imperial-fists', 'Pedro Kantor', MARINES, successor('Crimson Fists', 'Imperial Fists Successor')],
+      ['imperium-adeptus-astartes-salamanders', 'Adrax Agatone', MARINES],
+      ['imperium-adeptus-astartes-black-templars', "The Emperor's Champion", MARINES],
+      ['imperium-adeptus-astartes-ultramarines', 'Sergeant Telion', MARINES],
+      ['imperium-adeptus-astartes-ultramarines', 'Sergeant Chronus', MARINES],
+      ['imperium-adeptus-astartes-ultramarines', 'Epistolary Lykandos', MARINES, successor('Tome Keepers', 'Ultramarines Successor')],
+      ['imperium-adeptus-astartes-ultramarines', 'Orator Sephax', MARINES, successor('Tome Keepers', 'Ultramarines Successor')],
+      ['imperium-adeptus-astartes-ultramarines', 'Ancient Kae', MARINES, successor('Tome Keepers', 'Ultramarines Successor')],
+      ['imperium-adeptus-astartes-ultramarines', 'Asterion Moloc', MARINES, successor('Minotaurs', 'Ultramarines Successor')],
+      ['imperium-adeptus-astartes-ultramarines', 'Ivanus Enkomi', MARINES, successor('Minotaurs', 'Ultramarines Successor')],
+      ['imperium-adeptus-astartes-ultramarines', 'Agent of the Imperium > Lord Inquisitor Kyria Draxus', MARINES],
+      ['imperium-adeptus-astartes-blood-angels', 'Sanguinary Ancient', MARINES],
+      ['imperium-adepta-sororitas', 'Arch-Confessor Kyrinov [Legends]', ['Canoness', 'Battle Sister Squad']],
+      ['imperium-grey-knights', 'Paladin Ancient', ['Brother-Captain', 'Strike Squad']],
+      ['imperium-adeptus-mechanicus', 'X-101', ['Tech-Priest Dominus', 'Skitarii Rangers']],
+    ];
+    for (const [slug, unit, [hq, troops], army] of cases) {
+      const scope = realScope(slug);
+      const patrol = (warlord: boolean) => ({ detachment: 'Patrol Detachment -2CP', army, units: [{ name: hq, warlord }, { name: troops }, { name: unit }] });
+      // One in each of two Onslaught Patrols: no per-detachment limit is broken, only the per-army one.
+      const spec: ListSpec = { title: unit, battleSize: 'onslaught', detachments: [patrol(true), patrol(false)], expect: { points: 0, powerLevel: 0 } };
+      const name = unit.split('>').pop()!.trim();
+      const { issues } = validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy);
+      expect(issues.filter((i) => i.subject.name === name).map((i) => [i.rule, i.limit, i.actual]), `${slug}: ${name}`).toEqual([['unique', 1, 2]]);
+    }
+  });
+
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
     const r0 = necronRoster('strike-force');
     const fs = r0.forces[0].id;

@@ -102,7 +102,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
-  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints]] as const) {
+  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints]] as const) {
     for (const o of list) if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`${file} names unknown catalogue "${o.catalogueName}"`);
   }
   // The .gst's category ids by name: faction-keywords.json links units to its "Faction: …" categories.
@@ -114,7 +114,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
     const scopeCategories = categoryNamesById(cat === gd.system ? [gd.system] : catalogueScope(gd, cat.id));
-    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, systemCategories, scopeCategories });
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, systemCategories, scopeCategories });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }

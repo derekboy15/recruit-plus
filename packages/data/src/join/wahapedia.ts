@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { BattlefieldRole, FactionGroup, UnitOut } from '../model/types';
-import type { ConstraintOverride, CostOverride, FactionKeywordOverride } from '../roster/emit';
+import type { AddedConstraint, ConstraintOverride, CostOverride, FactionKeywordOverride } from '../roster/emit';
 import { htmlToText, normalizeName } from '../text';
 import type { Row, Wahapedia } from '../wahapedia/load';
 
@@ -28,6 +28,8 @@ export interface Overrides {
   factionKeywords: FactionKeywordOverride[];
   /** BSData constraints pinned at another value in the roster files (overrides/constraints.json). */
   constraints: ConstraintOverride[];
+  /** Limits BSData leaves out, added to the roster files (overrides/add-constraints.json). */
+  addedConstraints: AddedConstraint[];
 }
 
 export function loadOverrides(dir: string): Overrides {
@@ -40,6 +42,7 @@ export function loadOverrides(dir: string): Overrides {
     costs: read('costs.json'),
     factionKeywords: read('faction-keywords.json'),
     constraints: read('constraints.json'),
+    addedConstraints: read('add-constraints.json'),
   };
 }
 

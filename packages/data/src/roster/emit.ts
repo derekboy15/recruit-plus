@@ -64,11 +64,26 @@ export interface ConstraintOverride {
 }
 const CONSTRAINT_SCOPES = ['self', 'parent', 'force', 'roster'] as const;
 
+/**
+ * A limit BSData leaves out (overrides/add-constraints.json), added to the entry or link `entryId` with the id
+ * `<entryId>-added-<type>-<scope>`. It counts child selections and child forces, like BSData's own once-per-army
+ * limits, so a constraint on a shared entry counts every link to it.
+ */
+export interface AddedConstraint {
+  catalogueName: string;
+  entryId: string;
+  entryName: string;
+  constraint: { type: 'min' | 'max'; field: 'selections'; scope: (typeof ADDED_SCOPES)[number]; value: number };
+  source: string;
+}
+const ADDED_SCOPES = ['parent', 'force', 'roster'] as const;
+
 /** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
 export interface EmitOverrides {
   costs: CostOverride[];
   factionKeywords: FactionKeywordOverride[];
   constraints: ConstraintOverride[];
+  addedConstraints: AddedConstraint[];
   /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
   systemCategories: Map<string, string>;
   /**
@@ -271,6 +286,20 @@ function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, o
   }
 }
 
+function applyAddedConstraints(file: RosterFile, catalogueName: string, added: AddedConstraint[]): void {
+  for (const o of added.filter((x) => x.catalogueName === catalogueName)) {
+    const { type, field, scope, value } = o.constraint;
+    if (!['min', 'max'].includes(type) || field !== 'selections' || !ADDED_SCOPES.includes(scope) || !Number.isInteger(value) || value < 0) {
+      throw new Error(`Added constraint for "${catalogueName}" entry ${o.entryId} ("${o.entryName}") is an unsupported constraint ${JSON.stringify(o.constraint)}`);
+    }
+    const id = `${o.entryId}-added-${type}-${scope}`;
+    for (const n of overrideTargets(file, 'Added constraint', o)) {
+      if (n.constraints?.some((c) => c.id === id)) throw new Error(`Added constraint for "${catalogueName}": entry ${o.entryId} already has constraint ${id}`);
+      n.constraints = [...(n.constraints ?? []), { id, type, field, scope, value, childSel: true, childForces: true }];
+    }
+  }
+}
+
 function applyConstraintOverrides(
   file: RosterFile,
   catalogueName: string,
@@ -332,6 +361,7 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   };
   applyCostOverrides(file, cat.name, overrides.costs ?? []);
   applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
+  applyAddedConstraints(file, cat.name, overrides.addedConstraints ?? []);
   applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map(), overrides.scopeCategories ?? new Map());
   return file;
 }

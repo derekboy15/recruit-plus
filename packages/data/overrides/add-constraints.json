@@ -1,0 +1,158 @@
+[
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryId": "3f9f-1d3f-5029-6a34",
+    "entryName": "Tor Garadon",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001991 (Tor Garadon): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryId": "2119-b883-7c60-5e46",
+    "entryName": "Pedro Kantor",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000000131 (Pedro Kantor): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Salamanders",
+    "entryId": "264d-cbed-e233-21d1",
+    "entryName": "Adrax Agatone",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001992 (Adrax Agatone): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryId": "132c-a00e-3b0b-5795",
+    "entryName": "Lord Inquisitor Kyria Draxus",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002090 (Lord Inquisitor Kyria Draxus): \"Your army can only include one KYRIA DRAXUS model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "entryId": "efe5-16b5-2443-aac3",
+    "entryName": "The Emperor's Champion",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000000142 (The Emperor's Champion): \"Your army can only include one EMPEROR'S CHAMPION model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army. Codex Supplement: Black Templars has one Emperor's Champion per army as well (research library 03_Codexes/Imperium/Black_Templars.md)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "5d4e-81f1-caf9-1c7f",
+    "entryName": "Sergeant Telion",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000000137 (Sergeant Telion): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "1d94-fbe2-0706-0a16",
+    "entryName": "Sergeant Chronus",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000000138 (Sergeant Chronus): \"You can only include one of this model in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "41b6-b617-a122-5292",
+    "entryName": "Epistolary Lykandos",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002465 (Epistolary Lykandos): \"Your army can only include one LYKANDOS model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "9a04-1f70-d99f-39c0",
+    "entryName": "Orator Sephax",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002466 (Orator Sephax): \"Your army can only include one SEPHAX model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "edd3-7cfc-5669-8a51",
+    "entryName": "Ancient Kae",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002467 (Ancient Kae): \"Your army can only include one KAE model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "4e8a-f723-76eb-14dc",
+    "entryName": "Arch-Confessor Kyrinov [Legends]",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002062 (Arch-Confessor Kyrinov): \"Only one ARCH-CONFESSOR KYRINOV model can be included in your army.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Blood Angels",
+    "entryId": "316a-4885-0888-7e6c",
+    "entryName": "Sanguinary Ancient",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002283 (Sanguinary Ancient): \"Your army can only include one SANGUINARY ANCIENT model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "9790-e0f9-5343-81bc",
+    "entryName": "Paladin Ancient",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000000385 (Paladin Ancient): \"Your army can only include one PALADIN ANCIENT.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  }
+]
