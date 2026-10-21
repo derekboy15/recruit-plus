@@ -30,7 +30,7 @@ function fakeClient(result: { data: unknown; error: { message: string } | null }
 
 test('the Supabase source asks for one public, undeleted document by id and nothing else', async () => {
   const { client, calls } = fakeClient({ data: { data, updated_at: 1700000000000 }, error: null });
-  const found = await createSupabasePublicSource(client).get('abc');
+  const found = await createSupabasePublicSource(async () => client).get('abc');
   expect(calls).toEqual([
     ['from', 'documents'],
     ['select', 'data, updated_at'],
@@ -44,7 +44,7 @@ test('the Supabase source asks for one public, undeleted document by id and noth
 
 test('the Supabase source returns null when there is no such row', async () => {
   const { client } = fakeClient({ data: null, error: null });
-  expect(await createSupabasePublicSource(client).get('nope')).toBeNull();
+  expect(await createSupabasePublicSource(async () => client).get('nope')).toBeNull();
 });
 
 test('the Supabase source returns null for a row that is not a usable list', async () => {
@@ -61,13 +61,13 @@ test('the Supabase source returns null for a row that is not a usable list', asy
   ];
   for (const row of malformed) {
     const { client } = fakeClient({ data: { data: row, updated_at: 1 }, error: null });
-    expect(await createSupabasePublicSource(client).get('odd')).toBeNull();
+    expect(await createSupabasePublicSource(async () => client).get('odd')).toBeNull();
   }
 });
 
 test('the Supabase source throws when the server fails, so the page can say it could not load', async () => {
   const { client } = fakeClient({ data: null, error: { message: 'boom' } });
-  await expect(createSupabasePublicSource(client).get('x')).rejects.toThrow('boom');
+  await expect(createSupabasePublicSource(async () => client).get('x')).rejects.toThrow('boom');
 });
 
 let db: RecruitDb;

@@ -7,7 +7,7 @@ import type { Doc } from './types';
 const doc: Doc = { id: '00000000-0000-4000-8000-000000000001', kind: 'list', ownerId: 'u', updatedAt: 1, deleted: false, isPublic: false, data: {}, dirty: true };
 
 /** A client whose every query resolves to `result`. */
-const clientReturning = (result: unknown) => {
+const clientReturning = (result: unknown) => async () => {
   const chain: Record<string, unknown> = {};
   for (const m of ['select', 'eq', 'gt', 'order', 'limit']) chain[m] = () => chain;
   chain.then = (resolve: (v: unknown) => unknown) => resolve(result);

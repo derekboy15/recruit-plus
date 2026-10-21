@@ -1,4 +1,4 @@
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseLoader } from '../auth/backend';
 import { SyncAuthError, type RemoteStore } from './sync';
 import type { Doc } from './types';
 
@@ -30,7 +30,7 @@ function syncError(what: string, error: RemoteError, status?: number): Error {
   return isAuthFailure(error, status) ? new SyncAuthError(message) : new Error(message);
 }
 
-export function createSupabaseRemote(client: SupabaseClient): RemoteStore {
+export function createSupabaseRemote(load: SupabaseLoader): RemoteStore {
   return {
     async pushDocs(docs) {
       const rows = docs.map((d) => ({
@@ -42,11 +42,11 @@ export function createSupabaseRemote(client: SupabaseClient): RemoteStore {
         deleted: d.deleted,
         is_public: d.isPublic,
       }));
-      const { error, status } = await client.from('documents').upsert(rows);
+      const { error, status } = await (await load()).from('documents').upsert(rows);
       if (error) throw syncError('push', error, status);
     },
     async pullSince(ownerId, cursor) {
-      const { data, error, status } = await client
+      const { data, error, status } = await (await load())
         .from('documents')
         .select('*')
         .eq('owner_id', ownerId)

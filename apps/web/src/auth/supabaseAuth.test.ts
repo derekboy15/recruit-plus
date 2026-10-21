@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import type { SupabaseClient } from '@supabase/supabase-js';
 import { expect, test } from 'vitest';
 import { createSupabaseAuth } from './supabaseAuth';
 import type { AuthEvent, User } from './types';
@@ -15,8 +16,35 @@ test('the real client reports its first state as an INITIAL event, not a sign-ou
     global: { fetch: async () => { throw new TypeError('Failed to fetch'); } },
   });
   const events: [User | null, AuthEvent][] = [];
-  const off = createSupabaseAuth(client).onChange((u, e) => events.push([u, e]));
+  const off = createSupabaseAuth(async () => client).onChange((u, e) => events.push([u, e]));
   await new Promise((r) => setTimeout(r, 200));
   off();
   expect(events[0]).toEqual([null, 'INITIAL']);
+});
+
+test('listening stopped before the client has loaded never subscribes, and a later load still works', async () => {
+  let release!: (client: SupabaseClient) => void;
+  const loaded = new Promise<SupabaseClient>((resolve) => (release = resolve));
+  const subscribed: string[] = [];
+  const fake = {
+    auth: {
+      onAuthStateChange: () => {
+        subscribed.push('on');
+        return { data: { subscription: { unsubscribe: () => subscribed.push('off') } } };
+      },
+    },
+  } as unknown as SupabaseClient;
+  const auth = createSupabaseAuth(() => loaded);
+  const off = auth.onChange(() => {});
+  off();
+  release(fake);
+  await loaded;
+  await new Promise((r) => setTimeout(r, 0));
+  expect(subscribed).toEqual([]);
+
+  const offLater = auth.onChange(() => {});
+  await new Promise((r) => setTimeout(r, 0));
+  expect(subscribed).toEqual(['on']);
+  offLater();
+  expect(subscribed).toEqual(['on', 'off']);
 });

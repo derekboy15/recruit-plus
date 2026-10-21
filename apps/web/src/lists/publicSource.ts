@@ -3,7 +3,7 @@
  * anyone, signed in or not, because the table lets everyone read public documents); in local development it is the
  * database on this device. The choice is made once in App.tsx and handed down through PublicSourceContext.
  */
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseLoader } from '../auth/backend';
 import { createContext, useContext } from 'react';
 import type { RecruitDb } from '../storage/db';
 import type { ListData } from './listStore';
@@ -23,10 +23,10 @@ function looksLikeList(data: unknown): data is ListData {
   );
 }
 
-export function createSupabasePublicSource(client: SupabaseClient): PublicListSource {
+export function createSupabasePublicSource(load: SupabaseLoader): PublicListSource {
   return {
     async get(id) {
-      const { data, error } = await client
+      const { data, error } = await (await load())
         .from('documents')
         .select('data, updated_at')
         .eq('id', id)
