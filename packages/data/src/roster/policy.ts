@@ -188,8 +188,12 @@ export function detachmentChoices(scope: Scope, r: Roster, policy: PolicyData, c
   });
 }
 
-/** Whether some unit of each catalogue could share a faction keyword other than UNALIGNED (CatalogueSummary.factions). */
+/**
+ * Whether some unit of each catalogue could share a faction keyword other than UNALIGNED (CatalogueSummary.factions).
+ * An index cached from before the field existed has none: every catalogue in the group is offered, as before.
+ */
 function shareFaction(a: CatalogueSummary, b: CatalogueSummary): boolean {
+  if (!a.factions || !b.factions) return true;
   const unaligned = FACTION_PREFIX + 'Unaligned';
   return a.factions.some((f) => f !== unaligned && b.factions.includes(f));
 }
