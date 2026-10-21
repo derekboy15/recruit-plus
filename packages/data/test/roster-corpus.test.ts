@@ -153,13 +153,12 @@ const UNCOVERED_RULES = new Set<RuleKind>(['unknown-entry', 'other']);
 const MIN_CATALOGUES_PER_RULE = 3;
 
 describe('corpus coverage', () => {
-  // Both enabled in Task 11, once Tasks 10–11 have added the remaining catalogues.
-  test.todo('covers every playable catalogue in the index', () => {
+  test('covers every playable catalogue in the index', () => {
     const covered = new Set(corpora.map((c) => c.corpus.catalogue));
     expect(catalogues.filter((c) => !c.library && !covered.has(c.name)).map((c) => c.name)).toEqual([]);
   });
 
-  test.todo(`every rule kind except unknown-entry and other appears in at least ${MIN_CATALOGUES_PER_RULE} catalogues`, () => {
+  test(`every rule kind except unknown-entry and other appears in at least ${MIN_CATALOGUES_PER_RULE} catalogues`, () => {
     expect(allRuleKinds).toBe(true);
     const thin = RULE_KINDS.filter((rule) => !UNCOVERED_RULES.has(rule)).flatMap((rule) => {
       const n = corpora.filter((c) => c.corpus.illegal.some((s) => s.expectRules.includes(rule))).length;

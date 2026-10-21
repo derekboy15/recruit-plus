@@ -67,6 +67,26 @@ export default {
       // 80 + 3 × 90 + 90 = 440; PL 5 + 3 × 5 + 5 = 25
       expect: { points: 440, powerLevel: 25 },
     },
+    {
+      // Arks of Omen allies (§7.5): an IMPERIUM army may take one Leagues of Votann Patrol (Wahapedia snapshot points;
+      // see xenos/leagues-of-votann.ts).
+      title: 'Arks of Omen Strike Force with a Leagues of Votann Patrol ally',
+      battleSize: 'strike-force',
+      detachments: [
+        { detachment: AOO, units: [{ name: 'Uriel Ventris', warlord: true }, ...THREE_INTERCESSORS] }, // 100 + 3 × 90 = 370, PL 6 + 3 × 5 = 21
+        {
+          detachment: PATROL,
+          catalogue: 'Leagues of Votann',
+          army: { League: 'Trans-Hyperian Alliance' },
+          units: [
+            { name: 'Grimnyr' }, // 100 per unit (Grimnyr and 2 CORVs), PL 4
+            { name: 'Hearthkyn Warriors w/ bolters' }, // 13 × 9 Hearthkyn Warriors + Theyn 13 = 130, PL 7
+          ],
+        },
+      ],
+      // 370 + 100 + 130 = 600; PL 21 + 4 + 7 = 32
+      expect: { points: 600, powerLevel: 32 },
+    },
   ],
   illegal: [
     {
