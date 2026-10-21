@@ -255,6 +255,24 @@ describe('points, CP and Rule of Two/Three', () => {
     }
   });
 
+  test('named characters BSData limits per detachment are unique per army (Wahapedia datasheets)', () => {
+    const named: Record<string, string[]> = {
+      'imperium-adeptus-astartes-space-wolves': ['Arjac Rockfist', 'Bjorn the Fell-handed', 'Ulrik The Slayer', 'Lukas the Trickster', 'Murderfang'],
+      'imperium-adeptus-astartes-dark-angels': ['Lazarus'],
+    };
+    for (const [slug, names] of Object.entries(named)) for (const name of names) {
+      const scope = realScope(slug);
+      const patrol = (warlord: boolean) => ({
+        detachment: 'Patrol Detachment -2CP',
+        units: [{ name: 'Primaris Captain', warlord }, { name: 'Intercessor Squad' }, { name }],
+      });
+      // One in each of two Onslaught Patrols: no per-detachment limit is broken, only the per-army one.
+      const spec: ListSpec = { title: name, battleSize: 'onslaught', detachments: [patrol(true), patrol(false)], expect: { points: 0, powerLevel: 0 } };
+      const { issues } = validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy);
+      expect(issues.filter((i) => i.subject.name === name).map((i) => [i.rule, i.limit, i.actual]), `${slug}: ${name}`).toEqual([['unique', 1, 2]]);
+    }
+  });
+
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
     const r0 = necronRoster('strike-force');
     const fs = r0.forces[0].id;

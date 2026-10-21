@@ -139,5 +139,53 @@
     "value": 1,
     "scope": "force",
     "source": "Codex: Imperial Knights (2022), Knight Lances: each Super-heavy detachment (or the single Super-heavy Auxiliary in Combat Patrol) nominates one Armiger, Questoris or Dominus Knight as a CHARACTER (research library 03_Codexes/Imperium/Imperial_Knights.md §2). BSData v9.8.0 limits Character (Knight Lance) to 1 per roster; the limit is 1 per detachment, so the scope becomes force."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryName": "Arjac Rockfist",
+    "constraintId": "69b6-a01c-d1a6-9086",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002326 (Arjac Rockfist): \"Your army can only include one ARJAC ROCKFIST model\". BSData v9.8.0 limits it to 1 per detachment (scope parent), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryName": "Bjorn the Fell-handed",
+    "constraintId": "2f7e-9158-b33d-9bb5",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002325 (Bjorn the Fell-handed): \"Your army can only include one BJORN THE FELL-HANDED model\". BSData v9.8.0 limits it to 1 per detachment (scope force), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryName": "Ulrik The Slayer",
+    "constraintId": "73b6-2ca8-1829-7199",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002327 (Ulrik the Slayer): \"Your army can only include one ULRIK THE SLAYER\". BSData v9.8.0 limits it to 1 per detachment (scope force), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryName": "Lukas the Trickster",
+    "constraintId": "55f6-fe0d-c49c-a6e4",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002338 (Lukas the Trickster): \"Your army can only include one LUKAS THE TRICKSTER model\". BSData v9.8.0 limits it to 1 per detachment (scope force), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryName": "Murderfang",
+    "constraintId": "7487-0d00-c187-7f92",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002342 (Murderfang): \"Your army can only include one MURDERFANG model\". BSData v9.8.0 limits it to 1 per detachment (scope force), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
+    "entryName": "Lazarus",
+    "constraintId": "c939-1bb4-cd7e-26cb",
+    "value": 1,
+    "scope": "roster",
+    "source": "Wahapedia datasheet 000002296 (Lazarus): \"Your army can only include one LAZARUS model\". BSData v9.8.0 limits it to 1 per detachment (scope force), so a second one in another detachment went unreported; the limit is per army, so the scope becomes roster."
   }
 ]
