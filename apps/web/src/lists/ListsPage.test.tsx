@@ -62,12 +62,12 @@ test('each list is a card with faction, size, points, and a Legal or problems ba
   const card = (await screen.findByRole('link', { name: /Tidy Necrons/ })) as HTMLElement;
   expect(card).toHaveAttribute('href', `/build/${legal}`);
   expect(card).toHaveTextContent('Necrons · Strike Force');
-  expect(card).toHaveTextContent('1995 / 2000 pts');
+  expect(card).toHaveTextContent('1,995 / 2,000 pts');
   expect(card).toHaveTextContent('Legal');
   const messy = screen.getByRole('link', { name: /Messy Necrons/ });
   expect(messy).toHaveAttribute('href', `/build/${broken}`);
   expect(messy).toHaveTextContent('Necrons · Incursion');
-  expect(messy).toHaveTextContent('2150 / 1000 pts');
+  expect(messy).toHaveTextContent('2,150 / 1,000 pts');
   expect(messy).toHaveTextContent('3 problems');
   expect(messy).not.toHaveTextContent('Legal');
   expect(screen.getByRole('link', { name: /Nearly/ })).toHaveAttribute('href', `/build/${oneProblem}`);

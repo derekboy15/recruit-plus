@@ -52,11 +52,6 @@ export async function createList(repo: Repository, ownerId: string, data: ListDa
   return id;
 }
 
-/** Replaces a list's data, keeping its id, owner and sharing setting. */
-export async function saveList(repo: Repository, doc: Pick<Doc<ListData>, 'id' | 'ownerId' | 'isPublic'>, data: ListData): Promise<void> {
-  await repo.saveDoc<ListData>({ id: doc.id, kind: 'list', ownerId: doc.ownerId, isPublic: doc.isPublic, data });
-}
-
 /** Turns link sharing on or off for a list. */
 export async function setListPublic(repo: Repository, id: string, isPublic: boolean): Promise<void> {
   const doc = await repo.getDoc<ListData>(id);

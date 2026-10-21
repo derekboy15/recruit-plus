@@ -8,7 +8,7 @@ import { openDb, type RecruitDb } from '../storage/db';
 import { isUuid } from '../storage/ids';
 import { createRepository, type Repository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
-import { createList, saveList, setListPublic, useLists, type ListData } from './listStore';
+import { createList, setListPublic, useLists, type ListData } from './listStore';
 import { keepPending } from './pendingEdits';
 
 const data = (name: string, over: Partial<ListData['summary']> = {}): ListData => ({
@@ -40,17 +40,6 @@ describe('listStore', () => {
     expect(doc.dirty).toBe(true);
     expect(doc.data.summary).toEqual(data('x').summary);
     expect(doc.data.roster.name).toBe('Necrons Strike Force');
-  });
-
-  test('saveList replaces the data but keeps the id, owner and public flag', async () => {
-    const id = await createList(repo, 'user-1', data('Old'));
-    await setListPublic(repo, id, true);
-    const before = (await repo.getDoc<ListData>(id))!;
-    await saveList(repo, before, data('New', { points: 1500, issueCount: 0 }));
-    const after = (await repo.getDoc<ListData>(id))!;
-    expect(after.data.roster.name).toBe('New');
-    expect(after.data.summary).toMatchObject({ points: 1500, issueCount: 0 });
-    expect(after).toMatchObject({ id, ownerId: 'user-1', isPublic: true, kind: 'list' });
   });
 
   test('setListPublic flips only the public flag', async () => {

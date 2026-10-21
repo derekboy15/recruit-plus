@@ -12,7 +12,7 @@ import { stubGeneratedData } from './__fixtures__/generatedData';
 import { necronsListData } from './__fixtures__/necronsList';
 import { ShareSheet } from './ExportSheet';
 import { ListEditorPage } from './ListEditorPage';
-import { createList, saveList, type ListData } from './listStore';
+import { createList, type ListData } from './listStore';
 import { createLocalPublicSource, PublicSourceContext } from './publicSource';
 
 let db: RecruitDb;
@@ -116,7 +116,7 @@ test('the switch stays on while the list is being saved, even when the save show
   // Like the editor's flush: the pending edit is written (still private), and the save takes a moment to finish.
   const flush = async () => {
     const doc = (await repo.getDoc<ListData>(id))!;
-    await saveList(repo, doc, { ...doc.data, roster: { ...doc.data.roster, name: 'Edited' } });
+    await repo.saveDoc<ListData>({ id: doc.id, kind: 'list', ownerId: doc.ownerId, isPublic: doc.isPublic, data: { ...doc.data, roster: { ...doc.data.roster, name: 'Edited' } } });
     await gate;
   };
   render(

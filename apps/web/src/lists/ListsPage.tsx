@@ -1,5 +1,6 @@
 import { BATTLE_SIZES } from '@recruit/data/roster';
 import { Link } from 'react-router-dom';
+import { fmt } from './editorView';
 import { useLists } from './listStore';
 
 export function ListsPage() {
@@ -27,7 +28,7 @@ export function ListsPage() {
                   </span>
                 </span>
                 <span className="list__side">
-                  <span>{`${summary.points} / ${summary.pointsLimit} pts`}</span>
+                  <span>{`${fmt(summary.points)} / ${fmt(summary.pointsLimit)} pts`}</span>
                   {problems > 0 ? (
                     <span className="status status--bad">{problems === 1 ? '1 problem' : `${problems} problems`}</span>
                   ) : (
