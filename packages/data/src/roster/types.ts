@@ -30,3 +30,10 @@ export interface RosterFile {
   categories: RCategory[];
   forces: RForce[];       // top-level forceEntries only
 }
+
+/** Roster documents: what the user builds. */
+export type BattleSizeId = 'combat-patrol' | 'incursion' | 'strike-force' | 'onslaught';
+/** count = identical copies; children apply to each copy. entryId = id of the chosen child node (a link id for links). */
+export interface Sel { id: string; entryId: string; count: number; children: Sel[] }
+export interface ForceSel { id: string; forceId: string; catalogueId: string; selections: Sel[] }
+export interface Roster { schema: 1; name: string; catalogueId: string; battleSize: BattleSizeId; forces: ForceSel[] }
