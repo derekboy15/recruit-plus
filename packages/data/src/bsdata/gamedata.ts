@@ -56,3 +56,8 @@ export function buildIdIndex(scope: RawCatalogue[]): Map<string, RawNode> {
   scope.forEach((c) => walk(c.root));
   return index;
 }
+
+/** Catalogues a player picks as their army. Libraries are only imported by these. */
+export function isPlayableCatalogue(cat: RawCatalogue): boolean {
+  return !cat.library;
+}

@@ -1,0 +1,7 @@
+[
+  { "catalogue": "Aeldari - Craftworlds", "unit": "Webway Gate", "source": "BSData v9.8.0 models this fortification with abilities only (no Unit profile)" },
+  { "catalogue": "Aeldari - Drukhari", "unit": "Webway Gate", "source": "BSData v9.8.0 models this fortification with abilities only (no Unit profile)" },
+  { "catalogue": "Aeldari - Harlequins", "unit": "Webway Gate", "source": "BSData v9.8.0 models this fortification with abilities only (no Unit profile)" },
+  { "catalogue": "Imperium - Astra Militarum", "unit": "Aegis Defence Line", "source": "BSData v9.8.0: terrain fortification with no Unit profile" },
+  { "catalogue": "Orks", "unit": "Mekboy Workshop", "source": "BSData v9.8.0: terrain fortification with no Unit profile" }
+]
