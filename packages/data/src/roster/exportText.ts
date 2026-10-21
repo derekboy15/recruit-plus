@@ -4,8 +4,8 @@
  */
 import { BATTLEFIELD_ROLES } from '../model/types';
 import type { ForceView, RosterView, SelView } from './evaluate';
-import { factionDisplayName } from './names';
-import { BATTLE_SIZES } from './policy';
+import { factionDisplayName, stripCpSuffix } from './names';
+import { BATTLE_SIZES, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY, GAME_TYPE_ENTRY } from './policy';
 import type { Scope } from './scope';
 import { COST_CP, COST_PL, COST_PTS, type CostMap } from './types';
 
@@ -14,6 +14,8 @@ const CONFIGURATION = 'Configuration';
 const WARLORD = 'Warlord';
 const OTHER = 'Other';
 const INDENT = '    ';
+/** Configuration entries the app manages itself (Game Type, Battle Size, Detachment Command Cost): never printed. */
+const AUTO_MANAGED = new Set([GAME_TYPE_ENTRY, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY]);
 
 const num = (n: number) => n.toLocaleString('en-GB');
 const cost = (costs: CostMap, id: string) => costs[id] ?? 0;
@@ -39,12 +41,12 @@ const isConfiguration = (v: SelView, scope: Scope) => scope.category(v.primary ?
 
 function forceBlock(fv: ForceView, scope: Scope): string[] {
   const catalogue = scope.catalogue(fv.force.catalogueId)?.name;
-  const lines = [`== ${fv.name} (${catalogue ? factionDisplayName(catalogue) : ''}) ==`];
+  const lines = [`== ${stripCpSuffix(fv.name)} (${catalogue ? factionDisplayName(catalogue) : ''}) ==`];
   const units = new Map<string, SelView[]>();
   for (const v of fv.selections) {
     if (!v.merged) continue; // an item the rules data no longer has
     if (isConfiguration(v, scope)) {
-      if (v.children.length) lines.push(`Army: ${v.name}: ${v.children.map((c) => c.name).join(', ')}`);
+      if (v.children.length && !AUTO_MANAGED.has(v.merged.target.id)) lines.push(`Army: ${v.name}: ${v.children.map((c) => c.name).join(', ')}`);
       continue;
     }
     const role = scope.category(v.primary ?? '')?.name ?? '';
@@ -71,13 +73,21 @@ function* descendants(children: SelView[], copies: number): Generator<{ v: SelVi
   }
 }
 
-/** Upgrade-like descendants (not models, not the Warlord, not zero) aggregated by name, first seen first. */
-function aggregate(children: SelView[]): Map<string, number> {
+/**
+ * Leaf upgrades (not models, not the Warlord, nothing selected under them, not zero) aggregated by name, first seen
+ * first. A parent option is shown through its leaves. `skipModels` leaves out everything inside a model stack.
+ */
+function aggregate(children: SelView[], skipModels = false): Map<string, number> {
   const out = new Map<string, number>();
-  for (const { v, qty } of descendants(children, 1)) {
-    if (v.type === 'model' || v.name === WARLORD || qty <= 0) continue;
-    out.set(v.name, (out.get(v.name) ?? 0) + qty);
-  }
+  const visit = (vs: SelView[], copies: number) => {
+    for (const v of vs) {
+      if (skipModels && v.type === 'model') continue;
+      const qty = copies * v.sel.count;
+      if (v.type !== 'model' && v.name !== WARLORD && qty > 0 && !v.children.length) out.set(v.name, (out.get(v.name) ?? 0) + qty);
+      visit(v.children, qty);
+    }
+  };
+  visit(children, 1);
   return out;
 }
 
@@ -88,13 +98,15 @@ function unitLines(v: SelView): string[] {
   const models = v.models > 1 ? ` (${num(v.models)} models)` : '';
   const lines = [`- ${copies}${v.name}${models} · ${num(cost(v.total, COST_PTS))} pts`];
   if (hasWarlord(v)) lines.push(`${INDENT}${WARLORD}`);
-  for (const [name, qty] of aggregate(v.children)) lines.push(`${INDENT}${num(qty)}x ${name}`);
-  lines.push(...modelLines(v));
+  const stacks = modelStacks(v);
+  const perModel = stacks.length > 1;
+  for (const [name, qty] of aggregate(v.children, perModel)) lines.push(`${INDENT}${num(qty)}x ${name}`);
+  if (perModel) lines.push(...stacks.map((s) => `${INDENT}${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`));
   return lines;
 }
 
-/** One line per distinct model stack, only when the unit has several: "Name (count): upgrade, upgrade". */
-function modelLines(unit: SelView): string[] {
+/** The unit's distinct model stacks (same model and upgrades merge): the per-model lines are printed when there are several. */
+function modelStacks(unit: SelView): { name: string; count: number; upgrades: string }[] {
   const stacks = new Map<string, { name: string; count: number; upgrades: string }>();
   for (const m of unit.children) {
     if (m.type !== 'model' || m.sel.count <= 0) continue;
@@ -104,6 +116,5 @@ function modelLines(unit: SelView): string[] {
     if (stack) stack.count += m.sel.count;
     else stacks.set(key, { name: m.name, count: m.sel.count, upgrades });
   }
-  if (stacks.size < 2) return [];
-  return [...stacks.values()].map((s) => `${INDENT}${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`);
+  return [...stacks.values()];
 }

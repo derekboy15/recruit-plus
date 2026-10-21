@@ -14,6 +14,8 @@ import { validateConstraints } from './validate';
 
 // ---------- v9.8.0 .gst ids ----------
 
+/** Detachment Command Cost (the root entry's target; the root link is ec87-f19e-eee2-1ba8). */
+export const DETACHMENT_COMMAND_COST_ENTRY = '9d97-2793-9882-d48a';
 /** Game Type (the root entry's target; the root link is 4bcc-b0f4-b425-f38e). */
 export const GAME_TYPE_ENTRY = 'bf09-85b2-c097-1071';
 /** Game Type (the choice group inside the Game Type entry). */

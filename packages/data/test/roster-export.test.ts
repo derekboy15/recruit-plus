@@ -75,30 +75,34 @@ describe('exportText (real Necrons)', () => {
       '',
       '== Arks of Omen Detachment (Necrons) ==',
       'Army: Dynasty Choice: Dynasty: Sautekh',
-      'Army: Game Type: 5. Chapter Approved: Arks of Omen',
-      'Army: Battle Size: 3. Strike Force (101-200 Total PL / 1001-2000 Points)',
       'Army: Arks of Omen Compulsory Type: Troops',
       'HQ',
       `- Overlord · ${ptsOf(view, 'Overlord')} pts`,
       '    Warlord',
-      '    1x Tachyon Arrow and Hyperphase Glaive',
       '    1x Tachyon Arrow',
       '    1x Hyperphase Glaive',
       '    1x Hand of the Phaeron',
       'Troops',
       `- Necron Warriors (20 models) · ${ptsOf(view, 'Necron Warriors')} pts`,
-      '    18x Gauss Flayer',
-      '    2x Gauss Reaper',
       '    Necron Warrior (Gauss Flayer) (18): Gauss Flayer',
       '    Necron Warrior (Gauss Reaper) (2): Gauss Reaper',
       '',
       FOOTER,
     ].join('\n');
     expect(exportText(view, scope)).toBe(expected);
+    // The auto-managed policy entries are still in the roster, just not printed.
+    expect(view.forces[0].selections.map((v) => v.name)).toEqual(expect.arrayContaining(['Game Type', 'Battle Size', 'Detachment Command Cost']));
     // The values read from BSData are real, not zero.
     expect(ptsOf(view, 'Overlord')).toBeGreaterThan(0);
     expect(ptsOf(view, 'Necron Warriors')).toBeGreaterThan(0);
     expect(total[COST_PTS]).toBe(ptsOf(view, 'Overlord') + ptsOf(view, 'Necron Warriors'));
+  });
+
+  test('a detachment name loses its CP suffix', () => {
+    const r = createRoster(scope, { name: 'Battalion', catalogueId: necrons, battleSize: 'onslaught', forceId: FORCE.battalion });
+    const view = evaluate(scope, r);
+    expect(view.forces[0].name).toMatch(/ -?\d+CP$/);
+    expect(exportText(view, scope)).toContain('\n== Battalion Detachment (Necrons) ==\n');
   });
 });
 
@@ -159,14 +163,23 @@ describe('exportText (mini fixture)', () => {
     const view = evaluate(scope, r);
     const lines = exportText(view, scope).split('\n');
     const at = lines.indexOf('Elites');
-    expect(lines.slice(at, at + 6)).toEqual([
+    // Model wargear appears only on the per-model lines.
+    expect(lines.slice(at, at + 5)).toEqual([
       'Elites',
       `- Squad (5 models) · ${ptsOf(view, 'Squad')} pts`,
-      '    3x Bolter',
-      '    2x Plasma',
       '    Squad Marine (3): Bolter',
       '    Squad Marine (2): Plasma',
+      '',
     ]);
+  });
+
+  test('one model stack keeps its upgrades in the aggregate and has no per-model line', () => {
+    let r = empty();
+    const squad = addUnit(scope, r, r.forces[0].id, M.L_SQUAD);
+    r = squad.roster;
+    const out = text(r).split('\n');
+    expect(out).toContain('    5x Bolter');
+    expect(out.some((l) => l.startsWith('    Squad Marine ('))).toBe(false);
   });
 
   test('stacks with the same model and upgrades are one stack, so no per-model lines', () => {
