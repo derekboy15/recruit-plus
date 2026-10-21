@@ -1,5 +1,5 @@
 import type { CatalogueOut, DataIndex } from '@recruit/data/model';
-import { buildScope, type PolicyData, type RosterFile, type Scope } from '@recruit/data/roster';
+import type { PolicyData, RosterFile, Scope } from '@recruit/data/roster';
 
 const cache = new Map<string, Promise<unknown>>();
 
@@ -49,7 +49,9 @@ async function loadScope(catalogueSlugs: string[]): Promise<Scope> {
     if (!summary) throw new Error(`No faction called "${slug}" in the data.`);
     for (const s of summary.rosterScope) if (s !== SYSTEM && !slugs.includes(s)) slugs.push(s);
   }
-  return buildScope(await Promise.all([...slugs, SYSTEM].map(getRosterFile)));
+  // Loaded on demand: the roster engine stays out of the main bundle (only the builder pages need it).
+  const [{ buildScope }, files] = await Promise.all([import('@recruit/data/roster'), Promise.all([...slugs, SYSTEM].map(getRosterFile))]);
+  return buildScope(files);
 }
 
 /** Test helper. */
