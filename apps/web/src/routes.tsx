@@ -1,5 +1,6 @@
 import { lazy, Suspense, type ReactNode } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { ErrorBoundary } from './layout/ErrorBoundary';
 import { Home } from './pages/Home';
 import { Legal } from './pages/Legal';
 import { Placeholder } from './pages/Placeholder';
@@ -14,7 +15,17 @@ const ListEditorPage = lazy(() => import('./lists/ListEditorPage').then((m) => (
 const SharePage = lazy(() => import('./lists/SharePage').then((m) => ({ default: m.SharePage })));
 
 const loadingPage = <p className="muted">Loading…</p>;
-const builder = (page: ReactNode) => <Suspense fallback={loadingPage}>{page}</Suspense>;
+
+/** A lazy page: a loading line while its code arrives, and a reload offer if it can't be fetched. */
+function LazyPage({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  return (
+    <ErrorBoundary resetKey={pathname}>
+      <Suspense fallback={loadingPage}>{children}</Suspense>
+    </ErrorBoundary>
+  );
+}
+const builder = (page: ReactNode) => <LazyPage>{page}</LazyPage>;
 
 /** Wraps routes that need a signed-in user (replaced by RequireAuth in Task 10). */
 export type Guard = (children: ReactNode) => ReactNode;
