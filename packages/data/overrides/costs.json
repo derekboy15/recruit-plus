@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "catalogueName": "Fallen",
+    "entryId": "90fa-7e44-02fc-0db0",
+    "entryName": "Cypher",
+    "costTypeId": "points",
+    "value": 90,
+    "source": "Wahapedia datasheet 000000926 (Cypher): Datasheets_models.Cost 90 (research library 03_Codexes/Chaos/Chaos_Space_Marines.md §6 and Other_Chaos_Content.md §4: \"Cypher (90 pts)\"). BSData v9.8.0's Chaos Space Marines Cypher (1ba6-ce2a-8095-e01a) is also 90; the unimported Fallen.cat copy still has an older 85."
+  }
+]
