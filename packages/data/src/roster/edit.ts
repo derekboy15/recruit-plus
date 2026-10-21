@@ -203,8 +203,9 @@ function fillRequired(scope: Scope, r: Roster, selIds: string[]): Roster {
 
 /**
  * Entry id → count for an empty container: every non-hidden entry or link with a minimum ≥ 1, then, for each group whose
- * minimum isn't met by those, the shortfall as copies of its default (or of its only non-hidden entry; a group with
- * several choices and no visible default is left for the user). One count per id, so a model minimum becomes one stack.
+ * minimum isn't met by those, the shortfall as copies of its default, up to the default's own maximum (or of its only
+ * non-hidden entry; a group with several choices and no visible default is left for the user). One count per id, so a
+ * model minimum becomes one stack.
  */
 function requiredChildren(scope: Scope, view: RosterView, container: SelView): Map<string, number> {
   const index = childIndex(scope, container.merged!.children);
@@ -230,8 +231,13 @@ function requiredChildren(scope: Scope, view: RosterView, container: SelView): M
         // Without a usable default, only a single visible choice is made for the user.
         const pick = members.find((f) => f.node.id === def) ?? (members.length === 1 ? members[0] : undefined);
         if (pick) {
-          add(pick.node.id, min - inGroup);
-          inGroup = min;
+          // Never past the default's own maximum: the rest of the group is then left for the user.
+          const { max } = childLimits(scope, view, container, pick.node);
+          const room = max === -1 ? min - inGroup : Math.min(min - inGroup, max - (out.get(pick.node.id) ?? 0));
+          if (room > 0) {
+            add(pick.node.id, room);
+            inGroup += room;
+          }
         }
       }
       added += inGroup;

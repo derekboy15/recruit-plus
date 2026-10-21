@@ -135,6 +135,18 @@ describe('edits', () => {
     expect(weapons(buildScope(structuredClone(files)))).toEqual([M.E_PLASMA]);
   });
 
+  test("a group default is never added beyond its own maximum", () => {
+    const files = structuredClone(M.miniFiles);
+    const group = files[0].shared.find((n) => n.id === M.E_SQUAD_MODEL)!.children![0];
+    // Two weapons, the default Bolter at most once: one Bolter, and the second weapon is left for the user.
+    group.constraints = group.constraints!.map((c) => ({ ...c, value: 2 }));
+    group.children![0].constraints = [{ id: 'c-bolter-max', type: 'max', field: 'selections', scope: 'parent', value: 1 }];
+    const s = buildScope(files);
+    const r0 = empty();
+    const { roster, selId } = addUnit(s, r0, r0.forces[0].id, M.L_SQUAD);
+    expect(findSel(roster, selId).children[0].children.map((c) => [c.entryId, c.count])).toEqual([[M.E_BOLTER, 1]]);
+  });
+
   test('addChild adds an option with its required children; unknown ids leave the roster unchanged', () => {
     const r0 = empty();
     const { roster, selId } = addUnit(scope, r0, r0.forces[0].id, M.L_WARRIORS);
