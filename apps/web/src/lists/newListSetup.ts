@@ -22,6 +22,7 @@ import {
   type Roster,
   type Scope,
 } from '@recruit/data/roster';
+import { cleanLabel } from './labels';
 import type { ListData } from './listStore';
 
 // ---------- step 2: battle sizes ----------
@@ -116,8 +117,6 @@ function isSetBySteps(scope: Scope, entryId: string): boolean {
   return target === GAME_TYPE_ENTRY || target === BATTLE_SIZE_ENTRY;
 }
 
-const tidy = (name: string) => name.replace(/^[-\s]+|[-\s]+$/g, '');
-
 const leafOptions = (nodes: OptionNode[]): OptionNode[] => nodes.flatMap((n) => (n.kind === 'group' ? leafOptions(n.children) : [n]));
 
 /**
@@ -146,13 +145,20 @@ export function armyChoices(scope: Scope, roster: Roster): ArmyChoice[] {
         key: `${option.entryId}|${g.id}`,
         entryId: option.entryId,
         groupId: g.id,
-        title: groups.length > 1 ? `${option.name}: ${tidy(g.name)}` : option.name,
+        title: choiceTitle(option.name, groups.length > 1 ? g.name : null),
         options: options.map((o) => ({ id: o.id, name: o.name })),
         current: options.find((o) => o.count > 0)?.id ?? null,
       });
     }
   }
   return out;
+}
+
+/** "Hive Fleet" for an army option's only group; "Hive Fleet: Hyper-adaption" when it has several. */
+function choiceTitle(optionName: string, groupName: string | null): string {
+  const option = cleanLabel(optionName) || optionName.trim();
+  const group = groupName === null ? '' : cleanLabel(groupName);
+  return group && group !== option ? `${option}: ${group}` : option;
 }
 
 /** The roster with the player's picks applied (`picks`: choice key -> option id). Choices left out are left undecided. */

@@ -21,22 +21,25 @@ export interface ListData {
   };
 }
 
-/** The signed-in user's saved lists, newest edit first. `loading` is true until the first read finishes. */
-export function useLists(): { lists: Doc<ListData>[]; loading: boolean } {
+/**
+ * The signed-in user's saved lists, newest edit first. `loading` is true until the first read finishes; `error` is set
+ * when the local database can't be read (the lists page shows it instead of loading forever).
+ */
+export function useLists(): { lists: Doc<ListData>[]; loading: boolean; error: Error | null } {
   const { user } = useAuth();
   const { repo } = useStorage();
   const ownerId = user?.id;
-  const [state, setState] = useState<{ ownerId: string; lists: Doc<ListData>[] } | null>(null);
+  const [state, setState] = useState<{ ownerId: string; lists: Doc<ListData>[]; error: Error | null } | null>(null);
   useEffect(() => {
     if (!ownerId) return;
     const sub = liveQuery(() => repo.listDocs<ListData>('list', ownerId)).subscribe({
-      next: (lists) => setState({ ownerId, lists }),
-      error: (e) => console.warn('Could not read saved lists', e),
+      next: (lists) => setState({ ownerId, lists, error: null }),
+      error: (e: unknown) => setState({ ownerId, lists: [], error: e instanceof Error ? e : new Error(String(e)) }),
     });
     return () => sub.unsubscribe();
   }, [repo, ownerId]);
   const ready = state !== null && state.ownerId === ownerId;
-  return { lists: ready ? state.lists : [], loading: Boolean(ownerId) && !ready };
+  return { lists: ready ? state.lists : [], loading: Boolean(ownerId) && !ready, error: ready ? state.error : null };
 }
 
 /** Saves a new list under a fresh UUID and returns the id. */

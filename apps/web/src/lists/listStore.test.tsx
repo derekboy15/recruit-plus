@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { act, renderHook, waitFor } from '@testing-library/react';
 import type { ReactNode } from 'react';
-import { afterEach, beforeEach, describe, expect, test } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { AuthProvider } from '../auth/AuthContext';
 import type { AuthBackend } from '../auth/types';
 import { openDb, type RecruitDb } from '../storage/db';
@@ -23,6 +23,7 @@ beforeEach(() => {
   repo = createRepository(db);
 });
 afterEach(() => {
+  vi.restoreAllMocks();
   db.close();
   localStorage.clear();
 });
@@ -104,6 +105,17 @@ describe('useLists', () => {
     await repo.deleteDoc(id);
     const { result } = renderHook(() => useLists(), { wrapper: wrapper('user-1') });
     await waitFor(() => expect(result.current.loading).toBe(false));
+    expect(result.current.lists).toEqual([]);
+  });
+
+  test('a database that cannot be read gives an error instead of loading forever', async () => {
+    signedIn('user-1');
+    vi.spyOn(db.docs, 'where').mockImplementation(() => {
+      throw new Error('disk on fire');
+    });
+    const { result } = renderHook(() => useLists(), { wrapper: wrapper('user-1') });
+    await waitFor(() => expect(result.current.error).toBeInstanceOf(Error));
+    expect(result.current.loading).toBe(false);
     expect(result.current.lists).toEqual([]);
   });
 });

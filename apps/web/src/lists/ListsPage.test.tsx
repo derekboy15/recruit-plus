@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { afterEach, beforeEach, expect, test } from 'vitest';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { AuthProvider } from '../auth/AuthContext';
 import type { AuthBackend } from '../auth/types';
 import { openDb, type RecruitDb } from '../storage/db';
@@ -26,6 +26,7 @@ beforeEach(() => {
   localStorage.setItem('recruit.lastUser', JSON.stringify(user));
 });
 afterEach(() => {
+  vi.restoreAllMocks();
   db.close();
   localStorage.clear();
 });
@@ -72,4 +73,13 @@ test('each list is a card with faction, size, points, and a Legal or problems ba
   expect(screen.getByRole('link', { name: /Nearly/ })).toHaveAttribute('href', `/build/${oneProblem}`);
   expect(screen.getByRole('link', { name: /Nearly/ })).toHaveTextContent('1 problem');
   expect(screen.queryByText(/No lists yet/)).not.toBeInTheDocument();
+});
+
+test('when saved lists cannot be read it says so instead of "Loading…"', async () => {
+  vi.spyOn(db.docs, 'where').mockImplementation(() => {
+    throw new Error('disk on fire');
+  });
+  page();
+  expect(await screen.findByRole('alert')).toHaveTextContent(/couldn.t read your saved lists/i);
+  expect(screen.queryByText(/Loading/)).not.toBeInTheDocument();
 });

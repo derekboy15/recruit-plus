@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLists } from './listStore';
 
 export function ListsPage() {
-  const { lists, loading } = useLists();
+  const { lists, loading, error } = useLists();
   return (
     <section>
       <h1>Your lists</h1>
@@ -11,7 +11,8 @@ export function ListsPage() {
         New list
       </Link>
       {loading && <p className="muted">Loading your lists…</p>}
-      {!loading && lists.length === 0 && <p className="muted">No lists yet. Build your first army: it takes a couple of minutes.</p>}
+      {error && <p role="alert">Couldn’t read your saved lists on this device: {error.message}</p>}
+      {!loading && !error && lists.length === 0 && <p className="muted">No lists yet. Build your first army: it takes a couple of minutes.</p>}
       <ul className="list">
         {lists.map((l) => {
           const { summary } = l.data;
