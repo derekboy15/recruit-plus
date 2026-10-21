@@ -10,6 +10,7 @@ import {
   type ForceView,
   type Issue,
   type OptionNode,
+  type RNode,
   type RosterView,
   type Scope,
   type SelView,
@@ -35,6 +36,27 @@ export const isAutoManaged = (v: SelView) => v.merged !== null && AUTO_MANAGED.h
 export function isAutoManagedEntry(scope: Scope, entryId: string): boolean {
   const node = scope.node(entryId);
   return node !== undefined && AUTO_MANAGED.has(resolve(scope, node).target.id);
+}
+
+/**
+ * BattleScribe display helpers that sit among the army options but are not choices a player makes about the army:
+ * - unit filters for BattleScribe's own lists ("Hide Imperial Agents"),
+ * - rules shown on request ("Show Vows", "Deeds and Sagas [Reference]", "Warlord Traits (Reference)"),
+ * - the .gst "Use Beta Rules" switch (a BattleScribe setting, not a matched-play choice).
+ * An option holding only such helpers is one too: "Unit Filter" holds only "Hide …" switches, "Detachment Bonuses"
+ * only "Show Bonuses". The full list this hides in BSData v9.8.0 is pinned by editorView.test.ts.
+ */
+const HELPER_NAMES = [/^Hide /, /^Show /, /\(Reference\)|\[Reference\]/i, /^Use Beta Rules$/];
+
+export function isHelperOption(scope: Scope, entryId: string): boolean {
+  const node = scope.node(entryId);
+  return node !== undefined && isHelperNode(scope, node);
+}
+
+function isHelperNode(scope: Scope, node: RNode): boolean {
+  const merged = resolve(scope, node);
+  if (HELPER_NAMES.some((re) => re.test(merged.name.trim()))) return true;
+  return merged.children.length > 0 && merged.children.every((child) => isHelperNode(scope, child));
 }
 
 export interface RoleGroup { role: string; units: SelView[] }

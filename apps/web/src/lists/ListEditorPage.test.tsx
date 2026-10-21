@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { addUnit, availableUnits, FORCE, removeSelection, type BattleSizeId, type Roster } from '@recruit/data/roster';
+import { addUnit, armyOptions, availableUnits, FORCE, removeSelection, type BattleSizeId, type Roster } from '@recruit/data/roster';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
@@ -226,6 +226,29 @@ test('a missing army choice is added straight from its fix, then picked in Army 
   await u.click(within(dynasty).getByRole('radio', { name: 'Dynasty: Szarekhan' }));
   expect(within(dynasty).getByRole('radio', { name: 'Dynasty: Szarekhan' })).toBeChecked();
   expect(within(dynasty).queryByText(/Pick one/)).not.toBeInTheDocument();
+});
+
+test('Army options leave out BattleScribe helpers such as "Use Beta Rules"', async () => {
+  renderEditor(await necronsList());
+  await opened();
+  const options = screen.getByRole('region', { name: 'Army options' });
+  expect(within(options).getByRole('checkbox', { name: 'Stratagem: Heroic Support' })).toBeInTheDocument();
+  expect(within(options).queryByText('Use Beta Rules')).not.toBeInTheDocument();
+});
+
+test('a helper the list already has on stays in Army options, so it can be turned off', async () => {
+  const u = user();
+  const scope = await getRosterScope(['necrons']);
+  const id = await necronsList('strike-force', (r) => {
+    const beta = armyOptions(scope, r, r.forces[0].id).find((o) => o.name === 'Use Beta Rules')!;
+    return addUnit(scope, r, r.forces[0].id, beta.entryId).roster;
+  });
+  renderEditor(id);
+  await opened();
+  const beta = within(screen.getByRole('region', { name: 'Army options' })).getByRole('checkbox', { name: 'Use Beta Rules' });
+  expect(beta).toBeChecked();
+  await u.click(beta);
+  await waitFor(() => expect(screen.queryByRole('checkbox', { name: 'Use Beta Rules' })).not.toBeInTheDocument());
 });
 
 test('an item the rules data no longer has is shown with a Remove button', async () => {
