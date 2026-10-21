@@ -284,8 +284,9 @@ function dedupe(issues: Issue[]): Issue[] {
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
  * UNALIGNED units and units with no faction keyword; a detachment's check also ignores AGENT OF THE IMPERIUM units
  * when every other unit in it is IMPERIUM and none is FALLEN (§8.2), then units a codex lets into the detachment's
- * catalogue (battle-brothers.json), each unless the detachment has nothing else. In Arks of Omen battle sizes, the units of a permitted ally don't
- * count towards Army Faction (the pack allows e.g. a Leagues of Votann Patrol with an IMPERIUM army).
+ * catalogue (battle-brothers.json), each unless the detachment has nothing else. In Arks of Omen battle sizes, the
+ * units of a permitted ally don't count towards Army Faction (the pack allows e.g. a Leagues of Votann Patrol with an
+ * IMPERIUM army).
  */
 export function validatePolicy(scope: Scope, view: RosterView, policy: PolicyData): Issue[] {
   return new PolicyCheck(scope, view, policy).run();
