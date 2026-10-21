@@ -21,7 +21,7 @@ function AccountMenu() {
       <span className="muted" style={{ maxWidth: '40vw', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {user.email}
       </span>
-      <button className="btn" style={{ minHeight: 36, padding: '0 0.7rem' }} onClick={() => void signOut()}>
+      <button className="btn" style={{ padding: '0 0.8rem' }} onClick={() => void signOut()}>
         Sign out
       </button>
     </div>

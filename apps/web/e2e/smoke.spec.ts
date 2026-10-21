@@ -28,6 +28,11 @@ test('sign in (dev), browse to Necron Warriors, see the datasheet', async ({ pag
     expect(box.width).toBeLessThan(120);
   }
 
+  for (const target of [...(await nav.getByRole('link').all()), page.getByRole('button', { name: 'Sign out' })]) {
+    const b = (await target.boundingBox())!;
+    expect(b.height, 'touch target height').toBeGreaterThanOrEqual(44);
+  }
+
   await expect(page.getByText(/Unofficial fan-made tool/)).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
