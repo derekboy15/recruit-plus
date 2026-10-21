@@ -53,7 +53,7 @@ export function FactionPicker({ to, onPick, selected }: Props) {
                 const label = (
                   <>
                     <span>{factionDisplayName(c.name)}</span>
-                    <span className="muted">{c.unitCount} units</span>
+                    <span className="muted">{`${c.unitCount.toLocaleString('en-GB')} ${c.unitCount === 1 ? 'unit' : 'units'}`}</span>
                   </>
                 );
                 return (
