@@ -21,6 +21,7 @@ import {
   type SelView,
 } from '../src/roster';
 import * as M from './fixtures/roster/mini';
+import { buildFromSpec, type ListSpec } from './corpus/spec';
 import { realCatalogueId, realScope } from './helpers/realScope';
 
 const scope = buildScope(M.miniFiles);
@@ -138,6 +139,22 @@ describe('validateConstraints (mini fixture)', () => {
     // Warriors have no Warlord option; the army has no CHARACTER BSData lets be the Warlord.
     const { roster } = withUnits(rules, empty(rules), M.L_WARRIORS);
     expect(summary(validate(rules, roster))).toEqual([['slot-min', 'HQ', 1, 0]]);
+  });
+
+  test('the Warlord upgrade on a model inside a unit: warlord-missing, and the fix opens that unit', () => {
+    // Shaped like a Cadian Command Squad: the Warlord option sits on the Company Commander model, not on the unit.
+    const files = rulesFiles();
+    files[0].shared.find((n) => n.id === M.E_SQUAD_MODEL)!.children!.push({ id: 'se-squad-warlord', kind: 'entry', name: 'Warlord', type: 'upgrade' });
+    const s = buildScope(files);
+    const { roster, ids } = withUnits(s, empty(s), M.L_WARRIORS, M.L_SQUAD);
+    // The squad's models are child selections; the unit itself has no Warlord option.
+    expect(roster.forces[0].selections.find((x) => x.id === ids[1])!.children?.[0].entryId).toBe(M.L_SQUAD_MODEL);
+    const issues = validate(s, roster);
+    expect(summary(issues)).toEqual([
+      ['slot-min', 'HQ', 1, 0],
+      ['warlord-missing', 'Warlord', 1, 0],
+    ]);
+    expect(issues[1].fix).toEqual({ kind: 'open', selId: ids[1] });
   });
 
   test('two Warlords', () => {
@@ -386,5 +403,28 @@ describe('validateConstraints (real BSData v9.8.0)', () => {
     expect(slotCount(sm, view, troopsCat)).toBe(3);
     expect(carrying(view, troopsCat).every(([, depth]) => depth === 0)).toBe(true);
     expect(slotIssues(sm, r)).toEqual([]);
+  });
+
+  test('a Cadian Command Squad Patrol with no Warlord is warlord-missing (the option is on the Company Commander)', () => {
+    const am = realScope('imperium-astra-militarum');
+    const spec: ListSpec = {
+      title: 'Patrol: Cadian Command Squad + Cadian Shock Troops',
+      battleSize: 'combat-patrol',
+      detachments: [{ detachment: 'Patrol Detachment -2CP', units: [{ name: 'Cadian Command Squad' }, { name: 'Cadian Shock Troops' }] }],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    const r = buildFromSpec(am, realCatalogueId('imperium-astra-militarum'), spec);
+    const view = evaluate(am, r);
+    const squad = view.forces[0].selections.find((v) => v.name === 'Cadian Command Squad')!;
+    expect(squad.children.some((c) => c.type === 'model')).toBe(true);
+    const issues = validateConstraints(am, view);
+    expect(summary(issues)).toEqual([['warlord-missing', 'Warlord', 1, 0]]);
+    expect(issues[0].fix).toEqual({ kind: 'open', selId: squad.sel.id });
+    // With the Commander made the Warlord, the list is clean.
+    const withWarlord = buildFromSpec(am, realCatalogueId('imperium-astra-militarum'), {
+      ...spec,
+      detachments: [{ ...spec.detachments[0], units: [{ name: 'Cadian Command Squad', warlord: true }, { name: 'Cadian Shock Troops' }] }],
+    });
+    expect(validate(am, withWarlord)).toEqual([]);
   });
 });

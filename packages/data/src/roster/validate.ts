@@ -107,8 +107,9 @@ class Validator {
     else if (rule === 'warlord-extra' && newest) fix = { kind: 'open', selId: unitOf(newest).sel.id };
     else if (rule === 'warlord-missing') {
       // Core Book §5: the Warlord must be a CHARACTER only if the army has one, and BSData only offers the Warlord
-      // upgrade to such units. With no unit that can take it (a lone Titan or Damned Legionnaires), any model may be
-      // the Warlord and there is nothing for the list to record, so nothing is missing.
+      // upgrade to such units (or to a model inside them). With no unit that can take it at any depth (a lone Titan or
+      // Damned Legionnaires), any model may be the Warlord and there is nothing for the list to record, so nothing is
+      // missing. The fix opens the unit that holds the option.
       const candidate = this.warlordCandidate(this.scopeContainer(fv, c.scope, false), catId);
       if (!candidate) return;
       fix = { kind: 'open', selId: candidate.sel.id };
@@ -123,18 +124,21 @@ class Validator {
     return entryIds.length ? { kind: 'add-unit', forceSelId: fv.force.id, entryIds } : undefined;
   }
 
-  /** The first unit with a visible option that is the Warlord upgrade (by category or name). */
+  /**
+   * The first unit with a visible option that is the Warlord upgrade (by category or name), on the unit itself or on
+   * any selection inside it (many units carry it on a model: a Cadian Command Squad's Company Commander, say).
+   */
   private warlordCandidate(where: CountScope | null, catId: string): SelView | undefined {
     if (!where) return undefined;
     const units = isRoster(where) ? where.forces.flatMap((f) => f.selections) : isSel(where) ? where.children : where.selections;
-    return units.find(
-      (u) =>
-        u.merged &&
-        [...childIndex(this.scope, u.merged.children).values()].some(({ node }) => {
-          const t = evaluateCandidate(this.scope, this.view, u, node);
+    const offers = (s: SelView): boolean =>
+      (!!s.merged &&
+        [...childIndex(this.scope, s.merged.children).values()].some(({ node }) => {
+          const t = evaluateCandidate(this.scope, this.view, s, node);
           return !t.hidden && (t.categories.includes(catId) || t.name === WARLORD);
-        }),
-    );
+        })) ||
+      s.children.some(offers);
+    return units.find(offers);
   }
 
   // ---------- containers ----------
