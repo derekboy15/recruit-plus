@@ -42,7 +42,8 @@ export interface RosterView { roster: Roster; forces: ForceView[]; total: CostMa
  *   (self = the empty candidate, parent = at).
  */
 export interface EvalContext { scope: Scope; view: RosterView; at: SelView | ForceView; candidate?: Merged }
-export interface CountOpts { childSel: boolean; childForces: boolean; percent?: boolean }
+/** shared (default true): a childId matches through any link to it; false: only selections made through that exact node. */
+export interface CountOpts { childSel: boolean; childForces: boolean; percent?: boolean; shared?: boolean }
 
 const KNOWN_COST_TYPES = new Set([COST_PTS, COST_PL, COST_CP]);
 const UNKNOWN_NAME = 'Unknown item';
@@ -72,11 +73,12 @@ const isRoster = (x: object): x is RosterView => 'roster' in x;
 
 // ---------- child lookup ----------
 
-interface Found { node: RNode; groups: string[] }
+/** A selectable child node and the group ids (link and target) between it and its container, innermost first. */
+export interface Found { node: RNode; groups: string[] }
 const childIndexes = new WeakMap<RNode[], Map<string, Found>>();
 
 /** Selectable entries among `nodes`, looking inside groups (and links to groups) recursively. */
-function childIndex(scope: Scope, nodes: RNode[]): Map<string, Found> {
+export function childIndex(scope: Scope, nodes: RNode[]): Map<string, Found> {
   let index = childIndexes.get(nodes);
   if (index) return index;
   const out = new Map<string, Found>();
@@ -232,7 +234,8 @@ function multiplier(ctx: EvalContext, repeats: Repeat[]): number {
   for (const r of repeats) {
     if (r.value === 0) continue;
     const container = containerFor(ctx, r.scope);
-    const count = container ? countInContainer(ctx, container, r.field, r.childId, { childSel: !!r.childSel, childForces: !!r.childForces }) : 0;
+    const opts = { childSel: !!r.childSel, childForces: !!r.childForces, shared: r.shared !== false };
+    const count = container ? countInContainer(ctx, container, r.field, r.childId, opts) : 0;
     n += (r.roundUp ? Math.ceil : Math.floor)(count / r.value) * r.repeats;
   }
   return n;
@@ -343,9 +346,9 @@ function countInContainer(ctx: EvalContext, container: Container, field: string,
     if (!isRoster(container)) return 0;
     return container.forces.filter((f) => childId === 'any' || f.force.forceId === childId).length;
   }
-  const raw = sumIn(ctx.view, container, field, childId, opts.childSel);
+  const raw = sumIn(ctx.view, container, field, childId, opts.childSel, opts.shared !== false);
   if (!opts.percent) return raw;
-  const all = sumIn(ctx.view, container, field, 'any', opts.childSel);
+  const all = sumIn(ctx.view, container, field, 'any', opts.childSel, true);
   return all === 0 ? 0 : (raw * 100) / all;
 }
 
@@ -354,11 +357,11 @@ function countInContainer(ctx: EvalContext, container: Container, field: string,
  * Cost field: Σ total[field] × (copies of ancestors below the container) over matching selections; a matching
  * selection's total already includes its subtree, so the walk doesn't descend into it (nothing counts twice).
  */
-function sumIn(view: RosterView, container: SelView | ForceView | RosterView, field: string, childId: string, childSel: boolean): number {
+function sumIn(view: RosterView, container: SelView | ForceView | RosterView, field: string, childId: string, childSel: boolean, shared: boolean): number {
   const state = stateOf(view);
   let memo = state.memo.get(container);
   if (!memo) state.memo.set(container, (memo = new Map()));
-  const key = `${field}\n${childId}\n${childSel ? 1 : 0}`;
+  const key = `${field}\n${childId}\n${childSel ? 1 : 0}${shared ? 1 : 0}`;
   const hit = memo.get(key);
   if (hit !== undefined) return hit;
 
@@ -368,7 +371,7 @@ function sumIn(view: RosterView, container: SelView | ForceView | RosterView, fi
     for (const s of vs) {
       if (!s.merged) continue;
       const weight = copies * s.sel.count;
-      if (matches(state, s, childId)) {
+      if (matches(state, s, childId, shared)) {
         if (isCost) {
           n += copies * (s.total[field] ?? 0);
           continue;
@@ -384,11 +387,12 @@ function sumIn(view: RosterView, container: SelView | ForceView | RosterView, fi
   return n;
 }
 
-function matches(state: State, s: SelView, childId: string): boolean {
+/** Not shared: an entry id matches only the selection's own node (never a link through its target id). */
+function matches(state: State, s: SelView, childId: string, shared: boolean): boolean {
   return (
     childId === 'any' ||
     childId === s.type ||
-    s.merged!.ids.includes(childId) ||
+    (shared ? s.merged!.ids.includes(childId) : s.sel.entryId === childId) ||
     s.categories.includes(childId) ||
     (state.groups.get(s)?.includes(childId) ?? false)
   );
@@ -410,7 +414,8 @@ export function checkCond(ctx: EvalContext, c: Cond): boolean {
   }
   const container = containerFor(ctx, c.scope);
   if (!container) return false;
-  const n = countInContainer(ctx, container, c.field, c.childId, { childSel: !!c.childSel, childForces: !!c.childForces, percent: !!c.percent });
+  const opts = { childSel: !!c.childSel, childForces: !!c.childForces, percent: !!c.percent, shared: c.shared !== false };
+  const n = countInContainer(ctx, container, c.field, c.childId, opts);
   switch (c.type) {
     case 'lessThan': return n < c.value;
     case 'greaterThan': return n > c.value;
@@ -445,4 +450,55 @@ function instanceOf(ctx: EvalContext, key: string, childId: string): boolean | n
   if (isEmpty(container)) return candidateIs(candidate!, childId);
   if (isRoster(container)) return container.roster.catalogueId === childId;
   return isInstance(container, childId);
+}
+
+// ---------- child nodes ----------
+// A child node (entry, link or group) of a container is evaluated at the container (the holding selection, or the
+// force for root entries) as an unselected candidate, so scope `parent` is the container. The validator uses the same.
+
+export interface CandidateView { name: string; hidden: boolean; categories: string[]; primary: string | null; costs: CostMap }
+
+export function childContext(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): EvalContext {
+  return { scope, view, at: container, candidate: resolve(scope, node) };
+}
+
+/** Effective name, hidden, categories and cost of one copy of a child node before it is selected. */
+export function evaluateCandidate(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): CandidateView {
+  const ctx = childContext(scope, view, container, node);
+  const m = ctx.candidate!;
+  return {
+    name: applyName(ctx, m.mods, m.name),
+    hidden: applyHidden(ctx, m.mods, m.hidden),
+    ...applyCategoryMods(ctx, m.mods, categoriesOf(m.cats)),
+    costs: applyCosts(ctx, m),
+  };
+}
+
+/** A child node's constraints with its constraint modifiers applied. */
+export function childConstraints(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): Constraint[] {
+  const ctx = childContext(scope, view, container, node);
+  return effectiveConstraints(scope, ctx.candidate!, ctx);
+}
+
+/**
+ * What a child node's constraint counts: selections of its resolved target (through any link) when shared, else only
+ * selections made through the node itself. A group's constraint counts the selections inside the group.
+ */
+export function childConstraintCount(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode, c: Constraint): number {
+  const ctx = childContext(scope, view, container, node);
+  const shared = c.shared !== false;
+  const childId = shared ? ctx.candidate!.target.id : node.id;
+  return countIn(ctx, c.scope, c.field, childId, { childSel: !!c.childSel, childForces: !!c.childForces, percent: !!c.percent, shared });
+}
+
+/** How many of a child node the container may hold: its effective parent-scope selection limits. max -1 = no limit. */
+export function childLimits(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): { min: number; max: number } {
+  let min = 0;
+  let max = -1;
+  for (const c of childConstraints(scope, view, container, node)) {
+    if (c.field !== 'selections' || c.scope !== 'parent' || c.percent || c.value < 0) continue;
+    if (c.type === 'min') min = Math.max(min, c.value);
+    else max = max === -1 ? c.value : Math.min(max, c.value);
+  }
+  return { min, max };
 }

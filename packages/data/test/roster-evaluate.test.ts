@@ -128,6 +128,37 @@ describe('evaluate', () => {
     expect(countIn(ctxAt(view, find(view, w.id)), 'self', 'selections', M.G_WARRIORS, opts(false))).toBe(12);
   });
 
+  test('shared counts every link to a target; shared false counts only the named node', () => {
+    // Blade and Claws are two links to the same target (E_BLADE).
+    const l = lord(sel(M.L_LORD_BLADE), sel(M.L_LORD_CLAWS));
+    const view = evaluate(scope, roster(force([l])));
+    const ctx = ctxAt(view, find(view, l.id));
+    expect(countIn(ctx, 'self', 'selections', M.E_BLADE, opts(false))).toBe(2);
+    expect(countIn(ctx, 'self', 'selections', M.E_BLADE, { ...opts(false), shared: false })).toBe(0);
+    expect(countIn(ctx, 'self', 'selections', M.L_LORD_CLAWS, opts(false))).toBe(1);
+    expect(countIn(ctx, 'self', 'selections', M.L_LORD_CLAWS, { ...opts(false), shared: false })).toBe(1);
+    // Groups and categories still match with shared false.
+    expect(countIn(ctx, 'self', 'selections', M.G_LORD_MELEE, { ...opts(false), shared: false })).toBe(2);
+    expect(countIn(ctx, 'parent', 'selections', M.CAT_HQ, { ...opts(false), shared: false })).toBe(1);
+    // Conditions and repeats carry the flag through.
+    const cond = (shared?: false): Cond => ({ type: 'atLeast', field: 'selections', scope: 'self', childId: M.E_BLADE, value: 1, ...(shared === false ? { shared } : {}) });
+    expect(checkCond(ctx, cond())).toBe(true);
+    expect(checkCond(ctx, cond(false))).toBe(false);
+  });
+
+  test('a repeat with shared false counts only its own node', () => {
+    const files = structuredClone(M.miniFiles);
+    const horde = files[0].shared.find((n) => n.id === M.E_HORDE)!;
+    // +10 pts per Horde model selected through the link (shared) vs. per selection of the target entry id (not shared).
+    horde.mods = [
+      { type: 'increment', field: COST_PTS, value: '10', repeats: [{ field: 'selections', scope: 'self', childId: M.E_HORDE_MODEL, value: 1, repeats: 1, childSel: true }] },
+      { type: 'increment', field: COST_PTS, value: '100', repeats: [{ field: 'selections', scope: 'self', childId: M.E_HORDE_MODEL, value: 1, repeats: 1, childSel: true, shared: false }] },
+    ];
+    const s = buildScope(files);
+    const h = sel(M.L_HORDE, 1, [sel(M.L_HORDE_MODEL, 3)]);
+    expect(find(evaluate(s, roster(force([h]))), h.id).own[COST_PTS]).toBe(30);
+  });
+
   test('add category modifier makes Lord count as Warlord', () => {
     const plain = evaluate(scope, roster(force([lord()])));
     const anyCtx = (view: RosterView) => ctxAt(view, view.forces[0].selections[0]);
