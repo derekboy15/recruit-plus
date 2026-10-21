@@ -1019,3 +1019,55 @@ describe('must-be-Warlord units (must-be-warlord.json)', () => {
     expect(withEntries([{ catalogueName: 'Chaos - Thousand Sons', entryId: magnusEntry, entryName: 'Mortarion', source: 't' }])).toThrow('must-be-warlord.json (Mortarion): "Mortarion" is not root entry');
   });
 });
+
+describe('performance', () => {
+  test('validate() checks a 40-unit, 3,000 pts Space Marines Onslaught list in under 150 ms (median of 5)', () => {
+    const slug = 'imperium-adeptus-astartes-ultramarines';
+    const scope = realScope(slug);
+    const ultramarines = realCatalogueId(slug);
+    let r = createRoster(scope, { name: 'Ultramarines Onslaught', catalogueId: ultramarines, battleSize: 'onslaught', forceId: FORCE.brigade });
+    r = addForce(scope, r, FORCE.battalion, ultramarines);
+    const detachments: string[][] = [
+      [
+        'Lieutenant in Reiver Armour', 'Lieutenant', 'Sergeant Telion', 'Chaplain',
+        'Intercessor Squad', 'Intercessor Squad', 'Intercessor Squad', 'Intercessor Squad',
+        'Assault Intercessor Squad', 'Assault Intercessor Squad', 'Assault Intercessor Squad',
+        'Tactical Squad', 'Tactical Squad', 'Tactical Squad', 'Incursor Squad', 'Incursor Squad',
+        'Honour Guard', 'Servitors', 'Apothecary', 'Aggressor Squad', 'Company Champion', 'Company Veterans',
+        'Land Speeders', 'Attack Bike Squad', 'Assault Squad', 'Bike Squad',
+        'Eliminator Squad', 'Rapier Carrier', 'Rapier Carrier', 'Firestrike Servo-Turrets',
+      ],
+      [
+        'Primaris Captain', 'Primaris Lieutenant', 'Incursor Squad', 'Infiltrator Squad', 'Infiltrator Squad',
+        'Company Champion', 'Chapter Ancient', 'Rhino', 'Land Speeder Storm', 'Land Speeder Storm',
+      ],
+    ];
+    detachments.forEach((names, i) => {
+      for (const name of names) r = addNamedUnit(scope, r, r.forces[i].id, name);
+    });
+    expect(detachments.flat()).toHaveLength(40);
+
+    const times: number[] = [];
+    let result: ReturnType<typeof validate> | undefined;
+    validate(scope, r, policy); // warm up: the first run also compiles the engine's hot paths
+    for (let i = 0; i < 5; i++) {
+      const start = performance.now();
+      result = validate(scope, r, policy);
+      times.push(performance.now() - start);
+    }
+    const points = result!.view.total[COST_PTS];
+    expect(points).toBeGreaterThan(2900);
+    expect(points).toBeLessThanOrEqual(3000);
+    const median = [...times].sort((a, b) => a - b)[2];
+    expect(median, `runs: ${times.map((t) => t.toFixed(1)).join(', ')} ms`).toBeLessThan(150);
+  });
+});
+
+/** Adds the unit available to the force under that exact name. */
+function addNamedUnit(scope: Scope, r: Roster, forceSelId: string, name: string): Roster {
+  const unit = availableUnits(scope, r, forceSelId).find((u) => u.name === name);
+  if (!unit) throw new Error(`no unit ${name}`);
+  const added = addUnit(scope, r, forceSelId, unit.entryId);
+  expect(added.selId).not.toBe('');
+  return added.roster;
+}
