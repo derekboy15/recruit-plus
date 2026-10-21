@@ -56,6 +56,8 @@ test('the Supabase source returns null for a row that is not a usable list', asy
     { roster: { ...data.roster, forces: {} }, summary: data.summary },
     { roster: { ...data.roster, catalogueId: 5 }, summary: data.summary },
     { roster: data.roster },
+    { roster: { ...data.roster, name: 7 }, summary: data.summary },
+    { roster: { schema: 1, catalogueId: 'c', battleSize: 'strike-force', forces: [] }, summary: data.summary },
   ];
   for (const row of malformed) {
     const { client } = fakeClient({ data: { data: row, updated_at: 1 }, error: null });

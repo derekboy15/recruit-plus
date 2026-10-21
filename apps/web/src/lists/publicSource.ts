@@ -15,9 +15,10 @@ export interface PublicListSource {
 
 /** Enough of a list's shape to open it: anything else (a hand-edited or damaged row) is treated as not shared. */
 function looksLikeList(data: unknown): data is ListData {
-  const { roster, summary } = (data ?? {}) as { roster?: { forces?: unknown; catalogueId?: unknown } | null; summary?: unknown };
+  const { roster, summary } = (data ?? {}) as { roster?: { name?: unknown; forces?: unknown; catalogueId?: unknown } | null; summary?: unknown };
   return (
-    typeof roster === 'object' && roster !== null && Array.isArray(roster.forces) && typeof roster.catalogueId === 'string' &&
+    typeof roster === 'object' && roster !== null && typeof roster.name === 'string' && Array.isArray(roster.forces) &&
+    typeof roster.catalogueId === 'string' &&
     typeof summary === 'object' && summary !== null
   );
 }
