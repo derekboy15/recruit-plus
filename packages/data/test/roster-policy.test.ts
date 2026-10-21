@@ -7,6 +7,7 @@ import {
   addChild,
   addForce,
   addUnit,
+  availableUnits,
   buildScope,
   childOptions,
   evaluate,
@@ -108,6 +109,7 @@ describe('gst ids', () => {
       fortificationNetwork: 'Fortification Network -1CP',
       auxiliarySupport: 'Auxiliary Support Detachment -2CP',
       arksOfOmen: 'Arks of Omen Detachment',
+      boardingPatrol: 'Boarding Patrol',
     });
   });
 
@@ -662,6 +664,29 @@ describe('factions', () => {
       };
       const issues = validate(scope, buildFromSpec(scope, fallen, spec), policy).issues;
       expect(ofRule(issues, 'detachment-faction')).toHaveLength(1);
+    });
+
+    test('only in a Patrol, Boarding Patrol, Battalion, Brigade or Arks of Omen Detachment: in a Vanguard it is detachment-faction', () => {
+      // Wahapedia 000008049 (April 2023): "each IMPERIUM (excluding FALLEN units) Patrol, Boarding Patrol, Battalion,
+      // Brigade and Arks of Omen Detachment"; the research library's §8.2 says the same. BSData only offers Agents in
+      // those detachments, so the Inquisitor the Battalion offers is added to the Vanguard by its entry, past the picker.
+      const slug = 'imperium-adeptus-astartes-ultramarines';
+      const scope = realScope(slug);
+      const id = realCatalogueId(slug);
+      const build = (detachment: string, units: DetachmentSpec['units']) =>
+        buildFromSpec(scope, id, { title: `${detachment} with an Inquisitor`, battleSize: 'onslaught', detachments: [{ detachment, units }], expect: { points: 0, powerLevel: 0 } });
+      const battalion = build('Battalion Detachment -3CP', []);
+      const inquisitor = availableUnits(scope, battalion, battalion.forces[0].id).filter((u) => u.name === 'Inquisitor');
+      expect(inquisitor).toHaveLength(1);
+      const withInquisitor = (detachment: string, units: DetachmentSpec['units']) => {
+        const r = build(detachment, units);
+        const { roster } = addUnit(scope, r, r.forces[0].id, inquisitor[0].entryId);
+        return ofRule(validate(scope, roster, policy).issues, 'detachment-faction');
+      };
+      const bladeguard = { name: 'Bladeguard Veteran Squad' };
+      const intercessors = { name: 'Intercessor Squad' };
+      expect(withInquisitor('Vanguard Detachment -3CP', [{ name: 'Uriel Ventris', warlord: true }, bladeguard, bladeguard, bladeguard])).toHaveLength(1);
+      expect(withInquisitor('Battalion Detachment -3CP', [{ name: 'Uriel Ventris', warlord: true }, { name: 'Captain' }, intercessors, intercessors, intercessors])).toEqual([]);
     });
   });
 

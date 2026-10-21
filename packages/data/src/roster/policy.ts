@@ -47,6 +47,7 @@ export const FORCE = {
   fortificationNetwork: 'dcee-07fa-ec14-7dec', // Fortification Network -1CP
   auxiliarySupport: '8a87-f0e3-f2f2-ad1a', // Auxiliary Support Detachment -2CP
   arksOfOmen: 'fa51-993c-2f8b-9be4', // Arks of Omen Detachment
+  boardingPatrol: 'a207-a133-6adb-25f3', // Boarding Patrol (never offered)
 } as const;
 
 /** The Core Book detachments offered at Combat Patrol and Onslaught (never Unbound, Reinforcements, Order of Battle, Boarding Patrol). */
@@ -194,6 +195,8 @@ const FACTION_PREFIX = 'Faction: ';
 const AGENT_OF_THE_IMPERIUM = 'Agent of the Imperium';
 const IMPERIUM = 'imperium';
 const FALLEN = 'fallen';
+/** The detachments an AGENT OF THE IMPERIUM joins as a guest (§8.2; Wahapedia 000008049, April 2023). */
+const AGENT_HOST_DETACHMENTS: string[] = [FORCE.patrol, FORCE.boardingPatrol, FORCE.battalion, FORCE.brigade, FORCE.arksOfOmen];
 /** The Warlord upgrade's name and the .gst category it carries. */
 const WARLORD = 'Warlord';
 /** Exempt from the Rule of Two/Three (by effective primary category). */
@@ -417,8 +420,8 @@ class PolicyCheck {
 
   /**
    * Battle Brothers (§7.1): a detachment's units share a faction keyword other than the broad ones. Agents in an
-   * IMPERIUM detachment with no FALLEN units (§8.2), then units a codex lets into the detachment's catalogue
-   * (battle-brothers.json), are left out unless there is nothing else.
+   * IMPERIUM Patrol, Boarding Patrol, Battalion, Brigade or Arks of Omen Detachment with no FALLEN units (§8.2), then
+   * units a codex lets into the detachment's catalogue (battle-brothers.json), are left out unless there is nothing else.
    */
   private detachmentFaction(fv: ForceView): void {
     if (!fv.entry) return;
@@ -427,9 +430,10 @@ class PolicyCheck {
     const allowed = this.policy.battleBrothers.filter((b) => b.catalogueName === catalogueName).flatMap((b) => b.alsoAllowFactions.map((f) => keyword(FACTION_PREFIX + f)));
     const isAgent = (u: Unit) => this.hasCategory(u.v, AGENT_OF_THE_IMPERIUM);
     const hosts = units.filter((u) => !isAgent(u));
-    // §8.2: an Agent is a guest only in an IMPERIUM detachment, "excluding FALLEN units" (Wahapedia 000008049).
-    const imperium = hosts.every((u) => u.factions.has(IMPERIUM) && !u.factions.has(FALLEN));
-    for (const guest of [(u: Unit) => imperium && isAgent(u), (u: Unit) => allowed.some((k) => u.factions.has(k))]) {
+    // §8.2: an Agent is a guest only in an IMPERIUM "(excluding FALLEN units) Patrol, Boarding Patrol, Battalion,
+    // Brigade and Arks of Omen Detachment" (Wahapedia 000008049).
+    const host = AGENT_HOST_DETACHMENTS.includes(fv.force.forceId) && hosts.every((u) => u.factions.has(IMPERIUM) && !u.factions.has(FALLEN));
+    for (const guest of [(u: Unit) => host && isAgent(u), (u: Unit) => allowed.some((k) => u.factions.has(k))]) {
       const rest = units.filter((u) => !guest(u));
       if (rest.length) units = rest;
     }
