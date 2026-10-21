@@ -32,6 +32,9 @@ export function availableUnits(scope: Scope, r: Roster, forceSelId: string): Uni
  * Whether a root entry, with its effective primary category name and name, is a unit: unit- and model-typed entries,
  * and upgrade-typed ones with a battlefield role or with No Force Org Slot. A No Force Org Slot upgrade named "[…"
  * (a reference entry) or holding a unit or model entry (Brotherhood of the Cog, which holds a Tech-Priest) is not.
+ * Audited safe for BSData v9.8.0: in every playable catalogue, the Rogue Psyker is the only upgrade-typed unit that
+ * takes no slot; the other No Force Org Slot upgrades are wrappers (Brotherhood of the Cog, Dynastic Advisor). Re-audit
+ * on a data bump, since a slot-free unit that holds a model entry would be hidden.
  */
 function isUnitEntry(scope: Scope, m: Merged, role: string | null, name: string): boolean {
   if (m.type === 'unit' || m.type === 'model') return true;
