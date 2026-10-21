@@ -112,6 +112,31 @@ describe('explain (mini fixture)', () => {
     expect(shrink.fixLabel).toBe('Set to 1');
   });
 
+  test('"Add a/an {category} unit" picks the article by sound', () => {
+    const roster = withUnits(mini, emptyRoster(mini), M.L_LORD).roster;
+    const view = evaluate(mini, roster);
+    const label = (category: string) =>
+      explain({ rule: 'slot-min', subject: { id: 'c', name: category }, limit: 1, actual: 0, fix: { kind: 'add-unit', forceSelId: roster.forces[0].id, entryIds: [M.L_WARRIORS, M.L_LORD] } }, view, mini).fixLabel;
+    expect(label('Elites')).toBe('Add an Elites unit');
+    expect(label('HQ')).toBe('Add an HQ unit');
+    expect(label('Troops')).toBe('Add a Troops unit');
+    expect(label('Heavy Support')).toBe('Add a Heavy Support unit');
+    expect(label('Fast Attack')).toBe('Add a Fast Attack unit');
+    expect(label('')).toBe('Add a unit');
+  });
+
+  test('counts of one use the singular noun', () => {
+    const { roster, ids } = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS);
+    const view = evaluate(mini, roster);
+    const stack = roster.forces[0].selections[1].children[0];
+    const setTo = (count: number) => explain({ rule: 'model-count', selId: stack.id, subject: { id: stack.entryId, name: 'Warriors' }, limit: 1, actual: 0, fix: { kind: 'set-count', selId: stack.id, count } }, view, mini).fixLabel;
+    expect(setTo(1)).toBe('Set to 1 model');
+    expect(setTo(2)).toBe('Set to 2 models');
+    const unit = explain({ rule: 'rule-of-three', subject: { id: 'x', name: 'Lord' }, limit: 0, actual: 1 }, view, mini).text;
+    expect(unit).toContain('You have 1 Lord unit.');
+    expect(ids).toHaveLength(2);
+  });
+
   test('warlord-missing and warlord-extra', () => {
     const { roster } = withUnits(rules, emptyRoster(rules), M.L_LORD, M.L_WARRIORS);
     const [missing] = explained(rules, roster);
@@ -303,7 +328,12 @@ describe('explain (real Necrons)', () => {
 
     const aoo = addForce(necronsScope, necronRoster('strike-force'), FORCE.arksOfOmen, necrons);
     expect(texts(of(explainPolicy(necronsScope, aoo), 'detachment-count'))).toEqual([
-      'An Arks of Omen army has exactly 1 Arks of Omen Detachment and at most 1 allied detachment.',
+      'An Arks of Omen army has exactly 1 Arks of Omen Detachment and at most 1 allied detachment. Remove the extra detachment.',
+    ]);
+
+    const none = necronRoster('strike-force', FORCE.patrol);
+    expect(texts(of(explainPolicy(necronsScope, none), 'detachment-count'))).toEqual([
+      'An Arks of Omen army has exactly 1 Arks of Omen Detachment and at most 1 allied detachment. Add an Arks of Omen Detachment.',
     ]);
   });
 

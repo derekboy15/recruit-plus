@@ -8,6 +8,7 @@ import { BATTLEFIELD_ROLES, type BattlefieldRole } from '../model/types';
 import { childConstraints, evaluateCandidate } from './children';
 import { findSelView } from './edit';
 import { childIndex, type ForceView, type RosterView, type SelView } from './evaluate';
+import { factionDisplayName } from './names';
 import { availableUnits } from './options';
 import { BATTLE_SIZES, FORCE } from './policy';
 import { resolve, type Scope } from './scope';
@@ -18,9 +19,6 @@ export interface Explanation { text: string; fixLabel?: string }
 const WARLORD = 'Warlord';
 /** A trailing command-point cost on a detachment name: "Battalion Detachment -3CP", "Supreme Command Detachment 0CP". */
 const CP_SUFFIX = / -?\d+CP$/;
-/** Broad faction prefixes dropped from a catalogue name for display (Task 8 will move the web's factionDisplayName into the data package and replace this). */
-const BROAD_PREFIX = /^(Imperium|Chaos|Aeldari|Tyranids|Unaligned) - /;
-const CHAPTER_PREFIX = /^Adeptus Astartes - /;
 
 interface Ctx { issue: Issue; view: RosterView; scope: Scope }
 
@@ -37,10 +35,11 @@ export function explain(issue: Issue, view: RosterView, scope: Scope): Explanati
 const num = (n: number) => n.toLocaleString('en-GB');
 const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
 const clean = (name: string) => name.trim();
+/** "a" or "an" before a category name, by sound: vowels, and "HQ" ("aitch-cue"). */
+const article = (word: string) => (/^(?:[aeiou]|HQ(?![a-z]))/i.test(word.trim()) ? 'an' : 'a');
 const stripCp = (name: string) => clean(name).replace(CP_SUFFIX, '');
 /** "A", "A or B", "A, B or C". */
 const orList = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} or ${names.at(-1)}`);
-const factionDisplayName = (catalogueName: string) => clean(catalogueName).replace(BROAD_PREFIX, '').replace(CHAPTER_PREFIX, '');
 
 // ---------- lookups ----------
 
@@ -105,7 +104,7 @@ function textFor(ctx: Ctx): string {
   switch (rule) {
     case 'slot-min': return slotMin(ctx);
     case 'slot-max': {
-      const units = [num(actual), name, 'units'].filter(Boolean).join(' ');
+      const units = [num(actual), name, plural(actual, 'unit', 'units')].filter(Boolean).join(' ');
       return `Your ${forceName(ctx)} has ${units} but can only take ${num(limit)}. Remove ${num(over)}, or move ${plural(over, 'it', 'them')} to another detachment.`;
     }
     case 'points-over':
@@ -126,7 +125,7 @@ function textFor(ctx: Ctx): string {
         ? `Your army needs at least ${num(limit)} ${name}. Add ${num(limit - actual)} more.`
         : `Your army can include at most ${num(limit)} ${name}. Remove ${num(over)}.`;
     case 'rule-of-three':
-      return `You have ${num(actual)} ${name} units. ${sizeName(ctx)} allows ${num(limit)} of the same datasheet (Troops and Dedicated Transports don't count). Remove ${num(over)}.`;
+      return `You have ${num(actual)} ${name} ${plural(actual, 'unit', 'units')}. ${sizeName(ctx)} allows ${num(limit)} of the same datasheet (Troops and Dedicated Transports don't count). Remove ${num(over)}.`;
     case 'model-count':
       return modelCount(ctx);
     case 'wargear-max':
@@ -214,15 +213,20 @@ function modelCount(ctx: Ctx): string {
   const unit = unitName(ctx);
   const has = `It has ${num(issue.actual)}.`;
   if (min !== undefined && max !== undefined) {
-    return min === max ? `${unit} must have exactly ${num(min)} models. ${has}` : `${unit} must have between ${num(min)} and ${num(max)} models. ${has}`;
+    return min === max ? `${unit} must have exactly ${num(min)} ${plural(min, 'model', 'models')}. ${has}` : `${unit} must have between ${num(min)} and ${num(max)} ${plural(max, 'model', 'models')}. ${has}`;
   }
-  return min !== undefined ? `${unit} must have at least ${num(min)} models. ${has}` : `${unit} must have at most ${num(max!)} models. ${has}`;
+  return min !== undefined
+    ? `${unit} must have at least ${num(min)} ${plural(min, 'model', 'models')}. ${has}`
+    : `${unit} must have at most ${num(max!)} ${plural(max!, 'model', 'models')}. ${has}`;
 }
 
 function detachmentCount(ctx: Ctx): string {
   const { issue, view } = ctx;
   const bs = BATTLE_SIZES[view.roster.battleSize];
-  if (bs?.mode === 'aoo') return 'An Arks of Omen army has exactly 1 Arks of Omen Detachment and at most 1 allied detachment.';
+  if (bs?.mode === 'aoo') {
+    const head = 'An Arks of Omen army has exactly 1 Arks of Omen Detachment and at most 1 allied detachment.';
+    return issue.actual > issue.limit ? `${head} Remove the extra detachment.` : `${head} Add an Arks of Omen Detachment.`;
+  }
   const over = issue.actual - issue.limit;
   // A detachment type that is limited on its own (one Supreme Command Detachment per army).
   if (bs && issue.subject.id !== bs.id) {
@@ -253,11 +257,13 @@ function labelFor(ctx: Ctx, choice: string | undefined): string | undefined {
     case 'add-unit':
       if (choice) return `Choose ${choice}`;
       if (fix.entryIds.length === 1) return `Add ${entryName(ctx, fix.forceSelId, fix.entryIds[0])}`;
-      return issue.rule === 'slot-min' ? `Add a ${[clean(issue.subject.name), 'unit'].filter(Boolean).join(' ')}` : 'Choose a unit';
+      if (issue.rule !== 'slot-min') return 'Choose a unit';
+      const category = clean(issue.subject.name);
+      return `Add ${article(category)} ${[category, 'unit'].filter(Boolean).join(' ')}`;
     case 'remove':
       return `Remove ${num(fix.selIds.length)}`;
     case 'set-count':
-      return findSelView(ctx.view, fix.selId)?.type === 'model' ? `Set to ${num(fix.count)} models` : `Set to ${num(fix.count)}`;
+      return findSelView(ctx.view, fix.selId)?.type === 'model' ? `Set to ${num(fix.count)} ${plural(fix.count, 'model', 'models')}` : `Set to ${num(fix.count)}`;
     case 'open':
       return `Open ${selUnitName(ctx, fix.selId)}`;
   }
