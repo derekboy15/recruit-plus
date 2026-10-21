@@ -224,5 +224,190 @@
       "Imperium"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000775 \"Minotaur\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Minotaur) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "entryId": "58f2-f816-58f2-0b94",
+    "entryName": "Primaris Ancient",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000079 \"Primaris Ancient\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Primaris-Ancient) faction keywords: Imperium, <Chapter>, Adeptus Astartes. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "entryId": "f46e-13eb-eb59-1422",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Blood Angels",
+    "entryId": "5f1d-bc11-63ee-7af4",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryId": "3240-3762-a8f1-6846",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryId": "3447-ac3a-fca9-ca43",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Iron Hands",
+    "entryId": "c812-6c54-fb59-a119",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Raven Guard",
+    "entryId": "a3ae-7676-91b4-a738",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Salamanders",
+    "entryId": "9a0b-74cc-a997-b992",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "entryId": "96ed-25a9-9cbe-0a8b",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "a277-95d3-f9b7-3f24",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - White Scars",
+    "entryId": "f946-b15f-b500-b797",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: Adeptus Astartes, <Chapter>, Imperium. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryId": "63fa-410e-9635-70b2",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Adeptus Mechanicus"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001533 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Terrax-pattern-Termite) faction keywords: Skitarii, Adeptus Mechanicus, Imperium, <Forge World>. BSData v9.8.0 has no \"Faction: Adeptus Mechanicus\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryId": "57fc-e1ef-1db9-de98",
+    "entryName": "Archaeopter Transvector",
+    "add": [
+      "Imperium",
+      "Adeptus Mechanicus"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002085 \"Archaeopter Transvector\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Archaeopter-Transvector) faction keywords: Skitarii, <Forge World>, Adeptus Mechanicus, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" or \"Faction: Adeptus Mechanicus\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryId": "c683-736b-04d8-f2b5",
+    "entryName": "Archaeopter Stratoraptor",
+    "add": [
+      "Imperium",
+      "Adeptus Mechanicus"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002086 \"Archaeopter Stratoraptor\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Archaeopter-Stratoraptor) faction keywords: Adeptus Mechanicus, Skitarii, Imperium, <Forge World>. BSData v9.8.0 has no \"Faction: Imperium\" or \"Faction: Adeptus Mechanicus\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Mechanicus",
+    "entryId": "c272-5e29-d0ea-0874",
+    "entryName": "Archaeopter Fusilave",
+    "add": [
+      "Imperium",
+      "Adeptus Mechanicus"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002087 \"Archaeopter Fusilave\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Archaeopter-Fusilave) faction keywords: Skitarii, Adeptus Mechanicus, Imperium, <Forge World>. BSData v9.8.0 has no \"Faction: Imperium\" or \"Faction: Adeptus Mechanicus\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
+    "entryId": "fc5f-fe4d-4bcb-3727",
+    "entryName": "Interrogator-Chaplain in Terminator Armor",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002297 \"Interrogator-Chaplain in Terminator Armour\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Interrogator-Chaplain-in-Terminator-Armour) faction keywords: Adeptus Astartes, Imperium, Dark Angels. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryId": "80c9-78fd-3628-a03d",
+    "entryName": "Fortis Kill Team",
+    "add": [
+      "Imperium",
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002514 \"Fortis Kill Team\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Fortis-Kill-Team) faction keywords: Deathwatch, Adeptus Astartes, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" or \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryId": "0a19-890d-f924-0f87",
+    "entryName": "Spectrus Kill Team",
+    "add": [
+      "Imperium",
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002516 \"Spectrus Kill Team\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Spectrus-Kill-Team) faction keywords: Adeptus Astartes, Imperium, Deathwatch. BSData v9.8.0 has no \"Faction: Imperium\" or \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Blood Angels",
+    "entryId": "bebb-6bd4-77c1-6b3a",
+    "entryName": "Chief Librarian Mephiston [Legends]",
+    "add": [
+      "Adeptus Astartes"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002276 \"Chief Librarian Mephiston\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Chief-Librarian-Mephiston) faction keywords: Imperium, Adeptus Astartes, Blood Angels. BSData v9.8.0 has no \"Faction: Adeptus Astartes\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "b6ec-8c15-3e7d-bb6a",
+    "entryName": "Brotherhood Chaplain",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001362 \"Brotherhood Chaplain\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Brotherhood-Chaplain) faction keywords: Sanctic Astartes, Grey Knights, <Brotherhood>, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
   }
 ]
