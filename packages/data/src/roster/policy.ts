@@ -205,15 +205,16 @@ const MAX_SUGGESTIONS = 3;
  * evaluate + validateConstraints + validatePolicy. BSData issues are deduplicated (see dedupe); policy issues are each a
  * different rule, so they are kept even when their fix matches a BSData one (a 4th Canoptek Wraiths unit in an Arks of
  * Omen Detachment breaks both the Fast Attack slot and the Rule of Three). BSData `forces` constraints are left to the policy.
- * The one exception: when a unit that must be the Warlord isn't, BSData's own "no Warlord" issue (if any) is dropped, as
- * the policy's says the same thing more precisely.
+ * The one exception: when a unit that must be the Warlord isn't, BSData's own roster-wide "no Warlord" issue (if any) is
+ * dropped, as the policy's says the same thing more precisely. A detachment's own Warlord minimum (a Supreme Command
+ * Detachment's) is another rule and stays.
  */
 export function validate(scope: Scope, roster: Roster, policy: PolicyData): { view: RosterView; issues: Issue[] } {
   const view = evaluate(scope, roster);
   waiveDetachmentCommandCosts(view);
   const own = validatePolicy(scope, view, policy);
   let bsdata = dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] }));
-  if (own.some((i) => i.rule === 'warlord-missing')) bsdata = bsdata.filter((i) => i.rule !== 'warlord-missing');
+  if (own.some((i) => i.rule === 'warlord-missing')) bsdata = bsdata.filter((i) => !(i.rule === 'warlord-missing' && i.scope === 'roster'));
   return { view, issues: [...bsdata, ...own] };
 }
 

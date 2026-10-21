@@ -743,6 +743,19 @@ describe('must-be-Warlord units (must-be-warlord.json)', () => {
     expect(explained.filter((x) => x.rule === 'warlord-missing').map((x) => x.text)).toEqual(['Magnus the Red must be your Warlord. Open Magnus the Red and turn on "Warlord".']);
   });
 
+  test('a detachment that needs the Warlord keeps its own warlord-missing beside the policy one (only the roster-wide one is dropped)', () => {
+    // Core Book §4: a Supreme Command Detachment's unit must be the Warlord. With an Exalted Sorcerer as the Warlord,
+    // Magnus there breaks both that and Daemon Primarch.
+    const sorcerer: DetachmentSpec = { detachment: PATROL, units: [{ name: 'Exalted Sorcerer', warlord: true }, { name: 'Rubric Marines' }] };
+    const supreme: DetachmentSpec = { detachment: 'Supreme Command Detachment 0CP', units: [{ name: 'Magnus the Red' }] };
+    const { issues, unitAt } = run([TS], onslaught(sorcerer, supreme));
+    const at = unitAt('Magnus the Red');
+    expect(warlordIssues(issues).map((i) => [i.rule, i.subject.name, i.scope ?? null, i.forceSelId, i.subjects?.length ?? 0])).toEqual([
+      ['warlord-missing', 'Warlord', 'force', at.forceSelId, 0],
+      ['warlord-missing', 'Magnus the Red', null, at.forceSelId, 1],
+    ]);
+  });
+
   test('Abaddon and Mortarion, with Abaddon as the Warlord, are legal (The Warmaster, Daemon Primarch)', () => {
     const abaddon: DetachmentSpec = { detachment: PATROL, army: { Legion: 'Black Legion' }, units: [{ name: 'Abaddon the Despoiler', warlord: true }, { name: 'Legionaries' }] };
     expect(warlordIssues(run([CSM, DG], onslaught(abaddon, mortarion())).issues)).toEqual([]);
