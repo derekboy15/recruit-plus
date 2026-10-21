@@ -157,7 +157,8 @@ export interface DetachmentChoice { forceId: string; name: string; catalogueId: 
 /**
  * The detachments the roster can add next.
  * - Combat Patrol and Onslaught: the Core Book detachments and the catalogue's own force entries, for the primary
- *   catalogue and every playable catalogue in its faction group (`allied` when not the primary).
+ *   catalogue and every playable catalogue in its faction group whose units could share a faction keyword with the
+ *   army's (Army Faction, §1; `allied` when not the primary).
  * - Incursion and Strike Force: the Arks of Omen Detachment until there is one; then the allied detachments listed for
  *   the primary catalogue in aoo-allies.json (`allied: true`); nothing once there is an ally.
  * A catalogue's own force entries are only known when its file is in the scope. Adding a detachment from another
@@ -168,7 +169,7 @@ export function detachmentChoices(scope: Scope, r: Roster, policy: PolicyData, c
   if (!bs) return [];
   if (bs.mode === 'core') {
     const primary = catalogues.find((c) => c.id === r.catalogueId);
-    const group = primary ? catalogues.filter((c) => c.id !== primary.id && !c.library && c.group === primary.group) : [];
+    const group = primary ? catalogues.filter((c) => c.id !== primary.id && !c.library && c.group === primary.group && shareFaction(primary, c)) : [];
     return [r.catalogueId, ...group.map((c) => c.id)].flatMap((id) => coreChoices(scope, id, id !== r.catalogueId));
   }
   if (!r.forces.some((f) => f.forceId === FORCE.arksOfOmen)) return choice(scope, FORCE.arksOfOmen, r.catalogueId, false);
@@ -179,6 +180,12 @@ export function detachmentChoices(scope: Scope, r: Roster, policy: PolicyData, c
     const id = catalogues.find((c) => c.name === a.catalogueName)?.id;
     return id ? a.detachments.flatMap((name) => choice(scope, systemForceId(scope, name), id, true)) : [];
   });
+}
+
+/** Whether some unit of each catalogue could share a faction keyword other than UNALIGNED (CatalogueSummary.factions). */
+function shareFaction(a: CatalogueSummary, b: CatalogueSummary): boolean {
+  const unaligned = FACTION_PREFIX + 'Unaligned';
+  return a.factions.some((f) => f !== unaligned && b.factions.includes(f));
 }
 
 function coreChoices(scope: Scope, catalogueId: string, allied: boolean): DetachmentChoice[] {

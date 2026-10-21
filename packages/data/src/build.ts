@@ -7,6 +7,7 @@ import type { RawCatalogue, RawNode } from './bsdata/types';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
+import { buildScope, resolve, rootEntriesFor } from './roster/scope';
 import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
@@ -91,6 +92,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       library: out.library,
       unitCount: units.length,
       rosterScope: catalogueScope(gd, cat.id).map(rosterSlug),
+      factions: [], // filled in once the roster files exist
     });
     report[slug] = {
       units: units.length,
@@ -119,10 +121,29 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }
   writeFileSync(join(opts.outDir, 'roster', 'policy.json'), JSON.stringify(loadPolicy(opts.overridesDir, rosterFiles)));
+  for (const summary of index.catalogues) summary.factions = catalogueFactions(rosterFiles, summary.rosterScope, summary.id);
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
   return { index, report };
+}
+
+/**
+ * The "Faction: …" category names on a catalogue's root entries and those of the catalogues it imports, sorted. The
+ * .gst's own root entries (fortifications every army may take, a Chaos Bastion among them) are left out.
+ */
+function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogueId: string): string[] {
+  const scope = buildScope(rosterScope.flatMap((slug) => files.filter((f) => f.slug === slug)));
+  const systemRoots = new Set(scope.system.rootEntries);
+  const names = new Set<string>();
+  for (const n of rootEntriesFor(scope, catalogueId)) {
+    if (systemRoots.has(n)) continue;
+    for (const link of resolve(scope, n).cats) {
+      const name = scope.category(link.targetId)?.name;
+      if (name?.startsWith('Faction: ')) names.add(name);
+    }
+  }
+  return [...names].sort();
 }
 
 /**

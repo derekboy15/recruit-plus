@@ -79,6 +79,11 @@ export interface CatalogueSummary {
   unitCount: number;
   /** Roster file slugs (generated/roster/<slug>.json) of the catalogue's scope: itself, linked catalogues, then 'system'. */
   rosterScope: string[];
+  /**
+   * The "Faction: …" category names on the catalogue's root entries (its own, imported catalogues' and the .gst's),
+   * sorted: the faction keywords its units can have. Which catalogues could share a detachment-free army with it.
+   */
+  factions: string[];
 }
 
 export interface DataIndex {

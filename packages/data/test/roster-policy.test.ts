@@ -601,6 +601,37 @@ describe('detachments', () => {
     expect(choices.some((c) => catalogues.find((s) => s.id === c.catalogueId)!.library)).toBe(false);
   });
 
+  describe('Core Book battle sizes offer only the catalogues whose units could share a faction keyword with the army (§1)', () => {
+    const offered = (slug: string) => {
+      const id = realCatalogueId(slug);
+      const scope = realScope(slug);
+      const r = createRoster(scope, { name: slug, catalogueId: id, battleSize: 'onslaught', forceId: FORCE.patrol });
+      return new Set(detachmentChoices(scope, r, policy, catalogues).filter((c) => c.allied).map((c) => catalogues.find((s) => s.id === c.catalogueId)!.name));
+    };
+
+    test('Necrons are offered no Xenos allies: Orks, T’au and Tyranids share nothing with them', () => {
+      expect([...offered('necrons')]).toEqual([]);
+    });
+
+    test('Craftworlds are offered Drukhari and Harlequins (AELDARI), not Orks', () => {
+      const cw = offered('aeldari-craftworlds');
+      expect(cw).toContain('Aeldari - Drukhari');
+      expect(cw).toContain('Aeldari - Harlequins');
+      expect(cw).not.toContain('Orks');
+      expect(cw).not.toContain('Necrons');
+    });
+
+    test('Space Marines are offered Astra Militarum (IMPERIUM)', () => {
+      expect(offered('imperium-adeptus-astartes-ultramarines')).toContain('Imperium - Astra Militarum');
+    });
+
+    test("the index lists each catalogue's faction keywords; UNALIGNED alone shares nothing", () => {
+      const orks = catalogues.find((c) => c.slug === 'orks')!;
+      expect(orks.factions).toContain('Faction: Orks');
+      expect(catalogues.find((c) => c.slug === 'necrons')!.factions).not.toContain('Faction: Orks');
+    });
+  });
+
   test('an Auxiliary Support Detachment holds exactly one unit', () => {
     let r = necronRoster('onslaught', FORCE.patrol);
     r = addForce(necronsScope, r, FORCE.auxiliarySupport, necrons);

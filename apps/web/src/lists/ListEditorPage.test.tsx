@@ -171,19 +171,31 @@ test('"−" never drops a customised model: it takes from a stack of identical m
 
 test('the army keeps its own detachment while an ally remains', async () => {
   const u = user();
-  renderEditor(await necronsList('onslaught'));
+  const [scope, policy, index] = await Promise.all([getRosterScope(['aeldari-craftworlds']), getPolicy(), getIndex()]);
+  const craftworlds = index.catalogues.find((c) => c.slug === 'aeldari-craftworlds')!;
+  const roster = startingRoster(scope, { name: 'Craftworlds Onslaught', catalogueId: craftworlds.id, sizeId: 'onslaught', forceId: FORCE.patrol });
+  renderEditor(await createList(createRepository(db), 'user-1', listData(scope, policy, roster, craftworlds)));
   await opened();
   expect(screen.queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
   await u.click(screen.getByRole('button', { name: '+ Add detachment' }));
-  await u.click(screen.getByText('Orks'));
-  const orks = screen.getByText('Orks').closest('details')!;
-  await u.click(within(orks).getByRole('button', { name: 'Patrol Detachment' }));
+  await u.click(screen.getByText('Harlequins'));
+  const harlequins = screen.getByText('Harlequins').closest('details')!;
+  await u.click(within(harlequins).getByRole('button', { name: 'Patrol Detachment' }));
   await waitFor(() => expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })).toHaveLength(2), { timeout: 15_000 });
   const [own, ally] = screen.getAllByRole('region', { name: 'Patrol Detachment' });
-  expect(ally).toHaveTextContent('Orks');
+  expect(ally).toHaveTextContent('Harlequins');
   expect(within(ally).getByRole('button', { name: 'Remove detachment' })).toBeInTheDocument();
   expect(within(own).queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
-}, 20_000); // loads and builds the Orks rules too
+}, 20_000); // loads and builds the Harlequins rules too
+
+test('a Necrons army is offered no allies at Onslaught: no other Xenos faction shares a faction keyword with it', async () => {
+  const u = user();
+  renderEditor(await necronsList('onslaught'));
+  await opened();
+  await u.click(screen.getByRole('button', { name: '+ Add detachment' }));
+  expect(screen.queryByRole('heading', { name: 'Allies' })).not.toBeInTheDocument();
+  expect(screen.queryByText('Orks')).not.toBeInTheDocument();
+});
 
 test('a fix whose suggested units can no longer be added says so', async () => {
   const id = await necronsList();
