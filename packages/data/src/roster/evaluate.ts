@@ -387,6 +387,11 @@ function sumIn(view: RosterView, container: SelView | ForceView | RosterView, fi
   return n;
 }
 
+/** Whether a (known) selection counts towards childId, exactly as counts and constraints match it. */
+export function countsAs(view: RosterView, s: SelView, childId: string, shared: boolean): boolean {
+  return !!s.merged && matches(stateOf(view), s, childId, shared);
+}
+
 /** Not shared: an entry id matches only the selection's own node (never a link through its target id). */
 function matches(state: State, s: SelView, childId: string, shared: boolean): boolean {
   return (

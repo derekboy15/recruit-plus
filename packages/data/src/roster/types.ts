@@ -37,3 +37,20 @@ export type BattleSizeId = 'combat-patrol' | 'incursion' | 'strike-force' | 'ons
 export interface Sel { id: string; entryId: string; count: number; children: Sel[] }
 export interface ForceSel { id: string; forceId: string; catalogueId: string; selections: Sel[] }
 export interface Roster { schema: 1; name: string; catalogueId: string; battleSize: BattleSizeId; forces: ForceSel[] }
+
+/** Validation: a broken BSData constraint or roster rule, with a suggested fix. */
+export type RuleKind =
+  | 'points-over' | 'cp-negative' | 'slot-min' | 'slot-max' | 'warlord-missing' | 'warlord-extra'
+  | 'unique' | 'unit-limit' | 'model-count' | 'wargear-max' | 'option-required' | 'hidden-selected'
+  | 'unknown-entry' | 'rule-of-three' | 'detachment-not-allowed' | 'detachment-count'
+  | 'detachment-faction' | 'army-faction' | 'other';
+export type Fix =
+  | { kind: 'add-unit'; forceSelId: string; entryIds: string[] }
+  | { kind: 'remove'; selIds: string[] }
+  | { kind: 'set-count'; selId: string; count: number }
+  | { kind: 'open'; selId: string };
+export interface Issue {
+  rule: RuleKind; forceSelId?: string; selId?: string;
+  subject: { id: string; name: string };  // the entry, category or force the rule is about
+  limit: number; actual: number; fix?: Fix;
+}
