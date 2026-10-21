@@ -1,13 +1,52 @@
-import { BrowserRouter } from 'react-router-dom';
+import { useEffect, useMemo } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { AuthProvider, useAuth } from './auth/AuthContext';
+import { createAuthSetup } from './auth/backend';
+import { RequireAuth } from './auth/RequireAuth';
 import { AppShell } from './layout/AppShell';
+import { SignIn } from './pages/SignIn';
 import { AppRoutes } from './routes';
+import { openDb } from './storage/db';
+import { createSupabaseRemote } from './storage/supabaseRemote';
+import { startAutoSync } from './storage/sync';
+
+const setup = createAuthSetup();
+export const db = openDb();
+
+function AccountMenu() {
+  const { user, signOut } = useAuth();
+  if (!user) return null;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+      <span className="muted" style={{ maxWidth: '40vw', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        {user.email}
+      </span>
+      <button className="btn" style={{ minHeight: 36, padding: '0 0.7rem' }} onClick={() => void signOut()}>
+        Sign out
+      </button>
+    </div>
+  );
+}
+
+function SyncWhileSignedIn() {
+  const { user } = useAuth();
+  const remote = useMemo(() => (setup.supabase ? createSupabaseRemote(setup.supabase) : null), []);
+  useEffect(() => {
+    if (!user || !remote) return;
+    return startAutoSync(db, remote, user.id);
+  }, [user, remote]);
+  return null;
+}
 
 export function App() {
   return (
-    <BrowserRouter>
-      <AppShell>
-        <AppRoutes />
-      </AppShell>
-    </BrowserRouter>
+    <AuthProvider backend={setup.backend}>
+      <SyncWhileSignedIn />
+      <BrowserRouter>
+        <AppShell account={<AccountMenu />}>
+          <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={<Route path="/sign-in" element={<SignIn />} />} />
+        </AppShell>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

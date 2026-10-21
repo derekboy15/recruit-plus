@@ -1,0 +1,41 @@
+import type { RecruitDb } from './db';
+import type { Doc, DocKind } from './types';
+
+export type NewDoc<T> = Pick<Doc<T>, 'id' | 'kind' | 'ownerId' | 'data'> & Partial<Pick<Doc<T>, 'isPublic'>>;
+
+export interface Repository {
+  saveDoc<T>(doc: NewDoc<T>): Promise<Doc<T>>;
+  getDoc<T>(id: string): Promise<Doc<T> | undefined>;
+  listDocs<T>(kind: DocKind, ownerId: string): Promise<Doc<T>[]>;
+  deleteDoc(id: string): Promise<void>;
+}
+
+export function createRepository(db: RecruitDb, now: () => number = Date.now): Repository {
+  return {
+    async saveDoc<T>(input: NewDoc<T>) {
+      const existing = await db.docs.get(input.id);
+      const doc: Doc<T> = {
+        id: input.id,
+        kind: input.kind,
+        ownerId: input.ownerId,
+        data: input.data,
+        isPublic: input.isPublic ?? existing?.isPublic ?? false,
+        deleted: false,
+        updatedAt: now(),
+        dirty: true,
+      };
+      await db.docs.put(doc as Doc);
+      return doc;
+    },
+    async getDoc<T>(id: string) {
+      return (await db.docs.get(id)) as Doc<T> | undefined;
+    },
+    async listDocs<T>(kind: DocKind, ownerId: string) {
+      const docs = await db.docs.where('[ownerId+kind]').equals([ownerId, kind]).toArray();
+      return docs.filter((d) => !d.deleted).sort((a, b) => b.updatedAt - a.updatedAt) as Doc<T>[];
+    },
+    async deleteDoc(id: string) {
+      await db.docs.update(id, { deleted: true, dirty: true, updatedAt: now() });
+    },
+  };
+}
