@@ -134,6 +134,12 @@ describe('validateConstraints (mini fixture)', () => {
     expect(issues[0].fix).toEqual({ kind: 'open', selId: ids[0] });
   });
 
+  test('no unit that could take the Warlord upgrade: no warlord-missing (§5: then any model may be the Warlord)', () => {
+    // Warriors have no Warlord option; the army has no CHARACTER BSData lets be the Warlord.
+    const { roster } = withUnits(rules, empty(rules), M.L_WARRIORS);
+    expect(summary(validate(rules, roster))).toEqual([['slot-min', 'HQ', 1, 0]]);
+  });
+
   test('two Warlords', () => {
     // The Lord is max 1 per force, so the second Warlord is in a second detachment.
     const { roster } = withUnits(rules, empty(rules, M.FORCE_BATTALION), M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);

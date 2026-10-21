@@ -106,8 +106,12 @@ class Validator {
     else if (rule === 'slot-max') fix = removeNewest(counted, actual - c.value, c);
     else if (rule === 'warlord-extra' && newest) fix = { kind: 'open', selId: unitOf(newest).sel.id };
     else if (rule === 'warlord-missing') {
+      // Core Book §5: the Warlord must be a CHARACTER only if the army has one, and BSData only offers the Warlord
+      // upgrade to such units. With no unit that can take it (a lone Titan or Damned Legionnaires), any model may be
+      // the Warlord and there is nothing for the list to record, so nothing is missing.
       const candidate = this.warlordCandidate(this.scopeContainer(fv, c.scope, false), catId);
-      if (candidate) fix = { kind: 'open', selId: candidate.sel.id };
+      if (!candidate) return;
+      fix = { kind: 'open', selId: candidate.sel.id };
     }
     this.push(fv, c, { rule, selId: newest?.sel.id, subject: { id: catId, name }, limit: c.value, actual, fix });
   }
