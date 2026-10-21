@@ -3,7 +3,8 @@
  * Edits given an unknown selection or force id return the roster unchanged. Browser-safe.
  */
 import { resolve, rootEntriesFor, type Scope } from './scope';
-import { childIndex, childLimits, evaluate, evaluateCandidate, type Found, type RosterView, type SelView } from './evaluate';
+import { childLimits, evaluateCandidate } from './children';
+import { childIndex, evaluate, type Found, type RosterView, type SelView } from './evaluate';
 import type { RNode, Roster, Sel } from './types';
 
 /** Required children nest a few levels at most (unit → model → weapon); this only guards against cyclic data. */
@@ -165,8 +166,8 @@ function fillRequired(scope: Scope, r: Roster, selIds: string[]): Roster {
 
 /**
  * Entry id → count for an empty container: every non-hidden entry or link with a minimum ≥ 1, then, for each group whose
- * minimum isn't met by those, the shortfall as copies of its default (or its first non-hidden entry). One count per id,
- * so a model minimum becomes one stack.
+ * minimum isn't met by those, the shortfall as copies of its default (or of its only non-hidden entry; a group with
+ * several choices and no visible default is left for the user). One count per id, so a model minimum becomes one stack.
  */
 function requiredChildren(scope: Scope, view: RosterView, container: SelView): Map<string, number> {
   const index = childIndex(scope, container.merged!.children);
@@ -189,7 +190,8 @@ function requiredChildren(scope: Scope, view: RosterView, container: SelView): M
       if (min > inGroup) {
         const members = [...index.values()].filter((f) => f.groups.includes(m.target.id) && !hidden(f));
         const def = m.target.defaultId ?? n.defaultId;
-        const pick = members.find((f) => f.node.id === def) ?? members[0];
+        // Without a usable default, only a single visible choice is made for the user.
+        const pick = members.find((f) => f.node.id === def) ?? (members.length === 1 ? members[0] : undefined);
         if (pick) {
           add(pick.node.id, min - inGroup);
           inGroup = min;

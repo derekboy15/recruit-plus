@@ -1,9 +1,10 @@
 /** Roster option queries: what can be added to a force or a selection, with limits and pts. Browser-safe. */
 import { BATTLEFIELD_ROLES, type BattlefieldRole } from '../model/types';
+import { childLimits, evaluateCandidate } from './children';
 import { addUnit, findSelView } from './edit';
-import { childIndex, childLimits, evaluate, evaluateCandidate, type RosterView, type SelView } from './evaluate';
+import { childIndex, evaluate, type RosterView, type SelView } from './evaluate';
 import { resolve, rootEntriesFor, type Scope } from './scope';
-import { COST_PTS, type RNode, type Roster } from './types';
+import { COST_PTS, type RNode, type Roster, type Sel } from './types';
 
 export interface UnitOption { entryId: string; name: string; role: string | null; points: number; legends: boolean }
 export interface OptionNode {
@@ -13,42 +14,73 @@ export interface OptionNode {
 }
 
 const LEGENDS = /\[legends\]/i;
+const CONFIGURATION = 'Configuration';
+const ARMY_ROLES = new Set([CONFIGURATION, 'Stratagems']);
+const isBattlefieldRole = (role: string | null) => BATTLEFIELD_ROLES.includes(role as BattlefieldRole);
 
-/** Unit and model root entries that aren't hidden and whose primary category is one of the force's, by role then name. */
+/**
+ * Root entries the user adds as units: unit and model entries, plus upgrade-typed ones with a battlefield role (the
+ * Aquila Strongpoints are Fortification upgrades). Not hidden, primary category one of the force's; by role then name.
+ */
 export function availableUnits(scope: Scope, r: Roster, forceSelId: string): UnitOption[] {
-  return rootOptions(scope, r, forceSelId, (t) => t === 'unit' || t === 'model');
+  return rootOptions(scope, r, forceSelId, (type, role) => type === 'unit' || type === 'model' || (type === 'upgrade' && isBattlefieldRole(role)));
 }
 
-/** Upgrade root entries (Configuration, Stratagems) that aren't hidden and whose primary category is one of the force's. */
+/** Configuration and Stratagems upgrades (Battle Size, Dynasty Choice…), not hidden, without [Reference] entries. */
 export function armyOptions(scope: Scope, r: Roster, forceSelId: string): UnitOption[] {
-  return rootOptions(scope, r, forceSelId, (t) => t === 'upgrade');
+  return rootOptions(scope, r, forceSelId, (type, role, name) => type === 'upgrade' && ARMY_ROLES.has(role ?? '') && !name.startsWith('['));
 }
 
-function rootOptions(scope: Scope, r: Roster, forceSelId: string, wanted: (type: RNode['type']) => boolean): UnitOption[] {
+type Wanted = (type: RNode['type'], role: string | null, name: string) => boolean;
+
+function rootOptions(scope: Scope, r: Roster, forceSelId: string, wanted: Wanted): UnitOption[] {
   const view = evaluate(scope, r);
   const fv = view.forces.find((f) => f.force.id === forceSelId);
   if (!fv?.entry) return [];
   const slots = new Set(fv.entry.cats.map((c) => c.targetId));
+  const price = pricer(scope, view, forceSelId);
   const out: UnitOption[] = [];
   for (const { node } of childIndex(scope, rootEntriesFor(scope, fv.force.catalogueId)).values()) {
-    if (!wanted(resolve(scope, node).type)) continue;
     const c = evaluateCandidate(scope, view, fv, node);
     if (c.hidden || c.primary === null || !slots.has(c.primary)) continue;
-    out.push({
-      entryId: node.id,
-      name: c.name,
-      role: scope.category(c.primary)?.name ?? null,
-      points: pointsAfterAdd(scope, r, forceSelId, node.id),
-      legends: LEGENDS.test(c.name),
-    });
+    const role = scope.category(c.primary)?.name ?? null;
+    if (!wanted(resolve(scope, node).type, role, c.name)) continue;
+    out.push({ entryId: node.id, name: c.name, role, points: price(node.id), legends: LEGENDS.test(c.name) });
   }
   return out.sort(byRoleThenName);
 }
 
-/** pts of the new selection once addUnit has filled in its defaults. */
-function pointsAfterAdd(scope: Scope, r: Roster, forceSelId: string, entryId: string): number {
-  const { roster, selId } = addUnit(scope, r, forceSelId, entryId);
-  return findSelView(evaluate(scope, roster), selId)?.total[COST_PTS] ?? 0;
+const priceCache = new WeakMap<Scope, Map<string, Map<string, number>>>();
+
+/**
+ * pts of a root entry once addUnit has filled in its defaults. Simulated on a minimal roster (the same forces holding
+ * only their Configuration selections) and cached per scope and configuration, so units already in the list don't
+ * slow the picker down.
+ */
+function pricer(scope: Scope, view: RosterView, forceSelId: string): (entryId: string) => number {
+  const isConfig = (v: SelView) => v.primary !== null && scope.category(v.primary)?.name === CONFIGURATION;
+  const minimal: Roster = {
+    ...view.roster,
+    forces: view.forces.map((fv) => ({ ...fv.force, selections: fv.selections.filter(isConfig).map((v) => v.sel) })),
+  };
+  const shape = (s: Sel): string => `${s.entryId}*${s.count}(${(s.children ?? []).map(shape).join(',')})`;
+  const key = JSON.stringify([
+    minimal.catalogueId,
+    minimal.forces.findIndex((f) => f.id === forceSelId),
+    minimal.forces.map((f) => [f.forceId, f.catalogueId, f.selections.map(shape).sort()]),
+  ]);
+  let byConfig = priceCache.get(scope);
+  if (!byConfig) priceCache.set(scope, (byConfig = new Map()));
+  let prices = byConfig.get(key);
+  if (!prices) byConfig.set(key, (prices = new Map()));
+  return (entryId) => {
+    let pts = prices.get(entryId);
+    if (pts === undefined) {
+      const { roster, selId } = addUnit(scope, minimal, forceSelId, entryId);
+      prices.set(entryId, (pts = findSelView(evaluate(scope, roster), selId)?.total[COST_PTS] ?? 0));
+    }
+    return pts;
+  };
 }
 
 /** Battlefield roles in rulebook order, then any other category alphabetically. */

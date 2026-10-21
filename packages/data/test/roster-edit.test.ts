@@ -16,6 +16,7 @@ import {
   newId,
   removeForce,
   removeSelection,
+  rootEntriesFor,
   setCount,
   splitSelection,
   COST_PTS,
@@ -69,9 +70,14 @@ function deepFreeze<T>(x: T): T {
   return x;
 }
 
-/** The mini files plus a Configuration category, linked from the Patrol, and a Configuration root entry. */
+/**
+ * The mini files plus a Configuration category linked from every force, a Configuration root entry, a [Reference]
+ * Configuration entry, and an upgrade-type root entry with a battlefield role (shaped like the Aquila Strongpoints).
+ */
 const CAT_CONFIG = 'cat-config';
 const E_CONFIG = 'se-config';
+const E_REFERENCE = 'se-reference';
+const E_STRONGPOINT = 'se-strongpoint';
 const configScope = buildScope([
   M.catalogue,
   M.library,
@@ -80,6 +86,8 @@ const configScope = buildScope([
     rootEntries: [
       ...M.system.rootEntries,
       { id: E_CONFIG, kind: 'entry', name: 'Detachment Choice', type: 'upgrade', cats: [{ id: 'cl-config', targetId: CAT_CONFIG, primary: true }] },
+      { id: E_REFERENCE, kind: 'entry', name: '[Reference] Rules', type: 'upgrade', cats: [{ id: 'cl-ref', targetId: CAT_CONFIG, primary: true }] },
+      { id: E_STRONGPOINT, kind: 'entry', name: 'Strongpoint', type: 'upgrade', costs: { [COST_PTS]: 50 }, cats: [{ id: 'cl-sp', targetId: M.CAT_ELITES, primary: true }] },
     ],
     categories: [...M.system.categories, { id: CAT_CONFIG, name: 'Configuration' }],
     forces: M.system.forces.map((f) => ({ ...f, cats: [{ id: `cl-${f.id}-config`, targetId: CAT_CONFIG }, ...f.cats] })),
@@ -113,15 +121,18 @@ describe('edits', () => {
     });
   });
 
-  test('addUnit picks the first non-hidden child of a required group without a default', () => {
+  test('a required group without a default is filled only when it has a single visible choice', () => {
     const files = structuredClone(M.miniFiles);
     const group = files[0].shared.find((n) => n.id === M.E_SQUAD_MODEL)!.children![0];
     delete group.defaultId;
+    const weapons = (s: ReturnType<typeof buildScope>) => {
+      const r0 = empty();
+      const { roster, selId } = addUnit(s, r0, r0.forces[0].id, M.L_SQUAD);
+      return findSel(roster, selId).children[0].children.map((c) => c.entryId);
+    };
+    expect(weapons(buildScope(files))).toEqual([]); // Bolter or Plasma: the user chooses
     group.children![0].hidden = true; // Bolter
-    const s = buildScope(files);
-    const r0 = empty();
-    const { roster, selId } = addUnit(s, r0, r0.forces[0].id, M.L_SQUAD);
-    expect(findSel(roster, selId).children[0].children.map((c) => c.entryId)).toEqual([M.E_PLASMA]);
+    expect(weapons(buildScope(structuredClone(files)))).toEqual([M.E_PLASMA]);
   });
 
   test('addChild adds an option with its required children; unknown ids leave the roster unchanged', () => {
@@ -258,12 +269,27 @@ describe('option queries', () => {
     expect(availableUnits(scope, r, 'stale')).toEqual([]);
   });
 
-  test('armyOptions lists upgrade root entries whose primary category is in the force', () => {
+  test('armyOptions lists Configuration upgrades except [Reference] ones; role upgrades are units', () => {
     const r = addForce(configScope, { schema: 1, name: 'Test', catalogueId: M.CAT_ID, battleSize: 'strike-force', forces: [] }, M.FORCE_PATROL, M.CAT_ID);
     // The system's Pact has no primary category, so it is never offered.
     expect(armyOptions(configScope, r, r.forces[0].id)).toEqual([
       { entryId: E_CONFIG, name: 'Detachment Choice', role: 'Configuration', points: 0, legends: false },
     ]);
+    expect(availableUnits(configScope, r, r.forces[0].id).filter((u) => u.role === 'Elites').map((u) => [u.name, u.points])).toEqual([
+      ['Beast', 20],
+      ['Imps', 30],
+      ['Squad', 90],
+      ['Strongpoint', 50],
+    ]);
+  });
+
+  test('availableUnits prices units against the roster configuration and caches them', () => {
+    let r = addForce(configScope, { schema: 1, name: 'Test', catalogueId: M.CAT_ID, battleSize: 'strike-force', forces: [] }, M.FORCE_PATROL, M.CAT_ID);
+    const fs = r.forces[0].id;
+    const first = availableUnits(configScope, r, fs);
+    r = addUnit(configScope, r, fs, M.L_WARRIORS).roster;
+    r = addUnit(configScope, r, fs, E_CONFIG).roster;
+    expect(availableUnits(configScope, r, fs)).toEqual(first);
   });
 
   test('childOptions: groups with their options, limits, counts and pts', () => {
@@ -322,6 +348,42 @@ describe('real BSData v9.8.0', () => {
     expect(units.filter((u) => /\[reference\]/i.test(u.name))).toEqual([]);
     expect(units.find((u) => u.entryId === '46df-b154-20ff-cce1')).toBeUndefined(); // Aegis Defence Line: always hidden
     expect(units.some((u) => u.legends)).toBe(true);
-    expect(armyOptions(real, r, r.forces[0].id).map((o) => o.name)).toContain('Dynasty Choice');
+    // Upgrade-typed Fortifications are units.
+    expect(units.find((u) => u.name === 'Macro-cannon Aquila Strongpoint')).toMatchObject({ role: 'Fortification' });
+    const army = armyOptions(real, r, r.forces[0].id).map((o) => o.name);
+    expect(army).toContain('Dynasty Choice');
+    expect(army.filter((n) => n.startsWith('[') || /Aquila Strongpoint/.test(n))).toEqual([]);
+  });
+
+  test('adding Dynasty Choice leaves the dynasty for the user to choose', () => {
+    const real = realScope('necrons');
+    const necrons = realCatalogueId('necrons');
+    const r = addForce(real, { schema: 1, name: 'Necrons', catalogueId: necrons, battleSize: 'strike-force', forces: [] }, 'fa51-993c-2f8b-9be4', necrons);
+    const { roster, selId } = addUnit(real, r, r.forces[0].id, 'fb30-1514-c892-86b5');
+    const code = childOptions(real, roster, selId).find((o) => o.name === '-Dynastic Code-')!;
+    expect(code).toMatchObject({ kind: 'group', min: 1, count: 0 });
+  });
+
+  test('availableUnits for a 40-unit Ultramarines roster is fast', () => {
+    const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[1];
+    const firsts: number[] = [];
+    const seconds: number[] = [];
+    for (let i = 0; i < 3; i++) {
+      const real = realScope('imperium-adeptus-astartes-ultramarines'); // a fresh scope: nothing cached
+      const id = realCatalogueId('imperium-adeptus-astartes-ultramarines');
+      let r = addForce(real, { schema: 1, name: 'UM', catalogueId: id, battleSize: 'strike-force', forces: [] }, 'fa51-993c-2f8b-9be4', id);
+      const fs = r.forces[0].id;
+      for (const u of rootEntriesFor(real, id).slice(0, 80)) r = addUnit(real, r, fs, u.id).roster;
+      expect(r.forces[0].selections.length).toBeGreaterThanOrEqual(40);
+      r = { ...r, forces: [{ ...r.forces[0], selections: r.forces[0].selections.slice(0, 40) }] };
+      let t = performance.now();
+      const a = availableUnits(real, r, fs);
+      firsts.push(performance.now() - t);
+      t = performance.now();
+      expect(availableUnits(real, r, fs)).toEqual(a);
+      seconds.push(performance.now() - t);
+    }
+    expect(median(firsts)).toBeLessThan(250);
+    expect(median(seconds)).toBeLessThan(50);
   });
 });

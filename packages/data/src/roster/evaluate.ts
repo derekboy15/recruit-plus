@@ -452,53 +452,14 @@ function instanceOf(ctx: EvalContext, key: string, childId: string): boolean | n
   return isInstance(container, childId);
 }
 
-// ---------- child nodes ----------
-// A child node (entry, link or group) of a container is evaluated at the container (the holding selection, or the
-// force for root entries) as an unselected candidate, so scope `parent` is the container. The validator uses the same.
+export interface NodeTraits { name: string; hidden: boolean; categories: string[]; primary: string | null; costs: CostMap }
 
-export interface CandidateView { name: string; hidden: boolean; categories: string[]; primary: string | null; costs: CostMap }
-
-export function childContext(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): EvalContext {
-  return { scope, view, at: container, candidate: resolve(scope, node) };
-}
-
-/** Effective name, hidden, categories and cost of one copy of a child node before it is selected. */
-export function evaluateCandidate(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): CandidateView {
-  const ctx = childContext(scope, view, container, node);
-  const m = ctx.candidate!;
+/** A node's effective name, hidden, categories and cost of one copy, evaluated at ctx (see children.ts for candidates). */
+export function nodeTraits(ctx: EvalContext, m: Merged): NodeTraits {
   return {
     name: applyName(ctx, m.mods, m.name),
     hidden: applyHidden(ctx, m.mods, m.hidden),
     ...applyCategoryMods(ctx, m.mods, categoriesOf(m.cats)),
     costs: applyCosts(ctx, m),
   };
-}
-
-/** A child node's constraints with its constraint modifiers applied. */
-export function childConstraints(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): Constraint[] {
-  const ctx = childContext(scope, view, container, node);
-  return effectiveConstraints(scope, ctx.candidate!, ctx);
-}
-
-/**
- * What a child node's constraint counts: selections of its resolved target (through any link) when shared, else only
- * selections made through the node itself. A group's constraint counts the selections inside the group.
- */
-export function childConstraintCount(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode, c: Constraint): number {
-  const ctx = childContext(scope, view, container, node);
-  const shared = c.shared !== false;
-  const childId = shared ? ctx.candidate!.target.id : node.id;
-  return countIn(ctx, c.scope, c.field, childId, { childSel: !!c.childSel, childForces: !!c.childForces, percent: !!c.percent, shared });
-}
-
-/** How many of a child node the container may hold: its effective parent-scope selection limits. max -1 = no limit. */
-export function childLimits(scope: Scope, view: RosterView, container: SelView | ForceView, node: RNode): { min: number; max: number } {
-  let min = 0;
-  let max = -1;
-  for (const c of childConstraints(scope, view, container, node)) {
-    if (c.field !== 'selections' || c.scope !== 'parent' || c.percent || c.value < 0) continue;
-    if (c.type === 'min') min = Math.max(min, c.value);
-    else max = max === -1 ? c.value : Math.min(max, c.value);
-  }
-  return { min, max };
 }

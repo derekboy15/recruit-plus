@@ -2,5 +2,6 @@
 export * from './types';
 export * from './scope';
 export * from './evaluate';
+export * from './children';
 export * from './edit';
 export * from './options';
