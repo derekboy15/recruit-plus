@@ -19,7 +19,7 @@ test('minimumPoints multiplies cost by the minimum model count', () => {
 });
 
 test('matchKeys loosens names in a fixed order', () => {
-  expect(matchKeys('Hearthkyn Warriors w/ bolters')).toEqual(['hearthkyn warriors w/ bolters', 'hearthkyn warriors', 'hearthkyn warrior']);
+  expect(matchKeys('Hearthkyn Warriors w/ bolters')).toEqual(['hearthkyn warriors with bolters', 'hearthkyn warriors', 'hearthkyn warrior']);
   expect(matchKeys('Shield-Captain in Allarus Terminator Armor')[0]).toBe('shield-captain in allarus terminator armour');
   expect(matchKeys('War Dog Huntsman Squadron')).toContain('war dog huntsman');
   expect(matchKeys('Storm Eagle Assault Gunship - ROC Pattern [Legends}')[0]).toBe('storm eagle assault gunship - roc pattern');
@@ -49,4 +49,30 @@ describe('match rate per playable catalogue', () => {
       expect(units.length - unmatched.length).toBeGreaterThanOrEqual(Math.ceil(units.length * 0.9));
     });
   }
+});
+
+const unit = (catalogue: string, name: string) => joined(catalogue).units.find((u) => u.name === name)!;
+
+test('per-unit costs (cost_per_unit) are used: Havocs cost 125', () => {
+  expect(unit('Chaos - Chaos Space Marines', 'Havocs').points).toBe(125);
+});
+
+test('"w/" variants match their own datasheet, not the base unit', () => {
+  const sag = unit('Orks', 'Big Mek w/ Shokk Attack Gun');
+  expect(sag.wahapediaId).toBe('000001536');
+  expect(sag.baseSize).toContain('40mm');
+  expect(unit('Orks', 'Big Mek w/ Kustom Force Field').wahapediaId).toBe('000002080');
+});
+
+test('left curly quotes in Wahapedia names still match', () => {
+  expect(unit('Imperium - Astra Militarum', "'Iron Hand' Straken").wahapediaId).not.toBeNull();
+  expect(unit('Orks', "Looted 'Eavy Wagon").wahapediaId).not.toBeNull();
+});
+
+test('units whose model lines are all optional cost minimum models x cheapest model, never 0', () => {
+  expect(minimumPoints([{ Cost: '16', models_per_unit: '0-4' }, { Cost: '22', models_per_unit: '0-4' }], 4)).toBe(64);
+  expect(minimumPoints([{ Cost: '16', models_per_unit: '0-4' }], null)).toBeNull();
+  expect(unit('Aeldari - Drukhari', 'Court of the Archon').points).toBe(64);
+  for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue))
+    for (const u of joined(c.name).units) expect(u.points, `${c.name}: ${u.name}`).not.toBe(0);
 });

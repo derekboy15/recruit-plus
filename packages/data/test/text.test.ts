@@ -11,6 +11,8 @@ test('normalizeName strips Legends tags and case', () => {
   expect(normalizeName('Necron Warriors [Legends]')).toBe('necron warriors');
   expect(normalizeName('Lord Of Contagion')).toBe(normalizeName('Lord of Contagion'));
   expect(normalizeName('Ork Boyz')).not.toBe(normalizeName('Boyz'));
+  expect(normalizeName('‘Iron Hand’ Straken')).toBe(normalizeName("'Iron Hand' Straken"));
+  expect(slugify('‘Iron Hand’ Straken')).toBe('iron-hand-straken');
 });
 
 test('htmlToText converts breaks and decodes entities', () => {

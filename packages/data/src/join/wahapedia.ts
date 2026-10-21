@@ -26,23 +26,33 @@ export function loadOverrides(dir: string): Overrides {
   return { factionMap: read('faction-map.json'), nameMatches: read('name-matches.json') };
 }
 
-/** Minimum unit cost: each model line's cost times the smallest count in models_per_unit ("4-9" -> 4). */
-export function minimumPoints(models: Row[]): number | null {
+/**
+ * Minimum unit cost: each model line's cost times the smallest count in models_per_unit ("4-9" -> 4).
+ * When every line is optional ("0-4"), the unit's minimum size is filled with its cheapest model.
+ * Returns null rather than a misleading 0 when that can't be worked out.
+ */
+export function minimumPoints(models: Row[], minModels: number | null = null): number | null {
   if (!models.length || models.some((m) => m.Cost === '' || Number.isNaN(Number(m.Cost)))) return null;
-  return models.reduce((sum, m) => {
+  const total = models.reduce((sum, m) => {
     const min = Number((m.models_per_unit || '1').split('-')[0]) || 0;
     return sum + Number(m.Cost) * min;
   }, 0);
+  if (total > 0) return total;
+  if (!minModels) return null;
+  return minModels * Math.min(...models.map((m) => Number(m.Cost)));
 }
 
 /**
  * Progressively looser name keys for cross-source matching, most specific first:
- * exact normalised name, then without loadout suffix ("w/ bolters"), then without
- * "Squad"/"Squadron", then without a plural "s". "Armor" is treated as "Armour".
+ * exact normalised name ("w/" read as "with", "Armor" as "Armour"), then without a loadout
+ * suffix ("with bolters"), then without "Squad"/"Squadron", then without a plural "s".
+ * Exact keys are always tried first, so "Big Mek w/ Shokk Attack Gun" finds its own datasheet.
  */
 export function matchKeys(name: string): string[] {
-  const k0 = normalizeName(name.replace(/[[(]legends[\])}]/gi, '')).replace(/\barmor\b/g, 'armour');
-  const k1 = k0.replace(/\s+w\/.*$/, '').trim();
+  const k0 = normalizeName(name.replace(/[[(]legends[\])}]/gi, ''))
+    .replace(/\barmor\b/g, 'armour')
+    .replace(/\s+w\/\s*/g, ' with ');
+  const k1 = k0.replace(/\s+with\s.*$/, '').trim();
   const k2 = k1.replace(/\s+(squad|squadron)$/, '');
   const k3 = k2.replace(/s$/, '');
   return [...new Set([k0, k1, k2, k3])];
@@ -112,7 +122,7 @@ export function joinWahapedia(
       ...u,
       abilities,
       wahapediaId: ds.id,
-      points: minimumPoints(models),
+      points: ds.cost_per_unit === 'true' && ds.Cost !== '' ? Number(ds.Cost) : minimumPoints(models, u.minModels),
       baseSize: models.find((m) => m.base_size)?.base_size ?? null,
     };
   });

@@ -1,5 +1,5 @@
 const stripDiacritics = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
-const stripApostrophes = (s: string) => s.replace(/['’`]/g, '');
+const stripApostrophes = (s: string) => s.replace(/['‘’ʼ`]/g, '');
 
 /** Stable URL slug: "T'au Empire" -> "tau-empire". */
 export function slugify(s: string): string {
