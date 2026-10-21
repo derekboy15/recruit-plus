@@ -3,8 +3,8 @@ import { useAuth } from '../auth/AuthContext';
 
 /** Shown above the page when the server has said the sign-in expired; local lists keep working. */
 export function ReauthBanner() {
-  const { needsReauth } = useAuth();
-  if (!needsReauth) return null;
+  const { user, needsReauth } = useAuth();
+  if (!user || !needsReauth) return null;
   return (
     <div
       role="alert"

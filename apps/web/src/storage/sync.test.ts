@@ -269,6 +269,27 @@ describe('startAutoSync', () => {
     stop();
   });
 
+  test('an auth error that arrives after stop() is not reported', async () => {
+    let fail: (e: Error) => void = () => {};
+    let started = false;
+    const slow: RemoteStore = {
+      pushDocs: async () => {},
+      pullSince: () =>
+        new Promise((_resolve, reject) => {
+          started = true;
+          fail = reject;
+        }),
+    };
+    const { db } = device('a');
+    const onAuthError = vi.fn();
+    const stop = startAutoSync(db, slow, OWNER, { intervalMs: 10_000, onAuthError });
+    await vi.waitFor(() => expect(started).toBe(true));
+    stop();
+    fail(new SyncAuthError('Sync pull failed: JWT expired'));
+    await new Promise((r) => setTimeout(r, 20));
+    expect(onAuthError).not.toHaveBeenCalled();
+  });
+
   test('other errors are retried on the next tick', async () => {
     let pulls = 0;
     const flaky: RemoteStore = {

@@ -130,8 +130,11 @@ export function startAutoSync(db: RecruitDb, remote: RemoteStore, ownerId: strin
       if (result.failed.length) console.warn('Some documents could not be synced', result.failed);
     } catch (e) {
       if (e instanceof SyncAuthError) {
-        stop();
-        onAuthError?.();
+        // Already stopped (the caller signed out or switched user mid-sync): don't report a stale expiry.
+        if (!stopped) {
+          stop();
+          onAuthError?.();
+        }
       } else {
         console.warn('Sync failed; will retry', e);
       }

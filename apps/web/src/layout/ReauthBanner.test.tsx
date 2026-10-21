@@ -67,3 +67,13 @@ test('a later SIGNED_IN event clears the banner', async () => {
   expect(api.needsReauth).toBe(false);
   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 });
+
+test('is not shown to a signed-out visitor even if an expiry was reported', async () => {
+  const emit = setup();
+  await act(async () => {});
+  act(() => api.markSessionExpired());
+  expect(screen.getByRole('alert')).toBeInTheDocument();
+  act(() => emit(null, 'SIGNED_OUT'));
+  expect(api.user).toBeNull();
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+});
