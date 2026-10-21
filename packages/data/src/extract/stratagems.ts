@@ -48,9 +48,11 @@ export interface CoreStratagem {
 const SEPARATOR = ' – ';
 const KINDS = new Set(['Battle Tactic', 'Epic Deed', 'Strategic Ploy', 'Wargear', 'Core', 'Requisition']);
 
-/** Boarding Actions, Crusade and Requisition stratagems are not matched-play in-game stratagems. */
-export const isMatchedPlay = (r: Row): boolean =>
-  r.is_boarding_action !== 'true' && !/Boarding Action|Requisition|Crusade/.test(r.type);
+/**
+ * Boarding Actions and Crusade stratagems are not matched play. Requisition stratagems are: since War Zone Nephilim,
+ * codex pre-battle stratagems (extra Relics, Warlord Traits) carry that label.
+ */
+export const isMatchedPlay = (r: Row): boolean => r.is_boarding_action !== 'true' && !/Boarding Action|Crusade/.test(r.type);
 
 const withoutSuffix = (type: string) => type.replace(/ ?Stratagem$/, '');
 

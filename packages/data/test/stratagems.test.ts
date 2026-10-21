@@ -14,7 +14,7 @@ let w: Wahapedia;
 let overrides: Overrides;
 const catalogue = (slug: string): CatalogueOut => JSON.parse(readFileSync(join(out, 'catalogues', `${slug}.json`), 'utf8'));
 const catalogues = () => index.catalogues.map((c) => catalogue(c.slug));
-const matchedPlay = (r: Row) => r.is_boarding_action !== 'true' && !/Boarding Action|Requisition|Crusade/.test(r.type);
+const matchedPlay = (r: Row) => r.is_boarding_action !== 'true' && !/Boarding Action|Crusade/.test(r.type);
 
 beforeAll(() => {
   index = buildAll({ rawDir: join(ROOT, 'raw'), overridesDir: join(ROOT, 'overrides'), outDir: out }).index;
@@ -29,14 +29,14 @@ test('every playable catalogue has one stratagem-factions entry; libraries have 
   for (const c of index.catalogues.filter((x) => x.library)) expect(catalogue(c.slug).stratagems, c.name).toEqual([]);
 });
 
-test('no boarding, requisition or crusade stratagems in any catalogue', () => {
+test('no boarding or crusade stratagems in any catalogue', () => {
   const byId = new Map(w.stratagems.map((r) => [r.id, r]));
   for (const c of catalogues()) {
     for (const s of c.stratagems) {
       const row = byId.get(s.id)!;
       expect(row, `${c.name}: ${s.name}`).toBeDefined();
       expect(matchedPlay(row), `${c.name}: ${s.name} (${row.type})`).toBe(true);
-      expect(s.kind, `${c.name}: ${s.name}`).not.toMatch(/Boarding|Requisition|Crusade/);
+      expect(s.kind, `${c.name}: ${s.name}`).not.toMatch(/Boarding|Crusade/);
     }
   }
 });
@@ -164,7 +164,7 @@ test('catalogues limited to some groups list exactly those', () => {
     const slug = index.catalogues.find((c) => c.name === e.catalogueName)!.slug;
     expect(groups(slug), e.catalogueName).toEqual([...e.groups!].sort());
   }
-  expect(groups('fallen')).toEqual(['Fallen Angels']);
+  expect(groups('fallen')).toEqual(['Fallen Angels', 'Fallen Angels (Specialist Detachment)']);
   expect(groups('imperium-legion-of-the-damned')).toEqual(['Adeptus Astartes']);
 });
 
@@ -176,4 +176,19 @@ test('an "X Stratagem" type that names no kind is group X, kind Stratagem', () =
   const gellerpox = catalogue('chaos-death-guard').stratagems.filter((s) => s.group === 'Gellerpox Infected');
   expect(gellerpox).toHaveLength(8);
   for (const s of gellerpox) expect(s.kind).toBe('Stratagem');
+});
+
+test('matched-play Requisition stratagems are kept', () => {
+  expect(catalogue('imperium-adeptus-astartes-dark-angels').stratagems.find((s) => s.name === 'Honoured by the Rock')).toMatchObject({
+    group: 'Dark Angels',
+    kind: 'Requisition',
+  });
+  // Successor-chapter relic requisitions stay with their parent chapter; Kill Team Strike Force's stays with Deathwatch.
+  expect(names('imperium-adeptus-astartes-ultramarines')).toContain('Honoured by Macragge');
+  const ba = names('imperium-adeptus-astartes-blood-angels');
+  for (const n of ['Honoured by Macragge', 'Gift of the Khans', 'Bequeathed by the Iron Council', 'Honoured Veteran of the Watch']) expect(ba, n).not.toContain(n);
+  expect(catalogue('fallen').stratagems.find((s) => s.name === 'Fallen Angels')).toMatchObject({
+    group: 'Fallen Angels (Specialist Detachment)',
+    kind: 'Requisition',
+  });
 });
