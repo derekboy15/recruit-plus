@@ -63,13 +63,14 @@ export default {
       expectRules: ['detachment-faction'],
     },
     {
-      // §1 and §8.2: an Inquisitor (IMPERIUM, INQUISITION) shares no Faction keyword with the Renegades (CHAOS,
-      // RENEGADES AND HERETICS), and AGENT OF THE IMPERIUM units only join IMPERIUM detachments. BSData still offers
-      // Agents of the Imperium to this catalogue.
+      // §1: an Inquisitor (IMPERIUM, INQUISITION) shares no Faction keyword with the Renegades (CHAOS, RENEGADES AND
+      // HERETICS), so the army has no Army Faction. §8.2: an AGENT OF THE IMPERIUM unit is left out of the detachment's
+      // shared-keyword check only in an IMPERIUM detachment, so this one breaks Battle Brothers (§7.1) too. BSData still
+      // offers Agents of the Imperium to this catalogue.
       title: 'an Inquisitor in the warband',
       battleSize: 'incursion',
       detachments: [{ ...WARBAND, units: [...CORE, { name: 'Inquisitor', options: ['Bolt pistol', 'Ordo Xenos'] }] }],
-      expectRules: ['army-faction'],
+      expectRules: ['army-faction', 'detachment-faction'],
     },
     {
       // Rule of Two (§7.5): a datasheet other than Troops or Dedicated Transports at most twice at Incursion.

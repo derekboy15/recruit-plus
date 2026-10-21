@@ -192,6 +192,8 @@ const BROAD_FACTIONS = new Set(['imperium', 'chaos', 'aeldari', 'ynnari', 'tyran
 const UNALIGNED = 'unaligned';
 const FACTION_PREFIX = 'Faction: ';
 const AGENT_OF_THE_IMPERIUM = 'Agent of the Imperium';
+const IMPERIUM = 'imperium';
+const FALLEN = 'fallen';
 /** The Warlord upgrade's name and the .gst category it carries. */
 const WARLORD = 'Warlord';
 /** Exempt from the Rule of Two/Three (by effective primary category). */
@@ -281,8 +283,8 @@ function dedupe(issues: Issue[]): Issue[] {
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
  * UNALIGNED units and units with no faction keyword; a detachment's check also ignores AGENT OF THE IMPERIUM units
- * (§8.2), then units a codex lets into the detachment's catalogue (battle-brothers.json), each unless the detachment
- * has nothing else. In Arks of Omen battle sizes, the units of a permitted ally don't
+ * when every other unit in it is IMPERIUM and none is FALLEN (§8.2), then units a codex lets into the detachment's
+ * catalogue (battle-brothers.json), each unless the detachment has nothing else. In Arks of Omen battle sizes, the units of a permitted ally don't
  * count towards Army Faction (the pack allows e.g. a Leagues of Votann Patrol with an IMPERIUM army).
  */
 export function validatePolicy(scope: Scope, view: RosterView, policy: PolicyData): Issue[] {
@@ -413,15 +415,20 @@ class PolicyCheck {
   // ---------- factions ----------
 
   /**
-   * Battle Brothers (§7.1): a detachment's units share a faction keyword other than the broad ones. Units a codex lets
-   * into the detachment's catalogue (battle-brothers.json) are left out, like Agents, unless there is nothing else.
+   * Battle Brothers (§7.1): a detachment's units share a faction keyword other than the broad ones. Agents in an
+   * IMPERIUM detachment with no FALLEN units (§8.2), then units a codex lets into the detachment's catalogue
+   * (battle-brothers.json), are left out unless there is nothing else.
    */
   private detachmentFaction(fv: ForceView): void {
     if (!fv.entry) return;
     let units = this.factionUnits(fv.selections);
     const catalogueName = this.scope.catalogue(fv.force.catalogueId)?.name;
     const allowed = this.policy.battleBrothers.filter((b) => b.catalogueName === catalogueName).flatMap((b) => b.alsoAllowFactions.map((f) => keyword(FACTION_PREFIX + f)));
-    for (const guest of [(u: Unit) => this.hasCategory(u.v, AGENT_OF_THE_IMPERIUM), (u: Unit) => allowed.some((k) => u.factions.has(k))]) {
+    const isAgent = (u: Unit) => this.hasCategory(u.v, AGENT_OF_THE_IMPERIUM);
+    const hosts = units.filter((u) => !isAgent(u));
+    // §8.2: an Agent is a guest only in an IMPERIUM detachment, "excluding FALLEN units" (Wahapedia 000008049).
+    const imperium = hosts.every((u) => u.factions.has(IMPERIUM) && !u.factions.has(FALLEN));
+    for (const guest of [(u: Unit) => imperium && isAgent(u), (u: Unit) => allowed.some((k) => u.factions.has(k))]) {
       const rest = units.filter((u) => !guest(u));
       if (rest.length) units = rest;
     }

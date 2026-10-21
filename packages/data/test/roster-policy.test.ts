@@ -605,6 +605,66 @@ describe('factions', () => {
     expect(issues.map((i) => i.rule)).toEqual(['detachment-faction']);
   });
 
+  describe('an AGENT OF THE IMPERIUM unit skips Battle Brothers only in an IMPERIUM detachment without FALLEN units (§8.2)', () => {
+    // Wahapedia Agent of the Imperium (000008049): "one AGENT OF THE IMPERIUM unit in each IMPERIUM (excluding FALLEN
+    // units) … Detachment"; the research library's §8.2: "each IMPERIUM (excluding Fallen) Patrol, Battalion or Brigade".
+    const INQUISITOR = { name: 'Inquisitor', options: ['Bolt pistol', 'Ordo Xenos'] };
+    const rules = (scope: Scope, slug: string, spec: ListSpec) =>
+      validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy).issues.map((i) => i.rule).sort();
+
+    test('an Inquisitor in a Renegades & Heretics detachment is detachment-faction (and army-faction)', () => {
+      const slug = 'chaos-renegades-heretics-legends';
+      const spec: ListSpec = {
+        title: 'Renegades with an Inquisitor',
+        battleSize: 'incursion',
+        detachments: [{
+          detachment: 'Arks of Omen Detachment',
+          army: { 'Arks of Omen Compulsory Type': 'Troops' },
+          units: [
+            { name: 'Malefic Lord', warlord: true },
+            { name: 'Renegade Militia Squad', options: ['Renegade Militia Champion > Autogun'] },
+            { name: 'Renegade Cultists' },
+            { name: 'Renegade Mutant Rabble' },
+            INQUISITOR,
+          ],
+        }],
+        expect: { points: 0, powerLevel: 0 },
+      };
+      expect(rules(realScope(slug), slug, spec)).toEqual(['army-faction', 'detachment-faction']);
+    });
+
+    test('an Inquisitor in an Ultramarines detachment is fine', () => {
+      const slug = 'imperium-adeptus-astartes-ultramarines';
+      const spec: ListSpec = {
+        title: 'Ultramarines with an Inquisitor',
+        battleSize: 'strike-force',
+        detachments: [{
+          detachment: 'Arks of Omen Detachment',
+          units: [{ name: 'Uriel Ventris', warlord: true }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, INQUISITOR],
+        }],
+        expect: { points: 0, powerLevel: 0 },
+      };
+      expect(rules(realScope(slug), slug, spec)).toEqual([]);
+    });
+
+    test('an Inquisitor beside Cypher (IMPERIUM, CHAOS, FALLEN) is detachment-faction', () => {
+      // BSData never offers Agents to the Fallen catalogue, so this scope imports them into it.
+      const fallen = realCatalogueId('fallen');
+      const agents = realCatalogueId('imperium-agents-of-the-imperium');
+      const scope = buildScope(realFiles('fallen', 'imperium-agents-of-the-imperium').map((f) =>
+        f.id === fallen ? { ...f, links: [...f.links, { targetId: agents, importRootEntries: true }] } : f,
+      ));
+      const spec: ListSpec = {
+        title: 'Cypher with an Inquisitor',
+        battleSize: 'onslaught',
+        detachments: [{ detachment: 'Patrol Detachment -2CP', units: [{ name: 'Cypher', warlord: true }, INQUISITOR] }],
+        expect: { points: 0, powerLevel: 0 },
+      };
+      const issues = validate(scope, buildFromSpec(scope, fallen, spec), policy).issues;
+      expect(ofRule(issues, 'detachment-faction')).toHaveLength(1);
+    });
+  });
+
   test('battle-brothers.json ships in policy.json and its names are checked at build', () => {
     expect(policy.battleBrothers).toEqual([expect.objectContaining({ catalogueName: 'Imperium - Adeptus Custodes', alsoAllowFactions: ['Anathema Psykana'] })]);
     const files = realFiles(...catalogues.map((c) => c.slug));
