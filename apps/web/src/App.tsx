@@ -42,7 +42,7 @@ export function App() {
   return (
     <AuthProvider backend={setup.backend}>
       <SyncWhileSignedIn />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <AppShell account={<AccountMenu />}>
           <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={<Route path="/sign-in" element={<SignIn />} />} />
         </AppShell>
