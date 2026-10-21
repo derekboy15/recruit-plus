@@ -8,7 +8,7 @@ import { BATTLEFIELD_ROLES, type BattlefieldRole } from '../model/types';
 import { childConstraints, evaluateCandidate } from './children';
 import { findSelView } from './edit';
 import { childIndex, type ForceView, type RosterView, type SelView } from './evaluate';
-import { factionDisplayName, stripCpSuffix } from './names';
+import { displayName, factionDisplayName, stripCpSuffix } from './names';
 import { availableUnits } from './options';
 import { BATTLE_SIZES, FORCE } from './policy';
 import { resolve, type Scope } from './scope';
@@ -32,7 +32,7 @@ export function explain(issue: Issue, view: RosterView, scope: Scope): Explanati
 
 const num = (n: number) => n.toLocaleString('en-GB');
 const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
-const clean = (name: string) => name.trim();
+const clean = displayName;
 /** "a" or "an" before a category name, by sound: vowels, and "HQ" ("aitch-cue"). */
 const article = (word: string) => (/^(?:[aeiou]|HQ(?![a-z]))/i.test(word.trim()) ? 'an' : 'a');
 const stripCp = stripCpSuffix;

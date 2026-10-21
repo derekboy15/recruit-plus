@@ -4,7 +4,7 @@
  */
 import { BATTLEFIELD_ROLES } from '../model/types';
 import type { ForceView, RosterView, SelView } from './evaluate';
-import { factionDisplayName, stripCpSuffix } from './names';
+import { displayName, factionDisplayName, stripCpSuffix } from './names';
 import { BATTLE_SIZES, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY, GAME_TYPE_ENTRY } from './policy';
 import type { Scope } from './scope';
 import { COST_CP, COST_PL, COST_PTS, type CostMap } from './types';
@@ -48,7 +48,7 @@ function forceBlock(fv: ForceView, scope: Scope): string[] {
   for (const v of fv.selections) {
     if (!v.merged) continue; // an item the rules data no longer has
     if (isConfiguration(v, scope)) {
-      if (v.children.length && !AUTO_MANAGED.has(v.merged.target.id)) lines.push(`Army: ${v.name}: ${v.children.map((c) => c.name).join(', ')}`);
+      if (v.children.length && !AUTO_MANAGED.has(v.merged.target.id)) lines.push(`Army: ${displayName(v.name)}: ${v.children.map((c) => displayName(c.name)).join(', ')}`);
       continue;
     }
     const role = scope.category(v.primary ?? '')?.name ?? '';
@@ -85,7 +85,10 @@ function aggregate(children: SelView[], skipModels = false): Map<string, number>
     for (const v of vs) {
       if (skipModels && v.type === 'model') continue;
       const qty = copies * v.sel.count;
-      if (v.type !== 'model' && v.name !== WARLORD && qty > 0 && !v.children.length) out.set(v.name, (out.get(v.name) ?? 0) + qty);
+      if (v.type !== 'model' && v.name !== WARLORD && qty > 0 && !v.children.length) {
+        const name = displayName(v.name);
+        out.set(name, (out.get(name) ?? 0) + qty);
+      }
       visit(v.children, qty);
     }
   };
@@ -114,7 +117,7 @@ export function unitExport(v: SelView): UnitExport {
   const perModel = stacks.length > 1;
   for (const [name, qty] of aggregate(v.children, perModel)) details.push(`${num(qty)}x ${name}`);
   if (perModel) details.push(...stacks.map((s) => `${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`));
-  return { title: `${copies}${v.name}${models}`, points: `${num(cost(v.total, COST_PTS))} pts`, details };
+  return { title: `${copies}${displayName(v.name)}${models}`, points: `${num(cost(v.total, COST_PTS))} pts`, details };
 }
 
 function unitLines(v: SelView): string[] {
@@ -131,7 +134,7 @@ function modelStacks(unit: SelView): { name: string; count: number; upgrades: st
     const key = `${m.name}\u0000${upgrades}`;
     const stack = stacks.get(key);
     if (stack) stack.count += m.sel.count;
-    else stacks.set(key, { name: m.name, count: m.sel.count, upgrades });
+    else stacks.set(key, { name: displayName(m.name), count: m.sel.count, upgrades });
   }
   return [...stacks.values()];
 }

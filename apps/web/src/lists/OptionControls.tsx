@@ -3,7 +3,7 @@
  * anything that can be taken more than once (model stacks included). Options on a chosen model or item (a sergeant's
  * weapons) are shown under it, one block per stack.
  */
-import { findSelView, type OptionNode, type RosterView, type Scope } from '@recruit/data/roster';
+import { displayName, findSelView, type OptionNode, type RosterView, type Scope } from '@recruit/data/roster';
 import { cleanLabel } from './labels';
 import { fmt, hasChoices, leaves } from './editorView';
 import type { EditorAction } from './useRosterEditor';
@@ -29,7 +29,7 @@ export function OptionList({ nodes, ...props }: ListProps) {
   const included = nodes.filter((n) => isFixed(n) && !n.selIds.some((id) => hasChoices(ctx.optionsOf(id))));
   return (
     <>
-      {included.length > 0 && <p className="muted opt__included">Comes with: {included.map((n) => n.name).join(', ')}</p>}
+      {included.length > 0 && <p className="muted opt__included">Comes with: {included.map((n) => displayName(n.name)).join(', ')}</p>}
       {nodes.map((n) => {
         if (included.includes(n)) return null;
         if (n.kind === 'group') return <GroupControl key={n.id} {...props} group={n} />;
@@ -67,7 +67,7 @@ function GroupControl({ ctx, selId, group, room, spare, depth }: ControlProps & 
               checked={o.count > 0}
               onChange={() => ctx.dispatch({ type: 'choose', parentSelId: selId, groupId: group.id, entryId: o.id })}
             />
-            <span className="radio-card__name">{o.name}</span>
+            <span className="radio-card__name">{displayName(o.name)}</span>
             {cost(o)}
           </label>
         ))}
@@ -109,7 +109,7 @@ function OptionControl({ ctx, selId, option: o, room, spare, depth }: ControlPro
             disabled={on ? o.min >= 1 || spare <= 0 : room <= 0}
             onChange={() => (on ? o.selIds.forEach((id) => ctx.dispatch({ type: 'remove', selId: id })) : add())}
           />
-          <span className="opt__name">{o.name}</span>
+          <span className="opt__name">{displayName(o.name)}</span>
           {cost(o)}
         </label>
         <Nested ctx={ctx} option={o} depth={depth} />
@@ -127,15 +127,15 @@ function OptionControl({ ctx, selId, option: o, room, spare, depth }: ControlPro
     <div>
       <div className="opt">
         <span className="opt__name">
-          {o.name}
+          {displayName(o.name)}
           {cost(o)}
         </span>
         <span className="stepper">
-          <button type="button" aria-label={`Remove one ${o.name}`} disabled={o.count <= o.min || spare <= 0 || !shrinkable} onClick={shrink}>
+          <button type="button" aria-label={`Remove one ${displayName(o.name)}`} disabled={o.count <= o.min || spare <= 0 || !shrinkable} onClick={shrink}>
             −
           </button>
           <output>{fmt(o.count)}</output>
-          <button type="button" aria-label={`Add one ${o.name}`} disabled={full || room <= 0} onClick={grow}>
+          <button type="button" aria-label={`Add one ${displayName(o.name)}`} disabled={full || room <= 0} onClick={grow}>
             +
           </button>
         </span>
@@ -164,17 +164,18 @@ function StackBlock({ ctx, selId, nodes, removable, depth }: { ctx: OptionCtx; s
   const v = findSelView(ctx.view, selId);
   if (!v) return null;
   const n = v.sel.count;
+  const name = displayName(v.name);
   return (
     <div className="stack">
       <div className="stack__head">
-        <strong>{n > 1 ? `${v.name} ×${fmt(n)}` : v.name}</strong>
+        <strong>{n > 1 ? `${name} ×${fmt(n)}` : name}</strong>
         {n > 1 && (
           <button type="button" className="btn btn--small" onClick={() => ctx.dispatch({ type: 'split', selId })}>
             {v.type === 'model' ? 'Customise one model' : 'Customise one'}
           </button>
         )}
         {removable && (
-          <button type="button" className="btn btn--small" aria-label={n === 1 ? `Remove this ${v.name}` : `Remove these ${fmt(n)} ${v.name}`} onClick={() => ctx.dispatch({ type: 'remove', selId })}>
+          <button type="button" className="btn btn--small" aria-label={n === 1 ? `Remove this ${name}` : `Remove these ${fmt(n)} ${name}`} onClick={() => ctx.dispatch({ type: 'remove', selId })}>
             Remove
           </button>
         )}

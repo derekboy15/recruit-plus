@@ -1,5 +1,6 @@
 import {
   armyOptions,
+  displayName,
   childConstraints,
   type ForceView,
   type Issue,
@@ -93,7 +94,7 @@ export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Pro
               checked={sel !== undefined}
               onChange={() => (sel ? dispatch({ type: 'remove', selId: sel.sel.id }) : dispatch({ type: 'add-unit', forceSelId: army.force.id, entryId: o.entryId }))}
             />
-            <span className="opt__name">{o.name}</span>
+            <span className="opt__name">{displayName(o.name)}</span>
           </label>
         );
       })}

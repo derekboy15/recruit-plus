@@ -4,6 +4,7 @@ import {
   BATTLE_SIZE_ENTRY,
   DETACHMENT_COMMAND_COST_ENTRY,
   GAME_TYPE_ENTRY,
+  displayName,
   findSelView,
   resolve,
   type ForceView,
@@ -19,8 +20,8 @@ export const plural = (n: number, one: string, many: string) => `${fmt(n)} ${n =
 export const problemsLabel = (n: number) => (n === 0 ? '✓ Legal' : plural(n, 'problem', 'problems'));
 
 const LEGENDS_TAG = /\s*\[legends\]/i;
-/** A unit name without BattleScribe's "[Legends]" tag (the picker shows a badge instead). */
-export const unitName = (name: string) => name.replace(LEGENDS_TAG, '').trim();
+/** A unit name without BattleScribe's "[Legends]" tag (the picker shows a badge instead) or decoration. */
+export const unitName = (name: string) => displayName(name.replace(LEGENDS_TAG, ''));
 
 const CONFIGURATION = 'Configuration';
 const STRATAGEMS = 'Stratagems';

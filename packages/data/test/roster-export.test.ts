@@ -217,6 +217,28 @@ describe('exportText (mini fixture)', () => {
     expect(out).not.toContain('Squad Marine (');
   });
 
+  test('names wrapped in BattleScribe decoration print without it', () => {
+    const files = structuredClone(M.miniFiles);
+    const rename = (o: unknown): void => {
+      if (Array.isArray(o)) return o.forEach(rename);
+      if (!o || typeof o !== 'object') return;
+      const rec = o as Record<string, unknown>;
+      if (rec.name === 'Blade') rec.name = '-Blade-';
+      if (rec.name === 'Gauss Flayer') rec.name = '* Gauss Flayer *';
+      Object.values(rec).forEach(rename);
+    };
+    rename(files);
+    const s = buildScope(files);
+    let r = addForce(s, { schema: 1, name: 'Mini', catalogueId: M.CAT_ID, battleSize: 'strike-force', forces: [] }, M.FORCE_PATROL, M.CAT_ID);
+    const f = r.forces[0].id;
+    r = addUnit(s, r, f, M.L_WARRIORS).roster;
+    const lord = addUnit(s, r, f, M.L_LORD);
+    r = addChild(s, lord.roster, lord.selId, M.L_LORD_BLADE);
+    const out = exportText(evaluate(s, r), s).split('\n');
+    expect(out).toContain('    1x Blade');
+    expect(out).toContain('    10x Gauss Flayer');
+  });
+
   test('items the rules data no longer has are left out', () => {
     const r = empty();
     const broken: Roster = { ...r, forces: [{ ...r.forces[0], selections: [{ id: 'x', entryId: 'gone', count: 1, children: [] }] }] };

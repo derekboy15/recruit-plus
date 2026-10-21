@@ -11,6 +11,7 @@ import {
   chooseInGroup,
   createRoster,
   detachmentChoices,
+  displayName,
   factionDisplayName,
   resolve,
   stripCpSuffix,
@@ -146,7 +147,7 @@ export function armyChoices(scope: Scope, roster: Roster): ArmyChoice[] {
         entryId: option.entryId,
         groupId: g.id,
         title: choiceTitle(option.name, groups.length > 1 ? g.name : null),
-        options: options.map((o) => ({ id: o.id, name: o.name })),
+        options: options.map((o) => ({ id: o.id, name: displayName(o.name) })),
         current: options.find((o) => o.count > 0)?.id ?? null,
       });
     }

@@ -330,6 +330,12 @@ describe('explain (real Necrons)', () => {
     expect(rows.map((x) => [x.text, x.fixLabel])).toEqual([['Your army needs a "Battle Size" choice. Tap to add it.', 'Choose Battle Size']]);
   });
 
+  test('an option group wrapped in dashes in the data reads without them ("-Dynastic Code-")', () => {
+    const r = necronRoster('strike-force');
+    const [row] = of(explainPolicy(necronsScope, r), 'option-required');
+    expect(row.text).toBe('Dynasty Choice needs 1 more from "Dynastic Code".');
+  });
+
   test('warlord-missing on real data', () => {
     const r0 = necronRoster('strike-force');
     const { roster } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Overlord');

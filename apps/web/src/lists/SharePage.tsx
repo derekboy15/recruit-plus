@@ -4,6 +4,7 @@ import {
   COST_CP,
   COST_PL,
   COST_PTS,
+  displayName,
   exportText,
   stripCpSuffix,
   UNTITLED_LIST,
@@ -55,7 +56,7 @@ async function loadShared(source: PublicListSource, id: string): Promise<Shared 
 const armyChoices = (scope: Scope, fv: ForceView) =>
   fv.selections
     .filter((v) => v.merged && isArmyOption(scope, v) && !isAutoManaged(v) && v.children.length > 0)
-    .map((v) => `${v.name}: ${v.children.map((c) => c.name).join(', ')}`);
+    .map((v) => `${displayName(v.name)}: ${v.children.map((c) => displayName(c.name)).join(', ')}`);
 
 function Detachment({ shared, fv }: { shared: Shared; fv: ForceView }) {
   const { scope } = shared;

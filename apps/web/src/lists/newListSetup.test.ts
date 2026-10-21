@@ -25,3 +25,11 @@ test('army option titles never show raw BattleScribe group names', async () => {
   expect(tyranids).toEqual(expect.arrayContaining(['Hive Fleet', 'Hive Fleet: Hyper-adaption']));
   for (const t of [...craftworlds, ...tyranids]) expect(t).not.toMatch(/selection|selector|\*/i);
 });
+
+test('army option choices read without BattleScribe decoration ("*Far-Flung Craftworld*" -> "Far-Flung Craftworld")', async () => {
+  const scope = await getRosterScope(['aeldari-craftworlds']);
+  const roster = startingRoster(scope, { name: 'x', catalogueId: '30b2-6f64-b85e-b4dc', sizeId: 'strike-force', forceId: FORCE.arksOfOmen });
+  const names = armyChoices(scope, roster).flatMap((c) => c.options.map((o) => o.name));
+  expect(names).toContain('Far-Flung Craftworld');
+  for (const n of names) expect(n).not.toMatch(/^[-*\s]|[-*\s]$|\*/);
+});
