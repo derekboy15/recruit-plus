@@ -8,11 +8,11 @@
  * and joins any dynasty) and §4 (his fixed Warlord Trait is The Triarch's Will); Wahapedia datasheet 000002360 (The
  * Silent King: "Szarekh must be your army's WARLORD") and 000000532 (Trazyn the Infinite).
  *
- * BSData v9.8.0 makes five named Warlords' fixed traits compulsory outside War Zone Nephilim, stratagem or not: The
- * Silent King (The Triarch's Will), Anrakyr the Traveller (Implacable Conqueror), Illuminor Szeras and Trazyn the
- * Infinite (Enduring Will) and Orikan the Diviner (Immortal Pride). Under Arks of Omen a Warlord only has a trait if
- * the 1 CP Warlord Trait Requisition Stratagem is used (§5, §6), so overrides/constraints.json pins those minimums to
- * 0. One list pays for the Silent King's trait; Trazyn leads another without one.
+ * BSData v9.8.0 makes the named Warlords' fixed traits compulsory outside War Zone Nephilim, stratagem or not (The
+ * Silent King's The Triarch's Will and Trazyn the Infinite's Enduring Will among them). Under Arks of Omen a Warlord
+ * only has a trait if the 1 CP Warlord Trait Requisition Stratagem is used (§5, §6), so overrides/constraints.json pins
+ * those minimums to 0; test/fixed-warlord-traits.test.ts checks that none is left. One list pays for the Silent King's
+ * trait; Trazyn leads another without one.
  */
 import type { CatalogueCorpus, DetachmentSpec, UnitSpec } from '../spec';
 

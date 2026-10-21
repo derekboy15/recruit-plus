@@ -372,5 +372,285 @@
     "constraintId": "ab81-4dae-7c2a-d393",
     "value": 0,
     "source": "Commander Farsight's own rule: Wahapedia datasheet 000000406, ability 000006370 (Enclave Commander): \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" BSData v9.8.0 makes his Warlord compulsory in most armies (a modifier sets the min on link dc8f-67ee-8008-182a to 1), so Farsight beside another unit with such a rule (Commander Shadowsun) could not be built with that unit as the Warlord, as Enclave Commander allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "Ynnari: Warden of Souls",
+    "constraintId": "2204-1e72-18b1-3347",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Yvraine's listed trait, Ynnari: Warden of Souls, compulsory once Yvraine is the Warlord (link 3180-c2f3-1d21-1418: min set to 1, when Yvraine is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Yvraine takes Stratagem: Warlord Trait or Stratagem: Champion of the Aeldari), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "Iyanden: Enduring Resolve",
+    "constraintId": "245f-54a2-3fdb-d157",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Prince Yriel's listed trait, Iyanden: Enduring Resolve, compulsory once Prince Yriel is the Warlord (link 4d86-9d41-3735-e8df: min set to 1, when Prince Yriel is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Prince Yriel takes Stratagem: Warlord Trait or Stratagem: Champion of the Aeldari), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "Blood Dancer",
+    "constraintId": "3106-4577-d1ef-b6bf",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Lelith Hesperax's listed trait, Blood Dancer, compulsory once Lelith Hesperax is the Warlord (link 9adb-0983-a44c-3b09: min set to 1 whenever Lelith Hesperax is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "Diabolical Soothsayer",
+    "constraintId": "39d1-df41-76cb-0fad",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Urien Rakarth's listed trait, Diabolical Soothsayer, compulsory once Urien Rakarth is the Warlord (link 9e99-c73e-e70b-4564: min set to 1, when Urien Rakarth is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Urien Rakarth takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "5: Mark of the Incomparable Hunter",
+    "constraintId": "5fe2-8de3-9885-ce98",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Illic Nightspear's listed trait, 5: Mark of the Incomparable Hunter, compulsory once Illic Nightspear is the Warlord (link eb5f-5e61-f310-45e4: min set to 1, when Illic Nightspear is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Illic Nightspear takes Stratagem: Warlord Trait or Stratagem: Champion of the Aeldari), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "Hatred Eternal",
+    "constraintId": "d9a4-164a-c5c7-0679",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Drazhar's listed trait, Hatred Eternal, compulsory once Drazhar is the Warlord (link 4b3a-e694-91f9-b0ce: min set to 1, when Drazhar is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Drazhar takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryName": "2: Walker of Many Paths",
+    "constraintId": "de4b-81c6-a2bb-9796",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes The Visarch's listed trait, 2: Walker of Many Paths, compulsory once The Visarch is the Warlord (link bbce-bda1-ee40-a519: min set to 1, when The Visarch is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when The Visarch takes Stratagem: Warlord Trait or Stratagem: Champion of the Aeldari), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "entryName": "Inspiring Leader",
+    "constraintId": "7ba2-e906-3387-59ed",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Lord Arkos [LEGENDS]'s listed trait, Inspiring Leader, compulsory once Lord Arkos [LEGENDS] is the Warlord (link fea6-73d5-9b34-5882: min set to 1 whenever Lord Arkos [LEGENDS] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Chaos - Daemons",
+    "entryName": "Acidic Ichor",
+    "constraintId": "258d-1887-6d78-60c6",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Horticulus Slimux's listed trait, Acidic Ichor, compulsory once Horticulus Slimux is the Warlord (link a491-4470-deca-6a55: min set to 1, when Horticulus Slimux is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Horticulus Slimux takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Chaos - Daemons",
+    "entryName": "Inspiring Leader",
+    "constraintId": "51c4-f53a-f33b-a719",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Samus [LEGENDS]'s listed trait, Inspiring Leader, compulsory once Samus [LEGENDS] is the Warlord (link d2b2-226d-5e7d-69f7: min set to 1 whenever Samus [LEGENDS] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Chaos - Death Guard",
+    "entryName": "Harbinger of Death",
+    "constraintId": "79be-ecad-e783-be9e",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Typhus's listed trait, Harbinger of Death, compulsory once Typhus is the Warlord (link 2932-7ff4-833b-954a: min set to 1, while the roster holds the Terminus Est Assault Force, when Typhus is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Typhus takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "entryName": "Epitome of Piety",
+    "constraintId": "3727-3946-d923-0a9e",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Chaplain Grimaldus [Legends]'s listed trait, Epitome of Piety, compulsory once Chaplain Grimaldus [Legends] is the Warlord (link ffeb-2a4d-347a-1280: min set to 1 whenever Chaplain Grimaldus [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "entryName": "Oathkeeper",
+    "constraintId": "60f9-284b-a602-a309",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes The Emperor's Champion [Legends]'s listed trait, Oathkeeper, compulsory once The Emperor's Champion [Legends] is the Warlord (link c3b1-a511-91df-8474: min set to 1 whenever The Emperor's Champion [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Black Templars",
+    "entryName": "Frontline Commander",
+    "constraintId": "6c2f-db48-2860-8ac7",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes High Marshal Helbrecht [Legends]'s listed trait, Frontline Commander, compulsory once High Marshal Helbrecht [Legends] is the Warlord (link fe42-47fb-146a-1235: min set to 1 whenever High Marshal Helbrecht [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryName": "1. Vigilance Incarnate",
+    "constraintId": "6b7d-ed6f-53a9-3dbb",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Watch Captain Artemis's listed trait, 1. Vigilance Incarnate, compulsory once Watch Captain Artemis is the Warlord (link 97d1-25d6-7367-00aa: min set to 1, outside a Boarding Patrol, when Watch Captain Artemis is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Watch Captain Artemis takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryName": "3. Nowhere to Hide (Aura)",
+    "constraintId": "82cc-5d10-6ed2-076a",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Codicier Natorian's listed trait, 3. Nowhere to Hide (Aura), compulsory once Codicier Natorian is the Warlord (link d544-784d-5906-e62d: min set to 1, outside a Boarding Patrol, when Codicier Natorian is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Codicier Natorian takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "entryName": "4. Optimised Priority (Aura)",
+    "constraintId": "f0f4-56f9-2201-c756",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Chaplain Cassius's listed trait, 4. Optimised Priority (Aura), compulsory once Chaplain Cassius is the Warlord (link 684d-6456-0530-85fd: min set to 1, outside a Boarding Patrol, when Chaplain Cassius is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Chaplain Cassius takes Stratagem: Warlord Trait), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Raven Guard",
+    "entryName": "Shadowmaster",
+    "constraintId": "7f11-4961-3d18-68c9",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Kayvaan Shrike [Legends]'s listed trait, Shadowmaster, compulsory once Kayvaan Shrike [Legends] is the Warlord (link 4cd8-8a96-8c1f-8c62: min set to 1 whenever Kayvaan Shrike [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Adept of the Codex",
+    "constraintId": "5a22-be3d-d9c3-003a",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Marneus Calgar [Legends]'s listed trait, Adept of the Codex, compulsory once Marneus Calgar [Legends] is the Warlord (link daed-8268-c5fb-beaf: min set to 1 whenever Marneus Calgar [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Adept of the Codex",
+    "constraintId": "a483-5b13-b716-c3d2",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Marneus Calgar in Artificer Armour [Legends]'s listed trait, Adept of the Codex, compulsory once Marneus Calgar in Artificer Armour [Legends] is the Warlord (link 1b78-7b90-59b1-ccae: min set to 1 whenever Marneus Calgar in Artificer Armour [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Master of Strategy",
+    "constraintId": "a7ce-08e4-9dff-b287",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Chief Librarian Tigurius [Legends]'s listed trait, Master of Strategy, compulsory once Chief Librarian Tigurius [Legends] is the Warlord (link 54f1-18f3-3cad-3b9b: min set to 1 whenever Chief Librarian Tigurius [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - White Scars",
+    "entryName": "Trophy Taker",
+    "constraintId": "5d5d-57b2-67c4-3896",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Kor'sarro Khan [Legends]'s listed trait, Trophy Taker, compulsory once Kor'sarro Khan [Legends] is the Warlord (link 313d-4eb3-14d0-ebdd: min set to 1 whenever Kor'sarro Khan [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - White Scars",
+    "entryName": "Trophy Taker",
+    "constraintId": "a6a8-8df1-d904-2cb1",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Kor'sarro Khan on Moondrakkan [Legends]'s listed trait, Trophy Taker, compulsory once Kor'sarro Khan on Moondrakkan [Legends] is the Warlord (link 3ea0-90a1-666d-4e61: min set to 1 whenever Kor'sarro Khan on Moondrakkan [Legends] is the Warlord, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "0880-1b08-f25a-ebea",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Karamazov's listed trait, Inspiring Leader, compulsory once Inquisitor Karamazov is the Warlord (link 53d0-dc3b-e793-eb2e: min set to 1, when Inquisitor Karamazov is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Karamazov takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "1873-257c-0a45-90f2",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Lord Inquisitor Hector Rex's listed trait, Inspiring Leader, compulsory once Lord Inquisitor Hector Rex is the Warlord (link a60c-f3ea-24d1-3ca0: min set to 1, when Lord Inquisitor Hector Rex is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Lord Inquisitor Hector Rex takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "2b6c-06ac-a6fa-9488",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Solomon Lok's listed trait, Inspiring Leader, compulsory once Inquisitor Solomon Lok is the Warlord (link a6d9-024f-a8a2-92d4: min set to 1, when Inquisitor Solomon Lok is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Solomon Lok takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "4087-c672-1a58-af99",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Greyfax's listed trait, Inspiring Leader, compulsory once Inquisitor Greyfax is the Warlord (link fe94-be6d-4303-fbf8: min set to 1, when Inquisitor Greyfax is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Greyfax takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "b16b-f9a5-7213-b221",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Coteaz's listed trait, Inspiring Leader, compulsory once Inquisitor Coteaz is the Warlord (link 72ab-baff-98aa-4f08: min set to 1, when Inquisitor Coteaz is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Coteaz takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "ce25-1455-3641-0b40",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Lord Inquisitor Kyria Draxus's listed trait, Inspiring Leader, compulsory once Lord Inquisitor Kyria Draxus is the Warlord (link 44cf-b22c-7727-7010: min set to 1, when Lord Inquisitor Kyria Draxus is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Lord Inquisitor Kyria Draxus takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Inspiring Leader",
+    "constraintId": "e749-285f-d5d5-fa2d",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Eisenhorn's listed trait, Inspiring Leader, compulsory once Inquisitor Eisenhorn is the Warlord (link 0fb4-2ba9-6f1c-7efe: min set to 1, when Inquisitor Eisenhorn is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Eisenhorn takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryName": "Formidable Resolve",
+    "constraintId": "ee77-a709-4053-654b",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Inquisitor Erasmus Cartavolnus [Legends]'s listed trait, Formidable Resolve, compulsory once Inquisitor Erasmus Cartavolnus [Legends] is the Warlord (link 7aa6-6ddc-f543-6853: min set to 1, when Inquisitor Erasmus Cartavolnus [Legends] is the Warlord unless the roster holds 4. Chapter Approved: War Zone Nephilim, or when Inquisitor Erasmus Cartavolnus [Legends] takes Stratagem: Warlord Trait or Stratagem: Arbiter of the Emperor's Will), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 6): Honourable Combatant",
+    "constraintId": "08b5-77d1-a88f-95e2",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 also makes the Warlord Trait (Codex 6): Honourable Combatant entry (b1d5-c871-a5b6-b03a) itself compulsory, in any mission pack, when its parent holds a Warlord and its ancestor is Vargard Obyron (6f14-943d-c02e-c562) (min set to 1), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Inspiring Leader",
+    "constraintId": "0f92-492c-bbca-f9c8",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Toholk the Blinded [Legends]'s listed trait, Inspiring Leader, compulsory once Toholk the Blinded [Legends] is the Warlord (link 74eb-8c9c-b328-a132: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim; the option shows once Toholk the Blinded [Legends] is the Warlord), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Sautekh): Hyperlogical Strategist",
+    "constraintId": "4637-c446-c0f1-c1ec",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Imotekh the Stormlord's listed trait, Warlord Trait (Sautekh): Hyperlogical Strategist, compulsory once Imotekh the Stormlord is the Warlord (link ea50-93f2-7cc2-b0e2: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim; the option shows once Imotekh the Stormlord is the Warlord), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Inspiring Leader",
+    "constraintId": "783c-380b-04a4-d91e",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Kutlakh the World Killer [Legends]'s listed trait, Inspiring Leader, compulsory once Kutlakh the World Killer [Legends] is the Warlord (link 36ff-8cda-9188-0ab6: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim; the option shows once Kutlakh the World Killer [Legends] is the Warlord), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 2): Eternal Madness",
+    "constraintId": "a903-2eb1-16bc-63c7",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Nemesor Zahndrekh's listed trait, Warlord Trait (Codex 2): Eternal Madness, compulsory once Nemesor Zahndrekh is the Warlord (link aa67-3831-82a9-9633: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim; the option shows once Nemesor Zahndrekh is the Warlord), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryName": "Warlord Trait (Codex 6): Honourable Combatant",
+    "constraintId": "ce4b-edf6-178e-093a",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Vargard Obyron's listed trait, Warlord Trait (Codex 6): Honourable Combatant, compulsory once Vargard Obyron is the Warlord (link 3d53-b708-e2fd-a270: min set to 1 unless the roster holds 4. Chapter Approved: War Zone Nephilim; the option shows once Vargard Obyron is the Warlord), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Orks",
+    "entryName": "3. 'Ard as Nails",
+    "constraintId": "13ae-942d-8698-1056",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Morbad Zagblasta's listed trait, 3. 'Ard as Nails, compulsory once Morbad Zagblasta is the Warlord (link b5a3-3481-47cc-a841: min set to 1 whenever Morbad Zagblasta is the Warlord or takes Stratagem: Big Boss, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Orks",
+    "entryName": "Inspiring Leader",
+    "constraintId": "3bb0-5615-a383-5fc0",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Grukk Face-Rippa's listed trait, Inspiring Leader, compulsory once Grukk Face-Rippa is the Warlord (link 5197-a999-e61b-1e40: min set to 1 whenever Grukk Face-Rippa is the Warlord or takes Stratagem: Big Boss, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Orks",
+    "entryName": "5. Kunnin but Brutal",
+    "constraintId": "b9c1-e18b-5a8a-b567",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Manik Gorg's listed trait, 5. Kunnin but Brutal, compulsory once Manik Gorg is the Warlord (link 96fe-5763-2489-beeb: min set to 1 whenever Manik Gorg is the Warlord or takes Stratagem: Big Boss, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
   }
 ]

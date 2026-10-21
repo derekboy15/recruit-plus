@@ -22,12 +22,8 @@ import { loadWahapedia } from '../src/wahapedia/load';
 import { realCatalogueId, realCatalogues, realScope } from './helpers/realScope';
 
 const ROOT = join(import.meta.dirname, '..');
-/** The Xenos catalogues the corpus covers. */
-const XENOS = [
-  'aeldari-craftworlds', 'aeldari-drukhari', 'aeldari-harlequins', 'necrons', 'orks', 'tyranids', 'tyranids-genestealer-cults',
-  'tau-empire', 'leagues-of-votann',
-];
-const CATALOGUES = [...realCatalogues().filter((c) => c.group === 'Imperium' && !c.library).map((c) => c.slug), ...XENOS];
+/** The playable Imperium and Xenos catalogues. */
+const CATALOGUES = realCatalogues().filter((c) => (c.group === 'Imperium' || c.group === 'Xenos') && !c.library).map((c) => c.slug);
 /** .gst Faction categories whose Wahapedia keyword means the same thing in BSData. */
 const KEYWORDS = ['Imperium', 'Adeptus Astartes', 'Adeptus Mechanicus', 'Astra Militarum', 'Agents of the Imperium', 'Imperial Knights', 'Officio Assassinorum', 'Aeldari'];
 /** Catalogue-level faction keywords: a catalogue's own Faction categories (or a linked catalogue's) of that name. */

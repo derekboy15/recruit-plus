@@ -18,6 +18,7 @@ import {
   COST_CP,
   COST_PTS,
   type Issue,
+  type OptionNode,
   type Roster,
   type Scope,
 } from '../src/roster';
@@ -39,7 +40,7 @@ import {
   type MustBeWarlord,
 } from '../src/roster/policy';
 import sororitas from './corpus/imperium/imperium-adepta-sororitas';
-import { buildFromSpec, type DetachmentSpec, type ListSpec } from './corpus/spec';
+import { buildFromSpec, type ArmySpec, type DetachmentSpec, type ListSpec } from './corpus/spec';
 import { realCatalogueId, realCatalogues, realFiles, realPolicy, realScope } from './helpers/realScope';
 
 const policy = realPolicy();
@@ -235,34 +236,69 @@ describe('points, CP and Rule of Two/Three', () => {
     });
   });
 
-  test('Arks of Omen Warlords BSData forces to take the Warlord Trait Requisition Stratagem may go without it (§5, §6)', () => {
-    const CRIMSON_FISTS = { '**Chapter Selector**': ['Imperial Fists Successor', 'Crimson Fists'] };
-    const named: Record<string, string[]> = {
-      'imperium-adeptus-astartes-ultramarines': ['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'],
-      'imperium-adeptus-astartes-imperial-fists': ['Captain Lysander', 'Pedro Kantor', 'Tor Garadon'], // Kantor: a Crimson Fists army
-      'imperium-adeptus-astartes-iron-hands': ['Iron Father Feirros'],
-      'imperium-adeptus-astartes-raven-guard': ['Kayvaan Shrike', 'Kayvaan Shrike [Legends]'],
-      'imperium-adeptus-astartes-salamanders': ['Adrax Agatone', "Vulkan He'stan"],
-      'imperium-adeptus-astartes-white-scars': ['Khan on Bike', "Kor'sarro Khan", "Kor'sarro Khan [Legends]", "Kor'sarro Khan on Moondrakkan [Legends]"],
-      // BSData demands these Warlords' fixed Warlord Trait itself (not the stratagem) outside War Zone Nephilim.
-      necrons: ['The Silent King', 'Anrakyr the Traveller', 'Illuminor Szeras', 'Trazyn the Infinite', 'Orikan the Diviner'],
-    };
-    const SAUTEKH = { 'Dynasty Choice': 'Dynasty: Sautekh' };
-    for (const [slug, names] of Object.entries(named)) for (const name of names) {
+  test('Arks of Omen Warlords BSData forces to take a Warlord Trait or the Warlord Trait Requisition Stratagem may go without them (§5, §6)', () => {
+    // Every named Warlord, as offered in an Arks of Omen Detachment, whose listed trait (or the stratagem) BSData makes
+    // compulsory; test/fixed-warlord-traits.test.ts scans the data for the rest. Each maps to the option BSData demands.
+    // "HQ > …": the Agents catalogue also offers each Inquisitor as an Agent of the Imperium.
+    const STRATAGEM = 'Stratagem: Warlord Trait';
+    const named: [slug: string, army: ArmySpec | undefined, traits: Record<string, string>][] = [
+      // BSData demands the Warlord Trait Requisition Stratagem.
+      ['imperium-adeptus-astartes-ultramarines', undefined, Object.fromEntries(['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'].map((n) => [n, STRATAGEM]))],
+      ['imperium-adeptus-astartes-imperial-fists', undefined, { 'Captain Lysander': STRATAGEM, 'Tor Garadon': STRATAGEM }],
+      ['imperium-adeptus-astartes-imperial-fists', { '**Chapter Selector**': ['Imperial Fists Successor', 'Crimson Fists'] }, { 'Pedro Kantor': STRATAGEM }],
+      ['imperium-adeptus-astartes-iron-hands', undefined, { 'Iron Father Feirros': STRATAGEM }],
+      ['imperium-adeptus-astartes-raven-guard', undefined, { 'Kayvaan Shrike': STRATAGEM }],
+      ['imperium-adeptus-astartes-salamanders', undefined, { 'Adrax Agatone': STRATAGEM, "Vulkan He'stan": STRATAGEM }],
+      ['imperium-adeptus-astartes-white-scars', undefined, { 'Khan on Bike': STRATAGEM, "Kor'sarro Khan": STRATAGEM }],
+      // BSData demands the listed trait itself: whenever it is the Warlord, or unless the roster holds War Zone Nephilim.
+      ['imperium-adeptus-astartes-ultramarines', undefined, { 'Marneus Calgar [Legends]': 'Adept of the Codex', 'Marneus Calgar in Artificer Armour [Legends]': 'Adept of the Codex', 'Chief Librarian Tigurius [Legends]': 'Master of Strategy' }],
+      ['imperium-adeptus-astartes-raven-guard', undefined, { 'Kayvaan Shrike [Legends]': 'Shadowmaster' }],
+      ['imperium-adeptus-astartes-white-scars', undefined, { "Kor'sarro Khan [Legends]": 'Trophy Taker', "Kor'sarro Khan on Moondrakkan [Legends]": 'Trophy Taker' }],
+      ['imperium-adeptus-astartes-deathwatch', undefined, { 'Watch Captain Artemis': '1. Vigilance Incarnate', 'Codicier Natorian': '3. Nowhere to Hide (Aura)', 'Chaplain Cassius': '4. Optimised Priority (Aura)' }],
+      ['imperium-agents-of-the-imperium', undefined, Object.fromEntries(['Inquisitor Karamazov', 'Lord Inquisitor Hector Rex', 'Inquisitor Solomon Lok', 'Inquisitor Greyfax', 'Inquisitor Coteaz', 'Lord Inquisitor Kyria Draxus', 'Inquisitor Eisenhorn'].map((n) => [`HQ > ${n}`, 'Inspiring Leader']))],
+      ['necrons', { 'Dynasty Choice': 'Dynasty: Sautekh' }, {
+        'The Silent King': "Warlord Trait (Szarekhan): The Triarch's Will",
+        'Anrakyr the Traveller': 'Warlord Trait (Codex 5): Implacable Conqueror (Aura)',
+        'Illuminor Szeras': 'Warlord Trait (Codex 1): Enduring Will',
+        'Trazyn the Infinite': 'Warlord Trait (Codex 1): Enduring Will',
+        'Orikan the Diviner': 'Warlord Trait (Codex 3): Immortal Pride',
+        'Imotekh the Stormlord': 'Warlord Trait (Sautekh): Hyperlogical Strategist',
+        'Vargard Obyron': 'Warlord Trait (Codex 6): Honourable Combatant',
+        'Nemesor Zahndrekh': 'Warlord Trait (Codex 2): Eternal Madness',
+      }],
+      ['necrons', { 'Dynasty Choice': 'Dynasty: Maynarkh' }, { 'Kutlakh the World Killer [Legends]': 'Inspiring Leader', 'Toholk the Blinded [Legends]': 'Inspiring Leader' }],
+      ['aeldari-drukhari', { Obsession: 'Kabal of the Black Heart: Thirst for Power' }, { 'Lelith Hesperax': 'Blood Dancer', Drazhar: 'Hatred Eternal', 'Urien Rakarth': 'Diabolical Soothsayer' }],
+      ['aeldari-craftworlds', { 'Craftworld Selection': 'Ynnari: Strength From Death' }, { Yvraine: 'Ynnari: Warden of Souls', 'The Visarch': '2: Walker of Many Paths' }],
+      ['aeldari-craftworlds', { 'Craftworld Selection': 'Iyanden: Stoic Endurance' }, { 'Prince Yriel': 'Iyanden: Enduring Resolve' }],
+      ['aeldari-craftworlds', { 'Craftworld Selection': 'Alaitoc: Fieldcraft' }, { 'Illic Nightspear': '5: Mark of the Incomparable Hunter' }],
+      ['chaos-daemons', undefined, { 'Horticulus Slimux': 'Acidic Ichor' }],
+      // Typhus is always the Warlord here: the Terminus Est Assault Force makes him take the Warlord option.
+      ['chaos-death-guard', { 'Terminus Est Assault Force': [] }, { Typhus: 'Harbinger of Death' }],
+    ];
+    const flat = (os: OptionNode[]): OptionNode[] => os.flatMap((o) => [o, ...flat(o.children)]);
+    const wrong: Record<string, string[]> = {};
+    for (const [slug, army, traits] of named) for (const [name, trait] of Object.entries(traits)) {
       const scope = realScope(slug);
-      const catId = realCatalogueId(slug);
-      const necrons = slug === 'necrons';
-      const troops = { name: necrons ? 'Necron Warriors' : 'Intercessor Squad' };
       const spec: ListSpec = {
         title: name,
         battleSize: 'strike-force',
-        detachments: [{ detachment: 'Arks of Omen Detachment', army: name === 'Pedro Kantor' ? CRIMSON_FISTS : necrons ? SAUTEKH : undefined, units: [{ name, warlord: true }, troops, troops, troops] }],
+        detachments: [{ detachment: 'Arks of Omen Detachment', army, units: [{ name, warlord: true }] }],
         expect: { points: 0, powerLevel: 0 },
       };
-      // Raw BSData issues: validate() would merge this one with another issue on the same unit (Cassius' Litanies).
-      const issues = validateConstraints(scope, evaluate(scope, buildFromSpec(scope, catId, spec)));
-      expect(issues.filter((i) => /Warlord Trait/.test(i.subject.name)), `${slug}: ${name}`).toEqual([]);
+      const r = buildFromSpec(scope, realCatalogueId(slug), spec);
+      const view = evaluate(scope, r);
+      const unit = view.forces[0].selections.find((v) => v.children.some((c) => c.name.trim() === 'Warlord'))!;
+      const options = flat(childOptions(scope, r, unit.sel.id)).filter((o) => o.kind === 'option' && o.name.trim() === trait);
+      // Raw BSData issues: validate() would merge one with another issue on the same unit (Cassius' Litanies).
+      const issues = validateConstraints(scope, view).filter((i) => i.subject.name.trim() === trait);
+      const problems = [
+        ...(options.length ? [] : [`${trait} is not offered`]),
+        ...options.filter((o) => o.min > 0).map((o) => `${o.name} has min ${o.min}`),
+        ...issues.map((i) => `${i.rule}: ${i.subject.name}`),
+      ];
+      if (problems.length) wrong[`${slug}: ${name}`] = problems;
     }
+    expect(wrong).toEqual({});
   });
 
   test('named characters BSData limits per detachment are unique per army (Wahapedia datasheets)', () => {
