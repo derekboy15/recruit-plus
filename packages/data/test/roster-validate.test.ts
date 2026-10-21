@@ -10,6 +10,7 @@ import {
   rootEntriesFor,
   setCount,
   validateConstraints,
+  COST_PTS,
   type Issue,
   type OptionNode,
   type Roster,
@@ -158,6 +159,40 @@ describe('validateConstraints (mini fixture)', () => {
     expect(summary(issues)).toEqual([['hidden-selected', 'Imps', 0, 1]]);
     expect(issues[0]).toMatchObject({ forceSelId: r.forces[0].id, selId: ids[0], subject: { id: M.L_IMP } });
     expect(issues[0].fix).toEqual({ kind: 'remove', selIds: [ids[0]] });
+  });
+
+  test('a choice inside a group hidden by a later choice is hidden-selected', () => {
+    // The Lord's melee group is hidden once the Lord is the Warlord (shaped like Relics / Warlord Trait groups).
+    const files = structuredClone(M.miniFiles);
+    const lord = files[0].shared.find((n) => n.id === M.E_LORD)!;
+    lord.children!.find((n) => n.id === M.G_LORD_MELEE)!.mods = [
+      { type: 'set', field: 'hidden', value: 'true', when: { type: 'and', conds: [atLeast1('parent', M.E_WARLORD_UPG)], groups: [] } },
+    ];
+    const s = buildScope(files);
+    const { roster, ids } = withUnits(s, empty(s), M.L_LORD, M.L_WARRIORS);
+    const blade = chooseInGroup(s, roster, ids[0], M.G_LORD_MELEE, M.L_LORD_BLADE);
+    expect(validate(s, blade)).toEqual([]);
+    const r = addChild(s, blade, ids[0], M.E_WARLORD_UPG);
+    const bladeSel = r.forces[0].selections[0].children.find((c) => c.entryId === M.L_LORD_BLADE)!;
+    const issues = validate(s, r);
+    expect(summary(issues)).toEqual([['hidden-selected', 'Blade', 0, 1]]);
+    expect(issues[0]).toMatchObject({ forceSelId: r.forces[0].id, selId: bladeSel.id, fix: { kind: 'remove', selIds: [bladeSel.id] } });
+  });
+
+  test('over-limit stacks shrink instead of being removed; cost limits get no remove fix', () => {
+    const { roster, ids } = withUnits(scope, empty(), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);
+    const stacked = setCount(scope, roster, ids[3], 2); // 4 Troops: the newest is a stack of 2
+    const issues = validate(scope, stacked);
+    expect(summary(issues)).toEqual([['slot-max', 'Troops', 3, 4]]);
+    expect(issues[0].fix).toEqual({ kind: 'set-count', selId: ids[3], count: 1 });
+
+    const files = structuredClone(M.miniFiles);
+    const troops = files[2].forces.find((f) => f.id === M.FORCE_PATROL)!.cats.find((c) => c.targetId === M.CAT_TROOPS)!;
+    troops.constraints!.push({ id: 'con-troops-pts', type: 'max', field: COST_PTS, scope: 'force', value: 100, childSel: true });
+    const s = buildScope(files);
+    const pts = validate(s, withUnits(s, empty(s), M.L_LORD, M.L_WARRIORS).roster);
+    expect(summary(pts)).toEqual([['slot-max', 'Troops', 100, 110]]);
+    expect(pts[0].fix).toBeUndefined();
   });
 
   test('unknown items are unknown-entry', () => {

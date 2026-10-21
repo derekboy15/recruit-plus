@@ -9,7 +9,8 @@
  *   scope `parent` is the container). A force's root children are its root entries whose primary category is one of
  *   the force's, as availableUnits filters them (without availableUnits' unit/role type filter, so Configuration
  *   entries such as Battle Size are checked too). Nodes inside hidden groups are skipped with the group;
- * - every hidden selection (`hidden-selected`) and every unknown one (`unknown-entry`).
+ * - every hidden selection (`hidden-selected`): hidden itself, or inside a group that is hidden at its container;
+ *   and every unknown one (`unknown-entry`).
  * A limit of -1 means no limit. A constraint that several containers reach with the same count (a roster-wide max on a
  * shared Relic, say) is checked once.
  *
@@ -209,9 +210,26 @@ class Validator {
       this.issues.push({ rule: 'unknown-entry', ...base, fix: remove });
       return;
     }
-    if (s.hidden) this.issues.push({ rule: 'hidden-selected', ...base, fix: remove });
+    if (s.hidden || this.inHiddenGroup(s)) this.issues.push({ rule: 'hidden-selected', ...base, fix: remove });
     this.children(s, s.merged.children, null, new Set());
     s.children.forEach((c) => this.selection(c));
+  }
+
+  /**
+   * Whether a group between the selection's container and its entry is hidden at that container (a Warlord Trait
+   * left behind when the Warlord upgrade is removed). A link to a group is evaluated as the link, not its target alone.
+   */
+  private inHiddenGroup(s: SelView): boolean {
+    const container: Container = s.parent ?? s.force;
+    const nodes = isSel(container) ? container.merged!.children : rootEntriesFor(this.scope, container.force.catalogueId);
+    let prev: RNode | undefined;
+    for (const id of childIndex(this.scope, nodes).get(s.sel.entryId)?.groups ?? []) {
+      const node = this.scope.node(id);
+      const linked = prev?.kind === 'link' && prev.targetId === id;
+      prev = node;
+      if (node && !linked && evaluateCandidate(this.scope, this.view, container, node).hidden) return true;
+    }
+    return false;
   }
 
   // ---------- helpers ----------
@@ -300,9 +318,17 @@ function onlyModels(scope: Scope, m: Merged): boolean {
   return entries.length > 0 && entries.every(({ node }) => resolve(scope, node).type === 'model');
 }
 
-/** Removes the newest counted selections until the excess is gone. No fix for percentage limits. */
+/**
+ * Removes the newest counted selections until the excess is gone; when the newest stack alone has copies to spare, it
+ * shrinks instead. No fix for percentage or cost limits (selection counts can't measure those).
+ */
 function removeNewest(counted: Counted[], excess: number, c: Constraint): Fix | undefined {
-  if (c.percent) return undefined;
+  if (c.percent || c.field !== 'selections') return undefined;
+  const last = counted.at(-1);
+  if (last && last.weight > excess) {
+    const drop = Math.ceil(excess / (last.weight / last.view.sel.count));
+    if (drop < last.view.sel.count) return { kind: 'set-count', selId: last.view.sel.id, count: last.view.sel.count - drop };
+  }
   const selIds: string[] = [];
   let removed = 0;
   for (let i = counted.length - 1; i >= 0 && removed < excess; i--) {
