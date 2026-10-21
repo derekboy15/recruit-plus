@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue id="cat-lib" name="Mini Library" library="true" gameSystemId="sys-1" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <sharedSelectionEntries>
+    <selectionEntry id="se-warrior-model" name="Warrior" hidden="false" type="model">
+      <profiles>
+        <profile id="p-warrior" name="Warrior" hidden="false" typeId="pt-unit" typeName="Unit">
+          <characteristics>
+            <characteristic name="M" typeId="c-m">5&quot;</characteristic>
+            <characteristic name="T" typeId="c-t">4</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <entryLinks>
+        <entryLink id="el-gun" name="Gauss gun" hidden="false" targetId="se-gun" type="selectionEntry"/>
+      </entryLinks>
+    </selectionEntry>
+    <selectionEntry id="se-gun" name="Gauss gun" hidden="false" type="upgrade">
+      <profiles>
+        <profile id="p-gun" name="Gauss gun" hidden="false" typeId="pt-weapon" typeName="Weapon">
+          <characteristics>
+            <characteristic name="Range" typeId="c-r">24&quot;</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+  </sharedSelectionEntries>
+</catalogue>

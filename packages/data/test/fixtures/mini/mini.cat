@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue id="cat-mini" name="Mini Faction" library="false" gameSystemId="sys-1" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <catalogueLinks>
+    <catalogueLink id="cl-1" name="Mini Library" targetId="cat-lib" type="catalogue" importRootEntries="true"/>
+  </catalogueLinks>
+  <entryLinks>
+    <entryLink id="el-unit" name="Warriors" hidden="false" targetId="se-warriors" type="selectionEntry">
+      <categoryLinks>
+        <categoryLink id="cl-troops" name="Troops" hidden="false" targetId="cat-troops" primary="true"/>
+      </categoryLinks>
+    </entryLink>
+  </entryLinks>
+  <sharedSelectionEntries>
+    <selectionEntry id="se-warriors" name="Warriors" hidden="false" type="unit">
+      <infoLinks>
+        <infoLink id="il-obsec" name="Objective Secured" hidden="false" targetId="rule-obsec" type="rule"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink id="cl-core" name="Core" hidden="false" targetId="cat-core" primary="false"/>
+      </categoryLinks>
+      <selectionEntryGroups>
+        <selectionEntryGroup id="seg-1" name="Models" hidden="false">
+          <constraints>
+            <constraint field="selections" scope="parent" value="10.0" id="c-min" type="min"/>
+            <constraint field="selections" scope="parent" value="20.0" id="c-max" type="max"/>
+          </constraints>
+          <entryLinks>
+            <entryLink id="el-model" name="Warrior" hidden="false" targetId="se-warrior-model" type="selectionEntry"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+  </sharedSelectionEntries>
+</catalogue>
