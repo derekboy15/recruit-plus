@@ -9,3 +9,4 @@ export * from './validate';
 export * from './policy';
 export * from './explain';
 export * from './names';
+export * from './exportText';
