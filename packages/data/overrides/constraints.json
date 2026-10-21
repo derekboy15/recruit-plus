@@ -77,6 +77,62 @@
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Roboute Guilliman as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "fc60-73e7-d000-6cf6",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Captain Lysander as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "5d8c-ca71-0e58-e4f6",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Pedro Kantor as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Imperial Fists",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "8e01-744f-5ff3-a71f",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Tor Garadon as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Iron Hands",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "a1f2-ac59-57a5-7dc8",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Iron Father Feirros as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Raven Guard",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "ccb8-12c0-d451-05c0",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Kayvaan Shrike as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Raven Guard",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "627d-667d-8dc2-b13c",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Kayvaan Shrike [Legends] as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Salamanders",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "f002-51d3-ee88-1311",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Adrax Agatone as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Salamanders",
+    "entryName": "Stratagem: Warlord Trait",
+    "constraintId": "e5ec-660d-6e76-3631",
+    "value": 0,
+    "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Vulkan He'stan as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
+  },
+  {
     "catalogueName": "Imperium - Imperial Knights",
     "entryName": "Character (Knight Lance)",
     "constraintId": "8e29-0019-86cd-45af",

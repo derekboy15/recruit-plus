@@ -232,19 +232,26 @@ describe('points, CP and Rule of Two/Three', () => {
   });
 
   test('Arks of Omen named Warlords may go without the Warlord Trait Requisition Stratagem (§5, §6)', () => {
-    const scope = realScope('imperium-adeptus-astartes-ultramarines');
-    const um = realCatalogueId('imperium-adeptus-astartes-ultramarines');
-    const named = ['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'];
-    for (const name of named) {
+    const CRIMSON_FISTS = { '**Chapter Selector**': ['Imperial Fists Successor', 'Crimson Fists'] };
+    const named: Record<string, string[]> = {
+      'imperium-adeptus-astartes-ultramarines': ['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'],
+      'imperium-adeptus-astartes-imperial-fists': ['Captain Lysander', 'Pedro Kantor', 'Tor Garadon'], // Kantor: a Crimson Fists army
+      'imperium-adeptus-astartes-iron-hands': ['Iron Father Feirros'],
+      'imperium-adeptus-astartes-raven-guard': ['Kayvaan Shrike', 'Kayvaan Shrike [Legends]'],
+      'imperium-adeptus-astartes-salamanders': ['Adrax Agatone', "Vulkan He'stan"],
+    };
+    for (const [slug, names] of Object.entries(named)) for (const name of names) {
+      const scope = realScope(slug);
+      const catId = realCatalogueId(slug);
       const spec: ListSpec = {
         title: name,
         battleSize: 'strike-force',
-        detachments: [{ detachment: 'Arks of Omen Detachment', units: [{ name, warlord: true }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }] }],
+        detachments: [{ detachment: 'Arks of Omen Detachment', army: name === 'Pedro Kantor' ? CRIMSON_FISTS : undefined, units: [{ name, warlord: true }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }] }],
         expect: { points: 0, powerLevel: 0 },
       };
       // Raw BSData issues: validate() would merge this one with another issue on the same unit (Cassius' Litanies).
-      const issues = validateConstraints(scope, evaluate(scope, buildFromSpec(scope, um, spec)));
-      expect(issues.filter((i) => /Warlord Trait/.test(i.subject.name)), name).toEqual([]);
+      const issues = validateConstraints(scope, evaluate(scope, buildFromSpec(scope, catId, spec)));
+      expect(issues.filter((i) => /Warlord Trait/.test(i.subject.name)), `${slug}: ${name}`).toEqual([]);
     }
   });
 
