@@ -418,5 +418,14 @@
       "Grey Knights"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001196 \"Land Raider Banisher\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Land-Raider-Banisher) faction keywords: Sanctic Astartes, Grey Knights, <Brotherhood>, Imperium. BSData v9.8.0 has no \"Faction: Grey Knights\" category on this entry (the Grey Knights catalogue's own category), so a detachment with it shares only IMPERIUM with every other Grey Knights unit."
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "entryId": "dada-96a4-e83b-257f",
+    "entryName": "Stormhawk Interceptor",
+    "add": [
+      "Grey Knights"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001363 \"Stormhawk Interceptor\" (https://wahapedia.ru/wh40k9ed/factions/grey-knights/Stormhawk-Interceptor) faction keywords: Imperium, Sanctic Astartes, Grey Knights, <Brotherhood>. BSData v9.8.0 has no \"Faction: Grey Knights\" category on this entry (the Grey Knights catalogue's own category), so a detachment with it shares only IMPERIUM with Grey Knights units that lack SANCTIC ASTARTES, such as a Brother-Captain."
   }
 ]
