@@ -1,0 +1,17 @@
+{
+  "name": "recruit-plus",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "data:fetch": "npm run fetch-bsdata -w packages/data",
+    "data:build": "npm run build-data -w packages/data",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "e2e": "npm run e2e -w apps/web"
+  }
+}

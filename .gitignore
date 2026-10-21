@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.superpowers/
+packages/data/raw/bsdata/
+packages/data/generated/
+apps/web/public/data/
+apps/web/test-results/
+apps/web/playwright-report/
+.env.local
+*.log
