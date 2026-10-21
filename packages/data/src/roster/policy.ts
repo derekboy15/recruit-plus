@@ -6,7 +6,7 @@
  */
 import { BATTLEFIELD_ROLES, type BattlefieldRole, type CatalogueSummary } from '../model/types';
 import { addForce, addUnit, chooseInGroup } from './edit';
-import { evaluate, type ForceView, type RosterView, type SelView } from './evaluate';
+import { evaluate, resetCounts, type ForceView, type RosterView, type SelView } from './evaluate';
 import { availableUnits } from './options';
 import { resolve, rootEntriesFor, type Scope } from './scope';
 import { COST_CP, COST_PTS, type BattleSizeId, type CostMap, type Fix, type Issue, type Roster } from './types';
@@ -218,6 +218,8 @@ function waiveDetachmentCommandCosts(view: RosterView): void {
       view.total = withoutCp(view.total, cp);
     }
   }
+  // The costs changed after evaluate(): counts remembered before this (CP conditions, cost constraints) are stale.
+  resetCounts(view);
 }
 
 /** The CP an Arks of Omen battle size waives on this selection: a Detachment Command Cost selection's CP, else 0. */

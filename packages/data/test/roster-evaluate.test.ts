@@ -5,6 +5,7 @@ import {
   countIn,
   effectiveConstraints,
   evaluate,
+  resetCounts,
   resolve,
   rootEntriesFor,
   COST_PL,
@@ -84,6 +85,18 @@ describe('evaluate', () => {
     expect(find(view, w.id).own).toEqual({ [COST_PL]: 6 });
     expect(find(view, w.id).models).toBe(10);
     expect(view.unknown).toEqual([]);
+  });
+
+  test('resetCounts drops counts remembered before the view costs changed', () => {
+    const w = warriors(10);
+    const view = evaluate(scope, roster(force([w])));
+    const ctx = ctxAt(view, find(view, w.id));
+    const pts = () => countIn(ctx, 'roster', COST_PTS, M.L_WARRIORS, opts(true));
+    expect(pts()).toBe(110);
+    find(view, w.id).total = { ...find(view, w.id).total, [COST_PTS]: 50 };
+    expect(pts()).toBe(110); // remembered
+    resetCounts(view);
+    expect(pts()).toBe(50);
   });
 
   test('11 warriors cost 121 pts and 12 PL', () => {

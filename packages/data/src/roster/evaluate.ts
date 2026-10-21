@@ -67,6 +67,14 @@ function stateOf(view: RosterView): State {
   return s;
 }
 
+/**
+ * Forgets the view's remembered counts. Call it after changing a view's categories or costs outside evaluate() (as
+ * evaluate() does between its passes), so later counts and constraints see the new values.
+ */
+export function resetCounts(view: RosterView): void {
+  stateOf(view).memo = new WeakMap();
+}
+
 const isSel = (x: object): x is SelView => 'sel' in x;
 const isForce = (x: object): x is ForceView => 'entry' in x;
 const isRoster = (x: object): x is RosterView => 'roster' in x;
