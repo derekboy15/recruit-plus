@@ -231,7 +231,7 @@ describe('points, CP and Rule of Two/Three', () => {
     });
   });
 
-  test('Arks of Omen named Warlords may go without the Warlord Trait Requisition Stratagem (§5, §6)', () => {
+  test('Arks of Omen Warlords BSData forces to take the Warlord Trait Requisition Stratagem may go without it (§5, §6)', () => {
     const CRIMSON_FISTS = { '**Chapter Selector**': ['Imperial Fists Successor', 'Crimson Fists'] };
     const named: Record<string, string[]> = {
       'imperium-adeptus-astartes-ultramarines': ['Uriel Ventris', 'Marneus Calgar', 'Captain Sicarius', 'Chief Librarian Tigurius', 'Chaplain Cassius', 'Sergeant Chronus', 'Sergeant Telion', 'Roboute Guilliman'],
@@ -239,6 +239,7 @@ describe('points, CP and Rule of Two/Three', () => {
       'imperium-adeptus-astartes-iron-hands': ['Iron Father Feirros'],
       'imperium-adeptus-astartes-raven-guard': ['Kayvaan Shrike', 'Kayvaan Shrike [Legends]'],
       'imperium-adeptus-astartes-salamanders': ['Adrax Agatone', "Vulkan He'stan"],
+      'imperium-adeptus-astartes-white-scars': ['Khan on Bike', "Kor'sarro Khan", "Kor'sarro Khan [Legends]", "Kor'sarro Khan on Moondrakkan [Legends]"],
     };
     for (const [slug, names] of Object.entries(named)) for (const name of names) {
       const scope = realScope(slug);
