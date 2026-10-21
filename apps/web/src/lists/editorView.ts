@@ -2,8 +2,10 @@
 import { BATTLEFIELD_ROLES } from '@recruit/data/model';
 import {
   AUTO_MANAGED_ENTRIES,
+  BATTLE_SIZES,
   displayName,
   findSelView,
+  isSpecialistDetachment,
   resolve,
   type Cond,
   type CondGroup,
@@ -12,6 +14,7 @@ import {
   type Mod,
   type OptionNode,
   type RNode,
+  type Roster,
   type RosterView,
   type Scope,
   type SelView,
@@ -37,6 +40,15 @@ export const isAutoManaged = (v: SelView) => v.merged !== null && AUTO_MANAGED.h
 export function isAutoManagedEntry(scope: Scope, entryId: string): boolean {
   const node = scope.node(entryId);
   return node !== undefined && AUTO_MANAGED.has(resolve(scope, node).target.id);
+}
+
+/**
+ * Whether an army option is offered at the roster's battle size: Specialist Detachments aren't used in Arks of Omen games
+ * (the validator still reports one a saved list has).
+ */
+export function offeredAtSize(scope: Scope, roster: Roster, entryId: string): boolean {
+  const node = scope.node(entryId);
+  return !(node && BATTLE_SIZES[roster.battleSize]?.mode === 'aoo' && isSpecialistDetachment(scope, resolve(scope, node)));
 }
 
 /**

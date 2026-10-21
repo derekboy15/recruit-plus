@@ -9,7 +9,7 @@ import {
   type Scope,
 } from '@recruit/data/roster';
 import { useMemo } from 'react';
-import { isAutoManagedEntry, isHelperOption } from './editorView';
+import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
 import { armyChoices, type ArmyChoice } from './newListSetup';
 import type { EditorAction } from './useRosterEditor';
 
@@ -29,10 +29,10 @@ export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Pro
   const choices = useMemo(() => armyChoices(scope, roster), [scope, roster]);
   const toggles = useMemo(() => {
     const picked = new Set(choices.map((c) => c.entryId));
-    // A BattleScribe helper is left out, unless the list already has it on (so it can be turned off).
+    // A BattleScribe helper, or an option the battle size doesn't use, is left out unless the list already has it on (so it can be turned off).
     const has = new Set(army.selections.map((s) => s.sel.entryId));
     return armyOptions(scope, roster, army.force.id).filter(
-      (o) => !picked.has(o.entryId) && !isAutoManagedEntry(scope, o.entryId) && (has.has(o.entryId) || !isHelperOption(scope, o.entryId)),
+      (o) => !picked.has(o.entryId) && !isAutoManagedEntry(scope, o.entryId) && (has.has(o.entryId) || (!isHelperOption(scope, o.entryId) && offeredAtSize(scope, roster, o.entryId))),
     );
   }, [scope, roster, army, choices]);
   if (!choices.length && !toggles.length) return null;

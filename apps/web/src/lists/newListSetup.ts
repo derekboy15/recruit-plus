@@ -23,6 +23,7 @@ import {
   type Roster,
   type Scope,
 } from '@recruit/data/roster';
+import { offeredAtSize } from './editorView';
 import { cleanLabel } from './labels';
 import type { ListData } from './listStore';
 
@@ -138,6 +139,7 @@ export function armyChoices(scope: Scope, roster: Roster): ArmyChoice[] {
     if (isSetBySteps(scope, option.entryId)) continue;
     let selId = scratch.forces[0].selections.find((s) => s.entryId === option.entryId)?.id;
     const inRoster = selId !== undefined;
+    if (!inRoster && !offeredAtSize(scope, roster, option.entryId)) continue;
     if (!selId) {
       const added = addUnit(scope, scratch, forceSelId, option.entryId);
       scratch = added.roster;

@@ -35,6 +35,7 @@ import {
   MATCHED_GROUP,
   createRoster,
   detachmentChoices,
+  isSpecialistDetachment,
   setBattleSize,
   validate,
   validatePolicy,
@@ -911,6 +912,52 @@ describe('Arks of Omen: only one SUPREME COMMANDER unit (§7.5)', () => {
     expect(ofRule(run(list('strike-force', abaddon)).issues, 'unit-limit')).toEqual([]);
     const onslaught = { ...abaddon, detachment: 'Patrol Detachment -2CP', units: abaddon.units.slice(0, 2) };
     expect(ofRule(run(list('onslaught', onslaught, belakor)).issues, 'unit-limit')).toEqual([]);
+  });
+});
+
+describe('Arks of Omen: no Specialist Detachments (§4.2, §7.3, §7.5)', () => {
+  const CW = 'aeldari-craftworlds';
+  const host = (detachment: string, specialist: boolean): DetachmentSpec => ({
+    detachment,
+    army: { 'Craftworld Selection': 'Ulthwe: Foresight of the Damned', ...(specialist ? { 'Specialist Detachment': 'Wraith Host' } : {}) },
+    units: [{ name: 'Farseer', warlord: true }, { name: 'Rangers' }, { name: 'Rangers' }, { name: 'Rangers' }],
+  });
+  function run(battleSize: Roster['battleSize'], d: DetachmentSpec) {
+    const scope = realScope(CW);
+    const spec: ListSpec = { title: 'Specialist', battleSize, detachments: [d], expect: { points: 0, powerLevel: 0 } };
+    const { view, issues } = validate(scope, buildFromSpec(scope, realCatalogueId(CW), spec), policy);
+    const specialist = view.forces[0].selections.find((v) => v.name.trim() === 'Specialist Detachment');
+    return { view, scope, issues, specialist };
+  }
+
+  test('a Craftworlds Specialist Detachment at Strike Force is reported with a fix that removes it', () => {
+    const { view, scope, issues, specialist } = run('strike-force', host('Arks of Omen Detachment', true));
+    expect(specialist).toBeDefined();
+    const flagged = ofRule(issues, 'detachment-not-allowed');
+    expect(flagged).toEqual([
+      { rule: 'detachment-not-allowed', forceSelId: specialist!.force.force.id, selId: specialist!.sel.id, subject: { id: '6c38-ec13-d26b-598f', name: 'Specialist Detachment' }, limit: 0, actual: 1, fix: { kind: 'remove', selIds: [specialist!.sel.id] } },
+    ]);
+    expect(explain(flagged[0], view, scope)).toEqual({ text: 'Specialist Detachments aren\'t used in Arks of Omen games. Remove "Specialist Detachment".', fixLabel: 'Remove 1' });
+  });
+
+  test('without one, or at Onslaught, nothing is reported', () => {
+    expect(ofRule(run('strike-force', host('Arks of Omen Detachment', false)).issues, 'detachment-not-allowed')).toEqual([]);
+    expect(ofRule(run('onslaught', host('Patrol Detachment -2CP', true)).issues, 'detachment-not-allowed')).toEqual([]);
+  });
+
+  test('every Specialist Detachment root entry in the data is recognised', () => {
+    const found: string[] = [];
+    for (const c of catalogues.filter((s) => !s.library)) {
+      const scope = realScope(c.slug);
+      for (const n of rootEntriesFor(scope, c.id)) if (isSpecialistDetachment(scope, resolve(scope, n))) found.push(`${c.slug}: ${resolve(scope, n).name}`);
+    }
+    expect(found.sort()).toEqual([
+      'aeldari-craftworlds: Specialist Detachment',
+      'fallen: Specialist Detachment',
+      'imperium-adeptus-astartes-space-wolves: Specialist Detachment',
+      'tyranids-genestealer-cults: Specialist Detachment: Anointed Throng',
+      'tyranids-genestealer-cults: Specialist Detachment: Deliverance Broodsurge',
+    ]);
   });
 });
 

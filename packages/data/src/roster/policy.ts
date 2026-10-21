@@ -10,7 +10,7 @@ import { BATTLEFIELD_ROLES, type BattlefieldRole, type CatalogueSummary } from '
 import { addForce, addUnit, chooseInGroup } from './edit';
 import { evaluate, resetCounts, type ForceView, type RosterView, type SelView } from './evaluate';
 import { availableUnits } from './options';
-import { resolve, rootEntriesFor, type Scope } from './scope';
+import { resolve, rootEntriesFor, type Merged, type Scope } from './scope';
 import { COST_CP, COST_PTS, type BattleSizeId, type CostMap, type Fix, type Issue, type Roster } from './types';
 import { validateConstraints } from './validate';
 
@@ -38,6 +38,12 @@ export const BATTLE_SIZE_GROUP = '2883-57e8-87a6-38e2';
  * Adepta Sororitas' own "Supreme Commander").
  */
 export const SUPREME_COMMANDER_CATEGORY = '5750-de0a-589d-eacf';
+/**
+ * Specialist Detachment (category). GSC's specialist detachments carry it; Craftworlds, Fallen and Space Wolves offer
+ * theirs under a "Specialist Detachment" army option instead. The subject of the Arks of Omen "no Specialist
+ * Detachments" issue.
+ */
+export const SPECIALIST_DETACHMENT_CATEGORY = '6c38-ec13-d26b-598f';
 
 /** .gst force entries, by their v9.8.0 names (modifiers may rename them, e.g. "… 0CP"). */
 export const FORCE = {
@@ -233,7 +239,9 @@ export function validate(scope: Scope, roster: Roster, policy: PolicyData): { vi
   const own = validatePolicy(scope, view, policy);
   let bsdata = dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] }));
   if (own.some((i) => i.rule === 'warlord-missing')) bsdata = bsdata.filter((i) => !(i.rule === 'warlord-missing' && i.scope === 'roster'));
-  if (own.some((i) => i.rule === 'detachment-not-allowed' || i.rule === 'detachment-count')) bsdata = bsdata.filter((i) => !aboutAutoManaged(view, i));
+  if (own.some((i) => i.rule === 'detachment-count' || (i.rule === 'detachment-not-allowed' && i.subject.id !== SPECIALIST_DETACHMENT_CATEGORY))) {
+    bsdata = bsdata.filter((i) => !aboutAutoManaged(view, i));
+  }
   return { view, issues: [...bsdata, ...own] };
 }
 
@@ -312,8 +320,8 @@ function dedupe(issues: Issue[]): Issue[] {
 }
 
 /**
- * The matched-play rules, in this order: points-over, cp-negative, detachment-count, detachment-not-allowed,
- * Auxiliary Support's one unit (slot-min / slot-max), Arks of Omen's one SUPREME COMMANDER (unit-limit), rule-of-three,
+ * The matched-play rules, in this order: points-over, cp-negative, detachment-count, detachment-not-allowed (then
+ * Arks of Omen's no Specialist Detachments, as detachment-not-allowed with the selection), Auxiliary Support's one unit (slot-min / slot-max), Arks of Omen's one SUPREME COMMANDER (unit-limit), rule-of-three,
  * detachment-faction, army-faction, and the units that must be the Warlord (warlord-missing, must-be-warlord.json).
  *
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
@@ -355,6 +363,7 @@ class PolicyCheck {
     for (const fv of view.forces) {
       if (!this.allowed(fv)) this.issues.push({ rule: 'detachment-not-allowed', forceSelId: fv.force.id, subject: { id: fv.force.forceId, name: fv.name }, limit: 0, actual: 1 });
     }
+    if (bs?.mode === 'aoo') this.noSpecialistDetachments();
     for (const fv of view.forces) if (fv.force.forceId === FORCE.auxiliarySupport) this.auxiliarySupport(fv);
     if (bs?.mode === 'aoo') this.oneSupremeCommander();
     if (bs) this.ruleOfThree(bs);
@@ -407,6 +416,22 @@ class PolicyCheck {
     const name = this.scope.catalogue(fv.force.catalogueId)?.name;
     const allies = this.policy.aooAllies.find((a) => a.catalogueName === this.primaryName)?.allies ?? [];
     return allies.find((a) => a.catalogueName === name && a.detachments.includes(fv.entry!.name));
+  }
+
+  /**
+   * Arks of Omen (§4.2, §7.3, §7.5): Specialist Detachments are banned in GT packs from War Zone Nachmund on. Reported as
+   * detachment-not-allowed about the army option that holds one, subject SPECIALIST_DETACHMENT_CATEGORY.
+   */
+  private noSpecialistDetachments(): void {
+    for (const fv of this.view.forces) {
+      for (const v of fv.selections) {
+        if (!v.merged || !isSpecialistDetachment(this.scope, v.merged)) continue;
+        this.issues.push({
+          rule: 'detachment-not-allowed', forceSelId: fv.force.id, selId: v.sel.id, subject: { id: SPECIALIST_DETACHMENT_CATEGORY, name: v.name.trim() },
+          limit: 0, actual: v.sel.count, fix: { kind: 'remove', selIds: [v.sel.id] },
+        });
+      }
+    }
   }
 
   /** Exactly one unit (§4): BSData's own limit counts nothing under the engine's conventions. */
@@ -569,6 +594,11 @@ class PolicyCheck {
   private hasCategory(v: SelView, name: string): boolean {
     return v.categories.some((id) => this.scope.category(id)?.name === name);
   }
+}
+
+/** A Specialist Detachment root entry: carries the .gst category, or is named "Specialist Detachment" ("…: Anointed Throng"). */
+export function isSpecialistDetachment(scope: Scope, m: Merged): boolean {
+  return /^Specialist Detachment(?::|$)/.test(m.name.trim()) || m.cats.some((c) => c.targetId === SPECIALIST_DETACHMENT_CATEGORY);
 }
 
 /** Whether the selection has a category with a "Supreme Commander" part in its name ("Primarch | Daemon Primarch | Supreme Commander"). */

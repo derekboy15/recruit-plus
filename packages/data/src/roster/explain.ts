@@ -10,7 +10,7 @@ import { findSelView } from './edit';
 import { childIndex, type ForceView, type RosterView, type SelView } from './evaluate';
 import { displayName, factionDisplayName, stripCpSuffix } from './names';
 import { availableUnits } from './options';
-import { BATTLE_SIZES, FORCE, SUPREME_COMMANDER_CATEGORY, isSupremeCommander } from './policy';
+import { BATTLE_SIZES, FORCE, SPECIALIST_DETACHMENT_CATEGORY, SUPREME_COMMANDER_CATEGORY, isSupremeCommander } from './policy';
 import { resolve, type Scope } from './scope';
 import type { Issue } from './types';
 
@@ -155,6 +155,7 @@ function textFor(ctx: Ctx): string {
     case 'detachment-count':
       return detachmentCount(ctx);
     case 'detachment-not-allowed':
+      if (issue.subject.id === SPECIALIST_DETACHMENT_CATEGORY) return `Specialist Detachments aren't used in Arks of Omen games. Remove "${name}".`;
       return `${forceName(ctx)} isn't allowed at ${sizeName(ctx)}. Remove it and pick from the detachments offered.`;
     case 'detachment-faction': {
       const catalogue = forceView(ctx) && ctx.scope.catalogue(forceView(ctx)!.force.catalogueId)?.name;

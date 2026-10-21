@@ -2,7 +2,7 @@ import { armyOptions, createRoster, FORCE, type BattleSizeId } from '@recruit/da
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { stubGeneratedData } from './__fixtures__/generatedData';
-import { isAutoManagedEntry, isHelperOption } from './editorView';
+import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
 import { armyChoices } from './newListSetup';
 
 beforeEach(() => {
@@ -57,4 +57,18 @@ test('BattleScribe helpers among the army options are recognised; real choices a
   for (const name of ['Show Vows', 'Detachment Bonuses', 'Deeds and Sagas [Reference]', 'Warlord Traits (Reference)']) {
     expect(shown.has(name), name).toBe(false);
   }
+});
+
+test('Specialist Detachments are not offered at Arks of Omen sizes, only in Core Book games', async () => {
+  const index = await getIndex();
+  const offered = async (slug: string, battleSize: BattleSizeId, forceId: string) => {
+    const c = index.catalogues.find((x) => x.slug === slug)!;
+    const scope = await getRosterScope([slug]);
+    const roster = createRoster(scope, { name: 'x', catalogueId: c.id, battleSize, forceId });
+    const choices = armyChoices(scope, roster).map((x) => x.title);
+    const toggles = armyOptions(scope, roster, roster.forces[0].id).filter((o) => offeredAtSize(scope, roster, o.entryId)).map((o) => o.name);
+    return [...choices, ...toggles].filter((name) => /Specialist Detachment/.test(name));
+  };
+  expect(await offered('aeldari-craftworlds', 'strike-force', FORCE.arksOfOmen)).toEqual([]);
+  expect(await offered('aeldari-craftworlds', 'onslaught', FORCE.patrol)).toContain('Specialist Detachment');
 });
