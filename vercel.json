@@ -3,5 +3,10 @@
   "installCommand": "npm ci",
   "buildCommand": "npm run data:fetch && npm run data:build && npm run build -w apps/web",
   "outputDirectory": "apps/web/dist",
-  "rewrites": [{ "source": "/((?!data/|assets/|sw\.js|workbox-|manifest\.webmanifest|icon\.svg).*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
