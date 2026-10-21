@@ -252,76 +252,76 @@
     "entryName": "Warlord",
     "constraintId": "af67-d236-502e-a5c8",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Abaddon the Despoiler): the policy checks that Abaddon the Despoiler is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Abaddon's Warlord compulsory (min 1 on link feae-8926-f679-9e2f), so Abaddon the Despoiler beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Abaddon the Despoiler's own rule: Wahapedia datasheet 000000924, ability 000002195 (The Warmaster): \"If your army is Battle-forged, this model must be your WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your WARLORD.\" (research library 03_Codexes/Chaos/Chaos_Space_Marines.md §6). BSData v9.8.0 makes his Warlord compulsory (min 1 on link feae-8926-f679-9e2f), so Abaddon beside another unit with such a rule (Mortarion, Magnus the Red) could not be built with that unit as the Warlord, as The Warmaster allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Chaos - Death Guard",
     "entryName": "Warlord",
     "constraintId": "31ee-741b-2db4-abc3",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Mortarion): the policy checks that Mortarion is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Mortarion's Warlord compulsory outside Narrative play (min 1 on link fb71-5909-b2a9-5e47), so Mortarion beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Mortarion's own rule: Wahapedia datasheet 000001377, ability 000005202 (Daemon Primarch): \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" BSData v9.8.0 makes his Warlord compulsory outside Narrative play (min 1 on link fb71-5909-b2a9-5e47), so Mortarion beside another unit with such a rule (Abaddon the Despoiler, Magnus the Red) could not be built with that unit as the Warlord, as Daemon Primarch allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Chaos - World Eaters",
     "entryName": "Warlord",
     "constraintId": "e58a-78af-5fa2-7db4",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Angron): the policy checks that Angron is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Angron's Warlord compulsory (min 1 on link 9b46-9713-3f99-e728), so Angron beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Angron's own rule: research library 03_Codexes/Chaos/World_Eaters.md §6 (Angron: \"Must be Warlord\"); the Wahapedia snapshot's Angron datasheet (000002621) lists only three abilities and leaves it out. BSData v9.8.0 makes his Warlord compulsory (min 1 on link 9b46-9713-3f99-e728), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on. The policy groups him with the other must-be-Warlord units, as Abaddon's The Warmaster (ability 000002195) lets either be the Warlord."
   },
   {
     "catalogueName": "Imperium - Space Marines",
     "entryName": "Warlord",
     "constraintId": "c6f6-0a12-daa5-53a2",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Roboute Guilliman): the policy checks that Roboute Guilliman is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Guilliman's Warlord compulsory in Matched play (min set to 1 on link 2c57-155b-5fe8-a44f), so Roboute Guilliman beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Roboute Guilliman's own rule: Wahapedia datasheet 000000129, ability 000004415 (The Avenging Son): \"If your army is Battle-forged, this model must be your army's WARLORD, even if another model in your army has a rule to this effect.\" BSData v9.8.0 makes his Warlord compulsory in Matched play (min set to 1 on link 2c57-155b-5fe8-a44f), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on. The policy names only Guilliman, even beside another must-be-Warlord unit (evenIfAnother)."
   },
   {
     "catalogueName": "Imperium - Adepta Sororitas",
     "entryName": "Warlord",
     "constraintId": "37a4-ece0-86f7-d7fd",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Morvenn Vahl): the policy checks that Morvenn Vahl is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Morvenn Vahl's Warlord compulsory unless her \"Forced Warlord Override\" is taken (min set to 1 on link 51ce-7b79-9321-35a7), so Morvenn Vahl beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Morvenn Vahl's own rule: Wahapedia datasheet 000002479, ability 000005560 (High Lord of the Imperium): \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" (research library 03_Codexes/Imperium/Adepta_Sororitas.md §11). BSData v9.8.0 makes her Warlord compulsory unless her \"Forced Warlord Override\" is taken (min set to 1 on link 51ce-7b79-9321-35a7), so Morvenn Vahl beside another unit with such a rule (Trajann Valoris) could not be built with that unit as the Warlord, as High Lord of the Imperium allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Imperium - Adeptus Custodes",
     "entryName": "Warlord",
     "constraintId": "d6d5-e9d7-7180-eee0",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Trajann Valoris): the policy checks that Trajann Valoris is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Trajann's Warlord compulsory (min 1 on link 7cf0-8a24-879c-2194), so Trajann Valoris beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Trajann Valoris's own rule: Wahapedia datasheet 000001446, ability 000006211 (Captain-General): \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your army's WARLORD.\" (research library 03_Codexes/Imperium/Adeptus_Custodes.md §5). BSData v9.8.0 makes his Warlord compulsory (min 1 on link 7cf0-8a24-879c-2194), so Trajann beside another unit with such a rule (Morvenn Vahl) could not be built with that unit as the Warlord, as Captain-General allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Imperium - Astra Militarum - Library",
     "entryName": "Warlord",
     "constraintId": "936f-56b9-b809-4b71",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Lord Solar Leontus): the policy checks that Lord Solar Leontus is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Lord Solar's Warlord compulsory (min set to 1 on link 85ba-0415-c1b5-a08b), so Lord Solar Leontus beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Lord Solar Leontus's own rule: research library 03_Codexes/Imperium/Astra_Militarum.md §2 (Detachment abilities, Chain of Command): \"If Lord Solar Leontus is in the army, he must be Warlord.\" It is a codex detachment ability, not on his Wahapedia datasheet (000002605). BSData v9.8.0 makes his Warlord compulsory (min set to 1 on link 85ba-0415-c1b5-a08b), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Necrons",
     "entryName": "Warlord",
     "constraintId": "017c-2bf0-3115-2440",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (The Silent King): the policy checks that The Silent King is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes the Silent King's Warlord compulsory (min 1 on link e6c1-3438-58bd-c091), so The Silent King beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "The Silent King's own rule: Wahapedia datasheet 000002360, ability 000004775 (The Silent King): \"If your army is Battle-forged, Szarekh must be your army's WARLORD.\" BSData v9.8.0 makes his Warlord compulsory (min 1 on link e6c1-3438-58bd-c091), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "Orks",
     "entryName": "Warlord",
     "constraintId": "4f69-f8f3-6d21-ee88",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Ghazghkull Thraka): the policy checks that Ghazghkull Thraka is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Ghazghkull's Warlord compulsory (min 1 on link 5d74-022e-9217-72bc), so Ghazghkull Thraka beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Ghazghkull Thraka's own rule: Wahapedia datasheet 000000008, ability 000005746 (Grand Warlord): \"If this model is included in your army, it must be your WARLORD.\" (research library 03_Codexes/Xenos/Orks.md §6). BSData v9.8.0 makes his Warlord compulsory (min 1 on link 5d74-022e-9217-72bc), so the app made him the Warlord on its own and another chosen Warlord was a second one. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "T'au Empire",
     "entryName": "Warlord",
     "constraintId": "4787-60d9-1ede-ae66",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Commander Shadowsun): the policy checks that Commander Shadowsun is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Shadowsun's Warlord compulsory in most armies (a modifier sets the min on link 1122-85d4-75f6-1d1a to 1), so Commander Shadowsun beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Commander Shadowsun's own rule: Wahapedia datasheet 000000407, ability 000006366 (Hero of the Empire): \"If your army is Battle-forged, this unit's COMMANDER SHADOWSUN model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" BSData v9.8.0 makes her Warlord compulsory in most armies (a modifier sets the min on link 1122-85d4-75f6-1d1a to 1), so Shadowsun beside another unit with such a rule (Commander Farsight) could not be built with that unit as the Warlord, as Hero of the Empire allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   },
   {
     "catalogueName": "T'au Empire",
     "entryName": "Warlord",
     "constraintId": "ab81-4dae-7c2a-d393",
     "value": 0,
-    "source": "overrides/must-be-warlord.json (Commander Farsight): the policy checks that Commander Farsight is the Warlord, or that another unit with a rule to that effect is (Daemon Primarch, The Warmaster and similar: \"If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD\"). BSData v9.8.0 makes Farsight's Warlord compulsory in most armies (a modifier sets the min on link dc8f-67ee-8008-182a to 1), so Commander Farsight beside another such unit could not be built legally (e.g. Mortarion with Abaddon or Magnus); the minimum stays 0 and the player turns \"Warlord\" on."
+    "source": "Commander Farsight's own rule: Wahapedia datasheet 000000406, ability 000006370 (Enclave Commander): \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" BSData v9.8.0 makes his Warlord compulsory in most armies (a modifier sets the min on link dc8f-67ee-8008-182a to 1), so Farsight beside another unit with such a rule (Commander Shadowsun) could not be built with that unit as the Warlord, as Enclave Commander allows. overrides/must-be-warlord.json checks this rule in the policy layer, so the minimum stays 0 and the player turns \"Warlord\" on."
   }
 ]
