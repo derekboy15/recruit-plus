@@ -1,6 +1,6 @@
 /**
  * overrides/faction-keywords.json against real data (npm run data:build): every root unit of the Imperium catalogues,
- * and of the Xenos catalogues the corpus has reached, that Wahapedia gives one of the .gst's broad faction keywords
+ * and of the Xenos catalogues, that Wahapedia gives one of the .gst's broad faction keywords
  * (IMPERIUM, ADEPTUS ASTARTES, AELDARI, ...) or a catalogue-level one (GREY KNIGHTS, ADEPTA SORORITAS, DRUKHARI,
  * HARLEQUINS, ...) carries the matching "Faction: …" category once built, so
  * Army Faction and Battle Brothers see it (as the policy does: the unit's categories and its descendants', after
@@ -10,7 +10,8 @@
  * forge worlds, ordos), BROOD BROTHERS, which Wahapedia lists on Astra Militarum datasheets but a unit only gains
  * in a Genestealer Cults army (03_Codexes/Xenos/Genestealer_Cults.md §3), and YNNARI, which Wahapedia lists on
  * Harlequins and Drukhari datasheets but a unit only gains in a Ynnari detachment (03_Codexes/Xenos/Aeldari.md §3).
- * Wahapedia's ORK is BSData's "Faction: Orks".
+ * Wahapedia's ORK is BSData's "Faction: Orks", and its T’AU EMPIRE (a curly apostrophe) is "Faction: T'au Empire". Not
+ * checked either: the sept, league and hive fleet a named character carries (FARSIGHT ENCLAVES, GREATER THURIAN LEAGUE…).
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -21,8 +22,11 @@ import { loadWahapedia } from '../src/wahapedia/load';
 import { realCatalogueId, realCatalogues, realScope } from './helpers/realScope';
 
 const ROOT = join(import.meta.dirname, '..');
-/** The Xenos catalogues the corpus has reached (Task 11 part 1). */
-const XENOS = ['aeldari-craftworlds', 'aeldari-drukhari', 'aeldari-harlequins', 'necrons', 'orks'];
+/** The Xenos catalogues the corpus covers. */
+const XENOS = [
+  'aeldari-craftworlds', 'aeldari-drukhari', 'aeldari-harlequins', 'necrons', 'orks', 'tyranids', 'tyranids-genestealer-cults',
+  'tau-empire', 'leagues-of-votann',
+];
 const CATALOGUES = [...realCatalogues().filter((c) => c.group === 'Imperium' && !c.library).map((c) => c.slug), ...XENOS];
 /** .gst Faction categories whose Wahapedia keyword means the same thing in BSData. */
 const KEYWORDS = ['Imperium', 'Adeptus Astartes', 'Adeptus Mechanicus', 'Astra Militarum', 'Agents of the Imperium', 'Imperial Knights', 'Officio Assassinorum', 'Aeldari'];
@@ -31,10 +35,11 @@ const CATALOGUE_KEYWORDS = [
   'Adepta Sororitas', 'Adeptus Ministorum', 'Adeptus Custodes', 'Anathema Psykana', 'Grey Knights', 'Sanctic Astartes',
   'Inquisition', 'Adeptus Arbites', 'Adeptus Titanicus', 'Astra Telepathica', 'Legion of the Damned', 'Questor Imperialis',
   'Questor Mechanicus', 'Cult Mechanicus', 'Skitarii', 'Militarum Tempestus', 'Blood Angels', 'Dark Angels', 'Space Wolves',
-  'Black Templars', 'Deathwatch', 'Asuryani', 'Drukhari', 'Harlequins', 'Incubi', 'Necrons', 'Orks',
+  'Black Templars', 'Deathwatch', 'Asuryani', 'Drukhari', 'Harlequins', 'Incubi', 'Necrons', 'Orks', 'Tyranids',
+  'Hive Tendril', 'Living Artillery', 'Genestealer Cults', "T'au Empire", 'Kroot', 'Vespid', 'Votann',
 ];
 /** Wahapedia keywords BSData names differently. */
-const ALIASES: Record<string, string> = { ork: 'Orks' };
+const ALIASES: Record<string, string> = { ork: 'Orks', 't’au empire': "T'au Empire" };
 
 const wahapedia = loadWahapedia(join(ROOT, 'raw', 'wahapedia'));
 const datasheetKeywords = new Map<string, Set<string>>();

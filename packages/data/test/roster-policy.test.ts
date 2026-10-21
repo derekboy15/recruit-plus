@@ -736,6 +736,22 @@ describe('factions', () => {
     expect(issues.filter((i) => i.rule === 'army-faction' || i.rule === 'detachment-faction')).toEqual([]);
   });
 
+  test("a Kroot Shaper shares T'AU EMPIRE with the rest of a T'au detachment (faction-keywords.json)", () => {
+    const scope = realScope('tau-empire');
+    const spec: ListSpec = {
+      title: "T'au with a Kroot Shaper",
+      battleSize: 'strike-force',
+      detachments: [{
+        detachment: 'Arks of Omen Detachment',
+        army: { 'Sept Choice': "T'au Sept" },
+        units: [{ name: 'Cadre Fireblade', warlord: true }, { name: 'Kroot Shaper' }, { name: 'Strike Team' }, { name: 'Strike Team' }, { name: 'Strike Team' }],
+      }],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    const issues = validate(scope, buildFromSpec(scope, realCatalogueId('tau-empire'), spec), policy).issues;
+    expect(issues.filter((i) => i.rule === 'army-faction' || i.rule === 'detachment-faction')).toEqual([]);
+  });
+
   test('a Militarum Tempestus-only ally Patrol must be all Militarum Tempestus', () => {
     const scope = realScope('imperium-astra-militarum');
     const am = realCatalogueId('imperium-astra-militarum');

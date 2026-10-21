@@ -880,5 +880,51 @@
       "Harlequins"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002536 \"Troupe\" (https://wahapedia.ru/wh40k9ed/factions/aeldari/Troupe) faction keywords: Harlequins, Aeldari, <Saedath>, Ynnari. BSData v9.8.0 has no \"Faction: Harlequins\" category on this entry."
+  },
+  {
+    "catalogueName": "Tyranids",
+    "entryId": "04a7-33a3-6396-b371",
+    "entryName": "Ripper Swarms",
+    "add": [
+      "Hive Tendril"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000470 \"Ripper Swarms\" (https://wahapedia.ru/wh40k9ed/factions/tyranids/Ripper-Swarms) faction keywords: Hive Tendril, Tyranids, <Hive Fleet>. BSData v9.8.0 has no \"Faction: Hive Tendril\" category on this entry. The Synaptic Imperatives army rule needs every unit to be HIVE TENDRIL (03_Codexes/Xenos/Tyranids.md §2)."
+  },
+  {
+    "catalogueName": "Tyranids",
+    "entryId": "0a0b-c7ca-2804-4f90",
+    "entryName": "Spore Mines",
+    "add": [
+      "Living Artillery",
+      "Hive Tendril"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000488 \"Spore Mines\" (https://wahapedia.ru/wh40k9ed/factions/tyranids/Spore-Mines) faction keywords: Living Artillery, Tyranids, Hive Tendril. BSData v9.8.0 has no \"Faction: Living Artillery\" or \"Faction: Hive Tendril\" category on this entry. The Synaptic Imperatives army rule needs every unit to be HIVE TENDRIL (03_Codexes/Xenos/Tyranids.md §2)."
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "entryId": "38e7-f3a9-b20a-90d3",
+    "entryName": "Kroot Shaper",
+    "add": [
+      "T'au Empire"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000416 \"Kroot Shaper\" (https://wahapedia.ru/wh40k9ed/factions/t-au-empire/Kroot-Shaper) faction keywords: Kroot, T’au Empire. BSData v9.8.0 has no \"Faction: T'au Empire\" category on this entry. Without it a Kroot Shaper shares no Faction keyword with T'au units other than Kroot, so a T'au army led by one was reported as detachment-faction and army-faction."
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "entryId": "993c-cbfe-7de2-3e59",
+    "entryName": "Knarloc Riders [Legends]",
+    "add": [
+      "Kroot"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001391 \"Knarloc Riders\" (https://wahapedia.ru/wh40k9ed/factions/t-au-empire/Knarloc-Riders) faction keywords: Kroot, T’au Empire. BSData v9.8.0 has no \"Faction: Kroot\" category on this entry."
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "entryId": "a0de-8502-f957-a641",
+    "entryName": "Great Knarloc [Legends]",
+    "add": [
+      "Kroot"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001392 \"Great Knarloc\" (https://wahapedia.ru/wh40k9ed/factions/t-au-empire/Great-Knarloc) faction keywords: Kroot, T’au Empire. BSData v9.8.0 has no \"Faction: Kroot\" category on this entry."
   }
 ]
