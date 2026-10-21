@@ -6,6 +6,7 @@ import { useAsync } from '../factions/useAsync';
 import { ArmyOptions } from './ArmyOptions';
 import { ArmySetup, DetachmentSection } from './Detachments';
 import { EditorHeader } from './EditorHeader';
+import { ExportSheet, ShareSheet } from './ExportSheet';
 import { unitsWithIssues } from './editorView';
 import { IssuesPanel } from './IssuesPanel';
 import { loadUnitIndex } from './unitIndex';
@@ -81,10 +82,11 @@ export function ListEditorPage() {
     );
   }
   if (editor.status === 'error') return <p role="alert">Couldn’t open this list: {editor.error.message}</p>;
-  return <Editor editor={editor} params={params} open={open} close={close} openUnit={ui.openUnit} />;
+  return <Editor listId={id} editor={editor} params={params} open={open} close={close} openUnit={ui.openUnit} />;
 }
 
 interface EditorProps {
+  listId: string;
   editor: ReadyEditor;
   params: URLSearchParams;
   open: (next: Record<string, string>) => void;
@@ -92,8 +94,8 @@ interface EditorProps {
   openUnit: (selId: string) => void;
 }
 
-function Editor({ editor, params, open, close, openUnit }: EditorProps) {
-  const { roster, view, issues, scope, policy, catalogues, slugs, dispatch, saveError, allyError } = editor;
+function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) {
+  const { roster, view, issues, scope, policy, catalogues, slugs, dispatch, flush, saveError, allyError } = editor;
   const wide = useWideScreen();
   const unitIndex = useAsync(() => loadUnitIndex(slugs), slugs.join('+'));
   const units = unitIndex.status === 'ready' ? unitIndex.data : null;
@@ -102,6 +104,8 @@ function Editor({ editor, params, open, close, openUnit }: EditorProps) {
   const unitParam = params.get('unit');
   const addParam = params.get('add');
   const issuesOpen = params.get('issues') === '1';
+  const exportOpen = params.get('export') === '1';
+  const shareOpen = params.get('share') === '1';
   const openSel = unitParam ? findSelView(view, unitParam) : undefined;
   const pickerForce = addParam ? view.forces.find((f) => f.force.id === addParam) : undefined;
 
@@ -124,6 +128,10 @@ function Editor({ editor, params, open, close, openUnit }: EditorProps) {
       if (selId) openUnit(selId);
     };
     panel = <UnitPicker key={params.toString()} scope={scope} roster={roster} forceSelId={pickerForce.force.id} only={only} units={units} onAdd={onAdd} onClose={close} />;
+  } else if (exportOpen) {
+    panel = <ExportSheet view={view} scope={scope} onClose={close} />;
+  } else if (shareOpen) {
+    panel = <ShareSheet listId={listId} flush={flush} onClose={close} />;
   } else if (issuesOpen || wide) {
     panel = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} inline={wide && !issuesOpen} onClose={close} />;
   }
@@ -140,6 +148,14 @@ function Editor({ editor, params, open, close, openUnit }: EditorProps) {
           dispatch={dispatch}
           onIssues={() => (issuesOpen ? close() : open({ issues: '1' }))}
         />
+        <div className="editor-actions">
+          <button type="button" className="btn" onClick={() => open({ export: '1' })}>
+            Export
+          </button>
+          <button type="button" className="btn" onClick={() => open({ share: '1' })}>
+            Share
+          </button>
+        </div>
         {saveError && <p role="alert">{`Couldn’t save your last change: ${saveError.message}. It will be saved with your next edit.`}</p>}
         {allyError && <p role="alert">{`Couldn’t add that detachment: ${allyError.message}`}</p>}
         {view.forces[0] && <ArmyOptions scope={scope} roster={roster} view={view} army={view.forces[0]} issues={issues} dispatch={dispatch} />}

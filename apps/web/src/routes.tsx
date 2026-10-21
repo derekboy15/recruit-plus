@@ -11,6 +11,7 @@ import { FactionsPage } from './factions/FactionsPage';
 const ListsPage = lazy(() => import('./lists/ListsPage').then((m) => ({ default: m.ListsPage })));
 const NewListPage = lazy(() => import('./lists/NewListPage').then((m) => ({ default: m.NewListPage })));
 const ListEditorPage = lazy(() => import('./lists/ListEditorPage').then((m) => ({ default: m.ListEditorPage })));
+const SharePage = lazy(() => import('./lists/SharePage').then((m) => ({ default: m.SharePage })));
 
 const loadingPage = <p className="muted">Loading…</p>;
 const builder = (page: ReactNode) => <Suspense fallback={loadingPage}>{page}</Suspense>;
@@ -30,6 +31,8 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
       <Route path="/build" element={guard(builder(<ListsPage />))} />
       <Route path="/build/new" element={guard(builder(<NewListPage />))} />
       <Route path="/build/:id" element={guard(builder(<ListEditorPage />))} />
+      {/* A shared list opens read-only for anyone, signed in or not: deliberately not behind the guard. */}
+      <Route path="/share/:id" element={builder(<SharePage />)} />
       <Route
         path="/play"
         element={guard(<Placeholder title="Play" milestone={5} blurb="The on-screen sandbox: two players, one device, core rules handled for you." />)}

@@ -77,7 +77,7 @@ const SAVE_DELAY_MS = 600;
 interface Loaded { doc: Doc<ListData>; scope: Scope; policy: PolicyData; catalogues: CatalogueSummary[]; slugs: string[] }
 
 /** The catalogue slugs a roster needs: its own catalogue's, then each allied detachment's. */
-function slugsFor(roster: Roster, catalogues: CatalogueSummary[], primarySlug: string): string[] {
+export function slugsFor(roster: Roster, catalogues: CatalogueSummary[], primarySlug: string): string[] {
   const slugs = [primarySlug];
   for (const f of roster.forces) {
     const slug = catalogues.find((c) => c.id === f.catalogueId)?.slug;
