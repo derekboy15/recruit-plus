@@ -79,6 +79,17 @@ export default {
       expectRules: ['detachment-not-allowed'],
     },
     {
+      // §7.5: an Arks of Omen army may include only one SUPREME COMMANDER unit, its ally included. Abaddon and Be'lakor
+      // are both SUPREME COMMANDERs (Wahapedia datasheet keywords).
+      title: "Abaddon with a Daemons Patrol holding Be'lakor",
+      battleSize: 'strike-force',
+      detachments: [
+        { detachment: AOO, army: BLACK_LEGION, units: [{ name: 'Abaddon the Despoiler', warlord: true }, ...THREE_LEGIONARIES] },
+        { detachment: PATROL, catalogue: DAEMONS, units: [{ name: "Be'lakor" }, { name: 'Pink Horrors' }] },
+      ],
+      expectRules: ['unit-limit'],
+    },
+    {
       // §2.1 and global constraints: Combat Patrol allows one detachment, so the Daemons Patrol is one too many.
       title: 'Daemons Patrol ally at Combat Patrol',
       battleSize: 'combat-patrol',

@@ -32,6 +32,12 @@ export const ARKS_OF_OMEN_PACK = '76d2-6e71-243f-ad3d';
 export const BATTLE_SIZE_ENTRY = 'f29d-8a5d-18b6-a071';
 /** Battle Size (the choice group inside the Battle Size entry). */
 export const BATTLE_SIZE_GROUP = '2883-57e8-87a6-38e2';
+/**
+ * Supreme Commander (category). The subject of the Arks of Omen "one SUPREME COMMANDER" issue; units are found by any
+ * category whose name has a "Supreme Commander" part (also "Primarch | Daemon Primarch | Supreme Commander", and
+ * Adepta Sororitas' own "Supreme Commander").
+ */
+export const SUPREME_COMMANDER_CATEGORY = '5750-de0a-589d-eacf';
 
 /** .gst force entries, by their v9.8.0 names (modifiers may rename them, e.g. "… 0CP"). */
 export const FORCE = {
@@ -280,8 +286,8 @@ function dedupe(issues: Issue[]): Issue[] {
 
 /**
  * The matched-play rules, in this order: points-over, cp-negative, detachment-count, detachment-not-allowed,
- * Auxiliary Support's one unit (slot-min / slot-max), rule-of-three, detachment-faction, army-faction, and the units
- * that must be the Warlord (warlord-missing, must-be-warlord.json).
+ * Auxiliary Support's one unit (slot-min / slot-max), Arks of Omen's one SUPREME COMMANDER (unit-limit), rule-of-three,
+ * detachment-faction, army-faction, and the units that must be the Warlord (warlord-missing, must-be-warlord.json).
  *
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
@@ -323,6 +329,7 @@ class PolicyCheck {
       if (!this.allowed(fv)) this.issues.push({ rule: 'detachment-not-allowed', forceSelId: fv.force.id, subject: { id: fv.force.forceId, name: fv.name }, limit: 0, actual: 1 });
     }
     for (const fv of view.forces) if (fv.force.forceId === FORCE.auxiliarySupport) this.auxiliarySupport(fv);
+    if (bs?.mode === 'aoo') this.oneSupremeCommander();
     if (bs) this.ruleOfThree(bs);
     for (const fv of view.forces) if (fv.force.forceId !== FORCE.fortificationNetwork) this.detachmentFaction(fv);
     this.armyFaction();
@@ -386,6 +393,18 @@ class PolicyCheck {
     } else if (n > 1) {
       this.issues.push({ rule: 'slot-max', forceSelId: fv.force.id, selId: units.at(-1)!.sel.id, subject, limit: 1, actual: n, fix: trimNewest(units, n - 1) });
     }
+  }
+
+  /** Arks of Omen (§7.5): "only one SUPREME COMMANDER unit", allies included. */
+  private oneSupremeCommander(): void {
+    const sels = this.units().filter((v) => isSupremeCommander(this.scope, v));
+    const actual = sels.reduce((k, v) => k + v.sel.count, 0);
+    if (actual <= 1) return;
+    const newest = sels.at(-1)!;
+    this.issues.push({
+      rule: 'unit-limit', forceSelId: newest.force.force.id, selId: newest.sel.id, subject: { id: SUPREME_COMMANDER_CATEGORY, name: 'Supreme Commander' },
+      limit: 1, actual, fix: trimNewest(sels, actual - 1),
+    });
   }
 
   // ---------- Rule of Two/Three ----------
@@ -523,6 +542,11 @@ class PolicyCheck {
   private hasCategory(v: SelView, name: string): boolean {
     return v.categories.some((id) => this.scope.category(id)?.name === name);
   }
+}
+
+/** Whether the selection has a category with a "Supreme Commander" part in its name ("Primarch | Daemon Primarch | Supreme Commander"). */
+export function isSupremeCommander(scope: Scope, v: SelView): boolean {
+  return v.categories.some((id) => scope.category(id)?.name.split('|').some((part) => part.trim() === 'Supreme Commander') ?? false);
 }
 
 /** "Faction: Astra Militarum" → "astra militarum". */

@@ -833,6 +833,42 @@ describe('factions', () => {
   });
 });
 
+describe('Arks of Omen: only one SUPREME COMMANDER unit (§7.5)', () => {
+  const CSM = 'chaos-chaos-space-marines';
+  const DAEMONS = 'chaos-daemons';
+  const abaddon: DetachmentSpec = {
+    detachment: 'Arks of Omen Detachment', army: { Legion: 'Black Legion' },
+    units: [{ name: 'Abaddon the Despoiler', warlord: true }, { name: 'Legionaries' }, { name: 'Legionaries' }, { name: 'Legionaries' }],
+  };
+  const belakor: DetachmentSpec = { detachment: 'Patrol Detachment -2CP', catalogue: 'Chaos - Daemons', units: [{ name: "Be'lakor" }, { name: 'Pink Horrors' }] };
+  const list = (battleSize: Roster['battleSize'], ...detachments: DetachmentSpec[]): ListSpec => ({ title: 'Supreme Commander', battleSize, detachments, expect: { points: 0, powerLevel: 0 } });
+  function run(spec: ListSpec) {
+    const scope = realScope(CSM, DAEMONS);
+    const { view, issues } = validate(scope, buildFromSpec(scope, realCatalogueId(CSM), spec), policy);
+    const selOf = (name: string) => view.forces.flatMap((f) => f.selections).find((s) => s.name.trim() === name)!;
+    return { view, scope, issues, selOf };
+  }
+
+  test("Abaddon and a Daemons Patrol with Be'lakor is unit-limit, removing the newest", () => {
+    const { view, scope, issues, selOf } = run(list('strike-force', abaddon, belakor));
+    const bel = selOf("Be'lakor");
+    const limit = ofRule(issues, 'unit-limit');
+    expect(limit).toEqual([
+      { rule: 'unit-limit', forceSelId: bel.force.force.id, selId: bel.sel.id, subject: { id: '5750-de0a-589d-eacf', name: 'Supreme Commander' }, limit: 1, actual: 2, fix: { kind: 'remove', selIds: [bel.sel.id] } },
+    ]);
+    expect(explain(limit[0], view, scope)).toEqual({
+      text: "An Arks of Omen army can include only 1 Supreme Commander. You have 2: Abaddon the Despoiler and Be'lakor. Remove 1.",
+      fixLabel: 'Remove 1',
+    });
+  });
+
+  test('one Supreme Commander is fine, and Core Book battle sizes have no such limit', () => {
+    expect(ofRule(run(list('strike-force', abaddon)).issues, 'unit-limit')).toEqual([]);
+    const onslaught = { ...abaddon, detachment: 'Patrol Detachment -2CP', units: abaddon.units.slice(0, 2) };
+    expect(ofRule(run(list('onslaught', onslaught, belakor)).issues, 'unit-limit')).toEqual([]);
+  });
+});
+
 describe('validate', () => {
   test('a second Warlord is reported once', () => {
     const r0 = necronRoster('strike-force');

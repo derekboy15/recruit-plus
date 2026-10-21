@@ -10,7 +10,7 @@ import { findSelView } from './edit';
 import { childIndex, type ForceView, type RosterView, type SelView } from './evaluate';
 import { displayName, factionDisplayName, stripCpSuffix } from './names';
 import { availableUnits } from './options';
-import { BATTLE_SIZES, FORCE } from './policy';
+import { BATTLE_SIZES, FORCE, SUPREME_COMMANDER_CATEGORY, isSupremeCommander } from './policy';
 import { resolve, type Scope } from './scope';
 import type { Issue } from './types';
 
@@ -43,6 +43,8 @@ const article = (word: string) => (/^(?:[aeiou]|HQ(?![a-z]))/i.test(word.trim())
 const stripCp = stripCpSuffix;
 /** "A", "A or B", "A, B or C". */
 const orList = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} or ${names.at(-1)}`);
+/** "A", "A and B", "A, B and C". */
+const andList = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`);
 
 // ---------- lookups ----------
 
@@ -179,12 +181,21 @@ const perDetachment = ({ issue }: Ctx) => issue.scope === 'force';
 function unitLimit(ctx: Ctx): string {
   const { issue } = ctx;
   const { limit, actual } = issue;
+  if (issue.subject.id === SUPREME_COMMANDER_CATEGORY) return supremeCommanders(ctx);
   const name = clean(issue.subject.name);
   const who = perDetachment(ctx) ? `Your ${forceName(ctx)}` : 'Your army';
   if (actual >= limit) return `${who} can include at most ${num(limit)} ${name}. Remove ${num(actual - limit)}.`;
   const head = `${who} needs at least ${num(limit)} ${name}.`;
   // The army wording always says how many to add; the per-detachment wording does when the fix adds units.
   return !perDetachment(ctx) || issue.fix?.kind === 'add-unit' ? `${head} Add ${num(limit - actual)} more.` : head;
+}
+
+/** Arks of Omen's one SUPREME COMMANDER (policy): names them all. */
+function supremeCommanders(ctx: Ctx): string {
+  const { issue, view, scope } = ctx;
+  const names = view.forces.flatMap((fv) => fv.selections.filter((v) => v.merged && isSupremeCommander(scope, v)).map((v) => clean(v.name)));
+  const over = issue.actual - issue.limit;
+  return `An Arks of Omen army can include only ${num(issue.limit)} Supreme Commander. You have ${num(issue.actual)}: ${andList(names)}. Remove ${num(over)}.`;
 }
 
 function slotMin(ctx: Ctx): string {
