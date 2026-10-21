@@ -274,6 +274,17 @@ describe('points, CP and Rule of Two/Three', () => {
     }
   });
 
+  test('a Land Raider Banisher shares GREY KNIGHTS with its detachment (faction-keywords.json, catalogue category)', () => {
+    const scope = realScope('imperium-grey-knights');
+    const spec: ListSpec = {
+      title: 'Banisher',
+      battleSize: 'strike-force',
+      detachments: [{ detachment: 'Arks of Omen Detachment', units: [{ name: 'Brother-Captain', warlord: true }, { name: 'Strike Squad' }, { name: 'Strike Squad' }, { name: 'Strike Squad' }, { name: 'Land Raider Banisher' }] }],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    expect(validate(scope, buildFromSpec(scope, realCatalogueId('imperium-grey-knights'), spec), policy).issues.map((i) => i.rule)).toEqual([]);
+  });
+
   test('one-per-army units BSData leaves unlimited or limits per detachment are unique per army (Wahapedia datasheets)', () => {
     const MARINES = ['Primaris Captain', 'Intercessor Squad'];
     const successor = (chapter: string, successors: string) => ({ '**Chapter Selector**': [successors, chapter] });

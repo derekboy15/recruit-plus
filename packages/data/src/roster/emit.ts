@@ -32,7 +32,8 @@ export interface CostOverride {
 
 /**
  * Faction keywords BSData leaves off a unit (overrides/faction-keywords.json): each name in `add` (without the
- * "Faction: " prefix) becomes a category link to that .gst Faction category on the entry or link `entryId`.
+ * "Faction: " prefix) becomes a category link to that Faction category on the entry or link `entryId`: the
+ * catalogue's own category of that name, else the .gst's.
  */
 export interface FactionKeywordOverride {
   catalogueName: string;
@@ -277,7 +278,7 @@ function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, o
     const nodes = overrideTargets(file, 'Faction keyword', o);
     for (const faction of o.add) {
       const name = `Faction: ${faction}`;
-      const targetId = systemCategories.get(name);
+      const targetId = file.categories.find((c) => c.name === name)?.id ?? systemCategories.get(name);
       if (!targetId) throw new Error(`Faction keyword override for "${catalogueName}" entry ${o.entryId} names unknown category "${name}"`);
       for (const n of nodes) {
         if (!n.cats?.some((c) => c.targetId === targetId)) n.cats = [...(n.cats ?? []), { id: `${n.id}-faction-${targetId}`, targetId }];

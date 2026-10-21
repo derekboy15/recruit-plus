@@ -221,6 +221,22 @@ describe('mini fixture', () => {
     expect(findNode(shared.shared, 'se-warriors')!.cats).toContainEqual({ id: 'se-warriors-faction-cat-faction-imperium', targetId: 'cat-faction-imperium' });
   });
 
+  test("faction keyword overrides use the catalogue's own Faction category before the .gst's", () => {
+    const el = (tag: string, attrs: Record<string, string>, children: RawNode[] = []): RawNode => ({ tag, attrs, children });
+    const own: RawCatalogue = {
+      id: 'cat-own',
+      name: 'Own',
+      library: false,
+      links: [],
+      root: el('catalogue', { id: 'cat-own', name: 'Own' }, [
+        el('categoryEntries', {}, [el('categoryEntry', { id: 'cat-faction-own', name: 'Faction: Mini' })]),
+        el('sharedSelectionEntries', {}, [el('selectionEntry', { id: 'se-x', name: 'X', type: 'unit' })]),
+      ]),
+    };
+    const out = emitRosterFile(own, 'own', { factionKeywords: [factionOverride({ catalogueName: 'Own', entryId: 'se-x', entryName: 'X', add: ['Mini'] })], systemCategories });
+    expect(findNode(out.shared, 'se-x')!.cats).toEqual([{ id: 'se-x-faction-cat-faction-own', targetId: 'cat-faction-own' }]);
+  });
+
   test('faction keyword overrides throw on an unknown entry, a different name or an unknown faction', () => {
     const emit = (o: Partial<FactionKeywordOverride>) => () => emitRosterFile(cat, 'mini-faction', { factionKeywords: [factionOverride(o)], systemCategories });
     expect(emit({ entryId: 'missing' })).toThrow(/missing/);
