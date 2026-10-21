@@ -21,7 +21,7 @@
  */
 import { childConstraintCount, childConstraints, evaluateCandidate } from './children';
 import { childIndex, countIn, countsAs, effectiveConstraints, type EvalContext, type ForceView, type RosterView, type SelView } from './evaluate';
-import { availableUnits } from './options';
+import { availableUnits, suggestedUnits } from './options';
 import { resolve, rootEntriesFor, type Merged, type Scope } from './scope';
 import type { Constraint, Fix, Issue, RCategory, RNode, RuleKind } from './types';
 
@@ -117,10 +117,9 @@ class Validator {
     this.push(fv, c, { rule, selId: newest?.sel.id, subject: { id: catId, name }, limit: c.value, actual, fix }, this.scopeContainer(fv, c.scope, false));
   }
 
-  /** Up to three units the force can take in that role, cheapest first. */
+  /** Up to three units the force can take in that role (suggestedUnits: current datasheets first, cheapest first). */
   private suggestUnits(fv: ForceView, role: string): Fix | undefined {
-    const units = availableUnits(this.scope, this.view.roster, fv.force.id).filter((u) => u.role === role);
-    const entryIds = units.sort((a, b) => a.points - b.points).slice(0, MAX_SUGGESTIONS).map((u) => u.entryId);
+    const entryIds = suggestedUnits(availableUnits(this.scope, this.view.roster, fv.force.id).filter((u) => u.role === role), MAX_SUGGESTIONS);
     return entryIds.length ? { kind: 'add-unit', forceSelId: fv.force.id, entryIds } : undefined;
   }
 

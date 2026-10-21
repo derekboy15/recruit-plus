@@ -29,6 +29,14 @@ export function availableUnits(scope: Scope, r: Roster, forceSelId: string): Uni
 }
 
 /**
+ * The units to suggest for an unfilled slot, as entry ids: current datasheets before Legends ones, cheapest first within
+ * each, at most `max`.
+ */
+export function suggestedUnits(units: UnitOption[], max: number): string[] {
+  return [...units].sort((a, b) => Number(a.legends) - Number(b.legends) || a.points - b.points).slice(0, max).map((u) => u.entryId);
+}
+
+/**
  * Whether a root entry, with its effective primary category name and name, is a unit: unit- and model-typed entries,
  * and upgrade-typed ones with a battlefield role or with No Force Org Slot. A No Force Org Slot upgrade named "[…"
  * (a reference entry) or holding a unit or model entry (Brotherhood of the Cog, which holds a Tech-Priest) is not.

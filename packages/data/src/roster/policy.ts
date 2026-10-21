@@ -9,7 +9,7 @@
 import { BATTLEFIELD_ROLES, type BattlefieldRole, type CatalogueSummary } from '../model/types';
 import { addForce, addUnit, chooseInGroup } from './edit';
 import { evaluate, resetCounts, type ForceView, type RosterView, type SelView } from './evaluate';
-import { availableUnits } from './options';
+import { availableUnits, suggestedUnits } from './options';
 import { resolve, rootEntriesFor, type Merged, type Scope } from './scope';
 import { COST_CP, COST_PTS, type BattleSizeId, type CostMap, type Fix, type Issue, type Roster } from './types';
 import { validateConstraints } from './validate';
@@ -440,7 +440,7 @@ class PolicyCheck {
     const n = units.reduce((k, v) => k + v.sel.count, 0);
     const subject = { id: fv.force.forceId, name: '' };
     if (n === 0) {
-      const entryIds = availableUnits(this.scope, this.r, fv.force.id).sort((a, b) => a.points - b.points).slice(0, MAX_SUGGESTIONS).map((u) => u.entryId);
+      const entryIds = suggestedUnits(availableUnits(this.scope, this.r, fv.force.id), MAX_SUGGESTIONS);
       this.issues.push({ rule: 'slot-min', forceSelId: fv.force.id, subject, limit: 1, actual: 0, ...(entryIds.length ? { fix: { kind: 'add-unit', forceSelId: fv.force.id, entryIds } } : {}) });
     } else if (n > 1) {
       this.issues.push({ rule: 'slot-max', forceSelId: fv.force.id, selId: units.at(-1)!.sel.id, subject, limit: 1, actual: n, fix: trimNewest(units, n - 1) });

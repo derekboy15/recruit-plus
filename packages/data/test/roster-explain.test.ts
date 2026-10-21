@@ -3,6 +3,7 @@ import {
   addChild,
   addForce,
   addUnit,
+  availableUnits,
   buildScope,
   evaluate,
   explain,
@@ -320,6 +321,30 @@ describe('explain (real Necrons)', () => {
     const troops = of(explainPolicy(necronsScope, roster), 'slot-min').find((x) => x.issue.subject.name === 'Troops')!;
     expect(troops.text).toBe('Your Battalion Detachment needs 1 more Troops unit. Add Immortals or Necron Warriors.');
     expect(troops.fixLabel).toBe('Add a Troops unit');
+  });
+
+  test('suggested units list current datasheets before Legends ones, cheapest first within each (Craftworlds Troops)', () => {
+    const scope = realScope('aeldari-craftworlds');
+    const cw = realCatalogueId('aeldari-craftworlds');
+    const r = createRoster(scope, { name: 'CW', catalogueId: cw, battleSize: 'onslaught', forceId: FORCE.battalion });
+    const troops = of(explainPolicy(scope, r), 'slot-min').find((x) => x.issue.subject.name === 'Troops')!;
+    const units = availableUnits(scope, r, r.forces[0].id);
+    const suggested = (troops.issue.fix as { entryIds: string[] }).entryIds.map((id) => units.find((u) => u.entryId === id)!);
+    expect(suggested).toHaveLength(3);
+    expect(suggested.some((u) => u.legends)).toBe(false);
+    expect(suggested.map((u) => u.points)).toEqual([...suggested.map((u) => u.points)].sort((a, b) => a - b));
+    const cheapestCurrent = units.filter((u) => u.role === 'Troops' && !u.legends).sort((a, b) => a.points - b.points)[0];
+    expect(suggested[0].points).toBe(cheapestCurrent.points);
+    // Before: "Add Corsair Reaver Band, Corsair Skyreaver Band or Corsair Voidreavers" (two Legends units at 0 pts).
+    expect(troops.text).toBe('Your Battalion Detachment needs 3 more Troops units. Add Corsair Voidreavers, Rangers or Storm Guardians.');
+  });
+
+  test('when there are not enough current datasheets, Legends ones follow', () => {
+    const r = necronRoster('onslaught', FORCE.auxiliarySupport);
+    const issue = validate(necronsScope, r, policy).issues.find((i) => i.rule === 'slot-min' && i.forceSelId === r.forces[0].id && i.fix?.kind === 'add-unit' && i.subject.name === '')!;
+    const units = availableUnits(necronsScope, r, r.forces[0].id);
+    const legends = (issue.fix as { entryIds: string[] }).entryIds.map((id) => units.find((u) => u.entryId === id)!.legends);
+    expect(legends).toEqual([...legends].sort((a, b) => Number(a) - Number(b)));
   });
 
   test('a missing Battle Size choice asks for it rather than "at most"', () => {
