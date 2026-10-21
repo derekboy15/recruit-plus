@@ -11,6 +11,7 @@ import {
   COST_PL,
   COST_PTS,
   type Cond,
+  type RNode,
   type EvalContext,
   type ForceSel,
   type Roster,
@@ -74,6 +75,24 @@ describe('scope', () => {
     expect(m.mods).toHaveLength(2);
     expect(m.children.map((c) => c.id)).toEqual([M.G_WARRIORS]);
     expect(resolve(scope, scope.node(M.E_GAUSS)!).ids).toEqual([M.E_GAUSS]);
+  });
+
+  test("resolve shows the target's name, not the link's own label", () => {
+    const labelled: RNode[] = [
+      { id: 'el-labelled', kind: 'link', name: 'New EntryLink', targetId: M.E_LORD, targetKind: 'entry' },
+      { id: 'el-labelled-group', kind: 'link', name: 'New EntryLink', targetId: M.G_LORD_MELEE, targetKind: 'group' },
+      { id: 'el-renamed', kind: 'link', name: 'New EntryLink', targetId: M.E_LORD, targetKind: 'entry', mods: [{ type: 'append', field: 'name', value: '(Renamed)' }] },
+      { id: 'el-dangling', kind: 'link', name: 'Old Label', targetId: 'nowhere', targetKind: 'entry' },
+    ];
+    const s = buildScope([{ ...M.catalogue, rootEntries: [...M.catalogue.rootEntries, ...labelled] }, M.library, M.system]);
+    const name = (id: string) => resolve(s, s.node(id)!).name;
+    expect(name('el-labelled')).toBe('Lord');
+    expect(name('el-labelled-group')).toBe('Melee weapon');
+    // A name modifier on the link still applies on top of the target's name.
+    const renamed = evaluate(s, roster(force([sel('el-renamed')])));
+    expect(renamed.forces[0].selections[0].name).toBe('Lord (Renamed)');
+    // A link whose target can't be found keeps its own name.
+    expect(name('el-dangling')).toBe('Old Label');
   });
 });
 

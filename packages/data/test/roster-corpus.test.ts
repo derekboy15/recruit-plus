@@ -123,7 +123,7 @@ describe('buildFromSpec', () => {
     // Trajann Valoris is always the Warlord: `warlord: true` leaves his automatic Warlord as it is.
     const custodes = catalogues.find((c) => c.slug === 'imperium-adeptus-custodes')!;
     const custodesScope = realScope(custodes.slug);
-    const trajann = validate(custodesScope, buildFromSpec(custodesScope, custodes.id, list([{ name: '!Captain-General Trajann Valoris', warlord: true }])), policy).view.forces[0].selections.find((v) => v.name === '!Captain-General Trajann Valoris')!;
+    const trajann = validate(custodesScope, buildFromSpec(custodesScope, custodes.id, list([{ name: 'Trajann Valoris', warlord: true }])), policy).view.forces[0].selections.find((v) => v.name === 'Trajann Valoris')!;
     expect(trajann.children.filter((c) => c.name === 'Warlord').map((c) => c.sel.count)).toEqual([1]);
   });
 

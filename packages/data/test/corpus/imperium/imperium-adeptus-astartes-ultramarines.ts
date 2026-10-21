@@ -133,7 +133,7 @@ export default {
       battleSize: 'strike-force',
       detachments: [{
         detachment: AOO,
-        units: [{ name: 'Primaris Captain', warlord: true }, { name: 'Captain in Gravis Armor' }, ...THREE_INTERCESSORS],
+        units: [{ name: 'Primaris Captain', warlord: true }, { name: 'Captain in Gravis Armour' }, ...THREE_INTERCESSORS],
       }],
       expectRules: ['other'],
     },

@@ -24,8 +24,8 @@ export default {
           { name: 'Custodian Guard Squad', models: { 'Custodian w/ Guardian Spear': 5 } }, // 45 × 5 = 225, PL 11 (4-5 models)
           { name: 'Custodian Guard Squad' }, // 45 × 3 = 135, PL 7
           { name: 'Custodian Guard Squad' }, // 45 × 3 = 135, PL 7
-          { name: '!Allarus Custodians', models: { 'Allarus w/ Guardian Spear': 3 } }, // 60 × 3 = 180, PL 3 + 3 + 3 = 9
-          { name: '!Vertus Praetors' }, // 80 × 3 = 240, PL 12
+          { name: 'Allarus Custodians', models: { 'Allarus w/ Guardian Spear': 3 } }, // 60 × 3 = 180, PL 3 + 3 + 3 = 9
+          { name: 'Vertus Praetors' }, // 80 × 3 = 240, PL 12
         ],
       }],
       // 160 + 105 + 225 + 135 + 135 + 180 + 240 = 1180; PL 9 + 6 + 11 + 7 + 7 + 9 + 12 = 61
@@ -40,7 +40,7 @@ export default {
           { name: 'Shield-Captain', warlord: true }, // 105, PL 6
           { name: 'Custodian Guard Squad' }, // 45 × 3 = 135, PL 7
           { name: 'Custodian Guard Squad' }, // 45 × 3 = 135, PL 7
-          { name: '!Allarus Custodians', models: { 'Allarus w/ Guardian Spear': 2 } }, // 60 × 2 = 120, PL 3 + 3 = 6
+          { name: 'Allarus Custodians', models: { 'Allarus w/ Guardian Spear': 2 } }, // 60 × 2 = 120, PL 3 + 3 = 6
         ],
       }],
       // 105 + 135 + 135 + 120 = 495; PL 6 + 7 + 7 + 6 = 26
@@ -61,7 +61,7 @@ export default {
             warlord: true,
             options: ['2. Champion of the Imperium', 'Stratagem: Victor of the Blood Games', '3. Superior Creation', 'Stratagem: Open the Vaults', "Eagle's Eye"],
           },
-          { name: '!Vexilus Praetor', options: ["Stratagem: The Emperor's Heroes", '4. Impregnable Mind'] },
+          { name: 'Vexilus Praetor', options: ["Stratagem: The Emperor's Heroes", '4. Impregnable Mind'] },
           { name: 'Custodian Guard Squad' },
           { name: 'Venerable Contemptor Dreadnought', options: ['Stratagem: Eternal Penitent'] },
         ],

@@ -14,7 +14,10 @@ export interface Scope {
   parentGroups(nodeId: string): string[];
 }
 
-/** A node with its link (if any) applied over the target. Treat as read-only: results are cached per scope. */
+/**
+ * A node with its link (if any) applied over the target. Treat as read-only: results are cached per scope.
+ * `name` is always the target's: a link's own name is an authoring label ("New EntryLink") that BattleScribe never shows.
+ */
 export interface Merged {
   node: RNode;
   target: RNode;
@@ -91,7 +94,7 @@ function merge(scope: Scope, node: RNode): Merged {
     node,
     target,
     ids: layers.map((l) => l.id),
-    name: node.name,
+    name: target.name,
     type: target.type,
     hidden: layers.some((l) => l.hidden),
     collective: layers.some((l) => l.collective),

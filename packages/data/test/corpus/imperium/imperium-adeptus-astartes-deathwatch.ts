@@ -56,7 +56,7 @@ export default {
       detachments: [{
         detachment: PATROL,
         units: [WATCH_MASTER, { name: 'Fortis Kill Team', options: ['Aquila'] }, { name: 'Deathwatch Terminator Squad' }],
-        after: { army: { 'Army of Renown: Kill Team Strike Force': [] } },
+        after: { army: { 'Army of Renown - Kill Team Strike Force': [] } },
       }],
       expectRules: ['hidden-selected'],
     },

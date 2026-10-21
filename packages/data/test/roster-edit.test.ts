@@ -386,6 +386,16 @@ describe('real BSData v9.8.0', () => {
     expect(names(removeForce(real, r, r.forces[0].id))).toEqual(['Battle Size', 'Detachment Command Cost', 'Dynasty Choice', 'Game Type']);
   });
 
+  test("units are listed under their target's name, not the link's authoring label", () => {
+    const real = realScope('imperium-grey-knights');
+    const gk = realCatalogueId('imperium-grey-knights');
+    const r = addForce(real, { schema: 1, name: 'GK', catalogueId: gk, battleSize: 'strike-force', forces: [] }, 'fa51-993c-2f8b-9be4', gk);
+    const units = availableUnits(real, r, r.forces[0].id);
+    // The root entry cd08-… is a link labelled "New EntryLink" to Castellan Crowe.
+    expect(units.find((u) => u.entryId === 'cd08-22f1-42d1-b0e2')).toMatchObject({ name: 'Castellan Crowe', role: 'HQ' });
+    expect(units.filter((u) => /new entrylink/i.test(u.name))).toEqual([]);
+  });
+
   test('availableUnits for a 40-unit Ultramarines roster is fast', () => {
     const median = (xs: number[]) => [...xs].sort((a, b) => a - b)[1];
     const firsts: number[] = [];
