@@ -178,5 +178,41 @@
       "value": 1
     },
     "source": "Wahapedia datasheet 000001648 (Shalaxi Helbane): \"Your army can only include one SHALAXI HELBANE model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Chaos - Death Guard",
+    "entryId": "0e51-2a41-8394-7f6b",
+    "entryName": "Mortarion",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001377 (Mortarion): \"Your army can only include one MORTARION model.\" BSData v9.8.0 has no limit on this entry; a second copy was only flagged while BSData made each copy the Warlord (now left to must-be-warlord.json), so the limit is one per army."
+  },
+  {
+    "catalogueName": "Chaos - Thousand Sons",
+    "entryId": "3100-4809-5d50-b433",
+    "entryName": "Magnus the Red",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001031 (Magnus the Red): \"Your army can only include one MAGNUS THE RED.\" BSData v9.8.0 has no limit on this entry; a second copy was only flagged while BSData made each copy the Warlord (now left to must-be-warlord.json), so the limit is one per army."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "cd9c-e25f-1d3a-88f7",
+    "entryName": "Morvenn Vahl",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000002479 (Morvenn Vahl): \"Your army can only include 1 MORVENN VAHL model.\" BSData v9.8.0 has no limit on this entry; a second copy was only flagged while BSData made each copy the Warlord (now left to must-be-warlord.json), so the limit is one per army."
   }
 ]

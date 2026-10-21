@@ -35,6 +35,7 @@ import {
   setBattleSize,
   validate,
   validatePolicy,
+  type MustBeWarlord,
 } from '../src/roster/policy';
 import sororitas from './corpus/imperium/imperium-adepta-sororitas';
 import { buildFromSpec, type DetachmentSpec, type ListSpec } from './corpus/spec';
@@ -768,26 +769,38 @@ describe('must-be-Warlord units (must-be-warlord.json)', () => {
     expect(issues.map((i) => i.rule)).toEqual(['warlord-missing']);
   });
 
-  test('every must-be-Warlord unit can be made the Warlord, and is missing one when it is not', () => {
-    const slugOf = (catalogueName: string) => catalogues.find((c) => c.name === catalogueName)!.slug;
+  /**
+   * Validates an Onslaught list of one detachment per entry of `warlords`, each holding the unit (its Warlord when
+   * true). Lords of War go in a Super-Heavy Auxiliary Detachment, HQs in a Patrol (other slot rules aren't checked).
+   */
+  function alone(m: MustBeWarlord, warlords: boolean[]): Issue[] {
+    const slug = catalogues.find((c) => c.name === m.catalogueName)!.slug;
     /** Army choices a unit needs before it can be added. */
     const army: Record<string, Record<string, string>> = { 'Abaddon the Despoiler': { Legion: 'Black Legion' }, 'Commander Farsight': { 'Sept Choice': 'Farsight Enclaves' } };
+    for (const detachment of [PATROL, SUPER_HEAVY_AUX]) {
+      try {
+        const scope = realScope(slug);
+        const list = onslaught(...warlords.map((warlord) => ({ detachment, army: army[m.entryName], units: [{ name: m.entryName, warlord }] })));
+        return validate(scope, buildFromSpec(scope, realCatalogueId(slug), list), policy).issues;
+      } catch (e) {
+        if (!String(e).includes('not found')) throw e;
+      }
+    }
+    throw new Error(`${m.entryName} fits no detachment`);
+  }
+
+  test('every must-be-Warlord unit can be made the Warlord, and is missing one when it is not', () => {
     for (const m of policy.mustBeWarlord) {
-      const slug = slugOf(m.catalogueName);
-      // Lords of War go in a Super-Heavy Auxiliary Detachment, HQs in a Patrol (other slot rules aren't checked here).
-      const list = (warlord: boolean) => {
-        for (const detachment of [PATROL, SUPER_HEAVY_AUX]) {
-          try {
-            const scope = realScope(slug);
-            return validate(scope, buildFromSpec(scope, realCatalogueId(slug), onslaught({ detachment, army: army[m.entryName], units: [{ name: m.entryName, warlord }] })), policy).issues;
-          } catch (e) {
-            if (!String(e).includes('not found')) throw e;
-          }
-        }
-        throw new Error(`${m.entryName} fits no detachment`);
-      };
-      expect(warlordIssues(list(true)), m.entryName).toEqual([]);
-      expect(warlordIssues(list(false)).map((i) => [i.rule, i.subject.name]), m.entryName).toEqual([['warlord-missing', m.entryName]]);
+      expect(warlordIssues(alone(m, [true])), m.entryName).toEqual([]);
+      expect(warlordIssues(alone(m, [false])).map((i) => [i.rule, i.subject.name]), m.entryName).toEqual([['warlord-missing', m.entryName]]);
+    }
+  });
+
+  test('every must-be-Warlord unit is one per army (Wahapedia unit composition: "Your army can only include one …")', () => {
+    // Two of them, one the Warlord: no longer flagged as a second Warlord now that BSData doesn't add it.
+    for (const m of policy.mustBeWarlord) {
+      const unique = alone(m, [true, false]).filter((i) => i.rule === 'unique' && i.subject.name.trim() === m.entryName);
+      expect(unique.map((i) => [i.limit, i.actual]), m.entryName).toEqual([[1, 2]]);
     }
   });
 
