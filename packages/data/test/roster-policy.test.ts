@@ -1,4 +1,8 @@
+import { cpSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { test, expect, describe } from 'vitest';
+import { loadPolicy } from '../src/build';
 import {
   addChild,
   addForce,
@@ -468,6 +472,42 @@ describe('factions', () => {
       { rule: 'detachment-faction', forceSelId: fs, subject: { id: FORCE.arksOfOmen, name: expect.stringMatching(/^Arks of Omen Detachment/) }, limit: 1, actual: 0 },
     ]);
     expect(ofRule(issues, 'army-faction')).toEqual([]); // both are IMPERIUM
+  });
+
+  test('Talons of the Emperor: Sisters of Silence share a faction with an Adeptus Custodes detachment', () => {
+    const scope = realScope('imperium-adeptus-custodes');
+    const spec: ListSpec = {
+      title: 'Custodes with Sisters of Silence',
+      battleSize: 'strike-force',
+      detachments: [{
+        detachment: 'Arks of Omen Detachment',
+        units: [
+          { name: 'Shield-Captain', warlord: true },
+          { name: 'Aleya' },
+          { name: 'Custodian Guard Squad' }, { name: 'Custodian Guard Squad' }, { name: 'Custodian Guard Squad' },
+          { name: 'Prosecutors' },
+        ],
+      }],
+      expect: { points: 0, powerLevel: 0 },
+    };
+    const r = buildFromSpec(scope, realCatalogueId('imperium-adeptus-custodes'), spec);
+    // Aleya had no Faction: Imperium in BSData (overrides/faction-keywords.json), so army-faction would fire too.
+    expect(validate(scope, r, policy).issues).toEqual([]);
+    const issues = validate(scope, r, { ...policy, battleBrothers: [] }).issues;
+    expect(issues.map((i) => i.rule)).toEqual(['detachment-faction']);
+  });
+
+  test('battle-brothers.json ships in policy.json and its names are checked at build', () => {
+    expect(policy.battleBrothers).toEqual([expect.objectContaining({ catalogueName: 'Imperium - Adeptus Custodes', alsoAllowFactions: ['Anathema Psykana'] })]);
+    const files = realFiles(...catalogues.map((c) => c.slug));
+    const withBrothers = (entries: unknown) => {
+      const dir = mkdtempSync(join(tmpdir(), 'recruit-overrides-'));
+      cpSync(join(import.meta.dirname, '..', 'overrides'), dir, { recursive: true });
+      writeFileSync(join(dir, 'battle-brothers.json'), JSON.stringify(entries));
+      return () => loadPolicy(dir, files);
+    };
+    expect(withBrothers([{ catalogueName: 'No Such Army', alsoAllowFactions: ['Anathema Psykana'], source: 't' }])).toThrow('battle-brothers.json (No Such Army) names unknown catalogue "No Such Army"');
+    expect(withBrothers([{ catalogueName: 'Imperium - Adeptus Custodes', alsoAllowFactions: ['Silence'], source: 't' }])).toThrow('names unknown category "Faction: Silence"');
   });
 
   test('an Orks detachment in a Necrons army is army-faction', () => {

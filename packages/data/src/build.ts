@@ -7,7 +7,7 @@ import type { RawCatalogue, RawNode } from './bsdata/types';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
-import type { AooAllies, DatasheetEquivalence, PolicyData } from './roster/policy';
+import type { AooAllies, BattleBrothers, DatasheetEquivalence, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
 import { slugify } from './text';
@@ -117,12 +117,14 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
 /**
  * The matched-play policy overrides, copied for the browser after checking every name and id against the roster files
- * (catalogue names, .gst force entry names, faction category names, Rule of Two/Three entries and categories).
+ * (catalogue names, .gst force entry names, faction category names, Rule of Two/Three entries and categories, Battle
+ * Brothers exceptions).
  */
 export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyData {
   const read = <T>(f: string): T => JSON.parse(readFileSync(join(overridesDir, f), 'utf8')) as T;
   const aooAllies = read<AooAllies[]>('aoo-allies.json');
   const equivalence = read<DatasheetEquivalence[]>('datasheet-equivalence.json');
+  const battleBrothers = read<BattleBrothers[]>('battle-brothers.json');
   const system = files.find((f) => f.slug === SYSTEM_ROSTER_SLUG)!;
   const byName = new Map(files.filter((f) => f !== system).map((f) => [f.name, f]));
   const categoryNames = new Set(files.flatMap((f) => f.categories.map((c) => c.name)));
@@ -148,7 +150,12 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
       if (!root || (root.targetId ?? root.id) !== x.entryId) throw new Error(`${where}: "${x.entryName}" is not root entry ${x.entryId} in "${x.catalogueName}"`);
     }
   }
-  return { aooAllies, equivalence };
+  for (const b of battleBrothers) {
+    const where = `battle-brothers.json (${b.catalogueName})`;
+    catalogue(b.catalogueName, where);
+    for (const f of b.alsoAllowFactions) if (!categoryNames.has(`Faction: ${f}`)) throw new Error(`${where} names unknown category "Faction: ${f}"`);
+  }
+  return { aooAllies, equivalence, battleBrothers };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {

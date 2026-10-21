@@ -92,7 +92,12 @@ export interface DatasheetEquivalence {
   entries?: { catalogueName: string; entryName: string; entryId: string }[];
   source: string;
 }
-export interface PolicyData { aooAllies: AooAllies[]; equivalence: DatasheetEquivalence[] }
+/**
+ * A codex exception to Battle Brothers: a detachment of `catalogueName` may also hold units with any of these faction
+ * keywords (names without "Faction: "), e.g. Talons of the Emperor lets ANATHEMA PSYKANA units into ADEPTUS CUSTODES detachments.
+ */
+export interface BattleBrothers { catalogueName: string; alsoAllowFactions: string[]; source: string }
+export interface PolicyData { aooAllies: AooAllies[]; equivalence: DatasheetEquivalence[]; battleBrothers: BattleBrothers[] }
 
 // ---------- creating rosters ----------
 
@@ -257,7 +262,8 @@ function dedupe(issues: Issue[]): Issue[] {
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
  * UNALIGNED units and units with no faction keyword; a detachment's check also ignores AGENT OF THE IMPERIUM units
- * (§8.2) unless the detachment has nothing else. In Arks of Omen battle sizes, the units of a permitted ally don't
+ * (§8.2), then units a codex lets into the detachment's catalogue (battle-brothers.json), each unless the detachment
+ * has nothing else. In Arks of Omen battle sizes, the units of a permitted ally don't
  * count towards Army Faction (the pack allows e.g. a Leagues of Votann Patrol with an IMPERIUM army).
  */
 export function validatePolicy(scope: Scope, view: RosterView, policy: PolicyData): Issue[] {
@@ -386,12 +392,19 @@ class PolicyCheck {
 
   // ---------- factions ----------
 
-  /** Battle Brothers (§7.1): a detachment's units share a faction keyword other than the broad ones. */
+  /**
+   * Battle Brothers (§7.1): a detachment's units share a faction keyword other than the broad ones. Units a codex lets
+   * into the detachment's catalogue (battle-brothers.json) are left out, like Agents, unless there is nothing else.
+   */
   private detachmentFaction(fv: ForceView): void {
     if (!fv.entry) return;
     let units = this.factionUnits(fv.selections);
-    const notAgents = units.filter((u) => !this.hasCategory(u.v, AGENT_OF_THE_IMPERIUM));
-    if (notAgents.length) units = notAgents;
+    const catalogueName = this.scope.catalogue(fv.force.catalogueId)?.name;
+    const allowed = this.policy.battleBrothers.filter((b) => b.catalogueName === catalogueName).flatMap((b) => b.alsoAllowFactions.map((f) => keyword(FACTION_PREFIX + f)));
+    for (const guest of [(u: Unit) => this.hasCategory(u.v, AGENT_OF_THE_IMPERIUM), (u: Unit) => allowed.some((k) => u.factions.has(k))]) {
+      const rest = units.filter((u) => !guest(u));
+      if (rest.length) units = rest;
+    }
     if (!units.length) return;
     const issue: Issue = { rule: 'detachment-faction', forceSelId: fv.force.id, subject: { id: fv.force.forceId, name: fv.name }, limit: 1, actual: 0 };
     if (![...shared(units)].some((k) => !BROAD_FACTIONS.has(k))) {

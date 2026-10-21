@@ -1,0 +1,7 @@
+[
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "alsoAllowFactions": ["Anathema Psykana"],
+    "source": "Codex: Adeptus Custodes (January 2022), Talons of the Emperor: ADEPTUS CUSTODES detachments may include ANATHEMA PSYKANA units (research library 03_Codexes/Imperium/Adeptus_Custodes.md §3 Detachment abilities). Its Emperor's Legion limits (no more Sisters of Silence HQ or Troops units than Custodes ones in the detachment; a Sister can't be the Warlord) are not checked."
+  }
+]
