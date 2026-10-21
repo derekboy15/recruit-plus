@@ -575,6 +575,17 @@ describe('detachments', () => {
     ]);
   });
 
+  test('an Agents of the Imperium army is not offered Agents of the Imperium as its own ally', () => {
+    const slug = 'imperium-agents-of-the-imperium';
+    const scope = realScope(slug);
+    const agents = realCatalogueId(slug);
+    const r = createRoster(scope, { name: 'Agents', catalogueId: agents, battleSize: 'strike-force', forceId: FORCE.arksOfOmen });
+    expect(detachmentChoices(scope, r, policy, catalogues).map((c) => [catalogues.find((s) => s.id === c.catalogueId)!.name, c.name])).toEqual([
+      ['Imperium - Imperial Knights', 'Super-Heavy Auxiliary Detachment -3CP'],
+      ['Leagues of Votann', 'Patrol Detachment -2CP'],
+    ]);
+  });
+
   test('Core Book battle sizes offer the Core Book detachments of the primary catalogue and its faction group', () => {
     const lotd = realCatalogueId('imperium-legion-of-the-damned');
     const scope = realScope('imperium-legion-of-the-damned');

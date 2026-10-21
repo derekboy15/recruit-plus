@@ -378,13 +378,6 @@
     "catalogueName": "Imperium - Agents of the Imperium",
     "allies": [
       {
-        "catalogueName": "Imperium - Agents of the Imperium",
-        "detachments": [
-          "Patrol Detachment -2CP",
-          "Auxiliary Support Detachment -2CP"
-        ]
-      },
-      {
         "catalogueName": "Imperium - Imperial Knights",
         "detachments": [
           "Super-Heavy Auxiliary Detachment -3CP"
