@@ -16,6 +16,8 @@ export default {
   catalogue: 'Chaos - Chaos Titan Legions',
   legal: [
     {
+      // §5 asks for a Warlord, but BSData's Chaos - Titanicus Traitoris.cat (the Titans' catalogue) has no Warlord
+      // entry, so a Titan-only roster can't record one (and validation reports no warlord-missing for it).
       title: 'Onslaught Super-Heavy Auxiliary Detachment with a Chaos Warhound Titan',
       battleSize: 'onslaught',
       detachments: [{ detachment: AUXILIARY, units: [{ name: 'Chaos Warhound Titan' }] }], // 2000 (two Warhound vulcan mega-bolters: 0), PL 100

@@ -41,8 +41,9 @@ export default {
       expectRules: ['slot-min'],
     },
     {
-      // §1 Army Faction: Cypher (IMPERIUM, CHAOS, FALLEN) and NECRONS share no Faction keyword. The Overlord is the
-      // Warlord.
+      // §1 Army Faction: Cypher and the NECRONS share no Faction keyword. Cypher's Faction keywords are IMPERIUM, CHAOS
+      // and FALLEN in BSData (Fallen.cat), and CHAOS, HERETIC ASTARTES, TRAITORIS ASTARTES and FALLEN in the Wahapedia
+      // snapshot (000000926); neither has NECRONS. The Overlord is the Warlord.
       title: 'Necrons Patrol beside Cypher at Onslaught',
       battleSize: 'onslaught',
       detachments: [
