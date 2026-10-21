@@ -6,6 +6,7 @@ import {
   buildScope,
   childOptions,
   chooseInGroup,
+  countIn,
   evaluate,
   rootEntriesFor,
   setCount,
@@ -15,7 +16,9 @@ import {
   type OptionNode,
   type Roster,
   type RosterFile,
+  type RosterView,
   type Scope,
+  type SelView,
 } from '../src/roster';
 import * as M from './fixtures/roster/mini';
 import { realCatalogueId, realScope } from './helpers/realScope';
@@ -26,6 +29,19 @@ const empty = (s: Scope = scope, forceId = M.FORCE_PATROL): Roster =>
   addForce(s, { schema: 1, name: 'Test', catalogueId: M.CAT_ID, battleSize: 'strike-force', forces: [] }, forceId, M.CAT_ID);
 
 const validate = (s: Scope, r: Roster): Issue[] => validateConstraints(s, evaluate(s, r));
+/** The first force's count of a category as a force-org slot counts it (scope force, includeChildSelections). */
+const slotCount = (s: Scope, view: RosterView, catId: string) =>
+  countIn({ scope: s, view, at: view.forces[0] }, 'force', 'selections', catId, { childSel: true, childForces: true });
+/** Every known selection at any depth that carries the category, as [name, depth]. */
+function carrying(view: RosterView, catId: string): [string, number][] {
+  const out: [string, number][] = [];
+  const walk = (vs: SelView[], depth: number) => vs.forEach((v) => {
+    if (v.categories.includes(catId)) out.push([v.name, depth]);
+    walk(v.children, depth + 1);
+  });
+  walk(view.forces[0].selections, 0);
+  return out;
+}
 const summary = (issues: Issue[]) => issues.map((i) => [i.rule, i.subject.name, i.limit, i.actual]);
 
 /** Adds root entries in order; returns the roster and each new selection id. */
@@ -80,6 +96,35 @@ describe('validateConstraints (mini fixture)', () => {
     const issues = validate(scope, roster);
     expect(summary(issues)).toEqual([['slot-max', 'Troops', 3, 4]]);
     expect(issues[0].fix).toEqual({ kind: 'remove', selIds: [ids[4]] });
+  });
+
+  test('2 Troops in a Patrol are legal and count 2 (models carry no Troops category)', () => {
+    const { roster } = withUnits(scope, empty(), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS);
+    expect(validate(scope, roster)).toEqual([]);
+    const view = evaluate(scope, roster);
+    expect(slotCount(scope, view, M.CAT_TROOPS)).toBe(2);
+    expect(carrying(view, M.CAT_TROOPS)).toEqual([['Warriors', 0], ['Warriors', 0]]);
+  });
+
+  test('a min on a root unit: addForce adds the required copies, and fewer is unit-limit (also at 0)', () => {
+    const files = structuredClone(M.miniFiles);
+    files[0].rootEntries.find((n) => n.id === M.L_WARRIORS)!.constraints = [{ id: 'con-warriors-roster-min', type: 'min', field: 'selections', scope: 'roster', value: 2 }];
+    const s = buildScope(files);
+    // addForce fills a root min the way it fills Battle Size's, so the new force already holds 2 Warriors: adding 2
+    // more by hand makes 4 Troops, and addForce never leaves the roster below the min.
+    expect(empty(s).forces[0].selections.map((x) => x.entryId)).toEqual([M.L_WARRIORS, M.L_WARRIORS]);
+    expect(summary(validate(s, withUnits(s, empty(s), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS).roster))).toEqual([['slot-max', 'Troops', 3, 4]]);
+    // A roster built without the min (or with a copy removed later) has fewer, which is reported.
+    const one = withUnits(scope, empty(), M.L_LORD, M.L_WARRIORS).roster;
+    const issues = validate(s, one);
+    expect(summary(issues)).toEqual([['unit-limit', 'Warriors', 2, 1]]);
+    expect(issues[0].fix).toEqual({ kind: 'add-unit', forceSelId: one.forces[0].id, entryIds: [M.L_WARRIORS] });
+    // With no selection of the entry at all, the root min is still checked.
+    const none = withUnits(scope, empty(), M.L_LORD).roster;
+    expect(summary(validate(s, none))).toEqual([
+      ['slot-min', 'Troops', 1, 0],
+      ['unit-limit', 'Warriors', 2, 0],
+    ]);
   });
 
   test('no Warlord', () => {
@@ -304,5 +349,36 @@ describe('validateConstraints (real BSData v9.8.0)', () => {
     add('Necron Warriors');
 
     expect(validate(real, r)).toEqual([]);
+  });
+
+  // Force-org slots count with includeChildSelections, so a battlefield-role category on a model would count again;
+  // v9.8.0 puts those categories only on root entries, so a unit counts once however many models it has.
+  const troopsCat = real.system.categories.find((c) => c.name === 'Troops')!.id;
+  const slotIssues = (s: Scope, r: Roster) => validate(s, r).filter((i) => i.subject.id === troopsCat);
+
+  test('2 Necron Warriors units in a Patrol count 2 Troops', () => {
+    let r = addForce(real, { schema: 1, name: 'Necrons', catalogueId: necrons, battleSize: 'combat-patrol', forces: [] }, forceNamed('Patrol Detachment -2CP'), necrons);
+    for (const name of ['Overlord', 'Necron Warriors', 'Necron Warriors']) r = addUnit(real, r, r.forces[0].id, rootNamed(name)).roster;
+    const view = evaluate(real, r);
+    expect(slotCount(real, view, troopsCat)).toBe(2);
+    expect(carrying(view, troopsCat)).toEqual([['Necron Warriors', 0], ['Necron Warriors', 0]]);
+    expect(view.forces[0].selections.filter((v) => v.name === 'Necron Warriors').every((v) => v.models === 10)).toBe(true);
+    expect(slotIssues(real, r)).toEqual([]);
+  });
+
+  test('Space Marines squads with sergeants count one Troops each', () => {
+    const sm = realScope('imperium-adeptus-astartes-ultramarines');
+    const um = realCatalogueId('imperium-adeptus-astartes-ultramarines');
+    const root = (name: string) => rootEntriesFor(sm, um).find((n) => n.name === name)!.id;
+    let r = addForce(sm, { schema: 1, name: 'Ultramarines', catalogueId: um, battleSize: 'combat-patrol', forces: [] }, forceNamed('Patrol Detachment -2CP'), um);
+    for (const name of ['Intercessor Squad', 'Tactical Squad', 'Intercessor Squad']) r = addUnit(sm, r, r.forces[0].id, root(name)).roster;
+    const view = evaluate(sm, r);
+    const squads = view.forces[0].selections.filter((v) => v.name.endsWith('Squad'));
+    expect(squads.map((v) => v.name)).toEqual(['Intercessor Squad', 'Tactical Squad', 'Intercessor Squad']);
+    // Each squad holds a sergeant and other models as nested selections.
+    for (const v of squads) expect(v.children.filter((c) => c.type === 'model' && /Sergeant/.test(c.name))).toHaveLength(1);
+    expect(slotCount(sm, view, troopsCat)).toBe(3);
+    expect(carrying(view, troopsCat).every(([, depth]) => depth === 0)).toBe(true);
+    expect(slotIssues(sm, r)).toEqual([]);
   });
 });
