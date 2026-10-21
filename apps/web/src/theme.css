@@ -155,7 +155,15 @@ button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointe
 .choices legend { padding: 0 0.4rem; color: var(--brass-strong); font-weight: 600; }
 .choices__option { display: flex; align-items: center; gap: 0.75rem; min-height: var(--touch); }
 .choices__option input { width: 22px; height: 22px; flex: none; }
-.wizard-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }
+/* Back / Next stay on screen while a long step (42 factions) scrolls: just above the phone tab bar, at the bottom on wide screens. */
+.wizard-actions {
+  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem;
+  position: sticky; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px)); z-index: 4;
+  padding: 0.75rem 0; background: var(--bg); border-top: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+  .wizard-actions { bottom: 0; }
+}
 
 /* ---------- List editor ---------- */
 .btn--small { min-height: var(--touch); padding: 0 0.8rem; font-size: 0.9rem; }

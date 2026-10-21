@@ -34,6 +34,16 @@ async function noSidewaysScroll(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 }
 
+/** The wizard's Next button is on screen without scrolling, and not under the bottom tab bar. */
+async function nextIsOnScreen(page: Page) {
+  const next = page.getByRole('button', { name: 'Next' });
+  await expect(next).toBeInViewport({ ratio: 1 });
+  const box = (await next.boundingBox())!;
+  const navTop = await page.getByRole('navigation', { name: 'Main' }).evaluate((el) => el.getBoundingClientRect().top);
+  const navIsBelow = navTop > 0; // the tab bar sits at the bottom on phones, as a side rail on wide screens
+  if (navIsBelow) expect(box.y + box.height).toBeLessThanOrEqual(navTop);
+}
+
 async function addWarriors(page: Page) {
   await page.getByRole('button', { name: '+ Add unit' }).click();
   const picker = page.getByRole('dialog', { name: 'Add a unit' });
@@ -50,6 +60,7 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await page.getByRole('button', { name: 'Continue (dev)' }).click();
   await page.getByRole('link', { name: 'New list' }).click();
   await page.getByRole('button', { name: /^Necrons/ }).click();
+  await nextIsOnScreen(page); // not below all 42 factions
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: /Strike Force/ }).click();
   await page.getByRole('button', { name: 'Next' }).click();
