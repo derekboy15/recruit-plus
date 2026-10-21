@@ -7,6 +7,7 @@ import { join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { describe, expect, test } from 'vitest';
 import { COST_PL, COST_PTS, validate, type Issue, type RuleKind } from '../src/roster';
+import knightsCorpus from './corpus/imperium/imperium-imperial-knights';
 import { buildFromSpec, type CatalogueCorpus, type IllegalSpec, type ListSpec } from './corpus/spec';
 import { realCatalogues, realPolicy, realScope } from './helpers/realScope';
 
@@ -95,6 +96,48 @@ describe('buildFromSpec', () => {
     expect(russ.models).toBe(2);
     expect(chimera.children.map((c) => c.name.trim())).toContain('Heavy Bolter');
     expect(chimera.children.map((c) => c.name.trim())).not.toContain('Heavy Flamer');
+  });
+
+  test('throws on an unknown detachment, catalogue or army choice and on an ambiguous option', () => {
+    expect(() => buildFromSpec(scope, am.id, { ...list([]), detachments: [{ detachment: 'No Such Detachment', units: [] }] })).toThrow(
+      'Corpus: "No Such Detachment" not found under "strike-force"',
+    );
+    const ally = (catalogue: string): ListSpec => ({ ...list([]), detachments: [...list([]).detachments, { detachment: 'Patrol Detachment -2CP', catalogue, units: [] }] });
+    expect(() => buildFromSpec(scope, am.id, ally('No Such Catalogue'))).toThrow('Corpus: "No Such Catalogue" not found under "test"');
+    const army = (a: Record<string, string>): ListSpec => ({ ...list([]), detachments: [{ detachment: 'Arks of Omen Detachment', army: a, units: [] }] });
+    expect(() => buildFromSpec(scope, am.id, army({ 'No Such Configuration': 'Cadian' }))).toThrow('Corpus: "No Such Configuration" not found under "Arks of Omen Detachment"');
+    expect(() => buildFromSpec(scope, am.id, army({ 'Arks of Omen Compulsory Type': 'No Such Type' }))).toThrow('Corpus: "No Such Type" not found under "Arks of Omen Compulsory Type"');
+    // A Canoness Warlord has two "Stratagem: Warlord Trait" options (one in Character Stratagems).
+    const sisters = catalogues.find((c) => c.slug === 'imperium-adepta-sororitas')!;
+    expect(() => buildFromSpec(realScope(sisters.slug), sisters.id, list([{ name: 'Canoness', warlord: true, options: ['Stratagem: Warlord Trait'] }]))).toThrow(
+      'Corpus: "Stratagem: Warlord Trait" is ambiguous under "Canoness"',
+    );
+  });
+
+  test('throws on a second choice in a group of one choice or an option named twice, not on an automatic one', () => {
+    expect(() => buildFromSpec(scope, am.id, list([{ name: 'Chimera', options: ['Heavy Bolter', 'Heavy Flamer'] }]))).toThrow(
+      'Corpus: "Heavy Flamer" is a second choice in',
+    );
+    expect(() => buildFromSpec(scope, am.id, list([{ name: 'Chimera', options: ['Heavy Bolter', 'Heavy Bolter'] }]))).toThrow('Corpus: "Heavy Bolter" is named twice under "Chimera"');
+    expect(() => buildFromSpec(scope, am.id, list([{ name: 'Cadian Castellan', warlord: true, options: ['Warlord'] }]))).toThrow('Corpus: "Warlord" is named twice under "Cadian Castellan"');
+    // Trajann Valoris is always the Warlord: `warlord: true` leaves his automatic Warlord as it is.
+    const custodes = catalogues.find((c) => c.slug === 'imperium-adeptus-custodes')!;
+    const custodesScope = realScope(custodes.slug);
+    const trajann = validate(custodesScope, buildFromSpec(custodesScope, custodes.id, list([{ name: '!Captain-General Trajann Valoris', warlord: true }])), policy).view.forces[0].selections.find((v) => v.name === '!Captain-General Trajann Valoris')!;
+    expect(trajann.children.filter((c) => c.name === 'Warlord').map((c) => c.sel.count)).toEqual([1]);
+  });
+
+  test('after.army picks once every unit is built, replacing a choice made before them', () => {
+    const knights = catalogues.find((c) => c.slug === 'imperium-imperial-knights')!;
+    const knightsScope = realScope(knights.slug);
+    const lance = knightsCorpus.legal[0];
+    const changed: ListSpec = { ...lance, detachments: [{ ...lance.detachments[0], after: { army: { 'Questor Allegiance': 'Questor Mechanicus' } } }] };
+    const { view, issues } = validate(knightsScope, buildFromSpec(knightsScope, knights.id, changed), policy);
+    const allegiance = view.forces[0].selections.find((v) => v.name === 'Questor Allegiance')!;
+    expect(allegiance.children.map((c) => c.name.trim())).toContain('Questor Mechanicus');
+    expect(allegiance.children.map((c) => c.name.trim())).not.toContain('Questor Imperialis');
+    // The custom household stays, but only Questor Imperialis may take it now.
+    expect(issues.filter((i) => i.rule === 'hidden-selected').map((i) => i.subject.name)).toContain('Custom Household: Hunter of Beasts');
   });
 });
 

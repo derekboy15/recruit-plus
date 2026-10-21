@@ -34,11 +34,17 @@ import {
  */
 export interface UnitSpec { name: string; models?: Record<string, number>; options?: string[]; warlord?: boolean }
 /**
- * One detachment, from the roster's catalogue unless `catalogue` (a catalogue name) says otherwise. `army` picks
- * Configuration choices, e.g. `{ "Dynasty Choice": "Szarekhan" }`, adding the Configuration entry when the detachment
- * doesn't have it yet; a list picks several in one multi-choice group, an empty list only adds the entry.
+ * Configuration choices, e.g. `{ "Dynasty Choice": "Szarekhan" }`. A list picks several in one multi-choice group; an
+ * empty list only adds the Configuration entry.
  */
-export interface DetachmentSpec { detachment: string; catalogue?: string; army?: Record<string, string | string[]>; units: UnitSpec[] }
+export type ArmySpec = Record<string, string | string[]>;
+/**
+ * One detachment, from the roster's catalogue unless `catalogue` (a catalogue name) says otherwise. `army` picks
+ * Configuration choices before the units, adding the Configuration entry when the detachment doesn't have it yet.
+ * `after.army` picks more once every detachment's units are built, replacing the choice in a group of one choice (for
+ * lists that change an army choice after adding units it no longer allows: hidden-selected).
+ */
+export interface DetachmentSpec { detachment: string; catalogue?: string; army?: ArmySpec; units: UnitSpec[]; after?: { army?: ArmySpec } }
 export interface ListSpec { title: string; battleSize: BattleSizeId; detachments: DetachmentSpec[]; expect: { points: number; powerLevel: number } }
 /** expectRules: the multiset of issue rules validate() reports, in any order. */
 export interface IllegalSpec extends Omit<ListSpec, 'expect'> { expectRules: RuleKind[] }
@@ -60,6 +66,8 @@ function only<T>(hits: T[], name: string, parent: string): T {
 
 export function buildFromSpec(scope: Scope, catalogueId: string, spec: ListSpec | IllegalSpec): Roster {
   let roster: Roster | undefined;
+  const picked = new Picked();
+  const forceSelIds: string[] = [];
   for (const d of spec.detachments) {
     const catId = d.catalogue ? catalogueNamed(scope, d.catalogue, spec.title) : catalogueId;
     const forceId = forceNamed(scope, roster, catId, d.detachment, spec);
@@ -68,16 +76,26 @@ export function buildFromSpec(scope: Scope, catalogueId: string, spec: ListSpec 
       roster = createRoster(scope, { name: spec.title, catalogueId, battleSize: spec.battleSize, forceId });
     } else roster = addForce(scope, roster, forceId, catId);
     const forceSelId = roster.forces[roster.forces.length - 1].id;
-    for (const [config, choices] of Object.entries(d.army ?? {})) {
-      const found = configSelection(scope, roster, forceSelId, config);
-      roster = found.roster;
-      for (const choice of Array.isArray(choices) ? choices : [choices]) {
-        roster = pick(scope, roster, only(optionsIn(scope, roster, [found.selId], choice), choice, config));
-      }
-    }
-    for (const u of d.units) roster = addSpecUnit(scope, roster, forceSelId, d.detachment, u);
+    forceSelIds.push(forceSelId);
+    roster = pickArmy(scope, roster, forceSelId, d.army, picked);
+    for (const u of d.units) roster = addSpecUnit(scope, roster, forceSelId, d.detachment, u, picked);
   }
   if (!roster) throw new Error(`Corpus: "${spec.title}" has no detachments`);
+  // A fresh record: an `after` choice may replace one made before the units.
+  const after = new Picked();
+  spec.detachments.forEach((d, i) => (roster = pickArmy(scope, roster!, forceSelIds[i], d.after?.army, after)));
+  return roster;
+}
+
+function pickArmy(scope: Scope, r: Roster, forceSelId: string, army: ArmySpec | undefined, picked: Picked): Roster {
+  let roster = r;
+  for (const [config, choices] of Object.entries(army ?? {})) {
+    const found = configSelection(scope, roster, forceSelId, config);
+    roster = found.roster;
+    for (const choice of Array.isArray(choices) ? choices : [choices]) {
+      roster = pick(scope, roster, only(optionsIn(scope, roster, [found.selId], choice), choice, config), picked, config);
+    }
+  }
   return roster;
 }
 
@@ -109,15 +127,15 @@ function configSelection(scope: Scope, r: Roster, forceSelId: string, config: st
   return addUnit(scope, r, forceSelId, option.entryId);
 }
 
-function addSpecUnit(scope: Scope, r: Roster, forceSelId: string, detachment: string, u: UnitSpec): Roster {
+function addSpecUnit(scope: Scope, r: Roster, forceSelId: string, detachment: string, u: UnitSpec, picked: Picked): Roster {
   const [role, name] = u.name.includes(SEPARATOR) ? u.name.split(SEPARATOR).map((p) => p.trim()) : [null, u.name];
   const units = availableUnits(scope, r, forceSelId).filter((o) => same(o.name, name) && (role === null || o.role === role));
   const unit = only(units, u.name, detachment);
   let { roster, selId } = addUnit(scope, r, forceSelId, unit.entryId);
   for (const [model, count] of Object.entries(u.models ?? {})) roster = setModels(scope, roster, selId, u.name, model, count);
   // The Warlord option comes before the others: it unlocks Warlord Traits.
-  if (u.warlord) roster = addOption(scope, roster, selId, u.name, WARLORD);
-  for (const option of u.options ?? []) roster = addOption(scope, roster, selId, u.name, option);
+  if (u.warlord) roster = addOption(scope, roster, selId, u.name, WARLORD, picked);
+  for (const option of u.options ?? []) roster = addOption(scope, roster, selId, u.name, option, picked);
   return roster;
 }
 
@@ -147,7 +165,7 @@ function setModels(scope: Scope, r: Roster, unitSelId: string, unit: string, mod
   return addChild(scope, r, hit.selId, hit.option.id, count);
 }
 
-function addOption(scope: Scope, r: Roster, unitSelId: string, unit: string, path: string): Roster {
+function addOption(scope: Scope, r: Roster, unitSelId: string, unit: string, path: string, picked: Picked): Roster {
   const parts = path.split(SEPARATOR).map((p) => p.trim());
   const name = parts.pop()!;
   let under = [unitSelId];
@@ -157,7 +175,7 @@ function addOption(scope: Scope, r: Roster, unitSelId: string, unit: string, pat
     under = [only(containers, part, parent).sel.id];
     parent = part;
   }
-  return pick(scope, r, only(optionsIn(scope, r, under, name), name, parent));
+  return pick(scope, r, only(optionsIn(scope, r, under, name), name, parent), picked, parent);
 }
 
 interface OptionHit { selId: string; option: OptionNode; group: OptionNode | null }
@@ -175,9 +193,34 @@ function optionsIn(scope: Scope, r: Roster, ids: string[], name: string): Option
   return out;
 }
 
-/** In a group of one choice, makes the option that choice; otherwise adds it, unless it is already there at its limit of one. */
-function pick(scope: Scope, r: Roster, hit: OptionHit): Roster {
-  if (hit.group?.max === 1) return chooseInGroup(scope, r, hit.selId, hit.group.id, hit.option.id);
+/** The groups and options a spec has picked from, by selection, so a repeated or conflicting pick throws. */
+class Picked {
+  private readonly keys = new Set<string>();
+  has(...parts: string[]): boolean {
+    return this.keys.has(parts.join('\n'));
+  }
+  /** False when the key was already there. */
+  add(...parts: string[]): boolean {
+    if (this.has(...parts)) return false;
+    this.keys.add(parts.join('\n'));
+    return true;
+  }
+}
+
+/**
+ * In a group of one choice, makes the option that choice; a second choice in the same group throws. Otherwise adds the
+ * option. An option already there at its limit of one is left alone if it was there before the spec named it (Trajann
+ * is always the Warlord); naming it twice throws.
+ */
+function pick(scope: Scope, r: Roster, hit: OptionHit, picked: Picked, parent: string): Roster {
+  const name = hit.option.name.trim();
+  const option = ['option', hit.selId, hit.option.id];
+  if (hit.option.max === 1 && picked.has(...option)) throw new Error(`Corpus: "${name}" is named twice under "${parent}"`);
+  picked.add(...option);
+  if (hit.group?.max === 1) {
+    if (!picked.add('group', hit.selId, hit.group.id)) throw new Error(`Corpus: "${name}" is a second choice in "${hit.group.name.trim()}" under "${parent}"`);
+    return chooseInGroup(scope, r, hit.selId, hit.group.id, hit.option.id);
+  }
   if (hit.option.max === 1 && hit.option.count > 0) return r;
   return addChild(scope, r, hit.selId, hit.option.id);
 }
