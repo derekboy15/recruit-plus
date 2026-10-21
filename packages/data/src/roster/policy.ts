@@ -179,6 +179,8 @@ const FACTION_PREFIX = 'Faction: ';
 const AGENT_OF_THE_IMPERIUM = 'Agent of the Imperium';
 /** Exempt from the Rule of Two/Three (by effective primary category). */
 const RULE_OF_THREE_EXEMPT = new Set(['Troops', 'Dedicated Transport', 'Fortification']);
+/** Core Book detachments allowed at most once per army (§4). */
+const ONE_PER_ARMY: string[] = [FORCE.supremeCommand, FORCE.fortificationNetwork];
 /** Most suggested units for an empty Auxiliary Support Detachment. */
 const MAX_SUGGESTIONS = 3;
 
@@ -263,6 +265,11 @@ class PolicyCheck {
     if (bs.mode === 'core') {
       if (forces.length > bs.maxDetachments) {
         this.issues.push({ rule: 'detachment-count', forceSelId: forces[bs.maxDetachments].force.id, subject: { id: bs.id, name: bs.name }, limit: bs.maxDetachments, actual: forces.length });
+      }
+      // §4: max one per army.
+      for (const forceId of ONE_PER_ARMY) {
+        const same = forces.filter((f) => f.force.forceId === forceId);
+        if (same.length > 1) this.issues.push({ rule: 'detachment-count', forceSelId: same[1].force.id, subject: { id: forceId, name: same[1].name }, limit: 1, actual: same.length });
       }
       return;
     }
@@ -414,10 +421,13 @@ function shared(units: Unit[]): Set<string> {
   return new Set([...first.factions].filter((k) => rest.every((u) => u.factions.has(k))));
 }
 
-/** Removes the newest selections until `excess` copies are gone; shrinks the newest stack when it alone has enough. */
+/**
+ * Shrinks the newest stack that alone has more than `excess` copies; otherwise removes the newest selections until
+ * `excess` copies are gone (a Fix is one kind of action, so that can remove a few copies more than needed).
+ */
 function trimNewest(sels: SelView[], excess: number): Fix {
-  const last = sels.at(-1)!;
-  if (last.sel.count > excess) return { kind: 'set-count', selId: last.sel.id, count: last.sel.count - excess };
+  const stack = [...sels].reverse().find((v) => v.sel.count > excess);
+  if (stack) return { kind: 'set-count', selId: stack.sel.id, count: stack.sel.count - excess };
   const selIds: string[] = [];
   let removed = 0;
   for (let i = sels.length - 1; i >= 0 && removed < excess; i--) {

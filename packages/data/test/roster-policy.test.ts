@@ -185,6 +185,15 @@ describe('points, CP and Rule of Two/Three', () => {
     expect(issue).toMatchObject({ limit: 3, actual: 5, fix: { kind: 'set-count', selId: ids[0], count: 3 } });
   });
 
+  test('an older stack shrinks when that alone fixes the excess', () => {
+    const r0 = necronRoster('strike-force');
+    const { roster, ids } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Canoptek Wraiths', 2);
+    // Counts [4, 1]: 5 copies, 2 too many; the newest stack alone can't absorb that, the older one can.
+    const stacked: Roster = { ...roster, forces: [{ ...roster.forces[0], selections: roster.forces[0].selections.map((s) => (s.id === ids[0] ? { ...s, count: 4 } : s)) }] };
+    const [issue] = ofRule(validate(necronsScope, stacked, policy).issues, 'rule-of-three');
+    expect(issue).toMatchObject({ selId: ids[1], limit: 3, actual: 5, fix: { kind: 'set-count', selId: ids[0], count: 2 } });
+  });
+
   test('Troops are exempt from rule-of-three', () => {
     const r0 = necronRoster('strike-force');
     const { roster } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Necron Warriors', 4);
@@ -248,6 +257,18 @@ describe('detachments', () => {
     expect(ofRule(validate(necronsScope, r, policy).issues, 'detachment-count')).toEqual([]);
     r = addForce(necronsScope, r, FORCE.vanguard, necrons);
     expect(ofRule(validate(necronsScope, r, policy).issues, 'detachment-count')).toMatchObject([{ limit: 4, actual: 5, forceSelId: r.forces[4].id }]);
+  });
+
+  test('one Supreme Command Detachment and one Fortification Network per army', () => {
+    let r = necronRoster('onslaught', FORCE.supremeCommand);
+    r = addForce(necronsScope, r, FORCE.fortificationNetwork, necrons);
+    expect(ofRule(validate(necronsScope, r, policy).issues, 'detachment-count')).toEqual([]);
+    r = addForce(necronsScope, r, FORCE.supremeCommand, necrons);
+    r = addForce(necronsScope, r, FORCE.fortificationNetwork, necrons);
+    expect(ofRule(validate(necronsScope, r, policy).issues, 'detachment-count')).toEqual([
+      { rule: 'detachment-count', forceSelId: r.forces[2].id, subject: { id: FORCE.supremeCommand, name: expect.stringMatching(/^Supreme Command Detachment/) }, limit: 1, actual: 2 },
+      { rule: 'detachment-count', forceSelId: r.forces[3].id, subject: { id: FORCE.fortificationNetwork, name: expect.stringMatching(/^Fortification Network/) }, limit: 1, actual: 2 },
+    ]);
   });
 
   test('Core Book battle sizes never take an Arks of Omen, Unbound or Boarding Patrol detachment', () => {
