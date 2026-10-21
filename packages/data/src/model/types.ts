@@ -80,8 +80,9 @@ export interface CatalogueSummary {
   /** Roster file slugs (generated/roster/<slug>.json) of the catalogue's scope: itself, linked catalogues, then 'system'. */
   rosterScope: string[];
   /**
-   * The "Faction: …" category names on the catalogue's root entries (its own, imported catalogues' and the .gst's),
-   * sorted: the faction keywords its units can have. Which catalogues could share a detachment-free army with it.
+   * The "Faction: …" category names on the root entries of the catalogue and the catalogues it imports (not the .gst's
+   * shared fortifications), sorted: the faction keywords its units can have. Core Book battle sizes offer another
+   * catalogue as an ally only when the two share one other than UNALIGNED.
    */
   factions: string[];
 }

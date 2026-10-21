@@ -321,8 +321,9 @@ function dedupe(issues: Issue[]): Issue[] {
 
 /**
  * The matched-play rules, in this order: points-over, cp-negative, detachment-count, detachment-not-allowed (then
- * Arks of Omen's no Specialist Detachments, as detachment-not-allowed with the selection), Auxiliary Support's one unit (slot-min / slot-max), Arks of Omen's one SUPREME COMMANDER (unit-limit), rule-of-three,
- * detachment-faction, army-faction, and the units that must be the Warlord (warlord-missing, must-be-warlord.json).
+ * Arks of Omen's no Specialist Detachments, as detachment-not-allowed about the army option), Auxiliary Support's one
+ * unit (slot-min / slot-max), Arks of Omen's one SUPREME COMMANDER (unit-limit), rule-of-three, detachment-faction,
+ * army-faction, and the units that must be the Warlord (warlord-missing, must-be-warlord.json).
  *
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
