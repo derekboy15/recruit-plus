@@ -13,10 +13,11 @@ afterEach(() => {
   resetDataCache();
 });
 
-/** Every on/off army option the editor could show, across every army in the data, by whether it is a helper. */
-async function armyToggles(): Promise<{ hidden: Set<string>; shown: Set<string> }> {
-  const hidden = new Set<string>();
-  const shown = new Set<string>();
+/** Every on/off army option the editor could show, across every army in the data: option name → armies hiding / showing it. */
+async function armyToggles(): Promise<{ hidden: Map<string, Set<string>>; shown: Map<string, Set<string>> }> {
+  const hidden = new Map<string, Set<string>>();
+  const shown = new Map<string, Set<string>>();
+  const add = (map: Map<string, Set<string>>, name: string, army: string) => map.set(name, (map.get(name) ?? new Set()).add(army));
   const index = await getIndex();
   for (const c of index.catalogues.filter((c) => !c.library)) {
     const scope = await getRosterScope([c.slug]);
@@ -26,7 +27,7 @@ async function armyToggles(): Promise<{ hidden: Set<string>; shown: Set<string> 
       const choices = new Set(armyChoices(scope, roster).map((x) => x.entryId));
       for (const o of armyOptions(scope, roster, roster.forces[0].id)) {
         if (choices.has(o.entryId) || isAutoManagedEntry(scope, o.entryId)) continue;
-        (isHelperOption(scope, o.entryId) ? hidden : shown).add(o.name);
+        add(isHelperOption(scope, o.entryId) ? hidden : shown, o.name, c.name);
       }
     }
   }
@@ -35,7 +36,8 @@ async function armyToggles(): Promise<{ hidden: Set<string>; shown: Set<string> 
 
 test('BattleScribe helpers among the army options are recognised; real choices are not', async () => {
   const { hidden, shown } = await armyToggles();
-  expect([...hidden].sort()).toEqual([
+  const armies = (await getIndex()).catalogues.filter((c) => !c.library).map((c) => c.name);
+  expect([...hidden.keys()].sort()).toEqual([
     'Deeds and Sagas [Reference]',
     'Detachment Bonuses',
     'Hide Imperial Agents',
@@ -45,6 +47,14 @@ test('BattleScribe helpers among the army options are recognised; real choices a
     'Warlord Traits (Reference)',
   ]);
   for (const name of ['Stratagem: Heroic Support', 'Army of Renown - Vanguard Spearhead', 'Daemonic Pact', 'List Stratagems', 'Legends/Index Options']) {
-    expect(shown, name).toContain(name);
+    expect(shown.has(name), name).toBe(true);
+  }
+  // "Use Beta Rules" reveals Chaos Space Marines units and wargear (Chaos Deimos Predator [LEGENDS], the Sorcerer in
+  // Terminator Armour's power maul), so it is a real choice there; everywhere else it changes nothing.
+  expect([...(shown.get('Use Beta Rules') ?? [])]).toEqual(['Chaos - Chaos Space Marines']);
+  expect([...(hidden.get('Use Beta Rules') ?? [])].sort()).toEqual(armies.filter((a) => a !== 'Chaos - Chaos Space Marines').sort());
+  expect(hidden.get('Use Beta Rules')!.size).toBe(41);
+  for (const name of ['Show Vows', 'Detachment Bonuses', 'Deeds and Sagas [Reference]', 'Warlord Traits (Reference)']) {
+    expect(shown.has(name), name).toBe(false);
   }
 });

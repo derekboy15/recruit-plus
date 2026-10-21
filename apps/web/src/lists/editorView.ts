@@ -7,8 +7,11 @@ import {
   displayName,
   findSelView,
   resolve,
+  type Cond,
+  type CondGroup,
   type ForceView,
   type Issue,
+  type Mod,
   type OptionNode,
   type RNode,
   type RosterView,
@@ -42,7 +45,9 @@ export function isAutoManagedEntry(scope: Scope, entryId: string): boolean {
  * BattleScribe display helpers that sit among the army options but are not choices a player makes about the army:
  * - unit filters for BattleScribe's own lists ("Hide Imperial Agents"),
  * - rules shown on request ("Show Vows", "Deeds and Sagas [Reference]", "Warlord Traits (Reference)"),
- * - the .gst "Use Beta Rules" switch (a BattleScribe setting, not a matched-play choice).
+ * - the .gst "Use Beta Rules" switch (a BattleScribe setting).
+ * A switch whose selection reveals units or options in this army's data is a real choice whatever its name: "Use Beta
+ * Rules" reveals the Chaos Deimos Predator [LEGENDS] for Chaos Space Marines (see revealingIds).
  * An option holding only such helpers is one too: "Unit Filter" holds only "Hide …" switches, "Detachment Bonuses"
  * only "Show Bonuses". The full list this hides in BSData v9.8.0 is pinned by editorView.test.ts.
  */
@@ -55,8 +60,56 @@ export function isHelperOption(scope: Scope, entryId: string): boolean {
 
 function isHelperNode(scope: Scope, node: RNode): boolean {
   const merged = resolve(scope, node);
-  if (HELPER_NAMES.some((re) => re.test(merged.name.trim()))) return true;
+  if (HELPER_NAMES.some((re) => re.test(merged.name.trim()))) return !merged.ids.some((id) => revealingIds(scope).has(id));
   return merged.children.length > 0 && merged.children.every((child) => isHelperNode(scope, child));
+}
+
+const revealingCache = new WeakMap<Scope, Set<string>>();
+
+/**
+ * Ids whose selection reveals something: a `hidden` modifier that un-hides when the id is selected (`hidden=false`
+ * when at least 1) or hides while it isn't (`hidden=true` when fewer than 1). Unit filters work the other way round
+ * (`Hide …` sets `hidden=true` when selected), so they never land here. Built once per scope.
+ */
+function revealingIds(scope: Scope): Set<string> {
+  let out = revealingCache.get(scope);
+  if (out) return out;
+  const ids = new Set<string>();
+  const visitMods = (mods: Mod[] | undefined) => {
+    for (const m of mods ?? []) {
+      if (m.field !== 'hidden' || !m.when) continue;
+      for (const c of conditions(m.when)) if (reveals(m.value, c)) ids.add(c.childId);
+    }
+  };
+  const visitNodes = (nodes: RNode[]) => {
+    for (const n of nodes) {
+      visitMods(n.mods);
+      n.cats?.forEach((l) => visitMods(l.mods));
+      if (n.children) visitNodes(n.children);
+    }
+  };
+  for (const f of scope.files) {
+    visitNodes(f.rootEntries);
+    visitNodes(f.shared);
+    f.categories.forEach((c) => visitMods(c.mods));
+    for (const fe of f.forces) {
+      visitMods(fe.mods);
+      fe.cats.forEach((l) => visitMods(l.mods));
+    }
+  }
+  revealingCache.set(scope, (out = ids));
+  return out;
+}
+
+const conditions = (g: CondGroup): Cond[] => [...g.conds, ...g.groups.flatMap(conditions)];
+
+/** Whether the condition holds once its id is selected and the modifier then shows (or stops hiding) something. */
+function reveals(value: string, c: Cond): boolean {
+  if (value === 'false') {
+    return (c.type === 'atLeast' && c.value >= 1) || (c.type === 'greaterThan' && c.value >= 0) || (c.type === 'equalTo' && c.value >= 1) || (c.type === 'notEqualTo' && c.value === 0);
+  }
+  if (value === 'true') return (c.type === 'lessThan' && c.value >= 1) || (c.type === 'atMost' && c.value === 0) || (c.type === 'equalTo' && c.value === 0);
+  return false;
 }
 
 export interface RoleGroup { role: string; units: SelView[] }
