@@ -7,7 +7,7 @@ import type { RawCatalogue, RawNode } from './bsdata/types';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
-import type { AooAllies, BattleBrothers, DatasheetEquivalence, PolicyData } from './roster/policy';
+import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
 import { slugify } from './text';
@@ -128,13 +128,14 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 /**
  * The matched-play policy overrides, copied for the browser after checking every name and id against the roster files
  * (catalogue names, .gst force entry names, faction category names, Rule of Two/Three entries and categories, Battle
- * Brothers exceptions).
+ * Brothers exceptions, units that must be the Warlord).
  */
 export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyData {
   const read = <T>(f: string): T => JSON.parse(readFileSync(join(overridesDir, f), 'utf8')) as T;
   const aooAllies = read<AooAllies[]>('aoo-allies.json');
   const equivalence = read<DatasheetEquivalence[]>('datasheet-equivalence.json');
   const battleBrothers = read<BattleBrothers[]>('battle-brothers.json');
+  const mustBeWarlord = read<MustBeWarlord[]>('must-be-warlord.json');
   const system = files.find((f) => f.slug === SYSTEM_ROSTER_SLUG)!;
   const byName = new Map(files.filter((f) => f !== system).map((f) => [f.name, f]));
   const categoryNames = new Set(files.flatMap((f) => f.categories.map((c) => c.name)));
@@ -165,7 +166,14 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
     catalogue(b.catalogueName, where);
     for (const f of b.alsoAllowFactions) if (!categoryNames.has(`Faction: ${f}`)) throw new Error(`${where} names unknown category "Faction: ${f}"`);
   }
-  return { aooAllies, equivalence, battleBrothers };
+  // A unit's name is its target entry's (a root link's own name can differ: "!Captain-General Trajann Valoris").
+  const entryNames = new Map(files.flatMap((f) => [...f.rootEntries, ...f.shared].map((n) => [n.id, n.name.trim()] as const)));
+  for (const m of mustBeWarlord) {
+    const where = `must-be-warlord.json (${m.entryName})`;
+    const root = catalogue(m.catalogueName, where).rootEntries.find((n) => (n.targetId ?? n.id) === m.entryId);
+    if (!root || entryNames.get(m.entryId) !== m.entryName) throw new Error(`${where}: "${m.entryName}" is not root entry ${m.entryId} in "${m.catalogueName}"`);
+  }
+  return { aooAllies, equivalence, battleBrothers, mustBeWarlord };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {

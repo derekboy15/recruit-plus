@@ -1,0 +1,75 @@
+[
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "entryId": "2c93-74cb-4b9d-42c2",
+    "entryName": "Abaddon the Despoiler",
+    "source": "Wahapedia datasheet 000000924 (Abaddon the Despoiler), The Warmaster: \"If your army is Battle-forged, this model must be your WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your WARLORD.\" (research library 03_Codexes/Chaos/Chaos_Space_Marines.md §6: must be Warlord unless a Primarch is present)."
+  },
+  {
+    "catalogueName": "Chaos - Death Guard",
+    "entryId": "0e51-2a41-8394-7f6b",
+    "entryName": "Mortarion",
+    "source": "Wahapedia datasheet 000001377 (Mortarion), Daemon Primarch: \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\""
+  },
+  {
+    "catalogueName": "Chaos - Thousand Sons",
+    "entryId": "3100-4809-5d50-b433",
+    "entryName": "Magnus the Red",
+    "source": "Wahapedia datasheet 000001031 (Magnus the Red), Daemon Primarch: \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" (research library 03_Codexes/Chaos/Thousand_Sons.md §6: must be Warlord)."
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "entryId": "709c-3853-42df-daa1",
+    "entryName": "Angron",
+    "source": "Research library 03_Codexes/Chaos/World_Eaters.md §6 (Angron: \"Must be Warlord\"). The Wahapedia snapshot's Angron datasheet (000002621) lists only three abilities and leaves this rule out; BSData v9.8.0 also makes his Warlord compulsory. Treated like the other Daemon Primarchs: when another unit in the army must be the Warlord too, one of them must be."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryId": "d7a5-a10d-a018-7761",
+    "entryName": "Roboute Guilliman",
+    "evenIfAnother": true,
+    "source": "Wahapedia datasheet 000000129 (Roboute Guilliman), The Avenging Son: \"If your army is Battle-forged, this model must be your army's WARLORD, even if another model in your army has a rule to this effect.\" The entry is shared by every Space Marine chapter catalogue, so this covers Guilliman in all of them."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "cd9c-e25f-1d3a-88f7",
+    "entryName": "Morvenn Vahl",
+    "source": "Wahapedia datasheet 000002479 (Morvenn Vahl), High Lord of the Imperium: \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\" (research library 03_Codexes/Imperium/Adepta_Sororitas.md §11: must be Warlord)."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "entryId": "174b-ddd4-9558-b13d",
+    "entryName": "Trajann Valoris",
+    "source": "Wahapedia datasheet 000001446 (Trajann Valoris), Captain-General: \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model from your army has a rule to this effect, then one of those models must be your army's WARLORD.\" (research library 03_Codexes/Imperium/Adeptus_Custodes.md §5: must be Warlord)."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "7591-e8e3-a30c-7ce0",
+    "entryName": "Lord Solar Leontus",
+    "source": "Research library 03_Codexes/Imperium/Astra_Militarum.md §2 (Detachment abilities, Chain of Command): \"If Lord Solar Leontus is in the army, he must be Warlord.\" The rule is the codex's Astra Militarum detachment ability, not on his Wahapedia datasheet (000002605); BSData v9.8.0 also makes his Warlord compulsory."
+  },
+  {
+    "catalogueName": "Necrons",
+    "entryId": "4ed9-4e6f-9116-0b00",
+    "entryName": "The Silent King",
+    "source": "Wahapedia datasheet 000002360 (The Silent King), The Silent King: \"If your army is Battle-forged, Szarekh must be your army's WARLORD.\""
+  },
+  {
+    "catalogueName": "Orks",
+    "entryId": "06ff-697d-8aa1-2dd0",
+    "entryName": "Ghazghkull Thraka",
+    "source": "Wahapedia datasheet 000000008 (Ghazghkull Thraka), Grand Warlord: \"If this model is included in your army, it must be your WARLORD.\" (research library 03_Codexes/Xenos/Orks.md §6: Ghaz must be Warlord)."
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "entryId": "b4ff-4dba-5926-4c96",
+    "entryName": "Commander Shadowsun",
+    "source": "Wahapedia datasheet 000000407 (Commander Shadowsun), Hero of the Empire: \"If your army is Battle-forged, this unit's COMMANDER SHADOWSUN model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\""
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "entryId": "05c3-f498-e0c6-1ee9",
+    "entryName": "Commander Farsight",
+    "source": "Wahapedia datasheet 000000406 (Commander Farsight), Enclave Commander: \"If your army is Battle-forged, this model must be your army's WARLORD. If more than one model in your army has a rule to this effect, then one of those models must be your army's WARLORD.\""
+  }
+]

@@ -210,7 +210,7 @@ class Picked {
 /**
  * In a group of one choice, makes the option that choice; a second choice in the same group throws. Otherwise adds the
  * option. An option already there at its limit of one is left alone if it was there before the spec named it (Trajann
- * is always the Warlord); naming it twice throws.
+ * Valoris's Watcher's Axe); naming it twice throws.
  */
 function pick(scope: Scope, r: Roster, hit: OptionHit, picked: Picked, parent: string): Roster {
   const name = hit.option.name.trim();

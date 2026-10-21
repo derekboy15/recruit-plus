@@ -120,10 +120,11 @@ describe('buildFromSpec', () => {
     );
     expect(() => buildFromSpec(scope, am.id, list([{ name: 'Chimera', options: ['Heavy Bolter', 'Heavy Bolter'] }]))).toThrow('Corpus: "Heavy Bolter" is named twice under "Chimera"');
     expect(() => buildFromSpec(scope, am.id, list([{ name: 'Cadian Castellan', warlord: true, options: ['Warlord'] }]))).toThrow('Corpus: "Warlord" is named twice under "Cadian Castellan"');
-    // Trajann Valoris is always the Warlord: `warlord: true` leaves his automatic Warlord as it is.
+    // Trajann Valoris always has his Watcher's Axe: naming it leaves the automatic one as it is.
     const custodes = catalogues.find((c) => c.slug === 'imperium-adeptus-custodes')!;
     const custodesScope = realScope(custodes.slug);
-    const trajann = validate(custodesScope, buildFromSpec(custodesScope, custodes.id, list([{ name: 'Trajann Valoris', warlord: true }])), policy).view.forces[0].selections.find((v) => v.name === 'Trajann Valoris')!;
+    const trajann = validate(custodesScope, buildFromSpec(custodesScope, custodes.id, list([{ name: 'Trajann Valoris', warlord: true, options: ["Watcher's Axe"] }])), policy).view.forces[0].selections.find((v) => v.name === 'Trajann Valoris')!;
+    expect(trajann.children.filter((c) => c.name === "Watcher's Axe").map((c) => c.sel.count)).toEqual([1]);
     expect(trajann.children.filter((c) => c.name === 'Warlord').map((c) => c.sel.count)).toEqual([1]);
   });
 

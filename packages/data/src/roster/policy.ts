@@ -1,7 +1,9 @@
 /**
  * Matched-play policy: the army-building rules BSData doesn't encode (battle sizes, which detachments a battle size
- * allows, the Rule of Two/Three, points and CP limits, Battle Brothers and Army Faction), layered over the roster engine.
- * Rules: research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2, §4, §7.1, §7.2 and §7.5.
+ * allows, the Rule of Two/Three, points and CP limits, Battle Brothers, Army Faction, and units that must be the
+ * Warlord), layered over the roster engine.
+ * Rules: research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2, §4, §7.1, §7.2 and §7.5; the units'
+ * datasheets for the Warlord (overrides/must-be-warlord.json).
  * Browser-safe: the override data arrives as generated/roster/policy.json (PolicyData), never through node imports.
  */
 import { BATTLEFIELD_ROLES, type BattlefieldRole, type CatalogueSummary } from '../model/types';
@@ -97,7 +99,13 @@ export interface DatasheetEquivalence {
  * keywords (names without "Faction: "), e.g. Talons of the Emperor lets ANATHEMA PSYKANA units into ADEPTUS CUSTODES detachments.
  */
 export interface BattleBrothers { catalogueName: string; alsoAllowFactions: string[]; source: string }
-export interface PolicyData { aooAllies: AooAllies[]; equivalence: DatasheetEquivalence[]; battleBrothers: BattleBrothers[] }
+/**
+ * A unit whose datasheet says it must be the army's Warlord. When the army has several such units, one of them must be
+ * the Warlord, except that units with `evenIfAnother` (Roboute Guilliman's "even if another model in your army has a
+ * rule to this effect") come first: one of those must be. entryId is the root entry's resolved target id.
+ */
+export interface MustBeWarlord { catalogueName: string; entryId: string; entryName: string; evenIfAnother?: true; source: string }
+export interface PolicyData { aooAllies: AooAllies[]; equivalence: DatasheetEquivalence[]; battleBrothers: BattleBrothers[]; mustBeWarlord: MustBeWarlord[] }
 
 // ---------- creating rosters ----------
 
@@ -184,6 +192,8 @@ const BROAD_FACTIONS = new Set(['imperium', 'chaos', 'aeldari', 'ynnari', 'tyran
 const UNALIGNED = 'unaligned';
 const FACTION_PREFIX = 'Faction: ';
 const AGENT_OF_THE_IMPERIUM = 'Agent of the Imperium';
+/** The Warlord upgrade's name and the .gst category it carries. */
+const WARLORD = 'Warlord';
 /** Exempt from the Rule of Two/Three (by effective primary category). */
 const RULE_OF_THREE_EXEMPT = new Set(['Troops', 'Dedicated Transport', 'Fortification']);
 /** Core Book detachments allowed at most once per army (§4). */
@@ -195,11 +205,16 @@ const MAX_SUGGESTIONS = 3;
  * evaluate + validateConstraints + validatePolicy. BSData issues are deduplicated (see dedupe); policy issues are each a
  * different rule, so they are kept even when their fix matches a BSData one (a 4th Canoptek Wraiths unit in an Arks of
  * Omen Detachment breaks both the Fast Attack slot and the Rule of Three). BSData `forces` constraints are left to the policy.
+ * The one exception: when a unit that must be the Warlord isn't, BSData's own "no Warlord" issue (if any) is dropped, as
+ * the policy's says the same thing more precisely.
  */
 export function validate(scope: Scope, roster: Roster, policy: PolicyData): { view: RosterView; issues: Issue[] } {
   const view = evaluate(scope, roster);
   waiveDetachmentCommandCosts(view);
-  return { view, issues: [...dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] })), ...validatePolicy(scope, view, policy)] };
+  const own = validatePolicy(scope, view, policy);
+  let bsdata = dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] }));
+  if (own.some((i) => i.rule === 'warlord-missing')) bsdata = bsdata.filter((i) => i.rule !== 'warlord-missing');
+  return { view, issues: [...bsdata, ...own] };
 }
 
 /**
@@ -259,7 +274,8 @@ function dedupe(issues: Issue[]): Issue[] {
 
 /**
  * The matched-play rules, in this order: points-over, cp-negative, detachment-count, detachment-not-allowed,
- * Auxiliary Support's one unit (slot-min / slot-max), rule-of-three, detachment-faction, army-faction.
+ * Auxiliary Support's one unit (slot-min / slot-max), rule-of-three, detachment-faction, army-faction, and the units
+ * that must be the Warlord (warlord-missing, must-be-warlord.json).
  *
  * Units are root unit and model selections, plus upgrade-typed ones with a battlefield-role primary category.
  * A unit's faction keywords are the `Faction: ` categories on it and its descendants. Faction checks ignore
@@ -303,6 +319,7 @@ class PolicyCheck {
     if (bs) this.ruleOfThree(bs);
     for (const fv of view.forces) if (fv.force.forceId !== FORCE.fortificationNetwork) this.detachmentFaction(fv);
     this.armyFaction();
+    this.mustBeWarlord();
     return this.issues;
   }
 
@@ -446,6 +463,33 @@ class PolicyCheck {
     };
     walk(v);
     return out;
+  }
+
+  // ---------- Warlord ----------
+
+  /**
+   * A unit whose datasheet says it must be the army's Warlord is the Warlord, or another such unit is (one of the
+   * `evenIfAnother` ones when there are any). The Warlord is the unit holding the Warlord upgrade, at any depth.
+   */
+  private mustBeWarlord(): void {
+    const present = this.units().flatMap((v) => {
+      const m = this.policy.mustBeWarlord.find((e) => v.merged!.ids.includes(e.entryId));
+      return m ? [{ v, m }] : [];
+    });
+    const overriding = present.filter((p) => p.m.evenIfAnother);
+    const required = overriding.length ? overriding : present;
+    if (!required.length || required.some((p) => this.holdsWarlord(p.v))) return;
+    const subjects = new Map<string, { id: string; name: string }>();
+    for (const { v, m } of required) if (!subjects.has(m.entryId)) subjects.set(m.entryId, { id: m.entryId, name: v.name.trim() });
+    const unit = required[0].v;
+    this.issues.push({
+      rule: 'warlord-missing', forceSelId: unit.force.force.id, selId: unit.sel.id, subject: subjects.get(required[0].m.entryId)!,
+      subjects: [...subjects.values()], limit: 1, actual: 0, fix: { kind: 'open', selId: unit.sel.id },
+    });
+  }
+
+  private holdsWarlord(v: SelView): boolean {
+    return v.name.trim() === WARLORD || this.hasCategory(v, WARLORD) || v.children.some((c) => this.holdsWarlord(c));
   }
 
   // ---------- helpers ----------

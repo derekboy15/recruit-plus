@@ -10,6 +10,7 @@ import {
   buildScope,
   childOptions,
   evaluate,
+  explain,
   resolve,
   rootEntriesFor,
   validateConstraints,
@@ -36,7 +37,7 @@ import {
   validatePolicy,
 } from '../src/roster/policy';
 import sororitas from './corpus/imperium/imperium-adepta-sororitas';
-import { buildFromSpec, type ListSpec } from './corpus/spec';
+import { buildFromSpec, type DetachmentSpec, type ListSpec } from './corpus/spec';
 import { realCatalogueId, realCatalogues, realFiles, realPolicy, realScope } from './helpers/realScope';
 
 const policy = realPolicy();
@@ -335,24 +336,6 @@ describe('points, CP and Rule of Two/Three', () => {
       const { issues } = validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy);
       expect(issues.filter((i) => i.subject.name === name).map((i) => [i.rule, i.limit, i.actual]), `${slug}: ${name}`).toEqual([['unique', 1, 2]]);
     }
-  });
-
-  test('Magnus the Red must be the Warlord (Wahapedia datasheet 000001031, Daemon Primarch)', () => {
-    const slug = 'chaos-thousand-sons';
-    const scope = realScope(slug);
-    const list = (sorcererWarlord: boolean): ListSpec => ({
-      title: 'Magnus',
-      battleSize: 'strike-force',
-      detachments: [{
-        detachment: 'Arks of Omen Detachment',
-        units: [{ name: 'Exalted Sorcerer', warlord: sorcererWarlord }, { name: 'Rubric Marines' }, { name: 'Rubric Marines' }, { name: 'Rubric Marines' }, { name: 'Magnus the Red', warlord: !sorcererWarlord }],
-      }],
-      expect: { points: 0, powerLevel: 0 },
-    });
-    const rules = (spec: ListSpec) => validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy).issues.map((i) => i.rule);
-    expect(rules(list(false))).toEqual([]);
-    // Magnus is the Warlord as soon as he is in the army, so a second Warlord is one too many.
-    expect(rules(list(true))).toEqual(['warlord-extra']);
   });
 
   test('fourth Canoptek Wraiths unit at Strike Force is rule-of-three, third is fine', () => {
@@ -697,5 +680,128 @@ describe('validate', () => {
     r = { ...r, forces: [{ ...r.forces[0], selections: r.forces[0].selections.map((s) => (s.id === overlord.ids[0] ? { ...s, children: [...s.children, { id: 'wl', entryId: warlord.node.id, count: 1, children: [] }] } : s)) }] };
     r = addNamed(necronsScope, r, fs, necrons, 'Necron Warriors', 3).roster;
     expect(validate(necronsScope, r, policy).issues).toEqual([]);
+  });
+});
+
+describe('must-be-Warlord units (must-be-warlord.json)', () => {
+  const TS = 'chaos-thousand-sons';
+  const DG = 'chaos-death-guard';
+  const CSM = 'chaos-chaos-space-marines';
+  const SUPER_HEAVY_AUX = 'Super-Heavy Auxiliary Detachment -3CP';
+  const PATROL = 'Patrol Detachment -2CP';
+  const magnus = (warlord = false): DetachmentSpec => ({ detachment: SUPER_HEAVY_AUX, units: [{ name: 'Magnus the Red', warlord }] });
+  const mortarion = (warlord = false): DetachmentSpec => ({ detachment: SUPER_HEAVY_AUX, catalogue: 'Chaos - Death Guard', units: [{ name: 'Mortarion', warlord }] });
+  const onslaught = (...detachments: DetachmentSpec[]): ListSpec => ({ title: 'must be Warlord', battleSize: 'onslaught', detachments, expect: { points: 0, powerLevel: 0 } });
+  function run(slugs: string[], spec: ListSpec) {
+    const scope = realScope(...slugs);
+    const { view, issues } = validate(scope, buildFromSpec(scope, realCatalogueId(slugs[0]), spec), policy);
+    /** Where an issue about the named unit points: its detachment and its selection. */
+    const unitAt = (name: string) => {
+      const v = view.forces.flatMap((f) => f.selections).find((s) => s.name.trim() === name)!;
+      return { forceSelId: v.force.force.id, selId: v.sel.id };
+    };
+    return { issues, unitAt, explained: issues.map((i) => ({ rule: i.rule, ...explain(i, view, scope) })) };
+  }
+  /**
+   * Warlord issues, and BSData's own "Warlord" option minimums (option-required). Named characters' Warlord Traits,
+   * which BSData asks a Warlord for in Eternal War, are another rule and left out.
+   */
+  const warlordIssues = (issues: Issue[]) => issues.filter((i) => i.rule === 'warlord-missing' || i.rule === 'warlord-extra' || i.subject.name.trim() === 'Warlord');
+  const entry = (name: string) => {
+    const hit = policy.mustBeWarlord.find((m) => m.entryName === name);
+    if (!hit) throw new Error(`${name} is not in must-be-warlord.json`);
+    return { id: hit.entryId, name };
+  };
+
+  test('Magnus and Mortarion, with Mortarion as the Warlord, are legal (Daemon Primarch: one of them must be the Warlord)', () => {
+    expect(warlordIssues(run([TS, DG], onslaught(magnus(), mortarion(true))).issues)).toEqual([]);
+    expect(warlordIssues(run([TS, DG], onslaught(magnus(true), mortarion())).issues)).toEqual([]);
+  });
+
+  test('Magnus and Mortarion with a Chaos Lord as the Warlord is one warlord-missing naming both', () => {
+    const chaosLord: DetachmentSpec = {
+      detachment: PATROL, catalogue: 'Chaos - Chaos Space Marines', army: { Legion: 'Black Legion' }, units: [{ name: 'Chaos Lord', warlord: true }, { name: 'Legionaries' }],
+    };
+    const { issues, unitAt, explained } = run([TS, DG, CSM], onslaught(magnus(), mortarion(), chaosLord));
+    const at = unitAt('Magnus the Red');
+    expect(warlordIssues(issues)).toEqual([{
+      rule: 'warlord-missing', ...at, subject: entry('Magnus the Red'), subjects: [entry('Magnus the Red'), entry('Mortarion')],
+      limit: 1, actual: 0, fix: { kind: 'open', selId: at.selId },
+    }]);
+    expect(explained.filter((x) => x.rule === 'warlord-missing')).toEqual([{
+      rule: 'warlord-missing', text: 'Magnus the Red or Mortarion must be your Warlord. Open one of them and turn on "Warlord".', fixLabel: 'Open Magnus the Red',
+    }]);
+  });
+
+  test('Magnus alone with no Warlord is a single warlord-missing that names him', () => {
+    const { issues, unitAt, explained } = run([TS], onslaught(magnus()));
+    expect(warlordIssues(issues)).toEqual([{
+      rule: 'warlord-missing', ...unitAt('Magnus the Red'), subject: entry('Magnus the Red'), subjects: [entry('Magnus the Red')],
+      limit: 1, actual: 0, fix: { kind: 'open', selId: unitAt('Magnus the Red').selId },
+    }]);
+    expect(explained.filter((x) => x.rule === 'warlord-missing').map((x) => x.text)).toEqual(['Magnus the Red must be your Warlord. Open Magnus the Red and turn on "Warlord".']);
+  });
+
+  test('Abaddon and Mortarion, with Abaddon as the Warlord, are legal (The Warmaster, Daemon Primarch)', () => {
+    const abaddon: DetachmentSpec = { detachment: PATROL, army: { Legion: 'Black Legion' }, units: [{ name: 'Abaddon the Despoiler', warlord: true }, { name: 'Legionaries' }] };
+    expect(warlordIssues(run([CSM, DG], onslaught(abaddon, mortarion())).issues)).toEqual([]);
+  });
+
+  test('Roboute Guilliman must be the Warlord even beside Trajann Valoris (The Avenging Son)', () => {
+    const UM = 'imperium-adeptus-astartes-ultramarines';
+    const list = (guilliman: boolean) => onslaught(
+      { detachment: SUPER_HEAVY_AUX, units: [{ name: 'Roboute Guilliman', warlord: guilliman }] },
+      { detachment: PATROL, catalogue: 'Imperium - Adeptus Custodes', units: [{ name: 'Trajann Valoris', warlord: !guilliman }, { name: 'Custodian Guard Squad' }] },
+    );
+    expect(warlordIssues(run([UM, 'imperium-adeptus-custodes'], list(true)).issues)).toEqual([]);
+    const { issues, unitAt, explained } = run([UM, 'imperium-adeptus-custodes'], list(false));
+    expect(warlordIssues(issues)).toEqual([{
+      rule: 'warlord-missing', ...unitAt('Roboute Guilliman'), subject: entry('Roboute Guilliman'), subjects: [entry('Roboute Guilliman')],
+      limit: 1, actual: 0, fix: { kind: 'open', selId: unitAt('Roboute Guilliman').selId },
+    }]);
+    expect(explained.filter((x) => x.rule === 'warlord-missing').map((x) => x.text)).toEqual(['Roboute Guilliman must be your Warlord. Open Roboute Guilliman and turn on "Warlord".']);
+  });
+
+  test('BSData no longer makes these units the Warlord on its own (constraints.json pins)', () => {
+    // Magnus beside an Exalted Sorcerer Warlord: one Warlord, the wrong one.
+    const { issues } = run([TS], onslaught(magnus(), { detachment: PATROL, units: [{ name: 'Exalted Sorcerer', warlord: true }, { name: 'Rubric Marines' }] }));
+    expect(issues.map((i) => i.rule)).toEqual(['warlord-missing']);
+  });
+
+  test('every must-be-Warlord unit can be made the Warlord, and is missing one when it is not', () => {
+    const slugOf = (catalogueName: string) => catalogues.find((c) => c.name === catalogueName)!.slug;
+    /** Army choices a unit needs before it can be added. */
+    const army: Record<string, Record<string, string>> = { 'Abaddon the Despoiler': { Legion: 'Black Legion' }, 'Commander Farsight': { 'Sept Choice': 'Farsight Enclaves' } };
+    for (const m of policy.mustBeWarlord) {
+      const slug = slugOf(m.catalogueName);
+      // Lords of War go in a Super-Heavy Auxiliary Detachment, HQs in a Patrol (other slot rules aren't checked here).
+      const list = (warlord: boolean) => {
+        for (const detachment of [PATROL, SUPER_HEAVY_AUX]) {
+          try {
+            const scope = realScope(slug);
+            return validate(scope, buildFromSpec(scope, realCatalogueId(slug), onslaught({ detachment, army: army[m.entryName], units: [{ name: m.entryName, warlord }] })), policy).issues;
+          } catch (e) {
+            if (!String(e).includes('not found')) throw e;
+          }
+        }
+        throw new Error(`${m.entryName} fits no detachment`);
+      };
+      expect(warlordIssues(list(true)), m.entryName).toEqual([]);
+      expect(warlordIssues(list(false)).map((i) => [i.rule, i.subject.name]), m.entryName).toEqual([['warlord-missing', m.entryName]]);
+    }
+  });
+
+  test('must-be-warlord.json ships in policy.json and its names are checked at build', () => {
+    expect(policy.mustBeWarlord.map((m) => m.entryName)).toEqual(expect.arrayContaining(['Magnus the Red', 'Mortarion', 'Abaddon the Despoiler', 'Angron']));
+    const files = realFiles(...catalogues.map((c) => c.slug));
+    const withEntries = (entries: unknown) => {
+      const dir = mkdtempSync(join(tmpdir(), 'recruit-overrides-'));
+      cpSync(join(import.meta.dirname, '..', 'overrides'), dir, { recursive: true });
+      writeFileSync(join(dir, 'must-be-warlord.json'), JSON.stringify(entries));
+      return () => loadPolicy(dir, files);
+    };
+    const magnusEntry = entry('Magnus the Red').id;
+    expect(withEntries([{ catalogueName: 'No Such Army', entryId: magnusEntry, entryName: 'Magnus the Red', source: 't' }])).toThrow('must-be-warlord.json (Magnus the Red) names unknown catalogue "No Such Army"');
+    expect(withEntries([{ catalogueName: 'Chaos - Thousand Sons', entryId: magnusEntry, entryName: 'Mortarion', source: 't' }])).toThrow('must-be-warlord.json (Mortarion): "Mortarion" is not root entry');
   });
 });

@@ -111,6 +111,13 @@ function textFor(ctx: Ctx): string {
       return `You've spent ${num(limit - actual)} CP more than you have. Remove a detachment or an upgrade that costs CP.`;
     case 'warlord-missing': {
       const fix = issue.fix;
+      // A unit that must be the Warlord (policy): one of `subjects` must be.
+      if (issue.subjects?.length) {
+        const names = issue.subjects.map((s) => clean(s.name));
+        return names.length === 1
+          ? `${names[0]} must be your ${WARLORD}. Open ${names[0]} and turn on "${WARLORD}".`
+          : `${orList(names)} must be your ${WARLORD}. Open one of them and turn on "${WARLORD}".`;
+      }
       if (fix?.kind !== 'open') return `Choose a Warlord. Add a Character, then turn on "${name}" on it.`;
       return `Choose a Warlord. Open a Character such as ${selUnitName(ctx, fix.selId)} and turn on "${warlordOption(ctx, fix.selId)}".`;
     }

@@ -55,4 +55,9 @@ export interface Issue {
   limit: number; actual: number; fix?: Fix;
   /** BSData constraint issues: the constraint's scope key (`roster`, `force`, `parent`, `self`, or an id), which says what its count covers. */
   scope?: string;
+  /**
+   * A policy `warlord-missing` for units that must be the Warlord (must-be-warlord.json): those units in the army, any
+   * one of which may be the Warlord (`subject` is the first). Absent on BSData's own "no Warlord" issue.
+   */
+  subjects?: { id: string; name: string }[];
 }

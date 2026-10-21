@@ -1,8 +1,9 @@
 /**
- * World Eaters. Points and PL: Wahapedia snapshot (Datasheets.power_points, Datasheets_models.Cost × models,
- * Datasheets_wargear.cost). Rules: research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §6 (Heroic
- * Support), §7.5 (Arks of Omen Detachment; World Eaters may ally a Khorne-only Legiones Daemonica Patrol); Codex: World
- * Eaters (03_Codexes/Chaos/World_Eaters.md §2: Chosen of Khorne; §6: Angron must be Warlord).
+ * World Eaters. Points and PL: Wahapedia snapshot (Datasheets.power_points; Datasheets.Cost for per-unit costs,
+ * otherwise Datasheets_models.Cost × models; Datasheets_wargear.cost). Rules: research library
+ * 01_Core_Rules/Army_Building_Detachments_and_CP.md §6 (Heroic Support), §7.5 (Arks of Omen Detachment; World Eaters
+ * may ally a Khorne-only Legiones Daemonica Patrol); Codex: World Eaters (03_Codexes/Chaos/World_Eaters.md §2: Chosen of
+ * Khorne; §6: Angron must be Warlord).
  *
  * Daemonic Pact (03_Codexes/Chaos/Chaos_Daemons.md §2): a Daemons detachment of at most 25% of the army's Power Level
  * gains AGENT OF CHAOS, so it doesn't break the Blood Tithe. It gates that benefit, not legality; the legal list keeps
@@ -61,12 +62,12 @@ export default {
       expectRules: ['unique'],
     },
     {
-      // Codex §6: Angron must be the Warlord, so he is the Warlord as soon as he is added, and the Lord on
-      // Juggernaut's Warlord is a second one.
+      // Codex §6: Angron must be the Warlord, and no other unit here has a rule to that effect, so the Lord on
+      // Juggernaut can't be the Warlord: Angron's Warlord is missing.
       title: 'Angron beside a Lord on Juggernaut Warlord',
       battleSize: 'strike-force',
       detachments: [{ detachment: AOO, army: WE_ARMY, units: [LORD, ...THREE_BERZERKERS, { name: 'Angron' }] }],
-      expectRules: ['warlord-extra'],
+      expectRules: ['warlord-missing'],
     },
   ],
 } satisfies CatalogueCorpus;

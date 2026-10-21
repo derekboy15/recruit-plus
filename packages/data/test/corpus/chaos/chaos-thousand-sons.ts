@@ -63,12 +63,12 @@ export default {
       expectRules: ['other'],
     },
     {
-      // Daemon Primarch (Wahapedia 000001031): Magnus must be the Warlord of a Battle-forged army, so he is the Warlord
-      // as soon as he is added, and the Exalted Sorcerer's Warlord is a second one.
+      // Daemon Primarch (Wahapedia 000001031): Magnus must be the Warlord of a Battle-forged army, and no other unit
+      // here has a rule to that effect, so the Exalted Sorcerer can't be the Warlord: Magnus's Warlord is missing.
       title: 'Magnus the Red beside an Exalted Sorcerer Warlord',
       battleSize: 'strike-force',
       detachments: [{ detachment: AOO, units: [SORCERER, ...THREE_RUBRICS, { name: 'Magnus the Red' }] }],
-      expectRules: ['warlord-extra'],
+      expectRules: ['warlord-missing'],
     },
   ],
 } satisfies CatalogueCorpus;
