@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { addUnit, armyOptions, availableUnits, FORCE, removeSelection, type BattleSizeId, type Roster } from '@recruit/data/roster';
+import { addUnit, armyOptions, availableUnits, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster } from '@recruit/data/roster';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
@@ -38,10 +38,10 @@ async function necronsList(size: BattleSizeId = 'strike-force', edit: (r: Roster
   return createList(createRepository(db), 'user-1', listData(scope, policy, roster, index.catalogues.find((c) => c.id === NECRONS)!));
 }
 
-function renderEditor(id: string) {
+function renderEditor(id: string, search = '') {
   return render(
     <StorageProvider db={db}>
-      <MemoryRouter initialEntries={[`/build/${id}`]}>
+      <MemoryRouter initialEntries={[`/build/${id}${search}`]}>
         <Routes>
           <Route path="/build/:id" element={<ListEditorPage />} />
           <Route path="/factions/:slug/units/:unitSlug" element={<p>Datasheet page</p>} />
@@ -319,4 +319,21 @@ test('an item the rules data no longer has is shown with a Remove button', async
 test('a list that does not exist says so', async () => {
   renderEditor('00000000-0000-4000-8000-000000000001');
   expect(await screen.findByText(/couldn.t find this list/i)).toBeInTheDocument();
+});
+
+test('the Game Type and Battle Size the app sets open read-only', async () => {
+  const scope = await getRosterScope(['necrons']);
+  let gameType = '';
+  const id = await necronsList('strike-force', (r) => {
+    const cp = setBattleSize(scope, r, 'combat-patrol');
+    gameType = evaluate(scope, cp).forces[0].selections.find((v) => v.name === 'Game Type')!.sel.id;
+    return cp;
+  });
+  renderEditor(id, `?unit=${gameType}`);
+  const editor = await screen.findByRole('dialog', { name: 'Game Type' }, { timeout: 5000 });
+  expect(editor).toHaveTextContent('Set by the battle size.');
+  expect(editor).toHaveTextContent('1. Eternal War');
+  expect(within(editor).queryAllByRole('radio')).toEqual([]);
+  expect(within(editor).queryAllByRole('checkbox')).toEqual([]);
+  expect(within(editor).queryByRole('button', { name: /Remove/ })).not.toBeInTheDocument();
 });

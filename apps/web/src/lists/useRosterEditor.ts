@@ -23,12 +23,14 @@ import {
   type Roster,
   type RosterView,
   type Scope,
+  type Sel,
 } from '@recruit/data/roster';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { getIndex, getPolicy, getRosterScope } from '../factions/dataClient';
 import { useStorage } from '../storage/StorageContext';
 import type { Doc } from '../storage/types';
 import type { ListData } from './listStore';
+import { isAutoManagedEntry } from './editorView';
 import { applyPicks, listData, type ArmyChoice } from './newListSetup';
 import { dropPending, keepPending, recoverPending } from './pendingEdits';
 
@@ -109,7 +111,7 @@ function dataToSave(l: Loaded, roster: Roster): ListData {
 }
 
 /** Applies one edit (everything but apply-fix, and add-force when the scope lacks its catalogue). Pure. */
-export function applyAction(scope: Scope, r: Roster, a: EditorAction): { roster: Roster; selId?: string } {
+export function applyAction(scope: Scope, r: Roster, a: Exclude<EditorAction, { type: 'apply-fix' }>): { roster: Roster; selId?: string } {
   switch (a.type) {
     case 'add-unit': {
       const out = addUnit(scope, r, a.forceSelId, a.entryId);
@@ -129,7 +131,6 @@ export function applyAction(scope: Scope, r: Roster, a: EditorAction): { roster:
     case 'battle-size': return { roster: setBattleSize(scope, r, a.size) };
     case 'rename': return { roster: r.name === a.name ? r : { ...r, name: a.name } };
     case 'army-choice': return { roster: applyPicks(scope, r, [a.choice], { [a.choice.key]: a.optionId }) };
-    case 'apply-fix': return { roster: r };
   }
 }
 
@@ -291,7 +292,8 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
 
 /**
  * Turns a fix into an edit. Several candidate units open the picker; a single one is added (and opened when it is a
- * unit rather than an army choice such as Battle Size); "open" opens the unit.
+ * unit rather than an army choice such as Battle Size); "open" opens the unit, unless it is a choice the app sets itself
+ * (Game Type, Battle Size, Detachment Command Cost).
  */
 function applyFix(scope: Scope, r: Roster, fix: Fix, commit: (r: Roster) => void, ui: EditorUi | undefined): string | undefined {
   switch (fix.kind) {
@@ -313,8 +315,12 @@ function applyFix(scope: Scope, r: Roster, fix: Fix, commit: (r: Roster) => void
     case 'set-count':
       commit(setCount(scope, r, fix.selId, fix.count));
       return undefined;
-    case 'open':
-      ui?.openUnit(fix.selId);
+    case 'open': {
+      const root = r.forces.flatMap((f) => f.selections).find((s) => s.id === fix.selId || holds(s, fix.selId));
+      if (!root || !isAutoManagedEntry(scope, root.entryId)) ui?.openUnit(fix.selId);
       return undefined;
+    }
   }
 }
+
+const holds = (s: Sel, id: string): boolean => s.children.some((c) => c.id === id || holds(c, id));

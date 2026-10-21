@@ -1,7 +1,7 @@
-import { childOptions, COST_PTS, findSelView, type Issue, type OptionNode, type Roster, type RosterView, type Scope } from '@recruit/data/roster';
+import { childOptions, COST_PTS, findSelView, type Issue, type OptionNode, type Roster, type RosterView, type Scope, type SelView } from '@recruit/data/roster';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { fmt, isArmyOption, issuesOfUnit, plural, unitName } from './editorView';
+import { fmt, isArmyOption, isAutoManaged, issuesOfUnit, plural, unitName } from './editorView';
 import { IssueList } from './IssuesPanel';
 import { OptionList, type OptionCtx } from './OptionControls';
 import { Panel } from './Panel';
@@ -38,6 +38,7 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
   const nodes = optionsOf(selId);
   const info = unitInfo(scope, units, v.sel.entryId);
   const armyChoice = v.merged !== null && isArmyOption(scope, v);
+  const managed = v.merged !== null && isAutoManaged(v);
   const pts = v.total[COST_PTS] ?? 0;
   const remove = () => {
     dispatch({ type: 'remove', selId });
@@ -55,7 +56,16 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
           <IssueList issues={own} view={view} scope={scope} dispatch={dispatch} openUnitId={selId} />
         </div>
       )}
-      {nodes.length === 0 ? (
+      {managed ? (
+        <>
+          <ul className="managed-choices">
+            {chosen(v).map((name, i) => (
+              <li key={i}>{name}</li>
+            ))}
+          </ul>
+          <p className="muted">Set by the battle size.</p>
+        </>
+      ) : nodes.length === 0 ? (
         <p className="muted">{v.merged ? 'Nothing to choose for this one.' : 'This item isn’t in the current rules data.'}</p>
       ) : (
         <OptionList ctx={ctx} selId={selId} nodes={nodes} room={Infinity} spare={Infinity} depth={0} />
@@ -71,7 +81,7 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
             Duplicate unit
           </button>
         )}
-        {!armyChoice && (
+        {!armyChoice && !managed && (
           <button type="button" className="btn btn--danger" onClick={remove}>
             Remove unit
           </button>
@@ -80,3 +90,6 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
     </Panel>
   );
 }
+
+/** The names of what is chosen inside a selection, innermost choices included ("Matched", "1. Eternal War"). */
+const chosen = (v: SelView): string[] => v.children.flatMap((c) => [unitName(c.name), ...chosen(c)]);

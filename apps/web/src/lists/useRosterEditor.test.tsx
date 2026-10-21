@@ -221,3 +221,16 @@ test('battle size and detachments: switching size keeps the units; an allied det
   act(() => result.current.dispatch({ type: 'remove-force', forceSelId: allied.id }));
   expect(ready(result.current).roster.forces).toHaveLength(1);
 });
+
+test('Arks of Omen → Combat Patrol: the detachment is the problem, and the Game Type the app sets never opens for editing', async () => {
+  const id = await necronsList();
+  const ui = { openUnit: vi.fn(), openPicker: vi.fn() };
+  const { result } = await openEditor(id, ui);
+  act(() => result.current.dispatch({ type: 'battle-size', size: 'combat-patrol' }));
+  const { view, issues } = ready(result.current);
+  expect(issues.filter((i) => i.rule === 'detachment-not-allowed')).toHaveLength(1);
+  const gameType = view.forces[0].selections.find((v) => v.name === 'Game Type')!;
+  expect(issues.filter((i) => i.selId === gameType.sel.id || (i.fix?.kind === 'open' && i.fix.selId === gameType.sel.id))).toEqual([]);
+  act(() => result.current.dispatch({ type: 'apply-fix', fix: { kind: 'open', selId: gameType.sel.id } }));
+  expect(ui.openUnit).not.toHaveBeenCalled();
+});

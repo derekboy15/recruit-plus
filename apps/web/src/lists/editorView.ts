@@ -1,9 +1,7 @@
 /** Pure helpers for the list editor's screens: number formatting, units by role, and which units have problems. No React. */
 import { BATTLEFIELD_ROLES } from '@recruit/data/model';
 import {
-  BATTLE_SIZE_ENTRY,
-  DETACHMENT_COMMAND_COST_ENTRY,
-  GAME_TYPE_ENTRY,
+  AUTO_MANAGED_ENTRIES,
   displayName,
   findSelView,
   resolve,
@@ -29,8 +27,8 @@ export const unitName = (name: string) => displayName(name.replace(LEGENDS_TAG, 
 
 const CONFIGURATION = 'Configuration';
 const STRATAGEMS = 'Stratagems';
-/** Army-wide entries the app sets itself: never shown as something to edit. */
-const AUTO_MANAGED = new Set([GAME_TYPE_ENTRY, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY]);
+/** Army-wide entries the app sets itself (Game Type, Battle Size, Detachment Command Cost): never edited by the player. */
+const AUTO_MANAGED = new Set(AUTO_MANAGED_ENTRIES);
 
 export const roleOf = (scope: Scope, v: SelView): string | null => (v.primary ? (scope.category(v.primary)?.name ?? null) : null);
 /** Configuration or Stratagems: army choices, not units. */
