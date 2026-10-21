@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { FactionGroup, UnitOut } from '../model/types';
+import type { BattlefieldRole, FactionGroup, UnitOut } from '../model/types';
 import { htmlToText, normalizeName } from '../text';
 import type { Row, Wahapedia } from '../wahapedia/load';
 
@@ -57,6 +57,18 @@ export function matchKeys(name: string): string[] {
   const k3 = k2.replace(/s$/, '');
   return [...new Set([k0, k1, k2, k3])];
 }
+
+const WAHAPEDIA_ROLES: Record<string, BattlefieldRole> = {
+  HQ: 'HQ',
+  Troops: 'Troops',
+  Elites: 'Elites',
+  'Fast Attack': 'Fast Attack',
+  'Heavy Support': 'Heavy Support',
+  Flyers: 'Flyer',
+  'Dedicated Transport': 'Dedicated Transport',
+  'Lords of War': 'Lord of War',
+  Fortifications: 'Fortification',
+};
 
 /** Lookup tables built once per Wahapedia snapshot. */
 const cache = new WeakMap<Wahapedia, ReturnType<typeof buildLookups>>();
@@ -121,6 +133,8 @@ export function joinWahapedia(
     return {
       ...u,
       abilities,
+      // BSData sometimes sets the role only through conditional modifiers; Wahapedia always has it.
+      role: u.role ?? WAHAPEDIA_ROLES[ds.role] ?? null,
       wahapediaId: ds.id,
       points: ds.cost_per_unit === 'true' && ds.Cost !== '' ? Number(ds.Cost) : minimumPoints(models, u.minModels),
       baseSize: models.find((m) => m.base_size)?.base_size ?? null,

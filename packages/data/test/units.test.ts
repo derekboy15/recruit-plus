@@ -5,7 +5,8 @@ import { loadGameData, isPlayableCatalogue } from '../src/bsdata/gamedata';
 import { extractUnits } from '../src/extract/units';
 
 const gd = loadGameData(join(__dirname, '..', 'raw', 'bsdata'));
-const byName = (name: string) => [...gd.catalogues.values()].find((c) => c.name === name)!.id;
+const byNameCat = (name: string) => [...gd.catalogues.values()].find((c) => c.name === name)!;
+const byName = (name: string) => byNameCat(name).id;
 
 describe('Necron Warriors', () => {
   const warriors = extractUnits(gd, byName('Necrons')).find((u) => u.name === 'Necron Warriors')!;
@@ -44,6 +45,39 @@ test('libraries are not playable; chapter catalogues are', () => {
   expect(playable).toContain('Imperium - Adeptus Astartes - Ultramarines');
   expect(playable).not.toContain('Imperium - Space Marines');
   expect(playable).not.toContain('Aeldari - Aeldari Library');
+});
+
+test('Death Korps and Elysian units imported into Astra Militarum are flagged Forge World', () => {
+  const am = extractUnits(gd, byName('Imperium - Astra Militarum'));
+  const fwIds = new Set(
+    ['Imperium - Death Korps of Krieg', 'Imperium - Elysian Drop Troops'].flatMap((n) =>
+      byNameCat(n).root.children.filter((c) => c.tag === 'entryLinks' || c.tag === 'selectionEntries').flatMap((c) => c.children).map((e) => e.attrs.targetId ?? e.attrs.id),
+    ),
+  );
+  const fwUnits = am.filter((u) => fwIds.has(u.id));
+  expect(fwUnits.length).toBeGreaterThan(10);
+  expect(fwUnits.filter((u) => !u.forgeWorld).map((u) => u.name)).toEqual([]);
+  expect(am.find((u) => u.name === 'Infantry Squad')?.forgeWorld).toBe(false);
+});
+
+test('hidden root entries and Crusade honours never appear as units', () => {
+  for (const cat of [...gd.catalogues.values()].filter(isPlayableCatalogue)) {
+    const hiddenRootIds = cat.root.children
+      .filter((c) => c.tag === 'entryLinks' || c.tag === 'selectionEntries')
+      .flatMap((c) => c.children)
+      .filter((e) => e.attrs.hidden === 'true')
+      .map((e) => e.attrs.targetId ?? e.attrs.id);
+    const visibleRootIds = cat.root.children
+      .filter((c) => c.tag === 'entryLinks' || c.tag === 'selectionEntries')
+      .flatMap((c) => c.children)
+      .filter((e) => e.attrs.hidden !== 'true')
+      .map((e) => e.attrs.targetId ?? e.attrs.id);
+    for (const u of extractUnits(gd, cat.id)) {
+      expect(/battle honours|crusade/i.test(u.name), u.name).toBe(false);
+    }
+    const ownUnitIds = new Set(extractUnits(gd, cat.id).map((u) => u.id));
+    for (const id of hiddenRootIds) if (!visibleRootIds.includes(id)) expect(ownUnitIds.has(id), `${cat.name}: hidden root ${id}`).toBe(false);
+  }
 });
 
 describe('every playable catalogue', () => {

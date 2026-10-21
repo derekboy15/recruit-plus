@@ -6,13 +6,25 @@ import { slugify } from '../text';
 /** Option groups that are list-building extras, not part of the datasheet itself. */
 const SKIP_GROUP = /^(battle honours|battle scars|crusade|relics?|warlord traits?|stratagems?|agendas|specialist|enhancements?)\b/i;
 
+/** Forge World (Imperial Armour) catalogues; their internal names don't always say "FW". */
+const FORGE_WORLD_CATALOGUES = new Set([
+  'Imperium - Death Korps of Krieg',
+  'Imperium - Elysian Drop Troops',
+  'Imperium - FW Adeptus Astartes',
+  'Chaos - FW Heretic Astartes',
+  'Imperium - Titan Legions',
+  'Chaos - Chaos Titan Legions',
+]);
+const isForgeWorldCatalogue = (c: RawCatalogue) => FORGE_WORLD_CATALOGUES.has(c.name) || c.name.includes('FW ');
+
 const child = (n: RawNode, tag: string) => n.children.find((c) => c.tag === tag);
 const kids = (n: RawNode, tag: string) => child(n, tag)?.children ?? [];
 
-function rootEntries(gd: GameData, cat: RawCatalogue, seen = new Set<string>()): RawNode[] {
+/** Root entries a player can pick, with the catalogue each one comes from. */
+function rootEntries(gd: GameData, cat: RawCatalogue, seen = new Set<string>()): { node: RawNode; source: RawCatalogue }[] {
   if (seen.has(cat.id)) return [];
   seen.add(cat.id);
-  const own = [...kids(cat.root, 'entryLinks'), ...kids(cat.root, 'selectionEntries')];
+  const own = [...kids(cat.root, 'entryLinks'), ...kids(cat.root, 'selectionEntries')].map((node) => ({ node, source: cat }));
   const imported = cat.links
     .filter((l) => l.importRootEntries)
     .flatMap((l) => {
@@ -136,7 +148,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
 
   const units: UnitOut[] = [];
   const seenIds = new Set<string>();
-  for (const root of rootEntries(gd, cat)) {
+  for (const { node: root, source } of rootEntries(gd, cat)) {
     const target = resolve(root);
     if (!target) continue;
     const name = target.attrs.name;
@@ -181,7 +193,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       baseSize: null,
       wahapediaId: null,
       legends: /\[legends\]/i.test(name),
-      forgeWorld: cat.name.includes('FW ') || /imperial armour/i.test(publication),
+      forgeWorld: isForgeWorldCatalogue(cat) || isForgeWorldCatalogue(source) || /imperial armour/i.test(publication),
     });
   }
   return units;

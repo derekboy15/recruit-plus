@@ -76,3 +76,9 @@ test('units whose model lines are all optional cost minimum models x cheapest mo
   for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue))
     for (const u of joined(c.name).units) expect(u.points, `${c.name}: ${u.name}`).not.toBe(0);
 });
+
+test('units without a BSData primary role take the Wahapedia role', () => {
+  expect(unit('Chaos - Death Guard', 'Mortarion').role).toBe('Lord of War');
+  for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue))
+    for (const u of joined(c.name).units) if (u.wahapediaId) expect(u.role, `${c.name}: ${u.name}`).not.toBeNull();
+});
