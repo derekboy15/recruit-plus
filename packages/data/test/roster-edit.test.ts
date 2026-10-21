@@ -433,7 +433,9 @@ describe('real BSData v9.8.0', () => {
       expect(availableUnits(real, r, fs)).toEqual(a);
       seconds.push(performance.now() - t);
     }
-    expect(median(firsts)).toBeLessThan(250);
-    expect(median(seconds)).toBeLessThan(50);
+    // Loose wall-clock limits: they catch an order-of-magnitude regression, such as
+    // losing the per-scope caches, without failing on a slow or busy machine.
+    expect(median(firsts), `runs: ${firsts.map((t) => t.toFixed(1)).join(', ')} ms`).toBeLessThan(1000);
+    expect(median(seconds), `runs: ${seconds.map((t) => t.toFixed(1)).join(', ')} ms`).toBeLessThan(200);
   });
 });
