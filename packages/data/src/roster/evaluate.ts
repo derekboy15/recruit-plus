@@ -443,7 +443,8 @@ const candidateIs = (m: Merged, childId: string) => m.ids.includes(childId) || m
 /** instanceOf for a scope key; null when the scope doesn't exist (the condition is then false either way). */
 function instanceOf(ctx: EvalContext, key: string, childId: string): boolean | null {
   const { at, candidate, view } = ctx;
-  if (key === 'primary-catalogue') return view.roster.catalogueId === childId;
+  // An allied detachment is built as an army of its own catalogue (e.g. an Arks of Omen allied Agents Patrol).
+  if (key === 'primary-catalogue') return (isSel(at) ? at.force : (at as ForceView)).force.catalogueId === childId;
   if (key === 'ancestor') {
     if (!candidate && !isSel(at)) return false; // a force-level owner has no ancestors
     const atSel = isSel(at) ? at : null;

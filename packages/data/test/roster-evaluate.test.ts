@@ -238,6 +238,22 @@ describe('evaluate', () => {
     expect(checkCond(ctx, c('instanceOf', 'force', M.FORCE_BATTALION))).toBe(false);
   });
 
+  test('primary-catalogue in an allied force compares against that force\'s catalogue', () => {
+    // An allied detachment (force catalogue ≠ roster catalogue) is built as its own catalogue's army: BSData's
+    // primary-catalogue conditions there see the ally's catalogue (Arks of Omen allied Agents Patrol, §7.5).
+    const beast = sel(M.E_BEAST);
+    const view = evaluate(scope, roster(force([warriors(10)]), force([beast], M.FORCE_PATROL, M.LIB_ID)));
+    const c = (type: Cond['type'], childId: string): Cond => ({ type, field: 'selections', scope: 'primary-catalogue', childId, value: 0 });
+    const allied = ctxAt(view, find(view, beast.id));
+    expect(checkCond(allied, c('instanceOf', M.LIB_ID))).toBe(true);
+    expect(checkCond(allied, c('instanceOf', M.CAT_ID))).toBe(false);
+    expect(checkCond(allied, c('notInstanceOf', M.CAT_ID))).toBe(true);
+    // A force-level owner and a candidate in the allied force see it too; the primary force still sees the roster's.
+    expect(checkCond({ scope, view, at: view.forces[1] }, c('instanceOf', M.LIB_ID))).toBe(true);
+    expect(checkCond({ scope, view, at: view.forces[1], candidate: resolve(scope, scope.node(M.E_BEAST)!) }, c('instanceOf', M.LIB_ID))).toBe(true);
+    expect(checkCond(ctxAt(view, view.forces[0].selections[0]), c('instanceOf', M.CAT_ID))).toBe(true);
+  });
+
   test('a scope id with no matching ancestor makes the condition false and skips the constraint', () => {
     const l = lord();
     const view = evaluate(scope, roster(force([l])));

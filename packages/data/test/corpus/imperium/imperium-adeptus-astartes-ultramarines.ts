@@ -8,6 +8,8 @@ import type { CatalogueCorpus } from '../spec';
 
 const AOO = 'Arks of Omen Detachment';
 const PATROL = 'Patrol Detachment -2CP';
+const AUXILIARY_SUPPORT = 'Auxiliary Support Detachment -2CP';
+const AGENTS = 'Imperium - Agents of the Imperium';
 const THREE_INTERCESSORS = [{ name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }, { name: 'Intercessor Squad' }];
 
 export default {
@@ -31,6 +33,24 @@ export default {
       }],
       // 100 + 75 + 3 × 90 + 105 + 185 + 60 = 795; PL 6 + 5 + 3 × 5 + 5 + 10 + 4 = 45
       expect: { points: 795, powerLevel: 45 },
+    },
+    {
+      // Arks of Omen allies (§7.5): an IMPERIUM army may take one Agents of the Imperium Auxiliary Support Detachment.
+      // (An Agents Patrol can't be legal: no Agents Troops unit may fill its compulsory Troops slot, see the illegal list.)
+      title: 'Arks of Omen Strike Force with an Agents of the Imperium Auxiliary Support ally',
+      battleSize: 'strike-force',
+      detachments: [
+        {
+          detachment: AOO,
+          units: [
+            { name: 'Primaris Captain', warlord: true }, // 80 (default wargear 0), PL 5
+            ...THREE_INTERCESSORS, // each 18 × 5 = 90, PL 5
+          ],
+        },
+        { detachment: AUXILIARY_SUPPORT, catalogue: AGENTS, units: [{ name: 'Vindicare Assassin' }] }, // 90, PL 5
+      ],
+      // 80 + 3 × 90 + 90 = 440; PL 5 + 3 × 5 + 5 = 25
+      expect: { points: 440, powerLevel: 25 },
     },
   ],
   illegal: [
@@ -78,6 +98,18 @@ export default {
         { detachment: PATROL, catalogue: 'Imperium - Astra Militarum', units: [{ name: 'Platoon Command Squad' }, { name: 'Infantry Squad' }] },
       ],
       expectRules: ['detachment-not-allowed'],
+    },
+    {
+      // An Agents of the Imperium Patrol is a permitted ally (§7.5), but Voidsmen-at-Arms can't fill its compulsory Troops
+      // slot unless it is a NAVIS IMPERIALIS Detachment (Shipborne Personnel, Wahapedia Agents of the Imperium datasheet;
+      // 03_Codexes/Imperium/Imperial_Agents_and_Allies.md), and the Inquisitor isn't NAVIS IMPERIALIS.
+      title: 'Agents of the Imperium Patrol whose only Troops are Voidsmen-at-Arms',
+      battleSize: 'strike-force',
+      detachments: [
+        { detachment: AOO, units: [{ name: 'Primaris Captain', warlord: true }, ...THREE_INTERCESSORS] },
+        { detachment: PATROL, catalogue: AGENTS, units: [{ name: 'HQ > Inquisitor', options: ['Bolt pistol', 'Ordo Hereticus'] }, { name: 'Troops > Voidsmen-at-Arms' }] },
+      ],
+      expectRules: ['slot-min'],
     },
     {
       // Company Command (Codex: Space Marines): at most one CAPTAIN per detachment. BSData's CAPTAIN limit is not a
