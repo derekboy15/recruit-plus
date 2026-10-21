@@ -230,18 +230,21 @@ describe('mini fixture', () => {
   test('constraint overrides pin a constraint at a value: its modifiers are dropped', () => {
     const before = findNode(emitRosterFile(cat, 'mini-faction').shared, 'se-warriors')!;
     expect(before.mods!.some((m) => m.field === 'c-roster')).toBe(true);
-    const pin: ConstraintOverride = { catalogueName: 'Mini Faction', constraintId: 'c-roster', value: 0, source: 'test' };
+    const pin: ConstraintOverride = { catalogueName: 'Mini Faction', entryName: 'Warriors', constraintId: 'c-roster', value: 0, source: 'test' };
     const after = findNode(emitRosterFile(cat, 'mini-faction', { constraints: [pin, { ...pin, catalogueName: 'Other', constraintId: 'nope' }] }).shared, 'se-warriors')!;
-    expect(after.constraints!.find((c) => c.id === 'c-roster')!.value).toBe(0);
+    expect(after.constraints!.find((c) => c.id === 'c-roster')).toMatchObject({ value: 0, scope: 'roster' });
     expect(after.mods!.some((m) => m.field === 'c-roster')).toBe(false);
     expect(after.mods!.length).toBe(before.mods!.length - 1);
-    // Force category link constraints too.
-    const sys = emitRosterFile(gd.system, 'system', { constraints: [{ catalogueName: 'Mini System', constraintId: 'c-f-troops', value: 2, source: 'test' }] });
+    // Force category link constraints too; a category link goes by its category's name.
+    const sys = emitRosterFile(gd.system, 'system', { constraints: [{ catalogueName: 'Mini System', entryName: 'Troops', constraintId: 'c-f-troops', value: 2, source: 'test' }] });
     expect(sys.forces[0].cats[0].constraints![0].value).toBe(2);
   });
 
-  test('constraint overrides throw when no constraint has the id', () => {
-    expect(() => emitRosterFile(cat, 'mini-faction', { constraints: [{ catalogueName: 'Mini Faction', constraintId: 'missing', value: 0, source: 'test' }] })).toThrow(/missing/);
+  test('constraint overrides throw when no constraint has the id, or its owner has another name', () => {
+    const emit = (o: Partial<ConstraintOverride>) => () =>
+      emitRosterFile(cat, 'mini-faction', { constraints: [{ catalogueName: 'Mini Faction', entryName: 'Warriors', constraintId: 'c-roster', value: 0, source: 'test', ...o }] });
+    expect(emit({ constraintId: 'missing' })).toThrow(/missing/);
+    expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
   });
 });
 

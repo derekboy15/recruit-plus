@@ -45,9 +45,16 @@ export interface FactionKeywordOverride {
 /**
  * A BSData constraint pinned at another value (overrides/constraints.json): the constraint `constraintId` in the
  * catalogue's file gets `value`, and its owner's modifiers of that constraint are dropped, so it stays at `value`.
+ * Only the owning node's modifiers are dropped: a modifier of the constraint on any other node (a parent entry, a
+ * link to the owner, another file) still applies.
  */
 export interface ConstraintOverride {
   catalogueName: string;
+  /**
+   * The name of the node owning the constraint (an entry, link, group, category or force; a category link goes by its
+   * category's name), checked at build like the other overrides' entryName.
+   */
+  entryName: string;
   constraintId: string;
   value: number;
   source: string;
@@ -255,19 +262,28 @@ function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, o
   }
 }
 
-function applyConstraintOverrides(file: RosterFile, catalogueName: string, overrides: ConstraintOverride[]): void {
+function applyConstraintOverrides(file: RosterFile, catalogueName: string, overrides: ConstraintOverride[], systemCategories: Map<string, string>): void {
+  const relevant = overrides.filter((x) => x.catalogueName === catalogueName);
+  if (!relevant.length) return;
+  // A category link is named after its category: this file's own, else the .gst's.
+  const categoryNames = new Map([...systemCategories].map(([name, id]) => [id, name]));
+  for (const c of file.categories) categoryNames.set(c.id, c.name);
+  const linkName = (l: CatLink) => categoryNames.get(l.targetId) ?? l.targetId;
   const nodes = [...walk(file.rootEntries), ...walk(file.shared)];
-  const holders: { constraints?: Constraint[]; mods?: Mod[] }[] = [
-    ...nodes,
-    ...nodes.flatMap((n) => n.cats ?? []),
-    ...file.categories,
-    ...file.forces,
-    ...file.forces.flatMap((f) => f.cats),
+  const holders: { name: string; holder: { constraints?: Constraint[]; mods?: Mod[] } }[] = [
+    ...nodes.map((n) => ({ name: n.name, holder: n })),
+    ...nodes.flatMap((n) => n.cats ?? []).map((l) => ({ name: linkName(l), holder: l })),
+    ...file.categories.map((c) => ({ name: c.name, holder: c })),
+    ...file.forces.map((f) => ({ name: f.name, holder: f })),
+    ...file.forces.flatMap((f) => f.cats).map((l) => ({ name: linkName(l), holder: l })),
   ];
-  for (const o of overrides.filter((x) => x.catalogueName === catalogueName)) {
-    const owners = holders.filter((h) => h.constraints?.some((c) => c.id === o.constraintId));
-    if (!owners.length) throw new Error(`Constraint override for "${catalogueName}" names unknown constraint ${o.constraintId}`);
-    for (const h of owners) {
+  for (const o of relevant) {
+    const found = holders.filter((h) => h.holder.constraints?.some((c) => c.id === o.constraintId));
+    if (!found.length) throw new Error(`Constraint override for "${catalogueName}" names unknown constraint ${o.constraintId}`);
+    for (const { name } of found) {
+      if (name !== o.entryName) throw new Error(`Constraint override for "${catalogueName}" constraint ${o.constraintId} expects "${o.entryName}" but found "${name}"`);
+    }
+    for (const { holder: h } of found) {
       h.constraints = h.constraints!.map((c) => (c.id === o.constraintId ? { ...c, value: o.value } : c));
       const mods = (h.mods ?? []).filter((m) => m.field !== o.constraintId);
       if (mods.length) h.mods = mods;
@@ -298,6 +314,6 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   };
   applyCostOverrides(file, cat.name, overrides.costs ?? []);
   applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
-  applyConstraintOverrides(file, cat.name, overrides.constraints ?? []);
+  applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map());
   return file;
 }

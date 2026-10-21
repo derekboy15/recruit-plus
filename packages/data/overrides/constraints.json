@@ -1,66 +1,77 @@
 [
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "65bd-d8de-5b13-9fef",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Uriel Ventris as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "4812-0d8e-f215-66fe",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Marneus Calgar as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "6ed8-f1f4-2c8d-7e5b",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Marneus Calgar [Legends] as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "3948-dfaf-5fec-ebba",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Marneus Calgar in Artificer Armour [Legends] as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "6900-2c8f-845d-a5b8",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Captain Sicarius as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "add7-e379-415c-d118",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Chief Librarian Tigurius as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "aab6-6113-7f37-f144",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Chief Librarian Tigurius [Legends] as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "4c4c-bddc-d605-acd8",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Chaplain Cassius as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "4178-9b94-dc06-1ae1",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Sergeant Chronus as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Ultramarines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "a22f-3066-355c-c9af",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Sergeant Telion as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
   },
   {
     "catalogueName": "Imperium - Space Marines",
+    "entryName": "Stratagem: Warlord Trait",
     "constraintId": "38f0-3538-f9e1-de90",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes the stratagem compulsory on Roboute Guilliman as Warlord (min set to 1); paying it is optional, so the minimum stays 0."
