@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { loadGameData } from '../src/bsdata/gamedata';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
-import { emitRosterFile, type CostOverride } from '../src/roster/emit';
+import { emitRosterFile, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
 import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
 
 const ROOT = join(__dirname, '..');
@@ -128,11 +128,11 @@ describe('mini fixture', () => {
       categories: [],
       forces: [],
     };
-    expect(emitRosterFile(cat, 'mini-faction', [])).toStrictEqual(expected);
+    expect(emitRosterFile(cat, 'mini-faction')).toStrictEqual(expected);
   });
 
   test('library entries drop profiles and keep children', () => {
-    const lib = emitRosterFile(gd.catalogues.get('cat-lib')!, 'mini-library', []);
+    const lib = emitRosterFile(gd.catalogues.get('cat-lib')!, 'mini-library');
     expect(lib.library).toBe(true);
     expect(lib.shared).toStrictEqual([
       {
@@ -147,7 +147,7 @@ describe('mini fixture', () => {
   });
 
   test('system file: categories with modifiers, top-level forces only', () => {
-    const sys = emitRosterFile(gd.system, 'system', []);
+    const sys = emitRosterFile(gd.system, 'system');
     expect(sys.categories).toStrictEqual([
       { id: 'cat-troops', name: 'Troops' },
       { id: 'cat-core', name: 'Core', hidden: true, mods: [{ type: 'set', field: 'name', value: 'Core Units' }] },
@@ -186,13 +186,45 @@ describe('mini fixture', () => {
   };
 
   test('cost overrides replace one cost on the matching node', () => {
-    const out = emitRosterFile(cat, 'mini-faction', [override({}), override({ catalogueName: 'Other', entryId: 'nope' })]);
+    const out = emitRosterFile(cat, 'mini-faction', { costs: [override({}), override({ catalogueName: 'Other', entryId: 'nope' })] });
     expect(findNode(out.shared, 'el-model')!.costs).toEqual({ [COST_PTS]: 12, [COST_PL]: 0 });
   });
 
   test('cost overrides throw when no node matches or the name differs', () => {
-    expect(() => emitRosterFile(cat, 'mini-faction', [override({ entryId: 'missing' })])).toThrow(/missing/);
-    expect(() => emitRosterFile(cat, 'mini-faction', [override({ entryName: 'Wrong' })])).toThrow(/Wrong/);
+    expect(() => emitRosterFile(cat, 'mini-faction', { costs: [override({ entryId: 'missing' })] })).toThrow(/missing/);
+    expect(() => emitRosterFile(cat, 'mini-faction', { costs: [override({ entryName: 'Wrong' })] })).toThrow(/Wrong/);
+  });
+
+  const factionOverride = (o: Partial<FactionKeywordOverride>): FactionKeywordOverride => ({
+    catalogueName: 'Mini Faction',
+    entryId: 'el-unit',
+    entryName: 'Warriors',
+    add: ['Imperium'],
+    source: 'test',
+    ...o,
+  });
+  const systemCategories = new Map([['Faction: Imperium', 'cat-faction-imperium'], ['Faction: Mini', 'cat-faction-mini']]);
+
+  test('faction keyword overrides add a link to each Faction category, once', () => {
+    const out = emitRosterFile(cat, 'mini-faction', {
+      factionKeywords: [factionOverride({ add: ['Imperium', 'Mini'] }), factionOverride({}), factionOverride({ catalogueName: 'Other', entryId: 'nope' })],
+      systemCategories,
+    });
+    expect(findNode(out.rootEntries, 'el-unit')!.cats).toEqual([
+      { id: 'cl-troops', targetId: 'cat-troops', primary: true },
+      { id: 'el-unit-faction-cat-faction-imperium', targetId: 'cat-faction-imperium' },
+      { id: 'el-unit-faction-cat-faction-mini', targetId: 'cat-faction-mini' },
+    ]);
+    // A shared entry works too.
+    const shared = emitRosterFile(cat, 'mini-faction', { factionKeywords: [factionOverride({ entryId: 'se-warriors' })], systemCategories });
+    expect(findNode(shared.shared, 'se-warriors')!.cats).toContainEqual({ id: 'se-warriors-faction-cat-faction-imperium', targetId: 'cat-faction-imperium' });
+  });
+
+  test('faction keyword overrides throw on an unknown entry, a different name or an unknown faction', () => {
+    const emit = (o: Partial<FactionKeywordOverride>) => () => emitRosterFile(cat, 'mini-faction', { factionKeywords: [factionOverride(o)], systemCategories });
+    expect(emit({ entryId: 'missing' })).toThrow(/missing/);
+    expect(emit({ entryName: 'Wrong' })).toThrow(/Wrong/);
+    expect(emit({ add: ['Chaos'] })).toThrow(/Faction: Chaos/);
   });
 });
 

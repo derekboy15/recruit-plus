@@ -93,13 +93,18 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
-  for (const o of overrides.costs) {
-    if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`Cost override names unknown catalogue "${o.catalogueName}"`);
+  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords]] as const) {
+    for (const o of list) if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`${file} names unknown catalogue "${o.catalogueName}"`);
+  }
+  // The .gst's category ids by name: faction-keywords.json links units to its "Faction: …" categories.
+  const systemCategories = new Map<string, string>();
+  for (const c of gd.system.root.children.find((n) => n.tag === 'categoryEntries')?.children ?? []) {
+    if (!systemCategories.has(c.attrs.name)) systemCategories.set(c.attrs.name, c.attrs.id);
   }
   const rosterFiles: RosterFile[] = [];
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
-    const file = emitRosterFile(cat, slug, overrides.costs);
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, systemCategories });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }

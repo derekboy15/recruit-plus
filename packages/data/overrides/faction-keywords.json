@@ -1,0 +1,228 @@
+[
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "entryId": "b565-a6d8-adb6-35c3",
+    "entryName": "Aleya",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002088 \"Aleya\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-custodes/Aleya) faction keywords: Anathema Psykana, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "entryId": "0f91-c29e-36a2-fcfb",
+    "entryName": "Knight-Centura",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002520 \"Knight-Centura\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-custodes/Knight-Centura) faction keywords: Anathema Psykana, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "entryId": "fc70-52eb-bb34-38db",
+    "entryName": "Valerian",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002519 \"Valerian\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-custodes/Valerian) faction keywords: <Shield Host>, Adeptus Custodes, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "entryId": "3a14-47c3-52c0-aafe",
+    "entryName": "Retributor Squad",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000908 \"Retributor Squad\" (https://wahapedia.ru/wh40k9ed/factions/adepta-sororitas/Retributor-Squad) faction keywords: <Order>, Adepta Sororitas, Adeptus Ministorum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Agents of the Imperium",
+    "entryId": "bf77-3f4b-06af-6874",
+    "entryName": "Exaction Squad",
+    "add": [
+      "Imperium",
+      "Agents of the Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002685 \"Exaction Squad\" (https://wahapedia.ru/wh40k9ed/factions/agents-of-the-imperium/Exaction-Squad) faction keywords: Adeptus Arbites, Agents of the Imperium, Imperium. BSData v9.8.0 has neither \"Faction: Imperium\" nor \"Faction: Agents of the Imperium\" on this entry (both added so it shares a faction with the rest of an Agents detachment; ADEPTUS ARBITES is a catalogue category, not a .gst one, and is left out)."
+  },
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "entryId": "c42a-7105-cd0c-eb7c",
+    "entryName": "Hecaton Aiakos",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001226 \"Hecaton Aiakos\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Hecaton-Aiakos) faction keywords: Adeptus Astartes, Imperium, Minotaurs. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Warhammer 40,000 9th Edition",
+    "entryId": "732b-967e-1bca-5846",
+    "entryName": "Terrax-Pattern Termite",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001527 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/space-marines/Terrax-pattern-Termite) faction keywords: <Chapter>, Adeptus Astartes, Imperium; datasheet 000001533 \"Terrax-pattern Termite\" (https://wahapedia.ru/wh40k9ed/factions/adeptus-mechanicus/Terrax-pattern-Termite) faction keywords: <Forge World>, Adeptus Mechanicus, Imperium, Skitarii. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "9fa6-55d9-1828-f1fd",
+    "entryName": "Cadian Castellan",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002607 \"Cadian Castellan\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Cadian-Castellan) faction keywords: Astra Militarum, Cadian, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "b574-8a55-28b7-d3af",
+    "entryName": "Militarum Tempestus Command Squad",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000719 \"Militarum Tempestus Command Squad\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Militarum-Tempestus-Command-Squad) faction keywords: Astra Militarum, Imperium, Militarum Tempestus. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Death Korps of Krieg",
+    "entryId": "c755-a449-37ca-0ea1",
+    "entryName": "Combat Engineer Squad",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002388 \"Combat Engineer Squad\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Combat-Engineer-Squad) faction keywords: Astra Militarum, Brood Brothers, Imperium, Krieg. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "d71c-2b53-db5c-ea8d",
+    "entryName": "Munitorum Servitors",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001397 \"Munitorum Servitors\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Munitorum-Servitors) faction keywords: Astra Militarum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "a199-6389-37b7-a98b",
+    "entryName": "Salamander Scout Tanks [Legends]",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000735 \"Salamander Scout Tanks\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Salamander-Scout-Tanks) faction keywords: <Regiment>, Astra Militarum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "bd61-4342-404e-f96a",
+    "entryName": "Colossus Bombard",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000740 \"Colossus Bombards\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Colossus-Bombards) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "3aee-2364-7209-d071",
+    "entryName": "Earthshaker Carriage Battery",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000743 \"Earthshaker Carriage Battery\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Earthshaker-Carriage-Battery) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "bb49-7670-aa08-2295",
+    "entryName": "Griffon Mortar Carrier [Legends]",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000744 \"Griffon Mortar Carrier\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Griffon-Mortar-Carrier) faction keywords: <Regiment>, Astra Militarum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "1b9b-e38b-7392-1e51",
+    "entryName": "Heavy Mortar Battery",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000745 \"Heavy Mortar Battery\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Heavy-Mortar-Battery) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "3a29-0727-56ae-4333",
+    "entryName": "Heavy Quad Launcher Battery",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000746 \"Heavy Quad Launcher Battery\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Heavy-Quad-Launcher-Battery) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "44db-50c3-3415-8580",
+    "entryName": "Malcador Annihilator",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000751 \"Malcador Annihilator\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Malcador-Annihilator) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "69ec-86aa-7f3c-9228",
+    "entryName": "Malcador Defender",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000752 \"Malcador Defender\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Malcador-Defender) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "432c-de91-89fc-b8d9",
+    "entryName": "Medusa Carriage Battery",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000756 \"Medusa Carriage Battery\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Medusa-Carriage-Battery) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "8cb0-121e-770d-b5b4",
+    "entryName": "Macharius",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000769 \"Macharius\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Macharius) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "31f1-b9db-415e-9dd7",
+    "entryName": "Macharius Omega [Legends]",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000770 \"Macharius Omega\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Macharius-Omega) faction keywords: <Regiment>, Astra Militarum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "2f94-355e-3cbb-4ad1",
+    "entryName": "Macharius Vanquisher",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000771 \"Macharius Vanquisher\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Macharius-Vanquisher) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "edf2-c17e-07bd-7b92",
+    "entryName": "Macharius Vulcan",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000772 \"Macharius Vulcan\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Macharius-Vulcan) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum",
+    "entryId": "d392-c637-8b56-98f7",
+    "entryName": "Minotaur",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000775 \"Minotaur\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Minotaur) faction keywords: Astra Militarum, Brood Brothers, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this link."
+  }
+]

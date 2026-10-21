@@ -30,6 +30,26 @@ export interface CostOverride {
   source: string;
 }
 
+/**
+ * Faction keywords BSData leaves off a unit (overrides/faction-keywords.json): each name in `add` (without the
+ * "Faction: " prefix) becomes a category link to that .gst Faction category on the entry or link `entryId`.
+ */
+export interface FactionKeywordOverride {
+  catalogueName: string;
+  entryId: string;
+  entryName: string;
+  add: string[];
+  source: string;
+}
+
+/** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
+export interface EmitOverrides {
+  costs: CostOverride[];
+  factionKeywords: FactionKeywordOverride[];
+  /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
+  systemCategories: Map<string, string>;
+}
+
 /** List-building extras the builder doesn't offer. */
 const DROPPED_NAME = /^(battle honours|battle scars|crusade)\b/i;
 const DROPPED_FIELDS = new Set(['page', 'description']);
@@ -193,19 +213,37 @@ function* walk(ns: RNode[]): Generator<RNode> {
   }
 }
 
+/** The nodes `entryId` names in the file, after checking there is one and it has the expected name. */
+function overrideTargets(file: RosterFile, kind: string, o: { catalogueName: string; entryId: string; entryName: string }): RNode[] {
+  const hits = [...walk(file.rootEntries), ...walk(file.shared)].filter((n) => n.id === o.entryId);
+  if (!hits.length) throw new Error(`${kind} override for "${o.catalogueName}" entry ${o.entryId} ("${o.entryName}") matches no entry`);
+  for (const n of hits) {
+    if (n.name !== o.entryName) throw new Error(`${kind} override for "${o.catalogueName}" entry ${o.entryId} expects "${o.entryName}" but found "${n.name}"`);
+  }
+  return hits;
+}
+
 function applyCostOverrides(file: RosterFile, catalogueName: string, overrides: CostOverride[]): void {
   for (const o of overrides.filter((x) => x.catalogueName === catalogueName)) {
-    const hits = [...walk(file.rootEntries), ...walk(file.shared)].filter((n) => n.id === o.entryId);
-    if (!hits.length) throw new Error(`Cost override for "${catalogueName}" entry ${o.entryId} ("${o.entryName}") matches no entry`);
-    for (const n of hits) {
-      if (n.name !== o.entryName)
-        throw new Error(`Cost override for "${catalogueName}" entry ${o.entryId} expects "${o.entryName}" but found "${n.name}"`);
-      n.costs = { ...n.costs, [o.costTypeId]: o.value };
+    for (const n of overrideTargets(file, 'Cost', o)) n.costs = { ...n.costs, [o.costTypeId]: o.value };
+  }
+}
+
+function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, overrides: FactionKeywordOverride[], systemCategories: Map<string, string>): void {
+  for (const o of overrides.filter((x) => x.catalogueName === catalogueName)) {
+    const nodes = overrideTargets(file, 'Faction keyword', o);
+    for (const faction of o.add) {
+      const name = `Faction: ${faction}`;
+      const targetId = systemCategories.get(name);
+      if (!targetId) throw new Error(`Faction keyword override for "${catalogueName}" entry ${o.entryId} names unknown category "${name}"`);
+      for (const n of nodes) {
+        if (!n.cats?.some((c) => c.targetId === targetId)) n.cats = [...(n.cats ?? []), { id: `${n.id}-faction-${targetId}`, targetId }];
+      }
     }
   }
 }
 
-export function emitRosterFile(cat: RawCatalogue, slug: string, costOverrides: CostOverride[]): RosterFile {
+export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Partial<EmitOverrides> = {}): RosterFile {
   const charIds = new Set<string>();
   const collectChars = (n: RawNode) => {
     if (n.tag === 'characteristicType') charIds.add(n.attrs.id);
@@ -225,6 +263,7 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, costOverrides: C
     categories: kids(cat.root, 'categoryEntries').map(e.category),
     forces: kids(cat.root, 'forceEntries').map(e.force),
   };
-  applyCostOverrides(file, cat.name, costOverrides);
+  applyCostOverrides(file, cat.name, overrides.costs ?? []);
+  applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
   return file;
 }
