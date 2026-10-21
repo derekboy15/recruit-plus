@@ -3,8 +3,10 @@ import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { loadGameData, isPlayableCatalogue } from '../src/bsdata/gamedata';
 import { extractUnits } from '../src/extract/units';
+import { loadOverrides } from '../src/join/wahapedia';
 
 const gd = loadGameData(join(__dirname, '..', 'raw', 'bsdata'));
+const playableCatalogues = loadOverrides(join(__dirname, '..', 'overrides')).playableCatalogues;
 const byNameCat = (name: string) => [...gd.catalogues.values()].find((c) => c.name === name)!;
 const byName = (name: string) => byNameCat(name).id;
 
@@ -41,7 +43,7 @@ test('Legends and Forge World flags', () => {
 });
 
 test('libraries are not playable; chapter catalogues are', () => {
-  const playable = [...gd.catalogues.values()].filter(isPlayableCatalogue).map((c) => c.name);
+  const playable = [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, playableCatalogues)).map((c) => c.name);
   expect(playable).toContain('Imperium - Adeptus Astartes - Ultramarines');
   expect(playable).not.toContain('Imperium - Space Marines');
   expect(playable).not.toContain('Aeldari - Aeldari Library');
@@ -61,7 +63,7 @@ test('Death Korps and Elysian units imported into Astra Militarum are flagged Fo
 });
 
 test('hidden root entries and Crusade honours never appear as units', () => {
-  for (const cat of [...gd.catalogues.values()].filter(isPlayableCatalogue)) {
+  for (const cat of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, playableCatalogues))) {
     const hiddenRootIds = cat.root.children
       .filter((c) => c.tag === 'entryLinks' || c.tag === 'selectionEntries')
       .flatMap((c) => c.children)
@@ -84,7 +86,7 @@ describe('every playable catalogue', () => {
   const allowed: { catalogue: string; unit: string }[] = JSON.parse(
     readFileSync(join(__dirname, '..', 'overrides', 'units-without-profiles.json'), 'utf8'),
   );
-  for (const cat of [...gd.catalogues.values()].filter(isPlayableCatalogue)) {
+  for (const cat of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, playableCatalogues))) {
     test(`${cat.name}: has units, no reference/hidden entries, every unit has a model profile`, () => {
       const units = extractUnits(gd, cat.id);
       expect(units.length).toBeGreaterThan(0);

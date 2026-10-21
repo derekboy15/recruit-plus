@@ -42,7 +42,7 @@ test("T'au catalogue name with apostrophe still matches", () => {
 });
 
 describe('match rate per playable catalogue', () => {
-  for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue)) {
+  for (const c of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues))) {
     test(`${c.name} matches >= 90% of units (catalogues with 10+ units)`, () => {
       const { units, unmatched } = joined(c.name);
       if (units.length < 10) return;
@@ -73,12 +73,12 @@ test('units whose model lines are all optional cost minimum models x cheapest mo
   expect(minimumPoints([{ Cost: '16', models_per_unit: '0-4' }, { Cost: '22', models_per_unit: '0-4' }], 4)).toBe(64);
   expect(minimumPoints([{ Cost: '16', models_per_unit: '0-4' }], null)).toBeNull();
   expect(unit('Aeldari - Drukhari', 'Court of the Archon').points).toBe(64);
-  for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue))
+  for (const c of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues)))
     for (const u of joined(c.name).units) expect(u.points, `${c.name}: ${u.name}`).not.toBe(0);
 });
 
 test('units without a BSData primary role take the Wahapedia role', () => {
   expect(unit('Chaos - Death Guard', 'Mortarion').role).toBe('Lord of War');
-  for (const c of [...gd.catalogues.values()].filter(isPlayableCatalogue))
+  for (const c of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues)))
     for (const u of joined(c.name).units) if (u.wahapediaId) expect(u.role, `${c.name}: ${u.name}`).not.toBeNull();
 });

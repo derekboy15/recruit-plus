@@ -57,7 +57,10 @@ export function buildIdIndex(scope: RawCatalogue[]): Map<string, RawNode> {
   return index;
 }
 
-/** Catalogues a player picks as their army. Libraries are only imported by these. */
-export function isPlayableCatalogue(cat: RawCatalogue): boolean {
-  return !cat.library;
+/**
+ * Catalogues a player picks as their army. Libraries are only imported by these,
+ * except those named in `playable` (overrides/playable-catalogues.json) that nothing imports.
+ */
+export function isPlayableCatalogue(cat: RawCatalogue, playable: Set<string>): boolean {
+  return !cat.library || playable.has(cat.name);
 }

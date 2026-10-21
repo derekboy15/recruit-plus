@@ -19,11 +19,18 @@ export interface NameMatch {
 export interface Overrides {
   factionMap: Record<string, FactionMapEntry>;
   nameMatches: NameMatch[];
+  /** Names of catalogues BSData flags as libraries that are nevertheless playable armies. */
+  playableCatalogues: Set<string>;
 }
 
 export function loadOverrides(dir: string): Overrides {
   const read = (f: string) => JSON.parse(readFileSync(join(dir, f), 'utf8'));
-  return { factionMap: read('faction-map.json'), nameMatches: read('name-matches.json') };
+  const playable: { catalogueName: string }[] = read('playable-catalogues.json');
+  return {
+    factionMap: read('faction-map.json'),
+    nameMatches: read('name-matches.json'),
+    playableCatalogues: new Set(playable.map((p) => p.catalogueName)),
+  };
 }
 
 /**

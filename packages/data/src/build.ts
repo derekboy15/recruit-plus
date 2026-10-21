@@ -62,7 +62,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       slug,
       name: cat.name,
       group: faction.group,
-      library: !isPlayableCatalogue(cat),
+      library: !isPlayableCatalogue(cat, overrides.playableCatalogues),
       units,
       rules: catalogueRules(cat),
     };

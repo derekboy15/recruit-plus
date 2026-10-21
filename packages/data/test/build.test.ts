@@ -39,3 +39,13 @@ test('report records match counts per catalogue', () => {
   expect(report.necrons.units).toBeGreaterThan(0);
   expect(Array.isArray(report.necrons.unmatched)).toBe(true);
 });
+
+test('Fallen is a playable catalogue with its units', () => {
+  const fallen = index.catalogues.find((c) => c.name === 'Fallen')!;
+  expect(fallen.library).toBe(false);
+  expect(fallen.unitCount).toBeGreaterThanOrEqual(4);
+});
+
+test('exactly 42 playable catalogues', () => {
+  expect(index.catalogues.filter((c) => !c.library)).toHaveLength(42);
+});
