@@ -29,7 +29,7 @@ test('build a Necrons Strike Force list with the wizard and find it on the lists
 
   await page.goto('/build');
   const card = page.getByRole('link', { name: /Necrons Strike Force/ });
-  await expect(card).toContainText('/ 2000 pts');
+  await expect(card).toContainText('/ 2,000 pts');
   await expect(card).toContainText(/problems?/);
   if (process.env.SHOT_DIR) await page.screenshot({ path: `${process.env.SHOT_DIR}/lists-${testInfo.project.name}.png`, fullPage: true });
 });

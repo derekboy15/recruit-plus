@@ -69,5 +69,5 @@ test('edit a Necrons list: add units, change models and wargear, fix a problem, 
   await page.getByRole('dialog', { name: 'Add a unit' }).getByRole('button', { name: /^Lord/ }).click();
   await expect(points).toContainText('375 / 2,000 pts');
   await page.goto('/build');
-  await expect(page.getByRole('link', { name: /Necrons Strike Force/ })).toContainText('375 / 2000 pts');
+  await expect(page.getByRole('link', { name: /Necrons Strike Force/ })).toContainText('375 / 2,000 pts');
 });
