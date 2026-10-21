@@ -27,6 +27,7 @@ import {
   BATTLE_SIZES,
   BATTLE_SIZE_ENTRY,
   BATTLE_SIZE_GROUP,
+  DETACHMENT_COMMAND_COST_ENTRY,
   ETERNAL_WAR,
   FORCE,
   GAME_TYPE_ENTRY,
@@ -161,6 +162,19 @@ describe('createRoster and setBattleSize', () => {
     expect(childEntryIds(necronsScope, cp, BATTLE_SIZE_ENTRY)).toEqual([BATTLE_SIZES['combat-patrol'].battleSizeEntryId]);
     expect(cp.forces[0].selections.map((s) => s.id)).toContain(ids[0]);
     expect(cp.forces[0].selections).toHaveLength(roster.forces[0].selections.length);
+  });
+
+  test('an Arks of Omen Detachment at Combat Patrol reports the detachment, not the Game Type, Battle Size or Detachment Command Cost the app sets', () => {
+    const cp = setBattleSize(necronsScope, necronRoster('strike-force'), 'combat-patrol');
+    const { view, issues } = validate(necronsScope, cp, policy);
+    expect(ofRule(issues, 'detachment-not-allowed')).toHaveLength(1);
+    const managed = new Set([GAME_TYPE_ENTRY, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY]);
+    const managedIds = view.forces.flatMap((f) => f.selections).filter((v) => managed.has(v.merged?.target.id ?? '')).map((v) => v.sel.id);
+    expect(managedIds).toHaveLength(3);
+    const about = (i: Issue) => [i.selId, i.fix?.kind === 'open' || i.fix?.kind === 'set-count' ? i.fix.selId : undefined, ...(i.fix?.kind === 'remove' ? i.fix.selIds : [])];
+    expect(issues.filter((i) => about(i).some((id) => id && managedIds.includes(id)))).toEqual([]);
+    // Without a detachment problem, BSData's own issues about them stay (none here: a fresh Strike Force list).
+    expect(ofRule(validate(necronsScope, necronRoster('strike-force'), policy).issues, 'option-required').map((i) => i.subject.name)).toEqual(['-Dynastic Code-']);
   });
 });
 

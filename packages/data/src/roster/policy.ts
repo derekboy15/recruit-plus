@@ -226,8 +226,28 @@ export function validate(scope: Scope, roster: Roster, policy: PolicyData): { vi
   const own = validatePolicy(scope, view, policy);
   let bsdata = dedupe(validateConstraints(scope, view, { ignoreFields: ['forces'] }));
   if (own.some((i) => i.rule === 'warlord-missing')) bsdata = bsdata.filter((i) => !(i.rule === 'warlord-missing' && i.scope === 'roster'));
+  if (own.some((i) => i.rule === 'detachment-not-allowed' || i.rule === 'detachment-count')) bsdata = bsdata.filter((i) => !aboutAutoManaged(view, i));
   return { view, issues: [...bsdata, ...own] };
 }
+
+/** The root entries the app sets itself from the battle size and detachments (never edited by the player). */
+export const AUTO_MANAGED_ENTRIES: readonly string[] = [GAME_TYPE_ENTRY, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY];
+
+/**
+ * Whether a BSData issue is about a selection the app manages (Game Type, Battle Size, Detachment Command Cost), or
+ * anything inside one. With a detachment the battle size doesn't allow, BSData asks for the mission pack that detachment
+ * needs ("Game Type needs 1 more from 5. Chapter Approved: Arks of Omen"): the detachment is the problem to fix.
+ */
+function aboutAutoManaged(view: RosterView, i: Issue): boolean {
+  const ids = [i.selId, i.fix?.kind === 'open' || i.fix?.kind === 'set-count' ? i.fix.selId : undefined];
+  return ids.some((id) => {
+    if (!id) return false;
+    const root = view.forces.flatMap((f) => f.selections).find((v) => v.sel.id === id || contains(v, id));
+    return !!root?.merged && AUTO_MANAGED_ENTRIES.includes(root.merged.target.id);
+  });
+}
+
+const contains = (v: SelView, id: string): boolean => v.children.some((c) => c.sel.id === id || contains(c, id));
 
 /**
  * Arks of Omen battle sizes (§2.3, §7.5): every detachment costs 0 CP, an allied Patrol, Super-Heavy Auxiliary or
