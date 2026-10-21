@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-import type { AuthApi, AuthBackend, User } from './types';
+import type { AuthApi, AuthBackend, AuthEvent, User } from './types';
 
 const LAST_USER_KEY = 'recruit.lastUser';
 
@@ -24,27 +24,33 @@ function writeCachedUser(user: User | null) {
 const AuthContext = createContext<AuthApi | null>(null);
 
 /**
- * Provides the signed-in user. When the backend can't be reached (offline), the last signed-in
- * user is kept so locally stored lists and games stay available.
+ * Provides the signed-in user, local-first: the last signed-in user is available immediately and
+ * stays signed in until an explicit sign-out. A missing session at startup is not a sign-out:
+ * offline, Supabase can't refresh an expired token and reports "no session" after retrying, and
+ * signing that user out would lock them out of their own locally stored lists and games.
  */
 export function AuthProvider({ backend, children }: { backend: AuthBackend | null; children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(backend !== null);
+  const [user, setUser] = useState<User | null>(() => (backend ? readCachedUser() : null));
+  const [loading, setLoading] = useState(() => backend !== null && readCachedUser() === null);
 
   useEffect(() => {
     if (!backend) return;
     let live = true;
-    const apply = (u: User | null) => {
+    const apply = (u: User | null, event: AuthEvent) => {
       if (!live) return;
-      setUser(u);
-      writeCachedUser(u);
+      if (u) {
+        setUser(u);
+        writeCachedUser(u);
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        writeCachedUser(null);
+      }
       setLoading(false);
     };
-    backend.getUser().then(apply, () => {
-      if (!live) return;
-      setUser(readCachedUser());
-      setLoading(false);
-    });
+    backend.getUser().then(
+      (u) => apply(u, 'INITIAL'),
+      () => live && setLoading(false),
+    );
     const off = backend.onChange(apply);
     return () => {
       live = false;

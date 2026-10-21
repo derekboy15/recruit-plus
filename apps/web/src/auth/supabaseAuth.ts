@@ -1,5 +1,7 @@
 import type { SupabaseClient, User as SbUser } from '@supabase/supabase-js';
-import type { AuthBackend, User } from './types';
+import type { AuthBackend, AuthEvent, User } from './types';
+
+const EVENTS: Record<string, AuthEvent> = { INITIAL_SESSION: 'INITIAL', SIGNED_IN: 'SIGNED_IN', SIGNED_OUT: 'SIGNED_OUT' };
 
 const toUser = (u: SbUser | null | undefined): User | null => (u ? { id: u.id, email: u.email ?? null } : null);
 
@@ -12,7 +14,7 @@ export function createSupabaseAuth(client: SupabaseClient): AuthBackend {
       return toUser(data.session?.user);
     },
     onChange(cb) {
-      const { data } = client.auth.onAuthStateChange((_event, session) => cb(toUser(session?.user)));
+      const { data } = client.auth.onAuthStateChange((event, session) => cb(toUser(session?.user), EVENTS[event] ?? 'OTHER'));
       return () => data.subscription.unsubscribe();
     },
     async signInWithEmail(email) {

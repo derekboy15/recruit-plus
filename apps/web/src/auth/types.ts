@@ -3,11 +3,14 @@ export interface User {
   email: string | null;
 }
 
+/** INITIAL = first state after startup (may be null just because refresh failed offline). */
+export type AuthEvent = 'INITIAL' | 'SIGNED_IN' | 'SIGNED_OUT' | 'OTHER';
+
 /** What the app needs from a sign-in provider (Supabase in production, a local stub in development). */
 export interface AuthBackend {
   /** The signed-in user, or null. May throw when offline. */
   getUser(): Promise<User | null>;
-  onChange(cb: (user: User | null) => void): () => void;
+  onChange(cb: (user: User | null, event: AuthEvent) => void): () => void;
   signInWithEmail(email: string): Promise<void>;
   signInWithGoogle(): Promise<void>;
   signOut(): Promise<void>;

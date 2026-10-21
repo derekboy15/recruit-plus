@@ -1,13 +1,13 @@
-import type { AuthBackend, User } from './types';
+import type { AuthBackend, AuthEvent, User } from './types';
 
 const KEY = 'recruit.devUser';
 export const DEV_USER: User = { id: '00000000-0000-4000-8000-000000000001', email: 'dev@local' };
 
 /** Local-only sign-in for development and end-to-end tests. Never used in production builds. */
 export function createDevAuth(): AuthBackend {
-  const listeners = new Set<(u: User | null) => void>();
+  const listeners = new Set<(u: User | null, e: AuthEvent) => void>();
   const current = (): User | null => (localStorage.getItem(KEY) ? DEV_USER : null);
-  const emit = () => listeners.forEach((l) => l(current()));
+  const emit = (e: AuthEvent) => listeners.forEach((l) => l(current(), e));
   return {
     getUser: async () => current(),
     onChange(cb) {
@@ -22,11 +22,11 @@ export function createDevAuth(): AuthBackend {
     },
     signInDev: async () => {
       localStorage.setItem(KEY, '1');
-      emit();
+      emit('SIGNED_IN');
     },
     signOut: async () => {
       localStorage.removeItem(KEY);
-      emit();
+      emit('SIGNED_OUT');
     },
   };
 }
