@@ -71,6 +71,11 @@ export interface EmitOverrides {
   constraints: ConstraintOverride[];
   /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
   systemCategories: Map<string, string>;
+  /**
+   * Category names by id across the catalogue's scope (its linked catalogues and the .gst), for the constraint
+   * overrides' entryName guard on category links whose category the file doesn't define.
+   */
+  scopeCategories: Map<string, string>;
 }
 
 /** List-building extras the builder doesn't offer. */
@@ -266,15 +271,22 @@ function applyFactionKeywordOverrides(file: RosterFile, catalogueName: string, o
   }
 }
 
-function applyConstraintOverrides(file: RosterFile, catalogueName: string, overrides: ConstraintOverride[], systemCategories: Map<string, string>): void {
+function applyConstraintOverrides(
+  file: RosterFile,
+  catalogueName: string,
+  overrides: ConstraintOverride[],
+  systemCategories: Map<string, string>,
+  scopeCategories: Map<string, string>,
+): void {
   const relevant = overrides.filter((x) => x.catalogueName === catalogueName);
   if (!relevant.length) return;
-  // A category link is named after its category: this file's own, else the .gst's.
+  // A category link is named after its category: this file's own, else a linked catalogue's or the .gst's.
   const categoryNames = new Map([...systemCategories].map(([name, id]) => [id, name]));
+  for (const [id, name] of scopeCategories) categoryNames.set(id, name);
   for (const c of file.categories) categoryNames.set(c.id, c.name);
-  const linkName = (l: CatLink) => categoryNames.get(l.targetId) ?? l.targetId;
+  const linkName = (l: CatLink) => categoryNames.get(l.targetId) ?? { unknownCategory: l.targetId };
   const nodes = [...walk(file.rootEntries), ...walk(file.shared)];
-  const holders: { name: string; holder: { constraints?: Constraint[]; mods?: Mod[] } }[] = [
+  const holders: { name: string | { unknownCategory: string }; holder: { constraints?: Constraint[]; mods?: Mod[] } }[] = [
     ...nodes.map((n) => ({ name: n.name, holder: n })),
     ...nodes.flatMap((n) => n.cats ?? []).map((l) => ({ name: linkName(l), holder: l })),
     ...file.categories.map((c) => ({ name: c.name, holder: c })),
@@ -286,6 +298,7 @@ function applyConstraintOverrides(file: RosterFile, catalogueName: string, overr
     const found = holders.filter((h) => h.holder.constraints?.some((c) => c.id === o.constraintId));
     if (!found.length) throw new Error(`Constraint override for "${catalogueName}" names unknown constraint ${o.constraintId}`);
     for (const { name } of found) {
+      if (typeof name !== 'string') throw new Error(`Constraint override for "${catalogueName}" constraint ${o.constraintId}: unknown category name for ${name.unknownCategory}`);
       if (name !== o.entryName) throw new Error(`Constraint override for "${catalogueName}" constraint ${o.constraintId} expects "${o.entryName}" but found "${name}"`);
     }
     for (const { holder: h } of found) {
@@ -319,6 +332,6 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   };
   applyCostOverrides(file, cat.name, overrides.costs ?? []);
   applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
-  applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map());
+  applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map(), overrides.scopeCategories ?? new Map());
   return file;
 }

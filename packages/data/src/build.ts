@@ -38,6 +38,15 @@ function catalogueRules(cat: RawCatalogue): CatalogueOut['rules'] {
     }));
 }
 
+/** Category names by id in these files, the first definition of an id winning. */
+function categoryNamesById(files: RawCatalogue[]): Map<string, string> {
+  const out = new Map<string, string>();
+  for (const f of files) {
+    for (const c of f.root.children.find((n) => n.tag === 'categoryEntries')?.children ?? []) if (!out.has(c.attrs.id)) out.set(c.attrs.id, c.attrs.name);
+  }
+  return out;
+}
+
 /** The .gst's roster file is always `system`. */
 export const SYSTEM_ROSTER_SLUG = 'system';
 
@@ -104,7 +113,8 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const rosterFiles: RosterFile[] = [];
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
-    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, systemCategories });
+    const scopeCategories = categoryNamesById(cat === gd.system ? [gd.system] : catalogueScope(gd, cat.id));
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, systemCategories, scopeCategories });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }

@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { loadGameData } from '../src/bsdata/gamedata';
+import type { RawCatalogue, RawNode } from '../src/bsdata/types';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
 import { emitRosterFile, type ConstraintOverride, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
@@ -252,6 +253,28 @@ describe('mini fixture', () => {
     expect(emit({ constraintId: 'missing' })).toThrow(/missing/);
     expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
     expect(emit({ scope: 'detachment' as ConstraintOverride['scope'] })).toThrow(/unknown scope "detachment"/);
+  });
+
+  test("constraint overrides name a category link by a linked catalogue's category, or say the name is unknown", () => {
+    // A force whose category link targets a category defined only in a linked catalogue.
+    const el = (tag: string, attrs: Record<string, string>, children: RawNode[] = []): RawNode => ({ tag, attrs, children });
+    const linked: RawCatalogue = {
+      id: 'cat-x',
+      name: 'Linked',
+      library: false,
+      links: [{ targetId: 'cat-lib', importRootEntries: false }],
+      root: el('catalogue', { id: 'cat-x', name: 'Linked' }, [
+        el('forceEntries', {}, [el('forceEntry', { id: 'f-x', name: 'Force X' }, [
+          el('categoryLinks', {}, [el('categoryLink', { id: 'cl-x', targetId: 'cat-lib-only' }, [
+            el('constraints', {}, [el('constraint', { id: 'c-x', type: 'max', field: 'selections', scope: 'force', value: '1' })]),
+          ])]),
+        ])]),
+      ]),
+    };
+    const pin: ConstraintOverride = { catalogueName: 'Linked', entryName: 'Lib Category', constraintId: 'c-x', value: 2, source: 'test' };
+    const out = emitRosterFile(linked, 'linked', { constraints: [pin], scopeCategories: new Map([['cat-lib-only', 'Lib Category']]) });
+    expect(out.forces[0].cats[0].constraints![0].value).toBe(2);
+    expect(() => emitRosterFile(linked, 'linked', { constraints: [pin] })).toThrow('constraint c-x: unknown category name for cat-lib-only');
   });
 });
 
