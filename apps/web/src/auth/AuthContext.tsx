@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { AuthApi, AuthBackend, AuthEvent, User } from './types';
 
 const LAST_USER_KEY = 'recruit.lastUser';
@@ -32,6 +32,8 @@ const AuthContext = createContext<AuthApi | null>(null);
 export function AuthProvider({ backend, children }: { backend: AuthBackend | null; children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => (backend ? readCachedUser() : null));
   const [loading, setLoading] = useState(() => backend !== null && readCachedUser() === null);
+  const [needsReauth, setNeedsReauth] = useState(false);
+  const markSessionExpired = useCallback(() => setNeedsReauth(true), []);
 
   useEffect(() => {
     if (!backend) return;
@@ -41,9 +43,11 @@ export function AuthProvider({ backend, children }: { backend: AuthBackend | nul
       if (u) {
         setUser(u);
         writeCachedUser(u);
+        if (event === 'SIGNED_IN') setNeedsReauth(false);
       } else if (event === 'SIGNED_OUT') {
         setUser(null);
         writeCachedUser(null);
+        setNeedsReauth(false);
       }
       setLoading(false);
     };
@@ -68,6 +72,8 @@ export function AuthProvider({ backend, children }: { backend: AuthBackend | nul
       loading,
       unavailable: backend === null,
       canDevSignIn: Boolean(backend?.signInDev),
+      needsReauth,
+      markSessionExpired,
       signInWithEmail: (email) => need().signInWithEmail(email),
       signInWithGoogle: () => need().signInWithGoogle(),
       signInDev: async () => {
@@ -79,9 +85,10 @@ export function AuthProvider({ backend, children }: { backend: AuthBackend | nul
         await need().signOut();
         writeCachedUser(null);
         setUser(null);
+        setNeedsReauth(false);
       },
     };
-  }, [backend, user, loading]);
+  }, [backend, user, loading, needsReauth, markSessionExpired]);
 
   return <AuthContext.Provider value={api}>{children}</AuthContext.Provider>;
 }

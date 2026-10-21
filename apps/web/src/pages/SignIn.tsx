@@ -10,7 +10,8 @@ export function SignIn() {
   const [message, setMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  if (auth.user) return <Navigate to={from} replace />;
+  // A cached user whose sign-in expired still needs to sign in again, so stay on this page.
+  if (auth.user && !auth.needsReauth) return <Navigate to={from} replace />;
 
   const run = async (action: () => Promise<void>, success?: string) => {
     setBusy(true);

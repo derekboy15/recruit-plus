@@ -29,12 +29,13 @@ function AccountMenu() {
 }
 
 function SyncWhileSignedIn() {
-  const { user } = useAuth();
+  const { user, needsReauth, markSessionExpired } = useAuth();
   const remote = useMemo(() => (setup.supabase ? createSupabaseRemote(setup.supabase) : null), []);
   useEffect(() => {
-    if (!user || !remote) return;
-    return startAutoSync(db, remote, user.id);
-  }, [user, remote]);
+    // After an expired sign-in auto-sync has stopped itself; signing in again clears needsReauth, which restarts it.
+    if (!user || !remote || needsReauth) return;
+    return startAutoSync(db, remote, user.id, { onAuthError: markSessionExpired });
+  }, [user, remote, needsReauth, markSessionExpired]);
   return null;
 }
 

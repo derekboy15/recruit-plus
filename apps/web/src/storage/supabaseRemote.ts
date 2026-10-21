@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { RemoteStore } from './sync';
+import { SyncAuthError, type RemoteStore } from './sync';
 import type { Doc } from './types';
 
 interface Row {
@@ -15,6 +15,21 @@ interface Row {
 
 const PAGE = 1000;
 
+interface RemoteError {
+  message: string;
+  code?: string;
+}
+
+/** An expired or invalid sign-in, as opposed to the server rejecting a particular document. */
+export function isAuthFailure(error: RemoteError, status?: number): boolean {
+  return status === 401 || error.code === 'PGRST301' || error.code === 'PGRST302' || /jwt|token/i.test(error.message);
+}
+
+function syncError(what: string, error: RemoteError, status?: number): Error {
+  const message = `Sync ${what} failed: ${error.message}`;
+  return isAuthFailure(error, status) ? new SyncAuthError(message) : new Error(message);
+}
+
 export function createSupabaseRemote(client: SupabaseClient): RemoteStore {
   return {
     async pushDocs(docs) {
@@ -27,18 +42,18 @@ export function createSupabaseRemote(client: SupabaseClient): RemoteStore {
         deleted: d.deleted,
         is_public: d.isPublic,
       }));
-      const { error } = await client.from('documents').upsert(rows);
-      if (error) throw new Error(`Sync push failed: ${error.message}`);
+      const { error, status } = await client.from('documents').upsert(rows);
+      if (error) throw syncError('push', error, status);
     },
     async pullSince(ownerId, cursor) {
-      const { data, error } = await client
+      const { data, error, status } = await client
         .from('documents')
         .select('*')
         .eq('owner_id', ownerId)
         .gt('synced_seq', cursor)
         .order('synced_seq', { ascending: true })
         .limit(PAGE);
-      if (error) throw new Error(`Sync pull failed: ${error.message}`);
+      if (error) throw syncError('pull', error, status);
       const rows = (data ?? []) as Row[];
       return {
         docs: rows.map((r) => ({

@@ -24,6 +24,10 @@ export interface AuthApi {
   /** True when sign-in has no backend configured (production without Supabase settings). */
   unavailable: boolean;
   canDevSignIn: boolean;
+  /** True after the server said the sign-in expired; the cached user stays so local data remains usable. */
+  needsReauth: boolean;
+  /** Called by sync when the server rejects the sign-in. A later SIGNED_IN event clears it. */
+  markSessionExpired(): void;
   signInWithEmail(email: string): Promise<void>;
   signInWithGoogle(): Promise<void>;
   signInDev(): Promise<void>;

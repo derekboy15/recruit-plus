@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from './Footer';
 import { NavBar } from './NavBar';
+import { ReauthBanner } from './ReauthBanner';
 
 export function AppShell({ children, account }: { children: ReactNode; account?: ReactNode }) {
   return (
@@ -13,7 +14,10 @@ export function AppShell({ children, account }: { children: ReactNode; account?:
         {account}
       </header>
       <NavBar />
-      <main className="shell__main">{children}</main>
+      <main className="shell__main">
+        <ReauthBanner />
+        {children}
+      </main>
       <Footer />
     </div>
   );
