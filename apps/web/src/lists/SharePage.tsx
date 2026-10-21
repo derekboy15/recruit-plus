@@ -6,12 +6,13 @@ import {
   COST_PTS,
   exportText,
   stripCpSuffix,
+  UNTITLED_LIST,
+  unitExport,
   validate,
   type ForceView,
   type Issue,
   type RosterView,
   type Scope,
-  type SelView,
 } from '@recruit/data/roster';
 import { Link, useParams } from 'react-router-dom';
 import { getIndex, getPolicy, getRosterScope } from '../factions/dataClient';
@@ -50,22 +51,6 @@ async function loadShared(source: PublicListSource, id: string): Promise<Shared 
   };
 }
 
-/**
- * One unit as the export prints it: the "- Name (N models) · 110 pts" line, then its indented wargear lines. Asking the
- * export for a list of just this unit keeps the page and the copied text saying exactly the same thing.
- */
-function unitLines(view: RosterView, scope: Scope, fv: ForceView, unit: SelView): { head: string; points: string; details: string[] } {
-  const lines = exportText({ ...view, forces: [{ ...fv, selections: [unit] }] }, scope).split('\n');
-  const start = lines.indexOf('') + 3; // past the name and totals, the blank line, the detachment line and the role line
-  const [first = '', ...rest] = lines.slice(start, lines.indexOf('', start));
-  const cut = first.lastIndexOf(' · ');
-  return {
-    head: first.slice(0, cut < 0 ? undefined : cut).replace(/^- /, ''),
-    points: cut < 0 ? '' : first.slice(cut + 3),
-    details: rest.map((l) => l.trim()),
-  };
-}
-
 /** "Dynasty Choice: Szarekhan" lines for the army choices the player made. */
 const armyChoices = (scope: Scope, fv: ForceView) =>
   fv.selections
@@ -73,7 +58,7 @@ const armyChoices = (scope: Scope, fv: ForceView) =>
     .map((v) => `${v.name}: ${v.children.map((c) => c.name).join(', ')}`);
 
 function Detachment({ shared, fv }: { shared: Shared; fv: ForceView }) {
-  const { view, scope } = shared;
+  const { scope } = shared;
   const choices = armyChoices(scope, fv);
   const groups = unitsByRole(scope, fv);
   return (
@@ -97,11 +82,11 @@ function Detachment({ shared, fv }: { shared: Shared; fv: ForceView }) {
                   </li>
                 );
               }
-              const { head, points, details } = unitLines(view, scope, fv, v);
+              const { title, points, details } = unitExport(v); // the same parts the copied text is built from
               return (
                 <li key={v.sel.id} className="share__unit">
                   <div className="share__line">
-                    <span className="share__name">{head}</span>
+                    <span className="share__name">{title}</span>
                     <span className="row__pts">{points}</span>
                   </div>
                   {details.length > 0 && (
@@ -159,7 +144,7 @@ export function SharePage() {
   return (
     <article className="share">
       <header>
-        <h1>{roster.name}</h1>
+        <h1>{roster.name.trim() || UNTITLED_LIST}</h1>
         <p className="muted share__sub">{`${faction} · ${size?.name ?? roster.battleSize}`}</p>
         <p className="share__totals">
           <span className="share__pts">{`${fmt(total[COST_PTS] ?? 0)} / ${fmt(size?.points ?? 0)} pts`}</span>
@@ -169,7 +154,7 @@ export function SharePage() {
         <p className="muted">{`Read-only copy, last updated ${updated}.`}</p>
       </header>
       <div className="sheet-actions">
-        <CopyButton text={shared.text} label="Copy list" className="btn btn--primary" />
+        <CopyButton text={shared.text} label="Copy list" failedLabel="Couldn’t copy on this device" className="btn btn--primary" />
         {buildYourOwn}
       </div>
       {view.forces.map((fv) => (

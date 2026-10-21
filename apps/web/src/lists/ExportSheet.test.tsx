@@ -148,3 +148,12 @@ test('the share page route is open to signed-out visitors while the builder is b
   at('/build/some-list');
   expect(await screen.findByText('Sign in first')).toBeInTheDocument();
 });
+
+test('when the clipboard is blocked the Export sheet points to Download', async () => {
+  const u = userEvent.setup();
+  vi.spyOn(navigator.clipboard, 'writeText').mockRejectedValue(new Error('denied'));
+  await renderEditor();
+  await u.click(screen.getByRole('button', { name: 'Export' }));
+  await u.click(await screen.findByRole('button', { name: 'Copy' }));
+  expect(await screen.findByRole('button', { name: 'Couldn’t copy. Use Download instead.' })).toBeInTheDocument();
+});

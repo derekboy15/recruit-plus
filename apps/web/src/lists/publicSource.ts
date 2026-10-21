@@ -13,8 +13,14 @@ export interface PublicListSource {
   get(id: string): Promise<{ data: ListData; updatedAt: number } | null>;
 }
 
-const looksLikeList = (data: unknown): data is ListData =>
-  typeof data === 'object' && data !== null && 'roster' in data && 'summary' in data;
+/** Enough of a list's shape to open it: anything else (a hand-edited or damaged row) is treated as not shared. */
+function looksLikeList(data: unknown): data is ListData {
+  const { roster, summary } = (data ?? {}) as { roster?: { forces?: unknown; catalogueId?: unknown } | null; summary?: unknown };
+  return (
+    typeof roster === 'object' && roster !== null && Array.isArray(roster.forces) && typeof roster.catalogueId === 'string' &&
+    typeof summary === 'object' && summary !== null
+  );
+}
 
 export function createSupabasePublicSource(client: SupabaseClient): PublicListSource {
   return {

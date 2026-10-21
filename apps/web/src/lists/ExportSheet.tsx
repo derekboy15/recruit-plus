@@ -10,7 +10,7 @@ import { usePublicSource } from './publicSource';
 const CONFIRM_MS = 2000;
 
 /** A button that copies `text` and says "Copied" for two seconds (or that it couldn't, e.g. clipboard blocked). */
-export function CopyButton({ text, label, className = 'btn' }: { text: string; label: string; className?: string }) {
+export function CopyButton({ text, label, failedLabel = 'Couldn’t copy', className = 'btn' }: { text: string; label: string; failedLabel?: string; className?: string }) {
   const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle');
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -26,7 +26,7 @@ export function CopyButton({ text, label, className = 'btn' }: { text: string; l
   };
   return (
     <button type="button" className={className} onClick={() => void copy()}>
-      {state === 'copied' ? 'Copied' : state === 'failed' ? 'Couldn’t copy: select the text instead' : label}
+      {state === 'copied' ? 'Copied' : state === 'failed' ? failedLabel : label}
     </button>
   );
 }
@@ -57,7 +57,7 @@ export function ExportSheet({ view, scope, onClose }: { view: RosterView; scope:
         onFocus={(e) => e.currentTarget.select()}
       />
       <div className="sheet-actions">
-        <CopyButton text={text} label="Copy" className="btn btn--primary" />
+        <CopyButton text={text} label="Copy" failedLabel="Couldn’t copy. Use Download instead." className="btn btn--primary" />
         <button type="button" className="btn" onClick={() => downloadText(view.roster.name, text)}>
           Download .txt
         </button>
@@ -118,7 +118,7 @@ export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: 
         <>
           <input className="input" readOnly aria-label="Share link" value={link} onFocus={(e) => e.currentTarget.select()} />
           <div className="sheet-actions">
-            <CopyButton text={link} label="Copy link" className="btn btn--primary" />
+            <CopyButton text={link} label="Copy link" failedLabel="Couldn’t copy. Select the link instead." className="btn btn--primary" />
           </div>
           {!linksWorkAnywhere && <p className="muted">Share links work on other devices once accounts are switched on.</p>}
         </>

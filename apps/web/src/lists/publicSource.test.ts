@@ -47,9 +47,20 @@ test('the Supabase source returns null when there is no such row', async () => {
   expect(await createSupabasePublicSource(client).get('nope')).toBeNull();
 });
 
-test('the Supabase source returns null for a row that is not a list', async () => {
-  const { client } = fakeClient({ data: { data: { hello: 'world' }, updated_at: 1 }, error: null });
-  expect(await createSupabasePublicSource(client).get('odd')).toBeNull();
+test('the Supabase source returns null for a row that is not a usable list', async () => {
+  const malformed = [
+    { hello: 'world' },
+    null,
+    'text',
+    { roster: { name: 'x' }, summary: data.summary },
+    { roster: { ...data.roster, forces: {} }, summary: data.summary },
+    { roster: { ...data.roster, catalogueId: 5 }, summary: data.summary },
+    { roster: data.roster },
+  ];
+  for (const row of malformed) {
+    const { client } = fakeClient({ data: { data: row, updated_at: 1 }, error: null });
+    expect(await createSupabasePublicSource(client).get('odd')).toBeNull();
+  }
 });
 
 test('the Supabase source throws when the server fails, so the page can say it could not load', async () => {

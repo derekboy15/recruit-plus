@@ -9,6 +9,8 @@ import {
   evaluate,
   exportText,
   FORCE,
+  unitExport,
+  UNTITLED_LIST,
   setCount,
   splitSelection,
   COST_CP,
@@ -113,6 +115,29 @@ describe('exportText (mini fixture)', () => {
   const empty = (): Roster =>
     addForce(scope, { schema: 1, name: 'Mini', catalogueId: M.CAT_ID, battleSize: 'strike-force', forces: [] }, M.FORCE_PATROL, M.CAT_ID);
   const text = (r: Roster) => exportText(evaluate(scope, r), scope);
+
+  test('a blank list name prints as "Untitled list" so the first line is never empty', () => {
+    for (const name of ['', '   ']) {
+      const lines = text({ ...empty(), name }).split('\n');
+      expect(UNTITLED_LIST).toBe('Untitled list');
+      expect(lines[0]).toBe('Untitled list');
+      expect(lines[1]).toBe('Mini Faction · Strike Force · 0 / 2,000 pts · 0 PL · 0 CP');
+    }
+  });
+
+  test('unitExport gives the parts of a unit line, and the printed lines are built from them', () => {
+    const start = empty();
+    const r = addUnit(scope, start, start.forces[0].id, M.L_SQUAD).roster;
+    const view = evaluate(scope, r);
+    const unit = view.forces[0].selections[0];
+    const u = unitExport(unit);
+    expect(u.title).toMatch(/Squad/);
+    expect(u.points).toMatch(/^[\d,]+ pts$/);
+    const lines = exportText(view, scope).split('\n');
+    const at = lines.indexOf(`- ${u.title} · ${u.points}`);
+    expect(at).toBeGreaterThan(0);
+    expect(lines.slice(at + 1, at + 1 + u.details.length)).toEqual(u.details.map((d) => `    ${d}`));
+  });
 
   test('an empty detachment prints its heading and the footer', () => {
     expect(text(empty())).toBe(

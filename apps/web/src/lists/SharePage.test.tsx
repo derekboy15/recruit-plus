@@ -104,3 +104,40 @@ test('a server error is reported instead of loading forever', async () => {
   renderShare('x', { get: async () => Promise.reject(new Error('offline')) });
   expect(await screen.findByRole('alert')).toHaveTextContent(/Couldn.t open this list/);
 });
+
+test('a list saved with no name opens as "Untitled list" and its units still show their own names', async () => {
+  const data = await withWarriors();
+  data.roster = { ...data.roster, name: '' };
+  await save('pub-4', data, true);
+  renderShare('pub-4');
+  expect(await screen.findByRole('heading', { level: 1, name: 'Untitled list' }, { timeout: 5000 })).toBeInTheDocument();
+  expect(screen.getByText('Necron Warriors (10 models)')).toBeInTheDocument();
+  expect(screen.getByText('10x Gauss Flayer')).toBeInTheDocument();
+  expect(screen.queryByText(/^==/)).not.toBeInTheDocument();
+});
+
+test('a shared row that is not a proper list shows the not-found message instead of crashing', async () => {
+  const good = await withWarriors();
+  const repo = createRepository(db);
+  const bad = [
+    { roster: { name: 'x' }, summary: good.summary },
+    { roster: { ...good.roster, forces: 'nope' }, summary: good.summary },
+    { roster: { ...good.roster, catalogueId: 7 }, summary: good.summary },
+    { roster: good.roster },
+  ];
+  for (const [i, data] of bad.entries()) {
+    await repo.saveDoc({ id: `bad-${i}`, kind: 'list', ownerId: 'owner-1', data: data as never, isPublic: true });
+    const view = renderShare(`bad-${i}`);
+    expect(await screen.findByText("This list isn't shared, or the link is wrong.")).toBeInTheDocument();
+    view.unmount();
+  }
+});
+
+test('when the clipboard is blocked the button says so', async () => {
+  const u = userEvent.setup();
+  vi.spyOn(navigator.clipboard, 'writeText').mockRejectedValue(new Error('denied'));
+  await save('pub-5', await withWarriors(), true);
+  renderShare('pub-5');
+  await u.click(await screen.findByRole('button', { name: 'Copy list' }, { timeout: 5000 }));
+  expect(await screen.findByRole('button', { name: 'Couldn’t copy on this device' })).toBeInTheDocument();
+});

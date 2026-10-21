@@ -12,6 +12,8 @@ import { COST_CP, COST_PL, COST_PTS, type CostMap } from './types';
 const FOOTER = 'Built with Recruit+ (unofficial fan-made tool)';
 const CONFIGURATION = 'Configuration';
 const WARLORD = 'Warlord';
+/** Shown where a list has no name (a cleared name box is saved as ''), so the first line is never empty. */
+export const UNTITLED_LIST = 'Untitled list';
 const OTHER = 'Other';
 const INDENT = '    ';
 /** Configuration entries the app manages itself (Game Type, Battle Size, Detachment Command Cost): never printed. */
@@ -31,7 +33,7 @@ export function exportText(view: RosterView, scope: Scope): string {
     `${num(cost(view.total, COST_PL))} PL`,
     `${num(cost(view.total, COST_CP))} CP`,
   ].join(' · ');
-  const blocks = [[roster.name, header], ...view.forces.map((fv) => forceBlock(fv, scope)), [FOOTER]];
+  const blocks = [[roster.name.trim() || UNTITLED_LIST, header], ...view.forces.map((fv) => forceBlock(fv, scope)), [FOOTER]];
   return blocks.map((b) => b.join('\n')).join('\n\n');
 }
 
@@ -93,16 +95,31 @@ function aggregate(children: SelView[], skipModels = false): Map<string, number>
 
 const hasWarlord = (v: SelView) => [...descendants(v.children, 1)].some(({ v: d, qty }) => d.name === WARLORD && qty > 0);
 
-function unitLines(v: SelView): string[] {
+/** One unit as the export prints it: "- {title} · {points}", then the details, each indented. */
+export interface UnitExport {
+  /** E.g. "2x Necron Warriors (20 models)". */
+  title: string;
+  /** E.g. "220 pts". */
+  points: string;
+  /** Warlord, wargear and per-model lines, without the indent. */
+  details: string[];
+}
+
+export function unitExport(v: SelView): UnitExport {
   const copies = v.sel.count > 1 ? `${num(v.sel.count)}x ` : '';
   const models = v.models > 1 ? ` (${num(v.models)} models)` : '';
-  const lines = [`- ${copies}${v.name}${models} · ${num(cost(v.total, COST_PTS))} pts`];
-  if (hasWarlord(v)) lines.push(`${INDENT}${WARLORD}`);
+  const details: string[] = [];
+  if (hasWarlord(v)) details.push(WARLORD);
   const stacks = modelStacks(v);
   const perModel = stacks.length > 1;
-  for (const [name, qty] of aggregate(v.children, perModel)) lines.push(`${INDENT}${num(qty)}x ${name}`);
-  if (perModel) lines.push(...stacks.map((s) => `${INDENT}${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`));
-  return lines;
+  for (const [name, qty] of aggregate(v.children, perModel)) details.push(`${num(qty)}x ${name}`);
+  if (perModel) details.push(...stacks.map((s) => `${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`));
+  return { title: `${copies}${v.name}${models}`, points: `${num(cost(v.total, COST_PTS))} pts`, details };
+}
+
+function unitLines(v: SelView): string[] {
+  const u = unitExport(v);
+  return [`- ${u.title} · ${u.points}`, ...u.details.map((d) => `${INDENT}${d}`)];
 }
 
 /** The unit's distinct model stacks (same model and upgrades merge): the per-model lines are printed when there are several. */
