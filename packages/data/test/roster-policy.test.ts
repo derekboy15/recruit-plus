@@ -323,6 +323,8 @@ describe('points, CP and Rule of Two/Three', () => {
       ['imperium-adepta-sororitas', 'Arch-Confessor Kyrinov [Legends]', ['Canoness', 'Battle Sister Squad']],
       ['imperium-grey-knights', 'Paladin Ancient', ['Brother-Captain', 'Strike Squad']],
       ['imperium-adeptus-mechanicus', 'X-101', ['Tech-Priest Dominus', 'Skitarii Rangers']],
+      ['chaos-daemons', 'Rotigus', ['Great Unclean One', 'Plaguebearers']],
+      ['chaos-daemons', 'Shalaxi Helbane', ['Keeper of Secrets', 'Daemonettes']],
     ];
     for (const [slug, unit, [hq, troops], army] of cases) {
       const scope = realScope(slug);

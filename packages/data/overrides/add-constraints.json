@@ -154,5 +154,29 @@
       "value": 1
     },
     "source": "Wahapedia datasheet 000000385 (Paladin Ancient): \"Your army can only include one PALADIN ANCIENT.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Chaos - Daemons",
+    "entryId": "1395-5005-33d3-ee55",
+    "entryName": "Rotigus",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001465 (Rotigus): \"Your army can only include one ROTIGUS model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
+  },
+  {
+    "catalogueName": "Chaos - Daemons",
+    "entryId": "3252-75c4-922f-98e9",
+    "entryName": "Shalaxi Helbane",
+    "constraint": {
+      "type": "max",
+      "field": "selections",
+      "scope": "roster",
+      "value": 1
+    },
+    "source": "Wahapedia datasheet 000001648 (Shalaxi Helbane): \"Your army can only include one SHALAXI HELBANE model.\" BSData v9.8.0 has no limit on this entry, so two in one army went unreported; the limit is one per army."
   }
 ]
