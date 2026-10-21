@@ -196,7 +196,7 @@ describe('validateConstraints (mini fixture)', () => {
     const r = addChild(rules, roster, ids[0], M.E_WARLORD_UPG);
     const issues = validate(rules, r);
     expect(summary(issues)).toEqual([['unique', 'Lord', 1, 2]]);
-    expect(issues[0]).toMatchObject({ forceSelId: r.forces[0].id, selId: ids[2], subject: { id: M.L_LORD } });
+    expect(issues[0]).toMatchObject({ forceSelId: r.forces[0].id, selId: ids[2], subject: { id: M.L_LORD }, scope: 'force' });
     expect(issues[0].fix).toEqual({ kind: 'remove', selIds: [ids[2]] });
   });
 

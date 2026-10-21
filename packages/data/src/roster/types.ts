@@ -53,4 +53,6 @@ export interface Issue {
   rule: RuleKind; forceSelId?: string; selId?: string;
   subject: { id: string; name: string };  // the entry, category or force the rule is about
   limit: number; actual: number; fix?: Fix;
+  /** BSData constraint issues: the constraint's scope key (`roster`, `force`, `parent`, `self`, or an id), which says what its count covers. */
+  scope?: string;
 }

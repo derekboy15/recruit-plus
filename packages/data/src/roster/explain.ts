@@ -117,11 +117,11 @@ function textFor(ctx: Ctx): string {
     case 'warlord-extra':
       return `You have ${num(actual)} Warlords, but an army has exactly ${num(limit)}. Turn "${WARLORD}" off on ${num(over)} of them.`;
     case 'unique':
-      return `${name} is a unique unit, so your army can include only ${num(limit)}. Remove ${num(over)}.`;
+      return perDetachment(ctx)
+        ? `${name} is limited to ${num(limit)} per detachment. Remove ${num(over)} from your ${forceName(ctx)}.`
+        : `${name} is a unique unit, so your army can include only ${num(limit)}. Remove ${num(over)}.`;
     case 'unit-limit':
-      return actual < limit
-        ? `Your army needs at least ${num(limit)} ${name}. Add ${num(limit - actual)} more.`
-        : `Your army can include at most ${num(limit)} ${name}. Remove ${num(over)}.`;
+      return unitLimit(ctx);
     case 'rule-of-three':
       return `You have ${num(actual)} ${name} ${plural(actual, 'unit', 'units')}. ${sizeName(ctx)} allows ${num(limit)} of the same datasheet (Troops and Dedicated Transports don't count). Remove ${num(over)}.`;
     case 'model-count':
@@ -155,6 +155,20 @@ function textFor(ctx: Ctx): string {
     default:
       return `${stripCp(issue.subject.name)} ${actual < limit ? 'needs at least' : 'can have at most'} ${num(limit)} here. It has ${num(actual)}.`;
   }
+}
+
+/** Whether the limit counts within one detachment rather than the whole army (the issue's scope; older issues have none). */
+const perDetachment = ({ issue }: Ctx) => issue.scope === 'force';
+
+function unitLimit(ctx: Ctx): string {
+  const { issue } = ctx;
+  const { limit, actual } = issue;
+  const name = clean(issue.subject.name);
+  const who = perDetachment(ctx) ? `Your ${forceName(ctx)}` : 'Your army';
+  if (actual >= limit) return `${who} can include at most ${num(limit)} ${name}. Remove ${num(actual - limit)}.`;
+  const head = `${who} needs at least ${num(limit)} ${name}.`;
+  // The army wording always says how many to add; the per-detachment wording does when the fix adds units.
+  return !perDetachment(ctx) || issue.fix?.kind === 'add-unit' ? `${head} Add ${num(limit - actual)} more.` : head;
 }
 
 function slotMin(ctx: Ctx): string {

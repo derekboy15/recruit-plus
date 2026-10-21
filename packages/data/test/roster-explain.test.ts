@@ -18,7 +18,11 @@ import {
 } from '../src/roster';
 import { FORCE, createRoster, validate, validatePolicy } from '../src/roster/policy';
 import * as M from './fixtures/roster/mini';
-import { realCatalogueId, realFiles, realPolicy, realScope } from './helpers/realScope';
+import blackTemplarsCorpus from './corpus/imperium/imperium-adeptus-astartes-black-templars';
+import ravenGuardCorpus from './corpus/imperium/imperium-adeptus-astartes-raven-guard';
+import whiteScarsCorpus from './corpus/imperium/imperium-adeptus-astartes-white-scars';
+import { buildFromSpec, type CatalogueCorpus } from './corpus/spec';
+import { realCatalogueId, realCatalogues, realFiles, realPolicy, realScope } from './helpers/realScope';
 
 const policy = realPolicy();
 
@@ -156,12 +160,24 @@ describe('explain (mini fixture)', () => {
     expect(extra.fixLabel).toBe('Open Lord');
   });
 
-  test('unique', () => {
+  test('unique (one per army)', () => {
+    const files = rulesFiles();
+    files[0].rootEntries.find((n) => n.id === M.L_LORD)!.constraints = [{ id: 'con-lord-unique', type: 'max', field: 'selections', scope: 'roster', value: 1 }];
+    const s = buildScope(files);
+    const { roster, ids } = withUnits(s, emptyRoster(s), M.L_LORD, M.L_WARRIORS, M.L_LORD);
+    const r = addChild(s, roster, ids[0], M.E_WARLORD_UPG);
+    const [row] = explained(s, r);
+    expect(row.issue).toMatchObject({ rule: 'unique', scope: 'roster' });
+    expect(row.text).toBe('Lord is a unique unit, so your army can include only 1. Remove 1.');
+    expect(row.fixLabel).toBe('Remove 1');
+  });
+
+  test('unique (one per detachment) says so and names the detachment', () => {
     const { roster, ids } = withUnits(rules, emptyRoster(rules), M.L_LORD, M.L_WARRIORS, M.L_LORD);
     const r = addChild(rules, roster, ids[0], M.E_WARLORD_UPG);
     const [row] = explained(rules, r);
-    expect(row.issue.rule).toBe('unique');
-    expect(row.text).toBe('Lord is a unique unit, so your army can include only 1. Remove 1.');
+    expect(row.issue).toMatchObject({ rule: 'unique', scope: 'force' });
+    expect(row.text).toBe('Lord is limited to 1 per detachment. Remove 1 from your Patrol Detachment.');
     expect(row.fixLabel).toBe('Remove 1');
   });
 
@@ -173,6 +189,30 @@ describe('explain (mini fixture)', () => {
     const [row] = of(explained(s, roster), 'unit-limit');
     expect(row.text).toBe('Your army can include at most 2 Warriors. Remove 1.');
     expect(row.fixLabel).toBe('Remove 1');
+  });
+
+  test('unit-limit per detachment: at most, and at least', () => {
+    const files = structuredClone(M.miniFiles);
+    files[0].rootEntries.find((n) => n.id === M.L_WARRIORS)!.constraints = [{ id: 'con-warriors-force-max', type: 'max', field: 'selections', scope: 'force', value: 2 }];
+    const s = buildScope(files);
+    const { roster } = withUnits(s, emptyRoster(s), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);
+    const [row] = of(explained(s, roster), 'unit-limit');
+    expect(row.issue.scope).toBe('force');
+    expect(row.text).toBe('Your Patrol Detachment can include at most 2 Warriors. Remove 1.');
+    expect(row.fixLabel).toBe('Remove 1');
+
+    const r1 = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS).roster;
+    const view = evaluate(mini, r1);
+    const forceSelId = r1.forces[0].id;
+    const issue: Issue = {
+      rule: 'unit-limit', scope: 'force', subject: { id: M.L_WARRIORS, name: 'Warriors' }, limit: 2, actual: 1, forceSelId,
+      fix: { kind: 'add-unit', forceSelId, entryIds: [M.L_WARRIORS] },
+    };
+    expect(explain(issue, view, mini).text).toBe('Your Patrol Detachment needs at least 2 Warriors. Add 1 more.');
+    // Without an add fix there is no "Add" sentence.
+    expect(explain({ ...issue, fix: undefined }, view, mini).text).toBe('Your Patrol Detachment needs at least 2 Warriors.');
+    // The roster-wide wording is unchanged, with or without a scope.
+    for (const scope of ['roster', undefined]) expect(explain({ ...issue, scope }, view, mini).text).toBe('Your army needs at least 2 Warriors. Add 1 more.');
   });
 
   test('unit-limit as a minimum asks for more, never "at most"', () => {
@@ -408,5 +448,35 @@ describe('factions', () => {
     r = addNamed(scope, r, r.forces[1].id, orks, 'Warboss').roster;
     const [row] = of(explainPolicy(scope, r), 'army-faction');
     expect(row.text).toBe("Every unit in your army must share a faction keyword. Warboss doesn't share one with the rest. Remove it.");
+  });
+});
+
+describe('explain (per-detachment limits on real lists)', () => {
+  const build = (corpus: CatalogueCorpus, title: string) => {
+    const slug = realCatalogues().find((c) => c.name === corpus.catalogue)!.slug;
+    const scope = realScope(slug);
+    const spec = corpus.illegal.find((s) => s.title === title)!;
+    const { view, issues } = validate(scope, buildFromSpec(scope, realCatalogueId(slug), spec), policy);
+    return issues.map((issue) => ({ issue, ...explain(issue, view, scope) }));
+  };
+
+  test('a named vehicle limited per detachment (Damocles Command Rhino)', () => {
+    const [row] = of(build(whiteScarsCorpus, 'two Damocles Command Rhinos in one detachment'), 'unique');
+    expect(row.issue.scope).toBe('force');
+    expect(row.text).toBe('Damocles Command Rhino is limited to 1 per detachment. Remove 1 from your Arks of Omen Detachment.');
+  });
+
+  test('Lieutenants are limited per detachment', () => {
+    for (const corpus of [whiteScarsCorpus, ravenGuardCorpus]) {
+      const [row] = of(build(corpus, 'three Lieutenants in one detachment'), 'unit-limit');
+      expect(row.issue.scope).toBe('force');
+      expect(row.text).toBe('Your Arks of Omen Detachment can include at most 2 Lieutenant. Remove 1.');
+    }
+  });
+
+  test("a named character limited per army keeps the army wording (The Emperor's Champion)", () => {
+    const [row] = of(build(blackTemplarsCorpus, "two Emperor's Champions"), 'unique');
+    expect(row.issue.scope).toBe('roster');
+    expect(row.text).toBe("The Emperor's Champion is a unique unit, so your army can include only 1. Remove 1.");
   });
 });

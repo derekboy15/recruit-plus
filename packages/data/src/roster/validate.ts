@@ -76,7 +76,7 @@ class Validator {
       const entry = fv.entry;
       for (const c of effectiveConstraints(scope, entry, ctx)) {
         const actual = this.forceCount(ctx, c, entry.id);
-        if (actual !== null) this.push(fv, c, { rule: 'other', subject: { id: entry.id, name: fv.name }, limit: c.value, actual });
+        if (actual !== null) this.push(fv, c, { rule: 'other', subject: { id: entry.id, name: fv.name }, limit: c.value, actual }, this.scopeContainer(fv, c.scope, false));
       }
       for (const link of entry.cats) {
         const name = scope.category(link.targetId)?.name ?? link.targetId;
@@ -114,7 +114,7 @@ class Validator {
       if (!candidate) return;
       fix = { kind: 'open', selId: candidate.sel.id };
     }
-    this.push(fv, c, { rule, selId: newest?.sel.id, subject: { id: catId, name }, limit: c.value, actual, fix });
+    this.push(fv, c, { rule, selId: newest?.sel.id, subject: { id: catId, name }, limit: c.value, actual, fix }, this.scopeContainer(fv, c.scope, false));
   }
 
   /** Up to three units the force can take in that role, cheapest first. */
@@ -211,7 +211,7 @@ class Validator {
         fix = openUnit(newest ?? holder);
       } else fix = root ? addThis : openUnit(holder);
     } else rule = 'other';
-    this.push(forceOf(container), c, { rule, selId, subject: { id: n.id, name }, limit: c.value, actual, fix });
+    this.push(forceOf(container), c, { rule, selId, subject: { id: n.id, name }, limit: c.value, actual, fix }, where);
   }
 
   // ---------- selections ----------
@@ -247,10 +247,15 @@ class Validator {
 
   // ---------- helpers ----------
 
-  /** The issue's force is its selection's, else (unless the limit is roster-wide) the force being checked. */
-  private push(fv: ForceView, c: Constraint, issue: Omit<Issue, 'forceSelId'>): void {
+  /**
+   * The issue's force is its selection's, else (unless the limit is roster-wide) the force being checked. `where` is the
+   * container the constraint counts in: the issue's `scope` is its key, except that a limit counting in the whole roster
+   * is `roster` and one counting in a detachment is `force` however it was written (scope `parent` on a detachment's root
+   * entries, say, or the detachment type's own id).
+   */
+  private push(fv: ForceView, c: Constraint, issue: Omit<Issue, 'forceSelId' | 'scope'>, where: CountScope | null): void {
     const forceSelId = issue.selId ? this.findForce(issue.selId) : c.scope === 'roster' ? undefined : fv.force.id;
-    const out: Issue = { rule: issue.rule, ...(forceSelId ? { forceSelId } : {}), subject: issue.subject, limit: issue.limit, actual: issue.actual };
+    const out: Issue = { rule: issue.rule, ...(forceSelId ? { forceSelId } : {}), subject: issue.subject, limit: issue.limit, actual: issue.actual, scope: where && isRoster(where) ? 'roster' : where && !isSel(where) ? 'force' : c.scope };
     if (issue.selId) out.selId = issue.selId;
     if (issue.fix) out.fix = issue.fix;
     this.issues.push(out);
