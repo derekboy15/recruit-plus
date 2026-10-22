@@ -18,6 +18,9 @@ const RulesHome = lazy(() => import('./rules/RulesHome').then((m) => ({ default:
 const RulesArticlePage = lazy(() => import('./rules/RulesArticlePage').then((m) => ({ default: m.RulesArticlePage })));
 const GlossaryPage = lazy(() => import('./rules/GlossaryPage').then((m) => ({ default: m.GlossaryPage })));
 const CoreStratagemsPage = lazy(() => import('./rules/CoreStratagemsPage').then((m) => ({ default: m.CoreStratagemsPage })));
+const GuidesIndexPage = lazy(() => import('./rules/GuidesIndexPage').then((m) => ({ default: m.GuidesIndexPage })));
+const FactionGuidePage = lazy(() => import('./factions/FactionGuidePage').then((m) => ({ default: m.FactionGuidePage })));
+const StratagemsPage = lazy(() => import('./factions/StratagemsPage').then((m) => ({ default: m.StratagemsPage })));
 const ReportsPage = lazy(() => import('./rules/ReportsPage').then((m) => ({ default: m.ReportsPage })));
 
 const loadingPage = <p className="muted">Loading…</p>;
@@ -61,10 +64,13 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
       <Route path="/rules" element={guard(lazyPage(<RulesHome />))} />
       <Route path="/rules/glossary" element={guard(lazyPage(<GlossaryPage />))} />
       <Route path="/rules/stratagems" element={guard(lazyPage(<CoreStratagemsPage />))} />
+      <Route path="/rules/factions" element={guard(lazyPage(<GuidesIndexPage />))} />
       <Route path="/rules/:articleId" element={guard(lazyPage(<RulesArticlePage />))} />
       <Route path="/rules/reports" element={guard(lazyPage(<ReportsPage />))} />
       <Route path="/factions" element={guard(<FactionsPage />)} />
       <Route path="/factions/:slug" element={guard(<FactionPage />)} />
+      <Route path="/factions/:slug/guide" element={guard(lazyPage(<FactionGuidePage />))} />
+      <Route path="/factions/:slug/stratagems" element={guard(lazyPage(<StratagemsPage />))} />
       <Route path="/factions/:slug/units/:unitSlug" element={guard(<DatasheetPage />)} />
       {extra}
       <Route path="*" element={<Navigate to="/" replace />} />

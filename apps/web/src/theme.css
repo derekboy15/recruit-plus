@@ -338,3 +338,12 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .blocks__list { padding-left: 1.25rem; }
 .blocks__list p { margin: 0.2rem 0; }
 .blocks__table td, .blocks__table th { white-space: normal; text-align: left; min-width: 6rem; }
+.tabs { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--border); margin: 0 0 1rem; overflow-x: auto; }
+.tabs__link { display: inline-flex; align-items: center; min-height: var(--touch); padding: 0 0.9rem; color: var(--text-muted); text-decoration: none; }
+.tabs__link[aria-current='page'] { color: var(--brass-strong); box-shadow: inset 0 -3px 0 var(--brass); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0 1rem; }
+.chip {
+  min-height: var(--touch); padding: 0 0.8rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-muted); font: inherit; font-size: 0.9rem; cursor: pointer;
+}
+.chip[aria-pressed='true'] { border-color: var(--brass-strong); color: var(--text); background: var(--surface-2); }
