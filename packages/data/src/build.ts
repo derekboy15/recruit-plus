@@ -75,6 +75,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
   const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
   validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
+  const amendmentTotals = new Map<Amendment, number>();
   const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
@@ -93,7 +94,9 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       rules: catalogueRules(cat),
       stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems, overrides.stratagemDetails),
     };
-    applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name));
+    for (const [a, n] of applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name || a.catalogueName === '*'))) {
+      amendmentTotals.set(a, (amendmentTotals.get(a) ?? 0) + n);
+    }
     writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
     index.catalogues.push({
       id: cat.id,
@@ -113,6 +116,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       stratagems: out.stratagems.length,
     };
   }
+  checkSelectorMatches(amendments, amendmentTotals);
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(coreStratagems(w, overrides.coreStratagems.map((c) => c.id))));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
@@ -161,52 +165,127 @@ function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogue
 
 /**
  * A final GW change (dataslate, FAQ) that BSData and Wahapedia both missed, from overrides/amendments.json. `note` is our
- * own words, one or two sentences; `source` says where the change is recorded.
+ * own words, one or two sentences; `source` says where the change is recorded. An item can carry several amendments:
+ * their notes are joined with a space, in file order.
  */
-export interface Amendment {
+export type Amendment = ItemAmendment | KeywordAmendment;
+
+/**
+ * A note on every unit ability with `name`, or on the named rule or stratagem. An ability amendment can instead select
+ * by `unitKeyword` (a keyword of the ability's unit) and `textPattern` (a case-insensitive regex the ability's text
+ * matches); only a selector may use `catalogueName: '*'` (every catalogue).
+ */
+export interface ItemAmendment {
   catalogueName: string;
   kind: 'ability' | 'rule' | 'stratagem';
-  name: string;
+  name?: string;
+  unitKeyword?: string;
+  textPattern?: string;
   /** A stratagem's corrected CP cost. */
   cp?: string;
   note: string;
   source: string;
 }
 
-const AMENDMENT_KINDS = new Set<string>(['ability', 'rule', 'stratagem']);
+/** Keywords removed from every unit with `name`; the optional note goes into the unit's `amended`. */
+export interface KeywordAmendment {
+  catalogueName: string;
+  kind: 'unit-keywords';
+  name: string;
+  remove: string[];
+  note?: string;
+  source: string;
+}
 
-/** Checks amendments.json: known catalogue names and kinds, one amendment per item, a cp only on stratagems, a note and a source on each. */
+const AMENDMENT_KINDS = new Set<string>(['ability', 'rule', 'stratagem', 'unit-keywords']);
+const ALL_CATALOGUES = '*';
+const isSelector = (a: Amendment): boolean => a.kind === 'ability' && (a.unitKeyword !== undefined || a.textPattern !== undefined);
+const describeAmendment = (a: Amendment) =>
+  `${a.kind} ${a.kind === 'ability' && isSelector(a) ? `selector (unit keyword ${a.unitKeyword}, text /${a.textPattern}/)` : `"${a.name}"`}`;
+const sameKeyword = (a: string, b: string) => a.toUpperCase() === b.toUpperCase();
+const addNote = (existing: string | undefined, note: string) => (existing ? `${existing} ${note}` : note);
+
+/**
+ * Checks amendments.json: known kinds and catalogue names (`*` only for an ability selector); a name, or for a selector
+ * both unitKeyword and a valid textPattern; keywords to remove on a unit-keywords amendment; a cp only on stratagems;
+ * a note (optional on unit-keywords) and a source on each.
+ */
 export function validateAmendments(amendments: Amendment[], catalogueNames: Set<string>): void {
-  const seen = new Set<string>();
   for (const a of amendments) {
-    const where = `amendments.json (${a.catalogueName}: ${a.kind} "${a.name}")`;
-    if (!catalogueNames.has(a.catalogueName)) throw new Error(`amendments.json names unknown catalogue "${a.catalogueName}"`);
-    if (seen.has(where)) throw new Error(`${where} is listed twice`);
-    seen.add(where);
+    const where = `amendments.json (${a.catalogueName}: ${describeAmendment(a)})`;
     if (!AMENDMENT_KINDS.has(a.kind)) throw new Error(`${where} has unknown kind "${a.kind}"`);
+    if (a.catalogueName === ALL_CATALOGUES ? !isSelector(a) : !catalogueNames.has(a.catalogueName)) {
+      const why = a.catalogueName === ALL_CATALOGUES ? ' (only an ability selector may use *)' : '';
+      throw new Error(`amendments.json names unknown catalogue "${a.catalogueName}"${why}`);
+    }
+    if (!a.source?.trim()) throw new Error(`${where} has no source`);
+    if (a.kind === 'unit-keywords') {
+      if (!a.name?.trim()) throw new Error(`${where} has no name`);
+      if (!Array.isArray(a.remove) || !a.remove.length) throw new Error(`${where} removes no keywords`);
+      if ('cp' in a) throw new Error(`${where} sets cp on a unit-keywords amendment`);
+      continue;
+    }
+    if (isSelector(a)) {
+      if (a.name !== undefined) throw new Error(`${where} sets both a name and a selector`);
+      if (!a.unitKeyword?.trim() || !a.textPattern) throw new Error(`${where} needs both unitKeyword and textPattern`);
+      try {
+        new RegExp(a.textPattern, 'i');
+      } catch {
+        throw new Error(`${where} has an invalid textPattern`);
+      }
+    } else {
+      if (a.unitKeyword !== undefined || a.textPattern !== undefined) throw new Error(`${where}: only ability amendments can select`);
+      if (!a.name?.trim()) throw new Error(`${where} has no name`);
+    }
     if (a.cp !== undefined && a.kind !== 'stratagem') throw new Error(`${where} sets cp on a ${a.kind}`);
     if (!a.note?.trim()) throw new Error(`${where} has no note`);
-    if (!a.source?.trim()) throw new Error(`${where} has no source`);
   }
 }
 
 /**
- * Applies one catalogue's amendments in place: the note goes into `amended` on every unit ability with that name, or on
- * the named rule or stratagem, whose cp is replaced when the amendment sets one. Throws if an amendment matches nothing.
+ * Applies a catalogue's amendments in place, in order: a note goes into `amended` (after any earlier note) on every
+ * unit ability with that name or matching the selector, or on the named rule or stratagem, whose cp is replaced when
+ * the amendment sets one; a unit-keywords amendment removes keywords from every unit with that name. Returns how many
+ * items each amendment matched. Throws if an amendment for this catalogue matches nothing or a keyword to remove isn't
+ * there; a `*` selector may match nothing in one catalogue, so the caller checks its total (`checkSelectorMatches`).
  */
-export function applyAmendments(out: CatalogueOut, amendments: Amendment[]): void {
+export function applyAmendments(out: CatalogueOut, amendments: Amendment[]): Map<Amendment, number> {
+  const counts = new Map<Amendment, number>();
   for (const a of amendments) {
     let matched = 0;
-    if (a.kind === 'ability') {
+    if (a.kind === 'unit-keywords') {
+      for (const u of out.units.filter((x) => x.name === a.name)) {
+        matched++;
+        for (const k of a.remove) {
+          if (!u.keywords.some((x) => sameKeyword(x, k))) throw new Error(`amendments.json: unit "${a.name}" in "${out.name}" has no keyword "${k}"`);
+        }
+        u.keywords = u.keywords.filter((x) => !a.remove.some((k) => sameKeyword(x, k)));
+        if (a.note) u.amended = addNote(u.amended, a.note);
+      }
+    } else if (a.kind === 'ability') {
+      const pattern = isSelector(a) ? new RegExp(a.textPattern!, 'i') : null;
       for (const u of out.units) {
-        u.abilities = u.abilities.map((x) => (x.name === a.name ? (matched++, { ...x, amended: a.note }) : x));
+        if (pattern && !u.keywords.some((k) => sameKeyword(k, a.unitKeyword!))) continue;
+        const hit = (x: { name: string; text: string }) => (pattern ? pattern.test(x.text) : x.name === a.name);
+        u.abilities = u.abilities.map((x) => (hit(x) ? (matched++, { ...x, amended: addNote(x.amended, a.note) }) : x));
       }
     } else if (a.kind === 'rule') {
-      out.rules = out.rules.map((r) => (r.name === a.name ? (matched++, { ...r, amended: a.note }) : r));
+      out.rules = out.rules.map((r) => (r.name === a.name ? (matched++, { ...r, amended: addNote(r.amended, a.note) }) : r));
     } else {
-      out.stratagems = out.stratagems.map((s) => (s.name === a.name ? (matched++, { ...s, amended: a.note, ...(a.cp ? { cp: a.cp } : {}) }) : s));
+      out.stratagems = out.stratagems.map((s) =>
+        s.name === a.name ? (matched++, { ...s, amended: addNote(s.amended, a.note), ...(a.cp ? { cp: a.cp } : {}) }) : s,
+      );
     }
-    if (!matched) throw new Error(`amendments.json: ${a.kind} "${a.name}" matches nothing in "${out.name}"`);
+    if (!matched && a.catalogueName !== ALL_CATALOGUES) throw new Error(`amendments.json: ${describeAmendment(a)} matches nothing in "${out.name}"`);
+    counts.set(a, matched);
+  }
+  return counts;
+}
+
+/** Throws if a `*` selector matched nothing in any catalogue (`totals`: summed applyAmendments counts). */
+export function checkSelectorMatches(amendments: Amendment[], totals: Map<Amendment, number>): void {
+  for (const a of amendments) {
+    if (a.catalogueName === ALL_CATALOGUES && !totals.get(a)) throw new Error(`amendments.json: ${describeAmendment(a)} matches nothing in any catalogue`);
   }
 }
 

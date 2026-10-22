@@ -15,7 +15,7 @@
 import { describe, expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { applyAmendments, validateAmendments, type Amendment } from '../src/build';
+import { applyAmendments, checkSelectorMatches, validateAmendments, type Amendment } from '../src/build';
 import type { CatalogueOut, DataIndex, UnitOut } from '../src/model/types';
 
 interface FinalRuleCheck {
@@ -100,7 +100,8 @@ const CHECKS: FinalRuleCheck[] = [
     catalogue: CUSTODES,
     kind: 'rule',
     name: 'Adeptus Custodes',
-    contains: ['CORE INFANTRY', 'Objective Secured'],
+    contains: ['CORE INFANTRY', 'Objective Secured', 'both CORE and INFANTRY'],
+    absent: ['ADEPTUS CUSTODES INFANTRY and'],
     source: `${ARKS}: Adeptus Custodes: Objective Secured extended to all CORE INFANTRY`,
   },
   ...['Esteemed Amalgam', 'The Emperor’s Auspice', 'Martial Discretion'].map(
@@ -192,19 +193,20 @@ const CHECKS: FinalRuleCheck[] = [
   ...each([DA, SM], {
     kind: 'rule',
     name: 'Inner Circle',
-    absent: ['Transhuman'],
+    absent: ['Transhuman', 'DEATHWING'],
     source: `${FINAL}: Dark Angels: fourth bullet of Inner Circle deleted (no permanent Transhuman Physiology)`,
   }),
   ...each(CHAPTERS, {
     kind: 'ability',
     name: 'Inner Circle',
-    absent: ['Transhuman'],
+    absent: ['Transhuman', 'DEATHWING'],
     source: `${FINAL}: Dark Angels: fourth bullet of Inner Circle deleted (no permanent Transhuman Physiology)`,
   }),
   {
     catalogue: DW,
     kind: 'rule',
     name: 'Mission Tactics',
+    contains: ['any of the three'],
     absent: ['more than once', 'more than twice', 'more than three times'],
     source: `${FINAL}: Deathwatch: Mission Tactics: freely choose any doctrine each battle round`,
   },
@@ -214,7 +216,7 @@ const CHECKS: FinalRuleCheck[] = [
     catalogue: TYRANIDS,
     kind: 'ability',
     name: 'Guardian Organism',
-    contains: ['HIVE TYRANT', 'Look Out, Sir'],
+    contains: ['HIVE TYRANT', 'Look Out, Sir', 'greater than 9'],
     source: `${LIB} §5 (14/20 Apr 2022) and §10 (bodyguard rules work like Look Out, Sir; never removed): Guardian Organism carved out by the HIVE TYRANT keyword`,
   },
   {
@@ -272,6 +274,9 @@ describe('final rules: abilities, army rules and stratagems', () => {
   test.todo(`Chaos - Death Guard: Blightlord and Deathshroud Terminators gain Objective Secured (§5, 14 Apr 2022): ${notEstablished}`);
   test.todo(`${HARLEQUINS}: ability "Luck of the Laughing God": start each round with 0 re-rolls (§6, 23 Jun 2022): ${notEstablished}`);
   test.todo(`T'au Empire: Mont'ka loses its AP bonus (§5, 14 Apr 2022): ${notEstablished}`);
+  test.todo(`T'au Empire: a Farsight Enclaves allied world gives automatic markerlights only within 9" (§5, 14 Apr 2022): ${notEstablished}`);
+  test.todo(`T'au Empire: charge-reduction abilities no longer stack (§5, 14 Apr 2022): ${notEstablished}`);
+  test.todo(`${CRAFTWORLDS}, ${HARLEQUINS}: stratagem "Matchless Agility" re-rolls the Battle Focus roll (§6, 23 Jun 2022); the data shows that version, with its first sentence duplicated: ${notEstablished}`);
   test.todo(`${CRAFTWORLDS}: stratagem "Eldritch Storm" needs line of sight, 4+ vs non-characters (§6, 23 Jun 2022): ${notEstablished}`);
   test.todo(`Necrons: rule "Command Protocols": CHARACTER as NOBLE, one protocol active all game (§6, 23 Jun 2022): ${notEstablished}`);
   test.todo(`Orks: rule "Waaagh!": 5+ then 6+ invulnerable save (§6, 23 Jun 2022): ${notEstablished}`);
@@ -291,7 +296,8 @@ describe('final rules: keywords and profiles', () => {
     if (!u) throw new Error(`no unit "${name}" in ${cat}`);
     return u;
   };
-  const hasCore = (u: UnitOut) => u.keywords.some((k) => k.toUpperCase() === 'CORE');
+  const has = (u: UnitOut, keyword: string) => u.keywords.some((k) => k.toUpperCase() === keyword.toUpperCase());
+  const hasCore = (u: UnitOut) => has(u, 'CORE');
   const core: [string, string, string][] = [
     [ADMECH, 'Kataphron Breachers', `${ARKS}: Kataphron Breachers and Destroyers gain CORE`],
     [ADMECH, 'Kataphron Destroyers', `${ARKS}: Kataphron Breachers and Destroyers gain CORE`],
@@ -305,19 +311,24 @@ describe('final rules: keywords and profiles', () => {
     test(`${cat}: ${name} has CORE`, () => expect(hasCore(unit(cat, name)), source).toBe(true));
   }
 
-  const necronVehicles = () => catalogue('Necrons').units.filter((u) => u.keywords.includes('Vehicle'));
-  // BSData gives the Catacomb Command Barge CORE (Wahapedia doesn't); the Amendment kinds can't change keywords.
-  const KNOWN_GAPS = ['Catacomb Command Barge'];
+  const necronVehicles = () => catalogue('Necrons').units.filter((u) => has(u, 'VEHICLE'));
   test('Necrons: every non-CHARACTER VEHICLE has CORE', () => {
-    const missing = necronVehicles().filter((u) => !u.keywords.includes('Character') && !hasCore(u)).map((u) => u.name);
+    const missing = necronVehicles().filter((u) => !has(u, 'CHARACTER') && !hasCore(u)).map((u) => u.name);
     expect(missing, `${LIB} §6 (23 Jun 2022) CORE on all Necron VEHICLEs, carried over in §8`).toEqual([]);
   });
-  test('Necrons: no CHARACTER VEHICLE has CORE (known gaps aside)', () => {
-    const wrong = necronVehicles().filter((u) => u.keywords.includes('Character') && hasCore(u) && !KNOWN_GAPS.includes(u.name)).map((u) => u.name);
+  test('Necrons: no CHARACTER VEHICLE has CORE', () => {
+    const wrong = necronVehicles().filter((u) => has(u, 'CHARACTER') && hasCore(u)).map((u) => u.name);
     expect(wrong, `${LIB} §7 (20 Oct 2022) CHARACTER vehicles lose CORE, carried over in §8`).toEqual([]);
   });
-  test('Necrons: The Silent King lacks CORE', () => expect(hasCore(unit('Necrons', 'The Silent King')), `${LIB} §7 (20 Oct 2022)`).toBe(false));
-  test.todo('KNOWN GAP: Necrons: Catacomb Command Barge shows CORE (BSData); §7 (20 Oct 2022) removed it and §8 carried that over. Keywords cannot be amended.');
+  test('Necrons: Catacomb Command Barge lacks CORE (BSData gives it CORE; amended)', () => {
+    const barge = unit('Necrons', 'Catacomb Command Barge');
+    const source = `${LIB} §7 (20 Oct 2022) CHARACTER vehicles such as the Catacomb Command Barge lose CORE, carried over in §8`;
+    expect(has(barge, 'VEHICLE') && has(barge, 'CHARACTER'), source).toBe(true);
+    expect(hasCore(barge), source).toBe(false);
+    expect(barge.amended, source).toMatch(/CORE/);
+  });
+  test.todo('KNOWN GAP: Necrons: The Silent King has an empty keyword list in our output, so "lacks CORE" (§7, 20 Oct 2022) cannot be checked');
+  test.todo('KNOWN GAP: Exaction Squad (and e.g. Thunderfire Cannon, War Dog squadrons, Celestine and Geminae Superia) have empty keyword lists in our output');
 
   test('Chaos - Daemons: Flamers roll to hit with BS 3+', () => {
     const flamers = unit('Chaos - Daemons', 'Flamers');
@@ -329,22 +340,77 @@ describe('final rules: keywords and profiles', () => {
   });
 });
 
+describe('final rules: AIRCRAFT bombing abilities', () => {
+  const amendments: { catalogueName: string; unitKeyword?: string; note: string }[] = JSON.parse(
+    readFileSync(join(__dirname, '..', 'overrides', 'amendments.json'), 'utf8'),
+  );
+  const bombing = amendments.find((a) => a.catalogueName === '*' && a.unitKeyword === 'AIRCRAFT');
+  const source = `${ARKS} (universal rules): "moves over" bombing abilities only trigger if the aircraft stays on the battlefield after its move`;
+
+  test('one selector amendment covers them', () => expect(bombing, source).toBeDefined());
+
+  test('it notes exactly the bombing abilities of AIRCRAFT units', () => {
+    const names = new Set<string>();
+    for (const summary of index.catalogues) {
+      for (const u of catalogue(summary.name).units) for (const a of u.abilities) if (a.amended?.includes(bombing!.note)) names.add(a.name);
+    }
+    expect([...names].sort(), source).toEqual(
+      [
+        'Big Bomb',
+        'Bigbomm',
+        'Blackstar Cluster Launcher',
+        'Bomb Rack',
+        'Boom Bomb',
+        'Burna Bomb',
+        'Burna bombs',
+        'Death Sphere Bombardment',
+        'Heavy Bombs',
+        'Heavy bomb',
+        'Infernal bomb',
+        'Inferno Bombs',
+        'Inferno bomb',
+        'Infernus Firebomb',
+        'Infernus firebombs',
+        'Pulse Bombs',
+        'Small Bomms',
+        'Spore Mine Cysts',
+        'Stasis bomb',
+        'Thunderhawk Cluster Bombs',
+        'Thunderhawk cluster bombs',
+        'Void mine',
+      ].sort(),
+    );
+  });
+
+  test("the Harpy's Spore Mine Cysts carries both its notes, in file order", () => {
+    const own = amendments.find((a) => a.catalogueName === TYRANIDS && (a as { name?: string }).name === 'Spore Mine Cysts')!;
+    const harpy = catalogue(TYRANIDS).units.find((u) => u.name === 'Harpy')!;
+    expect(harpy.abilities.find((a) => a.name === 'Spore Mine Cysts')!.amended).toBe(`${own.note} ${bombing!.note}`);
+  });
+});
+
 describe('applyAmendments', () => {
   const fixture = (): CatalogueOut => {
     const ability = (name: string, text: string) => ({ name, text, source: 'bsdata' as const });
-    const u = (id: string, abilities: ReturnType<typeof ability>[]) => ({ id, name: id, abilities }) as unknown as UnitOut;
+    const u = (id: string, keywords: string[], abilities: ReturnType<typeof ability>[]) => ({ id, name: id, keywords, abilities }) as unknown as UnitOut;
     return {
       id: 'c1',
       slug: 'test',
       name: 'Test Faction',
       group: 'Xenos',
       library: false,
-      units: [u('a', [ability('Shield', '4+'), ability('Other', 'x')]), u('b', [ability('Shield', '4+')])],
+      units: [
+        u('a', ['Infantry', 'Core'], [ability('Shield', '4+'), ability('Other', 'x')]),
+        u('b', ['Infantry'], [ability('Shield', '4+')]),
+        u('jet', ['Aircraft', 'Vehicle'], [ability('Bombs', 'Pick one unit this model moved across.'), ability('Supersonic', 'Pivot, then move.')]),
+        u('walker', ['Vehicle'], [ability('Stomp', 'Pick one unit this model moved across.')]),
+      ],
       rules: [{ id: 'r1', name: 'Army Rule', text: 'old' }],
       stratagems: [{ id: 's1', name: 'Big Gun', cp: '1', group: 'Test', kind: 'Battle Tactic', phases: [], text: 'boom' }],
     };
   };
-  const amend = (a: Partial<Amendment>): Amendment => ({ catalogueName: 'Test Faction', kind: 'ability', name: 'Shield', note: 'Now 5+.', source: 'test', ...a });
+  const amend = (a: Record<string, unknown>): Amendment => ({ catalogueName: 'Test Faction', kind: 'ability', name: 'Shield', note: 'Now 5+.', source: 'test', ...a }) as Amendment;
+  const selector = (a: Record<string, unknown> = {}) => amend({ name: undefined, unitKeyword: 'AIRCRAFT', textPattern: 'moved across', note: 'Must stay on.', ...a });
 
   test('notes every unit ability with that name, the named rule, and a stratagem (replacing its cp)', () => {
     const out = fixture();
@@ -355,20 +421,62 @@ describe('applyAmendments', () => {
     expect(out.stratagems[0]).toMatchObject({ cp: '2', text: 'boom', amended: 'Costs more.' });
   });
 
+  test('several amendments on one item join their notes with a space, in order', () => {
+    const out = fixture();
+    applyAmendments(out, [amend({ kind: 'rule', name: 'Army Rule', note: 'First.' }), amend({ kind: 'rule', name: 'Army Rule', note: 'Second.' })]);
+    expect(out.rules[0].amended).toBe('First. Second.');
+  });
+
   test('an amendment that matches nothing throws', () => {
     expect(() => applyAmendments(fixture(), [amend({ name: 'Nope' })])).toThrow(/matches nothing/);
     expect(() => applyAmendments(fixture(), [amend({ kind: 'rule', name: 'Shield' })])).toThrow(/matches nothing/);
     expect(() => applyAmendments(fixture(), [amend({ kind: 'stratagem', name: 'Army Rule' })])).toThrow(/matches nothing/);
+    expect(() => applyAmendments(fixture(), [amend({ kind: 'unit-keywords', name: 'nobody', remove: ['Core'] })])).toThrow(/matches nothing/);
+    expect(() => applyAmendments(fixture(), [selector({ textPattern: 'flew over' })])).toThrow(/matches nothing/);
   });
 
-  test('validateAmendments rejects unknown catalogues, a cp on a non-stratagem, and a missing note or source', () => {
+  test('a unit-keywords amendment removes keywords (any case) and notes the unit; a missing keyword throws', () => {
+    const out = fixture();
+    applyAmendments(out, [amend({ kind: 'unit-keywords', name: 'a', remove: ['CORE'], note: 'Not CORE.' })]);
+    expect(out.units[0]).toMatchObject({ keywords: ['Infantry'], amended: 'Not CORE.' });
+    expect(() => applyAmendments(fixture(), [amend({ kind: 'unit-keywords', name: 'b', remove: ['Core'] })])).toThrow(/has no keyword "Core"/);
+  });
+
+  test('an ability selector notes abilities matching the text on units with the keyword only', () => {
+    const out = fixture();
+    const counts = applyAmendments(out, [selector()]);
+    const noted = out.units.flatMap((u) => u.abilities.filter((a) => a.amended).map((a) => `${u.name}/${a.name}`));
+    expect(noted).toEqual(['jet/Bombs']);
+    expect([...counts.values()]).toEqual([1]);
+  });
+
+  test("a '*' selector may miss one catalogue but must match somewhere", () => {
+    const everywhere = selector({ catalogueName: '*', textPattern: 'flew over' });
+    const counts = applyAmendments(fixture(), [everywhere]);
+    expect(counts.get(everywhere)).toBe(0);
+    expect(() => checkSelectorMatches([everywhere], counts)).toThrow(/matches nothing in any catalogue/);
+    const hit = selector({ catalogueName: '*' });
+    expect(() => checkSelectorMatches([hit], applyAmendments(fixture(), [hit]))).not.toThrow();
+  });
+
+  test('validateAmendments rejects bad catalogues, kinds, selectors, keyword removals, cp, note and source', () => {
     const names = new Set(['Test Faction']);
-    expect(() => validateAmendments([amend({})], names)).not.toThrow();
-    expect(() => validateAmendments([amend({ catalogueName: 'Nowhere' })], names)).toThrow(/unknown catalogue "Nowhere"/);
-    expect(() => validateAmendments([amend({}), amend({ note: 'Again.' })], names)).toThrow(/listed twice/);
-    expect(() => validateAmendments([amend({ cp: '2' })], names)).toThrow(/cp/);
-    expect(() => validateAmendments([amend({ note: ' ' })], names)).toThrow(/note/);
-    expect(() => validateAmendments([amend({ source: '' })], names)).toThrow(/source/);
-    expect(() => validateAmendments([amend({ kind: 'keyword' as Amendment['kind'] })], names)).toThrow(/kind/);
+    const ok = (a: Amendment) => expect(() => validateAmendments([a], names)).not.toThrow();
+    const bad = (a: Amendment, why: RegExp) => expect(() => validateAmendments([a], names)).toThrow(why);
+    ok(amend({}));
+    expect(() => validateAmendments([amend({}), amend({ note: 'Again.' })], names)).not.toThrow();
+    ok(selector({ catalogueName: '*' }));
+    ok(amend({ kind: 'unit-keywords', name: 'a', remove: ['Core'], note: undefined }));
+    bad(amend({ catalogueName: 'Nowhere' }), /unknown catalogue "Nowhere"/);
+    bad(amend({ catalogueName: '*' }), /only an ability selector may use \*/);
+    bad(amend({ kind: 'keyword' }), /kind/);
+    bad(amend({ cp: '2' }), /cp/);
+    bad(amend({ note: ' ' }), /note/);
+    bad(amend({ source: '' }), /source/);
+    bad(selector({ textPattern: undefined }), /unitKeyword and textPattern/);
+    bad(selector({ textPattern: '(' }), /invalid textPattern/);
+    bad(selector({ name: 'Shield' }), /both a name and a selector/);
+    bad(amend({ kind: 'rule', name: 'Army Rule', unitKeyword: 'AIRCRAFT', textPattern: 'x' }), /only ability amendments can select/);
+    bad(amend({ kind: 'unit-keywords', name: 'a', remove: [] }), /removes no keywords/);
   });
 });

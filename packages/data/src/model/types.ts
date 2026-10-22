@@ -60,6 +60,8 @@ export interface UnitOut {
   wahapediaId: string | null;
   legends: boolean;
   forgeWorld: boolean;
+  /** Our note of a final GW change to the unit (e.g. a keyword) the sources missed. */
+  amended?: string;
 }
 
 /** A matched-play stratagem from Wahapedia. */

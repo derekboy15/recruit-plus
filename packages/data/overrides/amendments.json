@@ -82,5 +82,30 @@
     "name": "Mission Tactics",
     "note": "Final dataslate (Apr 2023): the limits on how often each doctrine can be picked are gone; at the start of each battle round you can pick any of the three.",
     "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §9 (final dataslate, 13 Apr 2023), Deathwatch row; BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "kind": "rule",
+    "name": "Adeptus Custodes",
+    "note": "Arks of Omen dataslate (Jan 2023): Objective Secured goes to ADEPTUS CUSTODES units that are both CORE and INFANTRY; INFANTRY characters without CORE, such as a Shield-Captain, do not get it.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Adeptus Custodes row (Objective Secured extended to all CORE INFANTRY); the BSData text keeps a stale INFANTRY clause"
+  },
+  {
+    "catalogueName": "Necrons",
+    "kind": "unit-keywords",
+    "name": "Catacomb Command Barge",
+    "remove": [
+      "CORE"
+    ],
+    "note": "Q4 2022 dataslate (Oct 2022), kept in 2023: CHARACTER vehicles such as this one lost the CORE keyword they gained in June 2022.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §7 (20 Oct 2022) Necrons row, carried over in §8; BSData gives the unit CORE, Wahapedia (datasheet 000000533) does not"
+  },
+  {
+    "catalogueName": "*",
+    "kind": "ability",
+    "unitKeyword": "AIRCRAFT",
+    "textPattern": "\\b(moved|moves) (across|over|through)\\b",
+    "note": "Arks of Omen dataslate (Jan 2023): this only works if the aircraft is still on the battlefield once its move has finished.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Universal rules: \"moves over\" bombing abilities only trigger if the aircraft stays on the battlefield after its move"
   }
 ]
