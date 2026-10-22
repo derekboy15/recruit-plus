@@ -1,0 +1,1039 @@
+[
+ {
+  "id": "cb-incisive-attack",
+  "name": "Incisive Attack",
+  "pack": "core-book",
+  "battleSize": "combat-patrol",
+  "roll": "1-2",
+  "rules": [
+   {
+    "id": "sweep-and-clear",
+    "name": "Sweep and Clear",
+    "text": "Sweep and Clear: In this mission, if you control an objective marker at the end of your Command phase, it remains under your control, even if you have no models within range of it, unless your opponent controls it at the end of any subsequent phase."
+   }
+  ],
+  "primary": {
+   "id": "take-and-hold",
+   "name": "Take and Hold",
+   "text": "Take and Hold (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "take-and-hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 5,
+     "max": 15,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Incisive Attack)"
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-incisive-attack-surgical-assault",
+   "name": "Surgical Assault",
+   "category": "Mission",
+   "type": "progressive",
+   "text": "Surgical Assault (Progressive): Score 5 victory points if you control the objective marker in your opponent’s deployment zone at the end of your turn.",
+   "components": [
+    {
+     "id": "surgical-assault",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "enemy",
+       "label": "You control the objective marker in your opponent’s deployment zone",
+       "vp": 5
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Incisive Attack, Surgical Assault)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 44,
+    "height": 30
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 10,
+       "h": 30
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 34,
+       "y": 0,
+       "w": 10,
+       "h": 30
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a",
+     "x": 6,
+     "y": 15,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 38,
+     "y": 15,
+     "in": "B"
+    },
+    {
+     "id": "n1",
+     "x": 22,
+     "y": 6,
+     "in": "nml"
+    },
+    {
+     "id": "n2",
+     "x": 22,
+     "y": 24,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/IncisiveAttack.png"
+  },
+  "verified": true,
+  "unverified": [],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "cb-outriders",
+  "name": "Outriders",
+  "pack": "core-book",
+  "battleSize": "combat-patrol",
+  "roll": "3-4",
+  "rules": [],
+  "primary": {
+   "id": "take-and-hold",
+   "name": "Take and Hold",
+   "text": "Take and Hold (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "take-and-hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 5,
+     "max": 15,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Outriders)"
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-outriders-survey",
+   "name": "Survey",
+   "category": "Mission",
+   "type": "progressive",
+   "text": "Survey (Progressive): Score 5 victory points if you control both of the objective markers that are not in either player’s deployment zone at the end of your Command phase. This secondary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "survey",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "both",
+       "label": "You control both objective markers that aren’t in either deployment zone",
+       "vp": 5
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Outriders, Survey)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 44,
+    "height": 30
+   },
+   "edges": {
+    "A": "bottom",
+    "B": "top"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 15,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 22,
+       "cy": 15,
+       "r": 9
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 22,
+       "y": 0,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 22,
+       "cy": 15,
+       "r": 9
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "nw",
+     "x": 8,
+     "y": 6,
+     "in": "nml"
+    },
+    {
+     "id": "b",
+     "x": 36,
+     "y": 6,
+     "in": "B"
+    },
+    {
+     "id": "a",
+     "x": 8,
+     "y": 24,
+     "in": "A"
+    },
+    {
+     "id": "se",
+     "x": 36,
+     "y": 24,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/Outriders.png"
+  },
+  "verified": true,
+  "unverified": [],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "cb-encircle",
+  "name": "Encircle",
+  "pack": "core-book",
+  "battleSize": "combat-patrol",
+  "roll": "5-6",
+  "rules": [],
+  "primary": {
+   "id": "take-and-hold",
+   "name": "Take and Hold",
+   "text": "Take and Hold (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "take-and-hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 5,
+     "max": 15,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Encircle)"
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-encircle-encircle",
+   "name": "Encircle",
+   "category": "Mission",
+   "type": "progressive",
+   "text": "Encircle (Progressive): Score 3 victory points if you have at least one unit from your army (excluding AIRCRAFT) wholly within 6\" of your battlefield edge and at least one unit from your army (excluding AIRCRAFT) wholly within 6\" of your opponent's battlefield edge at the end of your turn (score 5 victory points instead if one of these units is also wholly within your opponent’s deployment zone).",
+   "components": [
+    {
+     "id": "encircle",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "edges",
+       "label": "You have a unit (not AIRCRAFT) wholly within 6\" of your battlefield edge and one wholly within 6\" of your opponent’s",
+       "vp": 3,
+       "gate": true
+      },
+      {
+       "kind": "flag",
+       "id": "zone",
+       "label": "One of those units is also wholly within your opponent’s deployment zone",
+       "vp": 5
+      }
+     ],
+     "combine": "max",
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Encircle, Encircle)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 44,
+    "height": 30
+   },
+   "edges": {
+    "A": "bottom",
+    "B": "top"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 24,
+       "w": 28,
+       "h": 6
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 16,
+       "y": 0,
+       "w": 28,
+       "h": 6
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "w",
+     "x": 6,
+     "y": 18,
+     "in": "nml"
+    },
+    {
+     "id": "e",
+     "x": 38,
+     "y": 12,
+     "in": "nml"
+    },
+    {
+     "id": "nw",
+     "x": 16,
+     "y": 9,
+     "in": "nml"
+    },
+    {
+     "id": "se",
+     "x": 28,
+     "y": 21,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": false,
+   "notes": [
+    "The two inner objective markers are printed 6\" from the centre line; their distance along it isn't printed. They are placed in line with the deployment-zone corners (6\" either side of the centre), as drawn."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/Encircle.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Encircle map: the inner objective markers' position along the centre line is drawn, not printed (taken as 6\" from the centre, in line with the deployment-zone corners)."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "cb-lines-of-battle",
+  "name": "Lines of Battle",
+  "pack": "core-book",
+  "battleSize": "onslaught",
+  "roll": "1-2",
+  "rules": [],
+  "primary": {
+   "id": "unified-advance",
+   "name": "Unified Advance",
+   "text": "Unified Advance (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control one or more objective markers.\nThey control at least one objective marker labelled A, and at least one objective marker labelled C.\nThey control at least one objective marker labelled A, at least one objective marker labelled B and at least one objective marker labelled C.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "unified-advance",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "one",
+       "label": "You control one or more objective markers",
+       "vp": 5
+      },
+      {
+       "kind": "flag",
+       "id": "ac",
+       "label": "You control at least one A and at least one C objective marker",
+       "vp": 5
+      },
+      {
+       "kind": "flag",
+       "id": "abc",
+       "label": "You control at least one A, one B and one C objective marker",
+       "vp": 5
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Lines of Battle, Unified Advance)",
+     "max": 15
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-lines-of-battle-hold-the-centre",
+   "name": "Hold the Centre",
+   "category": "Mission",
+   "type": "progressive",
+   "text": "Hold the Centre (Progressive): Score 5 victory points at the end of your Command phase if you control more objective markers labelled B than your opponent does and you have more models wholly within 12\" of the centre of the battlefield than your opponent does. This secondary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "hold-the-centre",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "centre",
+       "label": "You control more B objective markers than your opponent and have more models wholly within 12\" of the centre",
+       "vp": 5
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Lines of Battle, Hold the Centre)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 90,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 45,
+       "y": 0,
+       "w": 45,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 45,
+       "cy": 22,
+       "r": 12
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 22,
+       "w": 45,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 45,
+       "cy": 22,
+       "r": 12
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a1",
+     "x": 1.878,
+     "y": 0.918,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "a2",
+     "x": 18.048,
+     "y": 8.824,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "b1",
+     "x": 34.219,
+     "y": 16.729,
+     "in": "nml",
+     "label": "B"
+    },
+    {
+     "id": "b2",
+     "x": 55.781,
+     "y": 27.271,
+     "in": "nml",
+     "label": "B"
+    },
+    {
+     "id": "c1",
+     "x": 71.952,
+     "y": 35.176,
+     "in": "nml",
+     "label": "C"
+    },
+    {
+     "id": "c2",
+     "x": 88.122,
+     "y": 43.082,
+     "in": "nml",
+     "label": "C"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": false,
+   "notes": [
+    "The objective markers are printed 12\", 30\" and 48\" from the centre along the dotted diagonal. The diagonal is taken as corner to corner, as drawn; its angle isn't printed."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/LinesOfBattle.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Lines of Battle map: the objective markers lie on the battlefield's corner-to-corner diagonal as drawn; the angle isn't printed."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "cb-all-out-war",
+  "name": "All-out War",
+  "pack": "core-book",
+  "battleSize": "onslaught",
+  "roll": "3-4",
+  "rules": [],
+  "primary": {
+   "id": "domination",
+   "name": "Domination",
+   "text": "Domination (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control two or more objective markers.\nThey control three or more objective markers.\nThey control more objective markers than their opponent controls.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "domination",
+     "kind": "hold",
+     "mode": "domination",
+     "vpPerCondition": 5,
+     "max": 15,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: All-out War)"
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-all-out-war-surround-them",
+   "name": "Surround Them",
+   "category": "Mission",
+   "type": "progressive-and-end-game",
+   "text": "Surround Them (Progressive and End Game): Score 4 victory points at the end of your Command phase and at the end of the battle if you control both the objective markers in your deployment zone and one or more objective markers in your opponent's deployment zone. Score 8 victory points instead if you control all four objective markers that are in deployment zones.",
+   "components": [
+    {
+     "id": "surround-them",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "surround",
+       "label": "You control both objective markers in your deployment zone and at least one in your opponent’s",
+       "vp": 4
+      },
+      {
+       "kind": "flag",
+       "id": "all",
+       "label": "You control all four objective markers in deployment zones",
+       "vp": 8
+      }
+     ],
+     "combine": "max",
+     "when": "end-of-command-phase",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: All-out War, Surround Them)"
+    },
+    {
+     "id": "surround-them-end",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "surround",
+       "label": "You control both objective markers in your deployment zone and at least one in your opponent’s",
+       "vp": 4
+      },
+      {
+       "kind": "flag",
+       "id": "all",
+       "label": "You control all four objective markers in deployment zones",
+       "vp": 8
+      }
+     ],
+     "combine": "max",
+     "when": "end-of-battle",
+     "rounds": [
+      5
+     ],
+     "who": "each",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: All-out War, Surround Them)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 90,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 90,
+       "h": 10
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 34,
+       "w": 90,
+       "h": 10
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a1",
+     "x": 15,
+     "y": 2,
+     "in": "A"
+    },
+    {
+     "id": "a2",
+     "x": 75,
+     "y": 2,
+     "in": "A"
+    },
+    {
+     "id": "b1",
+     "x": 15,
+     "y": 42,
+     "in": "B"
+    },
+    {
+     "id": "b2",
+     "x": 75,
+     "y": 42,
+     "in": "B"
+    },
+    {
+     "id": "w",
+     "x": 21,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "e",
+     "x": 69,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "n",
+     "x": 45,
+     "y": 16,
+     "in": "nml"
+    },
+    {
+     "id": "s",
+     "x": 45,
+     "y": 28,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/AllOutWar.png"
+  },
+  "verified": true,
+  "unverified": [],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "cb-pathway-to-glory",
+  "name": "Pathway to Glory",
+  "pack": "core-book",
+  "battleSize": "onslaught",
+  "roll": "5-6",
+  "rules": [
+   {
+    "id": "secure-the-search-area",
+    "name": "Secure the Search Area",
+    "text": "Secure the Search Area: The area of the battlefield within 12\" of the centre of the battlefield is the search area. In this mission, if you control an objective marker labelled A at the end of your Command phase, it remains under your control, even if you have no models within range of it, unless your opponent controls it at the end of any subsequent phase."
+   }
+  ],
+  "primary": {
+   "id": "domination",
+   "name": "Domination",
+   "text": "Domination (Progressive): At the end of each player’s Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\nThey control two or more objective markers.\nThey control three or more objective markers.\nThey control more objective markers than their opponent controls.\nThis primary objective cannot be scored in the first battle round.",
+   "components": [
+    {
+     "id": "domination",
+     "kind": "hold",
+     "mode": "domination",
+     "vpPerCondition": 5,
+     "max": 15,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Pathway to Glory)"
+    }
+   ]
+  },
+  "missionSecondary": {
+   "id": "cb-pathway-to-glory-search-for-the-portal",
+   "name": "Search for the Portal",
+   "category": "Mission",
+   "type": "progressive",
+   "text": "Search for the Portal (Progressive): Each time a unit from your army successfully completes the Search for the Portal action (see below) you score 1 victory point, plus 1 additional victory point for each objective marker labelled A that is currently under your control (for a maximum of 5 victory points).\nSearch for the Portal (Action): One INFANTRY unit from your army (excluding CHARACTERS) can start to perform this action at the end of your Movement phase if it is wholly within the Search Area shown on the deployment map. The action is completed at the end of your next Command phase so long as the unit performing it is still wholly within the Search Area.",
+   "components": [
+    {
+     "id": "search-for-the-portal",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "done",
+       "label": "One of your units completed the Search for the Portal action",
+       "vp": 1,
+       "gate": true
+      },
+      {
+       "kind": "count",
+       "id": "a",
+       "label": "Objective markers labelled A you control",
+       "vpEach": 1
+      }
+     ],
+     "combine": "sum",
+     "when": "on-action",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/ (Eternal War: Pathway to Glory, Search for the Portal)",
+     "max": 5
+    }
+   ]
+  },
+  "cp": {
+   "who": "active",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/core-rules/ (Command phase: Battle-forged CP bonus, the player whose turn it is)"
+  },
+  "map": {
+   "board": {
+    "width": 90,
+    "height": 44
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 33,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 57,
+       "y": 0,
+       "w": 33,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a1",
+     "x": 21,
+     "y": 6,
+     "in": "A"
+    },
+    {
+     "id": "a2",
+     "x": 21,
+     "y": 38,
+     "in": "A"
+    },
+    {
+     "id": "b1",
+     "x": 69,
+     "y": 6,
+     "in": "B"
+    },
+    {
+     "id": "b2",
+     "x": 69,
+     "y": 38,
+     "in": "B"
+    },
+    {
+     "id": "n",
+     "x": 45,
+     "y": 10,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "s",
+     "x": 45,
+     "y": 34,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "w",
+     "x": 33,
+     "y": 22,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "e",
+     "x": 57,
+     "y": 22,
+     "in": "nml",
+     "label": "A"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [
+    "The two A objective markers on the centre line sit exactly on the deployment-zone edges; they are treated as no man's land."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/PathwayToGlory.png",
+   "areas": [
+    {
+     "id": "search-area",
+     "name": "Search Area",
+     "area": {
+      "include": [
+       {
+        "kind": "circle",
+        "cx": 45,
+        "cy": 22,
+        "r": 12
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "verified": true,
+  "unverified": [],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/matched-play/",
+   "retrieved": "2026-10-22"
+  }
+ }
+]

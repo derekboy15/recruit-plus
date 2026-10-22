@@ -38,6 +38,13 @@ function strictlyInside(s: Shape, p: Point): boolean {
   });
 }
 
+/** On the edge of an area: inside it, but not strictly inside. */
+export function onAreaEdge(a: Area, p: Point): boolean {
+  if (!areaContains(a, p)) return false;
+  const strictly = a.include.some((s) => strictlyInside(s, p)) && !(a.exclude ?? []).some((s) => shapeContains(s, p));
+  return !strictly;
+}
+
 export function objectiveArea(map: MissionMap, p: Point): PlayerKey | 'nml' {
   if (areaContains(map.zones.A, p)) return 'A';
   if (areaContains(map.zones.B, p)) return 'B';
@@ -62,7 +69,7 @@ export function validateMap(map: MissionMap): string[] {
   const onBoard = (p: Point) => p.x >= -EPS && p.x <= W + EPS && p.y >= -EPS && p.y <= H + EPS;
   for (const o of map.objectives) {
     if (!onBoard(o)) problems.push(`objective ${o.id} is off the ${W}x${H} board`);
-    else if (objectiveArea(map, o) !== o.in) problems.push(`objective ${o.id} is declared in ${o.in} but lies in ${objectiveArea(map, o)}`);
+    else if (objectiveArea(map, o) !== o.in && !(o.in === 'nml' && onAreaEdge(map.zones[objectiveArea(map, o) as PlayerKey], o))) problems.push(`objective ${o.id} is declared in ${o.in} but lies in ${objectiveArea(map, o)}`);
   }
   for (const key of ['A', 'B'] as const) {
     for (const s of map.zones[key].include) {

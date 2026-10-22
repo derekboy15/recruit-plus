@@ -1,9 +1,9 @@
 /** Node side of the missions: pack rules, Wahapedia secondaries, the faction mapping and amendments. */
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { htmlToText, slugify, titleCase } from '../text';
 import type { Wahapedia } from '../wahapedia/load';
-import type { Pack, PackOut, SecondaryFaction, SecondaryOut } from './types';
+import type { MissionOut, Pack, PackOut, SecondaryFaction, SecondaryOut } from './types';
 
 const GAME: Record<Pack, string> = { 'arks-of-omen': 'Arks of Omen: Grand Tournament', 'core-book': 'Matched Play' };
 const PREFIX: Record<Pack, string> = { 'arks-of-omen': 'aoo', 'core-book': 'cb' };
@@ -46,4 +46,12 @@ export function loadSecondaryFactions(overridesDir: string): SecondaryFactionEnt
 export interface MissionAmendment { target: string; field: string; text: string; source: string }
 export function loadAmendments(overridesDir: string): { note?: string; items: MissionAmendment[] } {
   return JSON.parse(readFileSync(join(overridesDir, 'mission-amendments.json'), 'utf8'));
+}
+
+/** Mission files in `missions/` (every .json except packs.json), in file order. */
+export function loadMissions(missionsDir: string): MissionOut[] {
+  return readdirSync(missionsDir)
+    .filter((f) => f.endsWith('.json') && f !== 'packs.json')
+    .sort()
+    .flatMap((f) => JSON.parse(readFileSync(join(missionsDir, f), 'utf8')) as MissionOut[]);
 }

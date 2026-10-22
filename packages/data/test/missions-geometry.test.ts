@@ -50,6 +50,16 @@ describe('validateMap', () => {
     m.objectives[2].in = 'A';
     expect(validateMap(m).join('\n')).toMatch(/n1/);
   });
+  test('an objective exactly on a zone edge may be declared in that zone or in no man’s land', () => {
+    const m = fixture();
+    m.objectives.push({ id: 'edgeA', x: 10, y: 15, in: 'nml' }, { id: 'edgeB', x: 34, y: 15, in: 'nml' });
+    expect(validateMap(m)).toEqual([]);
+    m.objectives[4].in = 'A';
+    m.objectives[5].in = 'B';
+    expect(validateMap(m)).toEqual([]);
+    m.objectives[4].in = 'B';
+    expect(validateMap(m).join('\n')).toMatch(/edgeA/);
+  });
   test('flags an objective off the board', () => {
     const m = fixture();
     m.objectives[2].y = 31;
