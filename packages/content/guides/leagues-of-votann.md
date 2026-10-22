@@ -17,7 +17,7 @@ Votann are an elite, durable shooting army. Hearthkyn Warriors and Hernkyn Pione
 
 ## Army rules
 
-**Eye of the Ancestors.** If every unit is VOTANN from one League (ignoring UNALIGNED models), enemy units gain Judgement tokens, up to 3 each. A unit gains one when it destroys one of your units or completes an action or psychic action, and at the end of each of your opponent's turns you can give one to an enemy unit within range of an objective your opponent controls. Your attacks (except by COG models) against a unit with tokens wound automatically on an unmodified hit roll of 6 (1 token), 5+ (2 tokens) or 4+ (3 tokens). That automatic wound never counts as an unmodified wound roll of 6. Tokens stay until the unit is destroyed.
+**Eye of the Ancestors.** If every unit is VOTANN from one League (ignoring UNALIGNED models), enemy units gain Judgement tokens, up to 3 each. A unit gains one when it destroys one of your units or completes an action or psychic action, and at the end of each of your opponent's turns you can give one to an enemy unit within range of an objective marker you don't control. Your attacks (except by COG models) against a unit with tokens wound automatically on an unmodified hit roll of 6 (1 token), 5+ (2 tokens) or 4+ (3 tokens). That automatic wound never counts as an unmodified wound roll of 6. Tokens stay until the unit is destroyed.
 
 **Grim Efficiency.** In each of your Command phases, if every unit is from the same League (ignoring UNALIGNED models), a Kâhl can give one visible enemy unit a Judgement token.
 

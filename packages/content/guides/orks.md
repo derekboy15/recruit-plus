@@ -30,7 +30,7 @@ A SPEEDBOSS WARLORD calls a **Speedwaaagh!** instead. In stage 1, ORKS models ta
 
 **Mob Rule.** While a unit is within 6" of a friendly <CLAN> MOB unit that isn't below Half-strength, it never counts as below Half-strength.
 
-**Clan Kulturs.** In an ORKS Detachment, <CLAN> units (except GRETCHIN) gain their clan's kultur, and Troops (except GRETCHIN) gain Objective Secured. Goffs score extra hits in melee, Evil Sunz move faster, Bad Moons shoot further with Dakka and Heavy weapons, and Deathskulls can re-roll one hit or wound roll each time they shoot or fight.
+**Clan Kulturs.** In an ORKS Detachment, <CLAN> units (except GRETCHIN) gain their clan's kultur, and Troops (except GRETCHIN) gain Objective Secured. Goffs score extra hits in melee, Evil Sunz move faster, Bad Moons shoot further with Dakka and Heavy weapons, and Deathskulls can re-roll one hit roll and one wound roll each time they shoot or fight.
 
 **Signature stratagems.** Get Stuck In Ladz! (1 CP, or 2 CP for more than 10 models) lets BOYZ or BEAST SNAGGA BOYZ pile in and consolidate up to an extra 3". Tellyporta (2 CP) keeps a non-MONSTER unit of Power Rating 20 or less off the table to arrive later, more than 9" from enemy models.
 

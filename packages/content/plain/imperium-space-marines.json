@@ -13,10 +13,10 @@
       "2023": "date of the dataslate that made the change, not part of the rule"
     }
   },
-  "f1c17b8bb5ba": {
+  "fbd7435e3823": {
     "name": "Objective Secured",
     "kind": "rule",
-    "plain": "If your army is Battle-forged, every Troops unit in your ADEPTUS ASTARTES Detachments has this ability. You control an objective marker if any of your models with this ability are within range of it, even if your opponent has more models in range. If an enemy model in range also has this ability (or one like it), whoever has more models in range controls the marker, as normal. Once your Troops units take an objective marker, it stays under your control until your opponent takes it, even if none of your models are left in range.",
+    "plain": "If your army is Battle-forged, every Troops unit in your ADEPTUS ASTARTES Detachments has this ability. You control an objective marker if any of your models with this ability are within range of it, even if your opponent has more models in range. If an enemy model in range also has this ability (or one like it), whoever has more models in range controls the marker, as normal. At the end of your Command phase, each objective marker you control that has one of these Troops units within range stays yours even if your models move off it. It only stops being yours when your opponent controls it at the end of a later phase.",
     "waive": {
       "2023": "date of the dataslate that made the change, not part of the rule"
     }

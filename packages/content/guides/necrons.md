@@ -25,7 +25,7 @@ Necrons are a tough, mid-range army that wins by holding ground. Necron Warriors
 
 **Dynastic Codes.** In a NECRONS Detachment, Troops gain Objective Secured and <DYNASTY> units gain their dynasty's code. Nihilakh, for example, gives its units Objective Secured, while Novokh adds 1 to charge rolls and improves melee AP by 1 in a turn the unit charged, was charged or Heroically Intervened. You can also build a custom dynasty.
 
-**Signature stratagems.** Techno-oracular Targeting (1 CP) makes one shooting attack wound automatically. Dimensional Corridor (1 CP), used at the start of your Movement phase, moves a <DYNASTY> CORE INFANTRY unit to wholly within 3" of a friendly <DYNASTY> MONOLITH. Resurrection Protocols (1 CP) gives a slain NECRONS INFANTRY NOBLE or CRYPTEK a 4+ roll to return with D3 wounds.
+**Signature stratagems.** Techno-oracular Targeting (1 CP) makes one shooting attack wound automatically. Dimensional Corridor (1 CP), used at the start of your Movement phase, removes a <DYNASTY> CORE INFANTRY unit and, in the Reinforcements step of that phase, sets it back up wholly within 3" of a friendly <DYNASTY> MONOLITH and more than 9" away from any enemy models. Resurrection Protocols (1 CP) gives a slain NECRONS INFANTRY NOBLE or CRYPTEK a 4+ roll to return with D3 wounds.
 
 > **Tip:** Older 2022 lists often pair the Eternal Conquerors custom code with a Circumstance of Awakening. Since January 2023 that combination isn't allowed.
 

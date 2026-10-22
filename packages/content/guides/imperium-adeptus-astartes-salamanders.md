@@ -43,7 +43,7 @@ Signature stratagems:
 ## Key units
 
 - [[Vulkan He'stan]] - Each Command phase, one nearby CORE or CHARACTER unit re-rolls hit and wound rolls with flame and melta weapons.
-- [[Adrax Agatone]] - A tough Captain whose aura gives +1 to wound in melee on the turn your units charge or intervene.
+- [[Adrax Agatone]] - A tough Captain whose aura gives nearby SALAMANDERS CORE units +1 to wound with melee attacks in a turn they charged or made a Heroic Intervention.
 - [[Bray'arth Ashmantle]] - A Dreadnought hero with heavy flamers and a 5+ invulnerable save.
 - [[Eradicator Squad]] - Melta infantry that become brutal tank killers with Promethean Cult and Vulkan's re-rolls.
 - [[Aggressor Squad]] - Flamestorm gauntlets turn them into a wall of flame against infantry.

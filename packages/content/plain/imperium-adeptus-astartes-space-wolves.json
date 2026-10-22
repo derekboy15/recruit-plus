@@ -14,14 +14,6 @@
     "kind": "stratagem",
     "plain": "Once per battle, use before the battle while mustering your army, if your WARLORD has the SPACE WOLVES keyword. Pick one SPACE WOLVES model from your army with 'Sergeant' or 'Pack Leader' in its profile. Even though it isn't a CHARACTER, it can have one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Frost Weapon or Morkai's Teeth Bolts. Every Relic in your army must be unique, and this Stratagem can't give a model two Relics."
   },
-  "0d45a09f19f7": {
-    "name": "Objective Secured",
-    "kind": "ability",
-    "plain": "Troops units in your ADEPTUS ASTARTES Detachments have Objective Secured: you control an objective marker if any of your models with this ability are within range of it, even when more enemy models are within range. If an enemy model within range also has this ability (or a similar one), control is decided as normal: whoever has more models within range controls it. Also, once your Troops units take control of an objective marker, it stays under your control until your opponent controls it, even if none of your models remain within range.",
-    "waive": {
-      "2023": "date of the dataslate that made the change, not part of the rule"
-    }
-  },
   "13043bcee90d": {
     "name": "Hard as Stone (Aura)",
     "kind": "ability",
@@ -46,6 +38,14 @@
     "name": "Wulfen Frost claws",
     "kind": "weapon",
     "plain": "When the bearer fights, it gets 1 extra attack with this weapon. Failed wound rolls for this weapon's attacks can be re-rolled."
+  },
+  "1e0abf74a2c9": {
+    "name": "Objective Secured",
+    "kind": "ability",
+    "plain": "Troops units in your ADEPTUS ASTARTES Detachments have Objective Secured: you control an objective marker if any of your models with this ability are within range of it, even when more enemy models are within range. If an enemy model within range also has this ability (or a similar one), control is decided as normal: whoever has more models within range controls it. At the end of your Command phase, each objective marker you control that has one of these Troops units within range stays yours even if your models move off it. It only stops being yours when your opponent controls it at the end of a later phase.",
+    "waive": {
+      "2023": "date of the dataslate that made the change, not part of the rule"
+    }
   },
   "21e56f8a19f9": {
     "name": "Born of Wolves (Aura)",

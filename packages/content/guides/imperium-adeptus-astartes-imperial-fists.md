@@ -42,7 +42,7 @@ Signature stratagems:
 
 ## Key units
 
-- [[Captain Lysander]] - A Terminator Captain with a 3+ invulnerable save who is very hard to wound and keeps nearby units steady.
+- [[Captain Lysander]] - A Terminator Captain with a 3+ invulnerable save who keeps nearby units steady; as your WARLORD, unmodified wound rolls of 1-3 against him always fail.
 - [[Tor Garadon]] - Gives one nearby unit +1 to hit with ranged attacks and hits vehicles and buildings extra hard.
 - [[Pedro Kantor]] - The Crimson Fists Chapter Master, with hit re-rolls and an aura of extra attacks.
 - [[Intercessor Squad]] - Bolt rifle Troops that get the most out of Siege Masters, Bolter Drill and sticky objectives.

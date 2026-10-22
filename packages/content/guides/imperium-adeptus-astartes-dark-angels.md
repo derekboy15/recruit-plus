@@ -23,7 +23,7 @@ Your units have the usual **Angels of Death** rules. Combat Doctrines start in D
 
 - **Devastator, Speed of the Raven:** RAVENWING models get +3" Move and can shoot after Advancing, with the same hit penalty as Assault weapons.
 - **Tactical, Fire Discipline:** INFANTRY other than DEATHWING can fire Rapid Fire and Assault weapons (not Blast) at enemies they are in combat with, using a Ballistic Skill of 5+.
-- **Assault, Implacable:** DEATHWING INFANTRY and DREADNOUGHTS re-roll melee wound rolls against CHARACTERS and units containing a model with 8 or more wounds.
+- **Assault, Implacable:** DEATHWING INFANTRY and DEATHWING DREADNOUGHT models re-roll melee wound rolls against CHARACTERS and units containing a model with 8 or more wounds.
 
 **Inner Circle** (DEATHWING and INNER CIRCLE units) means the unit always passes Morale tests. To Fall Back it must roll 2D6 equal to or under its Leadership (VEHICLE, RAVENWING and CHAPTER MASTER units skip this roll), and it can't Fall Back from FALLEN units at all.
 

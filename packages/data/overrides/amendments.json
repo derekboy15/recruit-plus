@@ -24,21 +24,21 @@
     "catalogueName": "Imperium - Space Marines",
     "kind": "rule",
     "name": "Objective Secured",
-    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "note": "Arks of Omen dataslate (Jan 2023): at the end of your Command phase, any objective marker you control with one of these Troops units in range stays under your control, even after your models leave it, until your opponent controls it at the end of a later phase.",
     "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
     "kind": "rule",
     "name": "Objective Secured",
-    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "note": "Arks of Omen dataslate (Jan 2023): at the end of your Command phase, any objective marker you control with one of these Troops units in range stays under your control, even after your models leave it, until your opponent controls it at the end of a later phase.",
     "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row (Goonhammer's winners there include Space Wolves); BSData shows the codex text"
   },
   {
     "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
     "kind": "ability",
     "name": "Objective Secured",
-    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "note": "Arks of Omen dataslate (Jan 2023): at the end of your Command phase, any objective marker you control with one of these Troops units in range stays under your control, even after your models leave it, until your opponent controls it at the end of a later phase.",
     "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row (Goonhammer's winners there include Space Wolves); BSData shows the codex text"
   },
   {

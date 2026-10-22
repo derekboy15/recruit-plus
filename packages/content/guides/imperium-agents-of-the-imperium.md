@@ -37,9 +37,9 @@ These rules come from the units' own datasheets. The faction has no army-wide ru
 ## Key units
 
 - [[Inquisitor]] - A cheap HQ that can be a psyker. It brings Quarry re-rolls and a Leadership aura.
-- [[Inquisitor Coteaz]] - Shoots enemy units that arrive near him, and once per battle makes an enemy stratagem cost 1 extra CP.
+- [[Inquisitor Coteaz]] - When an enemy unit arrives as reinforcements, one friendly ORDO MALLEUS unit within 6" of him can shoot at it as if it were your Shooting phase. Once per battle he can also make an enemy stratagem cost 1 extra CP.
 - [[Vindicare Assassin]] - A sniper who ignores Look Out, Sir. Use him to pick off enemy characters.
 - [[Callidus Assassin]] - In the first battle round she can make enemy stratagems cost 1 extra CP, or fail.
-- [[Culexus Assassin]] - Immune to psychic powers. Enemy PSYKERS within 18" take -2 to cast and deny.
+- [[Culexus Assassin]] - Immune to psychic powers. Every PSYKER unit within 18" of her, including your own, subtracts 2 from its Psychic tests and Deny the Witch tests.
 - [[Eversor Assassin]] - A melee killer who rolls 3D6 to charge and gets extra attacks as models die.
 - [[Imperial Navy Breacher]] - Tough Navy Troops whose Void Armour worsens the AP of incoming attacks by 1.

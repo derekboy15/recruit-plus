@@ -5,17 +5,17 @@ sources: [03_Codexes/Chaos/Chaos_Knights.md, catalogue data]
 ---
 ## How this army plays
 
-This is one of the lowest model counts in the game: usually a handful of War Dogs, often with one or two big Knights. Every model is a Lord of War with a lot of wounds, so small arms barely scratch you.
+This is one of the lowest model counts in the game: usually a handful of War Dogs, often with one or two big Knights. Every model is a Lord of War with many wounds, so small arms barely scratch you.
 
 **Strengths.** Your models are fast, tough and hit hard. Each Knight counts as several models on objectives, so one War Dog can hold a point against a whole squad. Every model is its own unit, so you can spread across the table.
 
 **Weaknesses.** With so few bodies, every action costs you firepower and every loss hurts. Heavy anti-tank armies are your worst matchup, and cheap screens and dense terrain slow you down.
 
-**For a new player** it is simple to command but unforgiving: a War Dog left in front of a melta gun is a heavy loss. In the final state of 9th Edition the best lists leaned on War Dogs (often House Herpetrax) backed by an Abominant or a Desecrator, and the faction won about half its games.
+**For a new player** it is simple to command but unforgiving: a War Dog left in front of a melta gun is a heavy loss. In the final state of 9th Edition the best lists leaned on War Dogs (often House Herpetrax) backed by an Abominant or a Desecrator.
 
 ## Army rules
 
-**Knight basics.** Every Knight has Ion Shields, a 5+ invulnerable save against ranged attacks. Big Knights are Super-heavy Walkers: they can charge after Falling Back, and when they make a Normal Move, Advance or Fall Back they can move over models that are not MONSTER or VEHICLE models.
+**Knight basics.** Most Knights have Ion Shields, a 5+ invulnerable save against ranged attacks. The Atrapos, Magaera and Styrix instead have an Ionic Flare Shield, a 5+ invulnerable save against all attacks. The Lancer's Ion Gauntlet Shield gives a 5+ invulnerable save, or 4+ against melee attacks, and TITANIC units subtract 1 from melee hit rolls against it. Big Knights are Super-heavy Walkers: they can charge after Falling Back, and when they make a Normal Move, Advance or Fall Back they can move over models that are not MONSTER or VEHICLE models.
 
 **Towering Foe.** For objective control each model counts as 5 models, or 10 if it is TITANIC.
 
