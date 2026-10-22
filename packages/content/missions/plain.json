@@ -1,0 +1,408 @@
+{
+  "03f394d0b253": {
+    "name": "Drop Zone Repleted",
+    "kind": "mission",
+    "plain": "Two objective markers are taken off the battlefield during this mission. At the start of battle round 3, the Defender picks 1 objective marker in no man's land at random: it becomes the Gamma objective marker. At the start of battle round 4, the Gamma marker is removed, and the Attacker picks 1 of the 2 remaining no man's land objective markers at random to be the Beta objective marker. At the start of battle round 5, the Beta marker is removed."
+  },
+  "075153837929": {
+    "name": "Battle-forged CP Bonus",
+    "kind": "mission",
+    "plain": "At the start of every Command phase, yours or your opponent's, both players gain 1CP, not only the player whose turn it is. This CP is a Battle-forged CP bonus, so it doesn't count towards the usual limit of gaining at most 1CP per turn."
+  },
+  "0b3cf7118b43": {
+    "name": "Thin Their Ranks",
+    "kind": "secondary",
+    "plain": "Keep a kill points tally if you pick this. Each time an enemy model is destroyed, add 1 to it, or 10 if that model had a Wounds characteristic of 10 or more. A model that is destroyed, brought back for any reason and destroyed again can add to the tally each time. At the end of the battle, divide your tally by 10, rounding down: that's how many victory points you score."
+  },
+  "0f19118fccfe": {
+    "name": "Objective Cleansed",
+    "kind": "mission",
+    "plain": "An objective marker you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "0f8633902836": {
+    "name": "Hold the Centre",
+    "kind": "secondary",
+    "plain": "Not scored in battle round 1. At the end of your Command phase, gain 5 victory points when both are true: you control more B-labelled objective markers than the opposing player, and more of your models than theirs are wholly within 12\" of the battlefield's centre."
+  },
+  "1258bb898da3": {
+    "name": "Leading From the Front",
+    "kind": "mission",
+    "plain": "At the start of every Command phase, a player whose WARLORD isn't on the battlefield (or embarked in a TRANSPORT model that is on the battlefield) rolls one D6: on a 1-3, that player doesn't get the Battle-forged CP bonus this phase."
+  },
+  "132f1bb5d4b1": {
+    "name": "Champion’s Honour",
+    "kind": "mission",
+    "plain": "WARLORD models have Objective Secured in this mission. A unit with a pre-battle rule letting it set up anywhere on the battlefield can't be set up in no man's land. Except for WARLORD models: a unit with a rule letting it move before the first turn can't finish that move in no man's land, and a unit with a rule letting it redeploy before the first turn can't be set up in no man's land."
+  },
+  "134c99ac2da3": {
+    "name": "Abhor the Witch",
+    "kind": "secondary",
+    "plain": "You can't pick this if your army has any PSYKER units. At the end of the battle, score 5 victory points for each enemy PSYKER CHARACTER unit that has been destroyed, and 3 victory points for each other enemy PSYKER unit that has been destroyed."
+  },
+  "136043ad4863": {
+    "name": "Inload Data-psalm",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round): if at least 1 of your units finished the Inload Data-psalm action this turn, you get 1VP per objective marker you control at that point, up to 3VP per player per turn."
+  },
+  "17c9f8bb6a48": {
+    "name": "Abhor the Witch",
+    "kind": "secondary",
+    "plain": "You can't pick this if your army has any PSYKER units. At the end of the battle, score 3VP for each enemy PSYKER CHARACTER unit that has been destroyed, and 2VP for each other enemy PSYKER unit that has been destroyed."
+  },
+  "1812fc0a50b5": {
+    "name": "Titan Slayers",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score 10 victory points if 1 enemy TITANIC model has been destroyed, or 15 victory points if 2 or more have been."
+  },
+  "1cc3c22ee44b": {
+    "name": "Defuse Explosives",
+    "kind": "mission",
+    "plain": "Defuse Explosives (Action): at the end of your Movement phase, 1 of your units in range of a Primed Explosives objective marker in your own territory can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. It is completed at the end of your turn if the unit is still in range of the same marker. Then roll one D6, adding 3 if the unit has Objective Secured: on a 4+, remove that Primed Explosives marker."
+  },
+  "1e092b9e6b16": {
+    "name": "Recon Sweep",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Then, at the end of the battle, each player scores VP for how many objective markers their army has reconnoitred: 1 marker 3VP, 2 markers 6VP, 3 markers 10VP, 4 markers 15VP.",
+    "waive": {
+      "OBJECTIVE MARKERS RECONNOITRED BY YOUR ARMY": "a table column heading, not a keyword"
+    }
+  },
+  "1e4485739082": {
+    "name": "Unified Advance",
+    "kind": "mission",
+    "plain": "Not scored in battle round 1. At the end of each Command phase, the player whose turn it is gets 5 victory points for every one of these they meet, to a maximum of 15: controlling 1 or more objective markers; controlling at least 1 objective marker labelled A and at least 1 labelled C; controlling at least 1 each of the objective markers labelled A, B and C."
+  },
+  "1e6433b41c35": {
+    "name": "Linebreaker",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 4 victory points if 2 or more of your units (not AIRCRAFT) are wholly within your opponent's deployment zone."
+  },
+  "244736089c25": {
+    "name": "Secure the Sanctuaries",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 2VP if one of these is true, or 3VP if both are: you control the centre objective marker; you destroyed at least 1 enemy unit that started your turn within 6\" of the battlefield's centre."
+  },
+  "27cb1f43f923": {
+    "name": "Raise the Banners High",
+    "kind": "secondary",
+    "plain": "If you pick this, your units can do this action. Raise Banners (Action): at the end of your Movement phase, 1 or more of your INFANTRY units can start it, each in range of a different objective marker that you control and that doesn't already have one of your banners on it. It is completed at the end of your turn. Then one of your banners is raised on that objective marker. The banner comes down if your opponent controls that marker at the start of any Command phase. For each objective marker on the battlefield with one of your banners on it, you gain 1VP whenever one of your Command phases ends, and 1VP more when the battle ends."
+  },
+  "28c816b29b6b": {
+    "name": "Desperate Raiders",
+    "kind": "mission",
+    "plain": "At the start of your Command phase, if you control at least 1 of the 2 objective markers in your opponent's deployment zone, you gain 1 extra CP on top of the Battle-forged CP bonus."
+  },
+  "28f6a3566841": {
+    "name": "Surge of Faith",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in every battle round, each time one of your units completes the Surge of Faith action, you score VP depending on the objective marker it was done on. Player A: marker A scores nothing (N/A), B 2VP, C 3VP, D 4VP. Player B: marker A 4VP, B 3VP, C 2VP, D scores nothing (N/A)."
+  },
+  "296124e869d9": {
+    "name": "Data Intercept",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in every battle round, each time one of your units completes the Data Intercept action, you score 1VP for each objective marker in no man's land you control at that moment, up to 3VP per action."
+  },
+  "30c8e940360c": {
+    "name": "Data Terminals",
+    "kind": "mission",
+    "plain": "An objective marker in no man's land that you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "31daa736046d": {
+    "name": "Engage on All Fronts",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 2VP if you have qualifying units wholly within 3 different table quarters, all of them more than 6\" from any other table quarter. Score 3VP instead if you have qualifying units wholly within all 4 table quarters, all of them more than 3\" from any other table quarter. A qualifying unit has a Starting Strength of 3 or more models, or includes at least 1 VEHICLE or MONSTER model (AIRCRAFT models don't count)."
+  },
+  "32a79bb2af15": {
+    "name": "No Man’s Land",
+    "kind": "mission",
+    "plain": "No unit can use a pre-battle rule that sets it up anywhere on the battlefield to set up in no man's land. A unit that moves before the first turn begins can't end that move in no man's land. A redeploy rule can't set a unit up in no man's land. Reinforcement units set up during the first battle round can't be set up in no man's land."
+  },
+  "343434543fef": {
+    "name": "Raid Supply Lines",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 3VP if you control at least 1 of the objective markers in your opponent's deployment zone."
+  },
+  "3b2fcb77efb6": {
+    "name": "Psychic Ritual",
+    "kind": "secondary",
+    "plain": "Psychic Ritual (Psychic Action - Warp Charge 3): in your Psychic phase, 1 PSYKER CHARACTER unit from your army within 6\" of the battlefield's centre can attempt it. When the battle ends, gain 15 victory points if any of your units completed it 3 times during the battle."
+  },
+  "3d41617a66d2": {
+    "name": "Secure the Rear",
+    "kind": "mission",
+    "plain": "At the start of every Command phase: if Player A doesn't control objective marker A, Player A rolls one D6, and on a 1-3 they don't get the Battle-forged CP bonus this phase. Player B does the same if they don't control objective marker B."
+  },
+  "3dc355a907de": {
+    "name": "Mental Interrogation",
+    "kind": "secondary",
+    "plain": "Score 3 victory points each time you complete this psychic action. Mental Interrogation (Psychic Action - Warp Charge 4): in your Psychic phase, 1 PSYKER CHARACTER from your army within 18\" of any enemy CHARACTER models can attempt it."
+  },
+  "3dc7d8d98d7b": {
+    "name": "Assassination",
+    "kind": "secondary",
+    "plain": "This has a progressive part and an end-game part. Progressive: at the end of each battle round, if an attack by one of your Troops, ARMIGER-CLASS or WAR DOG-CLASS units destroyed any enemy CHARACTER unit during that battle round, you gain 1 CP. End game: when the battle ends, gain 3VP for every enemy CHARACTER unit that has been destroyed, plus 1 more VP if the enemy WARLORD has been destroyed."
+  },
+  "3f16986254f9": {
+    "name": "Engage on All Fronts",
+    "kind": "secondary",
+    "plain": "At the end of your turn, gain 2 victory points if you have 1 or more of your units wholly within 3 different table quarters, all of them more than 6\" from the battlefield's centre. If you have units wholly within all 4 table quarters, again all more than 6\" from the centre, gain 3 victory points instead."
+  },
+  "42dc278069f7": {
+    "name": "Survey",
+    "kind": "secondary",
+    "plain": "Not scored in battle round 1. At the end of your Command phase, score 5 victory points if you control both objective markers that aren't in either player's deployment zone."
+  },
+  "460628c0cee4": {
+    "name": "Strategic Scan",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Then, when the battle ends, each player gets 3VP per objective marker on the battlefield that their army has scanned."
+  },
+  "4a002c5d810a": {
+    "name": "Secure the Search Area",
+    "kind": "mission",
+    "plain": "The search area is everything within 12\" of the battlefield's centre. An objective marker labelled A that you control at the end of your Command phase stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "51f90d689120": {
+    "name": "Direct Assault",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in every battle round, at the end of each turn, the player whose turn it is scores 2VP if one of these is true, or 3VP if both are: (a) they control every objective marker, or they control at least 1 objective marker they didn't control when their turn began; (b) they destroyed at least 1 enemy unit that was in range of an objective marker when their turn began."
+  },
+  "52e5b0b5d4b1": {
+    "name": "Leading From the Front",
+    "kind": "mission",
+    "plain": "At the start of every Command phase, a player whose WARLORD isn't on the battlefield (or embarked in a TRANSPORT model that is on the battlefield) rolls one D6: on a 1-3, that player doesn't get the Battle-forged CP bonus this phase."
+  },
+  "55ae7853adeb": {
+    "name": "Prime Explosives",
+    "kind": "mission",
+    "plain": "Both players' units can do these actions. Prime Explosives (Action): at the end of your Movement phase, 1 of your units that is wholly within your opponent's territory and more than 9\" from every Primed Explosives objective marker can start it. A unit with Objective Secured or a similar rule completes it at the end of your turn; any other unit completes it at the end of your next Command phase. When it's completed, place 1 Primed Explosives objective marker wholly within your opponent's territory and wholly within 3\" of that unit. This marker counts as an objective marker only for the Defuse Explosives action and the Detonation primary objective."
+  },
+  "5874e8c593eb": {
+    "name": "Surgical Assault",
+    "kind": "secondary",
+    "plain": "At the end of your turn: 5 victory points if the objective marker in your opponent's deployment zone is under your control."
+  },
+  "639655920b51": {
+    "name": "Precious Objectives",
+    "kind": "mission",
+    "plain": "After deployment zones are chosen and before reserves and transports are declared, the objective markers labelled A and B are moved. First the Attacker moves 1 marker labelled A or B; second, the Defender moves 1 marker labelled A and 1 labelled B (no marker can be moved twice); last, the Attacker moves the remaining A or B marker that hasn't been moved. Each moved marker must end wholly within 6\" horizontally of where it started, and not on or in any Obstacles or Defensible Terrain feature. Then each player secretly writes down 1 objective marker in their opponent's territory as a Priority objective marker (not the one in the centre of the battlefield). Both players reveal their choice once both armies are deployed."
+  },
+  "67815f08d491": {
+    "name": "Assassinate",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score 3 victory points for each enemy CHARACTER model that has been destroyed."
+  },
+  "68a87896fbf8": {
+    "name": "Grind Them Down",
+    "kind": "secondary",
+    "plain": "At the end of each battle round: gain 3VP if, during that battle round, more enemy units were destroyed than friendly units. Also, if your Troops, ARMIGER-CLASS or WAR DOG-CLASS units destroyed 1 or more enemy units this battle round, you gain 1 CP."
+  },
+  "68d8368b512c": {
+    "name": "Wisdom is the Cornerstone of Faith",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), if you're Player A: gain 2VP if you control objective marker B, lose 1VP if you don't control objective marker A, and gain 1VP for every other objective marker you control. If you're Player B, swap the letters: gain 2VP for objective marker A, lose 1VP for not controlling objective marker B, and gain 1VP per other objective marker. Your score never drops below 0."
+  },
+  "6c28028601f7": {
+    "name": "Secret Intel Inbound",
+    "kind": "mission",
+    "plain": "Neither player gets a Battle-forged CP bonus in battle rounds 1 and 2. In battle rounds 4 and 5, at the start of each Command phase, the player whose turn it is gets 1 extra CP from their Battle-forged CP bonus, so they usually gain 2CP then."
+  },
+  "6ca15b306c46": {
+    "name": "Ascend",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 2VP if you control the centre objective marker or if you destroyed at least 1 enemy unit that started the turn within 6\" of the battlefield's centre (2VP at most, even if both are true). Then, when the battle ends, each player gets 3VP if their WARLORD is in range of the centre objective marker, and another 3VP if the opposing WARLORD has been destroyed."
+  },
+  "6de3eb99248b": {
+    "name": "Inload Data-psalm",
+    "kind": "mission",
+    "plain": "Both players' units can do this action. Inload Data-psalm (Action): at the end of your Movement phase, 1 or more of your units can start it, each in range of a different objective marker. A unit can't start it while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your next Command phase if the unit is still in range of the same objective marker. If a unit with Objective Secured completes it, that objective marker stays under its player's control even with none of their models in range, until the opponent controls it at the end of a later phase."
+  },
+  "739ef2f73408": {
+    "name": "Bring It Down",
+    "kind": "secondary",
+    "plain": "When the battle ends, gain victory points for each enemy MONSTER or VEHICLE model that has been destroyed: 2 victory points if its Wounds characteristic was 10 or lower, 3 victory points if it was 11 or higher."
+  },
+  "73e7aedd5e13": {
+    "name": "No Prisoners",
+    "kind": "secondary",
+    "plain": "Keep a Kill Points tally if you pick this. Each time an enemy model is destroyed, unless it is a VEHICLE, MONSTER or CHARACTER model, add marks to the tally equal to its Wounds characteristic. At the end of the battle, divide your tally by 10, rounding down: that's how many VP you score. You also score 1 extra VP if your tally is 50-99, or 2 extra VP if it's 100 or more."
+  },
+  "7420f74f4ca0": {
+    "name": "Psychic Interrogation",
+    "kind": "secondary",
+    "plain": "Score 3VP each time you complete this psychic action. Psychic Interrogation (Psychic Action - Warp Charge 5): in your Psychic phase, 1 PSYKER CHARACTER unit from your army that is within 24\" of an enemy CHARACTER unit and can see it can attempt it. Also, if the Psychic test result equals or beats the Leadership characteristic of any enemy CHARACTER model within 24\" of the PSYKER unit that completed it, you gain 1 CP at the end of the phase."
+  },
+  "7e28768d5af8": {
+    "name": "Sweep and Clear",
+    "kind": "mission",
+    "plain": "An objective marker you control at the end of your Command phase stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "8a18050a7a14": {
+    "name": "Objective Purged",
+    "kind": "mission",
+    "plain": "An objective marker you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "912849423e1b": {
+    "name": "Binharic Interference",
+    "kind": "mission",
+    "plain": "Reinforcement units can't be set up within range of any objective marker in this mission."
+  },
+  "9bc0b4c3126d": {
+    "name": "Secure Landing Sites",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in battle rounds 3, 4 and 5, at the end of each turn, the player whose turn it is scores VP for every objective marker they control in no man's land: 2VP each in battle round 3, 3VP each in round 4 and 4VP each in round 5.",
+    "waive": {
+      "VP PER OBJECTIVE MARKER IN NO MAN'S LAND CONTROLLED": "a table column heading, not a keyword"
+    }
+  },
+  "a1285922cfd1": {
+    "name": "Land Purged",
+    "kind": "mission",
+    "plain": "An objective marker you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase.",
+    "waive": {
+      "40": "part of the book title \"Warhammer 40,000 Core Book\"",
+      "000": "part of the book title \"Warhammer 40,000 Core Book\"",
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "a4729d913e12": {
+    "name": "Domination",
+    "kind": "secondary",
+    "plain": "At the end of your turn, gain 3 victory points when you control over half of all the objective markers on the battlefield."
+  },
+  "a879614f15c1": {
+    "name": "Behind Enemy Lines",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 3VP if 1 unit from your army (not AIRCRAFT) is wholly within your opponent's deployment zone, or 4VP instead if 2 or more of your units (not AIRCRAFT) are. Also, if at least 1 of those units is a Troops, ARMIGER-CLASS or WAR DOG-CLASS unit, you gain 1 CP at the end of the current battle round."
+  },
+  "ac5eac45ad76": {
+    "name": "Supply Lines",
+    "kind": "mission",
+    "plain": "At the start of every Command phase, a player who doesn't control the objective marker in their own deployment zone rolls one D6: on a 1-3, that player doesn't get the Battle-forged CP bonus this phase."
+  },
+  "b0c755b0c8c4": {
+    "name": "While We Stand, We Fight",
+    "kind": "secondary",
+    "plain": "If you pick this, before the battle note on your army roster the 3 units in your army with the highest points values, not counting models with the Fortifications Battlefield Role (if 2 or more are tied, you choose). If your army has 3 or fewer units, note all of them. A unit's points include all the weapons and wargear it has. At the end of the battle, score 5 VP for each of those units still on the battlefield. If a unit splits into smaller units during the battle, every one of those units must be destroyed before the original unit counts as destroyed for this objective."
+  },
+  "b5fdde74bbbe": {
+    "name": "Surge of Faith",
+    "kind": "mission",
+    "plain": "Both players' units can do this action. Surge of Faith (Action): at the start of your Movement phase, 1 of your units in range of an objective marker outside your deployment zone can start it (a unit with Objective Secured or a similar rule can start it at the end of your Movement phase instead). It can't start while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your turn if the unit is still in range of the same objective marker."
+  },
+  "b8ff57721c62": {
+    "name": "Investigate Sites",
+    "kind": "secondary",
+    "plain": "Score 3 victory points each time one of your units completes this action. Investigate Site (Action): at the end of your Movement phase, 1 INFANTRY unit from your army (other than CHARACTERS) within 6\" of the centre of the battlefield can start it, as long as no enemy units other than AIRCRAFT are within 6\" of the centre. It is completed at the end of your turn."
+  },
+  "bff9f8a44dbc": {
+    "name": "Auspex Scan",
+    "kind": "mission",
+    "plain": "Both players' units can do this action. Auspex Scan (Action): at the end of your Movement phase, 1 of your units in range of an objective marker your army hasn't scanned yet can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. It is completed at the end of your turn if the unit is still in range of the same marker. When it's completed, your army has scanned that objective marker."
+  },
+  "c2d364c07df7": {
+    "name": "Recon Sweep",
+    "kind": "mission",
+    "plain": "Both players' units can do this action. Recon Sweep (Action): at the end of your Movement phase, 1 of your units in range of an objective marker your army hasn't reconnoitred yet can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. A unit with the Fast Attack Battlefield Role or with Objective Secured completes it at the end of your turn if it's still in range of the same marker. Any other unit completes it at whichever comes first, the start of your next Command phase or the end of the battle, if it's still in range of the same marker. When it's completed, your army has reconnoitred that objective marker."
+  },
+  "ca02f0813111": {
+    "name": "Search for the Portal",
+    "kind": "secondary",
+    "plain": "Each time one of your units completes the Search for the Portal action, score 1 victory point plus 1 more for each objective marker labelled A you control at that moment, up to 5 victory points. Search for the Portal (Action): at the end of your Movement phase, 1 INFANTRY unit from your army (other than CHARACTERS) that is wholly within the Search Area can start it. It is completed at the end of your next Command phase if the unit is still wholly within the Search Area."
+  },
+  "cc2a9b8a85da": {
+    "name": "Repair Teleport Homer",
+    "kind": "secondary",
+    "plain": "Score 5 victory points each time one of your units completes this action. Repair Teleport Homer (Action): at the end of your Movement phase, 1 INFANTRY unit from your army that is wholly within your opponent's deployment zone can start it. It is completed at the end of your next Command phase if the unit is still wholly within your opponent's deployment zone."
+  },
+  "cfb77b7d4c95": {
+    "name": "Recover Relics",
+    "kind": "mission",
+    "plain": "At the start of a Command phase, a player gets the Battle-forged CP bonus only if they control at least 1 objective marker in no man's land or in their opponent's territory. Also, if a player controls the objective marker in their opponent's deployment zone at the start of their own Command phase, they gain 1 extra CP on top of the bonus."
+  },
+  "d01250fdfe38": {
+    "name": "Warp Ritual",
+    "kind": "secondary",
+    "plain": "Keep a Ritual Points tally if you pick this, adding 1 each time one of your units completes this psychic action. Warp Ritual (Psychic Action - Warp Charge 4): in your Psychic phase, 1 PSYKER CHARACTER unit from your army within 6\" of the centre of the battlefield can attempt it. At the end of the battle, score 3VP for a tally of 1, 7VP for 2, or 12VP for 3 or more."
+  },
+  "d1bc7bf9d9e2": {
+    "name": "Raise the Banners High",
+    "kind": "secondary",
+    "plain": "If you pick this, your units can do this action. Raise Banners (Action): at the end of your Movement phase, 1 or more of your INFANTRY units can start it, each in range of a different objective marker that doesn't already have one of your banners on it. A unit can't start it while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your turn. Then one of your banners is raised on that objective marker. The banner comes down if your opponent controls that marker at the start of any phase. For each objective marker on the battlefield with one of your banners on it, you gain 1 victory point whenever one of your Command phases ends, and 1 more victory point when the battle ends."
+  },
+  "d3feee9fff79": {
+    "name": "Detonation",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Then, when the battle ends, each player gets 4VP per Primed Explosives objective marker inside their opponent's territory, up to 15VP per player."
+  },
+  "d55543344641": {
+    "name": "Corrupted Ground",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round): gain 4VP if you control the objective marker in your opponent's deployment zone; gain 2VP if you control at least 1 objective marker in no man's land; lose 1VP if you don't control the one in your own deployment zone. Your score never drops below 0."
+  },
+  "db96ca7e2be9": {
+    "name": "Take and Hold",
+    "kind": "mission",
+    "plain": "Not scored in battle round 1. At the end of each Command phase, the player whose turn it is gets 5 victory points for every one of these they meet, to a maximum of 15: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent."
+  },
+  "df28c638abc0": {
+    "name": "Surround Them",
+    "kind": "secondary",
+    "plain": "At the end of your Command phase, and again at the end of the battle, score 4 victory points if you control both objective markers in your deployment zone and at least 1 in your opponent's deployment zone. If you control all 4 objective markers that are in deployment zones, score 8 victory points instead."
+  },
+  "ebaeeca69bd6": {
+    "name": "Domination",
+    "kind": "mission",
+    "plain": "Not scored in battle round 1. At the end of each Command phase, the player whose turn it is gets 5 victory points for every one of these they meet, to a maximum of 15: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent."
+  },
+  "eda893d43d03": {
+    "name": "Overrun",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in battle rounds 1, 2, 3 and 4, at the end of each of your turns you get 2VP if you control at least 1 objective marker in your opponent's territory. Then, when the battle ends, each player gets 3VP per objective marker they control in their opponent's territory."
+  },
+  "f1bafae5a705": {
+    "name": "Bring It Down",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score VP for each enemy MONSTER or VEHICLE model that has been destroyed: 1VP if its Wounds characteristic is 9 or less, 2VP if it is 10-14, 3VP if it is 15-19, and 4VP if it is 20 or more."
+  },
+  "f3e7e52daa08": {
+    "name": "Retrieve Battlefield Data",
+    "kind": "secondary",
+    "plain": "Keep a Retrieved Data tally if you pick this. Retrieve Data (Action): at the end of your Movement phase, 1 INFANTRY or BIKER unit from your army can start it if it is wholly within a table quarter where your army hasn't retrieved a servo-skull yet, and more than 6\" from every other table quarter. It is completed at the end of your turn if the unit is still in the same table quarter. Then roll one D6, subtracting 1 if the unit is a Troops unit. If the result is no higher than the number of models the unit has left, your army has retrieved a servo-skull in that table quarter, and you add 1 to your tally. At the end of the battle, score 4VP for a tally of 2, 8VP for 3, or 12VP for 4."
+  },
+  "f514ec96b462": {
+    "name": "Data Intercept",
+    "kind": "mission",
+    "plain": "Both players' units can do this action. Data Intercept (Action): at the end of your Movement phase, 1 of your units in range of the objective marker in its deployment zone can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. It is completed at the end of your turn if the unit is still in range of that marker."
+  },
+  "f5367f99a475": {
+    "name": "Slay the Warlord",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score 6 victory points if the enemy WARLORD has been destroyed."
+  },
+  "f553b360d28c": {
+    "name": "Encircle",
+    "kind": "secondary",
+    "plain": "At the end of your turn, if you have at least 1 unit (other than AIRCRAFT) wholly within 6\" of your battlefield edge and another unit (other than AIRCRAFT) wholly within 6\" of the opposing player's battlefield edge, gain 3 victory points. Gain 5 victory points instead if one of those 2 units is wholly inside your opponent's deployment zone."
+  },
+  "f6ed8d96974c": {
+    "name": "Precious Artefacts",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 3VP if you control the Priority objective marker in your own territory."
+  },
+  "f734c27d4be8": {
+    "name": "Break Them, Body and Soul",
+    "kind": "mission",
+    "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, when each battle round ends, every player gets 1VP per enemy unit destroyed in that battle round, up to 3VP per player per battle round."
+  },
+  "fa9b7e66d666": {
+    "name": "First Strike",
+    "kind": "secondary",
+    "plain": "When the battle ends, gain 5 victory points if any enemy units were destroyed in battle round 1, and 3 more victory points if, in that round, more enemy units were destroyed than friendly units."
+  },
+  "fc4ff3fc2a86": {
+    "name": "Attrition",
+    "kind": "secondary",
+    "plain": "At the end of each battle round, score 4 victory points if more enemy units than friendly units were destroyed during that battle round."
+  }
+}

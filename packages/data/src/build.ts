@@ -1,4 +1,4 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, rules.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -8,6 +8,7 @@ import { coreStratagems, selectStratagems } from './extract/stratagems';
 import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
 import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
+import { writeMissions, type MissionsReport } from './missions/build';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
@@ -82,7 +83,7 @@ export const SYSTEM_ROSTER_SLUG = 'system';
 
 const roleOrder = (u: UnitOut) => (u.role ? BATTLEFIELD_ROLES.indexOf(u.role) : BATTLEFIELD_ROLES.length);
 
-export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport } {
+export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport; missions: MissionsReport } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
@@ -153,6 +154,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const out of outs) writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
   writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
+  const missions = writeMissions(opts, w);
   // Rules Reference and faction guides (none without a content directory).
   const content = opts.contentDir ? buildContent(opts.contentDir, outs) : { rules: { articles: [], glossary: [] }, guides: [] };
   writeFileSync(join(opts.outDir, 'rules.json'), JSON.stringify(content.rules));
@@ -183,7 +185,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
-  return { index, report, plain };
+  return { index, report, plain, missions };
 }
 
 /**
@@ -438,7 +440,7 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const root = join(import.meta.dirname, '..');
   const started = Date.now();
-  const { index, report, plain } = buildAll({
+  const { index, report, plain, missions } = buildAll({
     rawDir: join(root, 'raw'),
     overridesDir: join(root, 'overrides'),
     outDir: join(root, 'generated'),
@@ -450,4 +452,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   );
   const p = Object.values(plain.shards).reduce((a, r) => ({ t: a.t + r.total, w: a.w + r.written, f: a.f + r.flagged.length + r.copied.length }), { t: 0, w: 0, f: 0 });
   console.log(`Plain English: ${p.w} of ${p.t} texts written, ${p.f} flagged, ${plain.orphans.length} orphaned (see generated/plain-report.json)`);
+  console.log(`Missions: plain English ${missions.written} of ${missions.total} written, ${missions.flagged.length} flagged, ${missions.orphans.length} orphaned; faction secondaries ${missions.faction.written} of ${missions.faction.total} (see generated/missions-report.json)`);
 }
