@@ -8,6 +8,7 @@ import { moveInches } from '../move/moves';
 type Describer<E> = (e: E, s: GameState) => string | null;
 const army = (s: GameState, p: PlayerId) => s.setup.armies.find((a) => a.player === p)?.name ?? `Player ${p}`;
 const unit = (s: GameState, id: string) => s.units[id]?.name ?? id;
+const possessive = (name: string) => (name.endsWith('s') ? `${name}'` : `${name}'s`);
 const unitOfModel = (s: GameState, id: string) => unit(s, s.models[id]?.unitId ?? id);
 const PHASES: Record<Phase, string> = {
   'pre-battle': 'Pre-battle', command: 'Command', movement: 'Movement', psychic: 'Psychic', shooting: 'Shooting', charge: 'Charge', fight: 'Fight', morale: 'Morale', ended: 'End of the game',
@@ -22,7 +23,7 @@ const describers: { [T in EventType]: Describer<EventMap[T]> } = {
   diceRolled: (e) => (e.roll.context ? `${e.roll.context}: rolled ${e.roll.dice.map((d) => d.value).join(', ')}.` : null),
   phaseChanged: (e, s) => {
     if (e.phase === s.phase && e.round === s.round && e.turn === s.turn) return STEPS[e.step] ?? null;
-    return `Battle round ${e.round}: ${army(s, e.active)}'s ${PHASES[e.phase]} phase.`;
+    return `Battle round ${e.round}: ${possessive(army(s, e.active))} ${PHASES[e.phase]} phase.`;
   },
   turnStarted: bookkeeping,
   gameEnded: (e, s) =>
@@ -86,7 +87,7 @@ const describers: { [T in EventType]: Describer<EventMap[T]> } = {
   chargeReaction: (e, s) =>
     `${unit(s, e.unitId)} ${e.choice === 'set-to-defend' ? 'Set to Defend' : e.choice === 'hold-steady' ? 'Held Steady and fired Overwatch' : 'fired Overwatch'}.`,
   unitCharged: (e, s) => `${unit(s, e.unitId)} charged successfully.`,
-  chargeFailed: (e, s) => `${unit(s, e.unitId)}'s charge failed.`,
+  chargeFailed: (e, s) => `${possessive(unit(s, e.unitId))} charge failed.`,
   heroicIntervened: (e, s) => `${unit(s, e.unitId)} made a Heroic Intervention.`,
   fightStarted: bookkeeping,
   piledIn: (e, s) => (Object.keys(e.positions).length ? `${unit(s, e.unitId)} piled in.` : null),
@@ -99,7 +100,7 @@ const describers: { [T in EventType]: Describer<EventMap[T]> } = {
       : `${unit(s, e.unitId)} ${e.passed ? 'passed' : 'failed'} its Morale test (${e.roll} + ${s.units[e.unitId].turn.lostThisTurn} = ${e.result} against Ld ${e.ld}).`,
   moraleStarted: bookkeeping,
   actionStarted: (e, s) => `${unit(s, e.unitId)} started ${e.action.name}.`,
-  actionFailed: (e, s) => `${unit(s, e.unitId)}'s ${e.name} failed: ${e.reason}.`,
+  actionFailed: (e, s) => `${possessive(unit(s, e.unitId))} ${e.name} failed: ${e.reason}.`,
   actionCompleted: (e, s) => `${unit(s, e.unitId)} completed ${e.name}.`,
   actionsRoundReset: bookkeeping,
   modelPlaced: (e, s) => `A model of ${unitOfModel(s, e.modelId)} was moved by hand.`,
@@ -135,11 +136,13 @@ export function gameLog(game: GameRecord): LogLine[] {
         const r = removed.get(key) ?? { unitId, reason: e.reason, n: 0, round: s.round, phase: s.phase };
         r.n += e.modelIds.length;
         removed.set(key, r);
+        apply(s, e);
       } else {
         const text = describeEvent(e, s);
+        apply(s, e);
+        // Tagged with the round and phase the event leads into (so "Battle round 2: …" belongs to round 2).
         if (text) out.push({ seq: b.seq, round: s.round, phase: s.phase, text });
       }
-      apply(s, e);
     }
     for (const r of removed.values()) out.push({ seq: b.seq, round: r.round, phase: r.phase, text: `${s.units[r.unitId].name} lost ${plural(r.n, 'model')} (${r.reason}).` });
   }
