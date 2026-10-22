@@ -1,0 +1,183 @@
+import 'fake-indexeddb/auto';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { Route, Routes } from 'react-router-dom';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
+import { resetDataCache } from '../factions/dataClient';
+import { stubGeneratedData } from '../lists/__fixtures__/generatedData';
+import { TestProviders } from '../rules/__fixtures__/TestProviders';
+import { openDb, type RecruitDb } from '../storage/db';
+import { createRepository } from '../storage/repository';
+import { testSetup } from './__fixtures__/setup';
+import { makeEvent, type EventBody, type Pos, type TableGameData, type TableSetup } from './game';
+import { GamePage } from './GamePage';
+import { resetMissionCache } from './missionData';
+
+let db: RecruitDb;
+let n = 0;
+beforeEach(() => {
+  db = openDb(`game-page-${++n}`);
+  stubGeneratedData();
+});
+afterEach(() => {
+  db.close();
+  vi.unstubAllGlobals();
+  resetDataCache();
+  resetMissionCache();
+});
+
+/** Saves a game whose events reach `pos` with the Command phase CP already decided there (when it's a Command phase). */
+async function seed(setup: TableSetup, pos?: Pos, extra: [EventBody, Pos][] = []): Promise<string> {
+  const id = crypto.randomUUID();
+  const events = [makeEvent({ t: 'start' }, null)];
+  if (pos) {
+    events.push(makeEvent({ t: 'advance', to: pos }, null));
+    if (pos.phase === 'command') for (const p of ['A', 'B'] as const) events.push(makeEvent({ t: 'cp', player: p, delta: 0, reason: 'bonus', note: 'test' }, pos));
+  }
+  for (const [e, p] of extra) events.push(makeEvent(e, p));
+  const data: TableGameData = { mode: 'table', schema: 1, setup, events };
+  await createRepository(db).saveDoc({ id, kind: 'game', ownerId: 'user-1', data });
+  return id;
+}
+function renderGame(id: string, roll?: (sides: 3 | 6) => number) {
+  render(
+    <TestProviders db={db} path={`/table/${id}`}>
+      <Routes>
+        <Route path="/table/:id" element={<GamePage roll={roll} />} />
+        <Route path="/table/:id/summary" element={<p>Summary page</p>} />
+      </Routes>
+    </TestProviders>,
+  );
+}
+const player = (name: string) => screen.getByRole('group', { name });
+const doc = async (id: string) => (await createRepository(db).getDoc<TableGameData>(id))!;
+const tap = async (u: ReturnType<typeof userEvent.setup>, label: string, times: number) => {
+  for (let i = 0; i < times; i++) await u.click(screen.getByRole('button', { name: label }));
+};
+
+test('Arks of Omen Command phase adds 1 CP to both players', async () => {
+  renderGame(await seed(testSetup()));
+  await waitFor(() => {
+    expect(within(player('You')).getByText('7 CP')).toBeInTheDocument();
+    expect(within(player('Opponent')).getByText('7 CP')).toBeInTheDocument();
+  });
+  expect(screen.getByText(/Round 1 · You's turn · Command phase/)).toBeInTheDocument();
+  expect(screen.getByText(/Both players gain 1 CP/)).toBeInTheDocument();
+});
+
+test('Core Book adds 1 CP to the active player only', async () => {
+  const s = testSetup({ pack: 'core-book', battleSize: 'combat-patrol', missionId: 'cb-incisive-attack' });
+  s.players.A.startingCp = 3;
+  s.players.B.startingCp = 3;
+  renderGame(await seed(s));
+  await waitFor(() => expect(within(player('You')).getByText('4 CP')).toBeInTheDocument());
+  expect(within(player('Opponent')).getByText('3 CP')).toBeInTheDocument();
+});
+
+test('Secret Intel Inbound gives no CP in round 1', async () => {
+  const id = await seed(testSetup({ missionId: 'aoo-display-of-spiritual-might' }));
+  renderGame(id);
+  await waitFor(async () => expect((await doc(id)).data.events.filter((e) => e.t === 'cp')).toHaveLength(2));
+  expect(within(player('You')).getByText('6 CP')).toBeInTheDocument();
+  expect(within(player('Opponent')).getByText('6 CP')).toBeInTheDocument();
+});
+
+test('a Leading From the Front "No" rolls a die and logs it', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup({ missionId: 'aoo-ascension' }));
+  renderGame(id, () => 2);
+  const q = await screen.findByRole('region', { name: 'Command phase CP: You' });
+  expect(within(q).getByText(/Is your WARLORD on the battlefield/)).toBeInTheDocument();
+  await u.click(within(q).getByRole('button', { name: 'No' }));
+  const q2 = await screen.findByRole('region', { name: 'Command phase CP: Opponent' });
+  await u.click(within(q2).getByRole('button', { name: 'Yes' }));
+  await waitFor(() => expect(within(player('Opponent')).getByText('7 CP')).toBeInTheDocument());
+  expect(within(player('You')).getByText('6 CP')).toBeInTheDocument();
+  const events = (await doc(id)).data.events;
+  expect(events.find((e) => e.t === 'roll')).toMatchObject({ dice: [2], sides: 6 });
+  expect(events.find((e) => e.t === 'cp' && e.player === 'A')).toMatchObject({ delta: 0, reason: 'bonus' });
+});
+
+test('leaving Command in round 2 opens the hold prompt and 2 controlled vs 1 scores 12 in AoO', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'command' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Next phase' }));
+  const prompt = await screen.findByRole('region', { name: /Score: You/ });
+  await tap(u, 'More: Objective markers you control', 2);
+  await tap(u, 'More: Objective markers your opponent controls', 1);
+  await u.click(within(prompt).getByRole('button', { name: 'Score 12 VP' }));
+  await waitFor(() => expect(within(player('You')).getByText('12 VP')).toBeInTheDocument());
+  expect(await screen.findByText(/Round 2 · You's turn · Movement phase/)).toBeInTheDocument();
+});
+
+test('round 5 second player is prompted for the hold at End turn', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 5, turn: 2, phase: 'morale' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'End turn' }));
+  const prompt = await screen.findByRole('region', { name: /Score: Opponent/ });
+  await tap(u, 'More: Objective markers you control', 1);
+  await u.click(within(prompt).getByRole('button', { name: 'Score 8 VP' }));
+  const next = await screen.findByRole('region', { name: /Score: Opponent/ });
+  await u.click(within(next).getByRole('button', { name: 'Skip' }));
+  expect(await screen.findByText('Summary page', {}, { timeout: 5000 })).toBeInTheDocument();
+  const events = (await doc(id)).data.events;
+  expect(events.at(-1)).toMatchObject({ t: 'end', reason: 'complete' });
+  expect(events.find((e) => e.t === 'vp' && e.vp === 8)).toMatchObject({ player: 'B', sourceId: 'hold' });
+});
+
+test("a quick second tap can't score the same prompt twice", async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'command' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Next phase' }));
+  await tap(u, 'More: Objective markers you control', 1);
+  const score = screen.getByRole('button', { name: 'Score 8 VP' });
+  // Two taps before the first save finishes.
+  fireEvent.click(score);
+  fireEvent.click(score);
+  await screen.findByText(/Movement phase/);
+  await waitFor(async () => expect((await doc(id)).data.events.filter((e) => e.t === 'vp')).toHaveLength(1));
+  expect((await doc(id)).data.events.filter((e) => e.t === 'advance')).toHaveLength(2);
+});
+
+test('the round 5 hold prompt says it is scored at the end of the turn', async () => {
+  const u = userEvent.setup();
+  renderGame(await seed(testSetup(), { round: 5, turn: 2, phase: 'morale' }));
+  await u.click(await screen.findByRole('button', { name: 'End turn' }));
+  const prompt = await screen.findByRole('region', { name: /Score: Opponent/ });
+  expect(within(prompt).getByText(/End of the turn/)).toBeInTheDocument();
+  expect(within(prompt).queryByText(/End of the Command phase/)).toBeNull();
+});
+
+test('Undo removes the last score', async () => {
+  const u = userEvent.setup();
+  const pos: Pos = { round: 2, turn: 1, phase: 'movement' };
+  const id = await seed(testSetup(), pos, [[{ t: 'vp', player: 'A', category: 'primary', sourceId: 'hold', vp: 8, detail: '2 controlled' }, pos]]);
+  renderGame(id);
+  await waitFor(() => expect(within(player('You')).getByText('8 VP')).toBeInTheDocument());
+  await u.click(screen.getByRole('button', { name: 'Undo' }));
+  await waitFor(() => expect(within(player('You')).getByText('0 VP')).toBeInTheDocument());
+});
+
+test('End turn of turn 2 asks Break Them for both players', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup({ battleSize: 'strike-force', missionId: 'aoo-recover-the-relics' }), { round: 1, turn: 2, phase: 'morale' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'End turn' }));
+  const first = await screen.findByRole('region', { name: /Score: You/ });
+  await tap(u, 'More: Enemy units destroyed this battle round', 2);
+  await u.click(within(first).getByRole('button', { name: 'Score 2 VP' }));
+  const second = await screen.findByRole('region', { name: /Score: Opponent/ });
+  await u.click(within(second).getByRole('button', { name: 'Skip' }));
+  expect(await screen.findByText(/Round 2 · You's turn · Command phase/)).toBeInTheDocument();
+  await waitFor(() => expect(within(player('You')).getByText('2 VP')).toBeInTheDocument());
+});
+
+test('the mission card shows the map and rules', async () => {
+  renderGame(await seed(testSetup(), { round: 1, turn: 1, phase: 'movement' }));
+  expect(await screen.findByText(/Mission: Cleanse the Land/)).toBeInTheDocument();
+  expect(screen.getByRole('img', { name: /Deployment map/ })).toBeInTheDocument();
+  expect(screen.getByText(/Any units arriving|can't arrive from Strategic Reserves/)).toBeInTheDocument();
+});

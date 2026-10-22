@@ -39,14 +39,17 @@ export async function createTableGame(repo: Repository, ownerId: string, setup: 
   return id;
 }
 
-/** One game, live from the local database, with ways to add events or replace its data (undo). */
+/**
+ * One game, live from the local database. `append` adds events and `update` changes the data (undo); each runs as one
+ * read-and-save transaction, so writes that overlap (quick taps, auto CP) queue up instead of overwriting each other.
+ */
 export function useTableGame(id: string): {
   game: Doc<TableGameData> | null;
   loading: boolean;
   append(events: TableEvent[]): Promise<void>;
-  replace(data: TableGameData): Promise<void>;
+  update(change: (data: TableGameData) => TableGameData): Promise<void>;
 } {
-  const { repo } = useStorage();
+  const { db, repo } = useStorage();
   const [state, setState] = useState<{ id: string; game: Doc<TableGameData> | null } | null>(null);
   useEffect(() => {
     const sub = liveQuery(() => repo.getDoc<unknown>(id)).subscribe({
@@ -58,23 +61,16 @@ export function useTableGame(id: string): {
     });
     return () => sub.unsubscribe();
   }, [repo, id]);
-  // Each write re-reads the stored doc, so quick taps never overwrite each other's events.
-  const replace = useCallback(
-    async (data: TableGameData) => {
-      const doc = await repo.getDoc<TableGameData>(id);
-      if (!doc) throw new Error('That game no longer exists.');
-      await repo.saveDoc<TableGameData>({ id, kind: 'game', ownerId: doc.ownerId, data });
-    },
-    [repo, id],
+  const update = useCallback(
+    (change: (data: TableGameData) => TableGameData) =>
+      db.transaction('rw', db.docs, async () => {
+        const doc = await repo.getDoc<TableGameData>(id);
+        if (!doc) throw new Error('That game no longer exists.');
+        await repo.saveDoc<TableGameData>({ id, kind: 'game', ownerId: doc.ownerId, data: change(doc.data) });
+      }),
+    [db, repo, id],
   );
-  const append = useCallback(
-    async (events: TableEvent[]) => {
-      const doc = await repo.getDoc<TableGameData>(id);
-      if (!doc) throw new Error('That game no longer exists.');
-      await repo.saveDoc<TableGameData>({ id, kind: 'game', ownerId: doc.ownerId, data: { ...doc.data, events: [...doc.data.events, ...events] } });
-    },
-    [repo, id],
-  );
+  const append = useCallback((events: TableEvent[]) => update((d) => ({ ...d, events: [...d.events, ...events] })), [update]);
   const ready = state !== null && state.id === id;
-  return { game: ready ? state.game : null, loading: !ready, append, replace };
+  return { game: ready ? state.game : null, loading: !ready, append, update };
 }

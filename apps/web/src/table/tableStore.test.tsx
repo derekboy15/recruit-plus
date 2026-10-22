@@ -60,6 +60,19 @@ test('append keeps order and marks dirty', async () => {
   await waitFor(() => expect(result.current.game!.data.events).toHaveLength(4));
 });
 
+test('concurrent appends keep every event', async () => {
+  const id = await createTableGame(repo, 'user-1', testSetup());
+  const { result } = renderHook(() => useTableGame(id), { wrapper });
+  await waitFor(() => expect(result.current.game).not.toBeNull());
+  await act(() => Promise.all([
+    result.current.append([makeEvent({ t: 'note', text: 'a' }, null)]),
+    result.current.append([makeEvent({ t: 'note', text: 'b' }, null)]),
+    result.current.append([makeEvent({ t: 'note', text: 'c' }, null)]),
+  ]));
+  const doc = (await repo.getDoc<TableGameData>(id))!;
+  expect(doc.data.events.map((e) => (e.t === 'note' ? e.text : e.t))).toEqual(['start', 'a', 'b', 'c']);
+});
+
 test('a game saved offline stays dirty and is listed', async () => {
   // No remote is configured in tests: the save is local only and waits to sync.
   const id = await createTableGame(repo, 'user-1', testSetup());
