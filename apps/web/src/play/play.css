@@ -18,11 +18,11 @@
   display: grid; grid-template-rows: auto minmax(45vh, 1fr) auto; grid-template-columns: minmax(0, 1fr);
   height: 100dvh;
 }
-.game__top { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 0.5rem; align-items: center; padding: 0.25rem 0.5rem; background: var(--surface); border-bottom: 1px solid var(--border); }
-.game__where { font-weight: 700; color: var(--brass-strong); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.game__tools { display: flex; gap: 0.25rem; }
+.game__top { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'where tools' 'armies armies'; gap: 0.25rem 0.5rem; align-items: center; padding: 0.25rem 0.5rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.game__where { grid-area: where; font-weight: 700; color: var(--brass-strong); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game__tools { grid-area: tools; display: flex; gap: 0.25rem; }
 .game__tools .btn { padding: 0 0.55rem; }
-.game__armies { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
+.game__armies { grid-area: armies; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.25rem; }
 .game__army { min-height: var(--touch); display: grid; text-align: left; padding: 0.15rem 0.5rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; font-size: 0.8rem; cursor: pointer; min-width: 0; }
 .game__army-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .game__army-nums { color: var(--text-muted); font-variant-numeric: tabular-nums; }
@@ -56,8 +56,7 @@
 
 @media (min-width: 768px) {
   .game, .game--tall { grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: auto minmax(0, 1fr); }
-  .game__top { grid-column: 1 / -1; grid-template-columns: auto 1fr auto; }
-  .game__armies { grid-column: auto; }
+  .game__top { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'where armies tools'; }
   .game__panel, .game--tall .game__panel { max-height: none; border-top: 0; border-left: 1px solid var(--border); }
   .game__handle { display: none; }
 }

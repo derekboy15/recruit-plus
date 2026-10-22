@@ -57,6 +57,23 @@ test('a tap on a model calls onTap with its id and world position', async () => 
   expect(at.y).toBeCloseTo(4);
 });
 
+test('a tap still works when the browser refuses to capture the pointer', async () => {
+  const capture = vi.fn(() => {
+    throw new DOMException('No active pointer with the given id is found.', 'NotFoundError');
+  });
+  Object.defineProperty(HTMLElement.prototype, 'setPointerCapture', { value: capture, configurable: true });
+  try {
+    const { host, onTap, draws } = setup();
+    await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+    pointer(host, 'pointerDown', toScreen(14, 4));
+    pointer(host, 'pointerUp', toScreen(14, 4));
+    expect(capture).toHaveBeenCalled();
+    expect(onTap).toHaveBeenCalledTimes(1);
+  } finally {
+    delete (HTMLElement.prototype as { setPointerCapture?: unknown }).setPointerCapture;
+  }
+});
+
 test('dragging a draggable model reports start, move and end in world inches', async () => {
   const { host, onDrag, draws } = setup();
   await waitFor(() => expect(draws.length).toBeGreaterThan(0));

@@ -133,7 +133,13 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
 
   const onPointer = (type: 'down' | 'move' | 'up' | 'cancel') => (e: ReactPointerEvent<HTMLDivElement>) => {
     if (!camRef.current) return;
-    if (type === 'down') e.currentTarget.setPointerCapture?.(e.pointerId);
+    if (type === 'down') {
+      try {
+        e.currentTarget.setPointerCapture?.(e.pointerId);
+      } catch {
+        // The pointer is already gone (released, or synthetic): the gesture still works without capture.
+      }
+    }
     const env = {
       hit: (pt: Pt) => hitTest(sceneRef.current.models, world(pt), HIT_SLOP_PX / camRef.current!.scale),
       canDrag: (id: string) => handlers.current.canDrag(id),
