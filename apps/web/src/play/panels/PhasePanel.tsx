@@ -1,5 +1,7 @@
 /** Chooses what the panel shows: a pause (roll, reaction, placement) first, else the current phase and step. */
 import { PHASE_NAMES } from '../game/names';
+import { DeployPanel } from './DeployPanel';
+import { FirstTurnPanel } from './FirstTurnPanel';
 import type { PanelProps } from './types';
 
 /** Until a phase has its own panel: its name and a button to end it. */
@@ -41,5 +43,6 @@ function PlainRoll({ sb, ui }: PanelProps) {
 export function PhasePanel(props: PanelProps) {
   const { state } = props.sb;
   if (state.pending?.kind === 'roll') return <PlainRoll {...props} />;
+  if (state.phase === 'pre-battle') return state.step === 'deploy' ? <DeployPanel {...props} /> : <FirstTurnPanel {...props} />;
   return <PlainPhase {...props} />;
 }
