@@ -24,5 +24,14 @@ Sample: 20 texts (seed chaos-servants-of-the-abyss) + 0 army rules + guide
 | fc17fbbaff50 | Heralds of Doom | stratagem | PASS | |
 | 8561b6ad2020 | Lord of Chaos | ability | PASS | |
 | 0a0dfefa3d35 | Servants of the Abyss | rule | PASS | |
+| 76f815b4fa99 | Avalanche of Muscle | ability | PASS | |
+| 9db3080e69a0 | Bodyguard | ability | PASS | |
+| 516c160362b9 | Tip of the Spear | stratagem | PASS | |
+| ad3165b4b6a2 | Mutant claw | weapon | PASS | |
+| 8709b43b1882 | Blasphemous Icon | ability | PASS | |
+| af9b7f3bd7b0 | Slaves to Mallex | ability | PASS | |
+| 39a04b6274cb | Thunder hammer | weapon | PASS | |
+| 843ed55da334 | Fanatical Devotion | ability | PASS | |
+| e518fceb3ce6 | Talos Gauntlet | weapon | PASS | |
 
 Guide: PASS

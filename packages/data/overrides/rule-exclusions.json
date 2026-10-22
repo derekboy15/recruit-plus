@@ -1,1 +1,220 @@
-[]
+[
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "name": "Strands of Fate",
+    "reason": "Pointer with no rule in it: the text is only 'Refer to your Codex for details.' The Craftworlds guide's Army rules section covers Strands of Fate.",
+    "source": "BSData v9.8.0 Aeldari - Aeldari Library.cat rule text; 03_Codexes/Xenos/Aeldari.md §2 (Strands of Fate)"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Knights",
+    "name": "Harbingers of Dread",
+    "reason": "Pointer with no rule in it: the text is only 'See pp98-99 of Codex: Chaos Knights.' The Chaos Knights guide's Army rules section covers Harbingers of Dread.",
+    "source": "BSData v9.8.0 Chaos - Chaos Knights.cat rule text; 03_Codexes/Chaos/Chaos_Knights.md (Dread and Harbingers of Dread)"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "name": "Let the Galaxy Burn",
+    "reason": "Pointer with no rule in it: the text is only 'See page 145 of Codex: Chaos Space Marines'. The Chaos Space Marines guide's Army rules section covers Let the Galaxy Burn.",
+    "source": "BSData v9.8.0 Chaos - Chaos Space Marines.cat rule text; 03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn)"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "name": "The Blood Tithe",
+    "reason": "Pointer with no rule in it: the text is only 'See p45 of Codex: World Eaters'. The World Eaters guide's Army rules section covers the Blood Tithe.",
+    "source": "BSData v9.8.0 Chaos - World Eaters.cat rule text; 03_Codexes/Chaos/World_Eaters.md (The Blood Tithe (army rule))"
+  },
+  {
+    "catalogueName": "Chaos - Thousand Sons",
+    "name": "Daemonic Ritual",
+    "reason": "8th-edition summoning rule. 9th edition removed Daemonic Ritual summoning; no datasheet in any catalogue has this ability, and Codex: Thousand Sons (2021) has no summoning rule.",
+    "source": "03_Codexes/Chaos/Chaos_Daemons.md §2 ('Summoning removed: the old Daemonic Ritual summoning mechanic was cut') and §11 (8th-edition rules list); 03_Codexes/Chaos/Thousand_Sons.md §2 (army rules and detachment abilities, no summoning)"
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "name": "Acts of Faith",
+    "reason": "8th-edition Index rule (roll a D6 each turn for Hand of the Emperor, Divine Guidance or The Passion). No datasheet in any catalogue uses this text; the 9th-edition Acts of Faith is the Miracle dice rule on Adepta Sororitas datasheets.",
+    "source": "Wahapedia snapshot Abilities.csv 000001507 (Acts of Faith, AS: Miracle dice) and 000003635 (Acts of Faith, Faith Points), neither matching this text; 03_Codexes/Imperium/Adepta_Sororitas.md §2 (Acts of Faith and Miracle dice)"
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "name": "Shield of Faith",
+    "reason": "8th-edition wording (deny on a single D6 that must beat the Psychic test). No datasheet in this catalogue's scope uses it; the 9th-edition Shield of Faith (also passing on an unmodified 6) is on the Adepta Sororitas datasheets.",
+    "source": "Wahapedia snapshot Abilities.csv 000001508 (Shield of Faith, AS); BSData v9.8.0 Imperium - Adepta Sororitas.cat datasheets (Canoness and others)"
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "name": "Avalanche of Muscle",
+    "reason": "8th-edition wording ('in the Fight phase on any turn in which it made a successful charge'). No Astra Militarum datasheet has it in 9th (Ogryns and Bullgryns have Wall of Muscle); the 9th-edition wording is on Renegade Plague Ogryns.",
+    "source": "BSData v9.8.0 Imperium - Astra Militarum.cat Ogryns/Bullgryns abilities; Wahapedia snapshot Abilities.csv 000005052 (Avalanche of Muscle, RaH, 9th wording)"
+  },
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "name": "Combat Doctrines",
+    "reason": "Pointer with no rule in it: the text is only '(See page 125 of Codex Space Marines)'. Each chapter guide's Army rules section covers Combat Doctrines, including the Arks of Omen change; Dark Angels and Deathwatch keep their own full Combat Doctrines rule.",
+    "source": "BSData v9.8.0 Imperium - Space Marines.cat rule text; packages/content/guides/imperium-adeptus-astartes-*.md (Combat Doctrines)"
+  },
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "name": "Relic",
+    "reason": "8th-edition Imperial Armour restriction (no more Relic units than non-Relic units of the same role). In 9th edition Relic units instead carry Martial Legacy (+1 CP to the detachment's Command Cost), which this catalogue also shows; no datasheet uses this text.",
+    "source": "03_Codexes/Imperium/Space_Marines.md §2.3 (Martial Legacy, Imperial Armour: Compendium rule); Wahapedia snapshot Abilities.csv has Martial Legacy (000004798) and no Relic ability"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Blood Angels",
+    "name": "Explodes (6\"/D6)",
+    "reason": "Stale duplicate in 8th-edition wording ('reduced to 0 wounds'); no datasheet uses this text. Blood Angels datasheets use the 9th-edition Explodes (6\"/D6) that Imperium - Space Marines shows on the same page.",
+    "source": "BSData v9.8.0 datasheets (Explodes (6\"/D6) as 'When this model is destroyed...', Imperium - Space Marines.cat shared rule)"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
+    "name": "Defenders of Humanity",
+    "reason": "8th-edition Troops ability. In 9th edition Troops in Adeptus Astartes detachments get Objective Secured instead (shown on this page by Imperium - Space Marines); no datasheet uses Defenders of Humanity.",
+    "source": "03_Codexes/Imperium/Space_Marines.md §2.3 (Objective Secured for Troops); 03_Codexes/Imperium/Dark_Angels.md (1st/2nd Company grant Objective Secured); Wahapedia snapshot Abilities.csv has no Defenders of Humanity"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "name": "Martial K'atah",
+    "reason": "Author aside with no rule in it ('Unless you're Henry Cavill, read ->'). The Custodes guide's Army rules section covers Martial Ka'tah.",
+    "source": "BSData v9.8.0 Imperium - Adeptus Custodes.cat rule text; 03_Codexes/Imperium/Adeptus_Custodes.md §2 (Martial Ka'tah)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Daemon Hunters",
+    "reason": "8th-edition ability (re-roll failed wound rolls against DAEMONS in the Fight phase). Not a Codex: Grey Knights (2021) army rule; in 9th it survives only on Warhammer Legends datasheets this catalogue doesn't have, and no datasheet here uses it.",
+    "source": "03_Codexes/Imperium/Grey_Knights.md §2 (army rules); Wahapedia snapshot Datasheets_abilities.csv: ability 000000501 only on Dreadnought/Techmarine/Venerable Dreadnought (Legendary)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Psychic Locus",
+    "reason": "8th-edition Brother-Captain ability (double Smite range nearby). In 9th edition Psychic Locus is a 2CP Epic Deed Stratagem with a different effect; no datasheet uses this text.",
+    "source": "Wahapedia snapshot Stratagems.csv (GK, Psychic Locus, Epic Deed Stratagem); Wahapedia Brother-Captain abilities (Knights of Titan, Teleport Strike, Iron Halo, Tactical Precision)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Rites of Banishment",
+    "reason": "8th-edition rule (weakened 12\" Smite). 9th-edition Grey Knights have full-strength Smite on all units; it survives only on Warhammer Legends datasheets this catalogue doesn't have.",
+    "source": "03_Codexes/Imperium/Grey_Knights.md §2 ('Full-strength Smite on all units'); BSData Strike Squad psyker profile (Smite 18\"); Wahapedia Datasheets_abilities.csv: ability 000000502 only on (Legendary) datasheets"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Purifying Flame",
+    "reason": "8th-edition rule (a 3\" Smite dealing D6 mortal wounds). In 9th edition Purifying Flame is a Sanctic Discipline witchfire power (warp charge 5, 3 mortal wounds to the closest enemy within 9\").",
+    "source": "Wahapedia snapshot PsychicPowers.csv (Purifying Flame, GK, Sanctic Discipline)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Transport (10)",
+    "reason": "Space Marine transport text naming units Grey Knights don't have (Jump Pack, Centurion, Primaris); no datasheet uses it. Grey Knights transports carry their own capacities (Rhino: 10 GREY KNIGHTS INFANTRY, no Terminators).",
+    "source": "BSData v9.8.0 Imperium - Grey Knights.cat Rhino/Razorback Transport abilities; 03_Codexes/Imperium/Grey_Knights.md §6 (Dedicated Transport)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Transport (16)",
+    "reason": "Space Marine transport text naming units Grey Knights don't have (Jump Pack, Centurion, Primaris); no datasheet uses it.",
+    "source": "BSData v9.8.0 Imperium - Grey Knights.cat transport datasheets; 03_Codexes/Imperium/Grey_Knights.md §6"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Transport (12)",
+    "reason": "Space Marine transport text naming units Grey Knights don't have (Jump Pack, Centurion, Primaris); no datasheet uses it.",
+    "source": "BSData v9.8.0 Imperium - Grey Knights.cat transport datasheets; 03_Codexes/Imperium/Grey_Knights.md §6"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Psyk-out Assault Launchers",
+    "reason": "8th-edition Land Raider Banisher ability ('within 1\"'). The 9th-edition Banisher datasheet has only Explodes, and no datasheet uses this text.",
+    "source": "Wahapedia snapshot Datasheets_abilities.csv, Land Raider Banisher (000001196): Explodes only; BSData Land Raider Banisher abilities; 03_Codexes/Imperium/Grey_Knights.md §6 (Heavy Support)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Dreadknight Teleporter",
+    "reason": "8th-edition rule (the teleporter grants deep strike). In 9th edition the Dreadknight teleporter gives the TELEPORTER keyword, and both Dreadknight datasheets have Teleport Strike built in.",
+    "source": "BSData v9.8.0 Nemesis Dreadknight / Grand Master in Nemesis Dreadknight ('Dreadknight teleporter: The bearer has the TELEPORTER keyword'); 03_Codexes/Imperium/Grey_Knights.md §6"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Heroic Sacrifice",
+    "reason": "8th-edition text ('pile in and attack before being removed'). Castellan Crowe's 9th-edition Heroic Sacrifice, on his datasheet, works differently.",
+    "source": "BSData v9.8.0 Castellan Crowe datasheet; Wahapedia snapshot Abilities.csv 000000519 (Heroic Sacrifice, GK)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Warp Emergence",
+    "reason": "8th-edition Kaldor Draigo ability. His 9th-edition datasheet uses Teleport Strike instead.",
+    "source": "BSData v9.8.0 Kaldor Draigo datasheet; Wahapedia Kaldor Draigo abilities (Knights of Titan, Teleport Strike, Rites of Battle, Supreme Grand Master, Sanctum Sigilum)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Bane of Evil",
+    "reason": "8th-edition Kaldor Draigo ability; not on his 9th-edition datasheet.",
+    "source": "BSData v9.8.0 Kaldor Draigo datasheet; Wahapedia Kaldor Draigo abilities; 03_Codexes/Imperium/Grey_Knights.md §6 (HQ: Draigo)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Psyker Squad",
+    "reason": "8th-edition squad psyker rule; no 9th-edition Grey Knights datasheet has it (9th core rules cover psychic squads and Perils of the Warp).",
+    "source": "Wahapedia Strike Squad abilities (Knights of Titan, Combat Squads, Teleport Strike); BSData v9.8.0 Grey Knights datasheets"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Brotherhood of Psykers",
+    "reason": "8th-edition detachment ability (+1 to Psychic and Deny the Witch tests). In 9th edition The Aegis replaced it (+1 to Deny only, plus 5+ against mortal wounds), and Brotherhood of Psykers became the Brotherhood power, warlord trait and stratagem bonus.",
+    "source": "03_Codexes/Imperium/Grey_Knights.md §2 (Detachment rules: The Aegis 'replaced the 8th-edition +1 to cast'; Brotherhood of Psykers (subfaction bonus))"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Litanies of Hate",
+    "reason": "8th-edition Chaplain aura (re-roll failed hit rolls). The 9th-edition Brotherhood Chaplain uses Litanies of Purity (Litany of Expulsion and others).",
+    "source": "03_Codexes/Imperium/Grey_Knights.md §4 (Litanies of Purity); BSData v9.8.0 Brotherhood Chaplain datasheet"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "Domina Liber Demonica",
+    "reason": "Empty entry: no text at all. The two Domina Liber Demonica abilities appear in full on the datasheets that have them.",
+    "source": "BSData v9.8.0 Imperium - Grey Knights.cat rule (empty description)"
+  },
+  {
+    "catalogueName": "Imperium - Grey Knights",
+    "name": "And They Shall Know No Fear",
+    "reason": "8th-edition text ('re-roll failed Morale tests'). The 9th-edition rule, which Knights of Titan grants, is to ignore any or all modifiers to Combat Attrition tests.",
+    "source": "03_Codexes/Imperium/Grey_Knights.md §2 (Knights of Titan); Wahapedia snapshot Abilities.csv 000002261 (Knights of Titan); BSData 9th-edition And They Shall Know No Fear on Imperium - Space Marines and Sanguinary Guard"
+  },
+  {
+    "catalogueName": "T'au Empire",
+    "name": "Philosophies of War",
+    "reason": "Pointer with no rule in it: the text is only 'Read here ->'. The T'au guide's Army rules section covers the Tactical Philosophies.",
+    "source": "BSData v9.8.0 T'au Empire.cat rule text; 03_Codexes/Xenos/Tau_Empire.md §2 (Tactical Philosophies)"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "name": "Synapse",
+    "reason": "8th-edition range (8\"). The 9th-edition Synapse aura is 6\", as on BSData's Synapse (Aura) datasheet ability.",
+    "source": "03_Codexes/Xenos/Tyranids.md §2 (Synapse (aura) 6\"); BSData v9.8.0 Tyranids.cat datasheets, Synapse (Aura)"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "name": "Instinctive Behaviour",
+    "reason": "8th-edition version (must target and charge the nearest enemy). The 9th-edition rule is different: units more than 24\" from a SYNAPSE unit take -1 to hit and -2 to charge against anything but the nearest enemy.",
+    "source": "03_Codexes/Xenos/Tyranids.md §2 (Instinctive Behaviour)"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "name": "Shadow in the Warp",
+    "reason": "8th-edition range (8\"). The 9th-edition Shadow in the Warp aura is 18\" and adds a mortal wound to Perils of the Warp, as on BSData's Shadow in the Warp (Aura) datasheet ability.",
+    "source": "03_Codexes/Xenos/Tyranids.md §2 (Shadow in the Warp (aura, 18\")); BSData v9.8.0 Tyranids.cat datasheets, Shadow in the Warp (Aura)"
+  },
+  {
+    "catalogueName": "Imperium - Imperial Knights",
+    "name": "Code Chivalric",
+    "id": "fd14-f544-e18a-b8e8",
+    "reason": "Empty duplicate of the Code Chivalric rule (BSData carries a second row with no text); the full rule (4b57-8620-2c00-3feb) stays.",
+    "source": "BSData v9.8.0 catalogue rules: two \"Code Chivalric\" rows, this one empty"
+  },
+  {
+    "catalogueName": "Tyranids - Genestealer Cults",
+    "name": "Brood Brothers",
+    "id": "69ce-aa80-5a30-5d8b",
+    "reason": "Empty duplicate of the Brood Brothers rule (BSData carries a second row with no text); the full rule (8dea-c9c8-9300-1932) stays.",
+    "source": "BSData v9.8.0 catalogue rules: two \"Brood Brothers\" rows, this one empty"
+  }
+]

@@ -28,5 +28,6 @@ Sample: 20 texts (seed chaos-chaos-space-marines) + 2 army rules + guide
 | 0bfe6ee2ae54 | Malicious Volleys | rule | PASS | Data oddity: official has "paeg 176" page reference. |
 | d10ad733a87c | Let the Galaxy Burn | rule | PASS | Data oddity: official is only a codex page reference; plain points to the army rule. |
 | 08f3513a1179 | Daemon Engine | rule | PASS | |
+| 398889989814 | Let the Galaxy Burn | ability | PASS | |
 
 Guide: PASS

@@ -1251,6 +1251,11 @@
     "kind": "stratagem",
     "plain": "In your Command phase, while one of your FARSEER models is on the battlefield: choose a point on the battlefield no more than 24\" from a FARSEER model of yours and mark it with a marker. During your next Psychic phase, your FARSEER models within 24\" of that marker can attempt the psychic action below.\n\nEmpower Storm (Psychic Action - Warp Charge 5): it may be attempted by any number of your FARSEER models that have visibility to the marker's centre.\n\nWhen your next Shooting phase starts, each unit within 6\" of the marker's centre gets one D6 roll; on a 4+, that unit suffers D3 mortal wounds. Remove the marker afterwards. This Stratagem can be used only once."
   },
+  "bdaac42ae1a0": {
+    "name": "Strands of Fate",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is an ASURYANI unit and all of them come from one craftworld, not counting PHOENIX LORD, ANHRATHE or UNALIGNED units. When each battle round begins, you can roll six D6 and keep some of them: you keep 2 in a Combat Patrol battle, 3 in an Incursion battle, 4 in a Strike Force battle or 5 in an Onslaught battle. Each kept result is tied to one kind of roll: 1 is an Advance roll, 2 a charge roll, 3 a Psychic test, 4 a hit roll, 5 a wound roll and 6 a saving throw. During that battle round, each kept die can be spent once: just before a unit with this ability makes a roll of the kind that die is tied to, you can spend it, and that roll (or one of its dice, if the roll uses several dice) is treated as an unmodified 6 instead of being rolled."
+  },
   "bea7e5799291": {
     "name": "War Construct",
     "kind": "ability",

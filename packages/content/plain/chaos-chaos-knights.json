@@ -334,6 +334,14 @@
     "kind": "ability",
     "plain": "The first time this unit is placed on the battlefield, if it has more than one model, every model has to be placed within 6\" of at least one other model in the unit.\n\nFrom then on, each model acts on its own and is treated as a separate unit."
   },
+  "84a6d1e60fb7": {
+    "name": "Harbingers of Dread",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is a CHAOS KNIGHTS unit, not counting AGENT OF CHAOS or UNALIGNED units. When each battle round begins, select one Harbinger ability to use that round from one of 3 columns: Despair, Doom or Darkness. In the first and fifth battle rounds, your selection must be Doom. Despair can only be selected if you selected Despair or Doom in the previous round, and Darkness only if you selected Darkness or Doom in the previous round. Once selected, a Harbinger ability stays active until the battle ends for every unit that has this ability, so the effects accumulate. Most Harbinger abilities affect enemy units that are within the Dread range of your Knights; Dread range begins at 12\".",
+    "waive": {
+      "99": "page number of the book reference, not a rule value"
+    }
+  },
   "8a90689e08e9": {
     "name": "Winds of the Warp",
     "kind": "psychic",
@@ -438,14 +446,6 @@
     "name": "Coruscating Hate",
     "kind": "psychic",
     "plain": "Witchfire. If manifested, D3 mortal wounds are inflicted on the closest enemy unit within 12\" of this PSYKER that it can see. Then roll one D6. On a 2-3, 1 mortal wound is inflicted on the closest other enemy unit that is within 6\" of the first target and visible to it. On a 4+, that other unit suffers D3 mortal wounds instead."
-  },
-  "b56a3456ff83": {
-    "name": "Harbingers of Dread",
-    "kind": "ability",
-    "plain": "This model has the Harbingers of Dread army rule, explained in this faction's army rules.",
-    "waive": {
-      "99": "page number of the book reference, not a rule value"
-    }
   },
   "b787f97b9fd7": {
     "name": "Graviton crusher",

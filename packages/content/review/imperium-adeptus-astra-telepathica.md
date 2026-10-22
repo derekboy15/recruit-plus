@@ -23,5 +23,14 @@ Sample: 20 texts (seed imperium-adeptus-astra-telepathica) + 0 army rules + guid
 | 566a12c26b80 | Emperor’s Fist Tank Company | stratagem | PASS | |
 | 815a11207237 | Psyker | psychic | PASS | |
 | 3e3902827e0b | Immovable Indoctrination | stratagem | PASS | |
+| a933f1c3b17d | Psyker | psychic | PASS | |
+| e552202a3c64 | Psyker | psychic | PASS | |
+| 697e69ac8d93 | Imperial Commander’s Armoury | stratagem | PASS | |
+| 766de2e227d1 | Acceptable Losses | stratagem | PASS | |
+| f140c0cecd0d | 6. Psychic Maelstrom | psychic | PASS | |
+| 41168f9f6ba3 | Vicious Traps | stratagem | PASS | |
+| 69a5f3d91cde | 2. Gaze of the Emperor | psychic | PASS | |
+| da29c0274449 | Officer Cadre | stratagem | PASS | |
+| a568997a539a | 4. Nightshroud | psychic | PASS | |
 
 Guide: PASS

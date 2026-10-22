@@ -29,6 +29,11 @@
     "kind": "ability",
     "plain": "When deploying, you may place this unit high in the skies rather than on the battlefield. In that case, at the end of any one of your Movement phases, you can put it anywhere on the battlefield that is more than 9\" from all enemy models."
   },
+  "19bc309e3819": {
+    "name": "Martial K'atah",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is an ADEPTUS CUSTODES unit (not counting ANATHEMA PSYKANA, AGENT OF THE IMPERIUM or UNALIGNED units) and all units assigned to a Shield Host belong to the same Shield Host. If so, once both armies are deployed, secretly select which ka'tah is your primary, which is your secondary and which is your tertiary. Every ka'tah has 2 stances. In each of your Command phases, select one stance; it is active for units with this ability until your next Command phase. Your first stance comes from your primary ka'tah, and after that you only move forward through your order: you can never return to an earlier ka'tah, and you can never select the same stance twice."
+  },
   "1af9436ff711": {
     "name": "Sweeping Advance",
     "kind": "stratagem",
@@ -63,11 +68,6 @@
     "name": "Radiant Mantle",
     "kind": "ability",
     "plain": "Subtract 1 from the hit roll of each attack made against this WARLORD."
-  },
-  "2382893fbb60": {
-    "name": "Martial K'atah",
-    "kind": "ability",
-    "plain": "No rules text is given for this ability here."
   },
   "26656cf1b6f1": {
     "name": "Golden Laurels",

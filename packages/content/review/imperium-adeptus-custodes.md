@@ -31,5 +31,6 @@ Sample: 20 texts (seed imperium-adeptus-custodes) + 5 army rules + guide
 | 12e51d4378cf | Aegis of the Emperor | rule | PASS | Data oddity: official has typo "that would is not lost". |
 | 2382893fbb60 | Martial K'atah | rule | PASS | Data oddity: official text is an author aside with no rules; plain correctly says no rules text is given. |
 | 3849d498f3fa | From Golden Light | rule | PASS | |
+| 19bc309e3819 | Martial K'atah | ability | PASS | |
 
 Guide: PASS

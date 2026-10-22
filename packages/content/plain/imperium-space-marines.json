@@ -1,18 +1,4 @@
 {
-  "2c17228c2cfa": {
-    "name": "Relic",
-    "kind": "rule",
-    "plain": "If your army is Battle-forged, a Detachment may not hold more Relic units than non-Relic units with the same Battlefield Role. The exception: your army may include a single Relic Lord of War unit even if it has no non-Relic Lord of War units. Any second or later Relic Lord of War unit has to go in a Detachment with at least as many non-Relic Lord of War units. Also, while your Battle-forged army includes at least one RELIC unit, you can use the RELIC OF ANCIENT GLORY stratagem."
-  },
-  "e6b00e073825": {
-    "name": "Combat Doctrines",
-    "kind": "rule",
-    "plain": "If your army is Battle-forged and every unit in it has this ability (SERVITOR and UNALIGNED units are ignored for this), your units with this ability get the bonus of whichever combat doctrine is active for your army:\n• Devastator Doctrine: Heavy and Grenade weapons get 1 better AP.\n• Tactical Doctrine: Rapid Fire and Assault weapons get 1 better AP.\n• Assault Doctrine: Pistol and melee weapons get 1 better AP.\nIn the first battle round the Devastator Doctrine is active. At the start of each later battle round you can move on one step (Devastator to Tactical, or Tactical to Assault), or keep the doctrine you have: you are never forced to move on. Unless a rule says otherwise, this bonus doesn't stack with other rules that improve a weapon's AP.",
-    "waive": {
-      "125": "page reference to Codex: Space Marines, not part of the rule",
-      "2023": "date of the dataslate that made the change, not part of the rule"
-    }
-  },
   "fbd7435e3823": {
     "name": "Objective Secured",
     "kind": "rule",

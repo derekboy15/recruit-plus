@@ -794,11 +794,6 @@
     "kind": "weapon",
     "plain": "If an attack from this weapon targets an enemy unit within half range, that attack's Damage characteristic becomes D6+2."
   },
-  "8dcaea382f09": {
-    "name": "Philosophies of War",
-    "kind": "rule",
-    "plain": "This entry only points to the full Philosophies of War rules and has no effect of its own."
-  },
   "8e6a47a6cce2": {
     "name": "XV22 Stalker Battlesuit",
     "kind": "ability",

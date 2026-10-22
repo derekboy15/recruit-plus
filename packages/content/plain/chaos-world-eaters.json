@@ -148,6 +148,11 @@
     "kind": "stratagem",
     "plain": "Use this Stratagem in your Charge phase, when you choose one or more enemy units as targets of a charge by one of your WORLD EATERS units. Pick one of those enemy units. That unit can't fire Overwatch or Set to Defend against that charge, and in the following Fight phase, subtract 1 from the hit roll each time one of its models makes a melee attack."
   },
+  "ca0983fc2dc4": {
+    "name": "The Blood Tithe",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is a WORLD EATERS unit, not counting AGENT OF CHAOS or UNALIGNED units. Through the battle, in both your turns and your opponent's, you earn Blood Tithe points (BTP): 1 BTP each time a unit is destroyed, no matter which side it belongs to; an extra 1 BTP when a phase ends if a CHARACTER, MONSTER or VEHICLE unit was destroyed during it; and a further 1 BTP when a phase ends if a TITANIC unit was destroyed during it. When each phase ends, you may use BTP to buy one Blessing of the Blood God. A purchased blessing lasts until the battle ends, and no blessing can be bought more than once, with the exception of Reborn in Blood."
+  },
   "cfad7560f83b": {
     "name": "Apoplectic Frenzy",
     "kind": "stratagem",
@@ -167,11 +172,6 @@
     "name": "Brazen Skin",
     "kind": "ability",
     "plain": "Each time a mortal wound would make a model in this unit lose a wound, roll one D6: if it is a 4+, the wound isn't lost."
-  },
-  "e050eb2b8464": {
-    "name": "The Blood Tithe",
-    "kind": "ability",
-    "plain": "This model has The Blood Tithe army rule, explained in this faction's army rules."
   },
   "e91c19c29f34": {
     "name": "The Betrayer",

@@ -1,12 +1,5 @@
 [
   {
-    "catalogueName": "Imperium - Space Marines",
-    "kind": "rule",
-    "name": "Combat Doctrines",
-    "note": "Arks of Omen dataslate (Jan 2023): you are no longer forced on to the next doctrine each battle round; you can let the Devastator or Tactical Doctrine remain active instead.",
-    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
-  },
-  {
     "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
     "kind": "rule",
     "name": "Combat Doctrines",
@@ -107,5 +100,143 @@
     "textPattern": "\\b(moved|moves) (across|over|through)\\b",
     "note": "Arks of Omen dataslate (Jan 2023): this only works if the aircraft is still on the battlefield once its move has finished.",
     "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Universal rules: \"moves over\" bombing abilities only trigger if the aircraft stays on the battlefield after its move"
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "kind": "ability",
+    "name": "Acts of Faith",
+    "note": "The rule text above is incomplete: it ends with a remark from the data source's author instead of the rest of the rule. The core of it, from Codex: Adepta Sororitas: you keep a pool of Miracle dice, and you can only gain them if every unit in your army is ADEPTA SORORITAS (CULT IMPERIALIS, AGENT OF THE IMPERIUM and UNALIGNED units don't count against this). You gain 1 at the start of each turn (Apr 2022 dataslate), 1 at the end of any phase in which your ADEPTA SORORITAS units destroyed an enemy unit, and 1 at the end of any phase in which one of your ADEPTA SORORITAS CHARACTER units was destroyed. Each time you gain one, roll it: that roll is its value, and it stays in the pool at that value. When a unit performs an Act of Faith, you use Miracle dice from the pool instead of rolling some or all of the dice for one of the listed rolls, one Miracle die for each dice it replaces, and then remove them from the pool. A Miracle die counts as an unmodified roll of its value and can never be re-rolled.",
+    "source": "03_Codexes/Imperium/Adepta_Sororitas.md §2 (Acts of Faith and Miracle dice); Wahapedia snapshot Abilities.csv 000001507 (Acts of Faith, AS); 05_Balance_Errata_and_Points/Balance_Dataslates.md (14 Apr 2022, Adepta Sororitas row: a Miracle die each turn). BSData v9.8.0 text ends with an author aside"
+  },
+  {
+    "catalogueName": "Imperium - Adepta Sororitas",
+    "kind": "rule",
+    "name": "Acts of Faith",
+    "note": "The rule text above is incomplete: it ends with a remark from the data source's author instead of the rest of the rule. The core of it, from Codex: Adepta Sororitas: you keep a pool of Miracle dice, and you can only gain them if every unit in your army is ADEPTA SORORITAS (CULT IMPERIALIS, AGENT OF THE IMPERIUM and UNALIGNED units don't count against this). You gain 1 at the start of each turn (Apr 2022 dataslate), 1 at the end of any phase in which your ADEPTA SORORITAS units destroyed an enemy unit, and 1 at the end of any phase in which one of your ADEPTA SORORITAS CHARACTER units was destroyed. Each time you gain one, roll it: that roll is its value, and it stays in the pool at that value. When a unit performs an Act of Faith, you use Miracle dice from the pool instead of rolling some or all of the dice for one of the listed rolls, one Miracle die for each dice it replaces, and then remove them from the pool. A Miracle die counts as an unmodified roll of its value and can never be re-rolled.",
+    "source": "03_Codexes/Imperium/Adepta_Sororitas.md §2 (Acts of Faith and Miracle dice); Wahapedia snapshot Abilities.csv 000001507 (Acts of Faith, AS); 05_Balance_Errata_and_Points/Balance_Dataslates.md (14 Apr 2022, Adepta Sororitas row: a Miracle die each turn). BSData v9.8.0 text ends with an author aside"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Custodes",
+    "kind": "ability",
+    "name": "Martial K'atah",
+    "note": "The rule text above is only a pointer, not the rule. The core of it, from Codex: Adeptus Custodes: if every unit in your army is ADEPTUS CUSTODES (ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units don't count against this) and every unit assigned to a Shield Host is from the same one, then after both armies have deployed you secretly choose a primary, a secondary and a tertiary ka'tah. Each ka'tah has two stances. In each of your Command phases you switch on one stance for units with this ability until your next Command phase. You start with the primary ka'tah and move forward through your order: you can never go back to an earlier ka'tah or pick the same stance twice.",
+    "source": "03_Codexes/Imperium/Adeptus_Custodes.md §2 (Martial Ka'tah); Wahapedia snapshot Abilities.csv 000006209 (Martial Ka’tah, AC). BSData v9.8.0 text is only an author aside"
+  },
+  {
+    "catalogueName": "Aeldari - Craftworlds",
+    "kind": "ability",
+    "name": "Strands of Fate",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Aeldari: if every unit in your army is ASURYANI and from the same craftworld (PHOENIX LORD, ANHRATHE and UNALIGNED units don't count against this), then at the start of each battle round you can roll six D6 and keep some of them: 2 in Combat Patrol, 3 in Incursion, 4 in Strike Force, 5 in Onslaught. Each kept result stands for one type of roll: 1 Advance, 2 charge, 3 Psychic test, 4 hit, 5 wound, 6 saving throw. Once that battle round, for each kept die, before a unit with this ability makes a roll of the matching type, you can spend that die: the roll (or one of its dice, for a roll of several dice) counts as an unmodified 6 instead of being rolled.",
+    "source": "03_Codexes/Xenos/Aeldari.md §2 (Asuryani: Strands of Fate); Wahapedia snapshot Abilities.csv 000006707 (Strands of Fate, AE). BSData v9.8.0 text is only 'Refer to your Codex for details.'"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Knights",
+    "kind": "ability",
+    "name": "Harbingers of Dread",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Knights: if every unit in your army is CHAOS KNIGHTS (AGENT OF CHAOS and UNALIGNED units don't count against this), then at the start of each battle round you choose one Harbinger ability for that round from three columns: Despair, Doom or Darkness. You must choose Doom in the first and fifth battle rounds; you can only choose Despair if last round's choice was Despair or Doom, and only Darkness if it was Darkness or Doom. Each Harbinger ability you choose stays active for the rest of the battle for every unit with this ability, so the effects build up. Most of them affect enemy units within your Knights' Dread range (12\" to start).",
+    "source": "03_Codexes/Chaos/Chaos_Knights.md §2 (Dread and Harbingers of Dread); Wahapedia snapshot Abilities.csv 000007221 (Harbingers of Dread, QT). BSData v9.8.0 text is only 'See pp98-99 of Codex: Chaos Knights.'"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "INFANTRY",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "VEHICLE",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "MONSTER",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "BIKER",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "CAVALRY",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "BEAST",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - Chaos Space Marines",
+    "kind": "ability",
+    "unitKeyword": "FABIUS BILE",
+    "textPattern": "^s*See page 145 of Codex: Chaos Space Marines",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Chaos Space Marines: if every unit in your army is TRAITORIS ASTARTES (AGENT OF CHAOS and UNALIGNED units don't count against this) and all your <LEGION> units are from the same Legion (ABADDON THE DESPOILER excepted), this unit adds 2 to the number of attacks its flame weapons make. Your army is also engaged in a wanton act: Wanton Destruction in the first battle round, Wanton Massacre in the second, your choice of Massacre or Slaughter in the third, and Wanton Slaughter from the fourth on. While a wanton act is active, an unmodified hit roll of 6 with the weapon types it names scores 1 extra hit: Destruction for Heavy, Rapid Fire and Grenade weapons; Massacre for Rapid Fire, Assault and Pistol weapons; Slaughter for Assault, Pistol and melee weapons.",
+    "source": "03_Codexes/Chaos/Chaos_Space_Marines.md §2 (Let the Galaxy Burn); Wahapedia snapshot Abilities.csv 000007396 (Let the Galaxy Burn). BSData v9.8.0 text on these datasheets is only 'See page 145 of Codex: Chaos Space Marines'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "kind": "ability",
+    "unitKeyword": "INFANTRY",
+    "textPattern": "^s*See p45 of Codex: World Eaters",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: World Eaters: if every unit in your army is WORLD EATERS (AGENT OF CHAOS and UNALIGNED units don't count against this), you collect Blood Tithe points (BTP) during the battle, in both players' turns: 1 each time any unit is destroyed, friendly or enemy; 1 more at the end of a phase in which any CHARACTER, MONSTER or VEHICLE unit was destroyed; and 1 more at the end of a phase in which any TITANIC unit was destroyed. At the end of each phase you can spend BTP on one Blessing of the Blood God. A blessing lasts for the rest of the battle, and each can be bought only once (except Reborn in Blood).",
+    "source": "03_Codexes/Chaos/World_Eaters.md §2 (The Blood Tithe; Blessings of the Blood God); Wahapedia snapshot Abilities.csv 000008062 (The Blood Tithe, WE). BSData v9.8.0 text on these datasheets is only 'See p45 of Codex: World Eaters'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "kind": "ability",
+    "unitKeyword": "VEHICLE",
+    "textPattern": "^s*See p45 of Codex: World Eaters",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: World Eaters: if every unit in your army is WORLD EATERS (AGENT OF CHAOS and UNALIGNED units don't count against this), you collect Blood Tithe points (BTP) during the battle, in both players' turns: 1 each time any unit is destroyed, friendly or enemy; 1 more at the end of a phase in which any CHARACTER, MONSTER or VEHICLE unit was destroyed; and 1 more at the end of a phase in which any TITANIC unit was destroyed. At the end of each phase you can spend BTP on one Blessing of the Blood God. A blessing lasts for the rest of the battle, and each can be bought only once (except Reborn in Blood).",
+    "source": "03_Codexes/Chaos/World_Eaters.md §2 (The Blood Tithe; Blessings of the Blood God); Wahapedia snapshot Abilities.csv 000008062 (The Blood Tithe, WE). BSData v9.8.0 text on these datasheets is only 'See p45 of Codex: World Eaters'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "kind": "ability",
+    "unitKeyword": "MONSTER",
+    "textPattern": "^s*See p45 of Codex: World Eaters",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: World Eaters: if every unit in your army is WORLD EATERS (AGENT OF CHAOS and UNALIGNED units don't count against this), you collect Blood Tithe points (BTP) during the battle, in both players' turns: 1 each time any unit is destroyed, friendly or enemy; 1 more at the end of a phase in which any CHARACTER, MONSTER or VEHICLE unit was destroyed; and 1 more at the end of a phase in which any TITANIC unit was destroyed. At the end of each phase you can spend BTP on one Blessing of the Blood God. A blessing lasts for the rest of the battle, and each can be bought only once (except Reborn in Blood).",
+    "source": "03_Codexes/Chaos/World_Eaters.md §2 (The Blood Tithe; Blessings of the Blood God); Wahapedia snapshot Abilities.csv 000008062 (The Blood Tithe, WE). BSData v9.8.0 text on these datasheets is only 'See p45 of Codex: World Eaters'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "kind": "ability",
+    "unitKeyword": "CAVALRY",
+    "textPattern": "^s*See p45 of Codex: World Eaters",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: World Eaters: if every unit in your army is WORLD EATERS (AGENT OF CHAOS and UNALIGNED units don't count against this), you collect Blood Tithe points (BTP) during the battle, in both players' turns: 1 each time any unit is destroyed, friendly or enemy; 1 more at the end of a phase in which any CHARACTER, MONSTER or VEHICLE unit was destroyed; and 1 more at the end of a phase in which any TITANIC unit was destroyed. At the end of each phase you can spend BTP on one Blessing of the Blood God. A blessing lasts for the rest of the battle, and each can be bought only once (except Reborn in Blood).",
+    "source": "03_Codexes/Chaos/World_Eaters.md §2 (The Blood Tithe; Blessings of the Blood God); Wahapedia snapshot Abilities.csv 000008062 (The Blood Tithe, WE). BSData v9.8.0 text on these datasheets is only 'See p45 of Codex: World Eaters'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "kind": "ability",
+    "unitKeyword": "BEAST",
+    "textPattern": "^s*See p45 of Codex: World Eaters",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: World Eaters: if every unit in your army is WORLD EATERS (AGENT OF CHAOS and UNALIGNED units don't count against this), you collect Blood Tithe points (BTP) during the battle, in both players' turns: 1 each time any unit is destroyed, friendly or enemy; 1 more at the end of a phase in which any CHARACTER, MONSTER or VEHICLE unit was destroyed; and 1 more at the end of a phase in which any TITANIC unit was destroyed. At the end of each phase you can spend BTP on one Blessing of the Blood God. A blessing lasts for the rest of the battle, and each can be bought only once (except Reborn in Blood).",
+    "source": "03_Codexes/Chaos/World_Eaters.md §2 (The Blood Tithe; Blessings of the Blood God); Wahapedia snapshot Abilities.csv 000008062 (The Blood Tithe, WE). BSData v9.8.0 text on these datasheets is only 'See p45 of Codex: World Eaters'; the selectors match only that text, not the datasheets that print the full rule"
+  },
+  {
+    "catalogueName": "Leagues of Votann",
+    "kind": "ability",
+    "name": "Eye of the Ancestors",
+    "note": "The rule text above is only a page reference, not the rule. The core of it, from Codex: Leagues of Votann: if every unit in your army is VOTANN and from the same League (UNALIGNED units don't count against this), enemy units gain Judgement tokens, up to 3 each: 1 when an enemy unit destroys one of your VOTANN units, 1 when an enemy unit completes an action or psychic action, and, at the end of each of your opponent's turns, 1 for an enemy unit you pick that is within range of an objective marker your opponent controls. Tokens stay on a unit for the rest of the battle. When a VOTANN model (not a COG model) attacks a unit with tokens, an unmodified hit roll of 6 automatically wounds with 1 token, of 5+ with 2 tokens, and of 4+ with 3 tokens. Since GW's 29 Sep 2022 errata, such an automatic wound never counts as an unmodified wound roll of 6.",
+    "source": "03_Codexes/Xenos/Leagues_of_Votann.md §2 (Eye of the Ancestors, incl. the 29 Sep 2022 errata); Wahapedia snapshot Abilities.csv 000007746 (Eye of the Ancestors, LoV). BSData v9.8.0 text is only 'See p86 of the Leagues of Votann Codex and associated updates and errata.'"
   }
 ]

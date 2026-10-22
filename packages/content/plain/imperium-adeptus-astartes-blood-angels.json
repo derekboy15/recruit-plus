@@ -229,11 +229,6 @@
     "kind": "ability",
     "plain": "You can't pick this model to be your WARLORD."
   },
-  "6da65df0a14d": {
-    "name": "Explodes (6\"/D6)",
-    "kind": "rule",
-    "plain": "When this model is reduced to 0 wounds, roll a D6 before you remove it and before any models embarked in it disembark. On a 6, it explodes and every unit within 6\" suffers D6 mortal wounds."
-  },
   "6db718f24266": {
     "name": "Unleash Rage",
     "kind": "psychic",

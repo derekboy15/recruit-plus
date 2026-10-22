@@ -387,6 +387,14 @@
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before any models embarked in it disembark and before taking it off the battlefield. On a 6, it explodes and every unit within 6\" takes D6 mortal wounds."
   },
+  "398889989814": {
+    "name": "Let the Galaxy Burn",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is a TRAITORIS ASTARTES unit (not counting AGENT OF CHAOS or UNALIGNED units) and every <LEGION> unit in it comes from one Legion, apart from ABADDON THE DESPOILER. If so, add 2 to the number of attacks this unit's flame weapons make. Your army also has one wanton act active: Wanton Destruction during battle round 1, Wanton Massacre during battle round 2, either Wanton Massacre or Wanton Slaughter (you choose) during battle round 3, and Wanton Slaughter during battle round 4 and every round after it. Each wanton act lists weapon types; while it is active, an unmodified 6 to hit with one of those weapon types scores 1 extra hit. Wanton Destruction lists Heavy, Rapid Fire and Grenade weapons, Wanton Massacre lists Rapid Fire, Assault and Pistol weapons, and Wanton Slaughter lists Assault, Pistol and melee weapons.",
+    "waive": {
+      "145": "page number of the book reference, not a rule value"
+    }
+  },
   "39d2980e5afa": {
     "name": "Hunter-killer missile",
     "kind": "weapon",
@@ -1527,14 +1535,6 @@
     "name": "Without a Trace",
     "kind": "stratagem",
     "plain": "At the start of your opponent's Shooting phase: pick one of your FALLEN ANGELS units that is entirely on or within a terrain feature. For the rest of the phase, subtract 1 from the hit roll whenever an enemy model attacks that unit."
-  },
-  "d10ad733a87c": {
-    "name": "Let the Galaxy Burn",
-    "kind": "ability",
-    "plain": "This model has the Let the Galaxy Burn army rule, explained in this faction's army rules.",
-    "waive": {
-      "145": "page number of the book reference, not a rule value"
-    }
   },
   "d1854267f4fa": {
     "name": "Contempt Over Caution",

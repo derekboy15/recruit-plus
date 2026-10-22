@@ -9,11 +9,6 @@
     "kind": "ability",
     "plain": "Only a model with a Nemesis warding stave can have this. Whenever an enemy model within 18\" of a model with this Relic takes a Psychic test, it suffers Perils of the Warp on any double."
   },
-  "0136aa5b2d36": {
-    "name": "Warp Emergence",
-    "kind": "rule",
-    "plain": "During deployment, you can place Lord Kaldor Draigo in the warp rather than on the battlefield. He can emerge at the end of any of your Movement phases: put him anywhere on the battlefield more than 9\" from every enemy model."
-  },
   "015d97aef293": {
     "name": "Narthecium (Aura)",
     "kind": "ability",
@@ -73,16 +68,6 @@
     "name": "Fight on the Move",
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your GREY KNIGHTS TELEPORTER units Falls Back: until the end of the turn, it can still shoot and charge despite having Fallen Back."
-  },
-  "0fe5a43eb9b0": {
-    "name": "Brotherhood of Psykers",
-    "kind": "rule",
-    "plain": "In a Battle-forged army, all PSYKERS in GREY KNIGHTS Detachments have this ability. You can add 1 to the Psychic tests and Deny the Witch tests you take for these units."
-  },
-  "10fabd79e7f8": {
-    "name": "Psychic Locus",
-    "kind": "rule",
-    "plain": "When one of your GREY KNIGHTS units within 6\" of a BROTHER-CAPTAIN manifests Smite, that power has double its normal range."
   },
   "1181ae61e41d": {
     "name": "Symphonic Strike",
@@ -299,11 +284,6 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your GREY KNIGHTS CORE units that is within 6\" of this model. Until your next Command phase starts, add 1 to the hit roll of each melee attack made by a model in that unit."
   },
-  "5ceb226b8ef0": {
-    "name": "Transport (16)",
-    "kind": "rule",
-    "plain": "This model can carry 16 <CHAPTER> INFANTRY models. A JUMP PACK or TERMINATOR model takes up the room of two other models, and a CENTURION model takes up the room of three other models. PRIMARIS models cannot be carried."
-  },
   "5ddc54f9de3e": {
     "name": "Psalm of Purity",
     "kind": "ability",
@@ -323,11 +303,6 @@
     "name": "Combat Squads",
     "kind": "ability",
     "plain": "If this unit has 10 models, it can be split into two units of 5 models each before any models are deployed at the start of the game."
-  },
-  "606f83e7e6dc": {
-    "name": "Heroic Sacrifice",
-    "kind": "rule",
-    "plain": "When this model is slain during the Fight phase, it can pile in and attack straight away, before you remove it as a casualty."
   },
   "60c195ec8f2b": {
     "name": "Foretelling of Locus",
@@ -404,11 +379,6 @@
     "kind": "psychic",
     "plain": "Malediction: if manifested, choose one enemy unit within 12\" of this PSYKER. Until your next Psychic phase starts, aura abilities of models in its own army have no effect on that unit."
   },
-  "75d122441f11": {
-    "name": "Dreadknight Teleporter",
-    "kind": "rule",
-    "plain": "During deployment, if this model has a Dreadknight teleporter, you can place it in a teleportarium chamber rather than on the battlefield. It can teleport in at the end of any of your Movement phases: put it anywhere on the battlefield more than 9\" from enemy models."
-  },
   "77b234f22d27": {
     "name": "The Steel Heart",
     "kind": "stratagem",
@@ -444,11 +414,6 @@
     "kind": "psychic",
     "plain": "Blessing: if manifested, you can re-roll charge rolls for this PSYKER's unit until the start of your next Psychic phase."
   },
-  "7ee3c9c887c5": {
-    "name": "Purifying Flame",
-    "kind": "rule",
-    "plain": "When this unit manifests Smite, its range is only 3\". In exchange, Smite inflicts D6 mortal wounds rather than D3, regardless of whether the Psychic test result is more than 10 or not."
-  },
   "7fd8bbdd6e2a": {
     "name": "Sanctified Kill Zone",
     "kind": "stratagem",
@@ -458,11 +423,6 @@
     "name": "Marked for Death",
     "kind": "stratagem",
     "plain": "At the start of your Shooting phase: pick one enemy unit that is within 12\" of and visible to one of your SWORDBEARERS PSYKER units. Until the end of the phase, add 1 to the hit roll of each ranged attack your SWORDBEARERS units make against that enemy unit."
-  },
-  "873ae0b6c114": {
-    "name": "Bane of Evil",
-    "kind": "rule",
-    "plain": "In the Fight phase, when one of your GREY KNIGHTS units within 6\" of Lord Kaldor Draigo attacks a DAEMON unit, you can re-roll that unit's damage rolls."
   },
   "879a5541d89a": {
     "name": "Empyric Declamation",
@@ -509,11 +469,6 @@
     "kind": "psychic",
     "plain": "Blessing: if manifested, models in this PSYKER's unit add 1 to their armour saving throws until the start of your next Psychic phase."
   },
-  "986b599ccfa7": {
-    "name": "And They Shall Know No Fear",
-    "kind": "rule",
-    "plain": "You can re-roll this unit's failed Morale tests."
-  },
   "99d68ddd5ac2": {
     "name": "4. Refrain of Convergence",
     "kind": "ability",
@@ -558,11 +513,6 @@
     "name": "The Need to Know",
     "kind": "stratagem",
     "plain": "Only usable if every Detachment in your army is a GREY KNIGHTS Detachment. Use it in a mission where you select secondary objectives or Agendas, after both players have revealed what they picked: you can swap one of your secondary objectives or Agendas for a different one (note the new choice on your army roster and tell your opponent). The usual rules for choosing secondary objectives and Agendas still apply. If both players have a rule letting them choose new secondary objectives or Agendas, both make their new choices first and then show them to each other at the same time."
-  },
-  "a3f4652c2e19": {
-    "name": "Psyk-out Assault Launchers",
-    "kind": "rule",
-    "plain": "Whenever this model finishes a charge move within 1\" of an enemy unit, roll a D6. On a 4+, that unit suffers 1 mortal wound, or D3 mortal wounds instead if it is a PSYKER."
   },
   "a4bbe42e0707": {
     "name": "Kantu Vambrace",
@@ -619,20 +569,10 @@
     "kind": "ability",
     "plain": "Once per battle, when your opponent's Charge phase ends, you can pick one of your GREY KNIGHTS CORE units that is within 12\" of this model; it can make a Heroic Intervention as though it were a CHARACTER."
   },
-  "b55af006446c": {
-    "name": "Psyker Squad",
-    "kind": "rule",
-    "plain": "When this unit manifests or denies a psychic power, first pick one model in it and measure range, visibility and so on from that model. If the unit suffers Perils of the Warp, it takes D3 mortal wounds as normal, but other units within 6\" are only damaged if those Perils of the Warp slay the final model of the manifesting unit."
-  },
   "b596ffb18122": {
     "name": "Hammerhand",
     "kind": "psychic",
     "plain": "Blessing: if manifested, you can re-roll the wound roll for melee attacks made by models in this PSYKER's unit until the start of your next Psychic phase."
-  },
-  "b6a12b335e89": {
-    "name": "Litanies of Hate",
-    "kind": "rule",
-    "plain": "In the Fight phase, you can re-roll failed hit rolls for your GREY KNIGHTS units that are within 6\" of this model."
   },
   "b6d307859281": {
     "name": "Psychic Onslaught",
@@ -704,11 +644,6 @@
     "kind": "ability",
     "plain": "When the Fight phase begins, this model may fight first in that phase if it is within Engagement Range of any enemy CHARACTER units."
   },
-  "ca2da810e8ba": {
-    "name": "Rites of Banishment",
-    "kind": "rule",
-    "plain": "When this unit manifests Smite, its range is 12\" instead of 18\". The target also suffers just 1 mortal wound instead of D3, whatever the Psychic test result (even if it is more than 10). If the target is a DAEMON, it instead suffers 3 mortal wounds rather than D3."
-  },
   "caa51ceb6625": {
     "name": "Sacred Banner (Aura)",
     "kind": "ability",
@@ -728,11 +663,6 @@
     "name": "Invocation of Focus (Aura)",
     "kind": "ability",
     "plain": "Aura: if this litany is inspiring, while one of your GREY KNIGHTS CORE or GREY KNIGHTS CHARACTER units is within 6\" of this PRIEST, add 1 to the Psychic test whenever that unit tries to manifest a Blessing psychic power."
-  },
-  "d92db07fd421": {
-    "name": "Transport (12)",
-    "kind": "rule",
-    "plain": "This model can carry 12 <CHAPTER> INFANTRY models. A JUMP PACK or TERMINATOR model takes up the room of two other models, and a CENTURION model takes up the room of three other models. PRIMARIS models cannot be carried."
   },
   "db904e6e9fcf": {
     "name": "Charge of the Ancients",
@@ -779,11 +709,6 @@
     "kind": "psychic",
     "plain": "Blessing: if manifested, pick one Tide of the Warp that hasn't yet been dominant for your army this battle. That Tide becomes your army's dominant Tide of the Warp, replacing the current one."
   },
-  "ee48834bccc3": {
-    "name": "Daemon Hunters",
-    "kind": "rule",
-    "plain": "In the Fight phase, when this unit attacks any DAEMON, you can re-roll failed wound rolls for those attacks."
-  },
   "f314be21d93e": {
     "name": "Adaptive Excoriation",
     "kind": "stratagem",
@@ -798,11 +723,6 @@
     "name": "The Strands of Fate",
     "kind": "ability",
     "plain": "In each of your turns, you can re-roll one failed hit roll or wound roll, or one failed saving throw, for Brother-Captain Stern. If you do, in their next turn your opponent can re-roll one failed hit or wound roll, or one failed saving throw, for one of their models."
-  },
-  "f4f004e8d924": {
-    "name": "Transport (10)",
-    "kind": "rule",
-    "plain": "This model can carry 10 <CHAPTER> INFANTRY models. A JUMP PACK or TERMINATOR model takes up the room of two other models, and a CENTURION model takes up the room of three other models. PRIMARIS models cannot be carried."
   },
   "f5ca702e37a0": {
     "name": "Domina Liber Demonica",

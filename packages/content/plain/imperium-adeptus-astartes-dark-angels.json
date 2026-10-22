@@ -52,11 +52,6 @@
       "2023": "date of the dataslate that made the change, not part of the rule"
     }
   },
-  "1ee6891b5aaf": {
-    "name": "Defenders of Humanity",
-    "kind": "rule",
-    "plain": "If a unit with this ability is in range of an objective marker (range as set by the mission), it controls that marker even when enemy models in range outnumber yours. If an enemy unit in range of the same marker has a similar ability, the normal rule applies instead: whoever has the most models in range controls it."
-  },
   "233378232c90": {
     "name": "Icon of old Caliban (Aura)",
     "kind": "ability",

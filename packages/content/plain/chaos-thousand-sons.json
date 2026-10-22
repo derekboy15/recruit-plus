@@ -99,11 +99,6 @@
     "kind": "ability",
     "plain": "Whenever a model in this unit attacks with anything other than disc blades, an unmodified 6 to hit automatically wounds the target."
   },
-  "2bc425f89afc": {
-    "name": "Daemonic Ritual",
-    "kind": "rule",
-    "plain": "At the end of its Movement phase, instead of moving in that phase, any CHAOS CHARACTER can perform a Daemonic Ritual to try to summon a DAEMON unit that has this ability. It can't do this if it arrived as reinforcements this turn or was itself summoned to the battlefield this turn.\n\nTo do so, first pick one of the four Chaos Gods: KHORNE, TZEENTCH, NURGLE or SLAANESH. Any CHARACTER that owes allegiance to one of the Dark Gods can only try to summon units of its own patron; for example, a KHORNE CHARACTER can only try to summon KHORNE DAEMONS.\n\nNext, make your summoning roll by rolling up to 3 dice. You may summon one new Daemonic Ritual unit whose Power Rating is no higher than the total, as long as it has the Chaos God keyword you picked. That unit counts as reinforcements for your army and can be set up anywhere on the battlefield wholly within 12\" of the character and more than 9\" from all enemy models. If the total is too low to summon any unit, the ritual fails and nothing is summoned.\n\nIf the summoning roll contains any doubles, the character suffers 1 mortal wound. If it contains any triples, it suffers D3 mortal wounds instead."
-  },
   "2ee628e87851": {
     "name": "Slow and Purposeful",
     "kind": "stratagem",

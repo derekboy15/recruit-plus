@@ -26,5 +26,6 @@ Sample: 20 texts (seed imperium-adepta-sororitas) + 0 army rules + guide
 | 4e11f48327b7 | Acts of Faith | rule | PASS | Data oddity: official includes an author remark instead of the full Acts of Faith rules; plain covers what is given. |
 | e10530df09de | Shield of Faith | rule | PASS | |
 | 14373cb5750f | Sacred Rites | rule | PASS | |
+| b26bc5ae1c5e | Acts of Faith | ability | PASS | |
 
 Guide: PASS

@@ -31,5 +31,6 @@ Sample: 20 texts (seed aeldari-craftworlds) + 9 army rules + guide
 | 289a87f8f338 | Reckless Abandon [LEGENDS] | rule | PASS | |
 | 5db1ee33467a | Power From Pain | rule | PASS | |
 | fc76df3a0c80 | Blade Artists | rule | PASS | |
+| bdaac42ae1a0 | Strands of Fate | ability | PASS | |
 
 Guide: PASS

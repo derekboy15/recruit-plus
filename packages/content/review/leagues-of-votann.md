@@ -26,6 +26,7 @@ Sample: 20 texts (seed leagues-of-votann) + 1 army rules + guide
 | ab864222d019 | HunTR weapons | rule | PASS | |
 | d5978ba788bc | Beam weapons | rule | PASS | |
 | 630fbb4701b7 | Magna-rail weapons | rule | PASS | |
+| 073325d1059e | Eye of the Ancestors | ability | PASS | |
 
 Guide: FIXED
-- Army rules, Eye of the Ancestors: FIXED. End-of-turn token now goes to an enemy unit within range of an objective marker you don't control (was: one your opponent controls).
+- Army rules, Eye of the Ancestors: PASS after re-check. The spot-check proposed "an objective you don't control" from the research library, but Wahapedia (higher precedence) says "an objective marker that your opponent controls", which the guide originally said; the guide is back to that wording, matching the Eye of the Ancestors amendment.

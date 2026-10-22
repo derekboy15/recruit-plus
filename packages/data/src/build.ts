@@ -58,6 +58,8 @@ function categoryNamesById(files: RawCatalogue[]): Map<string, string> {
 export interface RuleExclusion {
   catalogueName: string;
   name: string;
+  /** Only the row with this BSData id, when the catalogue has several rules of that name (an empty duplicate). */
+  id?: string;
   reason: string;
   source: string;
 }
@@ -65,12 +67,14 @@ export interface RuleExclusion {
 /** The catalogue's rules without its excluded ones; throws if an exclusion matches nothing or lacks a reason or source. */
 export function excludeRules(catalogueName: string, rules: CatalogueOut['rules'], exclusions: RuleExclusion[]): CatalogueOut['rules'] {
   const own = exclusions.filter((x) => x.catalogueName === catalogueName);
+  const hits = (x: RuleExclusion, r: CatalogueOut['rules'][number]) => r.name === x.name && (!x.id || r.id === x.id);
   for (const x of own) {
     if (!x.reason || !x.source) throw new Error(`rule-exclusions.json: ${catalogueName} "${x.name}" needs a reason and a source`);
-    if (!rules.some((r) => r.name === x.name)) throw new Error(`rule-exclusions.json: ${catalogueName} has no army rule "${x.name}"`);
+    if (!rules.some((r) => hits(x, r))) {
+      throw new Error(`rule-exclusions.json: ${catalogueName} has no army rule "${x.name}"${x.id ? ` with id ${x.id}` : ''}`);
+    }
   }
-  const names = new Set(own.map((x) => x.name));
-  return rules.filter((r) => !names.has(r.name));
+  return rules.filter((r) => !own.some((x) => hits(x, r)));
 }
 
 /** The .gst's roster file is always `system`. */

@@ -24,6 +24,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, once a beam weapon fired by one of your VOTANN models has hit an enemy unit: for the rest of the phase, roll one D6 whenever another beam weapon attack from one of your VOTANN models hits that enemy unit. On a 4+, it suffers 1 mortal wound on top of the normal damage. A unit can't suffer more than 6 mortal wounds per phase from this Stratagem."
   },
+  "073325d1059e": {
+    "name": "Eye of the Ancestors",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is a VOTANN unit and all of them come from one League, not counting UNALIGNED units. Enemy units gain Judgement tokens, and an enemy unit can have no more than 3. An enemy unit gains 1 token whenever it destroys a VOTANN unit from your army, and 1 whenever it completes an action or a psychic action. In addition, when each of your opponent's turns ends, select one enemy unit within range of an objective marker controlled by your opponent; that unit gains 1 token. A unit keeps its tokens until the battle ends. Each time a VOTANN model that isn't a COG model attacks a unit that has tokens: if the target has 1 token, an unmodified hit roll of 6 automatically wounds; with 2 tokens, an unmodified hit roll of 5+ automatically wounds; with 3 tokens, an unmodified hit roll of 4+ automatically wounds. Following GW's errata of 29 September 2022, an automatic wound from this never counts as an unmodified wound roll of 6."
+  },
   "0867e76572ed": {
     "name": "Grudge's End",
     "kind": "ability",
@@ -303,11 +308,6 @@
     "name": "Grimnyr",
     "kind": "psychic",
     "plain": "Powers: Smite, plus 2 of the powers from the Skeinwrought discipline."
-  },
-  "b9b7764c6a74": {
-    "name": "Eye of the Ancestors",
-    "kind": "ability",
-    "plain": "The full text of this ability isn't reproduced here: look it up in the Leagues of Votann Codex, together with any later updates and errata."
   },
   "baad2af1e931": {
     "name": "Accelerated Response",

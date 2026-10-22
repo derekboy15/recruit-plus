@@ -63,5 +63,6 @@ Sample: 20 texts (seed imperium-grey-knights) + 22 army rules + guide
 | dd0786d02afa | Rites of Battle (Aura) | rule | PASS | |
 | 509e5f231533 | Rites of Battle (Aura) | rule | PASS | |
 | 60069bf7071a | Explodes (6"/D6) | rule | PASS | |
+| 95fff622f1ff | Bio-meltdown | ability | PASS | |
 
 Guide: PASS

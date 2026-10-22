@@ -34,11 +34,6 @@
     "kind": "ability",
     "plain": "At the end of the Fight phase, for each enemy model within Engagement Range of this model, roll one D6: on a 5+, the unit that model belongs to takes 1 mortal wound."
   },
-  "107ce1916ea6": {
-    "name": "Instinctive Behaviour",
-    "kind": "rule",
-    "plain": "A <HIVE FLEET> unit with this ability that is outside the range of every friendly <HIVE FLEET> unit's Synapse ability can only shoot at the nearest visible enemy unit, and can only declare a charge against the nearest visible enemy unit."
-  },
   "116c07214d5b": {
     "kind": "ability",
     "name": "Tyrant Goading",
@@ -131,11 +126,6 @@
     "waive": {
       "86": "page reference to the codex, not part of the rule"
     }
-  },
-  "20aedc77c317": {
-    "name": "Synapse",
-    "kind": "rule",
-    "plain": "<HIVE FLEET> units within 8\" of any friendly <HIVE FLEET> unit that has this ability automatically pass Morale tests."
   },
   "234229391f0d": {
     "kind": "ability",
@@ -478,11 +468,6 @@
     "name": "Acidic Torrent",
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when a unit of yours that contains any ACID MAW models is chosen to fight. Pick an enemy unit within Engagement Range of it. Roll a D6 for each ACID MAW INFANTRY model in your unit that is within Engagement Range of the picked enemy unit, or three D6 for such a model that has the MONSTER keyword. For each 3+, the enemy unit takes 1 mortal wound, up to a maximum of 6 mortal wounds."
-  },
-  "653ab0c90704": {
-    "name": "Shadow in the Warp",
-    "kind": "rule",
-    "plain": "Enemy PSYKERS within 8\" of any units with this ability must subtract 1 from every Psychic test they take. TYRANID PSYKERS are unaffected."
   },
   "66a0d8784d2f": {
     "kind": "ability",

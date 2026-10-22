@@ -239,15 +239,6 @@
     "kind": "stratagem",
     "plain": "At the start of the Fight phase: choose one of your CELESTIAN SACRESANTS or CRUSADERS units. For the rest of the phase, attacks against it have 1 subtracted from their wound rolls."
   },
-  "4e11f48327b7": {
-    "name": "Acts of Faith",
-    "kind": "ability",
-    "plain": "You gain one Miracle die when each player turn begins. Once in each phase, a single unit in your army that has this ability may use Miracle dice to perform one Act of Faith, on any of these dice rolls: Advance rolls, charge rolls, hit rolls, wound rolls, saving throws, damage rolls or Morale tests.",
-    "waive": {
-      "91": "page reference in the data author's remark (\"page 91\"), not rules content",
-      "ENTIRE PAGE": "part of the data author's remark about the codex, not rules content"
-    }
-  },
   "4e47066e903a": {
     "name": "Icon of Chiros",
     "kind": "ability",
@@ -642,6 +633,15 @@
     "name": "Rejoice the Fallen",
     "kind": "stratagem",
     "plain": "At the end of your opponent's Shooting phase: choose one of your ORDER OF OUR MARTYRED LADY units that has dropped below Half-strength during this phase (it was not below Half-strength when the phase started). That unit can shoot as though it were your Shooting phase."
+  },
+  "b26bc5ae1c5e": {
+    "name": "Acts of Faith",
+    "kind": "ability",
+    "plain": "Miracle dice go into a pool you keep. You only gain Miracle dice if every unit in your army is an ADEPTA SORORITAS unit, not counting CULT IMPERIALIS, AGENT OF THE IMPERIUM or UNALIGNED units. You gain 1 when each turn begins (per the April 2022 dataslate), 1 when a phase ends if your ADEPTA SORORITAS units destroyed an enemy unit during it, and 1 when a phase ends if an ADEPTA SORORITAS CHARACTER unit from your army was destroyed during it. Roll every Miracle die as soon as you gain it; the number rolled becomes its value, and it sits in your pool with that value. Once in each phase, a single unit in your army that has this ability may perform one Act of Faith on one of these rolls: an Advance roll, a charge roll, a hit roll, a wound roll, a saving throw, a damage roll or a Morale test. When it does, take Miracle dice from your pool and use them in place of rolling some or all of the dice for that roll (one Miracle die per dice replaced), then discard them from the pool. A Miracle die is treated as an unmodified roll equal to its value, and it can never be re-rolled.",
+    "waive": {
+      "91": "page reference in the data author's remark (\"page 91\"), not rules content",
+      "ENTIRE PAGE": "part of the data author's remark about the codex, not rules content"
+    }
   },
   "b2adbddbd7c6": {
     "name": "Defenders of the Faith",

@@ -27,5 +27,7 @@ Sample: 20 texts (seed chaos-world-eaters) + 0 army rules + guide
 | 0bfe6ee2ae54 | Malicious Volleys | rule | PASS | Data oddity: official has "paeg 176" page reference. |
 | 08f3513a1179 | Daemon Engine | rule | PASS | |
 | 08e9ac2af15f | Relentless Rage | rule | PASS | |
+| 6f830711d94a | Samni'arius and Spinegrinder | weapon | PASS | |
+| ca0983fc2dc4 | The Blood Tithe | ability | PASS | |
 
 Guide: PASS

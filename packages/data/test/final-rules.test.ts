@@ -69,7 +69,6 @@ const HARLEQUINS = 'Aeldari - Harlequins';
 const CRAFTWORLDS = 'Aeldari - Craftworlds';
 const TYRANIDS = 'Tyranids';
 const AM = 'Imperium - Astra Militarum';
-const TELEPATHICA = 'Imperium - Adeptus Astra Telepathica';
 
 const ONCE = ['once per battle', 'only use this stratagem once'];
 
@@ -77,7 +76,8 @@ const each = (catalogues: string[], check: Omit<FinalRuleCheck, 'catalogue'>): F
 
 const CHECKS: FinalRuleCheck[] = [
   // --- 5 Jan 2023: Arks of Omen dataslate ---
-  ...each([SM, DA, DW], {
+  // Not Imperium - Space Marines: its Combat Doctrines row is only a page pointer, excluded in overrides/rule-exclusions.json.
+  ...each([DA, DW], {
     kind: 'rule',
     name: 'Combat Doctrines',
     contains: ['remain active'],
@@ -184,12 +184,15 @@ const CHECKS: FinalRuleCheck[] = [
       source: `${FINAL}: Adeptus Custodes: Arcane Genetic Alchemy and Emperor's Auspice can't both be used on the same unit in the same phase`,
     }),
   ),
-  ...each([AM, TELEPATHICA], {
+  // Not Adeptus Astra Telepathica: its per-id allow-list drops this stratagem, which needs KASRKIN or MILITARUM
+  // TEMPESTUS units it doesn't have (overrides/stratagem-factions.json).
+  {
+    catalogue: AM,
     kind: 'stratagem',
     name: 'Overcharged Las-cells',
     contains: ['6 mortal wounds', 'per phase'],
     source: `${FINAL}: Astra Militarum: Overcharged Las-cells capped at 6 mortal wounds per phase for the firing unit`,
-  }),
+  },
   ...each([DA, SM], {
     kind: 'rule',
     name: 'Inner Circle',

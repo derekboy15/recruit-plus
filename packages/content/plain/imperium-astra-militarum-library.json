@@ -13,20 +13,5 @@
     "name": "Designer's Note (forgeworld)",
     "kind": "rule",
     "plain": "When you add this unit to your army, pick the forgeworld it comes from. Use that name wherever the <FORGEWORLD> keyword appears on this datasheet."
-  },
-  "909ae4284e37": {
-    "name": "Acts of Faith",
-    "kind": "rule",
-    "plain": "At the start of each of your turns, roll a D6. On a 2+, one unit from your army that has this ability can perform one of these Acts of Faith:\n\nHand of the Emperor: the unit can move straight away as though it were the Movement phase.\n\nDivine Guidance: the unit can shoot straight away as though it were the Shooting phase.\n\nThe Passion: if the unit is within 1\" of an enemy unit, it can pile in and attack straight away as though it were the Fight phase.\n\nSpirit of the Martyr: either one model in the unit regains up to D3 lost wounds, or you can add back one slain model to the unit with 1 wound left."
-  },
-  "c5ffcdb881b9": {
-    "name": "Shield of Faith",
-    "kind": "rule",
-    "plain": "Models in this unit have a 6+ invulnerable save. Also, in each enemy Psychic phase, this unit can try to deny one psychic power in the same way a PSYKER would. When it does, roll just one D6 instead of 2D6: the power is resisted if your roll beats the result of the Psychic test used to manifest it. To make the attempt, first pick a model in the unit, and measure range, visibility and so on from that model."
-  },
-  "f57261f2b770": {
-    "name": "Avalanche of Muscle",
-    "kind": "rule",
-    "plain": "In the Fight phase of any turn in which this model made a successful charge, you can add 1 to its Attacks characteristic. This only applies the first time this model fights in that turn."
   }
 }

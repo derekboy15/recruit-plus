@@ -27,5 +27,8 @@ Sample: 20 texts (seed aeldari-harlequins) + 4 army rules + guide
 | 1b5ecd577d7e | Luck of the Laughing God | rule | PASS | |
 | fb5171358032 | Rising Crescendo | rule | PASS | |
 | b3af1bfdee9d | Shuriken Weapons | rule | PASS | |
+| 5a3a58ead4c5 | Ride the Wind | ability | PASS | |
+| 75400d3b5be5 | 1. Twilight Pathways | psychic | PASS | |
+| 6bf61c178593 | Webway Strike | stratagem | PASS | |
 
 Guide: PASS
