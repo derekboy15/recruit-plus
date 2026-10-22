@@ -43,3 +43,4 @@ export * from './phases/charge';
 export * from './phases/fight';
 export * from './phases/morale';
 export * from './phases/actions';
+export * from './toolkit/toolkit';
