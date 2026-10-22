@@ -103,3 +103,11 @@ export function deployedGame(o: Partial<SampleOpts & { aY: number; bY: number }>
   }
   return must(g, { type: 'beginBattle', by: 'A' } as Command);
 }
+
+/** The Warriors' Charge phase, the Intercessors 6" away (4.7" between bases), with scripted dice for the charge roll. */
+export function chargePhase(dice: number[]): GameRecord {
+  let g = deployedGame({ rollWindows: false, bY: 10, scriptedDice: dice });
+  for (let i = 0; i < 4; i++) g = must(g, { type: 'endPhase', by: 'A' } as Command);
+  if (stateOf(g).phase !== 'charge') throw new Error('not in the Charge phase');
+  return g;
+}

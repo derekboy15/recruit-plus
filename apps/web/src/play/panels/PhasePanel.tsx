@@ -1,7 +1,11 @@
 /** Chooses what the panel shows: a pause (roll, reaction, placement) first, else the current phase and step. */
 import { PHASE_NAMES } from '../game/names';
+import { ChargePanel } from './ChargePanel';
 import { DeployPanel } from './DeployPanel';
+import { FightPanel } from './FightPanel';
 import { FirstTurnPanel } from './FirstTurnPanel';
+import { HeroicPanel } from './HeroicPanel';
+import { MoralePanel } from './MoralePanel';
 import { MovementPanel } from './MovementPanel';
 import { PlacementPanel } from './PlacementPanel';
 import { PsychicPanel } from './PsychicPanel';
@@ -34,5 +38,8 @@ export function PhasePanel(props: PanelProps) {
   if (state.phase === 'movement') return state.step === 'move-units' ? <MovementPanel {...props} /> : <ReinforcementsPanel {...props} />;
   if (state.phase === 'psychic') return <PsychicPanel {...props} />;
   if (state.phase === 'shooting') return <ShootingPanel {...props} />;
+  if (state.phase === 'charge') return state.step === 'charges' ? <ChargePanel {...props} /> : <HeroicPanel {...props} />;
+  if (state.phase === 'fight') return <FightPanel {...props} />;
+  if (state.phase === 'morale') return <MoralePanel {...props} />;
   return <PlainPhase {...props} />;
 }

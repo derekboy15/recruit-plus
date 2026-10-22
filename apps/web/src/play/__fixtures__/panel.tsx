@@ -97,8 +97,12 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
       setRings,
       setTargets,
       setInvalid,
-      setTapHandler: (fn) => (tapRef.current = fn),
-      setDraggable: (fn) => (dragRef.current = fn),
+      setTapHandler: (fn) => {
+        tapRef.current = fn;
+      },
+      setDraggable: (fn) => {
+        dragRef.current = fn;
+      },
       problems,
       setProblems,
     };

@@ -84,3 +84,4 @@
 .play-details { margin: 0.5rem 0; }
 .play-details summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; color: var(--brass-strong); }
 .play-actions > .btn { display: block; width: 100%; margin-top: 0.5rem; }
+.play-count { min-width: 2rem; text-align: center; font-weight: 700; align-self: center; }
