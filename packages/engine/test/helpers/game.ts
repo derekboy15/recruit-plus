@@ -2,6 +2,8 @@
 import { expect } from 'vitest';
 import {
   dispatch,
+  registerApplier,
+  registerHandler,
   missionRulesFor,
   newGame,
   stateOf,
@@ -11,6 +13,7 @@ import {
   type Datasheet,
   type GameRecord,
   type GameSetup,
+  type MissionRules,
   type PlayerId,
   type Pos,
   type Pt,
@@ -56,6 +59,7 @@ export interface TestGameOpts {
   /** Default 'A'; null to roll off. */
   firstTurn?: PlayerId | null;
   seed?: number;
+  rules?: Partial<MissionRules>;
 }
 
 /** A 44"×60" board (90" at Onslaught); A deploys in y < 12 (south edge), B in y > board.h − 12 (north edge); A attacks. */
@@ -67,7 +71,7 @@ export function testSetup(o: TestGameOpts = {}): GameSetup {
     seed: o.seed ?? 1,
     scriptedDice: o.dice,
     battleSize: size,
-    rules: missionRulesFor(size),
+    rules: { ...missionRulesFor(size), ...(o.rules ?? {}) },
     board,
     armies: [
       { player: 'A', name: 'Army A', units: o.a ?? [unitInput('a1', marines(), 5)], cpSpentPreBattle: 0 },
@@ -157,4 +161,29 @@ export function toTurn(game: GameRecord, round: number, turn: 'first' | 'second'
     g = nextPhase(g);
   }
   throw new Error('toTurn: never reached the turn');
+}
+
+// A test-only command that puts models anywhere (overlaps and Engagement Range included). Tests use it to build
+// positions the rules would never allow a player to set up.
+registerHandler('testTeleport' as never, (ctx, cmd: { positions: Record<string, Pos> }) => {
+  ctx.emit({ type: 'testTeleported', positions: cmd.positions } as never);
+});
+registerApplier('testTeleported' as never, (s, e: { positions: Record<string, Pos> }) => {
+  for (const [id, pos] of Object.entries(e.positions)) {
+    s.models[id].pos = pos;
+    s.units[s.models[id].unitId].location = 'battlefield';
+  }
+});
+export const teleport = (game: GameRecord, positions: Record<string, Pos>) => play(game, { type: 'testTeleport', by: 'A', positions } as never);
+
+/** Moves for every living model of a unit, shifted by (dx, dy). */
+export function shift(game: GameRecord, unitId: string, dx: number, dy: number): Record<string, { to: Pos }> {
+  const s = stateOf(game);
+  const out: Record<string, { to: Pos }> = {};
+  for (const id of s.units[unitId].modelIds) {
+    const m = s.models[id];
+    if (m.destroyed || !m.pos) continue;
+    out[id] = { to: { ...m.pos, x: m.pos.x + dx, y: m.pos.y + dy } };
+  }
+  return out;
 }

@@ -1,8 +1,11 @@
 /** Units and models in the game state, and the helpers every rules module uses to read them. */
+import { registerApplier } from '../core/apply';
+import type { Ctx } from '../core/context';
 import { registerInitialiser, type GameSetup, type GameState, type UnitInput } from '../core/state';
-import { other, type PlayerId } from '../core/types';
+import { other, type Evt, type PlayerId } from '../core/types';
 import { currentChars, has } from '../datasheet/profile';
 import type { Datasheet, ModelChars, ModelProfile } from '../datasheet/types';
+import { inEngagementRange } from '../geometry/measure';
 import type { Placed, Pos } from '../geometry/shapes';
 import type { ModelView, UnitView } from '../terrain/visibility';
 
@@ -60,6 +63,12 @@ export interface ModelState {
   destroyed: boolean;
   /** An attack was allocated to it this phase (TS §5.6). */
   allocatedThisPhase: boolean;
+}
+
+declare module '../core/types' {
+  interface EventMap {
+    modelsRemoved: Evt<'modelsRemoved'> & { modelIds: string[]; reason: string; lost: boolean };
+  }
 }
 
 declare module '../core/state' {
@@ -156,3 +165,37 @@ registerInitialiser((s, setup) => {
   for (const army of setup.armies) s.cp[army.player] = Math.max(0, setup.rules.startingCp - army.cpSpentPreBattle);
   s.deploy = { next: other(setup.attacker) };
 });
+
+/** Removes models from the battlefield as destroyed; `lost` counts them toward this turn's Morale test. */
+registerApplier('modelsRemoved', (s, e) => {
+  for (const id of e.modelIds) {
+    const m = s.models[id];
+    m.destroyed = true;
+    m.pos = null;
+    m.woundsLeft = 0;
+    const u = s.units[m.unitId];
+    if (e.lost) u.turn.lostThisTurn += 1;
+    if (u.modelIds.every((x) => s.models[x].destroyed)) {
+      u.location = 'destroyed';
+      u.embarkedIn = null;
+    }
+  }
+});
+
+type RemovedHook = (ctx: Ctx, modelIds: string[], reason: string) => void;
+const removedHooks: RemovedHook[] = [];
+/** Runs after models are removed as destroyed (e.g. a transport's passengers must get out, Task 10). */
+export function registerRemovedHook(fn: RemovedHook): void {
+  removedHooks.push(fn);
+}
+
+/** Removes models as destroyed and runs the hooks. `lost`: counts toward this turn's Morale test (TS §8.1). */
+export function removeModels(ctx: Ctx, modelIds: string[], reason: string, lost = true): void {
+  const ids = modelIds.filter((id) => !ctx.state.models[id].destroyed);
+  if (!ids.length) return;
+  ctx.emit({ type: 'modelsRemoved', modelIds: ids, reason, lost });
+  for (const h of removedHooks) h(ctx, ids, reason);
+}
+
+export const isEngagedWith = (s: GameState, a: ModelState, b: ModelState): boolean =>
+  !!a.pos && !!b.pos && inEngagementRange(placedModel(s, a), placedModel(s, b));

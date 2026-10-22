@@ -5,7 +5,7 @@ import { registerInitialiser, type GameState } from '../core/state';
 import { other, type Cmd, type Evt, type PlayerId } from '../core/types';
 import { has } from '../datasheet/profile';
 import { gapToPoint, within } from '../geometry/measure';
-import { placedModel, sheetOf, type ModelState } from '../setup/units';
+import { placedModel, removeModels, sheetOf, type ModelState } from '../setup/units';
 import { endGame, inBattle, registerLeave, registerRoundEnd, registerTurnEnd } from './phases';
 
 declare module '../core/types' {
@@ -17,7 +17,6 @@ declare module '../core/types' {
   interface EventMap {
     vpScored: Evt<'vpScored'> & { player: PlayerId; category: 'primary' | 'secondary' | 'painted'; name?: string; amount: number; reason: string };
     objectiveSet: Evt<'objectiveSet'> & { objectiveId: string; owner: PlayerId | null; sticky: boolean };
-    modelsRemoved: Evt<'modelsRemoved'> & { modelIds: string[]; reason: string; lost: boolean };
   }
 }
 
@@ -44,22 +43,6 @@ registerApplier('vpScored', (s, e) => {
 
 registerApplier('objectiveSet', (s, e) => {
   s.objectives[e.objectiveId] = { owner: e.owner, sticky: e.sticky };
-});
-
-/** Removes models from the battlefield as destroyed; `lost` counts them toward this turn's Morale test. */
-registerApplier('modelsRemoved', (s, e) => {
-  for (const id of e.modelIds) {
-    const m = s.models[id];
-    m.destroyed = true;
-    m.pos = null;
-    m.woundsLeft = 0;
-    const u = s.units[m.unitId];
-    if (e.lost) u.turn.lostThisTurn += 1;
-    if (u.modelIds.every((x) => s.models[x].destroyed)) {
-      u.location = 'destroyed';
-      u.embarkedIn = null;
-    }
-  }
 });
 
 /** The 40mm objective marker's radius (TS §9). */
@@ -180,7 +163,7 @@ registerRoundEnd((ctx) => {
   const offTable = Object.values(s.units).filter((u) => u.location === 'reserves');
   const riders = Object.values(s.units).filter((u) => u.location === 'embarked' && offTable.some((t) => t.id === u.embarkedIn));
   const ids = [...offTable, ...riders].flatMap((u) => u.modelIds.filter((m) => !s.models[m].destroyed));
-  if (ids.length) ctx.emit({ type: 'modelsRemoved', modelIds: ids, reason: 'not arrived from reserves by the end of battle round 3', lost: false });
+  if (ids.length) removeModels(ctx, ids, 'not arrived from reserves by the end of battle round 3', false);
 });
 
 registerHandler('scoreVp', (ctx, cmd) => {
