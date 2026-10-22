@@ -1,7 +1,11 @@
-import type { ProfileOut, UnitOut } from '@recruit/data/model';
+import { TEXT_CHARS, type ProfileOut, type UnitOut } from '@recruit/data/model';
 import { Link, useParams } from 'react-router-dom';
+import { RulesText } from '../rules/RulesText';
+import { useWording, WordingToggle } from '../rules/wording';
 import { getCatalogue } from './dataClient';
 import { useAsync } from './useAsync';
+
+const TEXT_COLUMNS: readonly string[] = TEXT_CHARS;
 
 const MODEL_STATS = ['M', 'WS', 'BS', 'S', 'T', 'W', 'A', 'Ld', 'Save'];
 
@@ -13,8 +17,11 @@ function columns(profiles: ProfileOut[], preferred: string[] = []): string[] {
 }
 
 function ProfileTable({ caption, profiles, preferred }: { caption: string; profiles: ProfileOut[]; preferred?: string[] }) {
+  const { wording } = useWording();
   if (!profiles.length) return null;
   const cols = columns(profiles, preferred);
+  // Rules text columns show the plain English when it is chosen and exists.
+  const cell = (p: ProfileOut, c: string) => (wording === 'plain' && TEXT_COLUMNS.includes(c) && p.plain?.[c]) || (p.chars[c] ?? '');
   return (
     <div className="table-scroll" style={{ marginBottom: '1rem' }}>
       <table className="stats">
@@ -36,8 +43,8 @@ function ProfileTable({ caption, profiles, preferred }: { caption: string; profi
             <tr key={p.name}>
               <td>{p.name}</td>
               {cols.map((c) => (
-                <td key={c} style={c === 'Abilities' ? { whiteSpace: 'normal', minWidth: '16rem', textAlign: 'left' } : undefined}>
-                  {p.chars[c] ?? ''}
+                <td key={c} style={TEXT_COLUMNS.includes(c) ? { whiteSpace: 'normal', minWidth: '16rem', textAlign: 'left' } : undefined}>
+                  {cell(p, c)}
                 </td>
               ))}
             </tr>
@@ -63,6 +70,8 @@ export function Datasheet({ unit }: { unit: UnitOut }) {
           .filter(Boolean)
           .join(' · ')}
       </p>
+      {unit.amended && <p className="note note--update">Rules update: {unit.amended}</p>}
+      <WordingToggle />
       <ProfileTable caption="Profile" profiles={unit.models} preferred={MODEL_STATS} />
       <ProfileTable caption="Wound track" profiles={unit.woundTrack} />
       <ProfileTable caption="Weapons" profiles={unit.weapons} preferred={['Range', 'Type', 'S', 'AP', 'D', 'Abilities']} />
@@ -71,13 +80,10 @@ export function Datasheet({ unit }: { unit: UnitOut }) {
       {unit.abilities.length > 0 && (
         <section>
           <h2>Abilities</h2>
-          <p className="muted" style={{ fontSize: '0.85rem' }}>
-            Official wording shown. Plain-English explanations arrive in Milestone 3.
-          </p>
           {unit.abilities.map((a) => (
             <div key={a.name} className="card" style={{ marginBottom: '0.5rem' }}>
               <h3 style={{ marginTop: 0 }}>{a.name}</h3>
-              <p style={{ whiteSpace: 'pre-line', margin: 0 }}>{a.text || <span className="muted">No text available.</span>}</p>
+              {a.text ? <RulesText official={a.text} plain={a.plain} amended={a.amended} /> : <p className="muted">No text available.</p>}
             </div>
           ))}
         </section>

@@ -313,3 +313,15 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .share__name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
 .share__gear { list-style: none; margin: 0.3rem 0 0; padding: 0 0 0 0.9rem; font-size: 0.9rem; }
 .share__choice { margin: 0 0 0.5rem; }
+
+/* Rules text: plain-English / official-wording switch, rules text and notes */
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 0 0 1rem; }
+.seg__btn {
+  min-height: var(--touch); padding: 0 0.9rem; border: 0; background: var(--surface); color: var(--text-muted); font: inherit; cursor: pointer;
+}
+.seg__btn + .seg__btn { border-left: 1px solid var(--border); }
+.seg__btn[aria-pressed='true'] { background: var(--surface-2); color: var(--text); box-shadow: inset 0 -3px 0 var(--brass); }
+.rules-text { white-space: pre-line; margin: 0; overflow-wrap: anywhere; }
+.rules-text__label { font-size: 0.8rem; margin: 0 0 0.25rem; }
+.note { margin: 0.5rem 0; padding: 0.5rem 0.75rem; border-radius: var(--radius); border: 1px solid var(--border); border-left-width: 4px; }
+.note--update { border-color: var(--brass); }
