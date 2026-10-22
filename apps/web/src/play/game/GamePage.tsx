@@ -71,7 +71,11 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
 
   // A new phase or step starts with a clean board.
   const where = `${state.round}|${state.turn}|${state.phase}|${state.step}`;
+  const lastWhere = useRef(where);
   useEffect(() => {
+    // Only on a change: on opening the game the panel has already set up what it needs (e.g. a move in progress).
+    if (lastWhere.current === where) return;
+    lastWhere.current = where;
     select(null);
     planDispatch({ type: 'clear' });
     setRings([]);

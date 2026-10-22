@@ -144,3 +144,12 @@ test('the toolkit opens from the menu in place of the phase panel, and closes ag
   await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
   expect(screen.getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();
 });
+
+test('a game saved in the middle of a move reopens ready to confirm it', async () => {
+  let g = endPhases(deployedGame({ rollWindows: false }), 1);
+  g = must(g, { type: 'beginMove', by: 'A', unitId: 'A:war', kind: 'normal' } as Command);
+  await seed(g);
+  page();
+  expect(await screen.findByRole('heading', { name: 'Necron Warriors: Normal Move' })).toBeInTheDocument();
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
+});
