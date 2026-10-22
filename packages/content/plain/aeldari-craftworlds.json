@@ -1,0 +1,1625 @@
+{
+  "00ccfb3b6630": {
+    "name": "Sonic Lance Note",
+    "kind": "ability",
+    "plain": "Note: after many requests, the sonic lance is provided to support older models that GW appears to have forgotten. Its data and points come from where it last appeared, the 8th edition (8e) FW xenos index. It is no longer current or official, so get your opponent's agreement before you use it."
+  },
+  "01fa85516e28": {
+    "name": "Deathshroud Cannon (Dispersed)",
+    "kind": "weapon",
+    "plain": "Blast. Attacks made with this profile hit the target automatically, and an unmodified wound roll of 5+ gives that attack an Armour Penetration characteristic of -4."
+  },
+  "02190f2c2bd0": {
+    "name": "Wailing Doom (Sweeping Blow)",
+    "kind": "weapon",
+    "plain": "For every attack made with this profile, you make 2 hit rolls rather than 1."
+  },
+  "02710374d03c": {
+    "name": "Fury of the Tempest",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 for an attack with this weapon wounds the target automatically."
+  },
+  "028fd59df756": {
+    "name": "Gloom Field",
+    "kind": "ability",
+    "plain": "When a model more than 18\" away shoots at the bearer's unit, that unit gets the benefits of Dense Cover against the attack."
+  },
+  "02af2bb7842a": {
+    "name": "Resonator Shard",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase, as one of your units with any models carrying a D-cannon, doomweaver or shadow weaver is picked to shoot: for the rest of the phase, a model of that unit carrying one of those weapons may re-roll the hit roll for any attack it makes against an enemy unit that is within 12\" of any friendly RESONATOR SHARD units."
+  },
+  "036fc67e7384": {
+    "name": "Swooping Hawk Wings",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is 14\", and it gains the JUMP PACK and FLY keywords plus the Winged Descent ability."
+  },
+  "094b34beadef": {
+    "name": "Assured Destruction",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit makes a ranged attack against a VEHICLE or MONSTER unit, you re-roll a wound roll of 1."
+  },
+  "095dc3be3c9b": {
+    "name": "Crushing Blows",
+    "kind": "ability",
+    "plain": "When this unit's Striking Scorpion Exarch model makes a melee attack against a non-TITANIC unit and scores a hit, that attack wounds the target automatically."
+  },
+  "09db87b26b39": {
+    "name": "Psychic Powers (Warlocks)",
+    "kind": "psychic",
+    "plain": "If this unit's Starting Strength is 4 or more, it knows 1 extra power from the Runes of Battle discipline. While it has 4 or more models, it can try to manifest 1 extra psychic power in your Psychic phase."
+  },
+  "0a3bd997ed9c": {
+    "name": "Prince of Corsairs",
+    "kind": "ability",
+    "plain": "Before the battle, when you put units into Strategic Reserves, if this model is in your army you can count IYANDEN INFANTRY units and ANHRATHE units at half their Power Rating when working out the total Power Rating of everything you are placing in Strategic Reserves."
+  },
+  "0a6bac8611b8": {
+    "name": "Speed of Vaul",
+    "kind": "ability",
+    "plain": "When this model Advances, don't make an Advance roll; instead, add 12\" to its Move characteristic until the end of the phase."
+  },
+  "0bcbcc565da7": {
+    "name": "Inescapable Accuracy",
+    "kind": "ability",
+    "plain": "Targets of ranged attacks made by models in this unit don't get the benefits of Dense Cover against those attacks."
+  },
+  "0c082a336059": {
+    "name": "Nerve-shredding Shriek",
+    "kind": "ability",
+    "plain": "Every time this unit finishes a charge move, you may roll one D6 for an enemy unit that is within Engagement Range of this unit's Howling Banshee Exarch. On a 2+, inflict 1 mortal wound on that enemy unit; also, for the rest of the turn, Combat Attrition tests taken for it have 1 subtracted from them."
+  },
+  "0cb873227a22": {
+    "name": "Reaper's Reach",
+    "kind": "ability",
+    "plain": "While this unit includes a Dark Reaper Exarch, its models don't take the hit roll penalty for shooting Heavy weapons in a turn their unit moved."
+  },
+  "0cf99669329f": {
+    "name": "Runesuit",
+    "kind": "ability",
+    "plain": "This model gets a 4+ invulnerable save. When an attack is made against it, an unmodified wound roll of 1-3 always fails, no matter what abilities the attacking weapon or model has."
+  },
+  "0eb7edeffdad": {
+    "name": "Webway Shunt Generator",
+    "kind": "ability",
+    "plain": "In your Movement phase, when this model is picked to move and isn't in Engagement Range of any enemy units, you can send it back to the webway by removing it from the battlefield. Later, during the Reinforcements step of any of your Movement phases, it can arrive: place it anywhere on the battlefield more than 9\" from every enemy model. If it hasn't arrived by the end of the battle, it is destroyed."
+  },
+  "0ff7902e8852": {
+    "name": "2. Storm of Whispers",
+    "kind": "psychic",
+    "plain": "If this power is manifested, roll three D6 for every enemy unit within 9\" of this PSYKER. Each of those enemy units suffers 1 mortal wound for every 4+ rolled for it."
+  },
+  "102c9872f77c": {
+    "name": "Spectre Holo-Field",
+    "kind": "ability",
+    "plain": "Attacks made against this model have 1 subtracted from their hit roll."
+  },
+  "1203429d6aee": {
+    "name": "Kha-vir, the Sword of Sorrows.",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, an unmodified hit roll of 6 inflicts 2 mortal wounds on the target and ends the attack sequence."
+  },
+  "138448c6b11e": {
+    "name": "1.2 Reveal (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, that enemy unit gets no benefit from cover against attacks made by ASURYANI models in your army."
+  },
+  "13cd3d21023c": {
+    "name": "Titanic Ghostglaive - Sweep",
+    "kind": "weapon",
+    "plain": "For each attack made with this profile, make 3 hit rolls rather than 1."
+  },
+  "141086d9b6fc": {
+    "name": "Eyes of Khaine",
+    "kind": "ability",
+    "plain": "Attacks this model makes against an enemy unit that can FLY hit the target automatically."
+  },
+  "142167372dbf": {
+    "name": "Skyleap",
+    "kind": "ability",
+    "plain": "In your Shooting phase, rather than making a Battle Focus move with this unit, you can take it off the battlefield and set it up again anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "14e83bb4e008": {
+    "name": "3.1 Enhance (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE units within 18\" of this PSYKER. Until your next Psychic phase begins, add 1 to the hit roll whenever a model in that unit makes a melee attack."
+  },
+  "150e837f2593": {
+    "name": "Wrath of the Dead",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase, choose a WRAITH HOST WRAITH CONSTRUCT unit of yours. For the rest of that phase, its models' Attacks characteristic goes up by 1."
+  },
+  "1593a99e64b4": {
+    "name": "Relics of the Shrines",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the ASURYANI keyword: pick 2 models in your army with the word 'Exarch' in their profile. Each of them can be given one Aspect Shrine Relic, which must be one it could have. Every Relic in your army must be different, and this Stratagem can't be used to give a model 2 Relics. You can use it only once, but twice in a Strike Force battle or 3 times in an Onslaught battle."
+  },
+  "1605b661a9dc": {
+    "name": "Ancient Doom",
+    "kind": "ability",
+    "plain": "In a turn in which Amallyn Shadowguide charges, or is charged by, a Slaanesh unit, you can re-roll her failed hit rolls in the Fight phase. However, while she is within 3\" of any Slaanesh units, you must add 1 to her Morale tests."
+  },
+  "166a42e549f8": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "In your Psychic phase this model can try to manifest two psychic powers, and in your opponent's Psychic phase it can try to deny two. It knows Smite and every psychic power in the Revenant discipline."
+  },
+  "17f96eaaeb26": {
+    "name": "Flickerjump",
+    "kind": "ability",
+    "plain": "The first time in each phase that an enemy charge targets this unit, it may make a Normal Move of up to 6\", as long as it isn't in Engagement Range of any enemy units. For the rest of that phase it can't fire Overwatch or Set to Defend. After that, your opponent may pick new charge targets if they want."
+  },
+  "187285e23513": {
+    "name": "Multifaceted Mind",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, after a FARSEER, SHADOWSEER or YVRAINE model from your army attempts a psychic action: that unit can try to manifest one psychic power this phase."
+  },
+  "18f0929c6f6a": {
+    "name": "Defence Tactics",
+    "kind": "ability",
+    "plain": "While this unit includes a Dire Avenger Exarch model and is performing an action, it can still shoot with ranged weapons without that action failing."
+  },
+  "196fa9f3b0c9": {
+    "name": "Distortion Field",
+    "kind": "ability",
+    "plain": "Against ranged attacks, this model has a 5+ invulnerable save."
+  },
+  "1a716effc89d": {
+    "name": "Outcasts and Pirates",
+    "kind": "ability",
+    "plain": "If your army is Battle-Forged, this unit can't fill a compulsory slot in a Detachment (for example, being one of the three Elites units a Vanguard Detachment must have) unless every unit in that Detachment is an ANHRATHE unit."
+  },
+  "1b5047c7843b": {
+    "name": "Cloudstrider",
+    "kind": "ability",
+    "plain": "Once per turn, instead of Consolidating or making a Battle Focus move with this model, you can take it off the battlefield and place it again anywhere on the battlefield that is more than 9\" from every enemy model."
+  },
+  "1ba59fcb4f92": {
+    "name": "Shroud Runner Cloak",
+    "kind": "ability",
+    "plain": "This unit's models can receive Light Cover benefits as though they were INFANTRY models. If one of its models has a ranged attack allocated to it while it is receiving cover benefits, its armour saving throw against that attack gets a further 1 added."
+  },
+  "1eb5d1bddd6e": {
+    "name": "The Curtain Falls",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, once one of your HARLEQUINS INFANTRY units has made all its attacks but before it consolidates: rather than consolidating normally, if all its models are within 6\" of a friendly <SAEDATH> TRANSPORT model, it may embark within that TRANSPORT model as though it were your Movement phase, even if it disembarked this turn, provided the TRANSPORT model has enough free transport capacity for the whole unit."
+  },
+  "1f77d53bd5f7": {
+    "name": "Diresword",
+    "kind": "weapon",
+    "plain": "Whenever this weapon successfully wounds with an attack, the attack sequence ends and the target takes 1 mortal wound."
+  },
+  "20354583f8a1": {
+    "name": "Feigned Retreat",
+    "kind": "stratagem",
+    "plain": "During your Movement phase, as one of your ASURYANI, HARLEQUINS or YNNARI units Falls Back: you may make it eligible to shoot this turn, eligible to declare a charge this turn, or both. Choosing both makes this Stratagem cost 2CP; otherwise its cost is 1CP."
+  },
+  "20744ce4969e": {
+    "name": "Seer Council",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged: for every FARSEER model in a Detachment, you can add one WARLOCKS unit to that Detachment, and that unit doesn't use up a Battlefield Role slot."
+  },
+  "213f70c6f660": {
+    "name": "Shadow Hunter (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your STRIKING SCORPIONS units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "216bfa3bc200": {
+    "name": "Suppressing Fire",
+    "kind": "ability",
+    "plain": "In your Shooting phase, after this unit has shot, you can pick one enemy unit that this unit's Swooping Hawks Exarch targeted with a ranged attack this phase and roll 3D6. If the total beats that enemy unit's Leadership, then until the start of your next Shooting phase it can't fire Overwatch, Set to Defend or perform any actions (any action it was performing fails immediately)."
+  },
+  "22dbbe7afed8": {
+    "name": "Mistshield",
+    "kind": "ability",
+    "plain": "The bearer gets a 4+ invulnerable save."
+  },
+  "236a8e5accfe": {
+    "name": "Warp Spider Jump Generator",
+    "kind": "ability",
+    "plain": "During any Normal Move, Battle Focus move, Advance, Fall Back or charge move the bearer's unit makes, its models may pass horizontally through models and terrain features, though no move can end on top of another unit or its base. For a Battle Focus move by the bearer's unit, you may roll 2D6 instead of one D6 to find how far its models can go; if you choose to and roll a double 1, the unit suffers 1 mortal wound."
+  },
+  "23a75582d574": {
+    "name": "D-scythe",
+    "kind": "weapon",
+    "plain": "Blast. An unmodified 6 to wound with this weapon inflicts 1 mortal wound on the target as well as its usual damage."
+  },
+  "2453ada569fb": {
+    "name": "Expert Lancers",
+    "kind": "ability",
+    "plain": "In the Fight phase, whenever a model in this unit makes an attack, add 1 to its hit roll if this unit made a charge move this turn and includes a Shining Spear Exarch."
+  },
+  "24b0dcd220d0": {
+    "name": "Spirit Stones",
+    "kind": "ability",
+    "plain": "When working out which characteristics on its profile to use, treat this model as having twice as many wounds remaining as it really has."
+  },
+  "24bd3db79d38": {
+    "name": "Phase Crystal",
+    "kind": "ability",
+    "plain": "Amallyn Shadowguide gets a 4+ invulnerable save and can move over models and terrain as though they weren't there."
+  },
+  "2600304e68b4": {
+    "name": "Surprise Assault",
+    "kind": "ability",
+    "plain": "If this unit was set up preparing a sudden assault and includes a Warp Spider Exarch, then when it is first set up on the battlefield, until the end of that turn, whenever one of its models is chosen to shoot, that model gets 1 extra attack with each death spinner it has."
+  },
+  "26d914c169fc": {
+    "name": "Wailing Doom (shooting)",
+    "kind": "weapon",
+    "plain": "For each hit scored by an attack with this weapon, draw a straight line between the nearest point of the bearer's base (or hull) and the nearest point of the closest model in the target unit. Then make one wound roll against the target unit and one against every other unit the line crosses."
+  },
+  "2792fd3ef896": {
+    "name": "Explodes (Revenant Titan)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 5+, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "27b11e9b3f83": {
+    "name": "Isirmathil",
+    "kind": "weapon",
+    "plain": "For every attack made with this weapon, you make 2 hit rolls rather than 1."
+  },
+  "2a1658e11aca": {
+    "name": "Explodes (Vyper)",
+    "kind": "ability",
+    "plain": "When a model in this unit is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 3\" takes 1 mortal wound."
+  },
+  "2a9d66eabf2a": {
+    "name": "Witch Strike (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, choose one model in this PSYKER unit (if it is an ANHRATHE unit, you must choose its Way Seeker model). Until your next Psychic phase begins, whenever the chosen model makes a melee attack that successfully wounds the target, the target suffers 1 mortal wound and the attack sequence ends."
+  },
+  "2aacc262b721": {
+    "name": "4.1 Protect (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE units within 18\" of this PSYKER. Until your next Psychic phase begins, its models' Save characteristic is improved by 1, but not better than 2+."
+  },
+  "2b227d8fe3b4": {
+    "name": "Spirit Mark (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CRAFTWORLD> SPIRIT HOST CORE units is within 6\" of this model, you re-roll a wound roll of 1 whenever a model in that unit attacks."
+  },
+  "2ce8a3594f36": {
+    "name": "Terror's Lament",
+    "kind": "ability",
+    "plain": "Enemy units targeted by a charge from the bearer's unit can't fire Overwatch or Set to Defend against that charge. Any enemy unit within Engagement Range of the bearer has 1 subtracted from its models' Attacks characteristic, and is not eligible to fight this phase until every eligible unit in your army has fought."
+  },
+  "2d70a6890b7c": {
+    "name": "Runes of the Farseer",
+    "kind": "ability",
+    "plain": "At the start of each battle round, once you have made the Strands of Fate roll but before you choose which dice to keep, you can re-roll one of those dice for every FARSEER model in your army that is on the battlefield but not within Engagement Range of any enemy units."
+  },
+  "2d930e7f9b62": {
+    "name": "Focused Fire",
+    "kind": "ability",
+    "plain": "Whenever this unit's Dark Reaper Exarch makes a ranged attack, add 1 to its wound roll."
+  },
+  "2df6435aed86": {
+    "name": "Malicious Frenzy",
+    "kind": "stratagem",
+    "plain": "When a TWILIGHT unit from your army is chosen to fight: until those attacks are resolved, whenever a model in that unit attacks, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "2ee46f0a5257": {
+    "name": "D-impaler",
+    "kind": "weapon",
+    "plain": "Blast. Whenever an attack is made with this weapon, an unmodified wound roll of 4+ makes the target suffer D3 mortal wounds on top of any normal damage."
+  },
+  "313efd03471e": {
+    "name": "Burning Heat",
+    "kind": "ability",
+    "plain": "While this unit includes a Fire Dragon Exarch model, whenever a model in it makes a ranged attack against a unit within 9\" and scores a hit, that attack wounds the target automatically."
+  },
+  "345648ae310d": {
+    "name": "The Storm of Silence (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your HOWLING BANSHEES units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "361824a74af3": {
+    "name": "Skyhunters",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll when this model shoots at a unit that can FLY, and you may re-roll the wound roll for that attack."
+  },
+  "36b1ecaa1ba4": {
+    "name": "Psyker (Spiritseer)",
+    "kind": "psychic",
+    "plain": "1 power, taken from either Runes of Battle or Runes of Fortune."
+  },
+  "379dfdca0c29": {
+    "name": "Heartstrike",
+    "kind": "ability",
+    "plain": "Whenever this unit's Shining Spear Exarch makes a melee attack, an unmodified wound roll of 5+ also deals 1 mortal wound to the target on top of any normal damage."
+  },
+  "37af03549b56": {
+    "name": "War Dancers",
+    "kind": "stratagem",
+    "plain": "At the end of the Fight phase, pick one HARLEQUINS TROUPE unit from your army that is within Engagement Range of any enemy units; it can fight again. You can use this Stratagem only once per battle round."
+  },
+  "39b38d1c5cbe": {
+    "name": "Capricious Reflections",
+    "kind": "stratagem",
+    "plain": "During your opponent's Charge phase, as one of your LIGHT units is picked as a charge target: provided it isn't in Engagement Range of any enemy units, it may make a Normal Move of up to 6\". For the rest of the phase it can't fire Overwatch or Set to Defend. After that, your opponent may pick new targets for that charge."
+  },
+  "3aa9a2683c43": {
+    "name": "Star Lance (melee)",
+    "kind": "weapon",
+    "plain": "When the bearer has completed a charge move this turn, each of its attacks with this weapon gets a Strength characteristic of +5."
+  },
+  "3c4c74b9ff45": {
+    "name": "Matchless Agility",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase, once you have rolled the D6 for how far one of your ASURYANI units goes with its Battle Focus move: re-roll that D6."
+  },
+  "3e2ecd2eedf8": {
+    "name": "Whirling Death",
+    "kind": "ability",
+    "plain": "If this unit made a charge move this turn, add 1 to the wound roll whenever one of its models makes a melee attack."
+  },
+  "3e64b659169f": {
+    "name": "Tempest of Blades",
+    "kind": "stratagem",
+    "plain": "At the start of your Shooting phase, choose a WINDRIDER HOST FARSEER SKYRUNNER unit of yours. For the rest of that phase, friendly WINDRIDER HOST units within 6\" of it improve the Armour Penetration of their shooting attacks by 1 (so AP-1 becomes AP-2, for example)."
+  },
+  "3e9a49a2694e": {
+    "name": "Phantasm",
+    "kind": "stratagem",
+    "plain": "When the first battle round starts, before the first turn: choose up to 3 of your ASURYANI, HARLEQUINS or YNNARI units (not TITANIC units) and redeploy them. When the mission uses the Strategic Reserves rules, you may move any of them into Strategic Reserves at no extra Command point cost, no matter how many units are already there. If both players have abilities that redeploy units, roll off, and the winner decides who redeploys first. This Stratagem can be used only once."
+  },
+  "3f0fec31ce04": {
+    "name": "2.2 Horrify (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, subtract 2 from that unit's Leadership characteristic, and if it is within Engagement Range of any of your units at the start of the Fight phase, it is not eligible to fight that phase until every eligible unit in your army has fought."
+  },
+  "3f29209e576b": {
+    "name": "Mocking Laughter",
+    "kind": "stratagem",
+    "plain": "At the start of the Morale phase, choose an enemy unit no more than 12\" from a DEATH JESTER model of yours. For the rest of the phase:\n• that unit can't be chosen by your opponent for the Insane Bravery Stratagem, and they can't use any rule that would allow them to re-roll a Morale test for it;\n• if that unit fails a Morale test, any action it is performing fails straight away."
+  },
+  "3f589d80af68": {
+    "name": "Favoured of the Laughing God",
+    "kind": "stratagem",
+    "plain": "After you nominate a HARLEQUINS model (not a named character) as your WARLORD: it gets one extra Warlord Trait, which must come from the Harlequins Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly). You can use this Stratagem only once."
+  },
+  "3f6330bd88e7": {
+    "name": "Spirit Shield",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase, choose a WRAITH HOST WRAITH CONSTRUCT unit of yours no more than 6\" from a friendly WRAITH HOST SPIRITSEER. Until your next turn begins, the unit has a 4+ invulnerable save, while the SPIRITSEER loses the 4+ invulnerable save that its Rune Armour grants."
+  },
+  "3fa1c8ce83bb": {
+    "name": "Rune Armour",
+    "kind": "ability",
+    "plain": "This model gets a 4+ invulnerable save."
+  },
+  "4056523c1471": {
+    "name": "Withering Volleys",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase, as one of your ALTANSAR units is picked to shoot: for the rest of the phase, its models' attacks with an Aeldari missile launcher or Reaper launcher get their Armour Penetration improved by 1. The cost is 2CP if the unit has the DARK REAPERS keyword, otherwise 1CP."
+  },
+  "40cbc1703abc": {
+    "name": "Deadly Ambush",
+    "kind": "ability",
+    "plain": "If this unit is wholly on or within an Area Terrain feature and has a Striking Scorpion Exarch in it, melee attacks made by its models get 1 added to the hit roll and have their Armour Penetration characteristic improved by 1."
+  },
+  "41254b8622f7": {
+    "name": "Inferno Lance",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon against a target within half range have a Damage characteristic of D6+2."
+  },
+  "44de5eccbc37": {
+    "name": "Shade of Twilight",
+    "kind": "ability",
+    "plain": "During deployment, you may put this model in the shadows instead of on the battlefield. If you do, it can arrive in the Reinforcements step of one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "46215c9587b3": {
+    "name": "Explodes (Cobra)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 4+, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "465557bce815": {
+    "name": "Wraithseer",
+    "kind": "psychic",
+    "plain": "Knows 1 psychic power from the Runes of Battle discipline."
+  },
+  "468ae3bc506e": {
+    "name": "Stand Firm",
+    "kind": "ability",
+    "plain": "This unit has Objective Secured. If it already had Objective Secured, each of its models counts as two models when working out which player controls an objective marker. Add 1 to the Leadership characteristic of this unit's models."
+  },
+  "46a6fd8f2790": {
+    "name": "Lightning Attacks",
+    "kind": "ability",
+    "plain": "Whenever this unit consolidates, if it includes a Shining Spear Exarch, it can move an extra 6\"."
+  },
+  "478934e5cb97": {
+    "name": "Ally of Convenience",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit can be part of a <CRAFTWORLD> or <KABAL> Detachment, and that Detachment's models still get their Detachment abilities. Also, having this unit in your army doesn't stop ASURYANI or DRUKHARI units in your army from using rules that need every model in your army to have the ASURYANI or DRUKHARI keyword."
+  },
+  "494320b2a181": {
+    "name": "Wireweave Grenades",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Movement or Charge phase, choose an enemy unit (not one that can FLY) no more than 12\" from one of your SHROUD RUNNERS units, then roll one D3:\n• mortal wounds equal to the result are inflicted on that enemy unit (but no more than 1 mortal wound per model in it);\n• for the rest of the phase, its Move characteristic is reduced by the result (to a minimum of 0\");\n• for the rest of the phase, your opponent must reduce charge rolls made for it by the result (to a minimum of 0\").\nThis Stratagem can be used only once per turn."
+  },
+  "4bb5d32ec694": {
+    "name": "Ynnead Awakened (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your YNNARI CORE units is within 12\" of this model, you can ignore some or all of the modifiers whenever that unit takes a Combat Attrition test."
+  },
+  "4e08bddfc945": {
+    "name": "Mindshock Pod",
+    "kind": "ability",
+    "plain": "The bearer has this ability: Mindshock Pod (Aura): enemy units within 12\" of any model with a mindshock pod have their Leadership reduced by 2."
+  },
+  "4ebe9f27bc8d": {
+    "name": "Rapid Redeployment",
+    "kind": "ability",
+    "plain": "While this unit includes a Swooping Hawks Exarch, it can shoot in a turn in which it Fell Back."
+  },
+  "4f8ce4888ed3": {
+    "name": "Discipline of the Black Guardians",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase or the Fight phase, as you pick an ULTHWÉ GUARDIANS unit to shoot or fight: for the rest of the phase, its models add 1 to the hit roll of each attack they make."
+  },
+  "5033ec96f9c8": {
+    "name": "Cegorach’s Jest",
+    "kind": "stratagem",
+    "plain": "During your opponent's Movement phase, as an enemy unit in Engagement Range of one of your HARLEQUINS INFANTRY units Falls Back: after it completes that move, choose one of your HARLEQUINS INFANTRY units that was in Engagement Range of that enemy unit when the phase started. The chosen unit may either consolidate up to 6\" or shoot as though it were your Shooting phase; if it shoots, its only allowed target is that enemy unit. Consolidating makes this Stratagem cost 2CP; otherwise its cost is 1CP."
+  },
+  "5057c83876df": {
+    "name": "D-cannon",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the bearer can't see. Whenever an attack is made with it, an unmodified wound roll of 6 also deals 1 mortal wound to the target on top of any normal damage."
+  },
+  "51a54e43e8ea": {
+    "name": "Mandiblasters",
+    "kind": "ability",
+    "plain": "Whenever the bearer attacks a non-VEHICLE unit in melee, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the normal damage."
+  },
+  "521fa28e9be9": {
+    "name": "Sonic Lance",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon hit the target automatically. A wound roll of 2+ always succeeds, unless the target is a VEHICLE or MONSTER, in which case a wound roll of 4+ always succeeds."
+  },
+  "5224f934d8bb": {
+    "name": "Spectre Holo-field",
+    "kind": "ability",
+    "plain": "Hit rolls made by enemy units against a unit with this ability have 1 subtracted from them."
+  },
+  "524f725debbe": {
+    "name": "Ghostwalk (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 12\" of this PSYKER. Until your next Psychic phase begins, add 2 to that unit's charge rolls."
+  },
+  "53ccb16f41ee": {
+    "name": "Searsong - Beam",
+    "kind": "weapon",
+    "plain": "For each hit scored by an attack with this weapon, draw a straight line between the nearest point of the bearer's base (or hull) and the nearest point of the closest model in the target unit. Then make one wound roll against the target unit and one against every other unit the line crosses."
+  },
+  "546eb7171ec3": {
+    "name": "1. Gaze of Ynnead",
+    "kind": "psychic",
+    "plain": "If this power is manifested, roll one D6 for an enemy unit within 18\" of this PSYKER; if that unit's Starting Strength was 1, subtract 2 from the roll. Result of 1 or less: 1 mortal wound. Result of 2-5: D3 mortal wounds. Result of 6: D6 mortal wounds. The mortal wounds are inflicted on that enemy unit."
+  },
+  "5504c0c84574": {
+    "name": "Starhawk Missile",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase, as one of your ASURYANI models aims an Aeldari missile launcher at an AIRCRAFT unit: that model gets just one attack with that weapon this phase, but the attack adds 1 to its hit roll. On a hit, the target suffers 2D3 mortal wounds and the attack sequence ends."
+  },
+  "55059374734e": {
+    "name": "The Avatar Resurgent",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, if one of your AVATAR OF KHAINE models is destroyed before being picked to fight this phase: leave it on the battlefield. Its Attacks characteristic goes up by 2, and it may fight after the attacking model's unit has made all its attacks. Remove it once its own attacks have been resolved."
+  },
+  "553d7de80504": {
+    "name": "Champion of the Aeldari",
+    "kind": "stratagem",
+    "plain": "Before the battle, as you muster your army, provided your WARLORD has one of the keywords ASURYANI or HARLEQUINS: choose one ASURYANI CHARACTER or HARLEQUINS CHARACTER model of yours and give it one Warlord Trait. It counts as your WARLORD only for that Warlord Trait. Every Warlord Trait in your army must be different (re-roll duplicates if generating randomly), and you can't use this Stratagem to hand a model 2 Warlord Traits. It can be used only once, except twice in a Strike Force battle or 3 times in an Onslaught battle."
+  },
+  "56f70a0d9690": {
+    "name": "Harvester of Souls (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK REAPERS units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "58e8397eeae9": {
+    "name": "Reavers of the Void",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks, an unmodified hit roll of 6 wounds the target automatically and counts as an unmodified wound roll of 6."
+  },
+  "5a3a58ead4c5": {
+    "name": "Ride the Wind",
+    "kind": "ability",
+    "plain": "When this unit Advances, skip the Advance roll. Instead, its models add 6\" to their Move characteristic until the phase ends."
+  },
+  "5ab5eb52bbc9": {
+    "name": "Scorpion Chainsword",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 1 extra attack with this weapon."
+  },
+  "5b22395ac3d4": {
+    "name": "Bonesinger",
+    "kind": "psychic",
+    "plain": "This model knows Smite."
+  },
+  "5bf85aab7764": {
+    "name": "Piercing Strikes",
+    "kind": "ability",
+    "plain": "Melee attacks made by this unit's Howling Banshee Exarch model get 1 added to their Damage characteristic."
+  },
+  "5ceeba7120c8": {
+    "name": "Psychic Powers (Warlocks)",
+    "kind": "psychic",
+    "plain": "Knows 1 psychic power from the Runes of Battle discipline."
+  },
+  "5db9561ef7a4": {
+    "name": "Pathfinder Ambush",
+    "kind": "stratagem",
+    "plain": "During the Reinforcements step of your opponent's Movement phase, once an enemy unit has been set up on the battlefield: choose an ALAITOC RANGERS unit of yours that is on the battlefield or waiting in Strategic Reserves.\n• If the RANGERS unit is still in Strategic Reserves, place it anywhere on the battlefield no more than 18\" from that enemy unit and more than 9\" from every enemy model.\n• When the phase ends, that RANGERS unit may shoot as though it were your Shooting phase; for the rest of that phase, its only allowed target is the enemy unit that just arrived (and only if that unit is an eligible target)."
+  },
+  "5e2f37f6d133": {
+    "name": "Asu-var, the Sword of Silent Screams",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, a wound roll of 4+ means no invulnerable saving throws can be made against that attack."
+  },
+  "5e5a528395e5": {
+    "name": "Hover Jet",
+    "kind": "ability",
+    "plain": "During your Command phase you may have this model hover. If you do, until your next Command phase begins it has a Move characteristic of 20\" and doesn't have the Airborne, Hard To Hit or Wings of Khaine abilities."
+  },
+  "5eb17ca8976a": {
+    "name": "Staff of Ulthamar & Witchblade",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, any unmodified wound roll of 2+ always counts as a success."
+  },
+  "60c799e95930": {
+    "name": "Fusion Gun [Legends]",
+    "kind": "weapon",
+    "plain": "When the target is within half this weapon's range, roll two dice for its damage and throw away the lower result."
+  },
+  "61c0b545d733": {
+    "name": "Lightning Fast Reactions",
+    "kind": "stratagem",
+    "plain": "During your opponent's Shooting phase or the Fight phase, as one of your ASURYANI, HARLEQUINS or YNNARI units (not MONSTER units) is picked as the target of an attack: for the rest of the phase, attacks against that unit subtract 1 from their hit rolls."
+  },
+  "62830c6c07fa": {
+    "name": "1.1 Conceal (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE units within 18\" of this PSYKER. Until your next Psychic phase begins, that unit gets the benefit of Light Cover."
+  },
+  "628f9f9a3f4f": {
+    "name": "Way of the Blade (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your YNNARI CORE units is within 6\" of this model, you re-roll a hit roll of 1 whenever a model in that unit attacks."
+  },
+  "6293fa9330c6": {
+    "name": "Scattershield",
+    "kind": "ability",
+    "plain": "A model that has a scattershield gets a 4+ invulnerable save."
+  },
+  "630842f7b2f9": {
+    "name": "Doom (Malediction)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, whenever a <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER unit in your army attacks that enemy unit, you can re-roll the wound roll. If the Psychic test result was 10 or more, the enemy unit you pick can be within 24\" of this PSYKER instead."
+  },
+  "633ad2c34db4": {
+    "name": "Unstoppable Revenant",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move horizontally across other models as if they weren't there, except MONSTER and VEHICLE models."
+  },
+  "63e0518e8515": {
+    "name": "Seer Council",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army: pick one FARSEER model from your army and one WARLOCKS unit from your army with 2 or more models. While that FARSEER is within 6\" of that WARLOCKS unit, add 1 to its Psychic tests. While that FARSEER is within 3\" of that WARLOCKS unit, it can use the Look Out, Sir rule even if the unit has fewer than 3 models. You can use this Stratagem only once."
+  },
+  "64ed6fa4f21e": {
+    "name": "Faolchú",
+    "kind": "ability",
+    "plain": "Light Cover gives no benefit against ranged attacks made by models in the bearer's unit."
+  },
+  "65748fff7f3f": {
+    "name": "Fire and Fade",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, after an ASURYANI, HARLEQUINS or YNNARI unit from your army (not an AIRCRAFT unit) has made its attacks: it can immediately make a Normal Move of up to 7\". Unless it is a HARLEQUINS unit, it can't embark within a TRANSPORT model at the end of that move. Until the end of the turn, it isn't eligible to declare a charge. A unit with the Battle Focus ability can't make a Battle Focus move in a turn it was picked for this Stratagem."
+  },
+  "65e652bab32e": {
+    "name": "Explodes (Vampire)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "6602e99682f1": {
+    "name": "Blazing Fury",
+    "kind": "ability",
+    "plain": "While this unit includes a Fire Dragon Exarch model, the ranged weapons its models are equipped with get 4\" added to their Range characteristic."
+  },
+  "6757a3413c26": {
+    "name": "Titanic Stride",
+    "kind": "weapon",
+    "plain": "For each attack made with this weapon, make 3 hit rolls rather than 1."
+  },
+  "6829f1d71ca9": {
+    "name": "Forewarned",
+    "kind": "stratagem",
+    "plain": "Once the Reinforcements step of your opponent's Movement phase ends, choose a <CRAFTWORLD> unit of yours within 12\" of a friendly <CRAFTWORLD> FARSEER model. It may shoot as though it were your Shooting phase, but its models may only shoot at a single eligible enemy unit that arrived as Reinforcements this turn and is no more than 18\" from their unit."
+  },
+  "693a455fc401": {
+    "name": "Unquenchable Resolve",
+    "kind": "ability",
+    "plain": "As long as this model has lost any wounds, add 1 to its Strength characteristic and its Attacks characteristic."
+  },
+  "695b631b9c7c": {
+    "name": "Inevitable Death",
+    "kind": "ability",
+    "plain": "During deployment, you can keep this model in waiting rather than setting it up on the battlefield. If you do, you can bring it in when another unit is destroyed: before that unit's last model is removed, set this model up within 1\" of that last model. While this model is on the battlefield, you can instead do this: when another unit is destroyed, before that unit's last model is removed, take this model off the battlefield and set it up again within 1\" of that last model. However it is set up by this ability, it must not be placed within Engagement Range of any enemy models, and it can't declare a charge or perform a Heroic Intervention for the rest of that turn."
+  },
+  "6ada0fced8d6": {
+    "name": "Creature Handler",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and a Detachment has any DRUKHARI BEASTS units in it, one BEASTMASTER unit can be added to that Detachment without using up a Battlefield Role slot."
+  },
+  "6b64bdff8a46": {
+    "name": "Explodes (Hover Tank)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 6\" takes D3 mortal wounds."
+  },
+  "6b71afccdf28": {
+    "name": "Explosion of Soul Energy",
+    "kind": "ability",
+    "plain": "Roll one D6 when this model is destroyed, before you take it off the table. If you roll a 6, it explodes: 1 mortal wound is inflicted on each unit within 3\"."
+  },
+  "6bf61c178593": {
+    "name": "Webway Strike",
+    "kind": "stratagem",
+    "plain": "Before the battle, at the point where reserves and transports are declared (or during deployment, if your mission skips that step): for 1CP, you may place one of your YNNARI BIKER, YNNARI INFANTRY, HARLEQUINS BIKER, HARLEQUINS INFANTRY, ASURYANI BIKER or ASURYANI INFANTRY units in the webway instead of on the battlefield; for 3CP, you may place two such units there instead.\n\nDuring the Reinforcements step of any of your Movement phases, units in the webway can arrive: set them up anywhere on the battlefield more than 9\" from every enemy model. This Stratagem can be used only once."
+  },
+  "6c137a208884": {
+    "name": "Hard to Hit",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every ranged attack made against this model."
+  },
+  "6c411c17ff3a": {
+    "name": "Serpent Shield",
+    "kind": "ability",
+    "plain": "Any unit that includes a model equipped with a serpent shield gets these benefits: its models have a 5+ invulnerable save against ranged attacks; and for ranged attacks made against it, an unmodified wound roll of 1-2 always fails, regardless of any abilities of the attacking weapon or model."
+  },
+  "6c54370c9b59": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Support Weapon and its crew are one model, and crew models must stay within 1\" of their Support Weapon model. So the crew can't be targeted or attacked on their own, and you measure all ranges and visibility to and from the Support Weapon model. This unit can't Advance, is never allowed to declare a charge or perform a Heroic Intervention, and doesn't make pile-in or consolidation moves."
+  },
+  "6c83753d6299": {
+    "name": "Beastmaster (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DRUKHARI BEAST units is within 6\" of this model, you re-roll a hit roll of 1 whenever a model in that unit attacks, and that unit's models can use this model's Leadership characteristic in place of their own."
+  },
+  "6c8a8db60989": {
+    "name": "3. Word of the Phoenix",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your YNNARI INFANTRY units (not a WRAITH CONSTRUCT unit) within 6\" of this PSYKER. Return one of its destroyed models to it with full wounds, or D3 of its destroyed models if the unit has the Troops Battlefield Role. A returned model may only be set up within Engagement Range of an enemy unit if that enemy unit is already within Engagement Range of the unit it is joining."
+  },
+  "6f8845a3f1b0": {
+    "name": "Graceful Avoidance",
+    "kind": "ability",
+    "plain": "While this unit includes a Howling Banshee Exarch model, its models have a 4+ invulnerable save against melee attacks."
+  },
+  "703c4107c7b9": {
+    "name": "D-bombard",
+    "kind": "weapon",
+    "plain": "Blast. Whenever an attack is made with this weapon, an unmodified wound roll of 4+ makes the target suffer 3 mortal wounds on top of any normal damage."
+  },
+  "706b5e3f55b1": {
+    "name": "Nimble Escape",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, once one of your WINDRIDER HOST units has fought: it may immediately move (and Advance) as though it were your Movement phase. If there are enemy units within 1\" of it, it may Fall Back instead."
+  },
+  "707fdc4a45aa": {
+    "name": "Fusion Charges",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as one of your FIRE DRAGONS units is picked to fight: choose a single model in it. That model may make only one attack this phase, which has to target an enemy VEHICLE unit. If the attack hits, the VEHICLE unit suffers 2D3 mortal wounds and the attack sequence ends."
+  },
+  "70c9cef09369": {
+    "name": "Voidbringer",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. For attacks with this weapon, each unmodified wound roll of 4+ also deals D3 mortal wounds to the target, on top of any other damage."
+  },
+  "713a109c10af": {
+    "name": "The Shining Blade",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 for an attack with this weapon scores 1 extra hit."
+  },
+  "72a7af9ff42e": {
+    "name": "Star Engines",
+    "kind": "ability",
+    "plain": "This model's Move characteristic is increased by 3\"."
+  },
+  "7359f4f15145": {
+    "name": "Lodestar Helm",
+    "kind": "ability",
+    "plain": "This unit is never subject to Perils of the Warp."
+  },
+  "736498e16c64": {
+    "name": "Dramatic Entrance",
+    "kind": "stratagem",
+    "plain": "In the Heroic Interventions step of your opponent's Charge phase, choose one of your HARLEQUINS INFANTRY units. For the rest of the phase, it is eligible to perform a Heroic Intervention, and the distance it needs to be from an enemy unit to do so becomes 6\" horizontally and 5\" vertically, rather than 3\" horizontally and 5\" vertically. When it performs a Heroic Intervention, each of its models can move up to 6\". Every other Heroic Intervention rule still applies."
+  },
+  "740bb3d63b9e": {
+    "name": "Guide (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 18\" of this PSYKER. Until your next Psychic phase begins, you can re-roll the hit roll whenever a model in that unit makes an attack. If the Psychic test result was 10 or more, you can pick such a unit within 24\" of this PSYKER instead."
+  },
+  "74a35e3d25b7": {
+    "name": "Assured Destruction",
+    "kind": "ability",
+    "plain": "Whenever this model makes a ranged attack against a VEHICLE or MONSTER unit, you re-roll a wound roll of 1."
+  },
+  "7548d3a81bef": {
+    "name": "Psyker (Farseer)",
+    "kind": "psychic",
+    "plain": "2 powers, chosen from Runes of Fortune, Runes of Fate, or a mix of both."
+  },
+  "75d8a09c5841": {
+    "name": "Explodes (Wraithknight)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "75ec6119583d": {
+    "name": "Will of Asuryan (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 18\" of this PSYKER. Until your next Psychic phase begins: that unit has Objective Secured; it automatically passes any Morale test taken for it; and if it is performing an action, it can still shoot with ranged weapons without the action failing. If the Psychic test result was 8 or more, you can pick such a unit within 24\" of this PSYKER instead."
+  },
+  "7785f562e051": {
+    "name": "Sonic Destruction",
+    "kind": "ability",
+    "plain": "In your Shooting phase, if an enemy unit (other than a unit that can FLY) is targeted by 2 or more of the Vibro Cannons carried by models in this unit, then until the end of the phase, Vibro Cannon attacks against that enemy unit hit automatically. If such an enemy unit is targeted by 3 or more of those Vibro Cannons, then until the end of the phase, add 1 to the wound roll of Vibro Cannon attacks against it."
+  },
+  "79f6a76cae35": {
+    "name": "Cloudbreaker",
+    "kind": "ability",
+    "plain": "During deployment, you may place this unit in an orbital transport rather than on the battlefield. It can then arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "7a5bdb1c9d8d": {
+    "name": "Swirling Energies",
+    "kind": "ability",
+    "plain": "In your Shooting phase, each time you choose this model to shoot, it can target every eligible enemy unit with its swirling soul energy and resolve attacks against all of them. When it fires Overwatch, this weapon's attacks are only resolved against the charging unit."
+  },
+  "7a72d377a383": {
+    "name": "Haywire Charges",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase, as one of your HARLEQUINS HAYWIRE GRENADE units is picked to shoot: choose a single model in it. That model may make only one attack this phase, which has to target an enemy VEHICLE unit within 6\" of it. If the attack hits, the VEHICLE unit suffers D3 mortal wounds and the attack sequence ends."
+  },
+  "7a73af270edb": {
+    "name": "Wraithshield",
+    "kind": "ability",
+    "plain": "This model gets a 5+ invulnerable save."
+  },
+  "7afd3f15d26c": {
+    "name": "6.1 Empower (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE units within 18\" of this PSYKER. Until your next Psychic phase begins, add 1 to the wound roll whenever a model in that unit makes a melee attack."
+  },
+  "7b50ca00bdaf": {
+    "name": "Warriors of the Raging Winds",
+    "kind": "stratagem",
+    "plain": "At the start of your Charge phase, choose a SAIM-HANN BIKER unit of yours. For the rest of the phase, that unit may declare a charge even though it Advanced this turn."
+  },
+  "7eff9b2fff01": {
+    "name": "Avatar of the Bloody-Handed God",
+    "kind": "ability",
+    "plain": "You can never give this model a Relic or a Warlord Trait."
+  },
+  "7f360ff56338": {
+    "name": "Paragon Sabre",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 1 extra attack with this weapon. You can re-roll the hit roll and the wound roll for attacks made with this weapon."
+  },
+  "7f90ca51e98d": {
+    "name": "Lightning Assault",
+    "kind": "ability",
+    "plain": "Whenever a ranged attack targets this unit, subtract 1 from its hit roll."
+  },
+  "7fb666121fa0": {
+    "name": "Armour of Last Runes",
+    "kind": "ability",
+    "plain": "This model gets a 4+ invulnerable save. When an attack is made against it, an unmodified wound roll of 1-3 always fails, no matter what abilities the attacking weapon or model has."
+  },
+  "800c4a44f7f2": {
+    "name": "D-flail (Blast)",
+    "kind": "weapon",
+    "plain": "Blast. This profile can target units the bearer can't see."
+  },
+  "81b95add804d": {
+    "name": "Wraith Host",
+    "kind": "stratagem",
+    "plain": "As you choose your army, select one Craftworlds Detachment in it to be a Wraith Host Specialist Detachment. The SPIRITSEERS and WRAITH CONSTRUCTS in it gain the WRAITH HOST keyword."
+  },
+  "823ef2365f53": {
+    "name": "Hunter Unseen",
+    "kind": "ability",
+    "plain": "While this model is benefiting from cover, a ranged attack can only target it if the attacking model is within 12\"."
+  },
+  "8281012b54d4": {
+    "name": "Battle Focus",
+    "kind": "ability",
+    "plain": "If Amallyn Shadowguide moves or Advances in her Movement phase, weapons (other than Heavy weapons) are fired as though she had stayed stationary."
+  },
+  "835193a453e8": {
+    "name": "Shredding Fire",
+    "kind": "ability",
+    "plain": "While this unit includes a Dire Avenger Exarch model, whenever one of its models makes a ranged attack with a shuriken weapon, the Shuriken ability triggers on an unmodified wound roll of 5+ for that attack rather than 6."
+  },
+  "84e5b892b2c6": {
+    "name": "Explodes (Phantom)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 5+, it explodes: every unit within 3D6\" takes 2D6 mortal wounds."
+  },
+  "8637a7e31971": {
+    "name": "Executioner (Witchfire)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy unit within 18\" of this PSYKER, but not a CHARACTER unit with a Wounds characteristic of 9 or less. It suffers D3 mortal wounds, and if any of its models are destroyed by them, it then suffers D3 more mortal wounds. If the Psychic test result was 10 or more, the enemy unit you pick (still not a CHARACTER unit with 9 or fewer Wounds) can be within 24\" of this PSYKER instead."
+  },
+  "868650b79f2b": {
+    "name": "Vilith-zhar, the Sword of Souls - Piercing Strike",
+    "kind": "weapon",
+    "plain": "Invulnerable saving throws can't be made against attacks made with this profile."
+  },
+  "87e1176bf8b2": {
+    "name": "War Engine",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move across other models (except TITANIC models) as if they weren't there; while doing so it can move within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
+  },
+  "8806701c95a4": {
+    "name": "Target Acquisition",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, choose an enemy unit no more than 12\" from this unit. For the rest of that phase, when an OUTCASTS unit from your army fires a Ranger Long Rifle or Voidbringer at the chosen unit, the chosen unit gets no cover benefits against those attacks."
+  },
+  "8938a716a575": {
+    "name": "Laser Lance (melee)",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon get Strength +3 in any turn in which the bearer made a charge move."
+  },
+  "89581cbbc27a": {
+    "name": "Sustained Assault",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for a melee attack by a model in this unit scores 1 extra hit. Attacks that this ability generates can't gain the benefit of that model's mandiblasters."
+  },
+  "8a4fd614e681": {
+    "name": "Fire and Reposition",
+    "kind": "stratagem",
+    "plain": "If one of your OUTCASTS units is making a Battle Focus move and any of its models want to cross any part of an Area Terrain feature: don't subtract 3\"; the unit may move the whole distance rolled."
+  },
+  "8ad58f4c30e4": {
+    "name": "Wireweave Net",
+    "kind": "ability",
+    "plain": "Once per battle, when the bearer's unit is picked as the target of a charge, you may trigger the wireweave net. Roll one D6; on a 2+, D3 mortal wounds are inflicted on the charging unit, and for the rest of the phase, any unit declaring a charge against the bearer's unit has 2 subtracted from its charge rolls."
+  },
+  "8ae47dad4c22": {
+    "name": "Treasures of the Aeldari",
+    "kind": "stratagem",
+    "plain": "Before the battle, as you muster your army, provided your WARLORD has one of the keywords ASURYANI or HARLEQUINS: a HARLEQUINS WARLORD lets you choose one HARLEQUINS CHARACTER model of yours, and an ASURYANI WARLORD lets you choose one ASURYANI CHARACTER model of yours. The chosen CHARACTER model may receive one Treasures of the Aeldari Relic (it must be one it is allowed). Every Relic in your army must be different, and you can't use this Stratagem to hand a model 2 Relics. It can be used only once, except twice in a Strike Force battle or 3 times in an Onslaught battle."
+  },
+  "8b2629fca759": {
+    "name": "Neuro Disruptor",
+    "kind": "weapon",
+    "plain": "Unless the target is a VEHICLE unit, every hit scored by this weapon inflicts 1 mortal wound on it and ends the attack sequence."
+  },
+  "8b55ad921fd6": {
+    "name": "First of the Phoenix Lords",
+    "kind": "ability",
+    "plain": "This model gets a 3+ invulnerable save."
+  },
+  "8c782fe57acd": {
+    "name": "Forceshield",
+    "kind": "ability",
+    "plain": "The bearer gets a 4+ invulnerable save."
+  },
+  "8d15d8b4430d": {
+    "name": "Appear Unbidden",
+    "kind": "ability",
+    "plain": "During deployment, you can place Amallyn Shadowguide in the webway, walking its winding paths, rather than on the battlefield. At the end of a Movement phase of yours, this unit can emerge: place it anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "8d8e6bffa4f4": {
+    "name": "Inexhaustible Hatred",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as one of your ALTANSAR units is picked to fight: for the rest of the phase, its models add 1 to the wound roll for melee attacks against a DAEMON unit (excluding VEHICLE and MONSTER units)."
+  },
+  "8dfe48480f60": {
+    "name": "Ranger Long Rifle",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. For attacks with this weapon, each unmodified wound roll of 6 also deals 1 mortal wound, on top of the normal damage."
+  },
+  "8e087201409f": {
+    "name": "Psyker (Eldrad)",
+    "kind": "psychic",
+    "plain": "3 powers, chosen from Runes of Fortune, Runes of Fate, or a mix of both."
+  },
+  "91fcb76471be": {
+    "name": "Kiss of Death",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as a HARLEQUIN'S KISS unit is picked to fight: until that fight is resolved, each unmodified wound roll of 6 for its models' melee attacks inflicts 1 mortal wound on the target as well as the usual damage. No unit can suffer more than 6 mortal wounds per phase from this Stratagem. The same unit can't be picked for both this Stratagem and the Oblivion's Caress Stratagem in the same phase."
+  },
+  "93750639c47d": {
+    "name": "Shade Runner Assault",
+    "kind": "ability",
+    "plain": "If this unit has a Shade Runner model in it, then every time it finishes a charge move you can choose one enemy unit within Engagement Range of it and roll one D6 for that unit: a 6 inflicts 2 mortal wounds on it, while a 2-5 inflicts 1 mortal wound."
+  },
+  "94fe6e7c6903": {
+    "name": "Focus Will (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your <CRAFTWORLD> ASURYANI PSYKER units within 24\" of this PSYKER. Until your next Psychic phase begins, add 2 to any Psychic test or Deny the Witch test taken for that unit."
+  },
+  "952703774a9e": {
+    "name": "Path of the Shaper",
+    "kind": "ability",
+    "plain": "In your Psychic phase, instead of trying to manifest any psychic powers, this model can reknit wraithbone. If it does, pick one <CRAFTWORLD> VEHICLE or <CRAFTWORLD> WRAITH CONSTRUCT model within 3\"; D3 lost wounds are restored to that model. No model can be healed by this ability more than once per turn."
+  },
+  "952faf9f40d0": {
+    "name": "Cameleoline Cloak",
+    "kind": "ability",
+    "plain": "Your opponent must subtract 1 from hit rolls for ranged weapons targeting Amallyn Shadowguide. If a ranged attack is allocated to this model while it is benefiting from cover, armour saving throws made against that attack get a further 1 added."
+  },
+  "95c67fda8019": {
+    "name": "Spider's Lair",
+    "kind": "ability",
+    "plain": "Once per battle, at the end of your Movement phase, you may declare a terrain feature webbed if this unit is wholly within that Area Terrain feature and includes a Warp Spider Exarch. Until your next turn starts, enemy units treat the webbed feature as having the Difficult Ground terrain trait, and whenever an enemy unit finishes any move inside it (other than a pile-in or consolidation move), roll one D6: on a 2+ that unit suffers D3 mortal wounds."
+  },
+  "96dca61afc56": {
+    "name": "Mind War (Witchfire)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy CHARACTER model within 18\" of this PSYKER. Then you roll one D6 and add this PSYKER's Leadership to it, and your opponent rolls one D6 and adds the enemy CHARACTER model's Leadership. If your total beats theirs, that CHARACTER model suffers mortal wounds equal to the difference. With a Psychic test result of 10 or more, you may roll 2D3 in place of your single D6 when adding to this PSYKER's Leadership."
+  },
+  "989fd0c7a5a5": {
+    "name": "Path of Command (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CRAFTWORLD> CORE units is within 6\" of this model, you re-roll a hit roll of 1 whenever a model in that unit attacks."
+  },
+  "992d97ef7302": {
+    "name": "Path of Command (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your IYANDEN CORE or ANHRATHE INFANTRY units is within 6\" of this model, you re-roll a hit roll of 1 whenever a model in that unit attacks."
+  },
+  "9ba1cd1703c1": {
+    "name": "Crewed Platform (Defenders)",
+    "kind": "ability",
+    "plain": "If the last Guardian Defender model in this unit is destroyed, any Heavy Weapon Platform models still in the unit are destroyed too. Leave Heavy Weapon Platform models out when working out the unit's Starting Strength or whether it is below Half-strength, and ignore their destruction for Morale tests."
+  },
+  "9c5a41e8ac4d": {
+    "name": "The Tears of Isha",
+    "kind": "stratagem",
+    "plain": "In your Command phase, pick one <CRAFTWORLD> WRAITH CONSTRUCT model from your army. It regains up to D3 lost wounds, or 3 lost wounds instead if it is within 6\" of a friendly <CRAFTWORLD> SPIRITSEER model. This Stratagem costs 2CP if you pick a TITANIC model, and 1CP otherwise."
+  },
+  "9cdfd4bd12ed": {
+    "name": "5. Shield of Ynnead",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your YNNARI units (not a TITANIC unit) within 12\" of this PSYKER. Until your next Psychic phase begins, models in that unit have a 4+ invulnerable save."
+  },
+  "9d274a708d98": {
+    "name": "Wraithcannon",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the normal damage."
+  },
+  "9d581d0cfdae": {
+    "name": "Heavy Wraithcannon",
+    "kind": "weapon",
+    "plain": "Blast. An unmodified 6 to wound with this weapon inflicts D3 mortal wounds on the target as well as its usual damage."
+  },
+  "9dde999173a6": {
+    "name": "Defiant to the Last",
+    "kind": "stratagem",
+    "plain": "At the start of your Command phase, choose one of your ALTANSAR units. That unit has the Objective Secured ability until your next Command phase begins."
+  },
+  "9e0e638c1f8b": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "When this model makes a Normal Move, Advances or Falls Back, start by pivoting it in place up to 90 degrees (this pivot doesn't add to the distance it moves), then move it straight ahead. It can't pivot again after that first pivot."
+  },
+  "9e5d643810a2": {
+    "name": "Smite",
+    "kind": "psychic",
+    "plain": "Warp charge: 5. When manifested, the closest enemy unit that is visible and within 18\" of the psyker takes D3 mortal wounds. If the Psychic test result exceeded 10, it takes D6 mortal wounds instead.",
+    "waive": {
+      "181": "page number reference (\"pg 181\"), which the style guide says to leave out"
+    }
+  },
+  "9ef22e7d8482": {
+    "name": "Titanic",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back."
+  },
+  "9f360128380e": {
+    "name": "Herald of Ynnead",
+    "kind": "ability",
+    "plain": "Roll one D6 each time another AELDARI model is destroyed within 6\" of this model. On a 4+, 1 lost wound is restored to this model; in addition, if the destroyed AELDARI model was a PSYKER, you can pick one Revenant discipline psychic power, which this model then knows for the rest of the battle alongside any others it knows."
+  },
+  "a038df62b66b": {
+    "name": "Heroes’ Path",
+    "kind": "stratagem",
+    "plain": "At the start of your Command phase, choose a TROUPE MASTER model of yours on the battlefield, plus a DEATH JESTER or SHADOWSEER model of yours on the battlefield. Until the turn ends:\n• the chosen models' Movement characteristic is increased by 2\";\n• add 1 to any charge roll made for any of the chosen models."
+  },
+  "a03a8d75bb3d": {
+    "name": "Fateful Divergence (Blessing)",
+    "kind": "psychic",
+    "plain": "When this power is manifested, you receive 1 Command Point."
+  },
+  "a14b24630176": {
+    "name": "Superlative Strategist",
+    "kind": "ability",
+    "plain": "As long as at least one unit in your army with this ability is on the battlefield (or inside a TRANSPORT model that is on the battlefield), you may use the Command Re-roll Stratagem up to twice per phase rather than just once.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a page cross-reference, which the style guide says to leave out"
+    }
+  },
+  "a3c122c6649d": {
+    "name": "Acrobatic",
+    "kind": "ability",
+    "plain": "This unit can declare a charge even in a turn in which it Advanced. Attacks made against this unit have 1 subtracted from their hit roll."
+  },
+  "a447a289fd00": {
+    "name": "Shield Discharge",
+    "kind": "stratagem",
+    "plain": "At the start of your Charge phase, choose one of your models that has a serpent shield or Wave Serpent shield, and choose an enemy unit within 12\" of it. Until the turn ends:\n• the enemy unit can't fire Overwatch or Set to Defend;\n• melee attacks by models in the enemy unit subtract 1 from their hit rolls.\nOnce this Stratagem has been used, the chosen model no longer counts as having a serpent shield or Wave Serpent shield."
+  },
+  "a472ce3250e6": {
+    "name": "Bringer of Death",
+    "kind": "ability",
+    "plain": "If this unit's Dark Reaper Exarch has a Reaper Launcher or Shuriken Cannon, it gets 1 extra attack with that weapon whenever it is chosen to shoot. If the Exarch has an Aeldari Missile Launcher or Tempest Launcher, the target of each ranged attack it makes gets no benefit from cover against that attack."
+  },
+  "a5da2a1cbaa1": {
+    "name": "Khaine Awakened (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ASURYANI CORE units is within 12\" of this model, you can ignore some or all of the modifiers whenever that unit takes a Combat Attrition test."
+  },
+  "a63348c72ed3": {
+    "name": "Psyker (Way Seeker)",
+    "kind": "psychic",
+    "plain": "This unit's Way Seeker model is the point from which you measure distances and draw line of sight whenever the unit tries to manifest a psychic power, Deny the Witch or perform a psychic action. Likewise, when an enemy unit's ability needs distances measured or line of sight drawn to PSYKER units, measure and draw them to this unit's Way Seeker model."
+  },
+  "a892ec421601": {
+    "name": "Cry of the Wind (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your SWOOPING HAWKS units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "a8e68ee4f26a": {
+    "name": "Linked Fire",
+    "kind": "stratagem",
+    "plain": "At the start of your Shooting phase, pick one FIRE PRISM model from your army, then pick one or two other friendly FIRE PRISM models that are within 12\" of it and visible to it. Until the end of the phase, whenever the first FIRE PRISM model you picked shoots with the focused lance profile of its prism cannon:\n• it gets 2 extra attacks with that weapon (using the focused lance profile) for each other FIRE PRISM model you picked;\n• invulnerable saves can't be taken against any attacks it makes with that weapon.\nUntil the end of the phase, the other FIRE PRISM models you picked can't attack with their prism cannons."
+  },
+  "a955fdd07783": {
+    "name": "Avatar of the Whispering God",
+    "kind": "ability",
+    "plain": "You can never give this model a Relic or Warlord Trait."
+  },
+  "a96cc5417adc": {
+    "name": "Unstoppable Revenant (Wraithknight)",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move horizontally across other models as if they weren't there, except MONSTER or VEHICLE models."
+  },
+  "a99f860682f3": {
+    "name": "5.1 Quicken (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 18\" of this PSYKER. That unit may immediately move as if it were the Movement phase, making a Normal Move, an Advance or a Fall Back. A unit that moves this way can't shoot or declare a charge this turn."
+  },
+  "aa2311240ad2": {
+    "name": "Scorpion's Sting",
+    "kind": "ability",
+    "plain": "When this unit is chosen to fight, if it includes a Striking Scorpion Exarch, that Exarch's mandiblasters work differently until the fight is over: whenever the Exarch makes a melee attack against a unit that is not a VEHICLE, an unmodified wound roll of 5+ also deals 1 mortal wound to the target on top of the normal damage."
+  },
+  "ab4736f07935": {
+    "name": "The Phoenix Reborn",
+    "kind": "stratagem",
+    "plain": "When one of your PHOENIX LORD models is destroyed, you may skip any rules triggered by its destruction and instead roll one D6 at the end of the phase. On a 4+, put it back on the battlefield as near as possible to where it was destroyed, not within Engagement Range of any enemy model, with D3 wounds left. The same model can't be returned by this Stratagem more than once per battle."
+  },
+  "ad0946498e09": {
+    "name": "Shadow of Death (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this unit get 1 taken off their models' Leadership characteristic."
+  },
+  "ad264cb737ed": {
+    "name": "Chaneller Stones",
+    "kind": "ability",
+    "plain": "Once per turn, the first time a saving throw fails for the bearer's unit, that attack's Damage characteristic becomes 0."
+  },
+  "ad89f99021ee": {
+    "name": "Autarch Jump Generator",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic becomes 12\", and it gains the JUMP PACK keyword and the Warp Strike ability. Whenever this unit makes a Normal Move, a Battle Focus move, an Advance, a Fall Back or a Charge move, its models can pass through models and terrain features until that move is over, though no model may finish on top of another model or its base. A Battle Focus move by the bearer's unit can instead be up to 2D6\". If two or more of the dice rolled for that distance come up 1, the bearer's unit suffers 1 mortal wound."
+  },
+  "adbad51499e1": {
+    "name": "Whips of the Master",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one DRUKHARI BEAST unit in your army within 6\" of this model. That BEAST unit can declare a charge this turn even if it Advanced."
+  },
+  "ae1f1344f262": {
+    "name": "D-flail (Rift)",
+    "kind": "weapon",
+    "plain": "Attacks made with this profile hit the target automatically."
+  },
+  "afcdaf4e70c8": {
+    "name": "Extend Wings",
+    "kind": "ability",
+    "plain": "During your Command phase you may have this model extend its wings. If you do, until your next Command phase begins it has a Move characteristic of 20\" and doesn't have the Wings of Khaine, Airborne, Hard to Hit or Agile Interceptor abilities."
+  },
+  "aff39ee4743c": {
+    "name": "Warden of Yvraine",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and a Detachment in it includes a YVRAINE model, this model can join that Detachment without using up a Battlefield Role slot. While one of your YVRAINE models is within 3\" of this model, that YVRAINE model can't be chosen as the target of ranged attacks."
+  },
+  "b0169ff98561": {
+    "name": "Defenders",
+    "kind": "ability",
+    "plain": "Models in this unit re-roll hit rolls of 1 for ranged attacks made with shuriken weapons while the unit is within range of an objective marker."
+  },
+  "b155f8ab879c": {
+    "name": "Biting Blade",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 2 extra attacks with this weapon."
+  },
+  "b1826115d9d8": {
+    "name": "Ranger Cloak",
+    "kind": "ability",
+    "plain": "If a model in this unit has a ranged attack allocated to it while it is benefiting from cover, armour saving throws made against that attack get a further 1 added."
+  },
+  "b206bf1516a3": {
+    "name": "Psyker (Way Seeker)",
+    "kind": "psychic",
+    "plain": "Smite, plus 1 power taken from either Runes of Fate or Runes of Fortune."
+  },
+  "b2417928a45d": {
+    "name": "Swirling Soul Energy",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon hit the target automatically."
+  },
+  "b544e4670baf": {
+    "name": "Crewed Platform (Storm)",
+    "kind": "ability",
+    "plain": "If the last Storm Guardian model in this unit is destroyed, any Serpent's Scale Platform models still in the unit are destroyed too. Leave Serpent's Scale Platform models out when working out the unit's Starting Strength or whether it is below Half-strength, and ignore their destruction for Morale tests."
+  },
+  "b55743dbae00": {
+    "name": "Howling Banshee Mask",
+    "kind": "ability",
+    "plain": "When you pick an enemy unit as a target of a charge by the bearer's unit, that enemy unit can't fire Overwatch or Set to Defend against the charge. If the bearer's unit made a charge move this turn, any enemy unit within Engagement Range of the bearer is not eligible to fight in this phase until every eligible unit in your army has fought."
+  },
+  "b5f089039012": {
+    "name": "Burning Demise",
+    "kind": "ability",
+    "plain": "Roll one D6 when this model is destroyed, before you take it off the table. If you roll a 6, it explodes: D3 mortal wounds are inflicted on each unit within D6\"."
+  },
+  "b603e1aceb79": {
+    "name": "4.2 Jinx (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, its models' Save characteristic is worsened by 1, but not worse than 6+."
+  },
+  "b6845c3e7c5e": {
+    "name": "Vectored Engines",
+    "kind": "ability",
+    "plain": "Once per battle, during your Command phase, you may fire up this model's vectored engines. When you do, this model gains the Battle Focus ability until the turn ends.",
+    "waive": {
+      "147": "page number reference (\"pg. 147\") pointing to where Battle Focus is printed; the style guide forbids page references"
+    }
+  },
+  "b8aa7921200c": {
+    "name": "2.1 Embolden (Blessing)",
+    "kind": "psychic",
+    "plain": "Pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 18\" of this PSYKER. Until your next Psychic phase begins, add 2 to that unit's Leadership characteristic, and if it is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first that phase.",
+    "waive": {
+      "<CRATWORLD> ASURYANI CORE": "typo in the official text for <CRAFTWORLD> ASURYANI CORE; the plain text uses the correctly spelled <CRAFTWORLD> ASURYANI CORE keyword"
+    }
+  },
+  "b9591fd98d1b": {
+    "name": "Shade of Twilight",
+    "kind": "ability",
+    "plain": "During deployment, you may put this unit in the shadows instead of on the battlefield. If you do, it can arrive in the Reinforcements step of one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "b985d9b89949": {
+    "name": "A Deadly Embrace",
+    "kind": "stratagem",
+    "plain": "Once one of your HARLEQUIN'S EMBRACE units has made a charge move or a Heroic Intervention: choose an enemy unit (excluding VEHICLE or MONSTER units) in Engagement Range of it, and roll one D6 per model in the HARLEQUIN'S EMBRACE unit. Each 4+ inflicts 1 mortal wound on that enemy unit, up to a maximum of 6 mortal wounds."
+  },
+  "ba44642b93ba": {
+    "name": "Hover Tank",
+    "kind": "ability",
+    "plain": "Measure distances to and from this model's hull or its base, whichever is closer."
+  },
+  "ba71365f7717": {
+    "name": "Defensive Stance",
+    "kind": "ability",
+    "plain": "In your Shooting phase, while this unit includes a Dire Avenger Exarch model, its models can make ranged attacks even though the unit is within Engagement Range of enemy units, and even when other friendly units are within Engagement Range of those enemy units as well. Attacks made this way can only target enemy units that are within Engagement Range of this unit."
+  },
+  "ba8fc5b8d06d": {
+    "name": "Strafing Assault",
+    "kind": "ability",
+    "plain": "Targets of this model's ranged attacks get no benefit from cover against those attacks."
+  },
+  "bb0c0c88d207": {
+    "name": "Hand of Asuryan (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DIRE AVENGERS units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "bbb6f5c9b004": {
+    "name": "3.2 Drain (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, subtract 1 from the hit roll whenever a model in that unit makes a melee attack."
+  },
+  "bd258cc49df5": {
+    "name": "Firestorm Scatter Laser",
+    "kind": "weapon",
+    "plain": "Add 2 to the hit roll of attacks made with this weapon against an Aircraft unit."
+  },
+  "bd4e68249b0e": {
+    "name": "Martial Citizenry",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase or the Fight phase, as one of your GUARDIANS units is picked to shoot or fight: for the rest of the phase, its models re-roll hit rolls of 1 for their attacks."
+  },
+  "bd933adb0b3c": {
+    "name": "Eldritch Storm",
+    "kind": "stratagem",
+    "plain": "In your Command phase, while one of your FARSEER models is on the battlefield: choose a point on the battlefield no more than 24\" from a FARSEER model of yours and mark it with a marker. During your next Psychic phase, your FARSEER models within 24\" of that marker can attempt the psychic action below.\n\nEmpower Storm (Psychic Action - Warp Charge 5): it may be attempted by any number of your FARSEER models that have visibility to the marker's centre.\n\nWhen your next Shooting phase starts, each unit within 6\" of the marker's centre gets one D6 roll; on a 4+, that unit suffers D3 mortal wounds. Remove the marker afterwards. This Stratagem can be used only once."
+  },
+  "bea7e5799291": {
+    "name": "War Construct",
+    "kind": "ability",
+    "plain": "This unit's models may fire ranged weapons while their unit is in Engagement Range of enemy units, though a model doing so may only pick enemy units it is itself in Engagement Range of. When firing like this, they may pick such an enemy unit as a target even though other friendly units are also in Engagement Range of it."
+  },
+  "bfacc8f86176": {
+    "name": "4. Unbind Souls",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy unit within 18\" of this PSYKER. Whenever a YNNARI model in your army makes a melee attack against that enemy unit, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "bfcc72d4a7e9": {
+    "name": "Bringer of the True Death",
+    "kind": "ability",
+    "plain": "Whenever this model attacks a NECRONS unit, add 1 to both the hit roll and the wound roll for that attack."
+  },
+  "c07e8cf3a5c3": {
+    "name": "Torments of the Fiery Pit",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as one of your HARLEQUINS CHARACTER models (not SOLITAIRE models) that has lost any wounds is picked to fight: for the rest of the phase, its Strength and Attacks characteristics are each increased by 1."
+  },
+  "c14d44f912ef": {
+    "name": "Ghosthelm",
+    "kind": "ability",
+    "plain": "This model is never subject to Perils of the Warp."
+  },
+  "c336e752ef57": {
+    "name": "Explodes (Scorpion)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 5+, it explodes: every unit within 6\" takes D6 mortal wounds."
+  },
+  "c3b2e94bfdcc": {
+    "name": "Revenant Jet Pack",
+    "kind": "ability",
+    "plain": "When this model Advances, don't make an Advance roll; instead, add 18\" to its Move characteristic until the end of the phase."
+  },
+  "c3c359cb119e": {
+    "name": "The Maugetar (shooting)",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the normal damage."
+  },
+  "c449cce8dfd8": {
+    "name": "Agile Interceptor",
+    "kind": "ability",
+    "plain": "This model has a 5+ invulnerable save. Add 1 to the hit roll of each attack this model makes against an AIRCRAFT unit."
+  },
+  "c518c4c0aa9e": {
+    "name": "The Silken Knife",
+    "kind": "stratagem",
+    "plain": "At the start of the Charge phase, pick one enemy unit. Until the end of the phase, whenever a DARK unit picks that enemy unit as a charge target, the enemy unit can't fire Overwatch or Set to Defend."
+  },
+  "c51fb2ce539b": {
+    "name": "6. Ancestors' Grace",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your YNNARI units within 18\" of this PSYKER. Until your next Psychic phase begins, add 1 to the wound roll whenever a model in that unit makes a melee attack."
+  },
+  "c62553a484a3": {
+    "name": "The Great Enemy",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as one of your ASURYANI, HARLEQUINS or YNNARI units is picked to fight: for the rest of the phase, its models may re-roll both the hit roll and the wound roll for melee attacks against a SLAANESH unit."
+  },
+  "c6af7d040f22": {
+    "name": "Aspect Armour",
+    "kind": "ability",
+    "plain": "This unit's models get a 5+ invulnerable save."
+  },
+  "c8b531eb9f19": {
+    "name": "Murderous Spectacle",
+    "kind": "stratagem",
+    "plain": "During your Charge phase, as one of your HARLEQUINS INFANTRY units makes a charge move: until the turn ends, increase the Damage characteristic of its models' melee weapons by 1 (up to a maximum of 3)."
+  },
+  "c8d837505db5": {
+    "name": "Stormblades",
+    "kind": "ability",
+    "plain": "Whenever this unit's models attack in melee, you re-roll a hit roll of 1 if the enemy unit they are attacking is within range of any objective markers."
+  },
+  "c9c42b6ea89b": {
+    "name": "Bladestorm",
+    "kind": "stratagem",
+    "plain": "In the Shooting phase, as you pick one of your ASURYANI or HARLEQUINS units to shoot: for the rest of the phase, each unmodified hit roll of 6 that its models make with shuriken weapons scores 1 extra hit."
+  },
+  "c9e2db0b4283": {
+    "name": "Winged Evasion",
+    "kind": "ability",
+    "plain": "Whenever this unit is chosen as the target of a ranged attack, if it includes a Swooping Hawk Exarch, then until the end of the phase subtract 1 from the hit roll of every ranged attack made against this unit."
+  },
+  "cb65ef808af0": {
+    "name": "Wings of Khaine",
+    "kind": "ability",
+    "plain": "When this model Advances, don't roll a dice; add 20\" to its Move characteristic for that Movement phase instead. Whenever this model moves, first pivot it on the spot by up to 90° (the pivot doesn't count towards the distance moved), then move it straight forwards. After its move ends, you can pivot it up to another 90° in the same way."
+  },
+  "cb8800a9aa1c": {
+    "name": "Wraithbone Form",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to a model in this unit, reduce that attack's Damage by 1, but not below 1."
+  },
+  "cd24aca22777": {
+    "name": "Guided Wraithsight",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase or the Fight phase, choose an IYANDEN SPIRITSEER model of yours and a friendly IYANDEN SPIRIT HOST unit. For the rest of the phase, the SPIRIT HOST unit counts as being in range of the SPIRITSEER model's Spirit Mark ability."
+  },
+  "cd491156628f": {
+    "name": "Web of Deceit",
+    "kind": "ability",
+    "plain": "Once per battle, if this unit includes a Warp Spider Exarch, you can take it off the battlefield instead of making a Battle Focus move, then set it up again anywhere on the battlefield more than 9\" from every enemy model.",
+    "waive": {
+      "142": "page number reference (\"pg 142\") pointing to the Battle Focus rule; the style guide forbids page references"
+    }
+  },
+  "cd6fa23bdf15": {
+    "name": "Psyker (Hemlock)",
+    "kind": "psychic",
+    "plain": "When this model tries to manifest a psychic power from the Runes of Battle discipline, it can only choose that power's second effect.\nSmite."
+  },
+  "d1e2896bd971": {
+    "name": "Molten Form",
+    "kind": "ability",
+    "plain": "This model gets a 4+ invulnerable save. Any attack allocated to this model has its Damage characteristic halved (round up)."
+  },
+  "d26a991b1d64": {
+    "name": "Reaper of Souls (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your SHADOW SPECTRES units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "d27dd9a3e2d2": {
+    "name": "Windrider Host",
+    "kind": "stratagem",
+    "plain": "As you choose your army, select one Craftworld Detachment in it to be a Windrider Host Specialist Detachment. These units in that Detachment gain the WINDRIDER HOST keyword: WINDRIDERS, VYPERS, AUTARCH SKYRUNNERS, FARSEER SKYRUNNERS, WARLOCK SKYRUNNERS and WARLOCK SKYRUNNER CONCLAVES."
+  },
+  "d34013ce4b1c": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "This model can't declare a charge, and only units that can FLY can choose it as a charge target. It can only fight if it is within Engagement Range of enemy units that can FLY, and its melee attacks can only target units that can FLY. Enemy units can make melee attacks against this model only if they can FLY."
+  },
+  "d3f901399c56": {
+    "name": "Webway Rupture",
+    "kind": "ability",
+    "plain": "During deployment, you may place this model in the webway rather than on the battlefield. It can then arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "d3fda1fc3275": {
+    "name": "Deathshroud Cannon (Focused)",
+    "kind": "weapon",
+    "plain": "Blast. For attacks made with this profile, an unmodified wound roll of 5+ gives that attack an Armour Penetration characteristic of -4."
+  },
+  "d46f5fb1dce6": {
+    "name": "Inevitable Fate",
+    "kind": "stratagem",
+    "plain": "When a YNNARI unit from your army is chosen to shoot or fight: until the end of the phase, add 1 to the wound roll whenever a model in that unit attacks a unit that was below Half-strength at the moment the attacking model's unit was chosen to shoot or fight."
+  },
+  "d4988928db04": {
+    "name": "Deathly Form",
+    "kind": "ability",
+    "plain": "This model gets a 4+ invulnerable save. Any attack allocated to this model has its Damage characteristic halved (round up)."
+  },
+  "d50ba65c42a8": {
+    "name": "Prismatic Blur",
+    "kind": "stratagem",
+    "plain": "During the Movement phase, as one of your HARLEQUINS INFANTRY units Advances more than 8\": its models have a 4+ invulnerable save until your next Command phase begins. (Updated version: the Arks of Omen dataslate of Jan 2023 made every Harlequins invulnerable save 1 worse, so the original 3+ became 4+.)"
+  },
+  "d6417f569df1": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When a model in this unit is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 3\" takes 1 mortal wound."
+  },
+  "d65574d83a80": {
+    "name": "The Scorpion's Bite",
+    "kind": "ability",
+    "plain": "Whenever the bearer attacks a non-VEHICLE unit in melee, each unmodified wound roll of 6 also deals 2 mortal wounds to the target, on top of the normal damage."
+  },
+  "d6e9b8669a07": {
+    "name": "Grenade Pack",
+    "kind": "stratagem",
+    "plain": "During your Movement phase, once one of your SWOOPING HAWKS units has made a Normal Move or Advanced: choose an enemy unit that any of its models moved across this phase. Roll one D6 per model in that SWOOPING HAWKS unit, taking 1 off each roll if the chosen enemy unit has the CHARACTER keyword (excluding VEHICLE or MONSTER units). Each 4+ inflicts 1 mortal wound on the chosen enemy unit, up to a maximum of 6 mortal wounds."
+  },
+  "d714a2c4271d": {
+    "name": "Psychic Powers (Warlocks)",
+    "kind": "psychic",
+    "plain": "If this unit's Starting Strength is 3, it knows 1 extra power from the Runes of Battle discipline. While it has 3 models, it can try to manifest 1 extra psychic power in your Psychic phase."
+  },
+  "d96c4a2aa201": {
+    "name": "Burning Lance (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your FIRE DRAGONS units is within 6\" of this model, its models get 2 added to their Leadership characteristic, and that unit gains Objective Secured."
+  },
+  "da057820b6ed": {
+    "name": "First of Ulthwe",
+    "kind": "ability",
+    "plain": "You can re-roll any Psychic test taken for this model."
+  },
+  "dd721d771ea8": {
+    "name": "Virtuosos of the Webway",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase, pick one HARLEQUINS unit from your army that isn't within Engagement Range of any enemy models. Take it off the battlefield and place it into Strategic Reserves."
+  },
+  "dd90e7779cda": {
+    "name": "Sustained Assault (Karandras)",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for a melee attack by this model scores 1 extra hit. Attacks that this ability generates can't gain the benefit of this model's The Scorpion's Bite ability."
+  },
+  "dd945aa3f6b3": {
+    "name": "Crushing Orb (Witchfire)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy unit that is visible to this PSYKER and within 18\" of it, then roll three D6. Add 2 to each of those results if the enemy unit is a VEHICLE or MONSTER unit or has 6 or more models in it. The enemy unit suffers 1 mortal wound for every result of 4+."
+  },
+  "df8c5ddb042a": {
+    "name": "Tempest Launcher",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the bearer can't see."
+  },
+  "dfa8565f27e6": {
+    "name": "Distortion Field",
+    "kind": "ability",
+    "plain": "Against ranged attacks, this model has a 4+ invulnerable save."
+  },
+  "e004f8e75333": {
+    "name": "Combat Drugs",
+    "kind": "ability",
+    "plain": "This unit's drug depends on a D6 result. 1 (Adrenalight): when this unit fights in a turn in which it made a charge move or performed a Heroic Intervention, its models get 1 added to their Attacks characteristic until that fight is resolved. 2 (Grave Lotus): its models get 1 added to their Strength characteristic. 3 (Hypex): its models get 2\" added to their Move characteristic. 4 (Painbringer): its models get 1 added to their Toughness characteristic. 5 (Serpentin): its models' Weapon Skill characteristic is improved by 1. 6 (Splintermind): its models' Ballistic Skill and Leadership are improved by 1."
+  },
+  "e07aebcbaf2e": {
+    "name": "No Price Too Steep",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, if one of your HARLEQUINS CHARACTER models is destroyed before being picked to fight this phase: leave it on the battlefield; it may fight after the attacking model's unit has made all its attacks. If it is a SOLITAIRE model, or a CHAOS unit destroyed it, add 1 to its Attacks and Strength characteristics for the rest of the phase. Remove it once its own attacks have been resolved."
+  },
+  "e1cd4856b56a": {
+    "name": "The Bloody-Handed (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ASURYANI CORE units is within 6\" of this model, you can re-roll that unit's charge rolls."
+  },
+  "e2473958fab8": {
+    "name": "Avengers of Asuryan",
+    "kind": "stratagem",
+    "plain": "At the end of your Shooting phase, choose a DIRE AVENGERS unit of yours that is below its Starting Strength. That unit gets to shoot a second time."
+  },
+  "e3152dcd5980": {
+    "name": "Battle Psykers",
+    "kind": "stratagem",
+    "plain": "When one of your WARLOCKS units containing at least 4 models manifests a Runes of Battle power, both effects of that power can be applied instead of only one."
+  },
+  "e3b03a54ba29": {
+    "name": "Explodes (Hornet)",
+    "kind": "ability",
+    "plain": "If this model drops to 0 wounds, roll a D6 before it leaves the battlefield. On a 6 it blows up, and every unit within 3\" takes a mortal wound."
+  },
+  "e5b6258d0265": {
+    "name": "Swift Scouts",
+    "kind": "ability",
+    "plain": "As the first battle round begins, this unit's models may each make a Normal Move, but none of them may finish it within 9\" of an enemy model."
+  },
+  "e6c925cf322f": {
+    "name": "Singing Spear (melee)",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, any unmodified wound roll of 2+ always counts as a success."
+  },
+  "e6e616df04c7": {
+    "name": "Unparalleled Mastery",
+    "kind": "stratagem",
+    "plain": "At the start of your Psychic phase, choose a FARSEER, SHADOWSEER, YVRAINE or THE YNCARNE model of yours. This phase, that unit may attempt to manifest one more psychic power than normal."
+  },
+  "e6e78610052f": {
+    "name": "Warlock Conclave",
+    "kind": "ability",
+    "plain": "If this unit's Starting Strength is 1, it has the CHARACTER keyword."
+  },
+  "e71c5f72903e": {
+    "name": "Oblivion’s Caress",
+    "kind": "stratagem",
+    "plain": "During the Fight phase, as a HARLEQUIN'S CARESS unit is picked to fight: until that fight is resolved, no invulnerable saving throws can be taken against its models' melee attacks. A unit can't be picked for both this and the Kiss of Death Stratagem during one phase."
+  },
+  "e81f0473e9b0": {
+    "name": "Dragon's Bite",
+    "kind": "ability",
+    "plain": "When this unit's Fire Dragon Exarch model makes a ranged attack against a VEHICLE or MONSTER unit that was within half range when this unit was chosen to shoot: an attack with a Dragon Fusion Gun or Firepike gets 2 added to its Damage characteristic; an attack with a Dragon's Breath Flamer gets 1 added to its Damage characteristic, and you can re-roll its wound roll."
+  },
+  "e844ec664c85": {
+    "name": "Crystal Targeting Matrix",
+    "kind": "ability",
+    "plain": "Whenever this model makes a ranged attack, you can ignore some or all modifiers to the hit roll."
+  },
+  "e9ac404f34e6": {
+    "name": "Champion of Ynnead",
+    "kind": "ability",
+    "plain": "Roll one D6 each time another AELDARI model is destroyed within 6\" of this model. On a 4+, 1 lost wound is restored to this model; in addition, if the destroyed AELDARI model was a CHARACTER, this model's Attacks characteristic goes up by 1 for the rest of the battle."
+  },
+  "eb3c66d8ac42": {
+    "name": "Explodes (6+)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 6+, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "ebcd254f463f": {
+    "name": "Cloudstrike",
+    "kind": "ability",
+    "plain": "If this TRANSPORT model began the battle set up preparing a Sudden Assault, you can place it on the battlefield during the Reinforcement step of your first, second or third Movement phase, whatever the mission rules say. Once it is placed this way, units embarked in it may disembark right away, but they must be placed more than 9\" from every enemy model.",
+    "waive": {
+      "143": "page number reference (\"Page 143\") pointing to the Sudden Assault rule; the style guide forbids page references"
+    }
+  },
+  "ec317e6e514c": {
+    "name": "Wave Serpent Shield",
+    "kind": "ability",
+    "plain": "While this model has a Wave Serpent Shield: it has a 5+ invulnerable save against ranged attacks; and whenever a ranged attack is made against it, an unmodified wound roll of 1-3 fails, no matter what abilities the attacking weapon or model has."
+  },
+  "eccb7e390d3c": {
+    "name": "The Sword of Asur",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, each unmodified wound roll of 6 deals D3 mortal wounds to the target on top of any other damage."
+  },
+  "eccfd2780b0e": {
+    "name": "Swift Demise",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks with a twin shuriken catapult and the target is an enemy unit within range of any objective marker, re-roll a hit roll of 1."
+  },
+  "ed50bed59445": {
+    "name": "Ancient Doom",
+    "kind": "ability",
+    "plain": "In a turn in which this unit charges, or is charged by, a SLAANESH unit, you can re-roll its failed hit rolls in the Fight phase. However, while this unit is within 3\" of any SLAANESH units, you must add 1 to its Morale tests."
+  },
+  "f29b2c85ba03": {
+    "name": "Fortune (Blessing)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one of your <CRAFTWORLD> ASURYANI CORE or <CRAFTWORLD> ASURYANI CHARACTER units within 18\" of this PSYKER. Until your next Psychic phase begins, roll one D6 whenever a model in that unit would lose a wound; on a 5+ it keeps that wound. If the Psychic test result was 10 or more, you can pick such a unit within 24\" of this PSYKER instead."
+  },
+  "f32959e249dc": {
+    "name": "6.2 Enervate (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, subtract 1 from the wound roll whenever a model in that unit makes a melee attack."
+  },
+  "f4598e71573c": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you take it off the table. On a 6, it explodes: every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "f49bc58f02d1": {
+    "name": "Wrath of the Shrines",
+    "kind": "stratagem",
+    "plain": "During your Shooting phase or the Fight phase, as one of your BIEL-TAN ASPECT WARRIOR units is picked to shoot or fight: for the rest of the phase, each unmodified hit roll of 6 its models make scores 1 extra hit."
+  },
+  "f7630720a55e": {
+    "name": "Explodes (Transport)",
+    "kind": "ability",
+    "plain": "When this TRANSPORT model is destroyed, roll a D6 before any embarked models disembark and before you take it off the table. On a 6, it explodes: every unit within 6\" takes D3 mortal wounds."
+  },
+  "f836504f8a97": {
+    "name": "5.2 Restrain (Malediction)",
+    "kind": "psychic",
+    "plain": "Pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase begins, halve the Move characteristic of that unit's models, and that unit can't perform actions (if it is performing one right now, that action fails at once)."
+  },
+  "f8c15497817d": {
+    "name": "Thrice-layered Wards",
+    "kind": "stratagem",
+    "plain": "During your opponent's Psychic phase, as soon as one of your ALTANSAR units would suffer a mortal wound: for the rest of that phase, roll one D6 for each wound that a model in that unit would lose; on a 4+ the wound isn't lost."
+  },
+  "fb768437004a": {
+    "name": "Guardian Fusion Gun",
+    "kind": "weapon",
+    "plain": "When the target is within half this weapon's range, the attack's Damage characteristic is D6+2."
+  },
+  "fdc19cb58625": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "In your Psychic phase this model can try to manifest two psychic powers, and in your opponent's Psychic phase it can try to deny two. It knows Smite plus two powers from the Revenant discipline."
+  },
+  "fe16a2b9105b": {
+    "name": "Doom Incarnate",
+    "kind": "ability",
+    "plain": "In the Morale phase, each enemy model destroyed by an attack from this model counts as two models."
+  },
+  "feccab8d005d": {
+    "name": "Impair Senses (Malediction)",
+    "kind": "psychic",
+    "plain": "If this power is manifested, pick one enemy unit that is visible to this PSYKER and within 18\" of it. Until your next Psychic phase begins, aura abilities of units in your opponent's army have no effect on that enemy unit."
+  }
+}

@@ -1,0 +1,1679 @@
+{
+  "01177c3dd9c3": {
+    "name": "Bounca's Jaws",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it gets 3 extra attacks, and it can never make more than 3 attacks with this weapon. For each attack with this weapon, an unmodified wound roll of 6 deals 3 mortal wounds to the target and ends the attack sequence."
+  },
+  "01a3d5c15559": {
+    "name": "Attack Out O’ Da Sun’",
+    "kind": "stratagem",
+    "plain": "Use when your turn ends. Choose one of your DEFFKOPTAS units and take it off the battlefield. In your next Movement phase's Reinforcements step, you may set it up again anywhere on the battlefield more than 9\" from every enemy model. If it is not on the battlefield when the battle ends, it is destroyed."
+  },
+  "01fbcc5a733a": {
+    "name": "Shokk Attack Gun",
+    "kind": "weapon",
+    "plain": "Blast. Each time you select this weapon to shoot, roll 2D6; the result is the Strength of every attack it makes. If the roll is 11+, every successful hit deals D3 mortal wounds to the target as well as its normal damage."
+  },
+  "03756306e8ba": {
+    "name": "Big Mekaniak",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model can repair one of your <CLAN> VEHICLE models within 3\", which gets back D3 lost wounds. A model can't be repaired more than once in the same turn."
+  },
+  "03f7eaa77a87": {
+    "name": "Breakin' Heads",
+    "kind": "ability",
+    "plain": "When a GOFF unit within 3\" of a friendly model with this ability fails a Morale test, this model may restore order by force: the unit takes D3 mortal wounds, and the Morale test then counts as passed."
+  },
+  "047a91436895": {
+    "name": "Nitro Squigs",
+    "kind": "ability",
+    "plain": "Only a RUKKATRUKK SQUIGBUGGIES model can have this. When this model attacks with its heavy squig launcha or squig launcha, add 1 to the wound roll."
+  },
+  "05a1852dd7aa": {
+    "name": "Grand Warlord",
+    "kind": "ability",
+    "plain": "If your army includes this model, it has to be your WARLORD."
+  },
+  "05f1851f70c3": {
+    "name": "Gun Crazy Show Offs",
+    "kind": "stratagem",
+    "plain": "At the end of your Shooting phase, pick one FLASH GITZ unit from your army. It can shoot again, but it has to target the closest eligible enemy unit."
+  },
+  "0656ad3003b3": {
+    "name": "Zzapkrumpaz",
+    "kind": "ability",
+    "plain": "Only a unit that includes a Spanner model can have this. Whenever a model in this unit makes a melee attack, an unmodified wound roll of 6 also deals 1 mortal wound to the target on top of any normal damage."
+  },
+  "0701677a1054": {
+    "name": "Speed Freeks Speed Mob",
+    "kind": "rule",
+    "plain": "All units in your army get the SPEED MOB keyword, and you can use the Speed Freeks Speed Mob Stratagems, Warlord Trait and Vehicle Kustom Jobs. In a Battle-forged army, the Outrider Detachment's Command Benefits change to: +3 Command points if your WARLORD is in this Detachment. Your SPEED FREEKS units get the Adrenaline Junkies ability, and in a Battle-forged army your SPEED FREEKS BIKER units also have Objective Secured.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "07910c7ed7de": {
+    "name": "Full Throttle",
+    "kind": "ability",
+    "plain": "When this unit Advances, skip the Advance roll. Instead, its models' Move characteristic is increased by 6\" until the phase ends, and you roll a D6: on a 4+, this unit takes 1 mortal wound."
+  },
+  "07a7804da8fc": {
+    "name": "Explodes (6+/3\"/D3)",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll a D6 before you remove it and before any models embarked in it disembark. On a 6, it explodes and every unit within 3\" takes D3 mortal wounds."
+  },
+  "083eb14f7591": {
+    "name": "Unstoppable",
+    "kind": "ability",
+    "plain": "This model can declare a charge even in a turn in which it Fell Back."
+  },
+  "092c0ceefe62": {
+    "name": "Waaagh! Banner",
+    "kind": "ability",
+    "plain": "While one of your <CLAN> ORKS units is within 6\" of this model, its models add 1 to the hit roll for every melee attack they make."
+  },
+  "09886174417a": {
+    "name": "Da Booma",
+    "kind": "ability",
+    "plain": "Only a WAGON model with a killkannon can have this. This Kustom Job takes the place of the killkannon and uses the profile listed for it."
+  },
+  "098ff1c5cce5": {
+    "name": "Big Chompa's Jaws",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it gets 3 extra attacks with this weapon, and it can never make more than 3 attacks with it. For each attack with this weapon, an unmodified wound roll of 6 deals 4 mortal wounds to the target and ends the attack sequence."
+  },
+  "09b0b0816e4c": {
+    "name": "The Boss is Watchin' (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ORKS units is within 6\" of this model, you can ignore any or all modifiers to Combat Attrition tests taken for that unit."
+  },
+  "0a450a59f864": {
+    "name": "Bomb Squig",
+    "kind": "ability",
+    "plain": "Once per turn, when it is chosen to shoot or to fire Overwatch, a unit that still has a bomb squig can release one. If it does, you may choose one enemy unit within 12\" of it that is not AIRCRAFT (when firing Overwatch, this has to be the charging unit) and roll a D6, adding 1 to the result against a VEHICLE. On a 3+, the chosen unit takes D3 mortal wounds. Afterwards, the unit has 1 fewer bomb squig."
+  },
+  "0a5f44daccbc": {
+    "name": "Spiked Ram",
+    "kind": "ability",
+    "plain": "After this unit has made a charge move, you can pick one enemy unit within 1\" of it. Roll one D6 per model in this unit; each 4+ inflicts D3 mortal wounds on that enemy unit."
+  },
+  "0ad9796103f1": {
+    "name": "Has Yoo Been a Good Little Grot This Year?",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, you may choose another Gretchin unit of yours within 3\" of this model. If you do, roll a D6: a 1 means that unit takes 1 mortal wound; on a 2+, its models are treated as equipped with stikkbombs for the remainder of the battle."
+  },
+  "0b000b1aee40": {
+    "name": "Waaagh! Energy",
+    "kind": "ability",
+    "plain": "While at least 20 ORKS models (not counting GRETCHIN) are within 12\" of this model, it can try to manifest 1 extra psychic power in your Psychic phase."
+  },
+  "0cd41bc24936": {
+    "name": "Rezmekka's Redder Paint",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is increased by 2\". When the Fight phase begins, if this WARLORD is in Engagement Range of any enemy units, none of those enemy units can be chosen to fight until every eligible unit in your army has fought."
+  },
+  "0e1aa3ea07bb": {
+    "name": "I'll Av Wot E's Avin!",
+    "kind": "ability",
+    "plain": "If this model is in your army, each Kustom Job can be chosen twice for your army rather than once. A model can still have only one Kustom Job.",
+    "waive": {
+      "60": "page reference (pg 60-61) to where the Kustom Jobs are printed, not a rule value",
+      "61": "page reference (pg 60-61) to where the Kustom Jobs are printed, not a rule value"
+    }
+  },
+  "0f265be73e86": {
+    "name": "Sawbonez",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may heal one of your <CLAN> BEAST SNAGGA INFANTRY, <CLAN> BIKER or <CLAN> BEAST SNAGGA CAVALRY models whose unit is within 3\" of it. If it does, roll a D6: on a 1, that model takes 1 mortal wound; on a 2+, it regains up to 2 lost wounds. No model can be healed more than once per turn."
+  },
+  "0f5de0f52336": {
+    "name": "Breakin' Heads",
+    "kind": "ability",
+    "plain": "If one of your <CLAN> units fails a Morale test while a friendly <CLAN> WARBOSS is within 3\" of it, that WARBOSS can restore order by force: the unit takes D3 mortal wounds, and the Morale test is treated as passed."
+  },
+  "1157502a367b": {
+    "name": "Scorched Gitbonez",
+    "kind": "ability",
+    "plain": "Only a PSYKER model can have this, and a PSYKER VEHICLE model is allowed to take it. When the bearer tries to manifest a Witchfire psychic power, add 1 to its Psychic test. Whenever the bearer would lose a wound because of Perils of the Warp, roll a D6: on a 4+, it keeps that wound."
+  },
+  "11b4af5a8132": {
+    "name": "Ghazghkull’s Waaagh! Banner (Aura)",
+    "kind": "ability",
+    "plain": "Aura: this works only while this model is within 3\" of a friendly GHAZGHKULL THRAKA unit. While that is true and one of your GOFF ORKS units is within 3\" of this model, roll a D6 each time a model in that GOFF ORKS unit would lose a wound; on a 6, the wound is not lost."
+  },
+  "13d9d2a3558c": {
+    "name": "Grot Gunner",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit shoots, you can choose one twin big shoota it carries. For every attack that model makes with the chosen twin big shoota, add 1 to the hit roll."
+  },
+  "1452be516c53": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll one D6 before any embarked models get out and before taking it off the table. On a 6 it blows up and every unit within 3D6\" suffers D6 mortal wounds."
+  },
+  "15c34b58e884": {
+    "name": "Red Skull Kommandos (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BLOOD AXES KOMMANDOS units is within 6\" of this model, its models add 1 to the hit roll for every melee attack they make."
+  },
+  "16049ec6abe0": {
+    "name": "Grot Shields",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Shooting phase, pick one ORKS INFANTRY unit from your army, then one GRETCHIN INFANTRY unit from your army (not CHARACTER units) within 6\" of it. Until the end of the phase, enemy models can't target that ORKS INFANTRY unit if that GRETCHIN INFANTRY unit is a closer visible target."
+  },
+  "166c52faac8c": {
+    "name": "Kunnin' Infiltrators",
+    "kind": "ability",
+    "plain": "When you set this unit up during deployment, you can place it anywhere on the battlefield more than 9\" away from both the enemy deployment zone and all enemy models."
+  },
+  "174653e3a2d8": {
+    "name": "Shokka Pistol",
+    "kind": "weapon",
+    "plain": "Blast. When an attack from this weapon is allocated to a VEHICLE model, its Damage characteristic is D3."
+  },
+  "17e02bc14c43": {
+    "name": "Gaze of Gork (Squint)",
+    "kind": "weapon",
+    "plain": "For each attack with this profile, choose one eligible target unit. Draw a straight line between the nearest point of the bearer's base (or hull) and the nearest point of the nearest model in the target unit. Roll one wound roll against the target unit and one against each other unit that line crosses. Attacks with this profile hit the target automatically."
+  },
+  "19ef2bdc0c66": {
+    "name": "Jabbin' Fingerz",
+    "kind": "psychic",
+    "plain": "MALEDICTION, warp charge 6. If it is manifested, choose one enemy unit within 18\" of this PSYKER that it can see. Until the start of your next Psychic phase, subtract 1 from the hit roll of every attack made by models in that unit."
+  },
+  "1b331ef6d430": {
+    "name": "Gaze of Gork (Glare)",
+    "kind": "weapon",
+    "plain": "Blast. Whenever this profile is chosen, pick a point on the battlefield within this weapon's maximum range. Resolve attacks against each eligible enemy unit within 3\" of that point, working out visibility from that point. Work out the number of attacks separately for each eligible enemy unit."
+  },
+  "1b3c445608ce": {
+    "name": "Charge Through ’Em!",
+    "kind": "stratagem",
+    "plain": "Use just before one of your KULT OF SPEED units consolidates. Its consolidation distance is 2D6\" rather than 3\"."
+  },
+  "1b84e802b1a0": {
+    "name": "Frazzle",
+    "kind": "psychic",
+    "plain": "WITCHFIRE, warp charge 6. If it is manifested, roll a D6 for every enemy unit within 9\" of this PSYKER: on a 4+, that unit takes D3 mortal wounds."
+  },
+  "1c1da20af42f": {
+    "name": "Grukk's Meanest Ladz",
+    "kind": "ability",
+    "plain": "Each NOBZ model in this unit gets 1 extra attack (add 1 to its Attacks characteristic) as long as the unit is within 6\" of a friendly GRUKK FACE-RIPPA model."
+  },
+  "1d87890ce329": {
+    "name": "Orks Is Never Beaten",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your ORKS CHARACTER models that hasn't been picked to fight yet this phase is destroyed. Leave the model in play: it can fight after the unit of the model that attacked it has made all its attacks. If its characteristics change as it loses wounds, resolve those attacks using the bottom row of its profile. Once its attacks are resolved, remove it."
+  },
+  "1de3e95d5627": {
+    "name": "Fight Detecta",
+    "kind": "ability",
+    "plain": "In your opponent's Movement phase, once the Reinforcements step ends: if an enemy unit arrived as Reinforcements this turn within 12\" of the bearer, you may choose one of your BLOOD AXES CORE units that is within 6\" of the bearer and not in Engagement Range of any enemy units. That BLOOD AXES unit may declare a charge as though it were your Charge phase, but the only target it may choose is that enemy unit, and you add 2 to the charge roll."
+  },
+  "1e72586fc3e8": {
+    "name": "Grot Gunner and Targetin' Squig",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks with a kustom shokk rifle, that model counts as having Ballistic Skill 3+ for the attack."
+  },
+  "1eb82fc703de": {
+    "name": "Terrain Traits (Mekboy Workshop)",
+    "kind": "ability",
+    "plain": "Every piece of this terrain feature is an Obstacle, and has the following traits: Light Cover, Heavy Cover, Defence Line, Difficult Ground, Defensible, Unstable Position."
+  },
+  "1fb3ab5b04c3": {
+    "name": "Explodes (6+/6\"/D3 Transport)",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "1fd4163620f3": {
+    "name": "Burna Bomb",
+    "kind": "ability",
+    "plain": "Once per turn, if the bearer still has a burna bomb, it can drop it. To do so, after the bearer makes a Normal Move or Advances in your Movement phase, pick a point on the battlefield that it passed over this phase, then roll a D6 for every model within 6\" of that point. Subtract 1 from the roll for a CHARACTER model (unless it is a VEHICLE or MONSTER model). On a 5+ the model's unit takes 1 mortal wound. No burna bomb can be dropped more than once per battle. Since the January 2023 update, this only works if the bearer is still on the battlefield when its move ends."
+  },
+  "203de91e6fbd": {
+    "name": "Giga Shoota",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll of attacks with this weapon against a target within half range."
+  },
+  "20a3bdd851f1": {
+    "name": "Mek Connections",
+    "kind": "stratagem",
+    "plain": "Use when your Movement phase ends, choosing one of your DREAD WAAAGH! units within 1\" of a MEK WORKSHOP. If that unit is given a kustom job through the Kustom Job ability, it receives something 'extra speshul' on a 4+ instead of needing a 6+."
+  },
+  "2218ca8156f0": {
+    "name": "Waaagh! Effigy (Aura)",
+    "kind": "ability",
+    "plain": "Aura: you can re-roll Morale tests for friendly ORKS units while they are within 6\" of this model."
+  },
+  "228c613a328b": {
+    "name": "Warboss (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CLAN> CORE or <CLAN> CHARACTER units is within 6\" of this model, its models add 1 to the hit roll for every melee attack they make."
+  },
+  "229a2fbb229b": {
+    "name": "Da Jump",
+    "kind": "psychic",
+    "plain": "BLESSING, warp charge 7. If it is manifested, choose one of your <CLAN> CORE units within 12\" of this PSYKER. Take that unit off the battlefield and place it again anywhere on the battlefield that is more than 9\" away from all enemy models."
+  },
+  "239685668d94": {
+    "name": "Gyroscopic Whirlygig",
+    "kind": "ability",
+    "plain": "Only a SHOKKJUMP DRAGSTA model can have this. This model ignores any mortal wounds it would suffer from its Shokk Tunnel ability."
+  },
+  "23ef0220236b": {
+    "name": "Tellyporta",
+    "kind": "stratagem",
+    "plain": "Use during deployment. Choose one of your non-MONSTER ORKS units whose Power Rating is 20 or less; you may set it up on a tellyporta pad rather than on the battlefield. If you do, it can arrive in the Reinforcements step of one of your Movement phases: place it on the battlefield anywhere more than 9\" from every enemy model. If it is a TRANSPORT unit, units embarked in it stay embarked when it arrives."
+  },
+  "24618ff23900": {
+    "name": "Da Killa Klaw",
+    "kind": "ability",
+    "plain": "Only a model with a power klaw can have this. It takes the place of the power klaw and uses the profile listed for this Relic."
+  },
+  "24ecd0dd78b1": {
+    "name": "Suspiciously Lucky",
+    "kind": "ability",
+    "plain": "This model has a 2+ invulnerable save. Once an invulnerable save for this model fails, this ability stops working for the rest of the battle."
+  },
+  "24fdb57ebdd6": {
+    "name": "Snakebitez - Brogs Buzzbomb",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see. The bearer can shoot it only once per battle. Its attacks hit on a hit roll of 2+, no matter what modifiers apply. Once it has been fired, every unit within 6\" of the target takes 1 mortal wound."
+  },
+  "25c28156c6c3": {
+    "name": "Souped-Up Speshul",
+    "kind": "ability",
+    "plain": "Only a BOOMDAKKA SNAZZWAGONS model can have this. This model's Mek speshul has its Type changed to 'Dakka 16/12'."
+  },
+  "25c33ffad2db": {
+    "name": "Stikka (Shooting)",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a unit within half range, the attack gets +1 Strength."
+  },
+  "264c416bf2f5": {
+    "name": "Hit ’Em Harder",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your MEGANOBZ units is picked to fight. For the rest of the phase, attacks its models make with a power klaw or killsaw get 1 added to their Damage characteristic."
+  },
+  "26c3a993f970": {
+    "name": "Morgog's Finkin' Cap",
+    "kind": "ability",
+    "plain": "Only a BLOOD AXE model can have this, and a VEHICLE model is allowed to take it. When your Command phase starts, if the bearer is on the battlefield, you may roll a D6: on a 4+, you get 1 Command point."
+  },
+  "289c1445dc64": {
+    "name": "Stompa Mob",
+    "kind": "stratagem",
+    "plain": "Use while choosing your army: make one of your ORK Super-heavy Detachments a Stompa Mob Specialist Detachment, and its STOMPA units get the STOMPA MOB keyword. You can also give the CHARACTER keyword to one model in that Specialist Detachment; however, it can only be given Gork's One or Mork's One as a Warlord Trait, and Tezdrek's Stompa Power Field is the only relic it can take."
+  },
+  "28ad1ee81498": {
+    "name": "Adrenaline Junkies",
+    "kind": "rule",
+    "plain": "This unit can never have a Clan Kultur, but its presence in a Detachment doesn't prevent the Detachment's other units (other than ones that also have this ability) from getting one. Whenever this unit fights, if it made a charge move or a Heroic Intervention this turn, its models get 1 added to their Attacks characteristic until that fight has been resolved. If it Advances during your Movement phase, it is treated as having made a Normal Move instead, up to the end of your Shooting phase. Its models have a 6+ invulnerable save, which becomes 5+ from the moment it is picked to Advance in your Movement phase until your next Movement phase starts."
+  },
+  "29572a41ee55": {
+    "name": "Killsaw",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of every attack made with this weapon. When the bearer fights, if it has 2 killsaws, it gets 1 extra attack with this weapon."
+  },
+  "296151176d6f": {
+    "name": "Da Beast",
+    "kind": "ability",
+    "plain": "When this model Advances, skip the Advance roll; instead, its Move characteristic is increased by 6\" until the phase ends."
+  },
+  "29939f853bbd": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 3\" suffers D3 mortal wounds."
+  },
+  "299b901b596a": {
+    "name": "Explodes (6\"/3D6/D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll one D6 before any embarked models get out and before taking it off the table. On a 6 it blows up and every unit within 3D6\" suffers D6 mortal wounds."
+  },
+  "2a1a5b5a89dc": {
+    "name": "Explodes (6+/2D6\"/D6)",
+    "kind": "ability",
+    "plain": "Roll a D6 when this model is reduced to 0 wounds, before taking it off the battlefield and before any embarked models get out. On a 6 it blows up, and each unit within 2D6\" takes D6 mortal wounds."
+  },
+  "2b554e30b3de": {
+    "name": "Flashiest Gitz (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your FLASH GITZ units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "2d37c0eeaee8": {
+    "name": "Trigga Discipline",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your BLOOD AXES LOOTAS units is picked to shoot. Choose an enemy VEHICLE unit; for the rest of the phase, attacks by that LOOTAS unit's models against that VEHICLE unit can re-roll the hit roll. It costs 1CP if the LOOTAS unit has up to 10 models, or 2CP if it has more."
+  },
+  "2d47ee54ea98": {
+    "name": "Wreckaz",
+    "kind": "stratagem",
+    "plain": "Use when your Shooting phase or Fight phase starts, choosing one of your DEATHSKULLS CORE or DEATHSKULLS CHARACTER units. For the rest of the phase, its models' attacks against a VEHICLE get 1 added to the wound roll."
+  },
+  "2df430e547fb": {
+    "name": "Roar of Mork",
+    "kind": "psychic",
+    "plain": "MALEDICTION (AURA). Choose one enemy unit within 18\" of the PSYKER that it can see: until the start of your next Psychic phase, its Advance and charge rolls are reduced by 2 each. Also, until the start of your next Psychic phase, any enemy unit within 18\" of this PSYKER has its models' Leadership characteristic reduced by 1 while it is there."
+  },
+  "2f349d758955": {
+    "name": "Beasthide Mantle",
+    "kind": "ability",
+    "plain": "Only a BEAST SNAGGA model can have this. The bearer gets 1 extra attack (add 1 to its Attacks characteristic). Whenever the bearer would lose a wound, roll a D6: on a 5+, it keeps that wound."
+  },
+  "3093ceaf1545": {
+    "name": "Scrag 'Em",
+    "kind": "ability",
+    "plain": "While this unit has 3 or more models, its models get 1 extra attack each."
+  },
+  "30cf92f2cce7": {
+    "name": "Kustom Red Button (Looted 'Eavy Wagon)",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 SHOUTY SPEAKAS: no effect. 2-3 BOOTA: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 MORE DAKKA: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 FORCE FIELDS: this model gets a 5+ invulnerable save until your next Command phase."
+  },
+  "31a2f2c8d353": {
+    "name": "Tankhammer",
+    "kind": "weapon",
+    "plain": "This weapon can make only 1 attack each time the bearer fights. On a hit, the target unit takes D6 mortal wounds and the bearer is destroyed."
+  },
+  "332aa3a855b4": {
+    "name": "Ded Chewy Blasta",
+    "kind": "weapon",
+    "plain": "Blast. If you roll any unmodified hit rolls of 1 for this weapon's attacks, the bearer takes 1 mortal wound once it has finished shooting this weapon."
+  },
+  "33a5b05f2ede": {
+    "name": "Showin’ Off",
+    "kind": "stratagem",
+    "plain": "Use when one of your BAD MOONS CORE or BAD MOONS CHARACTER units is picked to shoot. For the rest of the phase, its models' Dakka weapon attacks score 1 additional hit on each unmodified hit roll of 6."
+  },
+  "385882d70958": {
+    "name": "Krusha Kannon - Tankhamma shell",
+    "kind": "weapon",
+    "plain": "You can re-roll the hit roll for attacks with this weapon against a VEHICLE unit."
+  },
+  "39d901b8af5e": {
+    "name": "Super Cybork Body",
+    "kind": "ability",
+    "plain": "Only an INFANTRY model can have this. This model has a 4+ invulnerable save, and whenever an attack is allocated to it, that attack's Damage characteristic is halved."
+  },
+  "3aa258d8a965": {
+    "name": "Da Boss is Watchin’ (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ORKS units is within 6\" of this model, you can ignore any or all modifiers to Combat Attrition tests taken for that unit."
+  },
+  "3adbf4147097": {
+    "name": "Taktical Awareness",
+    "kind": "stratagem",
+    "plain": "Use when any phase starts. Choose one of your BLOOD AXES units. Until the turn ends, it may begin an action even though it Advanced this turn, its ranged attacks don't make any action it is doing fail, and, if it has the CHARACTER keyword, its aura abilities keep working while it performs an action."
+  },
+  "3b05cb9ce513": {
+    "name": "Unbridled Carnage",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase starts. Choose one of your GOFF CORE or GOFF CHARACTER units that has the No Mukkin' About Clan Kultur. For the rest of the phase, its models' attacks score an extra hit on an unmodified hit roll of 5+ instead of 6."
+  },
+  "3b5ca179de88": {
+    "name": "Mob Rule",
+    "kind": "ability",
+    "plain": "As long as this unit is within 6\" of one of your <CLAN> MOB units that is not under half strength, this unit never counts as being under half strength."
+  },
+  "3b6d3483b21e": {
+    "name": "SPEEDWAAAGH!",
+    "kind": "ability",
+    "plain": "At the start of the Charge phase, any of your <CLAN> BIKER and VEHICLE units within 6\" of this model may still charge, even having Advanced this turn."
+  },
+  "3b9f5486cf19": {
+    "name": "Wing Missiles",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll of attacks made with this weapon against a VEHICLE unit."
+  },
+  "3bfc9c01c112": {
+    "name": "Gitfinda Squig",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll of every ranged attack this model makes."
+  },
+  "3c1975df813e": {
+    "name": "Explodes (6+/6\"/D3)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before you remove it and before any models embarked in it disembark. On a 6, it explodes and every unit within 6\" takes D3 mortal wounds."
+  },
+  "3c3cfa9e1dcd": {
+    "name": "Dakka Weapons",
+    "kind": "ability",
+    "plain": "A Dakka weapon has two numbers of attacks. When a model fires one, use the first number if the target is within half the weapon's range; otherwise use the second number."
+  },
+  "3d28fad90b4b": {
+    "name": "Ork Detachment Abilities",
+    "kind": "rule",
+    "plain": "In ORKS Detachments, <CLAN> units (except GRETCHIN units) gain the Clan Kulturs ability, and Troops units (except GRETCHIN units) gain the Objective Secured ability.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "3e1ec364c0ad": {
+    "name": "Pointy Decorashunz!",
+    "kind": "ability",
+    "plain": "Once this unit has finished a charge move, you may pick one enemy unit within 1\" of it and roll a D6: on a 4+, that enemy unit takes D3 mortal wounds."
+  },
+  "3efa9de5b3cf": {
+    "name": "Deff Rolla",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, the bearer counts as having Weapon Skill 2+."
+  },
+  "3efff4288a2f": {
+    "name": "Drive by Dakka",
+    "kind": "stratagem",
+    "plain": "At the end of your Shooting phase, pick one EVIL SUNZ SPEED FREEKS unit from your army. It can immediately make a Normal Move as if it were your Movement phase, but it can't charge this turn."
+  },
+  "403222f9d644": {
+    "name": "Open-Topped",
+    "kind": "ability",
+    "plain": "In your Shooting phase, units embarked in this transport can be chosen to shoot; measure range and line of sight from any point on the transport. If the transport made a Normal Move, Advanced or Fell Back this turn, the embarked units count as having done the same. While the transport is within Engagement Range of any enemy units, embarked units can only shoot with Pistols."
+  },
+  "407cd38bfc46": {
+    "name": "Breakin’ Heads",
+    "kind": "stratagem",
+    "plain": "Use in the Morale phase, when one of your <CLAN> units (not GRETCHIN units) fails a Morale test while a friendly <CLAN> WARBOSS or <CLAN> NOBZ unit is within 3\" of it. The <CLAN> unit takes D3 mortal wounds, and the test counts as passed."
+  },
+  "409bbc1b82a8": {
+    "name": "Speshul Ammo",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your BLOOD AXES units is picked to shoot. For the rest of the phase, the shootas its models carry become Type Dakka 4/2 with Armour Penetration -1 (kombi-weapons' Shoota profile included). It costs 1CP for a unit of up to 10 models, or 2CP for a larger unit."
+  },
+  "454830a978e2": {
+    "name": "Skrak's horned helmet",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it can make 1 extra attack with this weapon, and it can only ever make 1 attack with it. If that attack scores a hit, the target takes 1 mortal wound and the attack sequence ends."
+  },
+  "45b037661160": {
+    "name": "Kill Tank Grot Riggers",
+    "kind": "ability",
+    "plain": "When each of your Movement phases ends, this model gets back up to D3 lost wounds. It can't be repaired more than once per turn."
+  },
+  "45e957043e54": {
+    "name": "Drill Boss (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your GOFF STORMBOYZ units is within 6\" of this model, whenever that unit fails a Morale test, then for the rest of the phase, halve the number of its models that flee because of failed Combat Attrition tests (round fractions down)."
+  },
+  "497b90788534": {
+    "name": "Morbad's Gitgrabba",
+    "kind": "weapon",
+    "plain": "This weapon has the Gotcha! ability. You can re-roll the wound roll for attacks made with this weapon."
+  },
+  "4a942181d985": {
+    "name": "Headwoppa's Killchoppa",
+    "kind": "ability",
+    "plain": "Only a model with a beastchoppa, big choppa or 'uge choppa can have this. It takes the place of that weapon and uses the profile listed for this Relic."
+  },
+  "4b7bef328e16": {
+    "name": "Ramshackle",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1 (to a minimum of 1), unless the attack has Strength 8 or higher."
+  },
+  "4c12910e10c6": {
+    "name": "Turbo-boostas",
+    "kind": "stratagem",
+    "plain": "Use as your Movement phase begins, choosing one of your KULT OF SPEED units. If it Advances this phase, don't roll a dice: its Move characteristic is doubled instead."
+  },
+  "4c2069e0f806": {
+    "name": "Kult of Speed",
+    "kind": "stratagem",
+    "plain": "When you choose your army, pick one ORK Detachment in your army to become a Kult of Speed Specialist Detachment. SPEED FREEKS in it gain the KULT OF SPEED keyword."
+  },
+  "4cd7bcd592e5": {
+    "name": "'Urty Syringe",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it gets 1 extra attack with this weapon. Attacks with this weapon succeed on a wound roll of 6+ against a VEHICLE or TITANIC unit, and on a wound roll of 4+ against anything else."
+  },
+  "4e7a3491a7be": {
+    "name": "Grot Gunner (Boostas)",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks with a grot blasta, add 1 to the hit roll for that attack."
+  },
+  "4ea981ee4301": {
+    "name": "Icon of da Revolushun",
+    "kind": "weapon",
+    "plain": "For attacks with this weapon, a wound roll of 6+ also deals 1 mortal wound to the target on top of any other damage."
+  },
+  "4f6852bdb447": {
+    "name": "Open-Topped (Big'ed Bossbunka)",
+    "kind": "ability",
+    "plain": "In your Shooting phase, units embarked in this transport can be chosen to shoot; measure ranges and line of sight from any point on the transport. Embarked models count as having Remained Stationary unless they embarked this turn."
+  },
+  "504b3a6397f5": {
+    "name": "Dok's Toolz (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CLAN> INFANTRY or <CLAN> BIKER units is within 3\" of this model, roll a D6 whenever a model in that unit would lose a wound; on a 6, the wound is not lost."
+  },
+  "50605f209e4d": {
+    "name": "Grot Riggers (Battle Fortress)",
+    "kind": "ability",
+    "plain": "In your Command phase, this model gets back up to 1 lost wound."
+  },
+  "528621efd0ea": {
+    "name": "Krush ’Em",
+    "kind": "stratagem",
+    "plain": "Use when one of your BLITZ BRIGADE BONEBREAKA models is picked to fight in the Fight phase. For its Bonebreaka Ram ability, roll three D6 and keep the highest."
+  },
+  "52d4d1c6ebd3": {
+    "name": "Kustom Red Button",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Snack Dispensa: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Hidden Rokkits: this model has 1 rokkit launcha until your next Command phase."
+  },
+  "5329cd244f95": {
+    "name": "Da Bigger Dey Iz...",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your BEAST SNAGGA WARBOSS units is picked to fight. For the rest of the phase, its models' attacks that target a TITANIC unit get 2 added to their Damage characteristic."
+  },
+  "544a7d580ffa": {
+    "name": "Warpath",
+    "kind": "psychic",
+    "plain": "Blessing, warp charge 6. If it is manifested, choose one of your <CLAN> CORE or <CLAN> CHARACTER units within 18\" of this PSYKER. Its models get 1 added to their Attacks characteristic until the start of your next Psychic phase."
+  },
+  "5491229c555e": {
+    "name": "Da Souped-up Shokka",
+    "kind": "weapon",
+    "plain": "Blast. Whenever this unit is selected to shoot with this weapon, roll once to set the weapon's Strength. If the result is 11+, each successful hit also deals D3 mortal wounds to the target on top of its normal damage."
+  },
+  "57b3cf1f5fb7": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "Each Mek Gun and its crew count as one model for all rules purposes, and the crew models have to stay within 1\" of their Mek Gun. So the crew can't be targeted or attacked on their own, and visibility and all ranges are measured to and from the Mek Gun model, not the crew. This unit can't Advance, is never eligible to charge or perform a Heroic Intervention, and can't pile in or consolidate."
+  },
+  "580a36617300": {
+    "name": "Stompa Lifta-Droppa",
+    "kind": "weapon",
+    "plain": "Whenever an attack with this weapon hits, roll 3D6. If the total is higher than the target's Toughness characteristic, the attack successfully wounds."
+  },
+  "58353361eaae": {
+    "name": "Super Runts",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, choose one GRETCHIN CORE unit in your army to be Zodgrod's super runts. Models in that unit add 1 to the hit roll for every attack they make, and the unit can shoot while performing an action without that action failing."
+  },
+  "584412b4821c": {
+    "name": "Big Boss",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the ORKS keyword: pick one ORKS CHARACTER from your army and give it one Warlord Trait (one it is allowed to have). That model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be different (re-roll duplicates if rolling randomly), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "58e777eebddf": {
+    "name": "Da Fixer Upperz",
+    "kind": "ability",
+    "plain": "Only a DEATHSKULLS MEK or BIG MEK model can have this. Whenever the bearer uses its Mekaniak or Big Mekaniak ability, roll a D6. On a 2+, the VEHICLE unit it chose gets back 1 extra wound, and you may also pick an enemy VEHICLE unit within 12\" of the bearer: that enemy unit takes D3 mortal wounds."
+  },
+  "59fd75df17f5": {
+    "name": "Kombi-weapon with rokkit launcha",
+    "kind": "ability",
+    "plain": "Each time you attack with this weapon, pick one or both of the profiles below. If you pick both, all of its hit rolls get 1 subtracted."
+  },
+  "59ff65c00a25": {
+    "name": "Workshop",
+    "kind": "ability",
+    "plain": "When this fortification is set up, all Scrap Piles and Scrap Barricades have to be placed within 6\" of the Mekboy Workbench. After set-up, each piece of the Fortification counts as a terrain feature."
+  },
+  "5a6ac771fc13": {
+    "name": "Careen!",
+    "kind": "stratagem",
+    "plain": "Use in any phase when one of your ORKS VEHICLE models is destroyed and explodes while not within Engagement Range of any enemy models. Before the explosion is resolved, it can make a Normal Move of up to 6\". Costs 2CP for a WAGON or TITANIC VEHICLE, 1CP for any other."
+  },
+  "5ae341239082": {
+    "name": "Smoky Gubbinz",
+    "kind": "ability",
+    "plain": "Only for a unit containing a Spanner model. If this unit Remained Stationary, it gains the benefits of light cover, lasting until your next Movement phase.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\", a page reference the style guide says to drop"
+    }
+  },
+  "5b4d810544aa": {
+    "name": "Ram",
+    "kind": "ability",
+    "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 4+, that enemy unit takes D3 mortal wounds."
+  },
+  "5c7fe34d4afc": {
+    "name": "One Scalpel Short of a Medpak",
+    "kind": "ability",
+    "plain": "This model can charge even in a turn in which it Advanced or Fell Back. At the start of the Charge phase, if it is able to charge, it must declare a charge, and the nearest enemy unit must be one of its targets."
+  },
+  "5c9584c7ad88": {
+    "name": "Drag Chains",
+    "kind": "ability",
+    "plain": "Only a SPEED MOB VEHICLE model can have this. In your Movement phase, whenever this model is chosen to Fall Back, pick one enemy unit within Engagement Range of it (not a VEHICLE or MONSTER unit) and roll a D6. On a 2-5, that enemy unit takes D3 mortal wounds; on a 6, it takes 3 mortal wounds."
+  },
+  "5ce37ea454c2": {
+    "name": "Wurrboy",
+    "kind": "psychic",
+    "plain": "Psychic powers: Smite, plus 2 powers from the Beasthead discipline."
+  },
+  "5d042a80bec7": {
+    "name": "Rippa Klaws",
+    "kind": "ability",
+    "plain": "If the bearer has 2 dread rippa klaws, then whenever it fights it can make 1 extra attack with 1 of those dread rippa klaws."
+  },
+  "5ee2e968f6b7": {
+    "name": "Snagga Grapple",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Movement phase, pick one BEAST SNAGGA BOYZ unit from your army. Whenever an enemy unit (not TITANIC units) within Engagement Range of that unit is chosen to move, roll one D6: on a 4+, it can't Fall Back this turn."
+  },
+  "5f72945fcef6": {
+    "name": "Smasha 'Ead",
+    "kind": "ability",
+    "plain": "Whenever this model ends a charge move or a Heroic Intervention move, pick one enemy unit within Engagement Range of it and roll five D6. That unit suffers 1 mortal wound for every 4+."
+  },
+  "607807822357": {
+    "name": "Stampede",
+    "kind": "ability",
+    "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 2+, that enemy unit takes D3 mortal wounds."
+  },
+  "62b6e77dac66": {
+    "name": "Enhanced Runt-sucker",
+    "kind": "ability",
+    "plain": "Only a BIG MEK with a shokk attack gun can have this. The shokk attack gun's Type becomes 'Heavy 2D3'."
+  },
+  "631775a44e5a": {
+    "name": "Grot Lash",
+    "kind": "ability",
+    "plain": "The bearer gets this ability - Grot Lash (Aura): while one of your GRETCHIN INFANTRY units is within 3\" of any models with a grot-lash, its models' Move characteristic is increased by 1\"."
+  },
+  "631dc9dc5ed4": {
+    "name": "Da Krushin' Armour",
+    "kind": "ability",
+    "plain": "Only a MEGA ARMOUR model can have this. The bearer has a 4+ invulnerable save, and you add 1 to its armour saves. After the bearer finishes a charge move, you may pick one enemy unit within 1\" of it and roll a D6: on a 2+, that unit takes D3 mortal wounds."
+  },
+  "63ec63a867f4": {
+    "name": "Da Badskull Banner",
+    "kind": "ability",
+    "plain": "Only a FREEBOOTERZ model can have this, and a VEHICLE model is allowed to take it. Any enemy unit within 6\" of the bearer loses its Objective Secured ability for as long as it stays there."
+  },
+  "656d5edb2aa8": {
+    "name": "Howdah",
+    "kind": "ability",
+    "plain": "During your Shooting phase, units embarked on this model are allowed to shoot; measure their range and line of sight from any point on it. While shooting, these units are not treated as being in Engagement Range of enemy units, and if this model Fell Back or made a Normal Move, they are treated as having Remained Stationary. Every other restriction or modifier affecting this model also affects the models embarked on it; for example, if this model Advanced, so did they."
+  },
+  "663c4d885cb8": {
+    "name": "Mekaniak Boss",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, you may have Mek Boss Buzzgob repair one of your GOFF VEHICLE units within 3\" of him; that VEHICLE model regains up to 3 lost wounds. A model can't be repaired more than once in the same turn."
+  },
+  "664ae0a8d9d8": {
+    "name": "Squiggly Curse",
+    "kind": "psychic",
+    "plain": "WITCHFIRE, warp charge 7. If it is manifested, choose one enemy unit within 12\" of this PSYKER and roll a D6 for every model in it, up to a maximum of 6 dice. For each 4+, that unit takes 1 mortal wound. If this power destroys any models in that unit, every other enemy unit within 6\" of it takes 1 mortal wound."
+  },
+  "68a3188e0534": {
+    "name": "Sawbonez",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may try surgery on one of your <CLAN> INFANTRY or <CLAN> BIKER models within 3\". If it does, roll a D6: on a 1, that model loses 1 wound; on any other result, it regains D3 lost wounds. No model can have surgery tried on it more than once per turn."
+  },
+  "6950386a8203": {
+    "name": "Spirit of Gork",
+    "kind": "psychic",
+    "plain": "BLESSING, warp charge 6. If it is manifested, choose one of your SQUIG units within 12\" of this PSYKER that it can see. Until the start of your next Psychic phase:\n- when that unit fights, each squigosaur's jaws, smasha squig jaws, squighog jaws or Big Chompa's jaws it has can make 1 extra attack;\n- when a model in that unit attacks with any of those jaws weapons, an unmodified wound roll of 6 also deals 1 mortal wound to the target on top of any normal damage."
+  },
+  "69caaa7119da": {
+    "name": "Squigstoppa",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, you may pick one enemy MONSTER unit within 6\" of this model and roll a D6. On a 2+, that unit can't fight this phase until every eligible unit in your army has fought."
+  },
+  "6b2424279444": {
+    "name": "Git-rippa",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon."
+  },
+  "6bf24308be6b": {
+    "name": "Kannonwagon Grot Gunners",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll whenever this model attacks with a super-kannon."
+  },
+  "6c0c29fb3ca8": {
+    "name": "Killa Jet (Cutta)",
+    "kind": "weapon",
+    "plain": "When an attack made with this profile targets a unit within half range, that attack's Damage characteristic is D6+2."
+  },
+  "6c0c66e99263": {
+    "name": "Explodes (6+/3\"/1)",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll a D6 before you remove it and before any models embarked in it disembark. On a 6, it explodes and every unit within 3\" takes 1 mortal wound."
+  },
+  "6ca8d2258176": {
+    "name": "Kustom Red Button",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Shouty Speakas: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Force Fields: this model gets a 5+ invulnerable save until your next Command phase."
+  },
+  "6d8a9e372275": {
+    "name": "Buzzgob's Dredheadz",
+    "kind": "ability",
+    "plain": "In your Command phase, you may pick one of your GOFF MORKANAUT, GOFF GORKANAUT, GOFF KILLA KANS, GOFF MEKA DREAD, GOFF MEGA DREAD or GOFF DEFF DREADS units within 6\" of Mek Boss Buzzgob. Until your next Command phase starts, models in that unit add 1 to the hit roll for every attack they make."
+  },
+  "6df63adf137e": {
+    "name": "Dread Waaagh!",
+    "kind": "stratagem",
+    "plain": "Use while choosing your army: make one of your ORK Detachments a Dread Waaagh! Specialist Detachment. Its BIG MEKS, KILLA KANS, DEFF DREADS, GORKANAUTS and MORKANAUTS get the DREAD WAAAGH! keyword."
+  },
+  "71ac8d985d04": {
+    "name": "Bitin' Jawz",
+    "kind": "psychic",
+    "plain": "WITCHFIRE, warp charge 6. If it is manifested, choose one enemy model within 18\" of this PSYKER that it can see. Trace a line from any part of this PSYKER's base to any part of that model's base (or hull). The chosen model's unit takes 1 mortal wound, and so does every other enemy unit the line crosses over or passes through."
+  },
+  "74a827878551": {
+    "name": "'Eadbanger",
+    "kind": "psychic",
+    "plain": "WITCHFIRE, warp charge 5. If it is manifested, choose one enemy unit within 18\" of this PSYKER and roll a D6. If the roll beats that unit's Toughness characteristic, the unit takes D6 mortal wounds. These mortal wounds can destroy at most one model; any damage left over is lost."
+  },
+  "7640ef7b0e6d": {
+    "name": "Unstoppable Momentum",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase once one of your NOB ON SMASHA SQUIG units has finished a charge move. If that model has no enemy models in Engagement Range, it can straight away be picked to declare another charge."
+  },
+  "767701ccd595": {
+    "name": "Grot Oiler",
+    "kind": "ability",
+    "plain": "Once per battle, a VEHICLE model repaired by the bearer can regain 1 extra lost wound. (A Grot Oiler model can be placed beside the unit as a reminder and removed once used; it is not a model for any rules purposes.)"
+  },
+  "76d07bbf0c82": {
+    "name": "Blitz Brigade",
+    "kind": "stratagem",
+    "plain": "Use while choosing your army: make one of your ORK Detachments a Blitz Brigade Specialist Detachment. Its WARBOSSES, BATTLEWAGONS, GUNWAGONS and BONEBREAKA units get the BLITZ BRIGADE keyword."
+  },
+  "76d34f0e01dc": {
+    "name": "I've Got Just da Fing",
+    "kind": "ability",
+    "plain": "Your MEK and BIG MEK units can attempt the Kustomise action. Kustomise (Action): at the end of your Movement phase (no more than once per battle round), choose a MEK or BIG MEK unit of yours within 1\" of the Mekboy Workbench, plus an ORKS VEHICLE (TITANIC units excluded) within 3\" of that Workbench. The VEHICLE unit must stay within 3\" of the Workbench until the action completes, which happens when your turn ends. Then choose a Kustom Job the VEHICLE unit is eligible for, respecting the usual limits on how many times each Kustom Job can appear in your army (see I'll Av Wot E's Avin!). The VEHICLE unit gains it, and its Power Rating and points value don't increase. When each battle round ends, roll a D6 for every Kustom Job gained this way: on a 1 that Kustom Job falls off, and that model can't use or select it again for the rest of the battle.",
+    "waive": {
+      "60": "page reference (pg 60-61) to where the Kustom Jobs are printed, not a rule value",
+      "61": "page reference (pg 60-61) to where the Kustom Jobs are printed, not a rule value"
+    }
+  },
+  "7754f2725edd": {
+    "name": "'Urty Syringe",
+    "kind": "weapon",
+    "plain": "The bearer gets 1 extra attack with this weapon each time it fights. Attacks with this weapon always wound on an unmodified wound roll of 2+, except against a VEHICLE or TITANIC unit."
+  },
+  "7959b65c98a2": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit is destroyed, roll a D6 before you remove it from play. On a 6, it explodes and every unit within 3\" takes D3 mortal wounds."
+  },
+  "796b4afcffb5": {
+    "name": "Cowardly",
+    "kind": "ability",
+    "plain": "If no friendly RUNTHERD model is within 6\" of this unit, subtract 1 from the result of every Combat Attrition test a model in this unit takes."
+  },
+  "7a0a6d69a45f": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll a D6 when this model is destroyed. On a 6 it blows up, inflicting D3 mortal wounds on every unit within 3\"."
+  },
+  "7a4b930154a7": {
+    "name": "Goffs is da Best (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your GOFF CORE or GOFF CHARACTER units is within 6\" of this model, models in that unit can re-roll the hit roll for their melee attacks."
+  },
+  "7ac531010835": {
+    "name": "Kustom Force Field",
+    "kind": "ability",
+    "plain": "Aura: while one of your ORKS units is within 6\" of the bearer, that unit has a 6+ invulnerable save. Nothing can increase the range of this aura unless a rule specifically says it can."
+  },
+  "7aec93eb5bc5": {
+    "name": "Waaagh!",
+    "kind": "rule",
+    "plain": "Waaagh! (WARLORD is a WARBOSS): in your Command phase, once per battle, you can call a Waaagh! if that WARBOSS is on the battlefield or embarked in a TRANSPORT on the battlefield. Speedwaaagh! (WARLORD is a SPEEDBOSS): in your Command phase, once per battle, you can instead call a Speedwaaagh!, if that SPEEDBOSS is on the battlefield. Great Waaagh! (WARLORD is GHAZGHKULL THRAKA): you can call a Great Waaagh! instead, if GHAZGHKULL THRAKA is on the battlefield or embarked in a TRANSPORT on the battlefield. Each Waaagh! and Speedwaaagh! has two stages. The first begins when it is called and lasts until your next Command phase starts; the second then lasts until the start of the Command phase after that, at which point the effect ends completely. A Great Waaagh! counts as calling a Waaagh! and a Speedwaaagh! simultaneously, both active from the moment it is called, with stages running as described. WAAAAGH! Stage 1, Call Da Waaagh!: your ORKS CORE and ORKS CHARACTER units can declare a charge in a turn they Advanced; your ORKS models get 1 added to their Strength and Attacks characteristics and gain a 5+ invulnerable save. Stage 2, Get Stuck In!: your ORKS models get 1 added to their Strength and Attacks characteristics and gain a 6+ invulnerable save. SPEEDWAAAGH! Stage 1, Da Big Race: your ORKS models ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced; whenever one of your ORKS VEHICLE or ORKS BIKER models shoots a Dakka weapon, it makes 1 additional attack with it; and ranged attacks by models in your ORKS VEHICLE and ORKS BIKER units get their Armour Penetration improved by 1. Stage 2, Give 'Em Sum Dakka!: ranged attacks by models in your ORKS VEHICLE and ORKS BIKER units get their Armour Penetration improved by 1."
+  },
+  "7ba5158974fc": {
+    "name": "Outriders",
+    "kind": "ability",
+    "plain": "Instead of deploying this unit on the battlefield, you can place it on the army's flank during deployment. If so, it arrives at the end of one of your Movement phases: set it up on the battlefield anywhere more than 9\" from every enemy model and wholly within 6\" of a battlefield edge."
+  },
+  "7cc4d227b28c": {
+    "name": "Squigboss",
+    "kind": "ability",
+    "plain": "For every <CLAN> SQUIGHOG BOYZ unit in a Detachment, that Detachment can also include up to two <CLAN> NOB ON SMASHA SQUIG units that don't use up any Battlefield Role slots."
+  },
+  "7cd4e7c92b44": {
+    "name": "Turbo-boost",
+    "kind": "ability",
+    "plain": "When this unit Advances, don't roll; instead add 6\" to its Move characteristic for that Movement phase."
+  },
+  "7daf11a79828": {
+    "name": "Accidental Figurehead (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your GOFF GRETCHIN units is within 12\" of this model, its models may use this model's Leadership characteristic in place of their own."
+  },
+  "7e05733728df": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 6\" suffers D6 mortal wounds."
+  },
+  "7ef0bbce859b": {
+    "name": "Da Gyroblitza",
+    "kind": "ability",
+    "plain": "When chosen to fight, this model can direct its full number of attacks at each enemy unit within Engagement Range."
+  },
+  "8129e268ca64": {
+    "name": "Kunnin’ Infiltrator",
+    "kind": "ability",
+    "plain": "When you set this model up during deployment, you can place it anywhere on the battlefield more than 9\" away from both the enemy deployment zone and all enemy models."
+  },
+  "816da5eb299e": {
+    "name": "Fuel-mixa Grot",
+    "kind": "ability",
+    "plain": "Once per battle, when this model Advances, skip the Advance roll; instead, its Move characteristic is increased by 9\" until the phase ends."
+  },
+  "855276e3319a": {
+    "name": "Grot Gunner",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll whenever this model attacks with a big shoota."
+  },
+  "85d054a0bf0a": {
+    "name": "'Ere We Go!",
+    "kind": "ability",
+    "plain": "Units with this ability may re-roll their charge rolls."
+  },
+  "85e08c8e338c": {
+    "name": "Blitza Dakka",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your SPEED MOB units is picked to shoot. For the rest of the phase, its models' attacks against an enemy unit within 12\" re-roll hit rolls of 1, or hit rolls of 1-2 if the unit has the KUSTOM BOOSTA-BLASTAS keyword."
+  },
+  "8617838f5df4": {
+    "name": "Bursta Kannon",
+    "kind": "weapon",
+    "plain": "Blast. Add 1 to the hit roll of attacks with this weapon against a target within half range."
+  },
+  "863fbbecbd94": {
+    "name": "Grot Gunner",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll whenever this model attacks with a twin big shoota."
+  },
+  "86d7d77cbf93": {
+    "name": "Force Field Boosta",
+    "kind": "stratagem",
+    "plain": "Once per battle, as your opponent's Shooting phase begins, choose a model of yours that carries a kustom force field. Until the turn ends, the kustom force field's ability is replaced by: 'Aura: models in friendly ORKS units within 9\" of the bearer have a 5+ invulnerable save.' When this turn ends, the kustom force field overloads and can't be used again for the rest of the battle."
+  },
+  "88d32acffdb2": {
+    "name": "Bonebreaker Ram",
+    "kind": "ability",
+    "plain": "Whenever this model fights in a turn in which it made a charge move, its Attacks characteristic is increased by D6 until that fight has been resolved."
+  },
+  "88ea452e2f42": {
+    "name": "Kustom Ammo",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, choosing one of your DREAD WAAAGH! units. This phase, it can shoot twice with every ranged weapon it has."
+  },
+  "8c80253696e6": {
+    "name": "Ramming Speed",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase when one of your ORKS VEHICLE units is picked to charge. For the rest of the phase, its charge rolls use 3D6, and whenever it ends a charge move, you pick an enemy unit in Engagement Range of it and roll a D6: on a 2+ that enemy unit takes D3 mortal wounds."
+  },
+  "8ca1478716c8": {
+    "name": "Ded Sneaky",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase, if the mission uses the Strategic Reserves rule: pick one BLOOD AXES INFANTRY unit from your army (not MEGA ARMOUR units) within 3\" of any battlefield edge and put it into Strategic Reserve."
+  },
+  "8d5a68b77ea2": {
+    "name": "Da Blitzshouta",
+    "kind": "ability",
+    "plain": "When your Shooting phase begins, if the bearer is embarked inside a BLITZ BRIGADE BATTLEWAGON, choose one enemy unit that the BATTLEWAGON can see. Until the phase ends, when your BLITZ BRIGADE units within 6\" of that BATTLEWAGON attack the chosen enemy unit, re-roll their hit rolls of 1."
+  },
+  "8de06e99d463": {
+    "name": "Lotsa Squigs!",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, pick one RUKKATRUKK SQUIGBUGGIES unit from your army. That unit gets 1 more squig mine remaining."
+  },
+  "8de2a916078e": {
+    "name": "Ram",
+    "kind": "ability",
+    "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 2+, that enemy unit takes D3 mortal wounds."
+  },
+  "8f92407a1d01": {
+    "name": "Enraged Demise",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it becomes enraged, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "8fbf63f729e5": {
+    "name": "Grot Orderly",
+    "kind": "ability",
+    "plain": "Once per battle, if you roll a 1 for the bearer's Sawbonez ability, you can re-roll that dice. (A Grot Orderly model can be placed beside the unit as a reminder and removed once used; it is not a model for any rules purposes.)"
+  },
+  "9296d21018e5": {
+    "name": "Bigbomm",
+    "kind": "ability",
+    "plain": "This model can drop one bomm once per battle for each bigbomm it has. If it does, in your Movement phase, after it makes a Normal Move or Advances, you can pick one enemy unit it moved over during that move. Roll one D6 per model in that enemy unit (no more than five D6); the unit suffers 1 mortal wound for each 5+. Since the January 2023 update, you can only do this if this model is still on the battlefield when its move ends."
+  },
+  "9347443a1713": {
+    "name": "Throat Slitta",
+    "kind": "ability",
+    "plain": "This model's attacks get 1 added to the wound roll if it is within 1\" of a terrain feature when it attacks."
+  },
+  "936349a8bf95": {
+    "name": "Get Da Loot",
+    "kind": "stratagem",
+    "plain": "Use as your Command phase begins. Choose one of your FREEBOOTERZ INFANTRY units on the battlefield; it has the Objective Secured ability until your next Command phase starts."
+  },
+  "94d83ff8e9da": {
+    "name": "Gloryboyz",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase when one of your BLOOD AXES units makes a charge move. Choose one enemy unit that was among the targets of that charge. For the rest of the phase, charge rolls get 2 added whenever a BLOOD AXES STORMBOYZ unit declares a charge against that enemy unit."
+  },
+  "952eebde7b49": {
+    "name": "Extra-Kustom Weapon",
+    "kind": "ability",
+    "plain": "Only a model with a kustom mega-slugga or kustom mega-blasta can have this. Whenever this model shoots with either of those weapons, it makes one extra attack with it."
+  },
+  "955d276022ec": {
+    "name": "Big Bomb",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer makes a Normal Move or Advances in your Movement phase, pick a point on the battlefield that it passed over this phase, then roll a D6 for every unit within 3\" of that point. Subtract 1 from the roll for a CHARACTER unit (unless it is a VEHICLE or MONSTER unit). On a 4+ the unit takes D3 mortal wounds. Since the January 2023 update, this only works if the bearer is still on the battlefield when its move ends."
+  },
+  "95a742218421": {
+    "name": "Mekaniak",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may repair one of your <CLAN> VEHICLE models within 3\" of it; that VEHICLE model gets back 1 lost wound. A model can't be repaired more than once in the same turn."
+  },
+  "966a7bd394d8": {
+    "name": "Stikkbomb Launcha",
+    "kind": "weapon",
+    "plain": "You can only fire this weapon once per battle."
+  },
+  "96773fa4ab11": {
+    "name": "Da Ded Shiny Shoota",
+    "kind": "ability",
+    "plain": "Only a model with a kustom shoota can have this. It takes the place of the kustom shoota and uses the profile listed for this Relic."
+  },
+  "9696d77371e8": {
+    "name": "Stompamatic Pistons",
+    "kind": "ability",
+    "plain": "Only a DEFF DREAD, GORKANAUT or MORKANAUT model can have this. This model's Move characteristic is increased by 3\", and you add 1 to its Advance rolls."
+  },
+  "970ee9ad8923": {
+    "name": "Dok’s Tools (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CLAN> INFANTRY, <CLAN> BIKER or <CLAN> CAVALRY units is within 3\" of this model, roll a D6 whenever a model in that unit would lose a wound; on a 6, the wound is not lost."
+  },
+  "973ca68923d3": {
+    "name": "Chop and Krush",
+    "kind": "ability",
+    "plain": "If this model carries any two melee weapons, add 1 to its Attacks characteristic."
+  },
+  "9741c6be2b49": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, first turn it on the spot by up to 90 degrees (this doesn't count towards the distance it moves), then move it straight forwards. It can't turn again after that first pivot."
+  },
+  "975b21770a3a": {
+    "name": "Runtherd (Restriction)",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each Detachment must contain at least one GRETCHIN INFANTRY unit for every RUNTHERD unit in it. RUNTHERD units don't use up any Detachment slots."
+  },
+  "97640e5f7ef7": {
+    "name": "Prophet of Gork and Mork",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save. Also, it can't lose more than 4 wounds in any single phase."
+  },
+  "97a80c31c001": {
+    "name": "Big Red Button (Looted Vehicle)",
+    "kind": "ability",
+    "plain": "Once per battle, at the start of the Shooting phase, the Looted Vehicle's driver can press the red button on his dashboard. If he does, roll a D3 on the table to find out what happens."
+  },
+  "97ad04c1eff6": {
+    "name": "Da IronGob",
+    "kind": "ability",
+    "plain": "Only a GOFF model can have this. After the bearer has made its close combat attacks, and before it consolidates, you may pick one enemy unit within 1\" of it and roll a D6: on a 2+, that unit takes D3 mortal wounds."
+  },
+  "97b271d05b31": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "Psychic powers: Smite, plus 2 powers from the Beasthead discipline."
+  },
+  "97e2aeb8d766": {
+    "name": "Surprize!",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase starts. Choose one BLOOD AXES KOMMANDOS unit wholly within an Area Terrain feature. For the rest of the phase: any enemy unit in Engagement Range of the Kommandos can't use rules that let it fight first, and it is never treated as having made a charge move this turn, regardless of its abilities. In addition, attacks against that unit subtract 1 from their hit rolls."
+  },
+  "980b8b0b20ea": {
+    "name": "Targetin' Squig",
+    "kind": "ability",
+    "plain": "When this model attacks with its shoota, or with a Relic that took the place of its shoota, add 1 to the hit roll."
+  },
+  "982e1997206c": {
+    "name": "Throat Slittas",
+    "kind": "ability",
+    "plain": "Melee attacks by models in this unit get 1 added to the wound roll if the attacking model is within 1\" of a terrain feature."
+  },
+  "9830acf9c5b0": {
+    "name": "Squig Hound",
+    "kind": "ability",
+    "plain": "The bearer gets this ability - Squig Hound (Aura): while one of your GRETCHIN units is within 3\" of the bearer, its models ignore modifiers to Combat Attrition tests."
+  },
+  "98f38313a552": {
+    "name": "Grot-Guided Bomm",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see. The bearer can shoot it only once per battle. For every attack made with it, the bearer's Ballistic Skill counts as 2+."
+  },
+  "9b0df22063a2": {
+    "name": "Big Gunz",
+    "kind": "ability",
+    "plain": "When this unit is first placed on the battlefield, every Big Gun must be within 6\" of at least one other Big Gun, and each grot krew within 1\" of its own Big Gun. After that, each Big Gun acts on its own and counts as a separate unit for all rules purposes."
+  },
+  "9bd32f0db150": {
+    "name": "Grot Guided Bomm (Fighta-Bommer)",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see. The bearer can only fire it once per battle. For attacks with this weapon, the bearer's Ballistic Skill is 2+."
+  },
+  "9cf910546859": {
+    "name": "Waaagh!",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, if your WARLORD is a WARBOSS, you can call a Waaagh! (the WARBOSS has to be on the battlefield or inside a TRANSPORT that is itself on the battlefield). If your WARLORD is a SPEEDBOSS, you can instead call a Speedwaaagh! once per battle in your Command phase; the SPEEDBOSS has to be on the battlefield. With GHAZGHKULL THRAKA as your WARLORD, the alternative is to call a Great Waaagh! (GHAZGHKULL THRAKA has to be on the battlefield or inside a TRANSPORT that is itself on the battlefield). A Great Waaagh! counts as calling a Waaagh! and a Speedwaaagh! together, so both are active from that moment.\n\nWaaagh! and Speedwaaagh! both run in 2 stages. Stage 1 begins when it is called and ends at the start of your next Command phase. Stage 2 then begins and ends at the start of your following Command phase, at which point the effect is over.\n\nWaaagh! Stage 1 (Call Da Waaagh!): your ORKS CORE and ORKS CHARACTER units can declare a charge even if they Advanced this turn; your ORKS models get 1 extra Strength and 1 extra attack (add 1 to both characteristics); and your ORKS models have a 5+ invulnerable save.\nWaaagh! Stage 2 (Get Stuck In!): your ORKS models still add 1 to their Strength and Attacks characteristics, and have a 6+ invulnerable save.\n\nSpeedwaaagh! Stage 1 (Da Big Race): your ORKS models ignore the hit roll penalty for firing Assault weapons in a turn when their unit Advanced; whenever one of your ORKS VEHICLE or ORKS BIKER models shoots a Dakka weapon, it makes 1 extra attack with it; and ranged attacks by models in your ORKS VEHICLE or ORKS BIKER units have their Armour Penetration improved by 1.\nSpeedwaaagh! Stage 2 (Give 'Em Sum Dakka!): ranged attacks by models in your ORKS VEHICLE or ORKS BIKER units still have their Armour Penetration improved by 1."
+  },
+  "9d48afe7617d": {
+    "name": "Fists of Gork",
+    "kind": "psychic",
+    "plain": "BLESSING, warp charge 6. If it is manifested, choose one of your ORKS CHARACTER models within 12\" of this PSYKER that it can see. Until the start of your next Psychic phase, that model's Strength and Attacks characteristics are each increased by 2, or by 3 instead if the Psychic test result was 11 or higher."
+  },
+  "9e95426bd4d7": {
+    "name": "Fuel Mixa Grot",
+    "kind": "ability",
+    "plain": "Once per battle, when this model Advances, skip the Advance roll; instead, its Move characteristic is increased by 9\" until the phase ends."
+  },
+  "9ede23ff7b74": {
+    "name": "Noise Box",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this model, its models' Leadership is reduced by 1 (reduced by 3 instead if this model has destroyed any CHARACTER units during the battle), and Combat Attrition tests taken for that unit are reduced by 1."
+  },
+  "9fe183d574b1": {
+    "name": "Gargantuan",
+    "kind": "ability",
+    "plain": "This model can still charge in a turn it Fell Back. When it makes a Normal Move, Advances or Falls Back, it may pass through models (other than VEHICLE or MONSTER models) as though they were not there."
+  },
+  "a1f636c78e02": {
+    "name": "Squig Mine",
+    "kind": "ability",
+    "plain": "If this unit still has squig mines, it can release one at the end of your Movement phase (once per turn only). Choose an enemy VEHICLE unit no more than 6\" away and roll a D6. A roll of 3-5 inflicts D3 mortal wounds on it; a 6 inflicts D6 mortal wounds instead. Afterwards, this unit has 1 fewer squig mine."
+  },
+  "a32b18104ba9": {
+    "name": "Kombi-rokkit",
+    "kind": "ability",
+    "plain": "Before you choose targets, pick either or both of the profiles below to attack with. If you pick both, subtract 1 from the hit roll of every attack made with this weapon for the rest of the phase."
+  },
+  "a3b26bcef61c": {
+    "name": "Brogs Buzzbomb",
+    "kind": "ability",
+    "plain": "Only a SNAKEBITES model can have this Relic. It uses the weapon profile listed for it."
+  },
+  "a3b3ce6ce454": {
+    "name": "Bubblechukka",
+    "kind": "ability",
+    "plain": "Once targets are chosen, roll one D3 to see which profile the attacks use. If a unit has more than one bubblechukka shooting at the same target, roll the profile for each weapon separately before resolving any attacks against that target."
+  },
+  "a4659e79dde2": {
+    "name": "Grabba Stikk",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it can make 1 extra attack with this weapon."
+  },
+  "a4cac341664d": {
+    "name": "Lumbering Strides",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase when the 'Ere We Go ability lets you re-roll a charge roll for one of your MORKANAUT, GORKANAUT or STOMPA units. Instead of re-rolling both dice, you may re-roll only one of them."
+  },
+  "a57850c52d65": {
+    "name": "Da Rippa (Supercharge)",
+    "kind": "weapon",
+    "plain": "When the bearer shoots, if you roll any unmodified hit rolls of 1 for attacks with this profile, the bearer takes 1 mortal wound once it has finished shooting this weapon."
+  },
+  "a623d990071c": {
+    "name": "Rigger Crew",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, the grot riggers of this model may try to fix it: roll a D6, and on a 2+ it gets back D3 lost wounds. It can't be repaired more than once per turn."
+  },
+  "a68aa0f1d16b": {
+    "name": "Kustom Mega-Slugga",
+    "kind": "weapon",
+    "plain": "If any of your hit rolls for this weapon is a 1, the bearer takes a mortal wound once all of the weapon's shots are resolved."
+  },
+  "a6a0952db571": {
+    "name": "Wurrtower",
+    "kind": "weapon",
+    "plain": "When you choose this weapon to shoot, if the bearer successfully manifested any psychic power this turn, its Type becomes Assault D3. Attacks made with this weapon always hit the target automatically."
+  },
+  "a79013f72baf": {
+    "name": "One Scalpel Short of a Medpack",
+    "kind": "ability",
+    "plain": "This model can charge even in a turn in which it Advanced or Fell Back. At the start of the Charge phase, if it is able to charge, it must declare a charge, and the nearest enemy unit must be one of its targets."
+  },
+  "a87eaf0f426c": {
+    "name": "Dok’s Tools",
+    "kind": "ability",
+    "plain": "Whenever a <CLAN> INFANTRY or <CLAN> BIKER model within 3\" of any friendly <CLAN> PAINBOYS would lose a wound, roll a D6; on a 6, the wound is not lost."
+  },
+  "a96bca6bdf24": {
+    "name": "Fortress on Wheels",
+    "kind": "ability",
+    "plain": "Only a TRUKK or WAGON model can have this. This model has a 5+ invulnerable save."
+  },
+  "a9d599a408da": {
+    "name": "Raised Suspenshun",
+    "kind": "ability",
+    "plain": "Only a SPEED MOB VEHICLE model can have this. Even while this model is within Engagement Range of enemy models, it can still make ranged attacks at enemy units that are not within its Engagement Range."
+  },
+  "aca29a88db1f": {
+    "name": "Boom Bomb",
+    "kind": "ability",
+    "plain": "Once per turn, if the bearer still has a boom bomb, it can drop it. To do so, after the bearer makes a Normal Move or Advances in your Movement phase, pick a point on the battlefield that it passed over this phase, then roll a D6 for every unit within 6\" of that point. Subtract 1 from the roll for a CHARACTER unit (unless it is a VEHICLE or MONSTER unit). On a 4+ the unit takes D3 mortal wounds, or D6 mortal wounds instead if the roll is a 6. No boom bomb can be dropped more than once per battle. Since the January 2023 update, this only works if the bearer is still on the battlefield when its move ends."
+  },
+  "ad2d364d22b2": {
+    "name": "Nitnuckle and Lunk",
+    "kind": "ability",
+    "plain": "Once per turn, when Mek Boss Buzzgob repairs a GOFF VEHICLE model using his Mekaniak Boss ability, you may have his grot underlings help, letting that model regain 1 extra lost wound. This ability can be used only twice per battle. (Two Grot Oiler models can be placed next to Mek Boss Buzzgob as reminders, removing one each time it is used; they are not models for any rules purposes.)"
+  },
+  "ad7e38895973": {
+    "name": "Get Stuck in Ladz!",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your BOYZ or BEAST SNAGGA BOYZ units is picked to fight. For the rest of the phase, its models can move up to 3\" extra whenever they pile in or consolidate. This doesn't stack with any other rule that increases pile-in or consolidation distance. It costs 1CP for a unit of up to 10 models, or 2CP for a larger unit."
+  },
+  "adce0f7bdc76": {
+    "name": "Da Gobshot Blunderbuss",
+    "kind": "ability",
+    "plain": "Only a BAD MOONS model with a kustom shoota can have this. It takes the place of the kustom shoota and uses the profile listed for this Relic."
+  },
+  "ae019425545d": {
+    "name": "Small Bomms",
+    "kind": "ability",
+    "plain": "Twice per battle, after this model makes a Normal Move or Advances in your Movement phase, you may choose one enemy unit it passed over during that move. Roll a D6 for each model in the chosen unit (10 dice at most); for each 5+ the unit suffers 1 mortal wound. Since the January 2023 update, this only works if this model is still on the battlefield when its move ends."
+  },
+  "ae3fdced0352": {
+    "name": "Groundshaker Shells",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase as you pick a target for an 'eavy lobba. For the rest of the phase, whenever that model hits with a ranged attack from an 'eavy lobba against a target that isn't TITANIC and can't FLY, the target unit's models have their Move characteristic halved, and Advance and charge rolls for that unit are reduced by 2, until the start of your next Movement phase."
+  },
+  "afdfdd44e07d": {
+    "name": "Musik",
+    "kind": "ability",
+    "plain": "At the start of every battle round, choose one of the musik types below; this model performs it until that battle round ends.\n- Goffik Rokk: while one of your GOFF INFANTRY units is within 6\" of this model, its models get 1 added to their Strength.\n- 'Eavy Metal: while this model is within 6\" of a GOFF INFANTRY unit of yours that has the No Mukkin' About kultur, that kultur's extra hit is triggered on an unmodified 5+ instead of only on a 6."
+  },
+  "b0ec62e10e72": {
+    "name": "Makari's Stabba",
+    "kind": "weapon",
+    "plain": "For each attack with this weapon, an unmodified wound roll of 6 deals D3 mortal wounds to the target and ends the attack sequence."
+  },
+  "b30921cfee97": {
+    "name": "'ard Case",
+    "kind": "ability",
+    "plain": "Increase this model's Toughness characteristic by 1; it can't use the Open Topped ability."
+  },
+  "b39df7377c93": {
+    "name": "Kustom Shokk Rifle",
+    "kind": "weapon",
+    "plain": "If one or more attacks with this weapon get an unmodified hit roll of 1, the bearer's unit suffers 1 mortal wound once it has finished shooting this weapon. Also, an unmodified wound roll of 6 for an attack with this weapon deals 1 mortal wound to the target on top of the normal damage."
+  },
+  "b45fa845c83d": {
+    "name": "Waaagh!",
+    "kind": "ability",
+    "plain": "At the start of the Charge phase, any of your GOFF INFANTRY units within 6\" of this model may still charge, even having Advanced this turn."
+  },
+  "b4bd4a82aac8": {
+    "name": "Distraction Grot",
+    "kind": "ability",
+    "plain": "Once per battle, when the bearer is chosen to fight, you can have models in this unit count as being within 1\" of a terrain feature."
+  },
+  "b561a5b95e0b": {
+    "name": "Traktor Kannon",
+    "kind": "weapon",
+    "plain": "When attacking with this weapon: against a VEHICLE unit that can FLY, the attack's Damage is D6+3; against an AIRCRAFT unit, add 2 to the hit roll; against any non-AIRCRAFT unit, add 1 to the hit roll."
+  },
+  "b5e2d915fc57": {
+    "name": "Snagged",
+    "kind": "ability",
+    "plain": "Whenever this model attacks with its stikka kannon and an enemy VEHICLE or MONSTER model (not TITANIC or AIRCRAFT models) loses any wounds from that attack, roll one D6. On a 4+, until the start of your next turn that enemy model can't end any kind of move more than 12\" away from this model. The effect ends if this model moves for any reason or is destroyed."
+  },
+  "b69b0f09a03e": {
+    "name": "Tank Hunters",
+    "kind": "ability",
+    "plain": "Whenever a model with this ability attacks a VEHICLE unit, add 1 to the hit roll for that attack."
+  },
+  "b70b148859dd": {
+    "name": "Got’em Trapped",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase starts. Choose an enemy unit in Engagement Range of at least two of your BLOOD AXES units (CHARACTER units don't count). For the rest of the phase, each unmodified hit roll of 6 for a BLOOD AXES model attacking that enemy unit scores 1 additional hit."
+  },
+  "b7c54c5682a9": {
+    "name": "Shoutin' Pole",
+    "kind": "ability",
+    "plain": "The bearer has the Warboss, Beastboss or Flashiest Gitz aura ability of any WARBOSS model embarked on this TRANSPORT, for as long as that model is embarked."
+  },
+  "b82f96349b10": {
+    "name": "Tankbusta Bomb",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your ORKS TANKBUSTA BOMBS units is picked to fight. Choose a model in it: this phase that model makes just one attack, which has to target an enemy VEHICLE unit. If that attack hits, the target takes 2D3 mortal wounds and the attack sequence ends."
+  },
+  "b864bd608be2": {
+    "name": "More Dakka!",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your ORKS units is picked to shoot. For the rest of the phase, when you work out how many attacks its Dakka weapons make, treat them as within half range."
+  },
+  "b9ed55e7c58a": {
+    "name": "Gaze of Gork",
+    "kind": "ability",
+    "plain": "Before you choose targets, pick which of this weapon's profiles to attack with."
+  },
+  "bacde5217fc7": {
+    "name": "Lifta-Droppa",
+    "kind": "weapon",
+    "plain": "Blast. Attacks with this weapon hit automatically. For each hit, don't roll to wound; instead roll 2D6, and if the total equals or beats the target's highest Strength characteristic, the target suffers 1 mortal wound."
+  },
+  "bba61c7a40b6": {
+    "name": "Ammo Runt",
+    "kind": "ability",
+    "plain": "Once per battle, you can re-roll the hit roll for one ranged attack made by the bearer. (An Ammo Runt model can be placed beside the unit as a reminder and removed once used; it is not a model for any rules purposes.)"
+  },
+  "bcf8e2297d1a": {
+    "name": "Big an' Stompy",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move over other models (except MONSTER and VEHICLE models) as if they weren't there; while doing so it can pass within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
+  },
+  "bd014fb5aa9b": {
+    "name": "Kustom Red Button (Looted Wagon)",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 SNACK DISPENSA: no effect. 2-3 BOOSTA: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 MORE DAKKA: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 HIDDEN ROKKITS: this model has 1 rokkit launcha until your next Command phase."
+  },
+  "bd74f74776cb": {
+    "name": "Stampede",
+    "kind": "ability",
+    "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 2+, that enemy unit takes D6 mortal wounds."
+  },
+  "c11947728009": {
+    "name": "Lobba",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see."
+  },
+  "c1813ccc8a4b": {
+    "name": "More Gitz Over ’Ere!",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase when one of your SPEED MOB units Falls Back. It can still shoot this turn even though it Fell Back. If it has the BOOMDAKKA SNAZZWAGONS keyword as well, then for the rest of the turn, each unmodified hit roll of 6 on its models' ranged attacks scores 1 additional hit."
+  },
+  "c32874b6e113": {
+    "name": "Killsaw",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of every attack made with this weapon. If the bearer has two of these weapons, it gets 1 extra attack with this profile when it fights."
+  },
+  "c38809e2c590": {
+    "name": "Mega Charge",
+    "kind": "ability",
+    "plain": "Whenever you make a charge roll for this unit, roll one extra D6 and discard one of the dice."
+  },
+  "c3b8a46f999b": {
+    "name": "Red Rolla",
+    "kind": "ability",
+    "plain": "Only a BONEBREAKA model can have this. It swaps this model's Bonebreaker Ram ability for Red Rolla: when this unit fights, if it made a charge move this turn, this model's Attacks characteristic is increased by D3+3 until that fight is resolved."
+  },
+  "c3f3cadbdceb": {
+    "name": "Tough as Squig-hide",
+    "kind": "stratagem",
+    "plain": "Use in any phase when one of your BEAST SNAGGA INFANTRY, BEAST SNAGGA CAVALRY or BEAST SNAGGA MONSTER units is picked as the target of an attack. For the rest of the phase, any attack against that unit with an unmodified wound roll of 1-3 fails, no matter what abilities the attacking model or its weapon has."
+  },
+  "c4aee3b27cac": {
+    "name": "Kustom Mega-Blasta",
+    "kind": "weapon",
+    "plain": "Blast. If you roll any unmodified hit rolls of 1 for this weapon's attacks, the bearer takes 1 mortal wound once it has finished shooting this weapon."
+  },
+  "c4c5645e8794": {
+    "name": "Twin Skorcha",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon always hit the target automatically."
+  },
+  "c4c9ab7a6138": {
+    "name": "Mob Rule",
+    "kind": "ability",
+    "plain": "As long as this unit is within 6\" of one of your <CLAN> MOB units that is not under half strength, this unit never counts as being under half strength."
+  },
+  "c4cd5001f662": {
+    "name": "Squig-hide Tyres",
+    "kind": "ability",
+    "plain": "Only a VEHICLE model can have this (not WALKERS or AIRCRAFT). This model's Move characteristic is increased by 1\", and whenever it Advances, add a further 2\" to its Move characteristic."
+  },
+  "c5f26a028408": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit is destroyed, roll one D6 before taking it off. On a 6 it blows up and every unit within 3\" suffers D3 mortal wounds."
+  },
+  "c7016ce57af0": {
+    "name": "Stompa Klaw",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, an unmodified wound roll of 4+ deals D3 mortal wounds to the target on top of any normal damage."
+  },
+  "c83fb546e842": {
+    "name": "Da Krunch",
+    "kind": "psychic",
+    "plain": "WITCHFIRE, warp charge 6. If it is manifested, choose one enemy unit within 18\" of this PSYKER and roll a D6 for every model in it; for each 6 rolled, that enemy unit takes 1 mortal wound. If the Psychic test result was 9 or higher, add 1 to those rolls."
+  },
+  "c8889c124750": {
+    "name": "Squigosaur's Jaws",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it gets 3 extra attacks with this weapon, and it can never make more than 3 attacks with it. For each attack with this weapon, an unmodified wound roll of 6 deals 3 mortal wounds to the target and ends the attack sequence."
+  },
+  "c9238db3252e": {
+    "name": "Scoutin’ Ahead",
+    "kind": "ability",
+    "plain": "Instead of placing this unit on the battlefield during deployment, you can hold it behind enemy lines. If you do, it can arrive at the end of any of your Movement phases: set it up on the battlefield anywhere more than 9\" from every enemy model and within 14\" of a battlefield edge."
+  },
+  "c9cd7de68d7c": {
+    "name": "Grot Gunner (Boomdakka)",
+    "kind": "ability",
+    "plain": "Models in this unit add 1 to the hit roll for their attacks with a grot blasta or big shoota."
+  },
+  "c9e42c387f21": {
+    "name": "Grot Krew",
+    "kind": "ability",
+    "plain": "Each Big Gun and its grot krew count as one model for all rules purposes. The krew has to stay within 1\" of its Big Gun and can't be targeted or attacked on its own. Measure range and visibility for every attack by a Big Gun from the Big Gun itself, not from the krew."
+  },
+  "ca9e447e1413": {
+    "name": "Opening Salvo",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase in the first battle round, choosing one of your BLITZ BRIGADE GUNWAGON units. Its weapons have double their Range characteristic for the rest of that phase."
+  },
+  "cb963e1bcf45": {
+    "name": "Shoot 'Em Again!",
+    "kind": "ability",
+    "plain": "If this model stays stationary in its Movement phase, or moves a distance in inches that is less than half its current Move characteristic, then in the following Shooting phase it can shoot twice with its killkannon or lobba, but both times at the same target unit."
+  },
+  "cbd2b6e1742d": {
+    "name": "Attack Squig",
+    "kind": "weapon",
+    "plain": "When a model with an attack squig fights, it can make 2 extra attacks with this weapon, and it can never make more than 2 attacks with it."
+  },
+  "cda7fbca8a44": {
+    "name": "Zzap gun",
+    "kind": "weapon",
+    "plain": "Whenever you choose this weapon to shoot, roll 2D6 to set the Strength of all its attacks. On an 11+, each successful hit deals D3 mortal wounds to the target on top of the normal damage, and the bearer suffers 1 mortal wound."
+  },
+  "ce51ab6fbe71": {
+    "name": "Da Revolushun! (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your GRETCHIN units is within 6\" of this model, add 1 to every Combat Attrition test taken for that unit."
+  },
+  "ce73f1ae3808": {
+    "name": "Dread Klaw",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon."
+  },
+  "ce99b967d17a": {
+    "name": "Gotcha!",
+    "kind": "ability",
+    "plain": "Whenever an attack with this weapon successfully hits an enemy unit, that unit is grabbed by the bearer until the start of your next Movement phase. Whenever an enemy unit grabbed by the bearer is selected to Fall Back, you roll a D6 and add the bearer's Strength characteristic, and your opponent rolls a D6 and adds that unit's Strength characteristic. If your total beats your opponent's, the enemy unit can't Fall Back and must Remain Stationary instead."
+  },
+  "ceb482118c34": {
+    "name": "Sawbonez (PainBoss)",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may heal one of your <CLAN> BEAST SNAGGA INFANTRY, <CLAN> BIKER or <CLAN> BEAST SNAGGA CAVALRY models whose unit is within 3\" of it. If it does, roll a D6: on a 1, that model takes 1 mortal wound; on a 2+, it regains up to 2 lost wounds. No model can be healed more than once per turn."
+  },
+  "ced928c9df9a": {
+    "name": "Grot Gunner (Warboss)",
+    "kind": "ability",
+    "plain": "When this model attacks with its big shoota, or with a Relic that took the place of its big shoota, add 1 to the hit roll."
+  },
+  "cf75ff0ea02d": {
+    "name": "Explodes (6+/3D6\"/D6)",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 3D6\" suffers D6 mortal wounds."
+  },
+  "cffc0dd10edd": {
+    "name": "Monster Hunterz",
+    "kind": "stratagem",
+    "plain": "Use when any phase starts. Choose an enemy MONSTER or VEHICLE unit, and up to 3 of your BEAST SNAGGA units. For the rest of the phase, attacks by models in those BEAST SNAGGA units against that MONSTER or VEHICLE unit get 1 added to the wound roll."
+  },
+  "d08d9edc5a00": {
+    "name": "Stompa-porta",
+    "kind": "stratagem",
+    "plain": "Use during deployment: instead of putting one of your STOMPA MOB units on the battlefield, you can set it up on a tellyporta pad. Units on a tellyporta pad can teleport in at the end of any of your Movement phases; place them on the battlefield anywhere more than 9\" from any enemy models."
+  },
+  "d095cbf13a66": {
+    "name": "Kustom Red Button",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Skreenwipers: no effect. 2-3 Boosta: this model's Move characteristic is increased by 3\" until your next Command phase. 4-5 Extra Spikes: until your next Command phase, whenever this model finishes a charge move, roll a D6 for every enemy unit within Engagement Range; each one that rolls 4+ takes D3 mortal wounds. 6 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit."
+  },
+  "d16d4dc7f316": {
+    "name": "Extra Gubbinz",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the ORKS keyword: pick one ORKS CHARACTER model in your army and give it one Shiny Gubbinz (a Relic it is allowed to have). All Relics in your army must be different, and this Stratagem can't give a model two Relics. You can use this Stratagem once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "d1bbf012dba6": {
+    "name": "Burn ’Em All!",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your BURNA-BOMMER units makes attacks with skorcha missile racks. Once those attacks are resolved, 1 mortal wound is inflicted on every other unit within 3\" of the target."
+  },
+  "d2751a9d8a94": {
+    "name": "Youngbloodz",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when a BLOOD AXES STORMBOYZ unit is picked to fight. For the rest of the phase, that unit's models get 1 added to their Strength characteristic. It costs 1CP if the unit has up to 10 models, or 2CP if it has more."
+  },
+  "d2c0fefb860c": {
+    "name": "Thick Hide",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1, but not below 1."
+  },
+  "d3a13e3fb34c": {
+    "name": "Shokka Hull",
+    "kind": "ability",
+    "plain": "Only a VEHICLE model can have this. Whenever an enemy unit targets this model with any attacks in the Fight phase, roll a D6 once those attacks are resolved: on a 4+, that enemy unit takes D3 mortal wounds."
+  },
+  "d3f554f7ae6a": {
+    "name": "Da Pain Klaw",
+    "kind": "weapon",
+    "plain": "If an attack with this weapon targets an INFANTRY or MONSTER unit and the hit roll is an unmodified 6, the target suffers 1 mortal wound as well as the normal damage."
+  },
+  "d42a3e07fb26": {
+    "name": "Chaaaaarge!",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase when one of your Warbikers units makes a charge move. Until the turn ends, that unit's models get 1 added to their Strength characteristic, and their melee attacks have Armour Penetration improved by 1."
+  },
+  "d585f88d9681": {
+    "name": "Periscope",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll whenever this model attacks with its kannon, killkannon, zzap gun or da booma."
+  },
+  "d59988e28129": {
+    "name": "Red Gobbo",
+    "kind": "ability",
+    "plain": "This model can be part of an ORKS Detachment and doesn't stop the other units in it from getting a Clan Kultur, though this model gains no benefit from any Clan Kultur itself. If it is your WARLORD, it has the Inspiring Leader Warlord Trait."
+  },
+  "d67146d4e3b4": {
+    "name": "Sneaky Gits",
+    "kind": "ability",
+    "plain": "If a model in this unit is receiving the benefits of cover when an attack is allocated to it, armour saves against that attack get an additional 2 added."
+  },
+  "d799d413063e": {
+    "name": "Fixin' Jobs",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, this model may fix one other friendly <CLAN> VEHICLE model that is within 1\" (it can't fix itself). The repaired model gets back up to D3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "d7a4e7056e5b": {
+    "name": "Red Gobbo",
+    "kind": "ability",
+    "plain": "This model can be part of an Ork Detachment and doesn't stop the other units in it from getting a Clan Kultur, though this model gains no benefit from any Clan Kultur itself."
+  },
+  "da61a1220300": {
+    "name": "Weirdboy",
+    "kind": "psychic",
+    "plain": "Psychic powers: Smite, plus 2 powers from PotW (the Power of the Waaagh! discipline)."
+  },
+  "da73eeaa4201": {
+    "name": "Big Bomb",
+    "kind": "ability",
+    "plain": "Once per battle, in your Movement phase, once the bearer has finished a Normal Move or an Advance, you can pick a single point on the battlefield that it passed over during this phase. For each unit within 3\" of that point, roll a D6, subtracting 1 from the roll if the unit is a CHARACTER (VEHICLE or MONSTER units excluded). On a 4+, it takes D3 mortal wounds."
+  },
+  "da9236fa31cd": {
+    "name": "Keep Up!",
+    "kind": "ability",
+    "plain": "Add 2\" to this model's Move characteristic while it is within 3\" of a friendly GHAZGHKULL THRAKA unit."
+  },
+  "dd3a41726285": {
+    "name": "Too Tuff for Deff",
+    "kind": "ability",
+    "plain": "This model has a 5+ invulnerable save. Whenever it would lose a wound, roll a D6: on a 5+, it keeps that wound."
+  },
+  "dd43a733fadd": {
+    "name": "Sneakiest Git",
+    "kind": "ability",
+    "plain": "If this model is receiving the benefits of cover when an attack is allocated to it, armour saves against that attack get an additional 2 added."
+  },
+  "dddd868c79ac": {
+    "name": "Spiked Ram",
+    "kind": "ability",
+    "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 4+, that enemy unit takes D3 mortal wounds."
+  },
+  "de8503adb940": {
+    "name": "Bionik Oiler",
+    "kind": "ability",
+    "plain": "Only a model with a grot oiler can have this. This model can use its grot oiler twice per battle rather than once."
+  },
+  "df080f088649": {
+    "name": "Spotted ‘Em!",
+    "kind": "stratagem",
+    "plain": "Use as your Shooting phase begins. Choose an enemy unit that one of your BLOOD AXES KOMMANDOS units can see and that is within 12\" of it. For the rest of the phase, that enemy unit gets no benefit from cover against attacks by BLOOD AXES models in your army."
+  },
+  "e0194bfbe836": {
+    "name": "More Dakka",
+    "kind": "ability",
+    "plain": "Only a VEHICLE model can have this. Whenever this model shoots, roll a D6. On a 4+, each Dakka weapon it has makes 1 extra attack; on a 6, each Dakka weapon it has makes 2 extra attacks instead."
+  },
+  "e0e586647b14": {
+    "name": "Dread Mob",
+    "kind": "ability",
+    "plain": "After this unit is first placed on the battlefield, if it contains more than 1 model, each of its models has to be placed within 6\" of another model in the unit. Once that initial set-up is done, every model counts as its own separate unit."
+  },
+  "e1373cd8d3be": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 6\" suffers D6 mortal wounds."
+  },
+  "e4c107c1ef0a": {
+    "name": "Beast Snagga",
+    "kind": "ability",
+    "plain": "Whenever a model with this ability attacks a VEHICLE or MONSTER, add 1 to the hit roll for that attack. In addition, all models in this unit have a 6+ invulnerable save."
+  },
+  "e4ed165e6961": {
+    "name": "Sawbonez",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may heal one of your ORKS INFANTRY or ORKS BIKER models whose unit is within 3\" of it. If it does, roll a D6: on a 1, that model takes 1 mortal wound; on a 2+, it regains up to 2 lost wounds. No model can be healed more than once per turn."
+  },
+  "e5b84c4dd23d": {
+    "name": "Crashin’ Through",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase once one of your SPEED FREEKS units finishes a charge move. If it has the Spiked Ram ability, it can't use that ability this turn. Pick one enemy unit within 1\" of it, then roll a D6 for each model in the SPEED FREEKS unit (up to six D6). If the SPEED FREEKS unit has the BIKER keyword, each 4+ inflicts 1 mortal wound on the enemy unit. If it has the VEHICLE keyword (but not MEGATRAKK SCRAPJETS or KUSTOM BOOSTA-BLASTAS units), each 4+ inflicts D3 mortal wounds on the enemy unit. If it has the MEGATRAKK SCRAPJETS or KUSTOM BOOSTA-BLASTAS keyword, each 2-5 inflicts D3 mortal wounds and each 6 inflicts 2D3 mortal wounds on the enemy unit."
+  },
+  "e6b02ccc9cd1": {
+    "name": "Beastscent",
+    "kind": "psychic",
+    "plain": "MALEDICTION (warp charge 5): if it is manifested, pick one enemy unit within 18\" of this PSYKER. That unit can't get the benefits of cover against attacks made by BEAST SNAGGA units in your army until your next Psychic phase begins."
+  },
+  "e6baba9dc072": {
+    "name": "Riding Shotgun",
+    "kind": "ability",
+    "plain": "When a model in this unit shoots, it can fire Grenade and Pistol weapons as well as its other weapon types."
+  },
+  "e7b2c9f38b68": {
+    "name": "Keepin' Order",
+    "kind": "ability",
+    "plain": "If a GOFF unit is within 3\" of any of your GOFF units with this ability when its Morale test is taken, roll a D6 for every model that flees from it: on a 6, that model does not flee."
+  },
+  "e829102513c5": {
+    "name": "Cuttin’ Flames",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, choosing one of your BURNA BOYZ units. For the rest of the phase, melee attacks made by Burna Boy models in that unit have an Armour Penetration of -2, and no ability or rule that improves Armour Penetration can improve this."
+  },
+  "ea34d71cb9d5": {
+    "name": "'Eavy Lobba",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see."
+  },
+  "ea4dcec9b7b8": {
+    "name": "Stomp, Stomp, Stomp!",
+    "kind": "stratagem",
+    "plain": "Use as the Fight phase begins. Choose one of your STOMPA MOB units that is within 1\" of any enemy units. For every enemy model within 3\" of it, roll a D6: on a 6+, 1 mortal wound is inflicted on that model's unit."
+  },
+  "ea7cec275255": {
+    "name": "Tide of Muscle",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, when you choose an ORKS CORE unit from your army (not GRETCHIN units) to charge: that unit can ignore any or all modifiers to its charge roll."
+  },
+  "eefc67feff20": {
+    "name": "Enraged Demise",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it becomes enraged, and every unit within 6\" suffers D6 mortal wounds."
+  },
+  "efc93ab43520": {
+    "name": "Terrifying Killer (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this model, its models have their Leadership characteristic reduced by 2 while there."
+  },
+  "f01e434fc103": {
+    "name": "Big an' Stompy",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move over other models (except MONSTER and VEHICLE models) as if they weren't there; while doing so it can pass within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
+  },
+  "f2a8d08367a5": {
+    "name": "Mystic Chanting",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, choosing one of your SNAKEBITES units. For the rest of the phase, it may try to deny one psychic power as though it were a PSYKER."
+  },
+  "f3fedd6b7af6": {
+    "name": "Stikka Kannon",
+    "kind": "weapon",
+    "plain": "When the bearer attacks a MONSTER or VEHICLE unit with this weapon, you can re-roll the hit roll."
+  },
+  "f4b39065da06": {
+    "name": "Fixin' Toolz",
+    "kind": "ability",
+    "plain": "Whenever a MEK or BIG MEK model uses its Mekaniak or Big Mekaniak ability while within 1\" of the Mekboy Workbench terrain feature, the VEHICLE unit it repairs regains 1 extra wound."
+  },
+  "f6cd6210fc81": {
+    "name": "Beastboss (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CLAN> BEAST SNAGGA CORE or <CLAN> BEAST SNAGGA CHARACTER units is within 6\" of this model, its models add 1 to the hit roll for every melee attack they make."
+  },
+  "f6e34729ac1e": {
+    "name": "Grot Gunner (Rukkatrukk)",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks with a heavy squig launcha, add 1 to the hit roll for that attack."
+  },
+  "f6f9c61d5178": {
+    "name": "Explodes (6+/6\"/D6)",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll one D6 before any embarked models get out and before taking the model off the table. On a 6 it blows up, and every unit within 6\" suffers D6 mortal wounds."
+  },
+  "f77898aa485a": {
+    "name": "Hold On, Boyz!",
+    "kind": "stratagem",
+    "plain": "Use during your Movement phase, just before one of your <CLAN> BLITZ BRIGADE BATTLEWAGON models moves. Choose a friendly <CLAN> INFANTRY unit that is wholly within 3\" of it and lift that unit off the battlefield. When the BATTLEWAGON has finished moving, place the <CLAN> INFANTRY unit back on the battlefield so it is wholly within 3\" of the BATTLEWAGON and more than 3\" away from all enemy models. The infantry unit isn't embarked in the Battlewagon, so it doesn't use up any of its transport capacity. For the rest of the phase it can't move again (but it is treated as having moved this turn for all rules purposes), and it can't charge this turn."
+  },
+  "f957bc3f22f0": {
+    "name": "Pyromaniaks",
+    "kind": "ability",
+    "plain": "If an attack made with a burna by this unit destroys an enemy unit, then until your next turn, this unit automatically passes every Morale test taken for it."
+  },
+  "f98237099e3f": {
+    "name": "Cloud of Smoke",
+    "kind": "stratagem",
+    "plain": "Use as your opponent's Shooting phase begins, choosing one of your SPEED FREEKS VEHICLE units. Until the phase ends, if any friendly SPEED FREEKS VEHICLE unit is within 6\" of the chosen unit, subtract 1 from the hit roll of each ranged attack that targets that unit."
+  },
+  "f9c42b3813c9": {
+    "name": "Goffs is da Best",
+    "kind": "ability",
+    "plain": "While one of your GOFF CORE or GOFF CHARACTER units is within 6\" of this model, models in that unit can re-roll the hit roll for their melee attacks."
+  },
+  "f9dfcae32aeb": {
+    "name": "Da Revolushun!",
+    "kind": "ability",
+    "plain": "While your Gretchin units are within 6\" of this model, they can use its Leadership in place of their own."
+  },
+  "fb8b962b18c4": {
+    "name": "‘Da Boss’ Best Grot",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and GHAZGHKULL THRAKA is in a Detachment, MAKARI can join that Detachment without using up an extra Battlefield Role slot."
+  },
+  "fc0502c122f3": {
+    "name": "Shokk Tunnel",
+    "kind": "ability",
+    "plain": "If you roll 4+ for this unit's Advance roll, you can take it off the battlefield and place it again anywhere more than 9\" from all enemy models. If you do, roll a D6, and this unit takes D3 mortal wounds on a 4+."
+  },
+  "fec6206a9564": {
+    "name": "Blastajet Force Field",
+    "kind": "ability",
+    "plain": "Aura: friendly ORKS AIRCRAFT models within 9\" of the bearer have a 5+ invulnerable save. Nothing can increase this aura's range unless a rule specifically says it does."
+  }
+}

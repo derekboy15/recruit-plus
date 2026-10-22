@@ -1,0 +1,745 @@
+{
+  "003e49158cc1": {
+    "name": "Lightning-fast Reactions",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase or in the Fight phase, when one of your DRUKHARI INFANTRY, DRUKHARI VEHICLE or DRUKHARI BIKER units (but not URIEN RAKARTH or a <HAEMONCULUS COVEN> unit) is chosen as an attack's target: until the phase ends, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "00f2a95f4b0b": {
+    "name": "Winged Strike",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit high in the skies rather than on the battlefield. If you do, you can set it up during the Reinforcements step of any one of your Movement phases, anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "01ddd9d8cd10": {
+    "name": "Hexrifle",
+    "kind": "weapon",
+    "plain": "When choosing targets for this weapon, the Look Out, Sir rule can be ignored. For attacks made with this weapon, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage."
+  },
+  "02d5006b0822": {
+    "name": "Flawless Approach",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, when one of your CULT OF STRIFE INFANTRY units is chosen to charge: until the turn ends, enemy units can't fire Overwatch at that unit, and enemy units it targets with its charge can't Hold Steady or Set to Defend in response to that charge."
+  },
+  "0b9944d77580": {
+    "name": "The Blade Well Placed",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your CULT OF STRIFE INFANTRY units is chosen to fight: until the phase ends, melee attacks made by its models have their Armour Penetration characteristic improved by 1."
+  },
+  "0ddbb4f1e1ba": {
+    "name": "Monstrous Cleaver",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon."
+  },
+  "0f88f463b623": {
+    "name": "Scything charge",
+    "kind": "ability",
+    "plain": "Whenever this model finishes a charge move, roll one D6 per enemy unit that is within Engagement Range of it. Each unit you roll a 4+ for suffers D3 mortal wounds."
+  },
+  "10112b793541": {
+    "name": "Phantasm Grenade Launcher",
+    "kind": "weapon",
+    "plain": "Blast. For every hit this weapon scores on a unit, roll 2D6: if the total beats that unit's Leadership characteristic, the unit suffers 1 mortal wound."
+  },
+  "10c64b300947": {
+    "name": "Sins Writ Large",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase: choose one of your PROPHETS OF FLESH INFANTRY units that is within 6\" of one of your PROPHETS OF FLESH HAEMONCULUS units. For the rest of the phase, you can re-roll the hit roll for attacks made by this PROPHETS OF FLESH INFANTRY unit. This Stratagem costs 2CP if the chosen unit is a GROTESQUES unit, and 1CP otherwise."
+  },
+  "12266c8a462c": {
+    "name": "Flesh gauntlet",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon against a target that isn't a VEHICLE unit, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage."
+  },
+  "131a34d012b2": {
+    "name": "Prey on the Weak",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase or the Fight phase, when one of your DRUKHARI CORE units is chosen to shoot or fight: until the phase ends, whenever a model in this unit attacks, re-roll a hit roll of 1 if the target was below its Starting Strength when this unit was chosen to shoot or fight, or you can re-roll the hit roll if the target was below Half-strength at that point."
+  },
+  "1423cf22b287": {
+    "name": "Murderous Assault",
+    "kind": "ability",
+    "plain": "In each Fight phase, this model can be chosen to fight one extra time, but it has to be eligible to fight every time it is chosen."
+  },
+  "14423ca9fadb": {
+    "name": "Overlord (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <KABAL> CORE or INCUBI units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "18a8c9e2c3e9": {
+    "name": "An Esoteric Kill, Delivered from Afar",
+    "kind": "stratagem",
+    "plain": "When you choose one of your DARK CREED CORE or DARK CREED CHARACTER units to shoot: until the phase ends, this unit's attacks can ignore the Look Out, Sir rule when you pick their targets."
+  },
+  "1aaac0970bda": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield. On a 6, it explodes, and every unit within 6\" suffers D6 mortal wounds."
+  },
+  "1c4aacb51f72": {
+    "name": "Ichor Injector",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make only one attack with this weapon. If that attack hits, the target suffers 1 mortal wound and the attack sequence ends."
+  },
+  "1d24c0fe2330": {
+    "name": "Ferocious Charge",
+    "kind": "ability",
+    "plain": "Whenever this unit fights, if it made a charge move this turn, Ur-Ghul models in it add 2 to their Attacks characteristic."
+  },
+  "1df208f93d8a": {
+    "name": "Voidraven missiles",
+    "kind": "weapon",
+    "plain": "Before you pick targets, choose which of the profiles below to attack with."
+  },
+  "1f5caf4e6586": {
+    "name": "Shock Prow",
+    "kind": "stratagem",
+    "plain": "In the Charge phase, when one of your DRUKHARI SHOCK PROW units finishes a charge move: pick an enemy unit that is within Engagement Range of that SHOCK PROW unit. If it is a VEHICLE unit, roll one D6, and on a 2+ it suffers D3 mortal wounds. If it isn't a VEHICLE unit, roll one D6 for each of its models within Engagement Range of the SHOCK PROW unit; it suffers 1 mortal wound for each result that is equal to or higher than its Toughness characteristic."
+  },
+  "213c94e7e79a": {
+    "name": "Tolerated Ambition",
+    "kind": "stratagem",
+    "plain": "Before the battle, during army mustering, if your WARLORD has the DRUKHARI keyword: choose one of your DRUKHARI CHARACTER models (not a named character) and give it one Warlord Trait (it must be one that model can have). That model counts as your Warlord only for that Warlord Trait. Every Warlord Trait in your army must be unique (if you roll for them, re-roll any duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "2498a7025a9c": {
+    "name": "Athletic Aerialists",
+    "kind": "stratagem",
+    "plain": "When a CULT OF THE RED GRIEF INFANTRY unit has finished resolving its close combat attacks but has not yet consolidated: if all of that unit's models are within 6\" of one of your CULT OF THE RED GRIEF TRANSPORT units, the unit can embark in that TRANSPORT instead of consolidating normally, as if it were the Movement phase, even if it disembarked this turn, as long as the TRANSPORT has enough capacity left to carry the whole unit."
+  },
+  "28ccc05af124": {
+    "name": "Grav-talon",
+    "kind": "ability",
+    "plain": "When the bearer has made a charge move, choose an enemy unit within Engagement Range of it and roll one D6. On a 4+, the chosen unit suffers 1 mortal wound. On a 6, the chosen unit suffers D3 mortal wounds."
+  },
+  "29d403e874f5": {
+    "name": "Insidious Misdirection",
+    "kind": "stratagem",
+    "plain": "At the start of the first battle round: choose up to three of your KABAL OF THE POISONED TONGUE units and redeploy them. Where the mission uses Strategic Reserves rules, any of them can go into Strategic Reserves at no extra CP cost, however many units are already there. If each player has abilities that redeploy units, they roll off, and the winner picks who redeploys first."
+  },
+  "2a8230dd7f24": {
+    "name": "Hekatrix Bloodbrides",
+    "kind": "ability",
+    "plain": "If the Blade Artists ability would be triggered by an attack from a model in this unit, that attack's Armour Penetration characteristic is increased by 3 rather than by 1.",
+    "waive": {
+      "89": "page reference (\"pg 89\") to where the Blade Artists ability is printed; not part of the rule"
+    }
+  },
+  "2e3a561820e1": {
+    "name": "Brutal Vivisection",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your COTERIES OF THE HAEMONCULI models destroys a model in an enemy unit (not a VEHICLE unit): the next time that enemy unit is chosen to fight, subtract 1 from the wound roll of every attack its models make until the end of that phase."
+  },
+  "30eb709ef065": {
+    "name": "Electrocorrosive Whip",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (4+). For every attack made with this weapon, you make 2 hit rolls rather than 1."
+  },
+  "3719f8866748": {
+    "name": "Brides of Death (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <WYCH CULT> CORE units is within 6\" of this model, re-roll wound rolls of 1 for melee attacks made by models in that unit."
+  },
+  "39f5d30ab4c7": {
+    "name": "Crucible of Malediction",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase: choose one of your HAEMONCULUS units, then roll one D6 per enemy PSYKER unit within 12\" of it. Each PSYKER unit you roll a 4+ for suffers D3 mortal wounds. This Stratagem can be used only once."
+  },
+  "3a2ae9b5e232": {
+    "name": "Spirit Probe (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DRUKHARI CORE or DRUKHARI CHARACTER units is within 6\" of the bearer, you can re-roll wound rolls of 1 for melee attacks made by models in that unit."
+  },
+  "3d3dafb4c356": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll one D6 when this transport is destroyed, before taking it off the battlefield and before any models embarked in it disembark. On a 6, it explodes, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "3fb705e45fad": {
+    "name": "Resilient Species",
+    "kind": "ability",
+    "plain": "Each time one of this unit's Sslyth or Ur-Ghul models would lose a wound, roll one D6; that wound isn't lost on a 5+."
+  },
+  "4144ac3c6c4b": {
+    "name": "Court of the Archon",
+    "kind": "ability",
+    "plain": "While this model is within 3\" of any friendly <KABAL> ARCHONS, you can re-roll failed hit rolls for it. Also, if your army is Battle-forged, this model doesn't use up slots in a detachment that includes any <KABAL> ARCHONS. In a Battle-forged army in a matched play game, <KABAL> COURT OF THE ARCHON models can only go in a detachment that also has one or more <KABAL> ARCHONS, and a single detachment can include no more than 4 COURT OF THE ARCHON models."
+  },
+  "429bd8471aa3": {
+    "name": "Quicksilver Dodge",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save. Subtract 1 from the hit roll of every melee attack made against it."
+  },
+  "4473870b81e5": {
+    "name": "Splinterstorm Cannon",
+    "kind": "weapon",
+    "plain": "This weapon has the Poisoned Weapon ability.",
+    "waive": {
+      "87": "page reference (\"pg 87\") to where Poisoned Weapon is described; not part of the rule"
+    }
+  },
+  "45035d1d1c61": {
+    "name": "At Last, a Challenge",
+    "kind": "ability",
+    "plain": "Whenever this model targets a CHARACTER unit with a melee attack, you may re-roll its hit roll, and you may also re-roll its wound roll."
+  },
+  "46655c2ef83e": {
+    "name": "Visions of Butchery",
+    "kind": "stratagem",
+    "plain": "At the end of your Charge phase: pick one enemy unit that is within Engagement Range of at least one COTERIES OF THE HAEMONCULI unit from your army, and roll one D6. On a 2+, that enemy unit loses the Objective Secured ability until the start of your next Charge phase."
+  },
+  "496a22595605": {
+    "name": "Enhanced Aethersails",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your RAIDER or RAVAGER units is chosen to Advance: don't make an Advance roll. Instead, this model adds 8\" to its Move characteristic until the phase ends."
+  },
+  "49a46a27217e": {
+    "name": "Wrack Blade",
+    "kind": "weapon",
+    "plain": "This weapon has the Poisoned Weapon (4+) ability."
+  },
+  "4a002eb3a955": {
+    "name": "Razorwing missile - Necrotoxin missile",
+    "kind": "weapon",
+    "plain": "Blast. This weapon has the Poisoned Weapon (2+) ability."
+  },
+  "52f23873c95f": {
+    "name": "Grisly trophies",
+    "kind": "ability",
+    "plain": "The bearer gains the Grisly Trophies (Aura) ability: while an enemy unit is within 3\" of the bearer, models in that unit subtract 2 from their Leadership characteristic."
+  },
+  "536571a8ba75": {
+    "name": "Haemoxytes",
+    "kind": "ability",
+    "plain": "Improve both this unit's Save characteristic and its invulnerable save by 1, to a maximum of 4+. Once per phase, the first time this unit fails a saving throw, that attack's Damage characteristic becomes 0."
+  },
+  "54c928416f36": {
+    "name": "Never Stationary",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, after one of your DRUKHARI units (not an AIRCRAFT unit) has made its attacks: it can make a Normal Move of up to 7\" straight away. It then can't declare a charge for the rest of the turn."
+  },
+  "5550d31497b5": {
+    "name": "No Escape",
+    "kind": "ability",
+    "plain": "When an enemy unit (other than a TITANIC unit) within Engagement Range of this unit is chosen to Fall Back, you and your opponent roll off, and your opponent subtracts 1 from their roll for every model in this unit equipped with a Shardnet and Impaler. If you win, that unit can't Fall Back this turn."
+  },
+  "561fd0ea6410": {
+    "name": "Screaming Jets",
+    "kind": "stratagem",
+    "plain": "Before the battle, when declaring reserves and transports (or during deployment, if your mission doesn't have that step): you can place one DRUKHARI VEHICLE unit from your army in the skies rather than on the battlefield. It can arrive during the Reinforcements step of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from all enemy models. You can use this Stratagem only once."
+  },
+  "56c2de1bdb2d": {
+    "name": "Ferocious Charge",
+    "kind": "ability",
+    "plain": "If this model made a charge move in the same turn, it adds 2 to its Attacks characteristic."
+  },
+  "57ef5cef5da3": {
+    "name": "Fleshcraft",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick one <HAEMONCULUS COVEN> MONSTER or <HAEMONCULUS COVEN> GROTESQUES model in your army that is within 3\" of this model. That model gets back D3 lost wounds. No model can be healed more than once per turn."
+  },
+  "583d16b70d8d": {
+    "name": "Splinter racks",
+    "kind": "ability",
+    "plain": "When a model embarked on this transport attacks with a Rapid Fire weapon, the target counts as being within half that weapon's range."
+  },
+  "59ff795e3650": {
+    "name": "Venoms of Agonising Atrophy",
+    "kind": "stratagem",
+    "plain": "In any phase, when an enemy model (not a VEHICLE model) loses at least one wound to a poisoned weapon attack made by one of your COTERIES OF THE HAEMONCULI models: models in that enemy unit subtract 1 from their Attacks characteristic until the next turn ends."
+  },
+  "5ab1cc469d59": {
+    "name": "Reservoir of Pain",
+    "kind": "ability",
+    "plain": "Whenever one of this unit's models uses its Spirit-leech tentacles to destroy an enemy model, you can pick either this unit or one other DRUKHARI CORE unit within 6\" of it. Once this unit has fought, one model in the picked unit can get back 1 lost wound. If no model in that unit has lost any wounds but the unit is below its Starting Strength, you can instead add 1 destroyed model back to it with one wound left; that model can be placed within Engagement Range of an enemy unit that is already within Engagement Range of the unit it is rejoining."
+  },
+  "5c8ffb61b854": {
+    "name": "Prow blade",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon, and it can never make more than 1 attack with this weapon."
+  },
+  "5c9860cac3e3": {
+    "name": "Ancient Warrior",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1 (it can't go below 1)."
+  },
+  "5e64e82d30e0": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Whenever one of this unit's models is destroyed, roll a D6 before taking it off the battlefield. On a 6, it explodes, and every unit within 3\" suffers 1 mortal wound."
+  },
+  "5fbc3f884e59": {
+    "name": "Cruel Deception",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your DRUKHARI units Falls Back: you can choose to make it eligible to shoot this turn, to declare a charge this turn, or both. If you choose both, this Stratagem costs 2CP; if not, it costs 1CP."
+  },
+  "60fb33e01c68": {
+    "name": "A Most Inventive Demise",
+    "kind": "stratagem",
+    "plain": "After a COVEN OF TWELVE HAEMONCULUS unit from your army consolidates: pick one enemy CHARACTER model (other than a VEHICLE or MONSTER model) within Engagement Range of that HAEMONCULUS unit and roll one D6. On a roll of 2 to 5, that model suffers D3 mortal wounds; on a 6, it suffers D3+3 mortal wounds."
+  },
+  "648573f2eb59": {
+    "name": "Open-topped",
+    "kind": "ability",
+    "plain": "In your Shooting phase, models embarked on this model can be chosen to shoot; for them, distances are measured and line of sight is drawn from any point on this transport. Embarked models count as having made a Normal Move, Advanced or Fell Back this turn whenever this transport has done so. Embarked units can only shoot with Pistols while there are enemy units within Engagement Range of this transport."
+  },
+  "65c8480ce7e9": {
+    "name": "Casket of Flensing",
+    "kind": "weapon",
+    "plain": "The bearer can shoot this weapon only once per battle. Attacks made with it automatically hit the target."
+  },
+  "674a0045bb95": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll a D6 when this model is reduced to 0 wounds, before taking it off the battlefield. On a 6, it explodes, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "6b9497f7dc2e": {
+    "name": "Brides of Death (Aura) (Lelith)",
+    "kind": "ability",
+    "plain": "Aura: while one of your CULT OF STRIFE CORE units is within 6\" of this model, re-roll wound rolls of 1 for melee attacks made by models in that unit."
+  },
+  "6ba50d4216c8": {
+    "name": "Alliance of Agony",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if a REALSPACE RAIDER ARCHON is your WARLORD: pick one SUCCUBUS model and one HAEMONCULUS model from your army (not named characters) and give each of them one Warlord Trait (it must be one that model can have). Each of those models counts as your WARLORD only for that Warlord Trait. Every Warlord Trait in your army must be unique (if you roll for them, re-roll any duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once."
+  },
+  "6e622c7c29b4": {
+    "name": "Dual blades",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights using this weapon profile, it gets 2 extra attacks with this weapon."
+  },
+  "716280be2ba6": {
+    "name": "From Out of the Shadows",
+    "kind": "ability",
+    "plain": "During deployment, when you set this unit up, you can place it anywhere on the battlefield that is more than 9\" away from both the enemy deployment zone and all enemy models."
+  },
+  "719373555311": {
+    "name": "No Method of Death Beyond Our Grasp",
+    "kind": "stratagem",
+    "plain": "At the end of your Shooting phase or the end of the Fight phase: pick one CULT OF STRIFE WYCHES unit from your army. In the Shooting phase, it can shoot again. In the Fight phase, if it is within Engagement Range of any enemy units, it can fight again. You can use this Stratagem only once per battle round."
+  },
+  "73be04e9b55e": {
+    "name": "Spirit-Leech Tentacles",
+    "kind": "weapon",
+    "plain": "If an attack made with this weapon gets an unmodified wound roll of 6, its Damage characteristic is 2 for that attack."
+  },
+  "73e9b42505f1": {
+    "name": "Haemovores",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, roll one D6 per enemy unit that is within Engagement Range of this model. Each enemy unit you roll a 6 for suffers 1 mortal wound."
+  },
+  "782e774b80d2": {
+    "name": "Swift Outflanking",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase: choose one of your DRUKHARI TRANSPORT units wholly within 9\" of a battlefield edge. Take it off the battlefield and put it into Strategic Reserves."
+  },
+  "790f586b3171": {
+    "name": "Cluster caltrops",
+    "kind": "ability",
+    "plain": "Roll one D6 each time an enemy unit Falls Back while it is within Engagement Range of the bearer. On a 4+, that unit suffers 1 mortal wound."
+  },
+  "7a1a19fc0437": {
+    "name": "Deadly Rivals",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your REAVERS units and one of your HELLIONS units that can see each other and are within 12\" of each other. Until the turn ends, models in both units add 1\" to their Movement characteristic, and whenever a model in either unit makes a melee weapon attack, its hit roll can be re-rolled."
+  },
+  "7fe24eaffef1": {
+    "name": "Objective Secured",
+    "kind": "ability",
+    "plain": "You control an objective marker if any of your models with this ability are within range of it, even if your opponent has more models within range of it. If an enemy model within range of that marker also has this ability (or a similar one), control is worked out normally: whoever has the most models within range controls it."
+  },
+  "812e40ae03c2": {
+    "name": "Otherworldly",
+    "kind": "ability",
+    "plain": "Each Khymerae model in this unit has a 5+ invulnerable save."
+  },
+  "81c0c0dcd2c0": {
+    "name": "The Great Enemy",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your DRUKHARI units is chosen to fight: until the phase ends, whenever one of its models attacks a SLAANESH unit in melee, you may re-roll the hit roll and may also re-roll the wound roll."
+  },
+  "840e602ac414": {
+    "name": "Masters of the Shadowed Sky",
+    "kind": "stratagem",
+    "plain": "When you choose one of your KABAL OF THE FLAYED SKULL units to shoot: until the phase ends, whenever that unit attacks a unit that can FLY, add 1 to the hit roll, or add 2 instead if the target is an AIRCRAFT unit."
+  },
+  "868468f2d27c": {
+    "name": "Macro-scalpel",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, if it has 2 macro-scalpels, it gets 1 extra attack with this weapon."
+  },
+  "895d87f7b593": {
+    "name": "Master of Blades (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your INCUBI units is within 6\" of this model, add 1 to the wound roll for every melee attack made by a model in that unit."
+  },
+  "8b62cd4754cc": {
+    "name": "Fleshcraft (Urien)",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick one PROPHETS OF FLESH MONSTER or PROPHETS OF FLESH GROTESQUES model in your army that is within 3\" of this model. That model gets back D3 lost wounds. No model can be healed more than once per turn."
+  },
+  "8d88c891f644": {
+    "name": "Hekatrix of the Crucibael",
+    "kind": "stratagem",
+    "plain": "Before the battle: pick one CULT OF STRIFE Hekatrix model from your army. Even though it isn't a CHARACTER, that model can have one of these Relics: Morvaine's Agoniser, Dark Lotus Toxin or Garland of Spite. Every Relic in your army must be unique, and this Stratagem can't give a model two Relics. You can use this Stratagem only once."
+  },
+  "8ec4947c10e1": {
+    "name": "Protect the Great One",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your <HAEMONCULUS COVEN> HAEMONCULUS models loses at least one wound to an attack by an enemy model: until your next turn ends, whenever one of your <HAEMONCULUS COVEN> CORE units declares a charge targeting the unit of that enemy model, you can re-roll its charge roll; and whenever one of your <HAEMONCULUS COVEN> CORE units attacks the unit of that enemy model, you can re-roll the hit roll and also re-roll the wound roll."
+  },
+  "8f2af98c10b4": {
+    "name": "Shaimeshi blade",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (2+). For attacks made with this weapon against a target that isn't a VEHICLE unit, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage.",
+    "waive": {
+      "89": "page reference (\"pg 89\") to where Poisoned Weapon is described; not part of the rule"
+    }
+  },
+  "8fdc0c9c0810": {
+    "name": "Eviscerating Fly-by",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when you choose a <WYCH CULT> unit that can FLY to Advance or to make a Normal Move: once it has moved, pick one enemy unit it moved across and roll one D6 per model in your unit, adding 1 to each result if that enemy unit is INFANTRY. For each 5+, the enemy unit suffers 1 mortal wound. This Stratagem costs 1CP if the chosen <WYCH CULT> unit has 5 or fewer models, and 2CP otherwise."
+  },
+  "91fba0f14c3d": {
+    "name": "Hovering",
+    "kind": "ability",
+    "plain": "Always measure distances to and from this model's hull."
+  },
+  "92ecad88f395": {
+    "name": "Shock Prow",
+    "kind": "ability",
+    "plain": "The bearer gains the SHOCK PROW keyword."
+  },
+  "9804823560d3": {
+    "name": "Toxin Crafter (Aura)",
+    "kind": "ability",
+    "plain": "Aura: if this unit contains any LHAMAEAN models, then while one of your <KABAL> ARCHON or <KABAL> KABALITE TRUEBORN units is within 3\" of this unit, whenever a model in that unit attacks with a poisoned weapon, an unmodified hit roll of 6 wounds the target automatically.",
+    "waive": {
+      "89": "page reference (\"pg 89\") to where poisoned weapons are described; not part of the rule",
+      "<KABAL ARCHON": "typo in the official text for <KABAL> ARCHON, which is kept in full"
+    }
+  },
+  "98f6d320ebc0": {
+    "name": "Berserk Rage",
+    "kind": "ability",
+    "plain": "While any model in this unit has lost any wounds, every model in this unit has an Attacks characteristic of 6."
+  },
+  "9a76be478cfa": {
+    "name": "Spirit probe",
+    "kind": "ability",
+    "plain": "The bearer gains the Spirit Probe (Aura) ability: while one of your DRUKHARI CORE or DRUKHARI CHARACTER units is within 6\" of the bearer, you can re-roll wound rolls of 1 for melee attacks made by models in that unit."
+  },
+  "9af12d5e421a": {
+    "name": "Grisly Trophies (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 3\" of this model, models in that unit subtract 2 from their Leadership characteristic."
+  },
+  "9ca9b37e01d4": {
+    "name": "Master of Pain (Aura) (Urien)",
+    "kind": "ability",
+    "plain": "Aura: while one of your PROPHETS OF FLESH CORE units is within 6\" of any model with this ability, each model in that unit has its Toughness characteristic increased by 1."
+  },
+  "9e5ecdd80bed": {
+    "name": "Lethal Precision",
+    "kind": "ability",
+    "plain": "While this unit contains a Klaivex, whenever a model in it makes a melee attack and the unmodified wound roll is 6, add 1 to that attack's Damage characteristic."
+  },
+  "9f56cc9e6dfe": {
+    "name": "Haywire Grenade",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your DRUKHARI HAYWIRE GRENADE units is chosen to shoot: pick one model in that unit. This phase, it can make only one attack, which has to target an enemy VEHICLE unit within 6\" of it. If that attack hits, the target suffers D3 mortal wounds and the attack sequence then ends."
+  },
+  "a078dc061253": {
+    "name": "Void mine",
+    "kind": "ability",
+    "plain": "Once per battle, in your Movement phase, once the bearer has finished a Normal Move or an Advance, you can pick one point on the battlefield it passed over. For every unit within 6\" of that point, roll one D6; subtract 1 from the roll for a unit with the CHARACTER keyword (excluding VEHICLE or MONSTER units). Each unit you roll a 4+ for suffers D6 mortal wounds. Since the January 2023 update, this can only be used if the aircraft remains on the battlefield when its move is over."
+  },
+  "a097e0e1ac33": {
+    "name": "Webway Portal",
+    "kind": "stratagem",
+    "plain": "Before the battle, when declaring reserves and transports (or during deployment, if your mission doesn't have that step): for 1CP, one of your DRUKHARI INFANTRY, BIKER or BEAST units can be placed in the webway rather than on the battlefield; for 3CP, you can put two such units there instead. During the Reinforcements step of any of your Movement phases, you can set up units from the webway anywhere on the battlefield more than 9\" away from all enemy models. You can use this Stratagem only once."
+  },
+  "a0d171b83258": {
+    "name": "Chain-snares",
+    "kind": "ability",
+    "plain": "The bearer adds 3 to its Attacks characteristic."
+  },
+  "a306b68fedba": {
+    "name": "Potent Metallotoxins",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase or the Fight phase, when you choose one of your DRUKHARI units to shoot or fight: until the phase ends, when that unit attacks with a poisoned weapon (other than a Relic), the poisoned weapon ability doesn't exclude VEHICLE units (it still excludes TITANIC units)."
+  },
+  "a4d3e3c75b0e": {
+    "name": "Invigorated by Evisceration",
+    "kind": "stratagem",
+    "plain": "After a melee attack by a model in one of your CULT OF STRIFE INFANTRY or CULT OF STRIFE BIKER units destroys an enemy unit: models in your unit have a 4+ invulnerable save until your next turn starts."
+  },
+  "a770a90858e7": {
+    "name": "Cold-blooded Bodyguard",
+    "kind": "ability",
+    "plain": "While this unit contains any Sslyth models and one of your ARCHON units is within 3\" of it, enemy models can't target that ARCHON with ranged attacks."
+  },
+  "a7935b10bead": {
+    "name": "Sustained by Dark Science",
+    "kind": "ability",
+    "plain": "Once per battle, when this model is destroyed, you can skip any rules that would trigger on its destruction and instead roll one D6 when the phase ends. On a 2+, put this model back on the battlefield as near as possible to the spot where it was destroyed and not within Engagement Range of any enemy models; it comes back with D3 wounds remaining."
+  },
+  "ac297637d280": {
+    "name": "Sculptor of Torments (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your PROPHETS OF FLESH CORE units is within 6\" of this model, each model in that unit has its Strength and its Leadership characteristics increased by 1."
+  },
+  "b0cecc60fb2e": {
+    "name": "Mercies of the Haemonculus",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when an attack from a model in one of your COTERIES OF THE HAEMONCULI units destroys an enemy unit: for the rest of the battle, roll a D6 each time one of that COTERIES OF THE HAEMONCULI unit's models would lose a wound; on a 4+ it doesn't lose that wound."
+  },
+  "b21e50cc407a": {
+    "name": "Deadly Dance",
+    "kind": "ability",
+    "plain": "Whenever this model consolidates, it can move an extra 3\", and it doesn't need to end that move any closer to the closest enemy model."
+  },
+  "b2ab53b80203": {
+    "name": "Shrouded From Sight",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack that targets this unit."
+  },
+  "b2e9a3f48c74": {
+    "name": "Hyperstimm Backlash",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one <WYCH CULT> unit from your army that has the Combat Drugs ability. Until your next Command phase, double every effect the Combat Drugs ability has on that unit (for example, with Painbringer, the affected models add 2 to their Toughness characteristic rather than 1). You can't pick a model that has the Phial Bouquet Relic for this Stratagem."
+  },
+  "b4149f03e005": {
+    "name": "Art of Poisonry",
+    "kind": "stratagem",
+    "plain": "Before the battle, while you are mustering your army: pick one COTERIES OF THE HAEMONCULI CORE unit from your army. For the rest of the battle, any weapon a model in that unit has with the 'Poisoned Weapon (4+)' ability counts as having 'Poisoned Weapon (3+)' instead. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "b509873c9d3b": {
+    "name": "Wealth and Power",
+    "kind": "stratagem",
+    "plain": "Before the battle, while you are mustering your army: pick one COTERIES OF THE HAEMONCULI CORE unit from your army. For the rest of the battle, whenever a model in that unit makes a ranged attack, that attack's Strength characteristic is increased by 1. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "b5509cc2ad7d": {
+    "name": "Raid Mastermind",
+    "kind": "ability",
+    "plain": "While one of your REALSPACE RAIDER CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "b8102e01f562": {
+    "name": "Contempt for Death",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to this model, halve that attack's Damage characteristic, rounding up."
+  },
+  "ba6d5a46fde8": {
+    "name": "Art of the Kill",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your CULT OF STRIFE units is chosen to fight: until the phase ends, you can re-roll the wound roll for melee attacks made by its models. This Stratagem costs 3CP if that unit has 11 or more models, and 2CP otherwise."
+  },
+  "bedebace3021": {
+    "name": "Night Shield",
+    "kind": "ability",
+    "plain": "Against ranged weapons, this model has a 5+ invulnerable save."
+  },
+  "c251cfc73f44": {
+    "name": "Murderous Descent",
+    "kind": "stratagem",
+    "plain": "In the Reinforcements step, once one of your TRANSPORT units has been set up on the battlefield: any units embarked within it can disembark after it is set up, but if they do, they must be placed more than 9\" away from all enemy units."
+  },
+  "c29fb2fd4bc5": {
+    "name": "Venomous Shardbombs",
+    "kind": "stratagem",
+    "plain": "After your opponent declares a charge against one of your CULT OF THE CURSED BLADE WYCHES units: before the charge roll is made, that unit can fire Overwatch. When it does, up to five of its models that have plasma grenades can attack with them, and until the phase ends, this unit's plasma grenades gain the Poisoned Weapon (2+) ability."
+  },
+  "c5880867318a": {
+    "name": "Tantalus Aethersails",
+    "kind": "ability",
+    "plain": "When this model Advances, don't make an Advance roll. Instead, it adds 12\" to its Move characteristic until the phase ends."
+  },
+  "c6d1ad4b6bcc": {
+    "name": "Dance of Death",
+    "kind": "stratagem",
+    "plain": "When one of your CULT OF STRIFE units is chosen to move in your Movement phase, or chosen to charge in your Charge phase: until the phase ends, whenever that unit makes a Normal Move, Advances, Falls Back or makes a charge move, its models can move horizontally through models and terrain features during that move. They still can't end a move on top of another model or its base."
+  },
+  "c7f5d96e0a3d": {
+    "name": "Spirit Syphon",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon automatically hit the target. If an attack made with it gets an unmodified wound roll of 6, its Damage characteristic is 2 for that attack."
+  },
+  "c85c26d24bc7": {
+    "name": "The Torturer’s Craft",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when your URIEN RAKARTH or one of your <HAEMONCULUS COVEN> units is chosen to fight: until the phase ends, you can re-roll the wound roll for attacks made by models in that unit. This Stratagem costs 1CP if it is used for a CHARACTER or WRACKS unit containing 10 or fewer models, and 2CP otherwise."
+  },
+  "c954d8f3f748": {
+    "name": "Pray They Don’t Take You Alive",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when a melee attack by one of your DRUKHARI units destroys an enemy WARLORD unit: for the rest of the battle, subtract 1 from every Combat Attrition test taken for an enemy unit."
+  },
+  "c9f7b861b47f": {
+    "name": "Court of the Archon",
+    "kind": "ability",
+    "plain": "You can only include this unit in a Detachment that also has at least one ARCHON unit, and that Detachment can have no more than 1 COURT OF THE ARCHON unit per ARCHON unit in it. This unit doesn't use up any Detachment slots."
+  },
+  "cb2afc876d20": {
+    "name": "Dodge",
+    "kind": "ability",
+    "plain": "Every model in this unit has a 6+ invulnerable save, improved to a 4+ invulnerable save against melee attacks."
+  },
+  "ccb0ab88274e": {
+    "name": "Razorwing missile",
+    "kind": "ability",
+    "plain": "Whenever you attack with this weapon, pick one profile to use: Monoscythe missile, Necrotoxin missile or Shatterfield missile."
+  },
+  "cdd8bab9a544": {
+    "name": "Storm Vortex Projector",
+    "kind": "ability",
+    "plain": "Whenever you attack with this weapon, pick which profile to use: Blast or Beam."
+  },
+  "d06092cda256": {
+    "name": "Hit and Run",
+    "kind": "ability",
+    "plain": "This unit can declare a charge even in a turn in which it Fell Back."
+  },
+  "d13dce9884ff": {
+    "name": "Talos ichor injector",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make only one attack with this weapon. If that attack hits, the target suffers D3 mortal wounds and the attack sequence ends."
+  },
+  "d4e8199880d8": {
+    "name": "Fade Away",
+    "kind": "ability",
+    "plain": "Once per battle, you can remove this unit from the battlefield at the start of your Movement phase. Then, during your next Movement phase's Reinforcement step, you can put it back anywhere on the battlefield more than 9\" away from all enemy models. If the battle ends while this unit isn't on the battlefield, it is destroyed."
+  },
+  "d540f399ac30": {
+    "name": "Master of Pain (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <HAEMONCULUS COVEN> CORE units is within 6\" of any model with this ability, each model in that unit has its Toughness characteristic increased by 1."
+  },
+  "d6565b50413f": {
+    "name": "Kabalite Trueborn",
+    "kind": "ability",
+    "plain": "When one of this unit's models makes a ranged attack, any or all modifiers to that attack's hit roll and to the model's Ballistic Skill can be ignored."
+  },
+  "d6b6c9921b73": {
+    "name": "No Escape",
+    "kind": "ability",
+    "plain": "When an enemy unit (other than a TITANIC unit) within Engagement Range of this model is chosen to Fall Back, you and your opponent roll off. If you win, that unit can't Fall Back this turn."
+  },
+  "d8de13ea8955": {
+    "name": "Deadly Exemplar",
+    "kind": "stratagem",
+    "plain": "When one of your CULT OF STRIFE SUCCUBUS models uses a melee attack to destroy an enemy CHARACTER or MONSTER unit: for the rest of the battle, all of your CULT OF STRIFE units on the battlefield count as within range of that Succubus' Brides of Death aura ability."
+  },
+  "da3c29eed3e6": {
+    "name": "Baleblast",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any additional damage."
+  },
+  "dd2d2898a14a": {
+    "name": "Natural Perfection",
+    "kind": "ability",
+    "plain": "In your Command phase, choose one option. Thrilling Acrobatics: for the rest of the turn, this model can declare a charge even if it Fell Back or Advanced this turn. Gory Spectacle: if this model destroys any enemy models in this turn's Fight phase, it can fight again at the end of that Fight phase."
+  },
+  "dd45d3581201": {
+    "name": "Pick Them Apart",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your CULT OF STRIFE units Falls Back: despite having Fallen Back, it can still shoot and/or charge this turn."
+  },
+  "e0801559c4df": {
+    "name": "No Escape (Lelith)",
+    "kind": "ability",
+    "plain": "When an enemy unit (other than a TITANIC unit) within Engagement Range of this model is chosen to Fall Back, you and your opponent roll off. If you win, that unit can't fall back that turn."
+  },
+  "e09043edbc00": {
+    "name": "Failure Is Not an Option",
+    "kind": "stratagem",
+    "plain": "After Combat Attrition tests are taken for one of your KABAL OF THE OBSIDIAN ROSE units, but before any of its models flee: every model that would flee can shoot. Alternatively, if there are enemy units within Engagement Range of the unit, each of those models can make one melee attack instead. Should these attacks destroy any enemy models, none of this unit's models flee. The Morale test counts as passed."
+  },
+  "e1190afd3528": {
+    "name": "Shadowfield",
+    "kind": "ability",
+    "plain": "This model has a 2+ invulnerable save, and you can never re-roll it. Once this model fails that save for the first time, this ability stops working for the rest of the battle."
+  },
+  "e4ab56b6615d": {
+    "name": "Flickerfield",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every ranged attack made against this model. It also has a 5+ invulnerable save against ranged attacks."
+  },
+  "e518fceb3ce6": {
+    "name": "Talos Gauntlet",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of every attack made with this weapon."
+  },
+  "e780f65499c4": {
+    "name": "Spirit Vortex",
+    "kind": "weapon",
+    "plain": "Blast. If an attack made with this weapon gets an unmodified wound roll of 6, its Damage characteristic is 2 for that attack."
+  },
+  "e90bfdda15e9": {
+    "name": "Rule Through Fear",
+    "kind": "stratagem",
+    "plain": "Before the battle, while you are mustering your army: pick one COTERIES OF THE HAEMONCULI CHARACTER model from your army. For the rest of the battle, the range of that model's aura abilities goes up by 3\", and whenever it uses an ability in your Command phase (not an aura ability), that ability's range goes up by 3\" for that use. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "e98324661035": {
+    "name": "Driven by Fear",
+    "kind": "ability",
+    "plain": "This unit never gains a Drukhari Obsession. While this unit is below Half Strength: whenever it is chosen as the target of an attack and one of its models would lose a wound from that attack, roll a D6, and on a 4+ the wound isn't lost; and whenever one of its models would lose a wound to a mortal wound, roll a D6, and on a 4+ that wound isn't lost. This unit can declare a charge in a turn in which it Fell Back."
+  },
+  "ebc448bcdb4b": {
+    "name": "Resillient Species",
+    "kind": "ability",
+    "plain": "Each time one of this unit's Sslyth or Ur-Ghul models would lose a wound, roll one D6; that wound isn't lost on a 5+."
+  },
+  "f36c44306b46": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll one D6 when this transport is destroyed, before taking it off the battlefield and before any models embarked in it disembark. On a 6, it explodes, and every unit within 6\" suffers 1 mortal wound."
+  },
+  "f4af5f56aece": {
+    "name": "Prizes from the Dark City",
+    "kind": "stratagem",
+    "plain": "Before the battle, during army mustering, if your WARLORD has the DRUKHARI keyword: choose one of your DRUKHARI CHARACTER models and give it one Artefact of Cruelty (it must be a Relic that model can have). Every Relic in your army must be unique, and this Stratagem can't give a model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "f4e2f0700a37": {
+    "name": "Scissorhand",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (4+). Whenever the bearer fights, it gets 2 extra attacks with this weapon."
+  },
+  "f6171890261d": {
+    "name": "Drukhari Haywire Blaster",
+    "kind": "weapon",
+    "plain": "Blast. For attacks made with this weapon against a VEHICLE unit, an unmodified wound roll of 4+ always succeeds, and an unmodified wound roll of 6 also deals D3 mortal wounds to the target, on top of any normal damage."
+  },
+  "f63976f56f85": {
+    "name": "Hunt from the Shadows",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when one of your DRUKHARI units that is getting the benefits of Light Cover is chosen as the target of a ranged attack: until that phase ends, add a further 1 to that unit's saving throws (but not to invulnerable saving throws)."
+  },
+  "f768e0ce16f0": {
+    "name": "Pain Syphon",
+    "kind": "stratagem",
+    "plain": "When one of your DRUKHARI units destroys an enemy unit with a melee or ranged attack while it is within 6\" of a friendly CRONOS unit: for the rest of the battle, that DRUKHARI unit treats every battle round as battle round 5 for the Power From Pain ability."
+  },
+  "f7c064727f24": {
+    "name": "Tormentors",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, choose an enemy unit that is within Engagement Range of this unit, then roll 2D6. If the total beats that enemy unit's Leadership characteristic, it can't be chosen to fight this phase until every eligible unit in your army has fought."
+  },
+  "f8a50f835c4a": {
+    "name": "Beasts of the Arena",
+    "kind": "ability",
+    "plain": "You can only include this unit in a Detachment that also has at least one DRUKHARI BEASTMASTER unit, and that Detachment can have no more than 3 DRUKHARI BEAST units per DRUKHARI BEASTMASTER unit in it."
+  },
+  "f8c6e210773e": {
+    "name": "Agents of Vect",
+    "kind": "stratagem",
+    "plain": "After your opponent uses a Stratagem (other than Command Re-roll): for the rest of the battle, it costs your opponent 1 extra CP whenever they use that Stratagem again. You can use this Stratagem only once."
+  },
+  "faa9aac7402c": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield. On a 5+, it explodes, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "fcbe1ceab9b4": {
+    "name": "Matchless Swiftness",
+    "kind": "ability",
+    "plain": "When this unit Advances, don't make an Advance roll. Instead, its models add 8\" to their Move characteristic until the phase ends."
+  }
+}
