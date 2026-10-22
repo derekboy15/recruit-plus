@@ -3,8 +3,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAsync } from '../factions/useAsync';
 import { rollDice } from './dice';
 import { deriveState } from './game';
+import { LogPanel } from './LogPanel';
 import { getMissions, missionById } from './missionData';
 import { Scoreboard } from './Scoreboard';
+import { ScoreSheet } from './ScoreSheet';
 import { useTableGame } from './tableStore';
 import { TurnPanel } from './TurnPanel';
 
@@ -42,7 +44,9 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
           <TurnPanel data={game.data} pack={pack} mission={mission} state={state} append={append} update={update} roll={roll} onEnded={toSummary} />
         )
       )}
-      {tab !== 'Turn' && <p className="muted">Coming soon.</p>}
+      {tab === 'Score' && <ScoreSheet data={game.data} pack={pack} mission={mission} state={state} append={append} />}
+      {tab === 'Log' && <LogPanel data={game.data} missions={missions.data} append={append} />}
+      {(tab === 'Stratagems' || tab === 'Tools') && <p className="muted">Coming soon.</p>}
     </section>
   );
 }

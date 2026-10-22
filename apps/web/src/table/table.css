@@ -43,3 +43,11 @@
 .checklist .choices__option { align-items: flex-start; padding: 0.35rem 0; }
 .checklist .choices__option input { margin-top: 0.15rem; }
 .stepper__label { flex: 1; min-width: 0; }
+.score-sheet { display: grid; gap: 0.75rem; }
+.score-sheet h3 { margin: 0.75rem 0 0.25rem; font-size: 1rem; }
+.score-sheet__total { font-size: 1.4rem; font-weight: 700; margin: 0; font-variant-numeric: tabular-nums; }
+.score-sheet__secondary { border-top: 1px solid var(--border); padding-top: 0.35rem; }
+.log { display: grid; gap: 0.75rem; }
+.log__note { display: flex; gap: 0.5rem; }
+.log__note .input { flex: 1; min-width: 0; }
+.log__list { margin: 0; padding-left: 1.5rem; display: grid; gap: 0.35rem; overflow-wrap: anywhere; }
