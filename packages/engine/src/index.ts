@@ -7,3 +7,7 @@ export * from './core/context';
 export { R } from './core/rules';
 export * from './datasheet/types';
 export * from './datasheet/profile';
+export * from './geometry/shapes';
+export * from './geometry/measure';
+export * from './geometry/coherency';
+export * from './geometry/path';
