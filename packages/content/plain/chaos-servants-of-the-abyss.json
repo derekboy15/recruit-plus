@@ -1,0 +1,102 @@
+{
+  "0a0dfefa3d35": {
+    "name": "Servants of the Abyss",
+    "kind": "ability",
+    "plain": "This ability does nothing unless OBSIDIUS MALLEX is in your army. If he is, you can't set up any unit with this ability until OBSIDIUS MALLEX has been set up. When you set up OBSIDIUS MALLEX during deployment, every unit with this ability is set up straight away, at the same time. The first time OBSIDIUS MALLEX is set up on the battlefield, all units with this ability have to be placed within 6\" of him (or in the same TRANSPORT he is in). If they can't be set up like this, they count as destroyed."
+  },
+  "199ecba2a65e": {
+    "name": "Vox-caster",
+    "kind": "ability",
+    "plain": "While a friendly TRAITOR ENFORCER unit is within 24\" of the bearer's unit, the bearer's unit is treated as in range of the Forward, For the Dark Gods! ability of that TRAITOR ENFORCER unit."
+  },
+  "1c42daacb6bf": {
+    "name": "Mallex's Followers",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit can only be included in a Detachment that also contains OBSIDIUS MALLEX, and it doesn't use up a slot in a Detachment that contains OBSIDIUS MALLEX."
+  },
+  "2c4b96877047": {
+    "name": "Savage Charge",
+    "kind": "ability",
+    "plain": "If this unit made a charge move this turn, add 1 to the Strength and Attacks characteristics of its models."
+  },
+  "2dcc4f865e04": {
+    "name": "Grenade launcher",
+    "kind": "weapon",
+    "plain": "Each time you attack with this weapon, pick one of the profiles below."
+  },
+  "3851f6f76f90": {
+    "name": "Malicious Volleys",
+    "kind": "ability",
+    "plain": "Models in this unit don't use the normal Rapid Fire rules for their Rapid Fire bolt weapons. Instead, a model shooting one of these weapons makes double the number of attacks if at least one of these is true:\n• Its target is within half the weapon's range.\n• It is an INFANTRY model whose unit Remained Stationary during your previous Movement phase.\n• It is a TERMINATOR model or a BIKER model.\nHere, 'Rapid Fire bolt weapon' means any bolt weapon whose type is Rapid Fire."
+  },
+  "39a04b6274cb": {
+    "name": "Thunder hammer",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, subtract 1 from that attack's hit roll."
+  },
+  "412a8bbc2663": {
+    "name": "Enforcer",
+    "kind": "ability",
+    "plain": "Friendly TRAITOR GUARDSMEN units that are within 6\" of this model may use its Leadership instead of theirs."
+  },
+  "4317b1652c00": {
+    "name": "Death to the False Emperor",
+    "kind": "ability",
+    "plain": "In the Fight phase, if a model in this unit is targeting an IMPERIUM unit, each time you roll a 6+ to hit for it, that model can at once make one extra attack against that same unit using the same weapon. These extra attacks can't trigger further extra attacks."
+  },
+  "76f815b4fa99": {
+    "name": "Avalanche of Muscle",
+    "kind": "ability",
+    "plain": "In any turn in which this model made a successful charge, add 1 to its Attacks characteristic."
+  },
+  "843ed55da334": {
+    "name": "Fanatical Devotion",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit would lose a wound, roll a D6. On a 5+, that wound isn't lost."
+  },
+  "8561b6ad2020": {
+    "name": "Lord of Chaos",
+    "kind": "ability",
+    "plain": "While within 6\" of Obsidius Mallex, friendly BLACK LEGION units and friendly SERVANTS OF THE ABYSS units re-roll hit rolls of 1 for their attacks."
+  },
+  "8709b43b1882": {
+    "name": "Blasphemous Icon",
+    "kind": "ability",
+    "plain": "In the Movement phase, before this model moves, roll a D6. If you roll a 6, it regains 1 lost wound, and for the rest of that phase you can add 2\" to its Move characteristic."
+  },
+  "9d1b24591f3a": {
+    "name": "Electro-goads",
+    "kind": "weapon",
+    "plain": "Each time you roll a 6 to hit with this weapon, that roll scores 3 hits."
+  },
+  "9db3080e69a0": {
+    "name": "Bodyguard",
+    "kind": "ability",
+    "plain": "Whenever a TRAITOR COMMISSAR loses a wound while any friendly models with this ability are within 3\" of it, roll a D6. On a 3+, that wound is not lost by the TRAITOR COMMISSAR; instead, one of those friendly models suffers a mortal wound."
+  },
+  "a48e27a6ad2a": {
+    "name": "Voltagheist Field",
+    "kind": "ability",
+    "plain": "This unit's models have a 5+ invulnerable save. Once this unit has completed a charge move, pick one of the units it charged, then roll a D6 for every model in this unit. Each 6 inflicts a mortal wound on the unit you picked."
+  },
+  "ad3165b4b6a2": {
+    "name": "Mutant claw",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it can make one attack with this weapon (and only one) before it makes any other attacks. If that attack hits, until the end of the phase you can re-roll hit rolls for the bearer's attacks against that unit."
+  },
+  "af9b7f3bd7b0": {
+    "name": "Slaves to Mallex",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit doesn't use up a slot in a Detachment that contains OBSIDIUS MALLEX."
+  },
+  "e0e3f946b216": {
+    "name": "Sigil of Corruption",
+    "kind": "ability",
+    "plain": "Obsidius Mallex gets a 4+ invulnerable save."
+  },
+  "ec0ae54b243f": {
+    "name": "Forwards! For the Dark Gods!",
+    "kind": "ability",
+    "plain": "At the start of your Movement phase, you may pick a friendly TRAITOR GUARDSMEN unit that is within 6\" of this model. That unit suffers 1 mortal wound. For the rest of the turn, add 3 to its Advance and Charge rolls."
+  }
+}
