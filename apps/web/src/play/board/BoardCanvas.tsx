@@ -32,7 +32,7 @@ const pixi: RendererFactory = async (host, view) => (await import('./pixiRendere
 declare global {
   interface Window {
     /** DEV only: lets end-to-end tests find models on the canvas. */
-    __sandbox?: { screenOf?(modelId: string): Pt | null; state?(): unknown; plan?(): unknown };
+    __sandbox?: { screenOf?(modelId: string): Pt | null; screenAt?(world: Pt): Pt | null; state?(): unknown; plan?(): unknown };
   }
 }
 
@@ -103,6 +103,14 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
         if (!m || !cam || !host) return null;
         const rect = host.getBoundingClientRect();
         const p = worldToScreen(cam, sceneRef.current.board, m.center);
+        return { x: rect.left + p.x, y: rect.top + p.y };
+      },
+      screenAt(world) {
+        const cam = camRef.current;
+        const host = hostRef.current;
+        if (!cam || !host) return null;
+        const rect = host.getBoundingClientRect();
+        const p = worldToScreen(cam, sceneRef.current.board, world);
         return { x: rect.left + p.x, y: rect.top + p.y };
       },
     };
