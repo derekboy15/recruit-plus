@@ -12,7 +12,7 @@ export type AdapterIssue = {
   detail: string;
 };
 
-type CharKey = keyof Omit<ModelChars, 'invuln'>;
+type CharKey = keyof Omit<ModelChars, 'invuln' | 'daemonicSave'>;
 const CHAR_ORDER: CharKey[] = ['M', 'WS', 'BS', 'S', 'T', 'W', 'A', 'Ld', 'Sv'];
 const SOURCE_KEY: Record<CharKey, string> = { M: 'M', WS: 'WS', BS: 'BS', S: 'S', T: 'T', W: 'W', A: 'A', Ld: 'Ld', Sv: 'Save' };
 
