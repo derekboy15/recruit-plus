@@ -204,7 +204,9 @@ registerHandler('chargeMove', (ctx, cmd) => {
   const s = ctx.state;
   const u = s.units[cmd.unitId];
   const rule = '[TS §6.1]';
-  const check = checkMoves(s, u.id, cmd.moves, { type: 'charge', allowance: () => a.roll!, difficultGround: true });
+  // TS §6.1: no model may move within Engagement Range of an enemy unit that isn't a target of the charge.
+  const nonTargets = Object.values(s.units).filter((x) => x.player !== u.player && x.location === 'battlefield' && !a.targets.includes(x.id)).map((x) => x.id);
+  const check = checkMoves(s, u.id, cmd.moves, { type: 'charge', allowance: () => a.roll!, difficultGround: true, avoidUnits: nonTargets });
   const problems: Problem[] = [...check.problems];
   const flies = unitHas(s, u.id, 'FLY');
   const engagedWith = (unitId: string) =>

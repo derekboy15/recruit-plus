@@ -22,6 +22,8 @@ export interface MoveRules {
   allowance: (m: ModelState) => number;
   /** Difficult Ground applies (-2 to Move, or to the charge roll) (TR §3.2). */
   difficultGround: boolean;
+  /** Enemy units whose Engagement Range the move may not enter at any point (a charge's non-targets, TS §6.1). */
+  avoidUnits?: string[];
 }
 export interface MoveCheck { placed: Placed[]; final: Record<string, Pos>; problems: Problem[]; difficultGround: TerrainFeature[] }
 
@@ -83,14 +85,15 @@ export function checkMoves(s: GameState, unitId: string, moves: Record<string, M
     if (!path) continue;
     const start = placedModel(s, m);
     const blockers = overModels ? [] : others.filter((o) => !overlaps(start, placedModel(s, o)) && !(r.type === 'breakout' && s.units[o.unitId].player !== u.player));
-    const watchEr = (r.type === 'normal' || r.type === 'advance') && !aircraft;
+    const watchEr = ((r.type === 'normal' || r.type === 'advance') && !aircraft) || !!r.avoidUnits?.length;
+    const watched = r.type === 'normal' || r.type === 'advance' ? enemies : enemies.filter((o) => r.avoidUnits?.includes(o.unitId));
     for (const p of samplePath(path).slice(1, -1)) {
       const at: Placed = { id: m.id, base: ds.base, pos: { ...moves[m.id].to, x: p.x, y: p.y } };
       if (blockers.some((o) => overlaps(at, placedModel(s, o)))) {
         through.push(m.id);
         break;
       }
-      if (watchEr && enemies.some((o) => inEngagementRange(at, placedModel(s, o)))) {
+      if (watchEr && watched.some((o) => inEngagementRange(at, placedModel(s, o)))) {
         nearEnemy.push(m.id);
         break;
       }
@@ -98,7 +101,13 @@ export function checkMoves(s: GameState, unitId: string, moves: Record<string, M
   }
   if (through.length) problems.push({ code: 'through-models', message: `${u.name} can't move through other models.`, rule: '[TS §3.1]', unitId, modelIds: through });
   if (nearEnemy.length)
-    problems.push({ code: 'engagement-during-move', message: `${u.name} can't move within 1" of enemy models during this move.`, rule: '[TS §3.1]', unitId, modelIds: nearEnemy });
+    problems.push({
+      code: 'engagement-during-move',
+      message: r.type === 'charge' ? `${u.name} can't move within 1" of an enemy unit it didn't charge.` : `${u.name} can't move within 1" of enemy models during this move.`,
+      rule: r.type === 'charge' ? '[TS §6.1]' : '[TS §3.1]',
+      unitId,
+      modelIds: nearEnemy,
+    });
 
   const final: Record<string, Pos> = {};
   for (const m of alive) final[m.id] = moves[m.id]?.to ?? m.pos!;

@@ -119,6 +119,13 @@ describe('a full game', () => {
     expect(stateOf(g).phase).toBe('ended');
     expect(stateOf(g).ended?.reason).toBe('battle-rounds');
     expect(ms).toBeLessThan(2_000);
+    // Every phase did real work: charges with Overwatch, fights with Counter-offensive, Morale, scoring.
+    const seen = new Set(events(g));
+    for (const t of ['unitMoved', 'unitArrived', 'psychicAttempt', 'unitShot', 'chargeDeclared', 'chargeReaction', 'stratagemUsed', 'unitCharged', 'unitFought', 'counterOffensive', 'moraleTested', 'vpScored', 'gameEnded'])
+      expect(seen, t).toContain(t);
+    const s = stateOf(g);
+    const survivors = Object.fromEntries(Object.values(s.units).map((u) => [u.id, u.modelIds.filter((id) => !s.models[id].destroyed).length]));
+    expect({ cp: s.cp, vp: s.vp, survivors, winner: s.ended?.winner }).toMatchSnapshot();
     console.log(`5-round game: ${g.batches.length} commands in ${Math.round(ms)} ms`);
   });
 });

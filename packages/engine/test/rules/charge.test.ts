@@ -121,6 +121,12 @@ describe('the charge move', () => {
     expectRejected(play(g, declare('a1', ['b1'])), move('a1', engageB1()), 'charge-non-target');
   });
 
+  test('[TS §6.1] a charge move can not pass within Engagement Range of a unit it did not target', () => {
+    // b2 screens the gap; the charger's path to b1 brushes past b2 (within 1") but ends well clear of it.
+    const g = game({ dice: [6, 6], a: [unitInput('a1', guardsmen(), 1)], b: [unitInput('b1', marines(), 1), unitInput('b2', marines(), 1)], at: { a1: { 'a1.m1': at(17, 20) }, b1: { 'b1.m1': at(17, 28) }, b2: { 'b2.m1': at(18.6, 24) } } });
+    expectRejected(play(g, declare('a1', ['b1'])), move('a1', { 'a1.m1': { to: at(17, 26.83) } }), 'engagement-during-move');
+  });
+
   test('[TS §6.1] a charge longer than the charge roll is refused; the player can call it off', () => {
     const g = play(game({ dice: [1, 2] }), declare('a1', ['b1']));
     expectRejected(g, move('a1', engageB1()), 'too-far');

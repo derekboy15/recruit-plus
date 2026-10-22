@@ -104,7 +104,7 @@ The players then pick units to fight:
 - A player's last-tier units can be picked only when that player has no other eligible units left.
 - Counter-offensive makes the chosen unit fight next. After it fights, the alternation carries on from the other player.
 
-**Why:** WCR: "starting with the player whose turn is not taking place, the players must alternate selecting an eligible unit", and non-chargers "cannot be selected to fight until after all units that did make a charge move have fought". TS §7.1 and §7.2: charging counts as fights first, and fights-first and fights-last cancel out. CS §2 covers Counter-offensive.
+**Why:** WCR: "starting with the player whose turn is not taking place, the players must alternate selecting an eligible unit", and non-chargers "cannot be selected to fight until after all units that did make a charge move have fought". This is Wahapedia's final FAQ'd text, which outranks forum memories that the active player picks first among fights-first units (the 2020 launch wording had separate steps). We couldn't read the June 2021 Rare Rule PDF itself. If it turns out the active player starts the fights-first step, the fix is one line in `fightOrder`. TS §7.1 and §7.2: charging counts as fights first, and fights-first and fights-last cancel out. CS §2 covers Counter-offensive.
 
 ## R-27 Assigning melee attacks
 **Decision:** a fighting model that makes attacks must use exactly its Attacks characteristic (plus extra-attacks effects), split between its melee weapons. A model with no melee weapon uses the close combat weapon. A model with a random Attacks characteristic is not count-checked; its owner enters the rolled number.

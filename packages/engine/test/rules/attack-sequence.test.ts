@@ -115,7 +115,28 @@ describe('the attack sequence', () => {
     expect(Object.values(wounds(g)).filter((w) => w === 1)).toHaveLength(1);
   });
 
-  test('[TS §5.6] +1 to hit and -1 to hit from both sides cancel; the net is capped', () => {
+  test('[TS §1.6] "re-roll failed hit rolls" judges failure before modifiers: with -1, an unmodified 3 is not re-rolled', () => {
+    // BS3, -1 to hit: the 3 is a miss after the modifier but was not a failed roll before it, so it stays (and misses).
+    let g = play(game({ dice: [3, 6, 6, 1] }), { type: 'addEffect', by: 'A', effect: { unitId: 'a1', side: 'attacking', effect: { kind: 'reroll', roll: 'hit', which: 'failed' }, until: 'turn', note: '' } } as Command);
+    g = play(g, attack([{ weapon: gun({}), hitMods: [{ source: 'Dense Cover', value: -1 }] }]));
+    expect(Object.values(wounds(g)).every((w) => w === 2)).toBe(true);
+  });
+
+  test('[TS §1.6] "re-roll failed hit rolls" judges failure before modifiers: with +1, an unmodified 2 is re-rolled', () => {
+    // BS3, +1 to hit: the 2 would hit after the modifier, but it failed before it, so it is re-rolled (6), wounds (6), save fails (1).
+    let g = play(game({ dice: [2, 6, 6, 1] }), { type: 'addEffect', by: 'A', effect: { unitId: 'a1', side: 'attacking', effect: { kind: 'reroll', roll: 'hit', which: 'failed' }, until: 'turn', note: '' } } as Command);
+    g = play(g, attack([{ weapon: gun({}), hitMods: [{ source: 'buff', value: 1 }] }]));
+    expect(Object.values(wounds(g)).filter((w) => w === 1)).toHaveLength(1);
+  });
+
+  test('[TS §1.6] "re-roll failed saves" judges failure before AP: an unmodified 3 against AP-1 is not re-rolled', () => {
+    // Sv 3+, AP-1: the 3 fails after AP but not before it, so the defender's re-roll doesn't apply and the wound goes through.
+    let g = play(game({ dice: [6, 6, 3, 6] }), { type: 'addEffect', by: 'B', effect: { unitId: 'b1', side: 'defending', effect: { kind: 'reroll', roll: 'save', which: 'failed' }, until: 'turn', note: '' } } as Command);
+    g = play(g, attack([{ weapon: gun({}) }]));
+    expect(Object.values(wounds(g)).filter((w) => w === 1)).toHaveLength(1);
+  });
+
+  test('[TS §5.6] hit modifiers are capped: three -1s count as one -1', () => {
     // BS3 with three -1s still needs only a 4.
     const g = play(game({ dice: [4, 6, 1] }), attack([{ weapon: gun({}), hitMods: [{ source: 'a', value: -1 }, { source: 'b', value: -1 }, { source: 'c', value: -1 }] }]));
     expect(Object.values(wounds(g)).filter((w) => w === 1)).toHaveLength(1);

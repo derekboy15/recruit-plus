@@ -228,7 +228,8 @@ function stageHit(ctx: Ctx): void {
   const rr = rerollFor(ctx.state, g.attackerUnitId, 'attacking', 'hit');
   rollWindowed(ctx, a.attacks, 6, 'hit', a.player, {
     context: `${g.weapon.name}: hit rolls (${g.overwatch ? `${g.overwatch.needs}s` : `${needed}+`}${mod ? `, ${mod > 0 ? '+' : ''}${mod}` : ''})`,
-    autoReroll: rr ? (d) => (rr === 'ones' ? d.value === 1 : !hit(d.value)) : undefined,
+    // TS §1.6: re-rolls come before modifiers, so a "failed" roll is one that fails unmodified.
+    autoReroll: rr ? (d) => (rr === 'ones' ? d.value === 1 : g.overwatch ? !hit(d.value) : !hitSucceeds(d.value, needed, 0)) : undefined,
     then: C('hitRolled', { needed, mod }),
   });
 }
@@ -258,7 +259,7 @@ function stageWound(ctx: Ctx): void {
   const rr = rerollFor(ctx.state, g.attackerUnitId, 'attacking', 'wound');
   rollWindowed(ctx, a.hits, 6, 'wound', a.player, {
     context: `${g.weapon.name}: wound rolls (${needed}+${mod ? `, ${mod > 0 ? '+' : ''}${mod}` : ''})`,
-    autoReroll: rr ? (dd) => (rr === 'ones' ? dd.value === 1 : !woundSucceeds(dd.value, needed, mod)) : undefined,
+    autoReroll: rr ? (dd) => (rr === 'ones' ? dd.value === 1 : !woundSucceeds(dd.value, needed, 0)) : undefined,
     then: C('woundRolled', { needed, mod }),
   });
 }
@@ -317,7 +318,7 @@ function stageSave(ctx: Ctx): void {
   const rr = rerollFor(s, g.targetUnitId, 'defending', 'save');
   rollWindowed(ctx, batch, 6, 'save', other(a.player), {
     context: `${g.weapon.name}: saving throws (${save.needed}+${save.mod ? `, ${save.mod > 0 ? '+' : ''}${save.mod}` : ''})`,
-    autoReroll: rr ? (d) => (rr === 'ones' ? d.value === 1 : !saveSucceeds(d.value, save.needed, save.mod)) : undefined,
+    autoReroll: rr ? (d) => (rr === 'ones' ? d.value === 1 : !saveSucceeds(d.value, save.needed, 0)) : undefined,
     then: C('saveRolled', { batch, needed: save.needed, mod: save.mod }),
   });
 }

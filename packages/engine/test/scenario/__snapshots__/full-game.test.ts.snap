@@ -1,5 +1,35 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`a full game > [MP §4] five battle rounds play to the end quickly 1`] = `
+{
+  "cp": {
+    "A": 8,
+    "B": 10,
+  },
+  "survivors": {
+    "i1": 4,
+    "i2": 5,
+    "lib": 1,
+    "w1": 0,
+    "w2": 0,
+    "w3": 6,
+  },
+  "vp": {
+    "A": {
+      "painted": 0,
+      "primary": 0,
+      "secondary": {},
+    },
+    "B": {
+      "painted": 0,
+      "primary": 16,
+      "secondary": {},
+    },
+  },
+  "winner": "B",
+}
+`;
+
 exports[`a full game > [TS §1.9] the game log of battle round 2 reads as plain English 1`] = `
 [
   "Battle round 2: Szarekhan Dynasty's Command phase.",
