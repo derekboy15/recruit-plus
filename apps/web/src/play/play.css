@@ -85,3 +85,14 @@
 .play-details summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; color: var(--brass-strong); }
 .play-actions > .btn { display: block; width: 100%; margin-top: 0.5rem; }
 .play-count { min-width: 2rem; text-align: center; font-weight: 700; align-self: center; }
+.play-assist { margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.5rem; }
+.play-assist > summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 700; color: var(--brass-strong); }
+.play-assist h3 { font-size: 1rem; margin: 0.75rem 0 0.25rem; }
+.play-assist h4 { font-size: 0.9rem; margin: 0.5rem 0 0.15rem; }
+.play-assist .rules-text { font-size: 0.9rem; margin: 0 0 0.25rem; }
+.play-assist__unit { border-left: 3px solid var(--border); padding-left: 0.5rem; margin: 0.5rem 0; }
+.play-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.play-tags { list-style: none; padding: 0; margin: 0.25rem 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.play-strat { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.4rem 0.6rem; }
+.play-strat p { margin: 0.2rem 0; }
+.play-mods .play-field { flex: 1 1 10rem; }

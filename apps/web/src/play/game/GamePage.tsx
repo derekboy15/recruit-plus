@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'r
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { DISCLAIMER } from '../../layout/Footer';
 import { useStorage } from '../../storage/StorageContext';
+import { AssistPanel } from '../assist/AssistPanel';
 import { BoardCanvas, type RendererFactory } from '../board/BoardCanvas';
 import { buildScene, type Ring } from '../board/scene';
 import { PhasePanel } from '../panels/PhasePanel';
@@ -166,6 +167,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
         )}
         <Problems problems={problems} />
         <PhasePanel sb={sb} ui={ui} />
+        {!state.ended && <AssistPanel sb={sb} ui={ui} />}
         <p className="game__disclaimer muted">{DISCLAIMER}</p>
       </div>
       {overlay === 'log' && <GameLog lines={sb.log} onClose={() => setOverlay(null)} />}
