@@ -16,7 +16,7 @@ export function MissionRules({ mission }: { mission: MissionOut }) {
         <RulesText official={mission.primary.text} plain={mission.primary.plain} amended={mission.primary.amended} />
       </article>
       {mission.unverified.map((u) => (
-        <p key={u} className="note">Not confirmed: {u}</p>
+        <p key={u} className="note note--unconfirmed">Not confirmed: {u}</p>
       ))}
     </div>
   );
