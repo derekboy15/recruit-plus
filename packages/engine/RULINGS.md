@@ -92,6 +92,24 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** a weapon with several profiles fires only one of them each time the unit shoots, for example "Plasma gun - standard" and "Plasma gun - supercharge". Profiles count as the same weapon when their names match up to the first " - ", "(", "[" or ",".
 **Why:** TS §5.1: you choose the weapon's profile when selecting targets.
 
+## R-18 Fight order
+**Decision:** each unit eligible to fight is in one of three tiers:
+- **first:** it charged this turn or has a fights-first effect, and no fights-last effect;
+- **last:** it has a fights-last effect and no fights-first effect;
+- **normal:** everything else, including units with both effects.
+
+The players then pick units to fight:
+- They alternate, starting with the player whose turn it isn't. When the player due to pick has no unit they can pick, the other player picks.
+- While any first-tier unit (on either side) still has to fight, only first-tier units can be picked.
+- A player's last-tier units can be picked only when that player has no other eligible units left.
+- Counter-offensive makes the chosen unit fight next. After it fights, the alternation carries on from the other player.
+
+**Why:** WCR: "starting with the player whose turn is not taking place, the players must alternate selecting an eligible unit", and non-chargers "cannot be selected to fight until after all units that did make a charge move have fought". TS §7.1 and §7.2: charging counts as fights first, and fights-first and fights-last cancel out. CS §2 covers Counter-offensive.
+
+## R-27 Assigning melee attacks
+**Decision:** a fighting model that makes attacks must use exactly its Attacks characteristic (plus extra-attacks effects), split between its melee weapons. A model with no melee weapon uses the close combat weapon. A model with a random Attacks characteristic is not count-checked; its owner enters the rolled number.
+**Why:** TS §7.3. Random A values are rare (degraded vehicles), and a roll window for each model's Attacks would add little.
+
 ## R-24 Mixed Toughness
 **Decision:** wound rolls against a unit whose models have different Toughness use the Toughness most of its models have. On a tie, the higher value is used (the defender's choice).
 **Why:** the 9th Edition "mixed unit" rule, as quoted in community sources (the library doesn't cover it): "use the Toughness of the majority … in a tie the controlling player picks".
