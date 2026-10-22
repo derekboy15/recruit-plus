@@ -6,7 +6,7 @@
 import type { GameState } from '../core/state';
 import type { Problem } from '../core/types';
 import { has } from '../datasheet/profile';
-import { inEngagementRange, moreThan, overlaps } from '../geometry/measure';
+import { horizontalGap, inEngagementRange, moreThan, overlaps } from '../geometry/measure';
 import { pathLength, samplePath } from '../geometry/path';
 import { dist, type Placed, type Pos, type Pt } from '../geometry/shapes';
 import { climbCost, difficultGroundOnPath } from '../terrain/movement';
@@ -38,6 +38,8 @@ export function checkMoves(s: GameState, unitId: string, moves: Record<string, M
   if (unknown.length) problems.push({ code: 'unknown-model', message: `Those aren't models of ${u.name} on the battlefield.`, rule: '[TS §3.1]', unitId, modelIds: unknown });
   const fly = has(ds, 'FLY');
   const flyRule = fly && FLY_MOVES.includes(r.type);
+  // FLY models pass over other models on a charge too, but climb terrain normally (GL §2).
+  const overModels = fly && (flyRule || r.type === 'charge');
   const titanic = has(ds, 'TITANIC');
   const aircraft = has(ds, 'AIRCRAFT');
   const canBreach = ds.keywords.some((k) => BREACHERS.includes(k));
@@ -80,7 +82,7 @@ export function checkMoves(s: GameState, unitId: string, moves: Record<string, M
     const path = paths.get(m.id);
     if (!path) continue;
     const start = placedModel(s, m);
-    const blockers = flyRule ? [] : others.filter((o) => !overlaps(start, placedModel(s, o)) && !(r.type === 'breakout' && s.units[o.unitId].player !== u.player));
+    const blockers = overModels ? [] : others.filter((o) => !overlaps(start, placedModel(s, o)) && !(r.type === 'breakout' && s.units[o.unitId].player !== u.player));
     const watchEr = (r.type === 'normal' || r.type === 'advance') && !aircraft;
     for (const p of samplePath(path).slice(1, -1)) {
       const at: Placed = { id: m.id, base: ds.base, pos: { ...moves[m.id].to, x: p.x, y: p.y } };
@@ -111,4 +113,28 @@ export function moveInches(s: GameState, m: ModelState): number {
   const M = sheetOf(s, m.unitId).models.find((p) => p.name === m.profile)?.chars.M;
   if (!M || M.kind === 'none') return 0;
   return M.kind === 'fixed' ? M.inches : M.max;
+}
+
+/**
+ * Pile-in, consolidation and Heroic Intervention moves: each model that moves must end closer to the closest enemy model
+ * (ignoring AIRCRAFT unless the mover can FLY) (WCR; TS §3.5, §6.2, §7.3).
+ */
+export function closerProblems(s: GameState, unitId: string, moves: Record<string, MoveSpec>, rule: string): Problem[] {
+  const u = s.units[unitId];
+  const fly = unitHas(s, unitId, 'FLY');
+  const enemies = Object.values(s.models).filter(
+    (m) => m.pos && !m.destroyed && s.units[m.unitId].player !== u.player && (fly || !unitHas(s, m.unitId, 'AIRCRAFT')),
+  );
+  const bad: string[] = [];
+  for (const [id, spec] of Object.entries(moves)) {
+    const m = s.models[id];
+    if (!m?.pos || !enemies.length) continue;
+    const from = placedModel(s, m);
+    if (Math.abs(spec.to.x - m.pos.x) < 1e-9 && Math.abs(spec.to.y - m.pos.y) < 1e-9 && spec.to.z === m.pos.z) continue;
+    const closest = enemies.reduce((best, e) => (horizontalGap(from, placedModel(s, e)) < horizontalGap(from, placedModel(s, best)) ? e : best));
+    const before = horizontalGap(from, placedModel(s, closest));
+    const after = horizontalGap(placedModel(s, m, spec.to), placedModel(s, closest));
+    if (!(after < before - 1e-6)) bad.push(id);
+  }
+  return bad.length ? [{ code: 'not-closer', message: `Each model of ${u.name} that moves must end closer to the closest enemy model.`, rule, unitId, modelIds: bad }] : [];
 }

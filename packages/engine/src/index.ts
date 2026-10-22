@@ -39,3 +39,4 @@ export * from './move/transports';
 export * from './move/reserves';
 export * from './phases/shooting';
 export * from './phases/psychic';
+export * from './phases/charge';

@@ -105,6 +105,14 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 It can still be shot if it is visible to the firing model and is the closest enemy unit to it. Other protected character units are ignored when working out which unit is closest.
 **Why:** the research library disagrees with itself. TS §5.3 lists all three protectors, while FAQ §2.1 says small vehicle units need 10+ wounds. Wahapedia's final Core Rules text lists all three, and the 10+ wounds clause applies only to the first one. Wahapedia's final text wins (spec §4 precedence: later GW text over the library).
 
+## R-17 Hold Steady
+**Decision:** a unit that Holds Steady fires Overwatch that hits on an unmodified 5+, using the Fire Overwatch stratagem as usual (1 CP, once per phase).
+**Why:** TR §3.3 says Hold Steady Overwatch "hits on 5+". CS §2 notes it is ambiguous whether that means an unmodified 5+. Overwatch's normal requirement is an unmodified 6, so we read it the same way.
+
+## R-26 Which weapons fire Overwatch
+**Decision:** a unit firing Overwatch shoots, from every model that can see the charging unit, every ranged weapon in range. Pistols fire only if the model has no other weapon that can shoot, and grenades never do. Only one profile of each weapon fires. Each charge allows one reaction from the targets: Overwatch, Hold Steady (Overwatch at 5+) or Set to Defend.
+**Why:** CS §2 makes one target unit fire Overwatch, and there is no reason to hold weapons back. Choosing the weapons automatically keeps the reaction to one tap in pass-and-play.
+
 ## R-21 Daemonic Save
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
 **Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."
