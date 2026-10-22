@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { GamePage } from './game/GamePage';
 import { GamesPage } from './GamesPage';
 import { NewGamePage } from './setup/NewGamePage';
 import './play.css';
@@ -9,7 +10,7 @@ export function PlayRoutes() {
     <Routes>
       <Route index element={<GamesPage />} />
       <Route path="new" element={<NewGamePage />} />
-      <Route path=":id" element={<p className="muted">The game screen arrives in a later step.</p>} />
+      <Route path=":id" element={<GamePage />} />
     </Routes>
   );
 }

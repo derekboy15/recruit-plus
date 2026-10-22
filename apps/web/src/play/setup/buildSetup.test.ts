@@ -41,6 +41,12 @@ test('builds a setup newGame accepts: board, rules, zones, objectives and terrai
   expect(setupBlockers(options())).toEqual([]);
 });
 
+test('two armies with the same name are told apart by player', () => {
+  const same = (i: 0 | 1): LoadedArmy => ({ ...loaded(i), army: { ...loaded(i).army, name: 'Necrons Combat Patrol' } });
+  expect(buildGameSetup(options({ armies: [same(0), same(1)] })).armies.map((a) => a.name)).toEqual(['Necrons Combat Patrol (Player 1)', 'Necrons Combat Patrol (Player 2)']);
+  expect(buildGameSetup(options()).armies.map((a) => a.name)).toEqual(['Necrons', 'Ultramarines']);
+});
+
 test('an army with no units blocks the start', () => {
   expect(setupBlockers(options({ armies: [loaded(0), loaded(1, [])] }))).toEqual(['Ultramarines has no units.']);
 });

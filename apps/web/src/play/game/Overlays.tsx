@@ -1,0 +1,115 @@
+/** The game screen's overlays: the pass-the-device screen, the game log and the menu. */
+import type { LogLine, PlayerId } from '@recruit/engine';
+import { useState, type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { WordingToggle } from '../../rules/wording';
+import { PHASE_NAMES } from './names';
+
+export function Dialog({ label, onClose, children, className = '' }: { label: string; onClose?(): void; children: ReactNode; className?: string }) {
+  return (
+    <div className="game__overlay" onClick={onClose && ((e) => e.target === e.currentTarget && onClose())}>
+      <div role="dialog" aria-modal="true" aria-label={label} className={`game__dialog ${className}`}>
+        {onClose && (
+          <button type="button" className="btn btn--small game__close" onClick={onClose}>
+            Close
+          </button>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export function HandOver({ name, onDone }: { name: string; onDone(): void }) {
+  return (
+    <Dialog label={`Pass the device to ${name}`} className="game__handover">
+      <p className="game__handover-text">Pass the device to</p>
+      <p className="game__handover-name">{name}</p>
+      <button type="button" className="btn btn--primary" onClick={onDone} autoFocus>
+        I'm {name}
+      </button>
+    </Dialog>
+  );
+}
+
+export function GameLog({ lines, onClose }: { lines: LogLine[]; onClose(): void }) {
+  const rounds = [...new Set(lines.map((l) => l.round))];
+  return (
+    <Dialog label="Game log" onClose={onClose} className="game__log">
+      <h2>Game log</h2>
+      {rounds.map((r) => (
+        <section key={r}>
+          <h3>{r === 0 ? 'Before the battle' : `Battle round ${r}`}</h3>
+          <ol>
+            {lines
+              .filter((l) => l.round === r)
+              .map((l, i) => (
+                <li key={`${l.seq}-${i}`}>
+                  {r > 0 && <span className="muted">{PHASE_NAMES[l.phase]}: </span>}
+                  {l.text}
+                </li>
+              ))}
+          </ol>
+        </section>
+      ))}
+    </Dialog>
+  );
+}
+
+export interface MenuProps {
+  hints: boolean;
+  handOver: boolean;
+  setHints(v: boolean): void;
+  setHandOver(v: boolean): void;
+  armies: { player: PlayerId; name: string }[];
+  ended: boolean;
+  onConcede(p: PlayerId): void;
+  onToolkit?(): void;
+  onClose(): void;
+}
+
+export function GameMenu({ hints, handOver, setHints, setHandOver, armies, ended, onConcede, onToolkit, onClose }: MenuProps) {
+  const [conceding, setConceding] = useState(false);
+  return (
+    <Dialog label="Game menu" onClose={onClose}>
+      <h2>Menu</h2>
+      <label className="choices__option">
+        <input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} />
+        <span>Hints for new players</span>
+      </label>
+      <label className="choices__option">
+        <input type="checkbox" checked={handOver} onChange={(e) => setHandOver(e.target.checked)} />
+        <span>Pass-the-device screens</span>
+      </label>
+      <WordingToggle />
+      <div className="game__menu-actions">
+        {onToolkit && (
+          <button type="button" className="btn" onClick={onToolkit}>
+            Toolkit
+          </button>
+        )}
+        {!ended &&
+          (conceding ? (
+            <div role="group" aria-label="Who concedes?">
+              <p>Who concedes? The other army wins.</p>
+              {armies.map((a) => (
+                <button key={a.player} type="button" className="btn btn--danger" onClick={() => onConcede(a.player)}>
+                  {a.name} concedes
+                </button>
+              ))}
+              <button type="button" className="btn" onClick={() => setConceding(false)}>
+                Keep playing
+              </button>
+            </div>
+          ) : (
+            <button type="button" className="btn" onClick={() => setConceding(true)}>
+              Concede
+            </button>
+          ))}
+        <Link to="/play" className="btn">
+          Back to games
+        </Link>
+      </div>
+    </Dialog>
+  );
+}

@@ -116,7 +116,7 @@ export function NewGamePage() {
         handOver,
         missionId: mission.id,
         layoutId: layout.id,
-        armies: ready.map((a, i) => ({ player: PLAYERS[i][0], listId: picks[i]!, name: a.army.name, faction: a.faction, catalogueSlugs: a.catalogueSlugs })),
+        armies: ready.map((a, i) => ({ player: PLAYERS[i][0], listId: picks[i]!, name: setup.armies[i].name, faction: a.faction, catalogueSlugs: a.catalogueSlugs })),
       };
       navigate(`/play/${await createGame(repo, user.id, setup, meta)}`);
     } catch (e) {

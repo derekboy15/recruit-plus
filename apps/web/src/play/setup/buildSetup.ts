@@ -17,14 +17,17 @@ export interface SetupOptions {
 export function buildGameSetup(o: SetupOptions): GameSetup {
   const board = { ...BOARD_SIZES[o.battleSize] };
   const layout = o.mission.layout(board, o.battleSize);
+  // A list playing itself: the names say which player is which (pass-and-play prompts and the log use them).
+  const same = o.armies[0].army.name === o.armies[1].army.name;
+  const name = (i: 0 | 1) => (same ? `${o.armies[i].army.name} (Player ${i + 1})` : o.armies[i].army.name);
   return {
     seed: o.seed,
     battleSize: o.battleSize,
     rules: missionRulesFor(o.battleSize),
     board,
     armies: [
-      { ...o.armies[0].army, player: 'A' },
-      { ...o.armies[1].army, player: 'B' },
+      { ...o.armies[0].army, player: 'A', name: name(0) },
+      { ...o.armies[1].army, player: 'B', name: name(1) },
     ],
     terrain: o.layout.features(board),
     objectives: layout.objectives,
