@@ -65,6 +65,16 @@ for (const [article, id, tokens, what] of PINNED) {
   });
 }
 
+// Final Core Rules text (Wahapedia 9th archive, post-errata), as the engine implements it (RULINGS.md R-25):
+// three protectors, and only the first needs 10+ wounds.
+test('Look Out, Sir lists all three protectors from the final Core Rules', () => {
+  const text = section('shooting-phase', 'look-out-sir').text;
+  expect(text).toMatch(/VEHICLE or MONSTER[^.\n]*10 or more wounds/i);
+  expect(text).toMatch(/no CHARACTER[^.\n]*(VEHICLE or MONSTER)/i);
+  expect(text).toMatch(/no CHARACTER[^.\n]*3 or more models/i);
+  expect(text).not.toMatch(/only protect a character if their unit has 3 or more models/i);
+});
+
 test('Look Out, Sir states the dataslate bodyguard change', () => {
   expect(section('shooting-phase', 'look-out-sir').text).toMatch(/bodyguard/i);
 });

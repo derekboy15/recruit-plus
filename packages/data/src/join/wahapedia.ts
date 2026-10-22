@@ -116,6 +116,7 @@ function buildLookups(w: Wahapedia) {
     modelsByDatasheet: group(w.datasheetsModels, 'datasheet_id'),
     abilityLinksByDatasheet: group(w.datasheetsAbilities, 'datasheet_id'),
     abilitiesById: new Map(w.abilities.map((a) => [a.id, a])),
+    keywordsByDatasheet: group(w.datasheetsKeywords, 'datasheet_id'),
   };
 }
 
@@ -163,9 +164,15 @@ export function joinWahapedia(
       if (existing && !existing.text) Object.assign(existing, { text, source: 'wahapedia' as const });
       else if (!existing) abilities.push({ name: ability.name, text, source: 'wahapedia' });
     }
+    // A few BSData entries carry no keywords anywhere (Exaction Squad) or put them on an
+    // "upgrade" entry (Sagitaur Squadron); Wahapedia lists every datasheet's keywords.
+    const wahaKeywords = (lk.keywordsByDatasheet.get(ds.id) ?? [])
+      .filter((k) => k.is_faction_keyword !== 'true' && k.keyword)
+      .map((k) => k.keyword);
     return {
       ...u,
       abilities,
+      keywords: u.keywords.length ? u.keywords : [...new Set(wahaKeywords)],
       // BSData sometimes sets the role only through conditional modifiers; Wahapedia always has it.
       role: u.role ?? WAHAPEDIA_ROLES[ds.role] ?? null,
       wahapediaId: ds.id,

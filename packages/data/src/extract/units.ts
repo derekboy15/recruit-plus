@@ -81,6 +81,24 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     return [parts.reduce((a, p) => a + p[0], 0), parts.reduce((a, p) => a + p[1], 0)];
   }
 
+  /** The model entries inside a unit (not descending into models), with the link that reached each. */
+  function modelEntries(unit: RawNode): { link: RawNode | null; model: RawNode }[] {
+    const found: { link: RawNode | null; model: RawNode }[] = [];
+    const seen = new Set<string>();
+    const walk = (n: RawNode) => {
+      for (const c of [...kids(n, 'selectionEntries'), ...kids(n, 'entryLinks'), ...kids(n, 'selectionEntryGroups')]) {
+        if (c.attrs.hidden === 'true' || SKIP_GROUP.test(c.attrs.name ?? '')) continue;
+        const t = resolve(c);
+        if (!t || t.attrs.hidden === 'true' || seen.has(t.attrs.id)) continue;
+        seen.add(t.attrs.id);
+        if (t.attrs.type === 'model') found.push({ link: c.tag === 'entryLink' ? c : null, model: t });
+        else walk(t);
+      }
+    };
+    walk(unit);
+    return found;
+  }
+
   function collect(entry: RawNode) {
     const models: ProfileOut[] = [];
     const weapons: ProfileOut[] = [];
@@ -164,14 +182,28 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const role: BattlefieldRole | null = BATTLEFIELD_ROLES.find((r) => r === primaryName) ?? null;
     const keywords: string[] = [];
     const factionKeywords: string[] = [];
-    for (const l of catLinks) {
-      if (l === primary) continue;
-      const kw = categoryName(l);
-      if (!kw) continue;
-      if (kw.startsWith('Faction: ')) {
-        if (!factionKeywords.includes(kw.slice(9))) factionKeywords.push(kw.slice(9));
-      } else if (!keywords.includes(kw)) keywords.push(kw);
-    }
+    const addKeywords = (links: RawNode[], into: string[]) => {
+      for (const l of links) {
+        if (l === primary) continue;
+        const kw = categoryName(l);
+        if (!kw) continue;
+        if (kw.startsWith('Faction: ')) {
+          if (!factionKeywords.includes(kw.slice(9))) factionKeywords.push(kw.slice(9));
+        } else if (!into.includes(kw)) into.push(kw);
+      }
+    };
+    addKeywords(catLinks, keywords);
+
+    // Multi-model units (squadrons, crewed guns) often hold keywords on the model entries only.
+    // The unit has every keyword its models have; each model keeps its own set for model-level rules.
+    const perModel = modelEntries(target).map(({ link, model }) => {
+      const own = [...keywords];
+      addKeywords([...(link ? kids(link, 'categoryLinks') : []), ...kids(model, 'categoryLinks')], own);
+      return { model: model.attrs.name, keywords: own };
+    });
+    for (const m of perModel) m.keywords.forEach((kw) => !keywords.includes(kw) && keywords.push(kw));
+    const distinctSets = new Set(perModel.map((m) => [...m.keywords].sort().join('|')));
+    const modelKeywords = distinctSets.size > 1 ? perModel : undefined;
 
     const counts = type === 'model' ? ([1, 1] as [number, number]) : innerCount(target);
     const pl = kids(target, 'costs').find((c) => c.attrs.name?.trim() === 'PL');
@@ -185,6 +217,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       role,
       keywords,
       factionKeywords,
+      ...(modelKeywords ? { modelKeywords } : {}),
       ...collect(target),
       minModels: counts ? counts[0] : null,
       maxModels: counts ? counts[1] : null,

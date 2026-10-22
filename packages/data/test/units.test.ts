@@ -82,6 +82,25 @@ test('hidden root entries and Crusade honours never appear as units', () => {
   }
 });
 
+describe('keywords held by the models inside a unit', () => {
+  // Core rules: a unit has every keyword its models have for unit-level rules; model-level rules
+  // only affect the models that carry the keyword (research library, Glossary_and_Keywords.md).
+  const tfc = extractUnits(gd, byName('Imperium - Adeptus Astartes - Ultramarines')).find((u) => u.name === 'Thunderfire Cannon')!;
+
+  test('the unit carries the union of its models’ keywords', () => {
+    expect(tfc.keywords).toEqual(expect.arrayContaining(['Vehicle', 'Artillery', 'Infantry']));
+    const huntsman = extractUnits(gd, byName('Chaos - Chaos Knights')).find((u) => u.name === 'War Dog Huntsman Squadron')!;
+    expect(huntsman.keywords).toEqual(expect.arrayContaining(['Vehicle']));
+  });
+
+  test('each model keeps its own keywords when they differ', () => {
+    const byModel = Object.fromEntries((tfc.modelKeywords ?? []).map((m) => [m.model, m.keywords]));
+    expect(byModel['Techmarine Gunner']).toEqual(expect.arrayContaining(['Infantry']));
+    expect(byModel['Techmarine Gunner']).not.toContain('Vehicle');
+    expect(byModel['Thunderfire Cannon']).toEqual(expect.arrayContaining(['Vehicle', 'Artillery']));
+  });
+});
+
 describe('every playable catalogue', () => {
   const allowed: { catalogue: string; unit: string }[] = JSON.parse(
     readFileSync(join(__dirname, '..', 'overrides', 'units-without-profiles.json'), 'utf8'),

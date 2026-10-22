@@ -17,11 +17,11 @@ A keyword for bases of many small creatures, such as Ripper Swarms or Nurglings.
 
 ## VEHICLE
 
-A keyword for tanks, walkers and other machines. VEHICLE models can shoot while in Engagement Range thanks to [Big Guns Never Tire](#big-guns-never-tire), and VEHICLE models with 10 or more wounds can protect nearby characters through [Look Out, Sir](/rules/shooting-phase#look-out-sir). They don't get cover from Obstacles or Area Terrain, but Dense Cover still helps them. See [Terrain](/rules/terrain).
+A keyword for tanks, walkers and other machines. VEHICLE models can shoot while in Engagement Range thanks to [Big Guns Never Tire](#big-guns-never-tire), and VEHICLE models can protect nearby characters through [Look Out, Sir](/rules/shooting-phase#look-out-sir) (a VEHICLE that is itself a CHARACTER needs 10 or more wounds). They don't get cover from Obstacles or Area Terrain, but Dense Cover still helps them. See [Terrain](/rules/terrain).
 
 ## MONSTER
 
-A keyword for huge creatures. MONSTER models follow the same Big Guns Never Tire rules as VEHICLE models, and MONSTER models with 10 or more wounds can protect nearby characters through Look Out, Sir. See [Shooting phase](/rules/shooting-phase).
+A keyword for huge creatures. MONSTER models follow the same Big Guns Never Tire rules as VEHICLE models, and MONSTER models can protect nearby characters through Look Out, Sir (a MONSTER that is itself a CHARACTER needs 10 or more wounds). See [Shooting phase](/rules/shooting-phase).
 
 ## TITANIC
 

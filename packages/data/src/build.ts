@@ -244,7 +244,9 @@ const isSelector = (a: Amendment): boolean => a.kind === 'ability' && (a.unitKey
 const describeAmendment = (a: Amendment) =>
   `${a.kind} ${a.kind === 'ability' && isSelector(a) ? `selector (unit keyword ${a.unitKeyword}, text /${a.textPattern}/)` : `"${a.name}"`}`;
 const sameKeyword = (a: string, b: string) => a.toUpperCase() === b.toUpperCase();
-const addNote = (existing: string | undefined, note: string) => (existing ? `${existing} ${note}` : note);
+// A unit can match several keyword selectors that carry the same note; the note is added once.
+const addNote = (existing: string | undefined, note: string) =>
+  !existing ? note : existing.includes(note) ? existing : `${existing} ${note}`;
 
 /**
  * Checks amendments.json: known kinds and catalogue names (`*` only for an ability selector); a name, or for a selector

@@ -430,6 +430,13 @@ describe('applyAmendments', () => {
     expect(out.rules[0].amended).toBe('First. Second.');
   });
 
+  test('the same note reaching one item twice (a unit matching two keyword selectors) is added once', () => {
+    const out = fixture();
+    applyAmendments(out, [selector({ unitKeyword: 'AIRCRAFT' }), selector({ unitKeyword: 'VEHICLE' })]);
+    expect(out.units[2].abilities[0].amended).toBe('Must stay on.');
+    expect(out.units[3].abilities[0].amended).toBe('Must stay on.');
+  });
+
   test('an amendment that matches nothing throws', () => {
     expect(() => applyAmendments(fixture(), [amend({ name: 'Nope' })])).toThrow(/matches nothing/);
     expect(() => applyAmendments(fixture(), [amend({ kind: 'rule', name: 'Shield' })])).toThrow(/matches nothing/);

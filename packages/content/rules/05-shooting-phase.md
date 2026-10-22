@@ -128,9 +128,10 @@ Look Out, Sir protects small CHARACTERS from being shot when they stay close to 
 Your opponent can't target one of your units with ranged attacks if it contains a **CHARACTER with 9 or fewer wounds** (a Wounds characteristic of 9 or less) and it is within **3"** of any of these friendly units:
 
 - a unit containing a VEHICLE or MONSTER model with 10 or more wounds;
+- a unit that has no CHARACTER models and contains a VEHICLE or MONSTER model (of any size);
 - a unit that has no CHARACTER models and has 3 or more models.
 
-> **Tip:** Smaller vehicles and monsters (9 wounds or fewer) only protect a character if their unit has 3 or more models. An August 2020 errata closed the old trick of hiding a character behind a single light vehicle.
+> **Tip:** Any ordinary vehicle or monster protects a nearby character, even a small one like a buggy or a Venom. The 10-wounds limit only matters when the vehicle or monster is itself a CHARACTER: a lone Daemon Prince, for example, can't shield another character. This is the final wording after the 2020 errata.
 
 ### When the character can be shot anyway
 

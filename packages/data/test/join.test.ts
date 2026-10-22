@@ -82,3 +82,17 @@ test('units without a BSData primary role take the Wahapedia role', () => {
   for (const c of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues)))
     for (const u of joined(c.name).units) if (u.wahapediaId) expect(u.role, `${c.name}: ${u.name}`).not.toBeNull();
 });
+
+test("units BSData gives no keywords take Wahapedia's (Exaction Squad, Sagitaur Squadron)", () => {
+  expect(unit('Imperium - Agents of the Imperium', 'Exaction Squad').keywords).toEqual(expect.arrayContaining(['Core', 'Infantry']));
+  expect(unit('Leagues of Votann', 'Sagitaur Squadron').keywords).toEqual(expect.arrayContaining(['Vehicle', 'Transport']));
+});
+
+test('every playable unit has at least one keyword besides its faction keywords', () => {
+  // Open-play-only BSData entry with no Wahapedia datasheet and no keywords anywhere.
+  const allowed = new Set(['Imperium - Grey Knights: Land Raider Variant (Open Play)']);
+  const empty: string[] = [];
+  for (const c of [...gd.catalogues.values()].filter((x) => isPlayableCatalogue(x, overrides.playableCatalogues)))
+    for (const u of joined(c.name).units) if (u.keywords.length === 0 && !allowed.has(`${c.name}: ${u.name}`)) empty.push(`${c.name}: ${u.name}`);
+  expect(empty).toEqual([]);
+});

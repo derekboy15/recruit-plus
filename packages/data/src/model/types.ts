@@ -51,8 +51,14 @@ export interface UnitOut {
   name: string;
   catalogueId: string;
   role: BattlefieldRole | null;
+  /** Unit-level keywords: the unit's own plus every keyword any of its models has (core rules). */
   keywords: string[];
   factionKeywords: string[];
+  /**
+   * Present only when the models in the unit have different keywords (e.g. Thunderfire Cannon: the
+   * cannon is a VEHICLE, its Techmarine Gunner is INFANTRY). Model-level rules use these.
+   */
+  modelKeywords?: { model: string; keywords: string[] }[];
   models: ProfileOut[];
   weapons: ProfileOut[];
   abilities: AbilityOut[];
