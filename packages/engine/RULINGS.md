@@ -44,6 +44,42 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** two models within 2" horizontally, whose centre line crosses a Defence Line feature, count as within Engagement Range of each other for charging and fighting.
 **Why:** TR §3.3: units on opposite sides within 2" can be charged and fight across it.
 
+## R-7 Invulnerable saves from datasheet text
+**Decision:** a model gets an invulnerable save from its abilities only when a whole sentence states it unconditionally, for example "This model has a 4+ invulnerable save." or "Models in this unit have a 5+ invulnerable save.". A sentence that has any of these words doesn't count: against, while, whilst, if, bearer, equipped, contains, round, unless, until, instead. Every other invulnerable save is applied with the one-tap invulnerable effect.
+**Why:** about 1,870 unconditional cases read safely. The roughly 1,240 conditional ones (ranged-only, equipment-dependent and so on) can't be applied correctly without per-faction code, which the spec rules out (§3.3).
+
+## R-8 Base sizes the data doesn't give
+**Decision:** "Use model" and missing bases get an estimated footprint, flagged `baseEstimated`:
+- TITANIC: a 5"×9" hull;
+- other VEHICLE: a 3"×5" hull;
+- MONSTER: a 60mm circle;
+- anything else: a 32mm circle.
+
+**Why:** TS §1.4 measures to the hull for baseless models; the data has no hull sizes. Milestone 5 can refine them.
+
+## R-9 Knights on objectives
+**Decision:** in the Imperial Knights and Chaos Knights catalogues, each model counts as more than one model for objective control:
+- TITANIC VEHICLE models count as 10;
+- ARMIGER and WAR DOG models (and Moiraxes) count as 5, matched by name where the data has no keywords.
+
+**Why:** BD §2 (9 Nov 2021 dataslate, carried over in later slates).
+
+## R-10 Transport capacity
+**Decision:** the capacity is the model count in the Capacity text. Keyword restrictions and "takes the space of" rules are assisted, not enforced.
+**Why:** that text is free-form per datasheet; spec §3.3 keeps datasheet text assisted.
+
+## R-11 Weapon types without a core rule
+**Decision:** a weapon type other than Assault, Heavy, Rapid Fire, Grenade, Pistol, Melee and Dakka (e.g. HunTR) is read as `Other`. It has no type rule: no penalty, no restriction and no extra shots.
+**Why:** those types are defined by faction rules (assisted).
+
+## R-12 Dakka weapons
+**Decision:** a Dakka X/Y weapon makes X attacks against a target within half range and Y otherwise. A unit that Advanced can't fire it unless the toolkit allows it (the faction rule is assisted).
+**Why:** the X/Y numbers are on the profile; the rule for Dakka after Advancing is codex text.
+
+## R-21 Daemonic Save
+**Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
+**Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."
+
 ## R-19 Manual adjustments, undo and replay
 **Decision:**
 - Manual adjustments are always allowed, logged and undoable.

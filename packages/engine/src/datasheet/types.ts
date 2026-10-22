@@ -28,6 +28,8 @@ export interface WeaponProfile {
 export interface ModelChars {
   M: Move; WS: number | null; BS: number | null; S: number; T: number; W: number; A: DiceExpr; Ld: number; Sv: number | null;
   invuln: number | null;
+  /** LEGIONES DAEMONICA: one value against melee attacks, one against ranged; never modified (R-21). Replaces Sv. */
+  daemonicSave?: { melee: number; ranged: number };
 }
 /** One row of a degrading profile: the characteristics that apply while wounds left are in [minW, maxW]. */
 export interface Bracket { minW: number; maxW: number; chars: Partial<ModelChars> }
