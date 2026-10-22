@@ -52,3 +52,16 @@
 .log__note .input { flex: 1; min-width: 0; }
 .log__list { margin: 0; padding-left: 1.5rem; display: grid; gap: 0.35rem; overflow-wrap: anywhere; }
 .stratagems { display: grid; gap: 0.75rem; }
+.tools, .dice, .odds { display: grid; gap: 0.75rem; }
+.tools > .seg { display: flex; width: 100%; margin: 0; }
+.tools > .seg .seg__btn { flex: 1; min-height: var(--touch); }
+.tools > .seg .seg__btn[aria-selected='true'] { background: var(--surface-2); color: var(--text); box-shadow: inset 0 -3px 0 var(--brass); }
+.dice .seg { margin: 0; }
+.dice .seg__btn { min-height: var(--touch); min-width: var(--touch); }
+.dice__results { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.die { width: var(--touch); height: var(--touch); display: grid; place-items: center; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); font-weight: 700; font-size: 1.2rem; }
+.die--hit { border-color: var(--brass-strong); color: var(--brass-strong); }
+.odds__field { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--touch); }
+.odds__field .input { width: auto; min-width: 8rem; max-width: 60%; }
+.odds__result dl { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; margin: 0; }
+.odds__result dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }

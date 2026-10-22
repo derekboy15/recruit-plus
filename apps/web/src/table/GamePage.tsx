@@ -8,6 +8,7 @@ import { getMissions, missionById } from './missionData';
 import { Scoreboard } from './Scoreboard';
 import { ScoreSheet } from './ScoreSheet';
 import { StratagemPanel } from './StratagemPanel';
+import { ToolsPanel } from './ToolsPanel';
 import { useTableGame } from './tableStore';
 import { TurnPanel } from './TurnPanel';
 
@@ -48,7 +49,7 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
       {tab === 'Score' && <ScoreSheet data={game.data} pack={pack} mission={mission} state={state} append={append} />}
       {tab === 'Log' && <LogPanel data={game.data} missions={missions.data} append={append} />}
       {tab === 'Stratagems' && !state.ended && <StratagemPanel data={game.data} state={state} append={append} />}
-      {tab === 'Tools' && <p className="muted">Coming soon.</p>}
+      {tab === 'Tools' && <ToolsPanel pos={state.pos} roll={roll} append={append} />}
     </section>
   );
 }
