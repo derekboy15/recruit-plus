@@ -44,3 +44,5 @@ export * from './phases/fight';
 export * from './phases/morale';
 export * from './phases/actions';
 export * from './toolkit/toolkit';
+export * from './log/describe';
+export * from './log/queries';

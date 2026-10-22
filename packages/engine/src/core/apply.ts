@@ -15,3 +15,6 @@ export function apply(s: GameState, e: GameEvent): void {
   if (!f) throw new Error(`Unknown event type "${(e as { type: string }).type}"`);
   f(s, e);
 }
+
+/** Every event type the engine can apply (used to check each has a log description). */
+export const registeredEventTypes = (): string[] => [...appliers.keys()];
