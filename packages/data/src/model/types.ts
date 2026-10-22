@@ -128,3 +128,49 @@ export interface DataIndex {
   sources: { bsdata: 'v9.8.0'; wahapediaLastUpdate: string };
   catalogues: CatalogueSummary[];
 }
+
+/** Rules Reference and faction guide content, compiled from packages/content Markdown (a strict subset, no HTML). */
+export type Inline = { t: 'text'; v: string } | { t: 'b'; c: Inline[] } | { t: 'i'; c: Inline[] } | { t: 'a'; href: string; c: Inline[] };
+export type Block =
+  | { t: 'h3'; id: string; c: Inline[] }
+  | { t: 'p'; c: Inline[] }
+  | { t: 'ul' | 'ol'; items: Block[][] }
+  | { t: 'table'; head: Inline[][]; rows: Inline[][][] }
+  | { t: 'note'; kind: 'tip' | 'unconfirmed'; c: Inline[] };
+export interface RulesSection {
+  id: string;
+  title: string;
+  blocks: Block[];
+  /** Plain text for search. */
+  text: string;
+}
+export interface RulesArticle {
+  id: string;
+  title: string;
+  order: number;
+  summary: string;
+  intro: Block[];
+  sections: RulesSection[];
+}
+export interface GlossaryTerm {
+  id: string;
+  term: string;
+  blocks: Block[];
+  text: string;
+}
+export interface RulesData {
+  articles: RulesArticle[];
+  glossary: GlossaryTerm[];
+}
+export interface KeyUnit {
+  name: string;
+  unitSlug: string;
+  why: Inline[];
+}
+export interface FactionGuide {
+  slug: string;
+  title: string;
+  plays: Block[];
+  armyRules: Block[];
+  keyUnits: KeyUnit[];
+}

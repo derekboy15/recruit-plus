@@ -1,11 +1,12 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, roster/<slug>.json, roster/policy.json, report.json}. */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, rules.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
 import { coreStratagems, selectStratagems } from './extract/stratagems';
 import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
+import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
@@ -127,6 +128,12 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const out of outs) writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
   writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
+  // Rules Reference and faction guides (none without a content directory).
+  const content = opts.contentDir ? buildContent(opts.contentDir, outs) : { rules: { articles: [], glossary: [] }, guides: [] };
+  writeFileSync(join(opts.outDir, 'rules.json'), JSON.stringify(content.rules));
+  rmSync(join(opts.outDir, 'guides'), { recursive: true, force: true });
+  mkdirSync(join(opts.outDir, 'guides'), { recursive: true });
+  for (const g of content.guides) writeFileSync(join(opts.outDir, 'guides', `${g.slug}.json`), JSON.stringify(g));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
