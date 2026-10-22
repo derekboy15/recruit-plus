@@ -22,6 +22,7 @@ const GuidesIndexPage = lazy(() => import('./rules/GuidesIndexPage').then((m) =>
 const FactionGuidePage = lazy(() => import('./factions/FactionGuidePage').then((m) => ({ default: m.FactionGuidePage })));
 const StratagemsPage = lazy(() => import('./factions/StratagemsPage').then((m) => ({ default: m.StratagemsPage })));
 const ReportsPage = lazy(() => import('./rules/ReportsPage').then((m) => ({ default: m.ReportsPage })));
+const PlayRoutes = lazy(() => import('./play/PlayRoutes').then((m) => ({ default: m.PlayRoutes })));
 
 const loadingPage = <p className="muted">Loading…</p>;
 
@@ -54,8 +55,8 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
       {/* A shared list opens read-only for anyone, signed in or not: deliberately not behind the guard. */}
       <Route path="/share/:id" element={lazyPage(<SharePage />)} />
       <Route
-        path="/play"
-        element={guard(<Placeholder title="Play" milestone={5} blurb="The on-screen sandbox: two players, one device, core rules handled for you." />)}
+        path="/play/*"
+        element={guard(lazyPage(<PlayRoutes />))}
       />
       <Route
         path="/table"

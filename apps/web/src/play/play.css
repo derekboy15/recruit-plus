@@ -1,0 +1,5 @@
+/* Sandbox styles (loaded with the /play routes). */
+.play-game { display: grid; gap: 0.4rem; }
+.play-game > .btn { justify-self: end; }
+.play-game__confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.play-game__confirm p { margin: 0; flex-basis: 100%; }
