@@ -1,0 +1,1656 @@
+[
+ {
+  "id": "aoo-recover-the-relics",
+  "name": "Recover the Relics",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "11",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "recover-relics",
+    "name": "Recover Relics",
+    "text": "Recover Relics: In this mission, a player only receives the Battle-forged CP bonus at the start of the Command phase if they control either one or more objective markers in their opponent’s territory, or if they control one or more objective markers in no man’s land. In addition, if at the start of their Command phase a player controls the objective marker in their opponent’s deployment zone, that player receives 1 additional Command point (this is in addition to the Battle-forged CP bonus)."
+   }
+  ],
+  "primary": {
+   "id": "break-them-body-and-soul",
+   "name": "Break Them, Body and Soul",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nAt the end of the battle round, each player scores 1VP for each enemy unit that was destroyed that battle round (to a maximum of 3VP per player per battle round).",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Recover the Relics)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "break-them",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "count",
+       "id": "destroyed",
+       "label": "Enemy units destroyed this battle round",
+       "vpEach": 1
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-round",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "each",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Recover the Relics, Break Them, Body and Soul)",
+     "max": 3
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [
+    {
+     "id": "recover-relics",
+     "question": "Do you control an objective marker in no man’s land or in your opponent’s territory?",
+     "onNo": "lose"
+    }
+   ],
+   "extras": [
+    {
+     "id": "recover-relics-extra",
+     "question": "Do you control the objective marker in your opponent’s deployment zone?",
+     "cp": 1
+    }
+   ],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Recover the Relics, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 18,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 42,
+       "y": 0,
+       "w": 18,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "territories": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 30,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a",
+     "x": 10,
+     "y": 22,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 50,
+     "y": 22,
+     "in": "B"
+    },
+    {
+     "id": "nw",
+     "x": 22,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "ne",
+     "x": 38,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "sw",
+     "x": 22,
+     "y": 34,
+     "in": "nml"
+    },
+    {
+     "id": "se",
+     "x": 38,
+     "y": 34,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/RecoverTheRelics.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-tear-down-their-icons",
+  "name": "Tear Down Their Icons",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "12",
+  "rules": [
+   {
+    "id": "prime-explosives",
+    "name": "Prime Explosives",
+    "text": "In this mission, units from both players’ armies can attempt the following actions:\nPrime Explosives (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is wholly within your opponent’s territory and it is more than 9\" away from any Primed Explosives objective markers (see below). If the unit performing this action has the Objective Secured ability or a similar rule, this action is completed at the end of your turn; otherwise, it is completed at the end of your next Command phase. If completed, set up 1 Primed Explosives objective marker on the battlefield that is wholly within your opponents territory and wholly within 3\" of the unit that completed this action - this represents a cache of Primed Explosives, but does not count as an objective marker for any rules purposes other than for the Defuse Explosives action and the Detonation primary objective (see below)."
+   },
+   {
+    "id": "defuse-explosives",
+    "name": "Defuse Explosives",
+    "text": "Defuse Explosives (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of a Primed Explosives objective marker within your own territory and no enemy units (excluding AIRCRAFT units) are within range of the same Primed Explosives objective marker. This action is completed at the end of your turn provided the unit performing it is still within range of the same Primed Explosives objective marker. If completed, roll one D6 and add 3 to the result if the unit that performed this action has the Objective Secured ability: on a 4+, remove that Primed Explosives objective marker from the battlefield."
+   },
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   }
+  ],
+  "primary": {
+   "id": "detonation",
+   "name": "Detonation",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nAt the end of the battle:\nEach player scores 4VP for each Primed Explosives objective marker that is within their opponents territory (to a maximum of 15VP per player).",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tear Down Their Icons)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "detonation",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "count",
+       "id": "primed",
+       "label": "Primed Explosives markers in your opponent’s territory",
+       "vpEach": 4
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-battle",
+     "rounds": [
+      5
+     ],
+     "who": "each",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tear Down Their Icons, Detonation)",
+     "max": 15
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tear Down Their Icons, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         0,
+         0
+        ],
+        [
+         30,
+         44
+        ],
+        [
+         0,
+         44
+        ]
+       ]
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         30,
+         0
+        ],
+        [
+         60,
+         0
+        ],
+        [
+         60,
+         44
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "territories": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 30,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "nw",
+     "x": 15,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "a",
+     "x": 15,
+     "y": 34,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 45,
+     "y": 10,
+     "in": "B"
+    },
+    {
+     "id": "se",
+     "x": 45,
+     "y": 34,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": false,
+   "notes": [
+    "The deployment-zone edges are drawn from a corner to the middle of the far long edge, crossing the centre line 15\" from the centre (where the printed 12\" measurements end); the corners themselves aren't printed."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/TearDownTheirIcons.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published.",
+   "Tear Down Their Icons map: The deployment-zone edges are drawn from a corner to the middle of the far long edge, crossing the centre line 15\" from the centre (where the printed 12\" measurements end); the corners themselves aren't printed."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-data-scry-salvage",
+  "name": "Data Scry-salvage",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "13",
+  "rules": [
+   {
+    "id": "data-intercept",
+    "name": "Data Intercept",
+    "text": "In this mission, units from both players’ armies can attempt the following action:\nData Intercept (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of the objective marker within its deployment zone and no enemy units (excluding AIRCRAFT units) are within range of that objective marker. This action is completed at the end of your turn, provided the unit performing it is still within range of that objective marker."
+   },
+   {
+    "id": "data-terminals",
+    "name": "Data Terminals",
+    "text": "Data Terminals: In this mission, if a player controls an objective marker that is in no man’s land at the end of their Command phase and one or more of their units that are within range of it has the Objective Secured ability, it remains under that players control unless their opponent controls it at the end of any subsequent phase, even if there are no models within range of it."
+   },
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   }
+  ],
+  "primary": {
+   "id": "data-intercept",
+   "name": "Data Intercept",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control two or more objective markers.\nThey control three or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nEach time a unit from your army completes the Data Intercept action (see above), you score a number of VP equal to the number of objective markers you currently control that are in no man’s land (to a maximum of 3VP per action).",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "domination",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Data Scry-salvage)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "data-intercept",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "count",
+       "id": "nml",
+       "label": "Objective markers you control in no man’s land",
+       "vpEach": 1
+      }
+     ],
+     "combine": "sum",
+     "when": "on-action",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Data Scry-salvage, Data Intercept)",
+     "max": 3
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Data Scry-salvage, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         20,
+         0
+        ],
+        [
+         60,
+         0
+        ],
+        [
+         60,
+         29
+        ]
+       ]
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         0,
+         15
+        ],
+        [
+         40,
+         44
+        ],
+        [
+         0,
+         44
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "a",
+     "x": 44.515,
+     "y": 11.355,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 15.485,
+     "y": 32.645,
+     "in": "B"
+    },
+    {
+     "id": "nw1",
+     "x": 20.323,
+     "y": 14.904,
+     "in": "nml"
+    },
+    {
+     "id": "nw2",
+     "x": 10.646,
+     "y": 7.807,
+     "in": "nml"
+    },
+    {
+     "id": "se1",
+     "x": 39.677,
+     "y": 29.096,
+     "in": "nml"
+    },
+    {
+     "id": "se2",
+     "x": 49.354,
+     "y": 36.193,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": false,
+   "notes": [
+    "Designer’s note: This battlefield uses diagonal measurements. The shortest distance between the two deployment zones is 24\". The deployment map includes some measurements in blue that help make finding the corners of the deployment zones easier on a battlefield that is approximately 44\" x 60\".",
+    "Objective markers are printed 12\", 24\" and 18\" from the centre along the dotted diagonals; the diagonals are taken as corner to corner, as drawn (their angle isn't printed)."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/DataScrySalvage.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published.",
+   "Data Scry-salvage map: Objective markers are printed 12\", 24\" and 18\" from the centre along the dotted diagonals; the diagonals are taken as corner to corner, as drawn (their angle isn't printed)."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-abandoned-sanctuaries",
+  "name": "Abandoned Sanctuaries",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "21",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "no-mans-land",
+    "name": "No Man’s Land",
+    "text": "No Man’s Land: If a unit has a pre-battle rule that allows it to be set up anywhere on the battlefield, that unit cannot be set up in no man’s land. If a unit has a rule that allows it to make a move before the first turn begins, it cannot end that move in no man’s land. If any rule is used to redeploy a unit, that rule cannot be used to set that unit up in no man’s land. Reinforcement units that are set up on the battlefield during the first battle round cannot be set up in no man’s land."
+   }
+  ],
+  "primary": {
+   "id": "secure-the-sanctuaries",
+   "name": "Secure the Sanctuaries",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nAt the end of each player’s turn, the player whose turn it is scores 2VP if they satisfy one of the following conditions, or 3VP if they satisfy both of the following conditions:\nThey control the objective marker in the centre of the battlefield.\nThey destroyed at least one enemy unit that was within 6\" of the centre of the battlefield at the start of their turn.",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Abandoned Sanctuaries)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "secure-the-sanctuaries",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "centre",
+       "label": "You control the objective marker in the centre of the battlefield",
+       "vp": 0
+      },
+      {
+       "kind": "flag",
+       "id": "kill",
+       "label": "You destroyed an enemy unit that was within 6\" of the centre at the start of your turn",
+       "vp": 0
+      }
+     ],
+     "combine": {
+      "byCount": [
+       0,
+       2,
+       3
+      ]
+     },
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Abandoned Sanctuaries, Secure the Sanctuaries)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Abandoned Sanctuaries, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 60,
+       "h": 10
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 34,
+       "w": 60,
+       "h": 10
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "a",
+     "x": 30,
+     "y": 8,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 30,
+     "y": 36,
+     "in": "B"
+    },
+    {
+     "id": "w",
+     "x": 12,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "e",
+     "x": 48,
+     "y": 22,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/AbandonedSanctuaries_AoO.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-conversion",
+  "name": "Conversion",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "22",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "leading-from-the-front",
+    "name": "Leading From the Front",
+    "text": "Leading From the Front: In this mission, at the start of each player’s Command phase, if a player’s WARLORD is not on the battlefield or it is not embarked within a TRANSPORT model that is on the battlefield, roll one D6: on a 1-3 that player does not receive the Battle-forged CP bonus this phase."
+   }
+  ],
+  "primary": {
+   "id": "corrupted-ground",
+   "name": "Corrupted Ground",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nAt the end of each player’s turn, the player whose turn it is:\nScores 4VP if they control the objective marker in their opponent’s deployment zone.\nScores 2VP if they control one or more objective markers that are in no man’s land.\nLoses* 1VP if they do not control the objective marker in their own deployment zone.\n*A player’s VP score can never be reduced to less than 0.",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Conversion)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "corrupted-ground",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "enemy-home",
+       "label": "You control the objective marker in your opponent’s deployment zone",
+       "vp": 4
+      },
+      {
+       "kind": "flag",
+       "id": "nml",
+       "label": "You control one or more objective markers in no man’s land",
+       "vp": 2
+      },
+      {
+       "kind": "flag",
+       "id": "lose-home",
+       "label": "You don’t control the objective marker in your own deployment zone",
+       "vp": -1
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Conversion, Corrupted Ground)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [
+    {
+     "id": "leading-from-the-front",
+     "question": "Is your WARLORD on the battlefield, or embarked in a TRANSPORT that is on the battlefield?",
+     "onNo": "roll-1-3-lose"
+    }
+   ],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Conversion, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 30,
+       "y": 0,
+       "w": 30,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 30,
+       "cy": 22,
+       "r": 9
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 22,
+       "w": 30,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 30,
+       "cy": 22,
+       "r": 9
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "nw",
+     "x": 15,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "a",
+     "x": 45,
+     "y": 10,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 15,
+     "y": 34,
+     "in": "B"
+    },
+    {
+     "id": "se",
+     "x": 45,
+     "y": 34,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/Conversion.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-the-scouring",
+  "name": "The Scouring",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "23",
+  "rules": [
+   {
+    "id": "auspex-scan",
+    "name": "Auspex Scan",
+    "text": "In this mission, units from both players armies can attempt the following action:\nAuspex Scan (Action): One unit from your army can start to perform this action at the end of your Movement phase if it is within range of an objective marker that has not been scanned by a unit from your army (see below). A unit cannot start this action while there are any enemy units (excluding AIRCRAFT units) within range of the same objective marker. This action is completed at the end of your turn, provided the unit performing it is still within range of the same objective marker. If completed, that objective marker is said to have been scanned by your army."
+   },
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   }
+  ],
+  "primary": {
+   "id": "strategic-scan",
+   "name": "Strategic Scan",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nAt the end of the battle:\nEach player scores 3VP for each objective marker on the battlefield that has been scanned by their army (see above).",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: The Scouring)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "strategic-scan",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "count",
+       "id": "scanned",
+       "label": "Objective markers scanned by your army",
+       "vpEach": 3
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-battle",
+     "rounds": [
+      5
+     ],
+     "who": "each",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: The Scouring, Strategic Scan)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: The Scouring, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 18,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 42,
+       "y": 0,
+       "w": 18,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "nw",
+     "x": 21,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "ne",
+     "x": 39,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "sw",
+     "x": 21,
+     "y": 34,
+     "in": "nml"
+    },
+    {
+     "id": "se",
+     "x": 39,
+     "y": 34,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/TheScouring.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-tide-of-conviction",
+  "name": "Tide of Conviction",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "31",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "supply-lines",
+    "name": "Supply Lines",
+    "text": "Supply Lines: In this mission, at the start of each player’s Command phase, if a player does not control the objective marker in their deployment zone, roll one D6: on a 1-3 that player does not receive the Battle-forged CP bonus this phase."
+   }
+  ],
+  "primary": {
+   "id": "overrun",
+   "name": "Overrun",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control two or more objective markers.\nThey control three or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn the first, second, third and fourth battle rounds:\nAt the end of each player’s turn, the player whose turn it is scores 2VP if they control one or more objective markers in their opponent’s territory.\nAt the end of the battle:\nEach player scores 3VP for each objective marker that they control in their opponent’s territory.",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "domination",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tide of Conviction)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "overrun",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "held",
+       "label": "You control one or more objective markers in your opponent’s territory",
+       "vp": 2
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tide of Conviction, Overrun)"
+    },
+    {
+     "id": "overrun-end",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "count",
+       "id": "held",
+       "label": "Objective markers you control in your opponent’s territory",
+       "vpEach": 3
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-battle",
+     "rounds": [
+      5
+     ],
+     "who": "each",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tide of Conviction, Overrun (end of the battle))"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [
+    {
+     "id": "supply-lines",
+     "question": "Do you control the objective marker in your own deployment zone?",
+     "onNo": "roll-1-3-lose"
+    }
+   ],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Tide of Conviction, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "bottom",
+    "B": "top"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 34,
+       "w": 60,
+       "h": 10
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 60,
+       "h": 10
+      }
+     ]
+    }
+   },
+   "territories": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 22,
+       "w": 60,
+       "h": 22
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 60,
+       "h": 22
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "b",
+     "x": 30,
+     "y": 7,
+     "in": "B"
+    },
+    {
+     "id": "a",
+     "x": 30,
+     "y": 37,
+     "in": "A"
+    },
+    {
+     "id": "nw",
+     "x": 12,
+     "y": 16,
+     "in": "nml"
+    },
+    {
+     "id": "ne",
+     "x": 36,
+     "y": 16,
+     "in": "nml"
+    },
+    {
+     "id": "sw",
+     "x": 24,
+     "y": 28,
+     "in": "nml"
+    },
+    {
+     "id": "se",
+     "x": 48,
+     "y": 28,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/TideOfConviction.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-death-and-zeal",
+  "name": "Death and Zeal",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "32",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "objective-purged",
+    "name": "Objective Purged",
+    "text": "Objective Purged: In this mission, if a player controls an objective marker at the end of their Command phase and one or more of their units that are within range of it has the Objective secured ability, it remains under that players control unless their opponent controls it at the end of any subsequent phase, even if there are no models within range of it."
+   }
+  ],
+  "primary": {
+   "id": "direct-assault",
+   "name": "Direct Assault",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nAt the end of each players turn, the player whose turn it is scores 2VP if they satisfy one of the following conditions, or 3VP if they satisfy both of the following conditions:\nThey control every objective marker on the battlefield or they control at least one objective marker they did not control at the start of their turn.\nThey destroyed at least one enemy unit that was within range of an objective marker at the start of their turn.",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Death and Zeal)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "direct-assault",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "objectives",
+       "label": "You control every objective marker, or one you didn’t control at the start of your turn",
+       "vp": 0
+      },
+      {
+       "kind": "flag",
+       "id": "kill",
+       "label": "You destroyed an enemy unit that was within range of an objective marker at the start of your turn",
+       "vp": 0
+      }
+     ],
+     "combine": {
+      "byCount": [
+       0,
+       2,
+       3
+      ]
+     },
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Death and Zeal, Direct Assault)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Death and Zeal, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "top",
+    "B": "bottom"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 30,
+       "y": 0,
+       "w": 30,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 30,
+       "cy": 22,
+       "r": 9
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 22,
+       "w": 30,
+       "h": 22
+      }
+     ],
+     "exclude": [
+      {
+       "kind": "circle",
+       "cx": 30,
+       "cy": 22,
+       "r": 9
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "nw",
+     "x": 15,
+     "y": 10,
+     "in": "nml"
+    },
+    {
+     "id": "a",
+     "x": 45,
+     "y": 10,
+     "in": "A"
+    },
+    {
+     "id": "b",
+     "x": 15,
+     "y": 34,
+     "in": "B"
+    },
+    {
+     "id": "se",
+     "x": 45,
+     "y": 34,
+     "in": "nml"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": true,
+   "notes": [],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/DeathAndZeal.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ },
+ {
+  "id": "aoo-secure-missing-artefacts",
+  "name": "Secure Missing Artefacts",
+  "pack": "arks-of-omen",
+  "battleSize": "strike-force",
+  "roll": "33",
+  "rules": [
+   {
+    "id": "battle-forged-cp-bonus",
+    "name": "Battle-forged CP Bonus",
+    "text": "Battle-forged CP Bonus: In this mission, at the start of each player’s Command phase, both players gain 1CP, not just the player whose turn it is. These CP are Battle-forged CP bonuses, and so the limit of gaining a maximum of 1CP per turn does not apply to CP gained as a result of this rule."
+   },
+   {
+    "id": "precious-objectives",
+    "name": "Precious Objectives",
+    "text": "Precious Objectives: After players have chosen their deployment zones, but before they declare reserves and transports, the players reposition the objective markers labelled A and B as described below:\nFirst, the Attacker repositions either one objective marker labelled A or one objective marker labelled B.\nSecondly, the Defender repositions one objective marker labelled A and one objective marker labelled B (an objective marker cannot be repositioned more than once).\nFinally, the Attacker repositions the last objective marker labelled A or B that has yet to be repositioned.In all cases, when an objective marker is repositioned, you set it up wholly within 6\" horizontally of its original position, and not on or within any Obstacles or Defensible Terrain features.\nAfter all objective markers have been repositioned, each player secretly notes down one of the objective markers that is within their opponent’s territory to be a Priority objective marker (this cannot be the objective marker in the centre of the battlefield). After both players have deployed their armies, they then reveal their choices to their opponent."
+   }
+  ],
+  "primary": {
+   "id": "precious-artefacts",
+   "name": "Precious Artefacts",
+   "text": "In the second, third and fourth battle rounds:\nAt the end of each player’s Command phase, the player whose turn it is scores 4VP for each of the following conditions they satisfy (for a maximum of 12VP):\nThey control one or more objective markers.\nThey control two or more objective markers.\nThey control more objective markers than their opponent controls.\nIn the fifth battle round:\nThe player who has the first turn scores VP at the end of their Command phase as described above for each of the above conditions they satisfy.\nThe player who has the second turn scores VP at the end of their turn as described above for each of the above conditions they satisfy.\nIn every battle round:\nAt the end of each player’s turn, the player whose turn it is scores 3VP if they control the Priority objective marker that is in their own territory.",
+   "components": [
+    {
+     "id": "hold",
+     "kind": "hold",
+     "mode": "take-and-hold",
+     "vpPerCondition": 4,
+     "max": 12,
+     "when": "end-of-command-phase",
+     "rounds": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Secure Missing Artefacts)",
+     "round5SecondPlayer": "end-of-turn"
+    },
+    {
+     "id": "precious-artefacts",
+     "kind": "lines",
+     "lines": [
+      {
+       "kind": "flag",
+       "id": "priority",
+       "label": "You control the Priority objective marker in your own territory (the one your opponent picked)",
+       "vp": 3
+      }
+     ],
+     "combine": "sum",
+     "when": "end-of-turn",
+     "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "who": "active",
+     "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Secure Missing Artefacts, Precious Artefacts)"
+    }
+   ]
+  },
+  "cp": {
+   "who": "both",
+   "gates": [],
+   "extras": [],
+   "source": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (Arks of Omen: Grand Tournament: Secure Missing Artefacts, mission rules (Battle-forged CP Bonus))"
+  },
+  "map": {
+   "board": {
+    "width": 60,
+    "height": 44
+   },
+   "edges": {
+    "A": "left",
+    "B": "right"
+   },
+   "zones": {
+    "A": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         0,
+         0
+        ],
+        [
+         30,
+         44
+        ],
+        [
+         0,
+         44
+        ]
+       ]
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "polygon",
+       "points": [
+        [
+         30,
+         0
+        ],
+        [
+         60,
+         0
+        ],
+        [
+         60,
+         44
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "territories": {
+    "A": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 0,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    },
+    "B": {
+     "include": [
+      {
+       "kind": "rect",
+       "x": 30,
+       "y": 0,
+       "w": 30,
+       "h": 44
+      }
+     ]
+    }
+   },
+   "objectives": [
+    {
+     "id": "centre",
+     "x": 30,
+     "y": 22,
+     "in": "nml"
+    },
+    {
+     "id": "a1",
+     "x": 15,
+     "y": 10,
+     "in": "nml",
+     "label": "A"
+    },
+    {
+     "id": "a2",
+     "x": 15,
+     "y": 34,
+     "in": "A",
+     "label": "A"
+    },
+    {
+     "id": "b1",
+     "x": 45,
+     "y": 10,
+     "in": "B",
+     "label": "B"
+    },
+    {
+     "id": "b2",
+     "x": 45,
+     "y": 34,
+     "in": "nml",
+     "label": "B"
+    }
+   ],
+   "symmetry": "rotate180",
+   "verified": false,
+   "notes": [
+    "The deployment-zone edges are drawn from a corner to the middle of the far long edge, crossing the centre line 15\" from the centre (where the printed 12\" measurements end); the corners themselves aren't printed.",
+    "These are the starting positions: before reserves are declared, the players reposition the A and B objective markers up to 6\" (Precious Objectives)."
+   ],
+   "image": "https://wahapedia.ru/wh40k9ed/img/maps/ngt/SecureMissingArtefacts.png"
+  },
+  "verified": false,
+  "unverified": [
+   "Arks of Omen GT v1.1 errata (April 2023) not checked against GW's own document, which couldn't be found; Wahapedia's text is used as published.",
+   "Secure Missing Artefacts map: The deployment-zone edges are drawn from a corner to the middle of the far long edge, crossing the centre line 15\" from the centre (where the printed 12\" measurements end); the corners themselves aren't printed."
+  ],
+  "source": {
+   "url": "https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/",
+   "retrieved": "2026-10-22"
+  }
+ }
+]

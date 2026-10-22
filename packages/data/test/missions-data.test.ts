@@ -50,6 +50,8 @@ describe.each(missions.map((m) => [m.id, m] as const))('%s', (_id, m) => {
     if (m.missionSecondary) groups.push([m.missionSecondary.components ?? [], m.missionSecondary.text]);
     for (const [components, text] of groups) {
       const nums = numbersIn(text);
+      // "a number of VP equal to the number of …" is 1 VP each without printing a 1.
+      if (/VP equal to the number of/.test(text)) nums.add(1);
       for (const c of components) for (const n of vpNumbers(c)) expect(nums.has(n), `${c.id}: ${n}`).toBe(true);
     }
   });
@@ -182,6 +184,61 @@ describe('Arks of Omen Incursion missions', () => {
     expect(Object.fromEntries(inc().map((m) => [m.id, m.map.objectives.length]))).toEqual({
       'aoo-cleanse-the-land': 5, 'aoo-deliverance': 5, 'aoo-desperate-raid': 6, 'aoo-sacred-ground': 4, 'aoo-ascension': 5,
       'aoo-surge-of-faith': 4, 'aoo-rise-of-the-machine-spirit': 5, 'aoo-display-of-spiritual-might': 4, 'aoo-reconnaissance-mission': 4,
+    });
+  });
+});
+
+describe('Arks of Omen Strike Force missions', () => {
+  const sf = () => missions.filter((m) => m.pack === 'arks-of-omen' && m.battleSize === 'strike-force');
+  test('nine missions on a 60x44 board', () => {
+    expect(sf().map((m) => m.roll).sort()).toEqual(['11', '12', '13', '21', '22', '23', '31', '32', '33']);
+    for (const m of sf()) expect(m.map.board, m.id).toEqual({ width: 60, height: 44 });
+  });
+  test('Recover the Relics: Break Them, and the Recover Relics CP rule', () => {
+    expect(score('aoo-recover-the-relics', 'break-them', { counts: { destroyed: 2 } })).toBe(2);
+    const rule = byId('aoo-recover-the-relics').cp;
+    expect(rule.gates).toMatchObject([{ onNo: 'lose' }]);
+    expect(rule.gates[0].question).toBeTruthy();
+    expect(rule.extras.map((e) => e.cp)).toEqual([1]);
+  });
+  test('Tear Down Their Icons: Detonation max 15', () => {
+    expect(score('aoo-tear-down-their-icons', 'detonation', { counts: { primed: 4 } }, 5)).toBe(15);
+    expect(score('aoo-tear-down-their-icons', 'detonation', { counts: { primed: 2 } }, 5)).toBe(8);
+  });
+  test('Data Scry-salvage: Domination and Data Intercept', () => {
+    expect(score('aoo-data-scry-salvage', 'data-intercept', { counts: { nml: 2 } })).toBe(2);
+    expect(score('aoo-data-scry-salvage', 'data-intercept', { counts: { nml: 4 } })).toBe(3);
+    expect(score('aoo-data-scry-salvage', 'hold', { controlled: 2, opponentControlled: 1 })).toBe(8);
+    expect(byId('aoo-data-scry-salvage').map.zones.A.include[0].kind).toBe('polygon');
+    expect(byId('aoo-data-scry-salvage').map.notes.join(' ')).toMatch(/approximately 44" x 60"/);
+  });
+  test('Abandoned Sanctuaries: one condition 2, both 3', () => {
+    expect(score('aoo-abandoned-sanctuaries', 'secure-the-sanctuaries', { flags: { kill: true } })).toBe(2);
+    expect(score('aoo-abandoned-sanctuaries', 'secure-the-sanctuaries', { flags: { kill: true, centre: true } })).toBe(3);
+  });
+  test('Conversion: Corrupted Ground 4 + 2 - 1', () => {
+    expect(score('aoo-conversion', 'corrupted-ground', { flags: { 'enemy-home': true, nml: true, 'lose-home': true } })).toBe(5);
+  });
+  test('The Scouring: 3 VP per scanned objective', () => {
+    expect(score('aoo-the-scouring', 'strategic-scan', { counts: { scanned: 5 } }, 5)).toBe(15);
+  });
+  test('Tide of Conviction: Overrun turns 1-4 and at the end', () => {
+    const due = dueComponents(byId('aoo-tide-of-conviction').primary.components, { at: 'end-of-turn', round: 5, activeIsFirst: true });
+    expect(due.map((c) => c.id)).toEqual([]);
+    expect(score('aoo-tide-of-conviction', 'overrun', { flags: { held: true } }, 4)).toBe(2);
+    expect(score('aoo-tide-of-conviction', 'overrun-end', { counts: { held: 2 } }, 5)).toBe(6);
+  });
+  test('Death and Zeal: the same scoring as Cleanse the Land', () => {
+    const strip = (m: MissionOut) => m.primary.components.map(({ source: _s, ...c }) => c);
+    expect(strip(byId('aoo-death-and-zeal'))).toEqual(strip(byId('aoo-cleanse-the-land')));
+  });
+  test('Secure Missing Artefacts: Precious Artefacts', () => {
+    expect(score('aoo-secure-missing-artefacts', 'precious-artefacts', { flags: { priority: true } })).toBe(3);
+  });
+  test('objective counts', () => {
+    expect(Object.fromEntries(sf().map((m) => [m.id, m.map.objectives.length]))).toEqual({
+      'aoo-recover-the-relics': 6, 'aoo-tear-down-their-icons': 5, 'aoo-data-scry-salvage': 6, 'aoo-abandoned-sanctuaries': 5, 'aoo-conversion': 5,
+      'aoo-the-scouring': 5, 'aoo-tide-of-conviction': 6, 'aoo-death-and-zeal': 5, 'aoo-secure-missing-artefacts': 5,
     });
   });
 });
