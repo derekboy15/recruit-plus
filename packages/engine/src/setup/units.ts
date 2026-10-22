@@ -60,6 +60,8 @@ export interface ModelState {
   weapons: string[];
   woundsLeft: number;
   pos: Pos | null;
+  /** Where it was when it was last removed from the battlefield (to measure from a destroyed transport). */
+  lastPos?: Pos | null;
   destroyed: boolean;
   /** An attack was allocated to it this phase (TS §5.6). */
   allocatedThisPhase: boolean;
@@ -171,6 +173,7 @@ registerApplier('modelsRemoved', (s, e) => {
   for (const id of e.modelIds) {
     const m = s.models[id];
     m.destroyed = true;
+    if (m.pos) m.lastPos = m.pos;
     m.pos = null;
     m.woundsLeft = 0;
     const u = s.units[m.unitId];

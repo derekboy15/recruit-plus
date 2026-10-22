@@ -71,6 +71,7 @@ export function runContinuation(ctx: Ctx, c: Continuation, extra: object = {}): 
 /** Refuses the command while the game is waiting on a roll, a reaction or a placement. */
 export function noPending(ctx: Ctx): void {
   if (ctx.state.pending) ctx.reject('pending-decision', 'Finish the current roll or decision first.', '[R-19]');
+  if (ctx.state.placements?.length) ctx.reject('pending-decision', 'Set up the passengers of the destroyed transport first.', '[TS §3.4]');
 }
 
 /** Re-rolls the given dice of a roll (each at most once, TS §1.6) and records them. */
