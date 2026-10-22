@@ -77,3 +77,10 @@
 .die--rolling { animation: die-tumble 0.15s linear infinite; }
 @keyframes die-tumble { 0% { transform: rotate(0deg); } 50% { transform: rotate(12deg) scale(1.08); } 100% { transform: rotate(0deg); } }
 @media (prefers-reduced-motion: reduce) { .die--rolling { animation: none; } }
+.play-weapons { display: grid; gap: 0.5rem; margin: 0.5rem 0; }
+.play-weapon { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.25rem 0.5rem 0.5rem; }
+.play-weapon[data-focus='true'] { border-color: var(--focus); }
+.play-weapon select { flex: 1 1 10rem; min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
+.play-details { margin: 0.5rem 0; }
+.play-details summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; color: var(--brass-strong); }
+.play-actions > .btn { display: block; width: 100%; margin-top: 0.5rem; }

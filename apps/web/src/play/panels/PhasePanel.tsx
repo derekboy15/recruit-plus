@@ -4,9 +4,11 @@ import { DeployPanel } from './DeployPanel';
 import { FirstTurnPanel } from './FirstTurnPanel';
 import { MovementPanel } from './MovementPanel';
 import { PlacementPanel } from './PlacementPanel';
+import { PsychicPanel } from './PsychicPanel';
 import { ReactionPanel } from './ReactionPanel';
 import { ReinforcementsPanel } from './ReinforcementsPanel';
 import { RollPanel } from './RollPanel';
+import { ShootingPanel } from './ShootingPanel';
 import type { PanelProps } from './types';
 
 /** Until a phase has its own panel: its name and a button to end it. */
@@ -30,5 +32,7 @@ export function PhasePanel(props: PanelProps) {
   if (state.placements?.length) return <PlacementPanel {...props} />;
   if (state.phase === 'pre-battle') return state.step === 'deploy' ? <DeployPanel {...props} /> : <FirstTurnPanel {...props} />;
   if (state.phase === 'movement') return state.step === 'move-units' ? <MovementPanel {...props} /> : <ReinforcementsPanel {...props} />;
+  if (state.phase === 'psychic') return <PsychicPanel {...props} />;
+  if (state.phase === 'shooting') return <ShootingPanel {...props} />;
   return <PlainPhase {...props} />;
 }

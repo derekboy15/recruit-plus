@@ -93,9 +93,10 @@ const row = (g: GameRecord, unitId: string, x0: number, y: number) =>
  */
 export function deployedGame(o: Partial<SampleOpts & { aY: number; bY: number }> = {}): GameRecord {
   let g = newGame(sampleSetup(o));
+  // Deployment alternates, the Defender (B) first.
   g = must(g, { type: 'deploy', by: 'B', unitId: 'B:int', positions: row(g, 'B:int', 18, 26) } as Command);
-  if (o.librarian) g = must(g, { type: 'deploy', by: 'B', unitId: 'B:lib', positions: row(g, 'B:lib', 12, 26) } as Command);
   g = must(g, { type: 'deploy', by: 'A', unitId: 'A:war', positions: row(g, 'A:war', 14, 4) } as Command);
+  if (o.librarian) g = must(g, { type: 'deploy', by: 'B', unitId: 'B:lib', positions: row(g, 'B:lib', 12, 26) } as Command);
   for (const [unitId, x0, y] of [['A:war', 14, o.aY ?? 4], ['B:int', 18, o.bY ?? 26], ...(o.librarian ? [['B:lib', 12, o.bY ?? 26]] : [])] as [string, number, number][]) {
     if (y === (unitId.startsWith('A') ? 4 : 26)) continue;
     for (const [modelId, pos] of Object.entries(row(g, unitId, x0, y))) g = must(g, { type: 'placeModel', by: unitId[0] as PlayerId, modelId, pos } as Command);
