@@ -135,3 +135,26 @@ export function placeAll(game: GameRecord, positions: Record<string, Record<stri
   if (!stateOf(g).firstPlayer) throw new Error('placeAll needs firstTurn set');
   return play(g, { type: 'beginBattle', by: stateOf(g).firstPlayer! } as Command);
 }
+
+/** Deployment zones covering the whole board for both players (for tests that need models anywhere). */
+export function FULL_ZONES(size: BattleSizeId = 'strike-force'): Record<PlayerId, Pt[]> {
+  const b = BOARD_SIZES[size];
+  const h = size === 'combat-patrol' ? 60 : b.h;
+  return { A: rect(0, 0, b.w, h), B: rect(0, 0, b.w, h) };
+}
+
+/** Ends the current phase (by the active player). */
+export function nextPhase(game: GameRecord): GameRecord {
+  return play(game, { type: 'endPhase', by: stateOf(game).active } as Command);
+}
+
+/** Ends phases until the given battle round and turn's Command phase. */
+export function toTurn(game: GameRecord, round: number, turn: 'first' | 'second'): GameRecord {
+  let g = game;
+  for (let guard = 0; guard < 200; guard++) {
+    const s = stateOf(g);
+    if (s.round === round && s.turn === turn && s.phase === 'command') return g;
+    g = nextPhase(g);
+  }
+  throw new Error('toTurn: never reached the turn');
+}

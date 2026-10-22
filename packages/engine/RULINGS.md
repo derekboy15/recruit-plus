@@ -76,6 +76,10 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** a Dakka X/Y weapon makes X attacks against a target within half range and Y otherwise. A unit that Advanced can't fire it unless the toolkit allows it (the faction rule is assisted).
 **Why:** the X/Y numbers are on the profile; the rule for Dakka after Advancing is codex text.
 
+## R-13 One model, one objective
+**Decision:** a model within range of more than one objective marker counts only toward the nearest one. On a tie it counts toward the marker listed first in the mission.
+**Why:** TS §9: "each model counts toward only one marker per turn". The core rules don't say which marker it counts toward, and nearest is the natural reading on a digital board.
+
 ## R-21 Daemonic Save
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
 **Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."

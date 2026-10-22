@@ -22,3 +22,5 @@ export * from './setup/setup';
 export * from './setup/deploy';
 export * from './move/placement';
 export * from './turn/phases';
+export * from './turn/command';
+export * from './turn/objectives';
