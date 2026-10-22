@@ -15,7 +15,7 @@ import { addEffect, effectsFor } from '../interact/effects';
 import { canAfford, spendStratagem } from '../interact/stratagems';
 import { noPending, offerReaction, registerContinuation, rollWindowed } from '../interact/windows';
 import { checkMoves, closerProblems, type MoveSpec } from '../move/moves';
-import { isEngaged } from '../move/movement';
+import { afterMove, isEngaged } from '../move/movement';
 import { livingModels, modelView, onBoard, placedModel, sheetOf, unitHas, unitView } from '../setup/units';
 import { defenceLineBetween } from '../terrain/cover';
 import { hasTrait } from '../terrain/types';
@@ -255,6 +255,7 @@ registerHandler('heroicIntervention', (ctx, cmd) => {
   const problems = [...check.problems, ...closerProblems(s, u.id, cmd.moves, rule)];
   if (problems.length) ctx.fail(problems);
   ctx.emit({ type: 'heroicIntervened', unitId: u.id, positions: Object.fromEntries(Object.keys(cmd.moves).map((id) => [id, check.final[id]])) });
+  afterMove(ctx, u.id);
 });
 
 type Hook = (ctx: Ctx, unitId: string) => void;

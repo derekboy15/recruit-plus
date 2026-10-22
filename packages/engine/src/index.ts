@@ -42,3 +42,4 @@ export * from './phases/psychic';
 export * from './phases/charge';
 export * from './phases/fight';
 export * from './phases/morale';
+export * from './phases/actions';

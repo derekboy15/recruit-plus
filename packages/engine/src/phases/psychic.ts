@@ -115,6 +115,7 @@ registerHandler('manifest', (ctx, cmd) => {
   // PP §5: Smite is WC 5, +1 for each other Smite attempt by your army this phase.
   const wc = smite ? 5 + s.psychic.smites[cmd.by] : (cmd.wc ?? known!.wc ?? 0);
   ctx.emit({ type: 'psychicAttempt', unitId: u.id, power: smite ? 'Smite' : cmd.power.trim(), wc, smite, action: false });
+  for (const h of psychicHooks) h(ctx, u.id);
   rollWindowed(ctx, 2, 6, 'psychic', cmd.by, { whole: true, context: `${u.name}: Psychic test for ${smite ? 'Smite' : cmd.power} (${wc}+)`, then: { module: 'psychic', step: 'tested', data: { unitId: u.id, power: smite ? 'Smite' : cmd.power.trim(), wc, smite, targetUnitId: cmd.targetUnitId } } });
 });
 
@@ -216,4 +217,11 @@ export function smiteTarget(s: GameState, psykerId: string): string | null {
     if (d <= 18 + 1e-6 && (!best || d < best.d - 1e-9)) best = { id: u.id, d };
   }
   return best?.id ?? null;
+}
+
+type Hook = (ctx: Ctx, unitId: string) => void;
+const psychicHooks: Hook[] = [];
+/** Runs when a psyker attempts to manifest a power (its action fails, Task 18). */
+export function registerPsychicHook(fn: Hook): void {
+  psychicHooks.push(fn);
 }
