@@ -17,6 +17,10 @@ export function Legal() {
           Army data: the BSData <code>wh40k-9e</code> community project, final 9th Edition release (v9.8.0).
         </li>
         <li>Datasheet details, points and rules text: partly powered by Wahapedia (9th Edition export, June 2023).</li>
+        <li>
+          Plain-English rules text is written by Recruit+ in its own words; the official wording comes from BattleScribe
+          data and Wahapedia.
+        </li>
       </ul>
     </section>
   );

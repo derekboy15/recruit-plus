@@ -1,0 +1,200 @@
+{
+  "0355cd6e16fb": {
+    "name": "Drawn to Power",
+    "kind": "ability",
+    "plain": "When working out who controls an objective marker, each model in this unit counts as 2 models."
+  },
+  "03b4d72010b6": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this TRANSPORT model is destroyed, before any embarked models disembark and before you take it off the battlefield, roll one D6. If you roll a 6, the model explodes: every unit within 6\" suffers D6 mortal wounds.",
+    "waive": {
+      "06": "the official text misprints the dice as \"06\" (\"roll one 06\", \"suffers 06 mortal wounds\"); both are D6, written as D6 here",
+      "D6": "stands for the official text's misprinted \"06\", which is a D6"
+    }
+  },
+  "08e9ac2af15f": {
+    "name": "Relentless Rage",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase: if during this turn this unit made a charge move, was charged, or carried out a Heroic Intervention, then until the end of that phase its models add 1 to their Strength and Attacks characteristics."
+  },
+  "0ab5332fdef9": {
+    "name": "The Blood Tithe",
+    "kind": "ability",
+    "plain": "If every unit in your army has the WORLD EATERS keyword (ignoring models with the AGENT OF CHAOS or UNALIGNED keyword), you earn Blood Tithe points (BTP) during the battle as set out here. Keep track of your BTP total.\n• Whenever a unit is destroyed, you get 1 BTP.\n• At the end of each phase, if one or more CHARACTER, MONSTER or VEHICLE units were destroyed during that phase, you get 1 more BTP.\n• At the end of each phase, if one or more TITANIC units were destroyed during that phase, you get 1 more BTP.\nFor example, say that in the Fight phase one TITANIC VEHICLE CHARACTER unit plus one other unit are destroyed. You get 1 BTP as each of those 2 units is destroyed. When the phase ends, you get 1 more because a CHARACTER or VEHICLE unit was destroyed, and 1 more because a TITANIC unit was destroyed: 4 BTP in total for that phase.\nThis applies in both players' turns, and it doesn't matter whether the destroyed models were friendly or enemy models.\n\nAt the end of each phase, once you have gained any BTP, you can spend BTP to buy a Blessing of the Blood God. Over the battle you can buy as many Blessings as you like, but no more than one in any phase, and apart from Reborn in Blood, each Blessing can only be bought once per battle. Every Blessing has a BTP cost; if your total is lower than that cost, you can't buy it. When you pick a Blessing, take its BTP cost off your total.\n\nReborn in Blood (6 BTP): take a destroyed ANGRON model from your army and put it into blasphemous reserves (see Warp Strike) with 8 wounds left. It no longer counts as destroyed, and it may be placed again during your Reinforcements step as though it had the Warp Strike ability."
+  },
+  "0f234ae90ba3": {
+    "name": "Jakhal Stimms",
+    "kind": "ability",
+    "plain": "Once per battle, when this unit is chosen to fight, you can declare that it is using its stimms. If you do, this unit suffers D3 mortal wounds, and its models add 1 to their Strength characteristic until the end of the phase."
+  },
+  "0fe526a18bd0": {
+    "name": "Red Butchers",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Fight phase, when one of your WORLD EATERS TERMINATORS or EIGHTBOUND units is chosen to fight. Until the end of the phase, add 1 to the Damage characteristic of every attack made by a model in that unit."
+  },
+  "18d16fb25820": {
+    "name": "Smokescreen",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your opponent's Shooting phase, when an attack targets one of your WORLD EATERS SMOKESCREEN units. For the rest of the phase, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "19c3f255a67c": {
+    "name": "Skulls for the Skull Throne!",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem when one of your WORLD EATERS CHARACTER models destroys an enemy WARLORD with a melee attack. Choose one or both of these:\n• You gain 2 extra Blood Tithe points.\n• For the rest of the battle, that WORLD EATERS CHARACTER model adds 1 to its Advance and charge rolls.\nIf you chose just one option, the cost of this Stratagem is 1CP; otherwise it is 2CP."
+  },
+  "22c4bdcab307": {
+    "name": "Aggressive Intervention",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem during your opponent's Charge phase, in the Heroic Interventions step. Pick one of your WORLD EATERS CORE units. Until the end of the phase, it can perform a Heroic Intervention as though it were a CHARACTER unit, and it is also eligible to do so when any enemy units are within 6\" horizontally and 5\" vertically of it. When it performs a Heroic Intervention, each of its models can move up to 6\". All other Heroic Intervention rules still apply."
+  },
+  "2afd47aa8b3a": {
+    "name": "Wrathful Presence",
+    "kind": "ability",
+    "plain": "In your Command phase, choose one of the abilities below. Until the start of your next Command phase, this model has the chosen ability.\n\n- Infectious Rage (Aura): models in your WORLD EATERS CORE units get 1 added to their Attacks characteristic while their unit is within 6\" of this model.\n- Glorious Bloodletting (Aura): when a model in another WORLD EATERS unit makes a melee attack while its unit is within 6\" of this model, you can re-roll a hit roll of 1.\n- Righteous Slaughter (Aura): no unit within 6\" of this model can Fall Back."
+  },
+  "2ca7ff1ba135": {
+    "name": "Lord of the Arena",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your WORLD EATERS CORE or WORLD EATERS CHARACTER units within 6\" of this model. That unit's models can re-roll hit rolls for their attacks until the start of your next Command phase."
+  },
+  "31b88ec37059": {
+    "name": "Lord of the World Eaters",
+    "kind": "ability",
+    "plain": "While one of your WORLD EATERS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "3bd3ce0f8654": {
+    "name": "Jakhal icon",
+    "kind": "ability",
+    "plain": "The bearer's unit gains the ICON keyword. Whenever the bearer's unit takes a Combat Attrition test, if it contains any models equipped with a Jakhal icon, add 1 to the test."
+  },
+  "3ce423272bda": {
+    "name": "Mutable Form",
+    "kind": "ability",
+    "plain": "When a model in this unit makes a melee attack and the wound roll is an unmodified 6, the target suffers 1 mortal wound as well as any normal damage. This ability can inflict at most 6 mortal wounds on a single unit per phase."
+  },
+  "3e672934870d": {
+    "name": "Gratuitous Bloodletting",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Fight phase, when one of your WORLD EATERS units is chosen to fight. Pick one enemy unit that is below Half-strength and within Engagement Range of that unit. Until the end of the phase, add 1 to the wound roll for each attack a model in your WORLD EATERS unit makes against that enemy unit."
+  },
+  "4575c6d4ffbe": {
+    "name": "Fearsome (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this model, its models get 1 subtracted from their Leadership characteristic."
+  },
+  "46df7014c15a": {
+    "name": "Scorn of Sorcery",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your opponent's Psychic phase, after an enemy PSYKER unit passes a Psychic test and after any Deny the Witch attempt has been made. If that enemy PSYKER unit is within 24\" of any of your WORLD EATERS units, roll one D6: on a 4+, the psychic power is denied."
+  },
+  "503044a43020": {
+    "name": "Bloodscent",
+    "kind": "ability",
+    "plain": "Whenever this unit is in Strategic Reserves, you can set it up as if the current battle round were one higher, regardless of any mission rules. This means it can arrive on the battlefield in the first battle round."
+  },
+  "59fc6657b4b4": {
+    "name": "Leading the Charge (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your WORLD EATERS CORE units is within 6\" of this model, each time that unit is chosen to make a Normal Move or Advance, its models add 2\" to their Move characteristic until the end of the phase."
+  },
+  "6f830711d94a": {
+    "name": "Samni'arius and Spinegrinder",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, pick which of the profiles below to use for that attack."
+  },
+  "7a14d9a1e80a": {
+    "name": "Blood Fury (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit (other than a VEHICLE unit) is within 6\" of this unit, roll a D6 each time that enemy unit is chosen to Fall Back or to perform an action. On a 4+, it can't Fall Back this turn, or the action automatically fails."
+  },
+  "810d09d76c20": {
+    "name": "Blood Frenzy",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Fight phase, once an enemy unit has been chosen to fight. Pick one of your WORLD EATERS CORE units that is within Engagement Range of that enemy unit. Until the enemy unit has resolved its attacks, whenever a model in your unit is destroyed by a melee attack, do not remove it yet if it has not fought this phase. Once the enemy unit's attacks are resolved, that model can fight, and it is then removed from play. This Stratagem costs 1CP if the chosen WORLD EATERS unit is a Troops unit, and 2CP otherwise."
+  },
+  "8f9157775a94": {
+    "name": "Bloodthirsty Determination",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your Charge phase, when you pick one of your WORLD EATERS units to charge. For the rest of the phase, you may ignore any or all of the modifiers to that unit's charge rolls."
+  },
+  "99fd530938e7": {
+    "name": "Legendary Killer (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your WORLD EATERS CORE units is within 6\" of this model, models in that unit re-roll wound rolls of 1 for their attacks."
+  },
+  "9b84b6c7aa3d": {
+    "name": "Eightbound chainfist",
+    "kind": "weapon",
+    "plain": "If the bearer has 2 Eightbound chainfists, add 1 to this weapon's Damage characteristic."
+  },
+  "a87930f5f13b": {
+    "name": "Gory Dismemberment",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Fight phase, when one of your WORLD EATERS CORE or WORLD EATERS CHARACTER units is chosen to fight. Until the end of the phase, when a model in that unit makes a melee attack and the wound roll is an unmodified 6, the target suffers 1 mortal wound as well as any normal damage. Each use of this Stratagem can inflict at most 6 mortal wounds."
+  },
+  "a9eb938be66e": {
+    "name": "Daemonic",
+    "kind": "ability",
+    "plain": "This model has a 5+ invulnerable save against melee attacks, and a 4+ invulnerable save against ranged attacks."
+  },
+  "ab33445d89a3": {
+    "name": "Icon of Wrath",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Charge phase, when one of your WORLD EATERS ICON units is chosen to charge. For the rest of the phase, whenever that unit makes a charge roll, roll an extra D6 and discard the lowest."
+  },
+  "b5a325a3c69a": {
+    "name": "Terrifying Assault",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your Charge phase, when you choose one or more enemy units as targets of a charge by one of your WORLD EATERS units. Pick one of those enemy units. That unit can't fire Overwatch or Set to Defend against that charge, and in the following Fight phase, subtract 1 from the hit roll each time one of its models makes a melee attack."
+  },
+  "ca0983fc2dc4": {
+    "name": "The Blood Tithe",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is a WORLD EATERS unit, not counting AGENT OF CHAOS or UNALIGNED units. Through the battle, in both your turns and your opponent's, you earn Blood Tithe points (BTP): 1 BTP each time a unit is destroyed, no matter which side it belongs to; an extra 1 BTP when a phase ends if a CHARACTER, MONSTER or VEHICLE unit was destroyed during it; and a further 1 BTP when a phase ends if a TITANIC unit was destroyed during it. When each phase ends, you may use BTP to buy one Blessing of the Blood God. A purchased blessing lasts until the battle ends, and no blessing can be bought more than once, with the exception of Reborn in Blood."
+  },
+  "cfad7560f83b": {
+    "name": "Apoplectic Frenzy",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your Movement phase, when one of your WORLD EATERS units is chosen to Advance. Don't make an Advance roll; instead, models in that unit add 6\" to their Move characteristic until the end of the phase."
+  },
+  "cffaac44c2df": {
+    "name": "Furious Surge",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your opponent's Shooting phase, once an enemy unit has finished making its attacks. Pick one of your EIGHTBOUND units that had one or more of its models destroyed by those attacks. It can then make a Normal Move, as though it were your Movement phase."
+  },
+  "da0322fb498f": {
+    "name": "Bloodscent",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your opponent's Movement phase, when one of their units Falls Back while within Engagement Range of any of your EIGHTBOUND units. Once that enemy unit has finished its move, pick one of your EIGHTBOUND units that was within Engagement Range of it at the start of the phase. That unit can consolidate straight away, and each of its models can move up to 6\" when doing so, instead of up to 3\"."
+  },
+  "de8495d49ff3": {
+    "name": "Brazen Skin",
+    "kind": "ability",
+    "plain": "Each time a mortal wound would make a model in this unit lose a wound, roll one D6: if it is a 4+, the wound isn't lost."
+  },
+  "e91c19c29f34": {
+    "name": "The Betrayer",
+    "kind": "ability",
+    "plain": "At the end of the Fight phase, if any other friendly units are within 3\" of this model, roll one D6. On a 1, pick one of those units: it suffers 2 mortal wounds.\n\nIn a Boarding Action, only friendly units that this model can see are affected by this ability."
+  },
+  "ea0ab1252c4e": {
+    "name": "Diabolic Machines",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in your Command phase. Pick one model from your army that is WORLD EATERS MACHINE SPIRIT or WORLD EATERS DAEMON ENGINE and whose characteristics change as it takes damage. Until the start of your next Command phase, when working out which characteristics on its profile to use, treat that model as if it had all of its wounds remaining. This Stratagem costs 2CP if that model has the Titanic keyword, and 1CP otherwise."
+  },
+  "f1615181f60c": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is destroyed, before you take it off the battlefield, roll one D6. If you roll a 6, the model explodes: every unit within 3\" suffers 1 mortal wound.",
+    "waive": {
+      "06": "the official text misprints the dice as \"06\" (\"roll one 06\"); it is a D6 roll, written as D6 here",
+      "D6": "stands for the official text's misprinted \"06\" (\"roll one 06\"), which is a D6 roll"
+    }
+  },
+  "fdd0d45f8507": {
+    "name": "Violent Dismemberment",
+    "kind": "stratagem",
+    "plain": "Use this Stratagem in the Fight phase, when one of your WORLD EATERS units destroys an enemy unit. Your unit then gains the following ability until the end of the turn:\n\nViolent Dismemberment (Aura): enemy units within 6\" of this unit have 2 subtracted from their models' Leadership characteristic, and 1 subtracted from Combat Attrition tests taken for them."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "0d2b996e95ac": {
+    "name": "Disruption Field Generator",
+    "kind": "ability",
+    "plain": "Janus Draik has an invulnerable save of 4+."
+  },
+  "120ac4b897ee": {
+    "name": "Multi-spectral Auspicator",
+    "kind": "ability",
+    "plain": "When Janus Draik makes attacks, you can re-roll any hit roll of 1 for them."
+  },
+  "14f7520ba32c": {
+    "name": "Servo-skull Assisted Targeting",
+    "kind": "ability",
+    "plain": "When Neyam Shai Murad attacks with ranged weapons, enemy units don't get the benefit of cover to their saving throws against those attacks."
+  },
+  "1faa5c88f379": {
+    "name": "All Guns Blazing",
+    "kind": "ability",
+    "plain": "If Neyam Shai Murad did not move in your previous Movement phase, then in your Shooting phase her negotiator pistols are Type Pistol 4 instead."
+  },
+  "5794bb6b8c64": {
+    "name": "Warrant of Trade",
+    "kind": "ability",
+    "plain": "This model may embark onto any IMPERIUM TRANSPORT, even if that transport would usually only let in models with other Faction keywords. Every other restriction still applies as normal."
+  },
+  "896a28dfd26e": {
+    "name": "Self Repair Systems",
+    "kind": "ability",
+    "plain": "At the start of each battle round, UR-025 gets back 1 lost wound."
+  },
+  "8e5000535ad3": {
+    "name": "The Third Eye",
+    "kind": "ability",
+    "plain": "Before Espern Locarno takes the Psychic test to manifest Smite, pick an enemy unit that is within 12\" of him and visible to him. If there is no such unit, he can't attempt Smite this phase. If Smite is manifested, the mortal wounds go to the unit you picked, even when a different enemy unit is nearer to Espern Locarno."
+  },
+  "9e93709a074a": {
+    "name": "Heirloom pistol",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon wound on a 4+, or on a 6+ if the target is a VEHICLE or TITANIC unit."
+  },
+  "c6ab18224b98": {
+    "name": "Psychic Barrier",
+    "kind": "ability",
+    "plain": "Espern Locarno has an invulnerable save of 4+."
+  },
+  "ed11a868931f": {
+    "name": "Threat Level Rising",
+    "kind": "ability",
+    "plain": "For every model in its unit that has lost any wounds or been destroyed, improve the Strength, Armour Penetration and Damage of a model's drone pulse by 1. For instance, in a unit of Spindle Drones where two models have been destroyed and a third has lost 1 wound, the drone pulses of the two models left would be Strength 6, AP -3 and Damage 4."
+  },
+  "ef26e7921b4b": {
+    "name": "Concealed Archeotech Weapon",
+    "kind": "ability",
+    "plain": "Once per battle, when the Fight phase begins, you can choose an enemy model that is within 1\" of Janus Draik and roll a dice: if you get a 4+, D3 mortal wounds are inflicted on that model."
+  },
+  "f80146b1d6db": {
+    "name": "Archeotech grenade",
+    "kind": "weapon",
+    "plain": "This weapon has the Blast ability, and it can only be used once per battle."
+  }
+}

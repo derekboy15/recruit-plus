@@ -2,6 +2,7 @@ import { BATTLEFIELD_ROLES } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getCatalogue } from './dataClient';
+import { FactionTabs } from './FactionTabs';
 import { factionDisplayName } from './names';
 import { useAsync } from './useAsync';
 
@@ -26,6 +27,7 @@ export function FactionPage() {
         <Link to="/factions">← All factions</Link>
       </p>
       <h1>{factionDisplayName(cat.name)}</h1>
+      <FactionTabs slug={cat.slug} library={cat.library} />
       <div style={{ display: 'grid', gap: '0.5rem', marginBottom: '1rem' }}>
         <input
           className="input"

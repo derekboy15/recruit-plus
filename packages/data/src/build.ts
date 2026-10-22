@@ -1,23 +1,28 @@
-/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, rules.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
+import { coreStratagems, selectStratagems } from './extract/stratagems';
+import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
+import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
-import { joinWahapedia, loadOverrides } from './join/wahapedia';
+import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
 import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
 import { BATTLEFIELD_ROLES, type CatalogueOut, type DataIndex, type UnitOut } from './model/types';
-import { slugify } from './text';
-import { loadWahapedia } from './wahapedia/load';
+import { slugify, titleCase } from './text';
+import { loadWahapedia, type Wahapedia } from './wahapedia/load';
 
 export interface BuildOptions {
   rawDir: string;
   overridesDir: string;
   outDir: string;
+  /** packages/content: plain-English texts are read from <contentDir>/plain. Without it no plain English is attached. */
+  contentDir?: string;
 }
 
 export interface ReportEntry {
@@ -25,6 +30,7 @@ export interface ReportEntry {
   matched: number;
   unmatched: string[];
   unitsWithoutProfiles: string[];
+  stratagems: number;
 }
 
 function catalogueRules(cat: RawCatalogue): CatalogueOut['rules'] {
@@ -48,12 +54,35 @@ function categoryNamesById(files: RawCatalogue[]): Map<string, string> {
   return out;
 }
 
+/** An army rule BSData carries that isn't a current 9th Edition rule (an 8th-edition leftover, a page reference, an empty entry). */
+export interface RuleExclusion {
+  catalogueName: string;
+  name: string;
+  /** Only the row with this BSData id, when the catalogue has several rules of that name (an empty duplicate). */
+  id?: string;
+  reason: string;
+  source: string;
+}
+
+/** The catalogue's rules without its excluded ones; throws if an exclusion matches nothing or lacks a reason or source. */
+export function excludeRules(catalogueName: string, rules: CatalogueOut['rules'], exclusions: RuleExclusion[]): CatalogueOut['rules'] {
+  const own = exclusions.filter((x) => x.catalogueName === catalogueName);
+  const hits = (x: RuleExclusion, r: CatalogueOut['rules'][number]) => r.name === x.name && (!x.id || r.id === x.id);
+  for (const x of own) {
+    if (!x.reason || !x.source) throw new Error(`rule-exclusions.json: ${catalogueName} "${x.name}" needs a reason and a source`);
+    if (!rules.some((r) => hits(x, r))) {
+      throw new Error(`rule-exclusions.json: ${catalogueName} has no army rule "${x.name}"${x.id ? ` with id ${x.id}` : ''}`);
+    }
+  }
+  return rules.filter((r) => !own.some((x) => hits(x, r)));
+}
+
 /** The .gst's roster file is always `system`. */
 export const SYSTEM_ROSTER_SLUG = 'system';
 
 const roleOrder = (u: UnitOut) => (u.role ? BATTLEFIELD_ROLES.indexOf(u.role) : BATTLEFIELD_ROLES.length);
 
-export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry> } {
+export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
@@ -67,6 +96,16 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const report: Record<string, ReportEntry> = {};
 
   const catalogues = [...gd.catalogues.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const playable = new Set(catalogues.filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues)).map((c) => c.name));
+  validateStratagemOverrides(w, overrides, playable);
+  const excludedStratagems = new Set(overrides.excludedStratagems.map((e) => e.id));
+  const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
+  const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
+  const ruleExclusions: RuleExclusion[] = JSON.parse(readFileSync(join(opts.overridesDir, 'rule-exclusions.json'), 'utf8'));
+  for (const x of ruleExclusions) if (!catalogues.some((c) => c.name === x.catalogueName)) throw new Error(`rule-exclusions.json names unknown catalogue "${x.catalogueName}"`);
+  validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
+  const amendmentTotals = new Map<Amendment, number>();
+  const outs: CatalogueOut[] = [];
   const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
@@ -74,16 +113,21 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     if (!faction) throw new Error(`No faction-map entry for catalogue "${cat.name}"`);
     const joined = joinWahapedia(extractUnits(gd, cat.id), cat.name, w, overrides);
     const units = [...joined.units].sort((a, b) => roleOrder(a) - roleOrder(b) || a.name.localeCompare(b.name));
+    const library = !playable.has(cat.name);
     const out: CatalogueOut = {
       id: cat.id,
       slug,
       name: cat.name,
       group: faction.group,
-      library: !isPlayableCatalogue(cat, overrides.playableCatalogues),
+      library,
       units,
-      rules: catalogueRules(cat),
+      rules: excludeRules(cat.name, catalogueRules(cat), ruleExclusions.filter((x) => x.catalogueName === cat.name)),
+      stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems, overrides.stratagemDetails),
     };
-    writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
+    for (const [a, n] of applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name || a.catalogueName === '*'))) {
+      amendmentTotals.set(a, (amendmentTotals.get(a) ?? 0) + n);
+    }
+    outs.push(out);
     index.catalogues.push({
       id: cat.id,
       slug,
@@ -99,8 +143,22 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       matched: units.length - joined.unmatched.length,
       unmatched: joined.unmatched,
       unitsWithoutProfiles: units.filter((u) => u.models.length === 0).map((u) => u.name),
+      stratagems: out.stratagems.length,
     };
   }
+  checkSelectorMatches(amendments, amendmentTotals);
+  const core = coreStratagems(w, overrides.coreStratagems.map((c) => c.id));
+  // Plain English is attached after amendments: a text's key covers its amendment.
+  const plain = applyPlain(outs, core, loadPlainStore(opts.contentDir ? join(opts.contentDir, 'plain') : ''));
+  for (const out of outs) writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
+  writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
+  writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
+  // Rules Reference and faction guides (none without a content directory).
+  const content = opts.contentDir ? buildContent(opts.contentDir, outs) : { rules: { articles: [], glossary: [] }, guides: [] };
+  writeFileSync(join(opts.outDir, 'rules.json'), JSON.stringify(content.rules));
+  rmSync(join(opts.outDir, 'guides'), { recursive: true, force: true });
+  mkdirSync(join(opts.outDir, 'guides'), { recursive: true });
+  for (const g of content.guides) writeFileSync(join(opts.outDir, 'guides', `${g.slug}.json`), JSON.stringify(g));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
@@ -125,7 +183,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
-  return { index, report };
+  return { index, report, plain };
 }
 
 /**
@@ -144,6 +202,184 @@ function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogue
     }
   }
   return [...names].sort();
+}
+
+/**
+ * A final GW change (dataslate, FAQ) that BSData and Wahapedia both missed, from overrides/amendments.json. `note` is our
+ * own words, one or two sentences; `source` says where the change is recorded. An item can carry several amendments:
+ * their notes are joined with a space, in file order.
+ */
+export type Amendment = ItemAmendment | KeywordAmendment;
+
+/**
+ * A note on every unit ability with `name`, or on the named rule or stratagem. An ability amendment can instead select
+ * by `unitKeyword` (a keyword of the ability's unit) and `textPattern` (a case-insensitive regex the ability's text
+ * matches); only a selector may use `catalogueName: '*'` (every catalogue).
+ */
+export interface ItemAmendment {
+  catalogueName: string;
+  kind: 'ability' | 'rule' | 'stratagem';
+  name?: string;
+  unitKeyword?: string;
+  textPattern?: string;
+  /** A stratagem's corrected CP cost. */
+  cp?: string;
+  note: string;
+  source: string;
+}
+
+/** Keywords removed from every unit with `name`; the optional note goes into the unit's `amended`. */
+export interface KeywordAmendment {
+  catalogueName: string;
+  kind: 'unit-keywords';
+  name: string;
+  remove: string[];
+  note?: string;
+  source: string;
+}
+
+const AMENDMENT_KINDS = new Set<string>(['ability', 'rule', 'stratagem', 'unit-keywords']);
+const ALL_CATALOGUES = '*';
+const isSelector = (a: Amendment): boolean => a.kind === 'ability' && (a.unitKeyword !== undefined || a.textPattern !== undefined);
+const describeAmendment = (a: Amendment) =>
+  `${a.kind} ${a.kind === 'ability' && isSelector(a) ? `selector (unit keyword ${a.unitKeyword}, text /${a.textPattern}/)` : `"${a.name}"`}`;
+const sameKeyword = (a: string, b: string) => a.toUpperCase() === b.toUpperCase();
+const addNote = (existing: string | undefined, note: string) => (existing ? `${existing} ${note}` : note);
+
+/**
+ * Checks amendments.json: known kinds and catalogue names (`*` only for an ability selector); a name, or for a selector
+ * both unitKeyword and a valid textPattern; keywords to remove on a unit-keywords amendment; a cp only on stratagems;
+ * a note (optional on unit-keywords) and a source on each.
+ */
+export function validateAmendments(amendments: Amendment[], catalogueNames: Set<string>): void {
+  for (const a of amendments) {
+    const where = `amendments.json (${a.catalogueName}: ${describeAmendment(a)})`;
+    if (!AMENDMENT_KINDS.has(a.kind)) throw new Error(`${where} has unknown kind "${a.kind}"`);
+    if (a.catalogueName === ALL_CATALOGUES ? !isSelector(a) : !catalogueNames.has(a.catalogueName)) {
+      const why = a.catalogueName === ALL_CATALOGUES ? ' (only an ability selector may use *)' : '';
+      throw new Error(`amendments.json names unknown catalogue "${a.catalogueName}"${why}`);
+    }
+    if (!a.source?.trim()) throw new Error(`${where} has no source`);
+    if (a.kind === 'unit-keywords') {
+      if (!a.name?.trim()) throw new Error(`${where} has no name`);
+      if (!Array.isArray(a.remove) || !a.remove.length) throw new Error(`${where} removes no keywords`);
+      if ('cp' in a) throw new Error(`${where} sets cp on a unit-keywords amendment`);
+      continue;
+    }
+    if (isSelector(a)) {
+      if (a.name !== undefined) throw new Error(`${where} sets both a name and a selector`);
+      if (!a.unitKeyword?.trim() || !a.textPattern) throw new Error(`${where} needs both unitKeyword and textPattern`);
+      try {
+        new RegExp(a.textPattern, 'i');
+      } catch {
+        throw new Error(`${where} has an invalid textPattern`);
+      }
+    } else {
+      if (a.unitKeyword !== undefined || a.textPattern !== undefined) throw new Error(`${where}: only ability amendments can select`);
+      if (!a.name?.trim()) throw new Error(`${where} has no name`);
+    }
+    if (a.cp !== undefined && a.kind !== 'stratagem') throw new Error(`${where} sets cp on a ${a.kind}`);
+    if (!a.note?.trim()) throw new Error(`${where} has no note`);
+  }
+}
+
+/**
+ * Applies a catalogue's amendments in place, in order: a note goes into `amended` (after any earlier note) on every
+ * unit ability with that name or matching the selector, or on the named rule or stratagem, whose cp is replaced when
+ * the amendment sets one; a unit-keywords amendment removes keywords from every unit with that name. Returns how many
+ * items each amendment matched. Throws if an amendment for this catalogue matches nothing or a keyword to remove isn't
+ * there; a `*` selector may match nothing in one catalogue, so the caller checks its total (`checkSelectorMatches`).
+ */
+export function applyAmendments(out: CatalogueOut, amendments: Amendment[]): Map<Amendment, number> {
+  const counts = new Map<Amendment, number>();
+  for (const a of amendments) {
+    let matched = 0;
+    if (a.kind === 'unit-keywords') {
+      for (const u of out.units.filter((x) => x.name === a.name)) {
+        matched++;
+        for (const k of a.remove) {
+          if (!u.keywords.some((x) => sameKeyword(x, k))) throw new Error(`amendments.json: unit "${a.name}" in "${out.name}" has no keyword "${k}"`);
+        }
+        u.keywords = u.keywords.filter((x) => !a.remove.some((k) => sameKeyword(x, k)));
+        if (a.note) u.amended = addNote(u.amended, a.note);
+      }
+    } else if (a.kind === 'ability') {
+      const pattern = isSelector(a) ? new RegExp(a.textPattern!, 'i') : null;
+      for (const u of out.units) {
+        if (pattern && !u.keywords.some((k) => sameKeyword(k, a.unitKeyword!))) continue;
+        const hit = (x: { name: string; text: string }) => (pattern ? pattern.test(x.text) : x.name === a.name);
+        u.abilities = u.abilities.map((x) => (hit(x) ? (matched++, { ...x, amended: addNote(x.amended, a.note) }) : x));
+      }
+    } else if (a.kind === 'rule') {
+      out.rules = out.rules.map((r) => (r.name === a.name ? (matched++, { ...r, amended: addNote(r.amended, a.note) }) : r));
+    } else {
+      out.stratagems = out.stratagems.map((s) =>
+        s.name === a.name ? (matched++, { ...s, amended: addNote(s.amended, a.note), ...(a.cp ? { cp: a.cp } : {}) }) : s,
+      );
+    }
+    if (!matched && a.catalogueName !== ALL_CATALOGUES) throw new Error(`amendments.json: ${describeAmendment(a)} matches nothing in "${out.name}"`);
+    counts.set(a, matched);
+  }
+  return counts;
+}
+
+/** Throws if a `*` selector matched nothing in any catalogue (`totals`: summed applyAmendments counts). */
+export function checkSelectorMatches(amendments: Amendment[], totals: Map<Amendment, number>): void {
+  for (const a of amendments) {
+    if (a.catalogueName === ALL_CATALOGUES && !totals.get(a)) throw new Error(`amendments.json: ${describeAmendment(a)} matches nothing in any catalogue`);
+  }
+}
+
+/**
+ * Checks the stratagem overrides against the Wahapedia snapshot and the playable catalogue names: one
+ * stratagem-factions.json entry per playable catalogue, known faction and subfaction ids (a subfaction's parent_id is the
+ * entry's faction), `groups` that each name a group the entry would otherwise list, and known stratagem ids whose
+ * title-cased name matches in stratagems.json, stratagem-details.json (whose subfaction must be a child of the
+ * stratagem's faction) and core-stratagems.json.
+ */
+export function validateStratagemOverrides(
+  w: Wahapedia,
+  o: Pick<Overrides, 'stratagemFactions' | 'excludedStratagems' | 'stratagemDetails' | 'coreStratagems'>,
+  playable: Set<string>,
+): void {
+  const factions = new Map(w.factions.map((f) => [f.id, f]));
+  const seen = new Set<string>();
+  for (const e of o.stratagemFactions) {
+    const where = `stratagem-factions.json (${e.catalogueName})`;
+    if (!playable.has(e.catalogueName)) throw new Error(`stratagem-factions.json names unknown catalogue "${e.catalogueName}" (or a library)`);
+    if (seen.has(e.catalogueName)) throw new Error(`${where} is listed twice`);
+    seen.add(e.catalogueName);
+    if (!factions.has(e.factionId)) throw new Error(`${where} names unknown faction "${e.factionId}"`);
+    if (e.subfactions === 'all') continue;
+    for (const sub of e.subfactions) {
+      if (factions.get(sub)?.parent_id !== e.factionId) throw new Error(`${where} names unknown subfaction "${sub}" of "${e.factionId}"`);
+    }
+  }
+  const excluded = new Set(o.excludedStratagems.map((x) => x.id));
+  for (const e of o.stratagemFactions.filter((x) => x.groups)) {
+    const present = new Set(selectStratagems(w, { ...e, groups: undefined }, excluded, o.stratagemDetails).map((s) => s.group));
+    for (const g of e.groups!) if (!present.has(g)) throw new Error(`stratagem-factions.json (${e.catalogueName}) names unknown group "${g}"`);
+  }
+  for (const e of o.stratagemFactions.filter((x) => x.ids)) {
+    const present = new Set(selectStratagems(w, { ...e, ids: undefined }, excluded, o.stratagemDetails).map((s) => s.id));
+    for (const id of e.ids!) if (!present.has(id)) throw new Error(`stratagem-factions.json (${e.catalogueName}) does not otherwise list stratagem "${id}"`);
+  }
+  for (const name of playable) if (!seen.has(name)) throw new Error(`no stratagem-factions entry for catalogue "${name}"`);
+  const byId = new Map(w.stratagems.map((s) => [s.id, s]));
+  for (const [file, list] of [['stratagems.json', o.excludedStratagems], ['stratagem-details.json', o.stratagemDetails], ['core-stratagems.json', o.coreStratagems]] as const) {
+    for (const e of list) {
+      const row = byId.get(e.id);
+      if (!row) throw new Error(`${file} names unknown stratagem "${e.id}"`);
+      if (titleCase(row.name) !== e.name) throw new Error(`${file}: stratagem ${e.id} is "${titleCase(row.name)}", not "${e.name}"`);
+    }
+  }
+  for (const d of o.stratagemDetails) {
+    const row = byId.get(d.id)!;
+    if (!d.group && !d.subfactionId) throw new Error(`stratagem-details.json (${d.id}) sets neither group nor subfactionId`);
+    if (d.subfactionId && factions.get(d.subfactionId)?.parent_id !== row.faction_id) {
+      throw new Error(`stratagem-details.json (${d.id}) names unknown subfaction "${d.subfactionId}" of "${row.faction_id}"`);
+    }
+  }
 }
 
 /**
@@ -200,13 +436,16 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const root = join(import.meta.dirname, '..');
   const started = Date.now();
-  const { index, report } = buildAll({
+  const { index, report, plain } = buildAll({
     rawDir: join(root, 'raw'),
     overridesDir: join(root, 'overrides'),
     outDir: join(root, 'generated'),
+    contentDir: join(root, '..', 'content'),
   });
-  const totals = Object.values(report).reduce((a, r) => ({ u: a.u + r.units, m: a.m + r.matched }), { u: 0, m: 0 });
+  const totals = Object.values(report).reduce((a, r) => ({ u: a.u + r.units, m: a.m + r.matched, s: a.s + r.stratagems }), { u: 0, m: 0, s: 0 });
   console.log(
-    `Built ${index.catalogues.length} catalogues, ${totals.u} units (${totals.m} matched to Wahapedia) in ${Date.now() - started} ms`,
+    `Built ${index.catalogues.length} catalogues, ${totals.u} units (${totals.m} matched to Wahapedia), ${totals.s} stratagems in ${Date.now() - started} ms`,
   );
+  const p = Object.values(plain.shards).reduce((a, r) => ({ t: a.t + r.total, w: a.w + r.written, f: a.f + r.flagged.length + r.copied.length }), { t: 0, w: 0, f: 0 });
+  console.log(`Plain English: ${p.w} of ${p.t} texts written, ${p.f} flagged, ${plain.orphans.length} orphaned (see generated/plain-report.json)`);
 }

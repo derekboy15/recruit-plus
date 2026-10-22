@@ -1,0 +1,207 @@
+{
+  "091e22c13c3d": {
+    "name": "The Shield Unwavering",
+    "kind": "stratagem",
+    "plain": "At the end of your Morale phase: pick one of your IMPERIAL FISTS INFANTRY units within 3\" of any objective marker. Until the start of your next turn, each model in that unit gets 1 extra attack, and you add 1 to saving throws for that unit against attacks (but not invulnerable saves)."
+  },
+  "0d4bac7b4773": {
+    "name": "Pain Is a Lesson",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when an enemy attack targets one of your IMPERIAL FISTS units (not a VEHICLE or SERVITOR). For the rest of that phase, roll one D6 each time a model in that unit would lose a wound: on a 6, the wound is not lost."
+  },
+  "0d9ff02d0635": {
+    "name": "A Hated Foe",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of your CRIMSON FISTS units is chosen to shoot or fight. Until the end of the phase, models in that unit can re-roll wound rolls for attacks against ORK units."
+  },
+  "0f912da3339d": {
+    "name": "Bolter Drill",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when you pick one of your IMPERIAL FISTS CORE or IMPERIAL FISTS CHARACTER units to shoot. Until the end of the phase, each unmodified hit roll of 6 for a bolt weapon attack by a model in that unit scores 1 additional hit."
+  },
+  "2981ea33a205": {
+    "name": "Bitter Enmity",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your IMPERIAL FISTS units is chosen to fight. Until the end of the phase, models in that unit can re-roll both the hit roll and the wound roll for melee weapon attacks against IRON WARRIORS units."
+  },
+  "2d3021ae8f62": {
+    "name": "Proud to Live, Proud to Die, Hard to Kill",
+    "kind": "ability",
+    "plain": "While one of your Red Scorpions units is within 6\" of this model, roll one D6 each time a model in that unit would lose a wound: on a 6, the wound is not lost."
+  },
+  "2f69b83be4e7": {
+    "name": "Bolster Defences",
+    "kind": "stratagem",
+    "plain": "Once per battle, at the start of your Movement phase: pick one of your IMPERIAL FISTS units that is receiving the benefits of cover. Until the unit makes a Normal Move, Advances, charges or performs a Heroic Intervention, add an extra 1 to any armour saving throw against attacks allocated to its models."
+  },
+  "327bf66ba9d1": {
+    "name": "Structural Demolition",
+    "kind": "stratagem",
+    "plain": "Use after a Building is destroyed by an attack from one of your SIEGEBREAKER COHORT units. For each model that disembarks from that BUILDING, roll 2D6 instead of 1 die. For each roll of 1, one model that disembarked is slain (the controlling player chooses which)."
+  },
+  "34058aecb660": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your IMPERIAL FISTS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "4801fac8beb3": {
+    "name": "Tank Hunters",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when you pick one of your IMPERIAL FISTS units to shoot or fight, and pick one enemy VEHICLE unit. Until the end of the phase, add 1 to wound rolls for attacks made by models in that IMPERIAL FISTS unit against the picked unit."
+  },
+  "4a1015a9009e": {
+    "name": "Siege Master",
+    "kind": "ability",
+    "plain": "Add 1 to the wound roll for attacks this Warlord makes against BUILDING or VEHICLE units."
+  },
+  "511a7d695fa2": {
+    "name": "Clearance Protocols",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your IMPERIAL FISTS units is chosen to shoot. This phase, up to 10 models in that unit that have Grenades can each throw a Grenade, instead of just one model."
+  },
+  "64217598238e": {
+    "name": "Slay the Tyrant",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of your CRIMSON FISTS units is chosen to shoot or fight. Until the end of the phase, add 1 to hit rolls for attacks made by models in that unit against CHARACTER units."
+  },
+  "6a3f79629974": {
+    "name": "Seismic Devastation",
+    "kind": "stratagem",
+    "plain": "At the start of the Shooting phase or Fight phase: pick one of your SIEGEBREAKER COHORT units. That phase, each unmodified wound roll of 6 for an attack by that unit against an enemy VEHICLE inflicts a mortal wound on top of its normal damage."
+  },
+  "6bdb1c732d87": {
+    "name": "Blade of the Scorpion",
+    "kind": "weapon",
+    "plain": "The Strength characteristic is doubled (x2) for attacks made with this weapon against a MONSTER or VEHICLE."
+  },
+  "6c76830566fd": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your CRIMSON FISTS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "6e8e3a807ab3": {
+    "name": "Praetorian’s Wrath",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of your Movement phase while the Devastator Doctrine is active. From then until the start of your next Movement phase, when one of your IMPERIAL FISTS models attacks with a Heavy or Grenade weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "6ffd2d6302c7": {
+    "name": "Badab War",
+    "kind": "ability",
+    "plain": "When you muster your army, this model's <CHAPTER> keyword must be either ASTRAL CLAWS or TIGER CLAWS."
+  },
+  "7124aab7fc17": {
+    "name": "Imperial Fists Siegebreaker Cohort",
+    "kind": "stratagem",
+    "plain": "When choosing your army, you can use this to make one of your IMPERIAL FISTS Detachments a Siegebreaker Cohort Specialist Detachment. The CAPTAINS, CENTURIONS, DREADNOUGHTS and VINDICATORS in it gain the SIEGEBREAKER COHORT keyword."
+  },
+  "72ec3d1ef1fa": {
+    "name": "Hand of Defiance",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for each attack made with this weapon."
+  },
+  "78f7f3ab0c05": {
+    "name": "Siege Captain",
+    "kind": "ability",
+    "plain": "Each time this model attacks a VEHICLE or BUILDING unit, increase the Damage characteristic of the weapon it uses by 1 for that attack."
+  },
+  "7b02418f529c": {
+    "name": "Gift of the Phalanx",
+    "kind": "stratagem",
+    "plain": "Use before the battle: pick one of your IMPERIAL FISTS models with the word 'Sergeant' in its profile. Even though it is not a CHARACTER, that model can have one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Fist of Terra or Gatebreaker Bolts. Every Relic in your army must be different and on a different model."
+  },
+  "85c3e61966ed": {
+    "name": "Crimson Fists Liberator Strike Force",
+    "kind": "stratagem",
+    "plain": "When choosing your army, you can use this to make one of your CRIMSON FISTS Detachments a Crimson Fists Liberator Strike Force Specialist Detachment. The PRIMARIS CHARACTERS, INTERCESSOR SQUADS, REIVER SQUADS and HELLBLASTER SQUADS in it gain the LIBERATOR STRIKE FORCE keyword."
+  },
+  "886f8f0d084f": {
+    "name": "Stoic Defender",
+    "kind": "ability",
+    "plain": "While they are within 6\" of this Warlord, your CRIMSON FISTS units have the Defenders of Humanity ability. If a unit already has it, each of its models counts as two models for that ability."
+  },
+  "93752f5832a5": {
+    "name": "The Tyrant's Champion",
+    "kind": "ability",
+    "plain": "Add 1 to the wound roll for this model's melee attacks against Character units."
+  },
+  "98c3d55bc8a8": {
+    "name": "Champion of Blades",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a model from an Imperial Fists successor Chapter as your WARLORD: one CHARACTER model in your army from an Imperial Fists successor Chapter can have one Relic of the Fists instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every IMPERIAL FISTS and CRIMSON FISTS keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "9dc807d22002": {
+    "name": "Oath of Rynn (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your CRIMSON FISTS CORE units is within 6\" of this model, each model in that unit gets 1 extra attack."
+  },
+  "9f451236cf91": {
+    "name": "Judgement",
+    "kind": "weapon",
+    "plain": "This weapon counts as a bolt weapon."
+  },
+  "a24de5624425": {
+    "name": "Master of Sanctity",
+    "kind": "ability",
+    "plain": "This model knows one extra litany from the Litanies of Battle. In your Command phase, while it is on the battlefield, it can recite one extra litany it knows that no friendly model has recited yet that turn."
+  },
+  "a97fd321fc78": {
+    "name": "Lifetaker",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon have a Damage characteristic of 3 when allocated to CHARACTER models."
+  },
+  "c1802de5a2cc": {
+    "name": "Paragons of Dorn",
+    "kind": "stratagem",
+    "plain": "At the end of an enemy Shooting phase: pick one of your LIBERATOR STRIKE FORCE units that was targeted by one or more attacks this phase. It can shoot straight away as if it were your Shooting phase."
+  },
+  "c4cd9afc8ffe": {
+    "name": "Ænigmata Ferrum",
+    "kind": "ability",
+    "plain": "While this model is on the battlefield: whenever you use a Stratagem by spending 1 or more Command points, roll one D6 if you wish; on a 6, you get 1 Command point back."
+  },
+  "c88ee8f35f3f": {
+    "name": "Icon of Obstinacy",
+    "kind": "ability",
+    "plain": "While one of your Imperial Fists units is within 6\" of this model, it automatically passes Combat Attrition tests."
+  },
+  "d4b5105f91aa": {
+    "name": "Heroes of Rynn’s World",
+    "kind": "stratagem",
+    "plain": "At the start of your Shooting phase: pick one of your LIBERATOR STRIKE FORCE units. Until the end of the phase, each unmodified hit roll of 6 for a ranged weapon attack by that unit scores 2 hits instead of 1."
+  },
+  "e13c3dddebf3": {
+    "name": "Sappers",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of your IMPERIAL FISTS units is chosen to shoot or fight. Until the end of the phase, add 1 to both the hit roll and the wound roll for attacks made by models in that unit against BUILDING units."
+  },
+  "ebf172a4d71f": {
+    "name": "Indomitable",
+    "kind": "ability",
+    "plain": "For attacks made against this Warlord, an unmodified wound roll of 1-3 always fails, no matter what abilities the attacking weapon or model has."
+  },
+  "ec36d6d4baf8": {
+    "name": "Close-range Bolter Fire",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when you pick one of your IMPERIAL FISTS CORE or IMPERIAL FISTS CHARACTER units to shoot. Until the end of the phase, the bolt weapons its models are equipped with are the Pistol type instead of their usual type (so a Rapid Fire 2 bolt weapon becomes Pistol 2)."
+  },
+  "ee12dfe392c1": {
+    "name": "Signum Array",
+    "kind": "ability",
+    "plain": "In your Command phase: pick one of your IMPERIAL FISTS units within 3\" of this model. Add 1 to hit rolls for ranged attacks by its models until your next Command phase starts."
+  },
+  "f02a452c7a0f": {
+    "name": "Proud to Live, Proud to Die, Hard to Kill (Aura)",
+    "kind": "ability",
+    "plain": "While one of your RED SCORPIONS units is within 6\" of this model, roll one D6 each time a model in that unit would lose a wound: on a 6, the wound is not lost."
+  },
+  "f70040c3091a": {
+    "name": "Goldenfang",
+    "kind": "weapon",
+    "plain": "If the bearer made a charge move this turn, each time it fights it makes D3 additional attacks with this weapon."
+  },
+  "fdcc72b4f130": {
+    "name": "Sentinel of Terra",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate an IMPERIAL FISTS CHARACTER model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Imperial Fists Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  }
+}

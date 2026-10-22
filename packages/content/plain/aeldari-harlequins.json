@@ -1,0 +1,190 @@
+{
+  "0c89b00af11c": {
+    "name": "Skyweaver Haywire Cannon",
+    "kind": "weapon",
+    "plain": "Blast. Against a VEHICLE unit, attacks with this weapon always wound on an unmodified wound roll of 4+, and an unmodified wound roll of 6 additionally inflicts D3 mortal wounds on the target besides the normal damage."
+  },
+  "179c18354d21": {
+    "name": "3. Mirror of Minds",
+    "kind": "psychic",
+    "plain": "If manifested, choose an enemy unit within 18\" of this PSYKER; it suffers D3 mortal wounds. Next, you and your opponent roll off, and if you win or the roll-off is a draw, the unit suffers 1 mortal wound. Keep repeating the roll-off until the unit has suffered 6 mortal wounds, the unit is destroyed, or your opponent wins a roll-off."
+  },
+  "1dda9cc82bc6": {
+    "name": "4. Veil of Tears",
+    "kind": "psychic",
+    "plain": "If manifested, pick one enemy unit this PSYKER can see within 18\" of it. Until the start of your next Psychic phase, that unit's models can't make ranged attacks against <SAEDATH> units from your army that are more than 18\" away."
+  },
+  "221ffd705d7f": {
+    "name": "Death is Not Enough",
+    "kind": "ability",
+    "plain": "In the Morale phase, every model destroyed by an attack from this model counts as two models."
+  },
+  "2b1227bd5d17": {
+    "name": "Rift Ghoul",
+    "kind": "ability",
+    "plain": "For every attack this model makes, the target gets no benefit from cover, and an unmodified wound roll of 4+ inflicts 1 mortal wound on the target on top of the normal damage."
+  },
+  "307f501ec999": {
+    "name": "Open-topped",
+    "kind": "ability",
+    "plain": "Units embarked within this TRANSPORT model can be picked to shoot in your Shooting phase; for those attacks, distances and line of sight are measured and drawn from any point on this TRANSPORT model's hull or base. Embarked units are treated as having made the same type of move (Normal Move, Advance or Fall Back) that this TRANSPORT model made this turn. If any enemy units are within Engagement Range of this TRANSPORT model, its embarked units can't shoot except with Pistols."
+  },
+  "3173b22482d8": {
+    "name": "Harlequin Weapons",
+    "kind": "ability",
+    "plain": "This unit gains the HARLEQUIN'S KISS keyword while any of its models is armed with a Harlequin's Kiss, gains HARLEQUIN'S CARESS while any is armed with a Harlequin's Caress, and gains HARLEQUIN'S EMBRACE while any has a Harlequin's Embrace."
+  },
+  "3f72b22f1f3f": {
+    "name": "Explodes (Starweaver)",
+    "kind": "ability",
+    "plain": "If this TRANSPORT model is destroyed, roll one D6 before taking it off the battlefield and before any models inside it disembark. On a 6, it explodes, and every unit within 6\" suffers 1 mortal wound."
+  },
+  "42102d4c7a89": {
+    "name": "Mirage Launchers",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack made against this unit, and those hit rolls can't be re-rolled."
+  },
+  "4212c389acfc": {
+    "name": "Holo-fields",
+    "kind": "ability",
+    "plain": "This unit's models have a 5+ invulnerable save."
+  },
+  "4739a44a685d": {
+    "name": "Luck of the Laughing God",
+    "kind": "ability",
+    "plain": "If all units in your army have the HARLEQUINS keyword and all perform the same saedath (not counting units with the SOLITAIRE or UNALIGNED keyword), your army can use Luck re-rolls. Balance Dataslate update: ignore the battle-size table, so you get 0 Luck re-rolls from battle size, whatever size of battle you play; the only way to gain Luck re-rolls is a Luck of the Laughing God roll. To make one, roll up to six D6: if no two results match, you gain 1 Luck re-roll for each D6 you rolled (for example, rolling three D6 and getting 1, 3 and 5 gives you 3 Luck re-rolls). Each Luck re-roll can be spent to re-roll a single hit roll, wound roll, damage roll, saving throw or Advance roll for a unit from your army that has this ability. Luck re-rolls you haven't used by the end of the battle round are lost.",
+    "waive": {
+      "BATTLE SIZELUCK": "garbled header of the battle-size table (\"BATTLE SIZE / LUCK RE-ROLLS\"), which the Balance Dataslate update says to ignore; not a keyword"
+    }
+  },
+  "51f66a1d41a6": {
+    "name": "Prince of Light",
+    "kind": "ability",
+    "plain": "While one of your <SAEDATH> CORE units is within 6\" of this model, add 1 to that unit's charge rolls."
+  },
+  "58cce962129e": {
+    "name": "Mirror Architect (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <SAEDATH> units is within 6\" of this model, whenever an enemy unit is picked to shoot, each model in that <SAEDATH> unit counts as being an extra 6\" further from the shooting model when range to it is measured."
+  },
+  "681172b0d2ac": {
+    "name": "2. Fog of Dreams",
+    "kind": "psychic",
+    "plain": "If manifested, choose a <SAEDATH> CORE or <SAEDATH> CHARACTER unit of yours within 12\" of this PSYKER. Until your next Psychic phase begins, it can only be chosen as a ranged attack's target if it is the nearest eligible target for that attack, or if it is within 12\" of the firing model."
+  },
+  "6d3285c6311b": {
+    "name": "Harvester of Torment",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 on this model's ranged attacks scores 3 extra hits."
+  },
+  "70d515da75cf": {
+    "name": "6. Webway Dance",
+    "kind": "psychic",
+    "plain": "If manifested, this PSYKER gains the ability below until the start of your next Psychic phase. Webway Dance (Aura): while one of your <SAEDATH> units is within 6\" of this PSYKER, each time one of that unit's models would lose a wound, roll one D6; the wound isn't lost on a 6."
+  },
+  "75400d3b5be5": {
+    "name": "1. Twilight Pathways",
+    "kind": "psychic",
+    "plain": "If manifested, choose a <SAEDATH> CORE or <SAEDATH> CHARACTER unit of yours within 6\" of this PSYKER. Right away, it can make a Normal Move, Advance or Fall Back, just as if it were your Movement phase. A unit that moves this way can't declare a charge this turn."
+  },
+  "7bc427663d33": {
+    "name": "Agent of Pandemonium (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this model, its models subtract 1 from their Attacks characteristic (but not below 1)."
+  },
+  "812ae9075f47": {
+    "name": "Explodes (Voidweaver)",
+    "kind": "ability",
+    "plain": "When one of this unit's models is destroyed, roll one D6 before taking it off the battlefield. If you roll a 6, the model explodes, and every unit within 6\" suffers 1 mortal wound."
+  },
+  "817e17adba1a": {
+    "name": "Lord of Crystal Bones",
+    "kind": "ability",
+    "plain": "When this model shoots and scores any hits, unless the target is a VEHICLE or MONSTER unit, then until the start of your next turn the target unit's models subtract 2\" from their Move characteristic (but not below 0\"), and the target can't fire Overwatch or Set to Defend."
+  },
+  "88de6a39ce84": {
+    "name": "Hovering",
+    "kind": "ability",
+    "plain": "When measuring distances to or from this unit, use the hull or the base (whichever is closest) of its closest model."
+  },
+  "92444833d77a": {
+    "name": "Troupe Master Weapons",
+    "kind": "ability",
+    "plain": "This model gains the HARLEQUIN'S KISS keyword while armed with a Harlequin's Kiss, gains HARLEQUIN'S CARESS while armed with a Harlequin's Caress, and gains HARLEQUIN'S EMBRACE while armed with a Harlequin's Embrace."
+  },
+  "960805c2f526": {
+    "name": "Choreographer of War (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your HARLEQUINS CORE units is within 6\" of this model, models in that unit re-roll wound rolls of 1 for their attacks."
+  },
+  "9762d4e017c8": {
+    "name": "Queen of Shards",
+    "kind": "ability",
+    "plain": "When this model makes a melee attack and gets an unmodified wound roll of 5+, the target can't take invulnerable saving throws against that attack."
+  },
+  "97a0e9d8366e": {
+    "name": "Gloom Spider",
+    "kind": "ability",
+    "plain": "In your Command phase, choose an enemy unit within 12\" of this model. Until your next Command phase begins, that unit's aura abilities give no benefit to enemy units."
+  },
+  "abd8e97670a9": {
+    "name": "5. Shards of Light",
+    "kind": "psychic",
+    "plain": "If manifested, pick one enemy unit this PSYKER can see within 18\" of it. That unit suffers 1 mortal wound, or D3 mortal wounds instead if it is a VEHICLE or MONSTER unit or has 6 or more models. Until the start of your next Psychic phase, that unit's models subtract 2 from their Leadership characteristic."
+  },
+  "c5b98d48b6d4": {
+    "name": "Harlequin's Mask",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every melee attack made against this unit."
+  },
+  "cf4e849d99ba": {
+    "name": "Veiled King",
+    "kind": "ability",
+    "plain": "When this model makes a melee attack against a target that isn't a VEHICLE or MONSTER unit, an unmodified wound roll of 2+ always succeeds."
+  },
+  "d2d48a600e20": {
+    "name": "Spectre of Despair",
+    "kind": "ability",
+    "plain": "During deployment, this model must be set up haunting the foe instead of on the battlefield. It can then be placed in the Reinforcements step of any one of your Movement phases, anywhere on the battlefield more than 9\" from enemy models. Whenever a charge roll is made for this model, roll an extra D6 and drop one of the dice."
+  },
+  "d4ca07b84f3f": {
+    "name": "Prince of Sins",
+    "kind": "ability",
+    "plain": "For every attack made against this model, subtract 1 from the hit roll, and that hit roll can't be re-rolled."
+  },
+  "d7312a54aa91": {
+    "name": "Blitz",
+    "kind": "ability",
+    "plain": "Once per battle, this model can Blitz when it makes a Normal Move in your Movement phase. If it does, then until the end of the turn its Move characteristic is increased by 2D6\" and its Attacks characteristic by 2."
+  },
+  "d7b89617c263": {
+    "name": "Skyweaver Mirage Launchers",
+    "kind": "ability",
+    "plain": "Hit rolls for attacks against this unit can't be re-rolled."
+  },
+  "dcc2c5faa305": {
+    "name": "Shrieker Cannon",
+    "kind": "weapon",
+    "plain": "Shuriken. This weapon can ignore the Look Out, Sir rule when you choose its targets."
+  },
+  "ddf61c827ba1": {
+    "name": "Thirsting Darkness",
+    "kind": "ability",
+    "plain": "When this model Advances, don't make an Advance roll; instead, add 6\" to its Move characteristic until the end of the phase. When it piles in or consolidates, it can move up to 3\" further."
+  },
+  "e6102ce92382": {
+    "name": "Shield From Harm (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your HARLEQUINS CORE or HARLEQUINS CHARACTER units is within 6\" of this model, subtract 1 from the wound roll of every attack made against that unit."
+  },
+  "f772f3e4df9c": {
+    "name": "Hovering (Voidweavers)",
+    "kind": "ability",
+    "plain": "When measuring distances to or from this unit, use the hull or the base (whichever is closest) of its closest model."
+  },
+  "ff5b66987972": {
+    "name": "Hallucinogen Grenade Launcher",
+    "kind": "weapon",
+    "plain": "Blast. When an attack with this weapon scores a hit, roll 2D6. If the total is higher than the target's Leadership characteristic, the target suffers 1 mortal wound."
+  }
+}

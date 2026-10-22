@@ -1,0 +1,12 @@
+[
+  { "id": "000002134002", "name": "Command Re-roll", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134003", "name": "Cut Them Down", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134004", "name": "Desperate Breakout", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134005", "name": "Emergency Disembarkation", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134006", "name": "Fire Overwatch", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134007", "name": "Counter-offensive", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000002134008", "name": "Insane Bravery", "source": "01_Core_Rules/Core_Stratagems.md §2 (Core Book, July 2020)" },
+  { "id": "000008013002", "name": "Warlord Trait", "source": "01_Core_Rules/Core_Stratagems.md §3 (Arks of Omen Grand Tournament requisition, Jan 2023)" },
+  { "id": "000008013003", "name": "Relic", "source": "01_Core_Rules/Core_Stratagems.md §3 (Arks of Omen Grand Tournament requisition, Jan 2023)" },
+  { "id": "000008013004", "name": "Heroic Support", "source": "01_Core_Rules/Core_Stratagems.md §3 (Arks of Omen Grand Tournament requisition, Jan 2023)" }
+]

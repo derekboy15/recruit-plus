@@ -1,0 +1,147 @@
+{
+  "056f7b6066cd": {
+    "name": "Unto the Anvil (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your SALAMANDERS CORE units is within 6\" of this model, its models add 1 to the wound roll for their melee attacks in any turn in which the unit charged or performed a Heroic Intervention."
+  },
+  "07a2b6c7d6f1": {
+    "name": "Stand Your Ground",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your SALAMANDERS INFANTRY units is chosen as the target of an attack, as long as it is not a SERVITOR and did not Advance this phase or in your previous Movement phase. Until the end of the phase, add 1 to saving throws for models in that unit against attacks with weapons that have a Damage characteristic of 1. Invulnerable saves are not affected."
+  },
+  "088de3ad559f": {
+    "name": "Strength of the Primarch",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase: pick one of your SALAMANDERS units. Until the end of the phase, models in that unit add 1 to their Strength characteristic, and each time one of them attacks with a melee weapon, an unmodified wound roll of 6 doubles that weapon's Damage characteristic for that attack."
+  },
+  "1906331d61bc": {
+    "name": "Master Artisans",
+    "kind": "stratagem",
+    "plain": "Use before the battle: pick one of your SALAMANDERS models with the word 'Sergeant' in its profile. Even though it is not a CHARACTER, that model can have one of these Chapter Relics: Master-crafted weapon, Digital Weapons, Drakeblade or Dragonrage Bolts. Every Relic in your army must be different and on a different model."
+  },
+  "191123e6b906": {
+    "name": "Exemplar of the Promethean Creed",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a SALAMANDERS model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Salamanders Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "2cb16325b789": {
+    "name": "Dreadfire heavy flamer",
+    "kind": "weapon",
+    "plain": "Every attack made with this weapon hits the target automatically."
+  },
+  "330d3ad6cf65": {
+    "name": "Malleus Noctum",
+    "kind": "weapon",
+    "plain": "Subtract 1 from hit rolls for attacks made with this weapon."
+  },
+  "339ab2da7643": {
+    "name": "Master Duellist",
+    "kind": "ability",
+    "plain": "If any enemy CHARACTER units are within Engagement Range of this model at the start of the Fight phase, add 2 to its Attacks characteristic until that phase ends."
+  },
+  "36adf7a92848": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your SALAMANDERS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "38d88570807c": {
+    "name": "Immolation Protocols",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, every flame weapon carried by models in that unit becomes the Pistol type (so an Assault D6 flame weapon becomes Pistol D6)."
+  },
+  "418e986bbb2f": {
+    "name": "Self Sacrifice",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Shooting phase: pick one of your SALAMANDERS INFANTRY units with 5 or more models that is not within 1\" of any enemy units, then pick one other INFANTRY unit from your army wholly within 6\" of it. Until the end of the phase, your opponent can't target the second unit unless it is both visible to the firing model and the closest enemy unit to it, or it has stopped being wholly within 6\" of the first unit picked. Also until the end of the phase, enemy shooting attacks can always target the first unit as long as it is within range and visible to the firing model, even if a rule (such as the Shrouding psychic power) would normally stop it being targeted."
+  },
+  "44a8311a7b7c": {
+    "name": "The Fires of Battle",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or your opponent's Charge phase, when one of your SALAMANDERS models shoots with a flame or melta weapon. Until the end of the phase, each unmodified wound roll of 4+ for an attack with that weapon inflicts 1 mortal wound on the target on top of any normal damage (no more than 3 mortal wounds per phase from this Stratagem)."
+  },
+  "4fd4dd7ae8e4": {
+    "name": "Lord of Fire (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while their unit is within 6\" of this Warlord, you can re-roll the dice that set how many attacks your SALAMANDERS models make with flame weapons."
+  },
+  "5c9f10322af8": {
+    "name": "Rites of Vulkan",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of your Movement phase while the Tactical Doctrine is active. From then until the start of the next battle round, when one of your SALAMANDERS models attacks with a Rapid Fire or Assault weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "7532b20d08a2": {
+    "name": "Born Protectors",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Charge phase, when a charge is declared against one of your SALAMANDERS units. Pick one of your SALAMANDERS units within 12\" of the charge's target that is more than 1\" away from any enemy units. That unit can fire Overwatch at the charging unit as though it were also a target of the charge (if it already is a target, it just fires Overwatch as normal). Also, if the charge succeeds, the picked unit can make a Heroic Intervention as though it were a CHARACTER, moving up to 2D6\" if it does; it must end that move closer to the charging unit and can't move within 1\" of any other enemy units."
+  },
+  "77658b1f8c18": {
+    "name": "Relentless Determination",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase: pick one of your SALAMANDERS units that neither Advanced nor Fell Back this phase. Until your next Movement phase starts, it counts as having remained stationary in its Movement phase for every rules purpose (e.g. firing Heavy weapons). Also, if the unit has a damage table, then until your next Movement phase starts, its remaining wounds count as double when working out which row of that table to use."
+  },
+  "780bd8dbe51e": {
+    "name": "The Crucible of Battle",
+    "kind": "stratagem",
+    "plain": "Use in the Shooting or Fight phase, when one of your SALAMANDERS CORE or SALAMANDERS CHARACTER units is chosen to shoot or fight. Until the end of the phase, add 1 to wound rolls for attacks made by models in that unit."
+  },
+  "82082a4b83ff": {
+    "name": "Wrought by Vulkan",
+    "kind": "ability",
+    "plain": "This model gets a 5+ invulnerable save. Roll one D6 each time it would lose a wound; on a 5+, it doesn't lose that wound."
+  },
+  "8bd1c54aac9d": {
+    "name": "Rise from the Ashes",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your SALAMANDERS CHARACTER models is destroyed. Roll one D6 at the end of that phase: on a 4+, put the model back into play with 1 wound remaining, as close as possible to where it was and more than 1\" away from any enemy models. You can't use this Stratagem on the same model more than once per battle."
+  },
+  "a112ba1600ca": {
+    "name": "Vengeance for Isstvan V",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your SALAMANDERS units is chosen to fight. Until the end of the phase, models in that unit can re-roll hit rolls for melee weapon attacks against WORD BEARERS, IRON WARRIORS, NIGHT LORDS or ALPHA LEGION units."
+  },
+  "a643362a6f90": {
+    "name": "Forgefather",
+    "kind": "ability",
+    "plain": "In your Command phase: pick one of your SALAMANDERS CORE or SALAMANDERS CHARACTER units within 6\" of this model. Until your next Command phase starts, models in that unit can re-roll both the hit roll and the wound roll for their attacks with flame or melta weapons."
+  },
+  "a662b088fe52": {
+    "name": "Anvil of Strength",
+    "kind": "ability",
+    "plain": "Add 2 to this Warlord's Strength characteristic."
+  },
+  "bc550af4a029": {
+    "name": "Bloodfire",
+    "kind": "weapon",
+    "plain": "Before picking targets, choose which of this weapon's profiles to attack with. This weapon counts as a plasma weapon."
+  },
+  "bfea8dfea75d": {
+    "name": "Arridian Drakehide Cloak",
+    "kind": "ability",
+    "plain": "Each time an attack is made against this model, reduce the Damage characteristic of the weapon by 1 for that attack (to a minimum of 1)."
+  },
+  "c0884f0fb596": {
+    "name": "Drakkis",
+    "kind": "weapon",
+    "plain": "This weapon automatically hits."
+  },
+  "d3965da90c0e": {
+    "name": "Flamecraft",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, flame weapons fired by models in that unit don't roll for their number of attacks; each one makes the maximum number instead (so a Heavy D6 weapon makes 6 attacks)."
+  },
+  "e963b89f602d": {
+    "name": "Kesare's Mantle",
+    "kind": "ability",
+    "plain": "Vulkan He'stan gets a 3+ invulnerable save."
+  },
+  "fa8c0d357977": {
+    "name": "Trust of Prometheus",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a model from a Salamanders successor Chapter as your WARLORD: one CHARACTER model in your army from a Salamanders successor Chapter can have one Relic of Nocturne instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every SALAMANDERS keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "fdc9d2ca6d3f": {
+    "name": "Steelsliver",
+    "kind": "weapon",
+    "plain": "Each time the bearer is picked to fight, it makes extra attacks with this weapon: one for each enemy model within Engagement Range of it."
+  }
+}

@@ -12,6 +12,8 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "dev": "npm run dev -w apps/web",
     "build": "npm run build -w apps/web",
-    "e2e": "npm run e2e -w apps/web"
+    "e2e": "npm run e2e -w apps/web",
+    "content:todo": "npm run content-todo -w packages/data --",
+    "content:check": "npm run check-content -w packages/data"
   }
 }

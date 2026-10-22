@@ -7,6 +7,7 @@ import { AppShell } from './layout/AppShell';
 import { createLocalPublicSource, createSupabasePublicSource, PublicSourceContext, type PublicSourceValue } from './lists/publicSource';
 import { SignIn } from './pages/SignIn';
 import { AppRoutes } from './routes';
+import { WordingProvider } from './rules/wording';
 import { openDb } from './storage/db';
 import { StorageProvider } from './storage/StorageContext';
 import { createSupabaseRemote } from './storage/supabaseRemote';
@@ -54,11 +55,13 @@ export function App() {
       <StorageProvider db={db}>
         <PublicSourceContext.Provider value={publicSource}>
           <SyncWhileSignedIn />
-          <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            <AppShell account={<AccountMenu />}>
-              <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={<Route path="/sign-in" element={<SignIn />} />} />
-            </AppShell>
-          </BrowserRouter>
+          <WordingProvider>
+            <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+              <AppShell account={<AccountMenu />}>
+                <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={<Route path="/sign-in" element={<SignIn />} />} />
+              </AppShell>
+            </BrowserRouter>
+          </WordingProvider>
         </PublicSourceContext.Provider>
       </StorageProvider>
     </AuthProvider>

@@ -1,0 +1,644 @@
+{
+  "04c209f4ce11": {
+    "name": "Hero of the Lion's Gate",
+    "kind": "ability",
+    "plain": "An unmodified wound roll of 1-3 always fails for attacks made against this model."
+  },
+  "0b8d070a7a7e": {
+    "name": "Into the Darkness",
+    "kind": "stratagem",
+    "plain": "Before the first turn begins, at the start of the first battle round, pick one of your EMISSARIES IMPERATUS CORE units. It can make a Normal Move as though it were your Movement phase, but must finish that move more than 9\" from all enemy models. If units from both players can move before the first turn, whoever has the first turn moves theirs first. Cost: 3CP if that unit has 4 or more models, otherwise 2CP. This Stratagem can only be used once."
+  },
+  "0cec186e705e": {
+    "name": "Interceptor Lance",
+    "kind": "weapon",
+    "plain": "If the bearer made a charge move or a Heroic Intervention this turn, melee attacks it makes with this weapon get 1 added to their wound rolls."
+  },
+  "0d6267a39032": {
+    "name": "Watchmen",
+    "kind": "ability",
+    "plain": "While any of your <SHIELD HOST> CHARACTER units are within 3\" of this unit, that CHARACTER unit may use the Look Out, Sir rule even though this unit has fewer than 3 models."
+  },
+  "12e51d4378cf": {
+    "name": "Aegis of the Emperor",
+    "kind": "ability",
+    "plain": "Each model in this unit has an invulnerable save of 4+. Whenever a mortal wound would cause a model in this unit to lose a wound, roll a D6, and if you get a 6 the model keeps that wound."
+  },
+  "157acf935dda": {
+    "name": "Airborne Hunters",
+    "kind": "ability",
+    "plain": "When deploying, you may place this unit high in the skies rather than on the battlefield. In that case, at the end of any one of your Movement phases, you can put it anywhere on the battlefield that is more than 9\" from all enemy models."
+  },
+  "19bc309e3819": {
+    "name": "Martial K'atah",
+    "kind": "ability",
+    "plain": "This only applies if every unit in your army is an ADEPTUS CUSTODES unit (not counting ANATHEMA PSYKANA, AGENT OF THE IMPERIUM or UNALIGNED units) and all units assigned to a Shield Host belong to the same Shield Host. If so, once both armies are deployed, secretly select which ka'tah is your primary, which is your secondary and which is your tertiary. Every ka'tah has 2 stances. In each of your Command phases, select one stance; it is active for units with this ability until your next Command phase. Your first stance comes from your primary ka'tah, and after that you only move forward through your order: you can never return to an earlier ka'tah, and you can never select the same stance twice."
+  },
+  "1af9436ff711": {
+    "name": "Sweeping Advance",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS CUSTODES BIKER units consolidates. Until the phase ends, its models can move an extra 3\" whenever they make a consolidation move."
+  },
+  "1b4818194815": {
+    "name": "Unyielding Ancient",
+    "kind": "ability",
+    "plain": "Whenever this model would lose a wound, roll a D6; on a 6 it keeps that wound."
+  },
+  "1b534a5083cb": {
+    "name": "Daughters of the Abyss",
+    "kind": "ability",
+    "plain": "Psychic powers can't target or affect this unit. Whenever any unit takes a Psychic test, its total is reduced by 1 for every unit that has this ability and is within 18\" of it (no more than -3 in total). Models in this unit increase their wound rolls by 1 when attacking an enemy PSYKER or DAEMON unit that is within 6\" of them."
+  },
+  "1dc9bc0d4cae": {
+    "name": "Anathematic Diadem",
+    "kind": "ability",
+    "plain": "The bearer has this aura. Anathematic Diadem (Aura): during your opponent's Psychic phase, any enemy Psyker unit within 18\" of this model reduces its Psychic test by 1 each time it tries to manifest a psychic power. Also during your opponent's Psychic phase, whenever an enemy Psyker unit within 18\" of this model tries to manifest a psychic power and its Psychic test comes to 7 or less, this model may try to Deny the Witch as though it were a Psyker. It can do this up to twice per opponent's Psychic phase."
+  },
+  "1e59f79e9d6a": {
+    "name": "Open the Vaults",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Either give one Relic of Terra to one of your ADEPTUS CUSTODES CHARACTER models, or give one Relic of the Vigil to one of your ANATHEMA PSYKANA CHARACTER models; either way, it must be a Relic that model could have. All Relics in your army must be unique, and this Stratagem can't give one model two Relics. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "1fe6406bd9ab": {
+    "name": "Tarsus Buckler",
+    "kind": "ability",
+    "plain": "The bearer's Save characteristic is 2+."
+  },
+  "2234e16737af": {
+    "name": "Radiant Mantle",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of each attack made against this WARLORD."
+  },
+  "26656cf1b6f1": {
+    "name": "Golden Laurels",
+    "kind": "ability",
+    "plain": "Once in each battle round, pick a single hit, wound, charge or saving throw roll made for this model and re-roll it."
+  },
+  "26bd8b1a5ea0": {
+    "name": "Avenge the Fallen",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS CUSTODES units is chosen to fight. Until the phase ends: if that unit is under its Starting Strength but not under Half-strength, its models get 1 added to their Attacks characteristic; if it is under Half-strength, they get 2 added instead."
+  },
+  "2ade6144a9c7": {
+    "name": "Sally Forth",
+    "kind": "ability",
+    "plain": "At the start of your Charge phase, pick one of your SOLAR WATCH INFANTRY units within 6\" of this WARLORD. Until the end of that phase, that unit can charge even if it Advanced this turn."
+  },
+  "2bae37fbd452": {
+    "name": "Grim Responsibility",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your SHADOWKEEPERS units (but not a VEHICLE unit) is chosen as the target of an attack. Until the phase ends, subtract 1 from the Strength characteristic of every attack made against that unit."
+  },
+  "2bfc05402b03": {
+    "name": "All-Seeing Annihilator",
+    "kind": "ability",
+    "plain": "During your Command phase, while this WARLORD is on the battlefield, choose either this WARLORD or a DREAD HOST CORE unit that is within 6\" of it. Until your next Command phase begins, whenever a model in the chosen unit attacks, an unmodified 6 on the hit roll scores 1 extra hit."
+  },
+  "2c81f1e40964": {
+    "name": "Death Mark",
+    "kind": "stratagem",
+    "plain": "Before the first turn begins, at the start of the first battle round, pick one enemy unit. For the rest of the battle, you can re-roll the hit roll whenever a model in one of your VIGILATORS units attacks that enemy unit."
+  },
+  "2e38333382f3": {
+    "name": "Impregnable Mind",
+    "kind": "ability",
+    "plain": "During your opponent's Psychic phase, this WARLORD may try to Deny the Witch once, just like a PSYKER model would, and every Deny the Witch test taken for it gets 1 added to the result. For control of objective markers, this WARLORD is treated as two extra models, on top of any other rules that let it count as extra models."
+  },
+  "32795c6f7c55": {
+    "name": "Oblivion Knight",
+    "kind": "ability",
+    "plain": "This WARLORD has this ability: Oblivion Knight (Aura): ANATHEMA PSYKANA INFANTRY units add 1 to their Advance and charge rolls while they are within 6\" of this model. Also, when this WARLORD makes an attack, re-roll a wound roll of 1."
+  },
+  "35279da95f5d": {
+    "name": "Moment Shackle",
+    "kind": "ability",
+    "plain": "Once per battle, pick one of these: when the Fight phase ends, this model can fight again if enemy units are within its Engagement Range; or, when a saving throw for this model fails, the Damage characteristic of that attack becomes 0; or, once an enemy unit has fought, this model can fight next if it is eligible to."
+  },
+  "3849d498f3fa": {
+    "name": "From Golden Light",
+    "kind": "ability",
+    "plain": "When deploying, if all models in this unit have this ability, you may place it in a teleportarium chamber rather than on the battlefield. In that case, during the Reinforcements step of any one of your Movement phases, you can put it anywhere on the battlefield that is more than 9\" from all enemy models."
+  },
+  "39bad4881325": {
+    "name": "Aquilane Relic",
+    "kind": "ability",
+    "plain": "Each type of vexilla (for example, the vexilla magnifica) can be included in your army only once."
+  },
+  "3a0e8f35f21c": {
+    "name": "Victor of the Blood Games",
+    "kind": "stratagem",
+    "plain": "Use before the battle, after a Warlord Trait has been determined for one of your ADEPTUS CUSTODES CHARACTER models (not named characters). You can generate one extra Warlord Trait for that model. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly). This Stratagem can only be used once."
+  },
+  "3bf1dc1eb883": {
+    "name": "Adeptus Custodes",
+    "kind": "rule",
+    "plain": "ADEPTUS CUSTODES Detachments get three abilities: Emperor's Legion, Host of Heroes and Watchers of the Throne. Within ADEPTUS CUSTODES Detachments, ADEPTUS CUSTODES units get the Shield Host Fighting Style ability. In ADEPTUS CUSTODES Detachments, ANATHEMA PSYKANA Troops units and ADEPTUS CUSTODES units that are both CORE and INFANTRY get the Objective Secured ability; as updated in January 2023, ADEPTUS CUSTODES INFANTRY characters that lack CORE (a Shield-Captain, for example) do not get it. Each ADEPTUS CUSTODES model is treated as one extra model when working out who controls an objective marker, on top of any other rules that make models count as extra. When checking whether every unit in an ADEPTUS CUSTODES Detachment shares a Faction keyword, ANATHEMA PSYKANA units in that Detachment count as having the ADEPTUS CUSTODES Faction keyword.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "3d21df6c3065": {
+    "name": "Praesidium Shieldwall",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your CUSTODIAN GUARD units is chosen as the target of a melee attack and every model in it has a praesidium shield. Until the phase ends, subtract 1 from the hit roll of each melee attack made against that unit."
+  },
+  "3d4542fddba9": {
+    "name": "Defiant to the Last",
+    "kind": "ability",
+    "plain": "While this model has fewer wounds than its starting number but more than half of them, add 1 to its Attacks characteristic. While it has half or fewer of its starting wounds, add 2 to its Attacks characteristic."
+  },
+  "3d9f934d3c9a": {
+    "name": "Cadre Tactics (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ANATHEMA PSYKANA CORE units is within 6\" of this model, models in that unit re-roll wound rolls of 1 when they attack."
+  },
+  "3ef780514d97": {
+    "name": "Spiculus Bolt Launcher",
+    "kind": "weapon",
+    "plain": "Whenever this weapon is chosen to shoot, it becomes a Heavy 10 weapon if this model hasn't moved this turn."
+  },
+  "3fff82e0ebf6": {
+    "name": "Legacy of Combat",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, if enemy units are within Engagement Range of this model, it can fight first in that phase. This model may perform a Heroic Intervention whenever an enemy unit is within 5\" vertically and 6\" horizontally of it. Its Heroic Intervention moves can be up to 6\", provided it finishes the move either nearer to the nearest enemy model or within Engagement Range of an enemy CHARACTER unit. Every other Heroic Intervention rule is unchanged."
+  },
+  "403189d90542": {
+    "name": "The Emperor’s Heroes",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Pick one of your ADEPTUS CUSTODES CHARACTER or ANATHEMA PSYKANA CHARACTER models and determine a Warlord Trait for it (one it is allowed to have); that model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly), and this Stratagem can't give one model two Warlord Traits. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "40ae64f7039a": {
+    "name": "Voice of the Emperor",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities get 3\" more range, up to a maximum of 12\" (already counted in the aura below). It also has this aura: Voice of the Emperor (Aura): while one of your ADEPTUS CUSTODES or ANATHEMA PSYKANA units is within 9\" of this model, models in that unit get 1 added to their Leadership characteristic."
+  },
+  "4af2fd20b4d1": {
+    "name": "Indomitable Engines",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when a mortal wound would make one of your ADEPTUS CUSTODES VEHICLE or ANATHEMA PSYKANA VEHICLE models lose a wound. Until the phase ends, whenever a mortal wound would make that model lose a wound, roll a D6; on a 5+ it keeps that wound."
+  },
+  "4b6001e9c6ab": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Before removing this model when it is destroyed, roll a D6. On a 6, it explodes: every unit within 3\" takes 1 mortal wound."
+  },
+  "4d79c02ba23c": {
+    "name": "The Emperor’s Auspice",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your ADEPTUS CUSTODES INFANTRY units is chosen as the target of an attack. Until the phase ends, your opponent can't re-roll hit rolls, wound rolls or damage rolls for attacks made against that unit. Cost: 1CP if that unit has 4 or fewer models, otherwise 2CP. You can't use both this Stratagem and Arcane Genetic Alchemy on the same unit in the same phase."
+  },
+  "4dae815a0ed6": {
+    "name": "Shield Host Fighting Style",
+    "kind": "rule",
+    "plain": "ADEPTUS CUSTODES units with this ability, and every model in them, gain a shield host fighting style, as long as all units in their Detachment that are assigned to a shield host are assigned to the same one. Which fighting style they get depends on the shield host they are assigned to."
+  },
+  "5196e6510049": {
+    "name": "Inspirational Exemplar",
+    "kind": "ability",
+    "plain": "This model's Inspirational Fighter ability has its range increased by 3\", to a maximum of 12\"."
+  },
+  "52a49aafe37c": {
+    "name": "Talons of the Emperor",
+    "kind": "stratagem",
+    "plain": "Use in any phase, after one of your ADEPTUS CUSTODES units has shot or fought. Pick one of your ANATHEMA PSYKANA units within 6\" of it; until the phase ends, add 1 to the hit roll of every attack made by models in that ANATHEMA PSYKANA unit."
+  },
+  "531264afeff3": {
+    "name": "Unleash the Lions",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ALLARUS CUSTODIANS units that is on the battlefield and has 2 or more models. For the rest of the battle, each of its models is a separate unit. In Crusade battles, treat it as having the Combat Squads ability, even if that would mean more than 2 squads. Cost: 1CP if that ALLARUS CUSTODIANS unit has 3 or fewer models, otherwise 2CP."
+  },
+  "54672bb70903": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll a D6 before taking it off the battlefield. On a 6 it explodes, and every unit within 6\" takes D3 mortal wounds."
+  },
+  "56ba6e703a80": {
+    "name": "Arae-Shrike",
+    "kind": "ability",
+    "plain": "Enemy units arriving as Reinforcements can't be placed within 12\" of this model. Any enemy unit within 12\" of this model has the range of its aura abilities cut to 1\"."
+  },
+  "571c27b9cb1b": {
+    "name": "Tenacious Spirit",
+    "kind": "ability",
+    "plain": "If enemy units are within Engagement Range of this model when the Fight phase starts, it fights first in that phase. Also, should this model be destroyed during the Fight phase before being picked to fight that phase, leave it in place: once the unit of the attacking model has made all of its attacks, this model can fight, and it is removed after its own attacks have been resolved."
+  },
+  "57904ae612ca": {
+    "name": "Champion of the Imperium",
+    "kind": "ability",
+    "plain": "If this WARLORD is within 5\" vertically and 6\" horizontally of any enemy unit, it can perform a Heroic Intervention. Its Heroic Intervention moves can be up to 6\" rather than 3\"; all other Heroic Intervention rules are unchanged. You can re-roll the hit roll for any attack this WARLORD makes."
+  },
+  "57d9cf72c6f5": {
+    "name": "Twin Arachnus Blaze Cannon (beam)",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll when this weapon attacks a VEHICLE unit."
+  },
+  "599e0c7b9523": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Whenever this model moves, first turn it on the spot by up to 90 degrees (this doesn't count towards the distance it moves), then move it straight ahead. After that first pivot it can't pivot again. When it Advances, don't make an Advance roll; instead, its Move characteristic gets 20\" added until the end of the Movement phase."
+  },
+  "59fc5ecfe8a0": {
+    "name": "Vigil Unending",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS CUSTODES CHARACTER models is destroyed before it has been chosen to fight this phase. Leave the model in place: once the attacking model's unit has made its attacks, the destroyed model can fight, and after its attacks are resolved it is removed."
+  },
+  "5e88b991e42c": {
+    "name": "Praesidium Shield",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its armour saving throws."
+  },
+  "64071ef040ca": {
+    "name": "Shield of Honour",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when an enemy unit is chosen to shoot. Pick one of your IMPERIUM INFANTRY CHARACTER units. Until the phase ends, while it is within 6\" of one of your AQUILAN SHIELD CORE units, that IMPERIUM INFANTRY CHARACTER unit may use the Look Out, Sir rule even when this unit has fewer than 3 models."
+  },
+  "668e19f42fe5": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll a D6 before taking it off the battlefield. On a 6 it explodes, and every unit within 6\" takes D3 mortal wounds."
+  },
+  "67821411c02a": {
+    "name": "Mortis Gyre",
+    "kind": "ability",
+    "plain": "Once per battle, when the bearer is chosen to fight, it can activate the Mortis Gyre. If it does, until that fight is resolved, invulnerable saving throws can't be made against its melee attacks."
+  },
+  "6abf1d434957": {
+    "name": "Vexilla Imperius",
+    "kind": "ability",
+    "plain": "The bearer has this aura. Vexilla Imperius (Aura): models in your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units get 1 added to their Attacks characteristic while their unit is within 6\" of this model."
+  },
+  "6bd816e7c266": {
+    "name": "Vexilla Defensor",
+    "kind": "ability",
+    "plain": "The bearer has this aura ability. Vexilla Defensor (Aura): while one of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units is within 6\" of this model, that unit has the benefits of light cover."
+  },
+  "6e39d00b8435": {
+    "name": "Gnosis (Melee)",
+    "kind": "weapon",
+    "plain": "Once an attack with this weapon has been allocated to an enemy model, that model can't use rules to ignore the wounds it loses."
+  },
+  "6e6ed3a55d9f": {
+    "name": "Host of Heroes",
+    "kind": "rule",
+    "plain": "Each ADEPTUS CUSTODES Detachment in your army can include no more than one SHIELD-CAPTAIN unit of each type (GUARDIAN, ALLARUS and VERTUS)."
+  },
+  "719414dd1f83": {
+    "name": "Vexilla Magnifica",
+    "kind": "ability",
+    "plain": "The bearer has this aura. Vexilla Magnifica (Aura): each of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units gets the benefits of dense cover while it is within 6\" of this model."
+  },
+  "72d0f1b9a719": {
+    "name": "Purgation Sweep",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your WITCHSEEKERS units is chosen to shoot, or in your opponent's Charge phase when one of your WITCHSEEKERS units is chosen to fire Overwatch. Until the phase ends, the witchseeker flamers that models in that unit are equipped with get 1 added to their Strength characteristic."
+  },
+  "7688fa3848c6": {
+    "name": "Retribution of the Machine Spirit",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ADEPTUS CUSTODES MACHINE SPIRIT models. Until your next Command phase starts, when working out which characteristics on its profile to use, treat it as having all of its wounds remaining."
+  },
+  "770d4a8830c8": {
+    "name": "Unstoppable Destroyer",
+    "kind": "ability",
+    "plain": "Pile-in and consolidation moves made by this model can go an extra 1\". When piling in or making a Heroic Intervention, this model may move in whatever direction it likes, even while already touching an enemy model, provided it ends that move within Engagement Range of an enemy unit."
+  },
+  "78382185d7f4": {
+    "name": "Desperation’s Price",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, when an enemy PSYKER unit suffers Perils of the Warp while within 18\" of one of your ANATHEMA PSYKANA INFANTRY units. That PSYKER unit suffers D3 extra mortal wounds."
+  },
+  "7924459b07cb": {
+    "name": "Twilight Pallium",
+    "kind": "ability",
+    "plain": "The bearer can use the Twilight Pallium once per battle, at the end of one of your phases: take it off the battlefield, then place it again anywhere more than 1\" from all enemy models. During the turn it was placed this way, it can't charge unless every enemy model is more than 9\" from it."
+  },
+  "7accb397f950": {
+    "name": "Covered Advance",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when one of your ADEPTUS CUSTODES SMOKESCREEN or ANATHEMA PSYKANA SMOKESCREEN units is chosen as the target of an attack. Until the phase ends, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "7ae612f117b8": {
+    "name": "Galatus Shield",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save. Subtract 1 from the hit roll of attacks made with melee weapons against this model."
+  },
+  "7ca8735be5ce": {
+    "name": "Kinetic Destroyer",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 for an attack with this weapon scores 1 extra hit."
+  },
+  "805f0c2557cf": {
+    "name": "Rapid Reactions",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Movement phase, when an enemy unit finishes a Fall Back move, if it was within Engagement Range of one of your ADEPTUS CUSTODES INFANTRY units when it was chosen to move. That ADEPTUS CUSTODES INFANTRY unit can shoot as though it were your Shooting phase, but only at that enemy unit."
+  },
+  "8768a1c6fe52": {
+    "name": "Epoch Auspice",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can deploy the Epoch Auspice in your Command phase or at the start of the first battle round. If it does, until the start of your next Command phase, while one of your Infantry or Biker units is within 3\" of the bearer, subtract 1 from the wound roll of each ranged attack made against that unit by an attacker more than 12\" away."
+  },
+  "87b9d5ec16bb": {
+    "name": "Amelioration Pail",
+    "kind": "ability",
+    "plain": "In your Command phase, once per battle, the bearer can heal up to D6 wounds it has lost."
+  },
+  "89cfb517d7ca": {
+    "name": "Wisdom of the Moritoi",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ADEPTUS CUSTODES DREADNOUGHT models; until your next Command phase starts, it gains either of these abilities. Inspirational Warrior (Aura): while one of your <SHIELD HOST> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 when attacking. Aggressive Precision (Aura): while one of your <SHIELD HOST> CORE units is within 6\" of this model, models in that unit re-roll wound rolls of 1 when attacking."
+  },
+  "8b356ac33e04": {
+    "name": "Infernus Firebomb",
+    "kind": "ability",
+    "plain": "Once per turn, after the bearer has moved, you can pick a point on the battlefield that the bearer moved across. Roll a D6 for each unit within 6\" of that point, subtracting 1 from the roll if that model is a non-VEHICLE or non-MONSTER CHARACTER; on a 4+, that model suffers D3 mortal wounds. As updated in January 2023, this only works if the aircraft remains on the battlefield after its move ends."
+  },
+  "8cfa6005c4f1": {
+    "name": "Esteemed Amalgam",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your EMPEROR'S CHOSEN units, then pick a different shield host's fighting style. Until your next Command phase starts, the models in that unit have that fighting style's traits rather than those of the Magna Imperator fighting style."
+  },
+  "8d54afbb1ff8": {
+    "name": "Master of the Stances",
+    "kind": "ability",
+    "plain": "During your Command phase, choose an ADEPTUS CUSTODES CORE or ADEPTUS CUSTODES CHARACTER unit that is within 6\" of this model; until your next Command phase starts, the chosen unit benefits from both stances of the ka'tah you currently have. You may only use this ability if all units in your army have the ADEPTUS CUSTODES keyword, ignoring ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units."
+  },
+  "8f29a1f0d03c": {
+    "name": "Peerless Warrior",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD attacks in melee, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the normal damage. Enemy models can't re-roll saving throws against attacks by this WARLORD that are allocated to them."
+  },
+  "8f3a4a21b77c": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "This model can't charge, and it can only be chosen as the target of a charge by a unit that can FLY. It can only fight if it is within 1\" of an enemy unit that can FLY, and its close combat attacks can only target units that can FLY. Enemy units that can't FLY can't make close combat attacks against this model."
+  },
+  "903b1e81c62c": {
+    "name": "Bane of Abominations",
+    "kind": "ability",
+    "plain": "Add 1 to the wound roll for melee attacks this model makes against MONSTER, VEHICLE or CHARACTER units."
+  },
+  "905942eb85f1": {
+    "name": "Revered Companion",
+    "kind": "ability",
+    "plain": "When an attack is allocated to this WARLORD, halve that attack's Damage characteristic, rounding up."
+  },
+  "91c8ae97c528": {
+    "name": "Pyrithite Spear(shooting)",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon against a unit within half range have a Damage characteristic of D6+2."
+  },
+  "989302ef653b": {
+    "name": "Silent Judge (Aura)",
+    "kind": "ability",
+    "plain": "While an enemy unit is within 3\" of this WARLORD, subtract 1 from each Combat Attrition test taken for that unit, and that unit loses the Objective Secured ability.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "9fd2d1efb1fe": {
+    "name": "Arachnus Storm Cannon (beam)",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll when this weapon attacks a Vehicle unit."
+  },
+  "a0d59af7c634": {
+    "name": "Shoulder the Mantle",
+    "kind": "stratagem",
+    "plain": "Use when your WARLORD is destroyed. Pick another of your ADEPTUS CUSTODES CHARACTER models. For the rest of the battle, if that model has no Warlord Trait, it gains one of the destroyed WARLORD's Warlord Traits; then, for the rest of the battle, it counts as your WARLORD for all rules. Any mission objective, secondary objective or Agenda rules that trigger when your WARLORD is destroyed don't trigger until the new WARLORD is destroyed."
+  },
+  "a135a5454df1": {
+    "name": "The Eagle’s Strike",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your SOLAR WATCH units destroys an enemy WARLORD. For the rest of the battle, subtract 1 from every Combat Attrition test taken for enemy units."
+  },
+  "a1b348c7567d": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Before removing this model when it is destroyed, roll a D6. On a 6, it explodes: every unit within 6\" takes D3 mortal wounds."
+  },
+  "a1b8ab0b1377": {
+    "name": "Guardian Eternal",
+    "kind": "ability",
+    "plain": "When an attack is allocated to this model, subtract 1 from that attack's Damage characteristic, to a minimum of 1."
+  },
+  "a2eb92ef4f30": {
+    "name": "Slayers of Tyrants",
+    "kind": "ability",
+    "plain": "Whenever this unit piles in or consolidates, its models may move towards an enemy CHARACTER model rather than the nearest enemy model, provided one or more of them end the move within Engagement Range of that CHARACTER model."
+  },
+  "a4eddb0f004b": {
+    "name": "Indomitable Guardians",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, once an enemy unit has fought. Pick one of your ADEPTUS CUSTODES units that is in range of an objective marker and eligible to fight; it fights next."
+  },
+  "a554aa2ed962": {
+    "name": "Legendary Commander (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ADEPTUS CUSTODES CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 and wound rolls of 1 when they attack."
+  },
+  "a5a6fc957ff6": {
+    "name": "Lockwarden",
+    "kind": "ability",
+    "plain": "Invulnerable saving throws can't be made against this WARLORD's attacks when they are allocated to a CHARACTER unit."
+  },
+  "a884da9da90c": {
+    "name": "Captain-General",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this model must be your WARLORD; if more than one model in your army has a rule like this, one of them must be your WARLORD. If this model is your WARLORD and every unit in your army is ADEPTUS CUSTODES (not counting ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units), you get 1 extra Command point and this model has 2 Warlord Traits instead of 1."
+  },
+  "a931649466fa": {
+    "name": "Superior Creation",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD would lose a wound, roll a D6; on a 5+ it keeps that wound."
+  },
+  "ac44bc332cba": {
+    "name": "Seeker Cadre",
+    "kind": "ability",
+    "plain": "Before the first turn begins, at the start of the first battle round, either this unit or the ANATHEMA PSYKANA TRANSPORT it is embarked in can make a Normal Move of up to 6\", as though it were your Movement phase, and it must finish that move more than 9\" from all enemy models. If both players have units able to do this, whoever has the first turn moves their units first."
+  },
+  "ac78ae8f4730": {
+    "name": "Fierce Conqueror",
+    "kind": "ability",
+    "plain": "When this model is chosen to fight, after it piles in, if there are six or more enemy models within 2\" of it, add 2 to its Attacks characteristic until that fight is resolved."
+  },
+  "b344ca30a156": {
+    "name": "Inspirational Fighter (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <SHIELD HOST> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 when they attack."
+  },
+  "b6cb3da530f8": {
+    "name": "Empyric Severance",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, once an enemy PSYKER unit has passed a Psychic test and any Deny the Witch attempt (if there was one) has been made. If that PSYKER unit is within 18\" of any of your ANATHEMA PSYKANA INFANTRY units, roll a D6: on a 4+, the psychic power is denied."
+  },
+  "b9629c3770e8": {
+    "name": "Swift as the Eagle",
+    "kind": "ability",
+    "plain": "This model can charge in a turn in which it Advanced."
+  },
+  "ba04a009c0b8": {
+    "name": "Ceaseless Hunter",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back."
+  },
+  "ba74fa73ceb8": {
+    "name": "Infernus firebombs",
+    "kind": "ability",
+    "plain": "Once per turn, after the bearer has moved, you can pick a single point on the battlefield that it moved across. For every unit within 6\" of that point, roll a D6; if that model is a non-VEHICLE or non-MONSTER CHARACTER, subtract 1 from the roll. On a 4+, the unit suffers D3 mortal wounds. As updated in January 2023, this only works if the aircraft remains on the battlefield when its move is over."
+  },
+  "baba2e8c476e": {
+    "name": "Martial Inspiration",
+    "kind": "ability",
+    "plain": "Whenever one of your <SHIELD HOST> units declares a charge targeting an enemy unit which this unit is within Engagement Range of, increase that charge roll by 1."
+  },
+  "bce7fd9348de": {
+    "name": "Auric Exemplar",
+    "kind": "ability",
+    "plain": "Each time this WARLORD fights, once all its attacks are resolved, it can make extra attacks: one for each enemy model destroyed by its attacks during that fight, up to a maximum of 4 extra attacks."
+  },
+  "bef9a04662b2": {
+    "name": "Earning of a Name",
+    "kind": "stratagem",
+    "plain": "Use when an enemy CHARACTER unit is destroyed by a melee attack made by one of your ADEPTUS CUSTODES CHARACTER models (not named characters). Pick one of these for that ADEPTUS CUSTODES CHARACTER unit: choose a trait from a shield host fighting style that the unit lacks, and the unit has that trait for the rest of the battle, on top of any fighting styles it already has; or choose one stance from one martial ka'tah, and the unit always benefits from that stance for the rest of the battle, even when no martial ka'tah is active for your army. Each of your ADEPTUS CUSTODES CHARACTER units can only be the subject of this Stratagem once. This Stratagem can't be used in a Crusade battle; there, use the Earning of a Name Requisition instead."
+  },
+  "bf43a31e80ba": {
+    "name": "Hard to Hit",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of attacks made with ranged weapons against this model."
+  },
+  "bfd48fbc8af8": {
+    "name": "Hover Tank",
+    "kind": "ability",
+    "plain": "Distances to and from this model are measured to its hull or its base, whichever is closer, rather than only to its base."
+  },
+  "c0802c779de4": {
+    "name": "Emperor's Legion",
+    "kind": "rule",
+    "plain": "In each ADEPTUS CUSTODES Detachment in your army, the number of ANATHEMA PSYKANA Troops units can't exceed the number of ADEPTUS CUSTODES Troops units, and the number of ANATHEMA PSYKANA HQ units can't exceed the number of ADEPTUS CUSTODES HQ units. An ANATHEMA PSYKANA model can't be your WARLORD."
+  },
+  "c7f9e131b35f": {
+    "name": "Master of Martial Strategy",
+    "kind": "ability",
+    "plain": "Whenever you spend a Command point on a Stratagem while this WARLORD is on the battlefield, you may roll a D6, and that Command point is given back on a 5+. Once per battle, during the Command phase, if any of your army's units are using the Martial Ka'tah ability, you may rearrange your martial ka'tahs (which one is primary, secondary or tertiary) before you pick your army's ka'tah stance. This still doesn't allow any ka'tah stance to be chosen more than once.",
+    "waive": {
+      "89": "page number reference in the official text, not a rules value"
+    }
+  },
+  "c80f533cf5a0": {
+    "name": "Slayers of Nightmares",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS CUSTODES units is chosen to fight. Until the phase ends, whenever a model in that unit attacks a unit whose Toughness characteristic is higher than its own, add 1 to the wound roll. Cost: 1CP if that ADEPTUS CUSTODES unit has 3 or fewer models, otherwise 2CP."
+  },
+  "c9598cd57de9": {
+    "name": "Eternal Penitent",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, on one of your ADEPTUS CUSTODES DREADNOUGHT units. Add 1 to its Attacks characteristic, and you can re-roll its charge rolls; if it could already re-roll charge rolls (for example, from the Instruments of the Emperor's Wrath fighting style), add 1 to its charge rolls instead. This Stratagem can only be used once."
+  },
+  "cbbf7cabc93d": {
+    "name": "Adrastus Bolt Caliver",
+    "kind": "weapon",
+    "plain": "When you pick this weapon to shoot with, choose one or both of its profiles. If you choose both, subtract 1 from the hit rolls of attacks made with this weapon."
+  },
+  "d6dfdb5445ab": {
+    "name": "From Golden Light They Come",
+    "kind": "stratagem",
+    "plain": "Use before the battle, in the Declare Reserves and Transports step (or during deployment, if your mission has no such step). Pick one of your ADEPTUS CUSTODES INFANTRY, ADEPTUS CUSTODES BIKER or ADEPTUS CUSTODES DREADNOUGHT units; it gains the From Golden Light ability."
+  },
+  "d805e4683131": {
+    "name": "Anathema Psykana Dedicated Transport",
+    "kind": "ability",
+    "plain": "This Dedicated Transport ignores a Detachment's usual Battlefield Role slot rules; instead, you may include one of it for every ANATHEMA PSYKANA INFANTRY unit in that Detachment."
+  },
+  "d8aac1915cc8": {
+    "name": "Martial Discretion",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase, once you have chosen the ka'tah stance active for your army. Pick one of your ADEPTUS CUSTODES units with the Martial Ka'tah ability, then pick a ka'tah stance that isn't active for your army. Until your next Command phase starts, that unit benefits from the chosen stance rather than your army's active ka'tah stance(s). Cost: 1CP if that ADEPTUS CUSTODES unit has 4 or fewer models, otherwise 2CP."
+  },
+  "dab216f91b60": {
+    "name": "Vaultswords - Victus",
+    "kind": "weapon",
+    "plain": "When attacking a CHARACTER unit with this weapon profile, you may re-roll the wound roll."
+  },
+  "db7db131de84": {
+    "name": "Auriferous Orb",
+    "kind": "weapon",
+    "plain": "This weapon can only be used once, and it has the Blast ability. If an attack with this weapon hits, the target suffers D3 mortal wounds and becomes blinded until your next turn starts. Blinded units subtract 1 from the hit roll of every attack they make."
+  },
+  "de90924467f8": {
+    "name": "Manoeuvre and Fire",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your ADEPTUS CUSTODES units that can FLY Falls Back. Until the end of the turn, it can still shoot despite having Fallen Back."
+  },
+  "e2a4ae0b944f": {
+    "name": "Creeping Dread",
+    "kind": "stratagem",
+    "plain": "Use at the start of any phase. Pick one of your ANATHEMA PSYKANA INFANTRY units; until that phase ends, it has this ability: Creeping Dread (Aura): models in any enemy unit within 6\" of this unit subtract 1 from the hit roll of every attack they make."
+  },
+  "e31c9a21b218": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll a D6 before any models embarked in it disembark and before it is removed. On a 6 it explodes, and every unit within 6\" takes D3 mortal wounds."
+  },
+  "e5c6750acae7": {
+    "name": "Galatus Warblade (melee)",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes D3 extra attacks with this weapon."
+  },
+  "e62851467e50": {
+    "name": "Vaultswords - Behemor",
+    "kind": "weapon",
+    "plain": "Against a MONSTER or VEHICLE unit, any attack with this weapon profile that scores an unmodified hit roll of 4+ wounds the target automatically."
+  },
+  "ea921ee1718e": {
+    "name": "Tip of the Spear",
+    "kind": "ability",
+    "plain": "If this model charged or performed a Heroic Intervention this turn, its attacks may re-roll hit rolls and wound rolls of 1."
+  },
+  "f12e6a05e8aa": {
+    "name": "Mistress of Persecution (Aura)",
+    "kind": "ability",
+    "plain": "While one of your ANATHEMA PSYKANA INFANTRY units is within 6\" of this WARLORD, the targets of attacks made by models in that unit get no benefit from Heavy or Light Cover against those attacks, and add 3\" to the Range characteristic of ranged weapons that models in that unit are equipped with.",
+    "waive": {
+      "ANATHEMA PSYKANA INFANRY": "misspelling of ANATHEMA PSYKANA INFANTRY in the official text; the correct keyword is used"
+    }
+  },
+  "f4e954d1ea41": {
+    "name": "Fraternity of Heroes",
+    "kind": "stratagem",
+    "plain": "Use in the Heroic Interventions step of your opponent's Charge phase, on one of your ADEPTUS CUSTODES units. Until the end of the phase, that unit can perform a Heroic Intervention as though it were a CHARACTER unit. If it could already perform one, it can now do so when within 5\" vertically and 6\" horizontally of an enemy unit, and when it performs a Heroic Intervention, each of its models can move up to 6\"."
+  },
+  "f63f187ab992": {
+    "name": "Arcane Genetic Alchemy",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your ADEPTUS CUSTODES INFANTRY units is chosen as the target of an attack. Until the phase ends, attacks against that unit fail on an unmodified wound roll of 1-3, whatever abilities the weapon or the attacking model has. Cost: 1CP if that unit has 3 or fewer models, otherwise 2CP. You can't use both this Stratagem and The Emperor's Auspice on the same unit in the same phase."
+  },
+  "f6c7dc6d5008": {
+    "name": "Psyk-out Grenade",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your ANATHEMA PSYKANA INFANTRY units is chosen to shoot. If no enemy units are within Engagement Range of it, roll a D6: on a 2+, the nearest enemy PSYKER unit that is visible to your unit and within 6\" of it suffers Perils of the Warp."
+  },
+  "f76d3f094366": {
+    "name": "Teleport Homer",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your ADEPTUS CUSTODES TELEPORT HOMER units is chosen to move. Take it off the battlefield. In the Reinforcements step of that same phase, put it back on the battlefield within 3\" of one of your VEXILUS PRAETOR or ALEYA models (a model that was itself set up as Reinforcements this turn doesn't count) and more than 9\" from all enemy models. If that unit isn't on the battlefield when the battle ends, it is destroyed."
+  },
+  "faf35bf34f77": {
+    "name": "Watchers of the Throne",
+    "kind": "rule",
+    "plain": "When applying the Look Out, Sir rule for your ADEPTUS CUSTODES CHARACTER models, every ADEPTUS CUSTODES INFANTRY and ADEPTUS CUSTODES BIKER model from the same <SHIELD HOST> is treated as 2 models."
+  },
+  "fbf283ae1bde": {
+    "name": "Tanglefoot Grenade",
+    "kind": "stratagem",
+    "plain": "Use at the start of your opponent's Movement or Charge phase. Pick one enemy unit that can't FLY and is within 12\" of and visible to one of your ADEPTUS CUSTODES INFANTRY units, then roll a D6. In your opponent's Movement phase, reduce that unit's Move characteristic by that many inches for the phase (to a minimum of 0\"). In your opponent's Charge phase, subtract the result from that unit's charge rolls this phase (to a minimum of 0). This Stratagem can only be used once per turn."
+  },
+  "feaa389a4f56": {
+    "name": "Golden Light of the Moiraides",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your DREAD HOST units is set up on the battlefield with the From Golden Light ability. Until your next turn starts, subtract 1 from the hit roll of every attack made against that unit, and whenever that unit declares a charge, enemy units it targets with that charge can't fire Overwatch or Set to Defend against it."
+  },
+  "fecf94475086": {
+    "name": "Consummate Swordsman",
+    "kind": "ability",
+    "plain": "Melee attacks made against this model always fail on an unmodified hit roll of 1-3, and this model's armour saving throw gets 1 added against any melee attack allocated to it."
+  }
+}

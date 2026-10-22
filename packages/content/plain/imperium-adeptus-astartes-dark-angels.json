@@ -1,0 +1,453 @@
+{
+  "01a8c70fa4d5": {
+    "name": "Astartes Banner (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in any of your DARK ANGELS CORE units within 6\" of this model add 1 to their Leadership. Also, whenever an enemy model's attack destroys a model in such a unit, roll one D6. On a 4+, leave the destroyed model in play for now: once the attacker's unit has finished all its attacks, it can either fire one of its ranged weapons as though it were your Shooting phase, or make a single attack with one of its melee weapons as though it were the Fight phase. Remove it once those attacks are resolved."
+  },
+  "0b7b09bafc74": {
+    "name": "Weapons from the Dark Age",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase as soon as you choose one of your DARK ANGELS units to shoot. Until the phase ends, the plasma weapons carried by that unit's models have their Damage increased by 1 for each attack."
+  },
+  "0ce80778548d": {
+    "name": "4) Trephination",
+    "kind": "psychic",
+    "plain": "Witchfire, warp charge 5. If manifested, the nearest enemy unit that is within 18\" of and visible to this PSYKER suffers D3 mortal wounds. If your Psychic test result was higher than that enemy unit's Leadership, it suffers 3 mortal wounds instead."
+  },
+  "0d2e15327c2b": {
+    "name": "Air Superiority",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll of each ranged attack this model makes against an AIRCRAFT unit."
+  },
+  "0ed1b2702515": {
+    "name": "Sword of Silence",
+    "kind": "weapon",
+    "plain": "Against any unit that isn't a VEHICLE, an attack with this weapon always wounds on an unmodified wound roll of 2+."
+  },
+  "0ff7a071ef76": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every RAVENWING BLACK KNIGHTS unit in a Detachment, you can add one RAVENWING ANCIENT unit to that Detachment, and it doesn't use up a Battlefield Role slot."
+  },
+  "16cdfb55e697": {
+    "name": "Ezekiel",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 3 powers from the Interromancy discipline."
+  },
+  "1757c92a6399": {
+    "name": "Grim Resolve",
+    "kind": "rule",
+    "plain": "Whenever a model with this tactic makes an attack, add 1 to that attack's hit roll unless its unit has moved this turn (pile-in and consolidation moves don't count). Combat Attrition tests taken for this unit are passed automatically."
+  },
+  "19b3d23a2258": {
+    "name": "Devastator Doctrine",
+    "kind": "rule",
+    "plain": "This model's Heavy and Grenade weapons get 1 better Armour Penetration while this combat doctrine is active."
+  },
+  "1da812e87c7e": {
+    "name": "Combat Doctrines",
+    "kind": "rule",
+    "plain": "If your army is Battle-forged and every unit in it has this ability (excluding Servitor and UNALIGNED units), this unit gets the bonus of whichever combat doctrine is active for your army:\n• In the first battle round, the Devastator Doctrine is active.\n• At the start of the second, third, fourth and each later battle round, you can either move on to the next doctrine in the order Devastator, Tactical, Assault, or keep the doctrine that is already active. You only ever move on one step at a time, so you can't skip a doctrine or go back to an earlier one.\nYou are never forced on to the next doctrine: the Devastator or Tactical Doctrine can stay active instead.\nUnless a rule says otherwise, this bonus doesn't stack with other rules that improve a weapon's Armour Penetration (such as the Storm of Fire WARLORD Trait).",
+    "waive": {
+      "2023": "date of the dataslate that made the change, not part of the rule"
+    }
+  },
+  "233378232c90": {
+    "name": "Icon of old Caliban (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS units is within 6\" of this model, subtract 1 from the hit roll of each ranged attack made against that unit."
+  },
+  "29607df66b20": {
+    "name": "Grand Master of the Ravenwing",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your RAVENWING CORE or RAVENWING CHARACTER units within 6\" of this model. Until your next Command phase starts, models in that unit can re-roll the hit roll for every attack they make."
+  },
+  "298c76b11a00": {
+    "name": "6) Mind Wipe",
+    "kind": "psychic",
+    "plain": "Malediction, warp charge 7. If manifested, pick one enemy unit within 18\" of this PSYKER and one aura ability it has. That unit loses that aura ability until the start of your next Psychic phase."
+  },
+  "2d226e2b3796": {
+    "name": "Crash and Burn",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, roll a D6 before taking it off the battlefield. On a 6 it blows up, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "2d5f22bd53ad": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "If a Detachment contains a DEATHWING TERMINATOR CAPTAIN unit, you can add one DEATHWING COMMAND SQUAD unit to it, and that unit doesn't use up a Battlefield Role slot."
+  },
+  "3a14c4a54f36": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every RAVENWING BLACK KNIGHTS unit in a Detachment, you can add one RAVENWING CHAMPION unit to that Detachment, and it doesn't use up a Battlefield Role slot."
+  },
+  "3a1667dd3ac2": {
+    "name": "Martial Superiority",
+    "kind": "ability",
+    "plain": "If, at the start of the Fight phase, any enemy CHARACTER units are within Engagement Range of this model, it can fight first that phase."
+  },
+  "3a5b7d94b769": {
+    "name": "Halberd of Caliban",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights while within Engagement Range of an enemy unit that has 10 or more models, it can make 3 extra attacks with this weapon, and those attacks must target a unit of 10 or more models."
+  },
+  "3ce78d3e18f5": {
+    "name": "Tactical Precision (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by models in that unit."
+  },
+  "3f5e871ab7b1": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every DEATHWING COMMAND SQUAD unit in a Detachment, you can add one DEATHWING CHAMPION unit to that Detachment, and it doesn't use up a Battlefield Role slot."
+  },
+  "42930a45a4b1": {
+    "name": "Swift Strike",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase once one of your RAVENWING units has fought. If it is still within Engagement Range of any enemy units, it may Fall Back as though it were the Movement phase. If it isn't, it can instead make a Normal Move, again as though it were the Movement phase. Cost: 2CP if the unit has 5 or fewer models, otherwise 3CP."
+  },
+  "45230e3fc756": {
+    "name": "Stasis Shell",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your RAVENWING models fires an astartes grenade launcher. It makes just one attack with that weapon this phase. On a hit, the attack sequence ends and the target is caught in stasis until your next turn starts. A unit caught in stasis can't Fall Back, unless it is a VEHICLE or MONSTER unit."
+  },
+  "475e3c44a9ca": {
+    "name": "Targeting Guidance",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase. Choose an enemy unit within 18\" of and visible to one of your RAVENWING LAND SPEEDER or RAVENWING STORM SPEEDER units. For the rest of the phase, whenever a model in one of your DARK ANGELS units makes a ranged attack against the chosen unit, add 1 to that hit roll."
+  },
+  "4cb8f6a5e8d6": {
+    "name": "Marked for Command",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the battle begins: choose a model from your army that is either a DARK ANGELS Ravenwing Huntmaster or Knight Master, or a DARK ANGELS model whose profile includes the word 'Sergeant'. Even though it is not a CHARACTER, that model can be given one of these Special-issue Wargear Relics: Master-crafted Weapon; Digital Weapons; Atonement; Bolts of Judgement. No Relic can appear twice in your army, and this Stratagem can't give a single model two Relics."
+  },
+  "4eee2232a357": {
+    "name": "Plasma storm battery (supercharge)",
+    "kind": "weapon",
+    "plain": "Blast. For each unmodified hit roll of 1 made for an attack with this profile, the bearer suffers 1 mortal wound after it has finished shooting with this weapon."
+  },
+  "53e34808854c": {
+    "name": "Speed of the Raven",
+    "kind": "rule",
+    "plain": "While your army's active doctrine is the Devastator Doctrine:\n• your RAVENWING models add 3\" to their Move characteristic;\n• your RAVENWING units are still eligible to shoot in a turn in which they Advanced, but a ranged attack made by a model that Advanced this turn takes the hit roll penalty it would take if it were an Assault weapon."
+  },
+  "544338c5a0d3": {
+    "name": "Signal the Attack",
+    "kind": "stratagem",
+    "plain": "Use in the Shooting phase once one of your ATTACK SQUADRON units has attacked an enemy unit and caused it to lose at least one wound. Until the phase ends, add 1 to hit rolls for attacks by your other ATTACK SQUADRON units that target that enemy unit."
+  },
+  "5549b0dde918": {
+    "name": "Astartes Banner (Red Scorpions)",
+    "kind": "ability",
+    "plain": "Add 1 to the Leadership of RED SCORPIONS units while they are within 6\" of any friendly RED SCORPIONS ANCIENTS. In addition, when a RED SCORPIONS INFANTRY model dies while within 6\" of any friendly RED SCORPIONS ANCIENTS, roll a D6 before it is removed as a casualty. On a 4+, before it is removed it can either fire one of its weapons as though it were the Shooting phase, or make one attack as though it were the Fight phase."
+  },
+  "5ae571134259": {
+    "name": "Jink",
+    "kind": "ability",
+    "plain": "If this unit has the Grim Resolve Chapter Tactic, or has the Inheritors of the Primarch Successor Tactic and is using the Dark Angels' Chapter Tactic, then:\n• Its models get a 5+ invulnerable save against ranged attacks. If this unit Remains Stationary in your Movement phase, it loses that save until the start of your next Movement phase.\n• Whenever this unit Advances, its models get a 4+ invulnerable save against ranged attacks until the start of your next turn."
+  },
+  "5c05fe5aca21": {
+    "name": "Paragon of the Chapter",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you choose a DARK ANGELS CHARACTER model that isn't a named character as your WARLORD: generate one extra Warlord Trait for it, which must come from the Dark Angels Warlord Traits table. Every Warlord Trait in your army must be unique (if you generate them randomly, re-roll duplicates)."
+  },
+  "71ee512cbf94": {
+    "name": "Litany of Hate",
+    "kind": "ability",
+    "plain": "If this litany is inspiring: while one of your <CHAPTER> CORE or <CHAPTER> CHARACTER units is within 6\" of this PRIEST, models in that unit can re-roll the hit roll for each melee attack they make."
+  },
+  "7726448a5d66": {
+    "name": "No Foe Too Great to Subdue",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when one of your DEATHWING KNIGHTS units is chosen to fight. For the rest of the phase, when a model in that DEATHWING KNIGHTS unit attacks an enemy VEHICLE or MONSTER unit with a mace of absolution, add 1 to the wound roll and improve that attack's Armour Penetration by 1 as well."
+  },
+  "79f22c892c7b": {
+    "name": "Grandmaster of the Deathwing",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DEATHWING CORE or DEATHWING CHARACTER units within 6\" of this model. Until your next Command phase starts, models in that unit can re-roll the hit roll for every attack they make."
+  },
+  "7eeb4352225e": {
+    "name": "2) Aversion",
+    "kind": "psychic",
+    "plain": "Malediction, warp charge 6. If it is manifested, choose an enemy unit within 24\" of this PSYKER. These effects last until your next Psychic phase starts:\n• while that unit is within 6\" of this PSYKER, the Attacks characteristic of its models drops by 1;\n• every attack made by a model in that unit has 1 subtracted from its hit roll."
+  },
+  "80be96386a21": {
+    "name": "Enmity's Edge",
+    "kind": "weapon",
+    "plain": "Each attack with this weapon that is allocated to a PSYKER model has Damage 4."
+  },
+  "814d8aea4810": {
+    "name": "1) Mind Worm",
+    "kind": "psychic",
+    "plain": "Malediction, warp charge 6. If it is manifested, choose an enemy unit within 18\" of this PSYKER. It suffers 1 mortal wound, and until your next Psychic phase starts, it isn't eligible to fight in the Fight phase until every other eligible unit in your army has fought."
+  },
+  "82af76acdf06": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every RAVENWING BLACK KNIGHTS unit in a Detachment, you can add one RAVENWING APOTHECARY unit to that Detachment, and it doesn't use up a Battlefield Role slot."
+  },
+  "83e82a712cde": {
+    "name": "Raven Sword",
+    "kind": "weapon",
+    "plain": "If the bearer made a charge move this turn, attacks made with this weapon have a Strength of x2."
+  },
+  "860b50e83af0": {
+    "name": "3) Righteous Repugnance",
+    "kind": "psychic",
+    "plain": "Blessing, warp charge 7. If manifested, pick one of your DARK ANGELS units within 12\" of this PSYKER. Until your next Psychic phase starts, models in that unit can re-roll both the hit roll and the wound roll for each melee attack they make."
+  },
+  "89a4da4a2d1f": {
+    "name": "Plasma Talon (overcharge)",
+    "kind": "weapon",
+    "plain": "If you roll a hit roll of 1 for this weapon, the bearer is slain once all of this weapon's shots have been resolved."
+  },
+  "8a3440ff3c2f": {
+    "name": "4-6. Master of Manoeuvre",
+    "kind": "ability",
+    "plain": "Even in a turn in which it Fell Back, this WARLORD is eligible to either shoot and charge."
+  },
+  "8d380cb52566": {
+    "name": "2. Fury if the Lion (Aura)",
+    "kind": "ability",
+    "plain": "Aura: if this WARLORD made a charge move, performed a Heroic Intervention or was charged this turn, models in any of your DARK ANGELS units within 6\" of it add 1 to their Strength."
+  },
+  "8de27a5a0bed": {
+    "name": "Tactical Appraisal",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase, and only if every unit in your army (other than SERVITOR, AGENT OF THE IMPERIUM and UNALIGNED units) has the Combat Doctrines ability. Choose one of your DARK ANGELS units within 6\" of your WARLORD and choose a combat doctrine. Until your next Command phase starts, that unit treats the chosen doctrine as your army's active one, in place of the doctrine that is really active."
+  },
+  "93356cf350ce": {
+    "name": "4-6. Inexorable",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to this WARLORD, reduce that attack's Damage by 1 (it can't go below 1)."
+  },
+  "9456eaad2d03": {
+    "name": "Honoured by the Rock",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you choose a model from a Dark Angels successor Chapter as your WARLORD: one CHARACTER model from your army that is from a Dark Angels successor Chapter can be given one Relic of the Rock in place of a Special-issue Wargear Relic or a Chapter Relic. If you do, every DARK ANGELS keyword on that Relic (if it has any) is replaced with that model's successor Chapter keyword."
+  },
+  "95a67fda5917": {
+    "name": "Lion Helm (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS INFANTRY or DARK ANGELS BIKER units is within 6\" of this model, its models get a 4+ invulnerable save against ranged attacks."
+  },
+  "9787b01332b4": {
+    "name": "Supreme Tactician",
+    "kind": "ability",
+    "plain": "If this model is your WARLORD and your army is Battle-forged, you get 2 extra Command points."
+  },
+  "97db95cf4b4c": {
+    "name": "The Talisman of Sundered Souls",
+    "kind": "ability",
+    "plain": "This model gets a 5+ invulnerable save. When it suffers Perils of the Warp for the first time, it doesn't lose any wounds from it."
+  },
+  "9812649e844d": {
+    "name": "Watcher in the Dark",
+    "kind": "ability",
+    "plain": "Once per battle, this unit may try a Deny the Witch test as though it were a PSYKER. When the power is being manifested by a CHAOS PSYKER, that test can be re-rolled."
+  },
+  "99449512129f": {
+    "name": "Flail of the Unforgiven",
+    "kind": "weapon",
+    "plain": "Damage from this weapon that is more than a model can take isn't wasted: keep allocating it to other models in the target unit until all of it has been allocated or that unit is destroyed."
+  },
+  "9e74c9628fc9": {
+    "name": "Book of Salvation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE or DARK ANGELS CHARACTER units is within 6\" of this model, whenever that unit fights, its models get 1 extra attack until that fight is resolved. This doesn't stack with the extra attack from the Shock Assault ability."
+  },
+  "a0fbaac90d1e": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every DEATHWING COMMAND SQUAD unit in a Detachment, you can add one DEATHWING APOTHECARY unit to that Detachment, and it doesn't use up a Battlefield Role slot."
+  },
+  "a10e930a9638": {
+    "name": "Hellslayer",
+    "kind": "weapon",
+    "plain": "Each attack with this weapon that is allocated to a PSYKER or DAEMON model has Damage 3."
+  },
+  "a727faa27f47": {
+    "name": "Intractable Will",
+    "kind": "ability",
+    "plain": "If this model is destroyed while within Engagement Range of any enemy units, leave it in play: when the attacking unit has finished all its attacks, this model can be chosen to fight, even if it has already fought in this phase. Once those attacks are resolved, remove it. It can't be combined with the Only in Death Does Duty End Stratagem or the Astartes Banner ability; if they would both apply, use this ability."
+  },
+  "a7a611659c0c": {
+    "name": "4. Stubborn Tenacity",
+    "kind": "ability",
+    "plain": "When this WARLORD is destroyed without exploding, you can use this Warlord Trait instead of any other ability that would take effect because it was destroyed (Astartes Banner, for example). If you do, leave this WARLORD in play until the next turn starts or the battle ends, whichever is first. Until then it still counts as in play, but any more wounds it would lose are not lost."
+  },
+  "a95758d0cdf3": {
+    "name": "Stasis bomb",
+    "kind": "ability",
+    "plain": "Once per battle, when this model makes a Normal Move or Advances in your Movement phase, you can choose one enemy unit it passed over during that move, provided this model is still on the battlefield once the move is over. That unit suffers D3 mortal wounds and is caught in stasis until your next turn starts. A unit caught in stasis can't Fall Back, unless it is a VEHICLE or MONSTER unit.",
+    "waive": {
+      "2023": "date of the dataslate that made the change, not part of the rule"
+    }
+  },
+  "ae73af4011df": {
+    "name": "Lion's Wrath - Master-crafted Plasma gun",
+    "kind": "weapon",
+    "plain": "Before you pick targets, choose one or both of this weapon's profiles to attack with. If you choose both, subtract 1 from the hit roll of every attack made with this weapon this phase."
+  },
+  "b06a58d560f3": {
+    "name": "Deathwing Assault",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase when one of your DEATHWING units is chosen to shoot. If a model in that unit was set up on the battlefield this turn through a teleport homer or teleport strike, add 1 to the wound roll of each ranged attack it makes."
+  },
+  "b8504af9e4a8": {
+    "name": "Full Throttle",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase right after one of your RAVENWING units Advances. It immediately makes a Normal Move of up to 12\", but it can't shoot or declare a charge this turn. Cost: 1CP if the unit has 5 or fewer models, otherwise 2CP."
+  },
+  "ba79d5f6b786": {
+    "name": "Attack Squadron",
+    "kind": "stratagem",
+    "plain": "Use when choosing your army. Choose one of your DARK ANGELS Detachments; it becomes a Ravenwing Attack Squadron Specialist Detachment, and its RAVENWING units gain the ATTACK SQUADRON keyword."
+  },
+  "bd0915f74550": {
+    "name": "Implacable",
+    "kind": "rule",
+    "plain": "While your army's active doctrine is the Assault Doctrine, your DEATHWING INFANTRY and DEATHWING DREADNOUGHT models can re-roll the wound roll for melee attacks against CHARACTER units, or against units that include any model with a Wounds characteristic of 8 or more."
+  },
+  "bd458c7aac9c": {
+    "name": "Hexagramatically Warded Armour",
+    "kind": "ability",
+    "plain": "This model can try to deny one psychic power in your opponent's Psychic phase as though it were a Psyker."
+  },
+  "c0e7a0023e5b": {
+    "name": "Line Unbreakable",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Choose one of your DARK ANGELS INFANTRY units. For the rest of the phase, a model can only choose that unit as the target of its melee attacks if the attacking model itself is within Engagement Range of it. So an enemy model that is not within Engagement Range of it, even one within 1/2\" of a model in its own unit that is in turn within 1/2\" of this DARK ANGELS INFANTRY unit, can't make melee attacks against it this phase."
+  },
+  "c12c0e6a8d64": {
+    "name": "Fire Discipline",
+    "kind": "rule",
+    "plain": "While the Tactical Doctrine is active for your army, your INFANTRY models (excluding DEATHWING models) can attack with Rapid Fire and Assault weapons (but not Blast weapons) while they are within Engagement Range of enemy units. When they do, they must target an enemy unit that is within Engagement Range of their own unit. They can target that enemy unit even if other friendly units are also within Engagement Range of it, and while making such an attack, the model has a Ballistic Skill of 5+."
+  },
+  "c24b2bcf27ea": {
+    "name": "No Escape (Aura)",
+    "kind": "ability",
+    "plain": "Aura: in your Command phase, you can choose an enemy unit this model can see. Until your next Command phase starts, while any of your DARK ANGELS RAVENWING CORE units is within 6\" of this model, attacks made by models in that RAVENWING unit ignore the benefits of cover for the chosen enemy unit's saving throws."
+  },
+  "c3e58496ede3": {
+    "name": "1. Brilliant Strategist",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your DARK ANGELS units within 6\" of this WARLORD. Until your next Command phase starts, for every attack made by a model in that unit:\n• if your army's active doctrine is the Tactical Doctrine, treat the Devastator Doctrine as active for that attack instead;\n• if your army's active doctrine is the Assault Doctrine, treat the Tactical Doctrine as active for that attack instead."
+  },
+  "c4feab4da508": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "c8b3a41ca4da": {
+    "name": "Chapter Master",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DARK ANGELS CORE or DARK ANGELS CHARACTER units within 6\" of this model. Until your next Command phase starts, models in that unit can re-roll the hit roll for every attack they make."
+  },
+  "cb7b44aac78c": {
+    "name": "Master Interromancer",
+    "kind": "ability",
+    "plain": "Add 1 to Psychic tests this model takes to manifest powers from the Interromancy discipline."
+  },
+  "d353d799b3c8": {
+    "name": "1st Company",
+    "kind": "rule",
+    "plain": "If all units in your army other than UNALIGNED units have the DARK ANGELS keyword, any DARK ANGELS Vanguard Detachment made up only of models with the DEATHWING and/or INNER CIRCLE keywords gets the 1st Company ability:\n• In that Detachment, these units gain Objective Secured: Relic Terminator Squad, Terminator Assault Squad, Terminator Squad and Deathwing Terminator Squad.\n• If your WARLORD is in that Detachment, its Command Benefits become '+3 Command points'."
+  },
+  "d59bfc5cb25f": {
+    "name": "The Spiritshield Helm (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS units is within 6\" of this model, whenever a model in that unit would lose a wound because of a mortal wound, roll one D6 (add 1 to the roll if the model losing the wound is this model): on a 5+, the wound isn't lost."
+  },
+  "d5bbe1262df1": {
+    "name": "Traitor's Bane",
+    "kind": "weapon",
+    "plain": "Each attack with this weapon that is allocated to a FALLEN or HERETIC ASTARTES unit has Damage 3."
+  },
+  "d8d1e5324c00": {
+    "name": "5) Engulfing Fear",
+    "kind": "psychic",
+    "plain": "Malediction, warp charge 7. If it is manifested, choose an enemy unit within 24\" of this PSYKER. These effects last until your next Psychic phase starts:\n• its models' Leadership characteristic is reduced by 1;\n• it can't use Objective Secured, or any similar ability letting it control an objective marker however many enemy models are in range of that marker;\n• if your Psychic test result was equal to or greater than its Leadership, it can't perform actions (an action it is performing right now fails immediately)."
+  },
+  "da9f816bf7af": {
+    "name": "Rift cannon",
+    "kind": "weapon",
+    "plain": "Blast. Whenever an attack with this weapon wounds, no saving throw is made: the target suffers 3 mortal wounds and the attack sequence ends."
+  },
+  "ddc818f8aceb": {
+    "name": "Narthecium (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS INFANTRY or DARK ANGELS BIKER units is within 3\" of this model, roll one D6 whenever a model in that unit would lose a wound: on a 6, the wound isn't lost."
+  },
+  "e6c6dad3204b": {
+    "name": "Intractable",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase when you choose one of your DARK ANGELS units to Fall Back.\n• If it has the Inner Circle ability, it can Fall Back automatically, without first rolling 2D6 to see whether it can.\n• It is eligible to shoot until the end of the turn."
+  },
+  "e7475404399b": {
+    "name": "Combat Squads",
+    "kind": "ability",
+    "plain": "At the start of deployment, before any units are set up, if this unit has its maximum number of models, you can split it into two units with numbers of models as equal as possible. When you do, note down which models are in each of the two new units."
+  },
+  "e97013f5c2b5": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 3 powers from the Librarius discipline."
+  },
+  "ee803cf918be": {
+    "name": "The Hunt",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the first turn begins, at the start of the first battle round: choose one of your RAVENWING units. It can make a Normal Move as though it were your Movement phase, and must end that move more than 9\" from every enemy model. When both players have units able to move before the first turn, the player who has the first turn moves theirs first. Cost: 2CP if the unit has 5 or fewer models, otherwise 3CP."
+  },
+  "f035498613f6": {
+    "name": "Swift Strike",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, after an ATTACK SQUADRON unit from your army (excluding AIRCRAFT) has fought. That unit can make a move straight away (and can Advance) as if it were your Movement phase. If any enemy units are within 1\" of it, it can Fall Back instead."
+  },
+  "f0607bb2f345": {
+    "name": "Tactical Doctrine",
+    "kind": "rule",
+    "plain": "This model's Rapid Fire and Assault weapons get 1 better Armour Penetration while this combat doctrine is active."
+  },
+  "f19d271814f5": {
+    "name": "Secret Agenda",
+    "kind": "stratagem",
+    "plain": "Once per battle, after secondary objectives or Agendas are selected: keep one of your selections hidden from your opponent. Reveal it when you first score victory points or experience points for it. You must still keep a record of what you chose, for example by writing it down and keeping it hidden until you reveal it."
+  },
+  "f1c89cb66b46": {
+    "name": "Exemplar of Hate",
+    "kind": "ability",
+    "plain": "When you roll to see whether this model's Litany of Hate is inspiring, add 1 to the roll. This model's Litany of Hate also gets 3\" more range."
+  },
+  "f2ded3320bdc": {
+    "name": "Assault Doctrine",
+    "kind": "rule",
+    "plain": "This model's Pistol and melee weapons get 1 better Armour Penetration while this combat doctrine is active."
+  },
+  "f4b3a2f61f70": {
+    "name": "2nd Company",
+    "kind": "rule",
+    "plain": "If all units in your army other than UNALIGNED units have the DARK ANGELS keyword, any DARK ANGELS Outrider Detachment made up only of models with the RAVENWING keyword gets the 2nd Company ability:\n• In that Detachment, Bike Squad and Outrider Squad units gain Objective Secured.\n• If your WARLORD is in that Detachment, its Command Benefits become '+3 Command points'."
+  },
+  "f582df8b5130": {
+    "name": "Aura of Dread (Aura)",
+    "kind": "ability",
+    "plain": "Aura: any enemy unit within 6\" of this model counts as being below Half Strength."
+  },
+  "f6b1b8ad05e1": {
+    "name": "Spiritual Leaders (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in any of your DARK ANGELS CORE units within 6\" of this model may use its Leadership in place of their own."
+  },
+  "ff718e40a159": {
+    "name": "Wrath of the Lion",
+    "kind": "stratagem",
+    "plain": "Once per battle, in your Command phase, if your army has an active combat doctrine: until your next Command phase starts, when a DARK ANGELS model from your army makes an attack using a weapon that the active combat doctrine applies to, an unmodified wound roll of 6 also improves that attack's Armour Penetration by 1; this stacks with the active doctrine's own bonus."
+  },
+  "ff99fa7bedfc": {
+    "name": "High-speed Focus",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, as you allocate a ranged attack to one of your RAVENWING VEHICLE models. Until your next turn starts, that model gets a 4+ invulnerable save against ranged attacks."
+  }
+}

@@ -13,6 +13,15 @@ const ListsPage = lazy(() => import('./lists/ListsPage').then((m) => ({ default:
 const NewListPage = lazy(() => import('./lists/NewListPage').then((m) => ({ default: m.NewListPage })));
 const ListEditorPage = lazy(() => import('./lists/ListEditorPage').then((m) => ({ default: m.ListEditorPage })));
 const SharePage = lazy(() => import('./lists/SharePage').then((m) => ({ default: m.SharePage })));
+// The Rules Reference loads on first visit too.
+const RulesHome = lazy(() => import('./rules/RulesHome').then((m) => ({ default: m.RulesHome })));
+const RulesArticlePage = lazy(() => import('./rules/RulesArticlePage').then((m) => ({ default: m.RulesArticlePage })));
+const GlossaryPage = lazy(() => import('./rules/GlossaryPage').then((m) => ({ default: m.GlossaryPage })));
+const CoreStratagemsPage = lazy(() => import('./rules/CoreStratagemsPage').then((m) => ({ default: m.CoreStratagemsPage })));
+const GuidesIndexPage = lazy(() => import('./rules/GuidesIndexPage').then((m) => ({ default: m.GuidesIndexPage })));
+const FactionGuidePage = lazy(() => import('./factions/FactionGuidePage').then((m) => ({ default: m.FactionGuidePage })));
+const StratagemsPage = lazy(() => import('./factions/StratagemsPage').then((m) => ({ default: m.StratagemsPage })));
+const ReportsPage = lazy(() => import('./rules/ReportsPage').then((m) => ({ default: m.ReportsPage })));
 
 const loadingPage = <p className="muted">Loading…</p>;
 
@@ -25,7 +34,7 @@ function LazyPage({ children }: { children: ReactNode }) {
     </ErrorBoundary>
   );
 }
-const builder = (page: ReactNode) => <LazyPage>{page}</LazyPage>;
+const lazyPage = (page: ReactNode) => <LazyPage>{page}</LazyPage>;
 
 /** Wraps routes that need a signed-in user (replaced by RequireAuth in Task 10). */
 export type Guard = (children: ReactNode) => ReactNode;
@@ -39,11 +48,11 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
         path="/learn"
         element={guard(<Placeholder title="Learn" milestone={6} blurb="Short lessons that teach each phase with real dice on a small board." />)}
       />
-      <Route path="/build" element={guard(builder(<ListsPage />))} />
-      <Route path="/build/new" element={guard(builder(<NewListPage />))} />
-      <Route path="/build/:id" element={guard(builder(<ListEditorPage />))} />
+      <Route path="/build" element={guard(lazyPage(<ListsPage />))} />
+      <Route path="/build/new" element={guard(lazyPage(<NewListPage />))} />
+      <Route path="/build/:id" element={guard(lazyPage(<ListEditorPage />))} />
       {/* A shared list opens read-only for anyone, signed in or not: deliberately not behind the guard. */}
-      <Route path="/share/:id" element={builder(<SharePage />)} />
+      <Route path="/share/:id" element={lazyPage(<SharePage />)} />
       <Route
         path="/play"
         element={guard(<Placeholder title="Play" milestone={5} blurb="The on-screen sandbox: two players, one device, core rules handled for you." />)}
@@ -52,12 +61,16 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
         path="/table"
         element={guard(<Placeholder title="Table" milestone={7} blurb="The tabletop companion: phases, CP, VP, missions and stratagems." />)}
       />
-      <Route
-        path="/rules"
-        element={guard(<Placeholder title="Rules" milestone={3} blurb="Searchable plain-English rules, glossary and faction guides." />)}
-      />
+      <Route path="/rules" element={guard(lazyPage(<RulesHome />))} />
+      <Route path="/rules/glossary" element={guard(lazyPage(<GlossaryPage />))} />
+      <Route path="/rules/stratagems" element={guard(lazyPage(<CoreStratagemsPage />))} />
+      <Route path="/rules/factions" element={guard(lazyPage(<GuidesIndexPage />))} />
+      <Route path="/rules/:articleId" element={guard(lazyPage(<RulesArticlePage />))} />
+      <Route path="/rules/reports" element={guard(lazyPage(<ReportsPage />))} />
       <Route path="/factions" element={guard(<FactionsPage />)} />
       <Route path="/factions/:slug" element={guard(<FactionPage />)} />
+      <Route path="/factions/:slug/guide" element={guard(lazyPage(<FactionGuidePage />))} />
+      <Route path="/factions/:slug/stratagems" element={guard(lazyPage(<StratagemsPage />))} />
       <Route path="/factions/:slug/units/:unitSlug" element={guard(<DatasheetPage />)} />
       {extra}
       <Route path="*" element={<Navigate to="/" replace />} />

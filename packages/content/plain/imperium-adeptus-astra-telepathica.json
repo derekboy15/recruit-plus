@@ -1,0 +1,282 @@
+{
+  "0de46845e99f": {
+    "name": "Battlefield Bequest",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army. Pick one ASTRA MILITARUM model from your army with the word 'Sergeant' or 'Watchmaster' in its profile, and give it one of these Heirlooms of Conquest (it must be a Relic that model could have): Relic of Lost Cadia, The Emperor's Fury, The Barbicant's Key, Claw of the Desert Tigers or Legacy of Kalladius. Every Relic in your army must be unique, and this Stratagem can't give one model two Relics.\n\nYou can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "0f1889d551d0": {
+    "name": "Emperor’s Blade Assault Company",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can use this Stratagem to make one ASTRA MILITARUM Detachment in your army an Emperor's Blade Specialist Detachment. In it, CHIMERAS, TAUROXES, VETERANS, INFANTRY SQUADS, SPECIAL WEAPON SQUADS, COMMAND SQUADS, PLATOON COMMANDERS and COMPANY COMMANDERS gain the EMPEROR'S BLADE keyword."
+  },
+  "12a34aa28c9c": {
+    "name": "Armoured Fist",
+    "kind": "stratagem",
+    "plain": "When one of your ASTRA MILITARUM CORE units is picked to shoot in your Shooting phase, you can use this Stratagem. For the rest of the phase, each time one of its models that disembarked from a TRANSPORT model this turn attacks the closest eligible target, you can re-roll the wound roll."
+  },
+  "1fe794337955": {
+    "name": "Battlefield Surgery",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ASTRA MILITARUM MEDIC units that is under its Starting Strength and is not within Engagement Range of any enemy units. Up to D3 of its destroyed models (not OFFICER models) can be returned to it, each with its full wounds."
+  },
+  "29940542b1ae": {
+    "name": "Aerial Fire Support",
+    "kind": "stratagem",
+    "plain": "Use in the enemy Charge phase, once an enemy unit has declared a charge that targets one of your TEMPESTUS DROP FORCE INFANTRY units. Pick one TEMPESTUS DROP FORCE VALKYRIE of yours that is within 6\" of the unit being charged. That VALKYRIE may fire Overwatch at the charging unit even when the charge is not aimed at it, and when it does, it hits the enemy on hit rolls of 4+, whatever the modifiers."
+  },
+  "2d756c2568ca": {
+    "name": "Tempestus Drop Force",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can use this Stratagem to make one MILITARUM TEMPESTUS Detachment in your army a Tempestus Drop Force Specialist Detachment. In it, VALKYRIES, TEMPESTUS COMMAND SQUADS, TEMPESTUS SCIONS and TEMPESTOR PRIMES gain the TEMPESTUS DROP FORCE keyword."
+  },
+  "338928a84c74": {
+    "name": "Shield of Flesh",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when one of your INFANTRY units is picked as the target of an attack. For the rest of the phase, whenever an enemy model makes an attack that targets that unit, subtract 1 from its hit roll if your unit is within 3\" of a different friendly unit with the OGRYNS keyword (not counting BODYGUARD units) and that OGRYNS unit is nearer to the attacking model."
+  },
+  "345d9cbf6850": {
+    "name": "Fire on My Position",
+    "kind": "stratagem",
+    "plain": "Use when one of your VOX-CASTER models is destroyed by a melee attack. Don't remove it from play yet. After every model in the attacking unit has finished attacking, roll a D6 for each unit within 3\" of that VOX-CASTER model; each unit that rolls a 4+ suffers D3 mortal wounds. Then remove the VOX-CASTER model from play. The cost is 1CP if that model has the CULT OF SACRIFICE keyword; otherwise it is 2CP."
+  },
+  "3e3902827e0b": {
+    "name": "Immovable Indoctrination",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your MILITARUM TEMPESTUS INFANTRY units is picked as the target of an attack while it is within range of an objective marker. For the rest of the phase, each attack made against that unit:\n• can't have its wound roll re-rolled.\n• has its Armour Penetration characteristic worsened by 1 (to a minimum of 0)."
+  },
+  "41168f9f6ba3": {
+    "name": "Vicious Traps",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Charge phase, when an enemy unit ends a charge move within Engagement Range of one or more of your ASTRA MILITARUM units that are wholly within an Area Terrain feature. Roll a D6 and apply these modifiers:\n• +1 if at least one of those units has the CATACHAN or VETERAN GUERRILLAS keyword.\n• +1 if at least one of those units has the MELTA MINE keyword.\n• +1 if SLY MARBO is in your army and on the battlefield.\nOn a 2-5, D3 mortal wounds are inflicted on that enemy unit; on a 6+, 2D3 mortal wounds are inflicted on it."
+  },
+  "45e566ed3cef": {
+    "name": "No Quarter Given!",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase starts. Pick one of your EMPEROR'S CONCLAVE units. For the rest of that phase, whenever a model in that unit is slain, don't remove it from the battlefield as normal; instead it can pile in and fight straight away, even if it was already picked to fight that phase. Once its attacks are resolved, remove it from the battlefield."
+  },
+  "476259b5de79": {
+    "name": "Divination",
+    "kind": "ability",
+    "plain": "This model can attempt the psychic action below.\n\nDivination (Warp Charge 7 psychic action): one ASTROPATH model from your army can try to perform it in your Psychic phase. If it is completed, you gain 1 Command point."
+  },
+  "506e8c6d5223": {
+    "name": "Feinting Strike",
+    "kind": "stratagem",
+    "plain": "When one of your ATTILAN ROUGH RIDERS units is picked to Fall Back in your Movement phase, you can use this Stratagem. For the rest of the turn, that unit can shoot and declare a charge even though it Fell Back this turn."
+  },
+  "566a12c26b80": {
+    "name": "Emperor’s Fist Tank Company",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can use this Stratagem to make one ASTRA MILITARUM Detachment in your army an Emperor's Fist Specialist Detachment. Every LEMAN RUSS unit in it gains the EMPEROR'S FIST keyword."
+  },
+  "62a492fba57b": {
+    "name": "Volley Fire",
+    "kind": "stratagem",
+    "plain": "Use when your Shooting phase ends. Pick one of your INFANTRY SQUAD units that Remained Stationary this turn; it can shoot again."
+  },
+  "6720faaac6ee": {
+    "name": "Sanctimonious Charge",
+    "kind": "stratagem",
+    "plain": "Use after an EMPEROR'S CONCLAVE MINISTORUM PRIEST makes a charge move. For the rest of that phase, while other friendly EMPEROR'S CONCLAVE units are within 12\" of that MINISTORUM PRIEST, add 1 to their charge rolls."
+  },
+  "67669d0153b0": {
+    "name": "Vengeful Salute",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase or the Fight phase, when one of your ASTRA MILITARUM VEHICLE models is destroyed without exploding. Don't remove it from play yet: once the attacking model's unit has finished its attacks, it can shoot. When it does:\n• It can only attack with turret weapons it is equipped with.\n• Its Ballistic Skill characteristic is 5+.\nOnce its attacks are resolved, remove it. The cost is 1CP if that model has the BATTLE TANK or ARMOURED SUPERIORITY keyword; otherwise it is 2CP."
+  },
+  "697e69ac8d93": {
+    "name": "Imperial Commander’s Armoury",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the ASTRA MILITARUM keyword. Pick one ASTRA MILITARUM CHARACTER model from your army and give it one Relic (it must be a Relic that model can have). Or instead, use it to give the Clarion Proclamatus to one COMMAND SQUAD model from your army equipped with a master vox, or the Finial of the Nemrodesh 1st to one COMMAND SQUAD model from your army equipped with a regimental standard. Either way, every Relic in your army must be unique, and this Stratagem can't give one unit two Relics.\n\nYou can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "69a5f3d91cde": {
+    "name": "2. Gaze of the Emperor",
+    "kind": "psychic",
+    "plain": "Witchfire. When this power is manifested, pick one enemy model that is visible to this Psyker and within 12\" of it. Draw a straight line from any part of that model's base (or hull) to this Psyker's base. Roll a D6 for every unit the line crosses, and one D6 for the target model's unit: each unit whose roll is 1-5 suffers 1 mortal wound, and each whose roll is a 6 suffers D3 mortal wounds."
+  },
+  "7308e14b5468": {
+    "name": "Smoke Launchers",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when one of your ASTRA MILITARUM SMOKE units is picked as the target of an attack. For the rest of the phase, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "766de2e227d1": {
+    "name": "Acceptable Losses",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase. First pick an ASTRA MILITARUM unit of yours that is not within Engagement Range of any enemy units, and then an enemy unit. For the rest of the phase, that ASTRA MILITARUM unit's models can target the chosen enemy unit even while other friendly PLATOON or GRIM DEMEANOUR units are within Engagement Range of it. When a model attacks such a target, though, its hit roll can't be re-rolled, and if the hit roll is an unmodified 1, resolve the attack against a friendly unit of your choice within Engagement Range of the target instead. Any attacks resolved against friendly units are resolved after all attacks against that enemy unit."
+  },
+  "7a15c62b97e1": {
+    "name": "Overcharged Las-cells",
+    "kind": "stratagem",
+    "plain": "When one of your KASRKIN or MILITARUM TEMPESTUS units is picked to shoot in your Shooting phase, you can use this Stratagem. For the rest of the phase, whenever a model in that unit attacks with a hot-shot weapon, each unmodified wound roll of 6 causes the target to suffer 1 mortal wound on top of any normal damage. No unit can inflict more than 6 mortal wounds per phase through this Stratagem."
+  },
+  "7acb7ca81497": {
+    "name": "Vengeance for Cadia",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of these units from your army is chosen to shoot or fight: a CADIAN unit, or a PLATOON unit that is itself within 6\" of a friendly CADIAN OFFICER unit. Until the end of the phase, whenever a model in that unit attacks a CHAOS unit, add 1 to that attack's wound roll."
+  },
+  "7d51e9dd6733": {
+    "name": "Suppressive Fire",
+    "kind": "stratagem",
+    "plain": "Use when your Shooting phase starts. Pick one of your EMPEROR'S WRATH VEHICLE units. Rather than shooting this phase, it lays down suppressive fire instead: pick an enemy INFANTRY unit that is in range of one or more of its weapons. Until your next turn starts, that enemy unit can't fire Overwatch and has its Move characteristic halved."
+  },
+  "815a11207237": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 2 psychic powers from the Psykana discipline."
+  },
+  "8a843ec8abec": {
+    "name": "Relentless",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ASTRA MILITARUM VEHICLE models. Until your next Command phase starts, when working out which characteristics on its profile to use, it counts as having all of its wounds remaining. The cost is 2CP if that model has the TITANIC keyword; otherwise it is 1CP."
+  },
+  "8ffccf3ba6e7": {
+    "name": "3. Psychic Barrier",
+    "kind": "psychic",
+    "plain": "Blessing. When this power is manifested, pick a friendly ASTRA MILITARUM unit that is within 12\" of this PSYKER. That unit's models have an invulnerable save of 5+ until your next Psychic phase starts."
+  },
+  "90b6eece9c09": {
+    "name": "Crush Them",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your BATTLE TANK or SUPER-HEAVY models is picked to fight. For the rest of the phase, whenever that model attacks an enemy unit (other than VEHICLE and MONSTER units):\n• Its Weapon Skill characteristic becomes 4+, or 3+ instead if the model has the ARMOURED keyword.\n• An unmodified wound roll of 6 inflicts 1 mortal wound on the target as well as any normal damage."
+  },
+  "94e8c72032c7": {
+    "name": "Orbital Interference",
+    "kind": "stratagem",
+    "plain": "Once per battle, when the Reinforcements step of your opponent's Movement phase begins, you can use this Stratagem if you have an OFFICER OF THE FLEET model on the battlefield. During the first or second battle round, you can pick one Strategic Reserve or Reinforcement unit belonging to your opponent. That unit can't arrive on the battlefield this phase, whatever the reason, even if another rule says it always arrives during a specific battle round (for example, Drop Pod Assault)."
+  },
+  "97dff6295715": {
+    "name": "Mount Up!",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, once one of your MECHANISED or MILITARUM TEMPESTUS INFANTRY units has shot. If all of that unit's models are within 3\" of a friendly TRANSPORT model, the INFANTRY unit can embark within that TRANSPORT model, but not if this would take it over its transport capacity."
+  },
+  "9d6a8491c2f3": {
+    "name": "Unyielding Advance",
+    "kind": "stratagem",
+    "plain": "Use when your Shooting phase starts, and pick one of your EMPEROR'S FIST units. However far it moved in the preceding Movement phase, it can fire its turret weapon twice, as the Grinding Advance ability describes."
+  },
+  "9d8beeed40fd": {
+    "name": "Maverick Manoeuvres",
+    "kind": "stratagem",
+    "plain": "When you pick one of your SENTINEL units to shoot in your Shooting phase, you can use this Stratagem. After its shooting is resolved, it can make a Normal Move of up to 6\", but it can't shoot again this phase."
+  },
+  "9e91e9b0e96f": {
+    "name": "Cadia Stands!",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your CADIAN INFANTRY units is picked as the target of an attack. For the rest of the phase, any unmodified wound roll of 1-3 made for an attack against that unit fails, whatever abilities the weapon or attacking model may have."
+  },
+  "9f35e6eddb66": {
+    "name": "Emperor’s Conclave Infantry Company",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can use this Stratagem to make one ASTRA MILITARUM Detachment in your army an Emperor's Conclave Specialist Detachment. In it, CRUSADERS, MINISTORUM PRIESTS, CONSCRIPTS, INFANTRY SQUADS, COMMAND SQUADS, PLATOON COMMANDERS and COMPANY COMMANDERS units gain the EMPEROR'S CONCLAVE keyword."
+  },
+  "9ffe3bd7d9bd": {
+    "name": "Ingrained Precision",
+    "kind": "stratagem",
+    "plain": "When one of your BORN SOLDIERS units is picked to shoot in your Shooting phase, you can use this Stratagem. For the rest of the phase, whenever a model in that unit makes a ranged attack, the target is wounded automatically on an unmodified hit roll of 5+. Any attack that automatically wounds because of this counts as having an unmodified wound roll of 6 for any other rules that trigger on a particular wound roll."
+  },
+  "a568997a539a": {
+    "name": "4. Nightshroud",
+    "kind": "psychic",
+    "plain": "Blessing. When this power is manifested, pick a friendly ASTRA MILITARUM unit that is within 12\" of this PSYKER. A TITANIC unit can only be picked if the Psychic test result was an unmodified 11+. Until your next Psychic phase starts, any unmodified hit roll of 1-3 made for an attack against that unit always fails, whatever abilities the weapon or model may have."
+  },
+  "a933f1c3b17d": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 1 psychic power from the Psykana discipline."
+  },
+  "ab926b3f6c64": {
+    "name": "Ablative Plating",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your BATTLE TANK or ARMOURED units is picked as the target of an attack. For the rest of the phase, reduce the Damage characteristic of each attack made against that unit by 1 (but not below 1). The cost is 3CP if the unit has the SUPER-HEAVY or ROGAL DORN BATTLE TANK keyword; otherwise it is 2CP."
+  },
+  "ac11f01e68c6": {
+    "name": "Artillery Strike Requested",
+    "kind": "stratagem",
+    "plain": "Once per battle, in your Command phase, you can use this Stratagem if you have a MASTER OF ORDNANCE or EXPERT BOMBARDIERS OFFICER model on the battlefield. Pick a point on the battlefield and put a marker on it. When your next Command phase starts, roll a D6 for every unit within 6\" of the marker's centre. Add 1 to the roll if the unit is within 3\" of the marker's centre, and subtract 1 if it is a CHARACTER unit. On a 2-5 the unit suffers D3 mortal wounds; on a 6+ it suffers D6 mortal wounds. Then remove the marker."
+  },
+  "aeff5d05e80c": {
+    "name": "Thunderous Charge",
+    "kind": "stratagem",
+    "plain": "When one of your OGRYNS or ATTILAN ROUGH RIDERS units ends a charge move in your Charge phase, you can use this Stratagem. Pick an enemy unit within Engagement Range of it. Roll a D6 for every model in your unit that is within Engagement Range of the chosen enemy unit; that enemy unit suffers 1 mortal wound for each roll that equals or beats its Toughness characteristic."
+  },
+  "ba3d3f52ff72": {
+    "name": "5. Mental Shackles",
+    "kind": "psychic",
+    "plain": "Malediction. When this power is manifested, pick an enemy unit that is within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have their Move characteristic reduced by 2\", and you subtract 2 from any Advance or Charge roll made for that unit."
+  },
+  "c08cc0478d42": {
+    "name": "Emperor’s Wrath Artillery Company",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can use this Stratagem to make one ASTRA MILITARUM Detachment in your army an Emperor's Wrath Specialist Detachment. In it, WYVERNS, HYDRAS, BASILISKS, MASTERS OF ORDNANCE and COMPANY COMMANDERS gain the EMPEROR'S WRATH keyword."
+  },
+  "c392f95c1d57": {
+    "name": "Overlapping Fields of Fire",
+    "kind": "stratagem",
+    "plain": "When an enemy model is destroyed in your Shooting phase by an attack from one of your PLATOON or SQUADRON models, you can use this Stratagem. For the rest of the phase, whenever a friendly PLATOON or SQUADRON model attacks the destroyed model's unit:\n• Re-roll a wound roll of 1 for that attack.\n• An unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1 point."
+  },
+  "c423d059f35e": {
+    "name": "Field Promotion",
+    "kind": "stratagem",
+    "plain": "Once per battle, when an ASTRA MILITARUM WARLORD from your army is destroyed: pick one OFFICER model from your army that has no Warlord Trait, then pick a Warlord Trait that model is eligible for and that no model in your army has. For the rest of the battle, that model has that Warlord Trait and counts as your WARLORD for all rules purposes. Any mission objective, secondary objective, tactical objective or Agenda rules that trigger when your WARLORD is destroyed are not triggered until after the new WARLORD is destroyed."
+  },
+  "c50985825cb1": {
+    "name": "Rapid Redeploy",
+    "kind": "stratagem",
+    "plain": "When your Movement phase ends, you can use this Stratagem: an EMPEROR'S BLADE unit can disembark from the EMPEROR'S BLADE CHIMERA or EMPEROR'S BLADE TAUROX it is embarked within. It can't move any further this phase, but otherwise acts as normal for the rest of the turn. It counts as having moved for any rules purposes, for example when shooting Heavy weapons."
+  },
+  "c5486fee283f": {
+    "name": "Pounding Barrage",
+    "kind": "stratagem",
+    "plain": "Use when your Shooting phase starts. Pick one of your EMPEROR'S WRATH VEHICLE units and one of its ranged weapons. This phase, that unit can fire that weapon twice."
+  },
+  "c6045f8444e7": {
+    "name": "Experienced Eye",
+    "kind": "stratagem",
+    "plain": "When one of your KASRKIN or ELITE SHARPSHOOTERS CORE units is picked to shoot in your Shooting phase, you can use this Stratagem. For the rest of the phase, improve by 1 the Armour Penetration characteristic of each attack made by a model in that unit."
+  },
+  "c7ac3eb43a26": {
+    "name": "Precision Drop",
+    "kind": "stratagem",
+    "plain": "Use when your Movement phase starts. Pick one of your TEMPESTUS DROP FORCE VALKYRIES. For the rest of that phase, if models embarked within that VALKYRIE disembark using the Grav-chute Insertion ability, don't roll a D6 per model to see if any are slain; instead, that ability slays none of that unit's models."
+  },
+  "ca256f89f1b8": {
+    "name": "1. Terrifying Visions",
+    "kind": "psychic",
+    "plain": "Malediction. When this power is manifested, pick an enemy unit that is within 18\" of this Psyker. The following apply to it until your next Command phase ends: its models have their Leadership characteristic reduced by 2; your opponent can't pick it for the Insane Bravery Stratagem; and they can't use any rule that would let them re-roll a Morale test for it.\n\nThen roll 2D6: if the total equals or beats that unit's Leadership (counting the reduction above), any action that unit is performing fails straight away, and that unit can't perform actions until the start of your next Psychic phase."
+  },
+  "d3f185a381ee": {
+    "name": "Flak Barrage",
+    "kind": "stratagem",
+    "plain": "Use when the Reinforcements step of your opponent's Movement phase ends. Pick a HYDRA unit of yours that is not within Engagement Range of any enemy units. It can shoot as though it were your Shooting phase, but its models can only target one eligible enemy AIRCRAFT unit, and only one that was set up as Reinforcements this turn."
+  },
+  "da29c0274449": {
+    "name": "Officer Cadre",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the ASTRA MILITARUM keyword. Pick one ASTRA MILITARUM CHARACTER model from your army (not a named character) and determine one Warlord Trait for it (it must be one that model can have). That model counts as your WARLORD only for the purposes of that Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if you generate them randomly), and this Stratagem can't give one model two Warlord Traits.\n\nYou can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "dcc377d42e73": {
+    "name": "Melta Mine",
+    "kind": "stratagem",
+    "plain": "When one of your MELTA MINE units is picked to fight in the Fight phase, you can use this Stratagem. Pick an enemy VEHICLE or MONSTER unit that is within Engagement Range of it, then roll a D6. On a 2-5, D3+1 mortal wounds are inflicted on that enemy unit; on a 6, 2D3 mortal wounds are inflicted on it."
+  },
+  "e552202a3c64": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "In your Psychic phase, this unit's ASTROPATH model can try to manifest one psychic power, and in your opponent's Psychic phase it can try to deny one. It knows Smite plus one power from the Psykana discipline. Whenever it tries to manifest a power, Deny the Witch or perform a psychic action, measure distances and line of sight from that ASTROPATH model. If an enemy unit has an ability that needs distances measured or line of sight drawn to PSYKER units, measure or draw them to this unit's ASTROPATH model."
+  },
+  "e9da6f98a167": {
+    "name": "Steel Phalanx",
+    "kind": "stratagem",
+    "plain": "Use when your Charge phase starts, and pick an enemy unit. Whenever one of your EMPEROR'S FIST units ends a charge move within 1\" of it, roll a D6; if you get a 4+, D3 mortal wounds are inflicted on that enemy unit."
+  },
+  "f140c0cecd0d": {
+    "name": "6. Psychic Maelstrom",
+    "kind": "psychic",
+    "plain": "Witchfire. When this power is manifested, roll a number of D6 equal to your Psychic test result. Every 5+ inflicts 1 mortal wound on the nearest enemy unit that is visible to this PSYKER and within 18\" of it, up to a maximum of 6 wounds."
+  },
+  "fe8637adaa18": {
+    "name": "Mechanised Fire Support",
+    "kind": "stratagem",
+    "plain": "Use in the enemy Charge phase, once an enemy unit has declared a charge that targets one of your EMPEROR'S BLADE INFANTRY units. Pick one EMPEROR'S BLADE CHIMERA or EMPEROR'S BLADE TAUROX of yours that is within 6\" of the unit being charged. That vehicle may fire Overwatch at the charging unit even when the charge is not aimed at it, and when it does, it hits the enemy on hit rolls of 4+, whatever the modifiers."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "33a13406517d": {
+    "name": "Vehicle Squadron",
+    "kind": "rule",
+    "plain": "When this unit is first set up, every model in it must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit for all rules purposes."
+  },
+  "743ef35db02c": {
+    "name": "Disembarking Officers",
+    "kind": "rule",
+    "plain": "In your Movement phase, when an OFFICER from your army disembarks from a TRANSPORT model, it can issue Orders as though it were your Command phase once its unit is set up. Orders issued this way never benefit from Regimental Tactics, even if every model in your army has the ASTRA MILITARUM keyword. An OFFICER cannot do this if the TRANSPORT it disembarked from was destroyed."
+  },
+  "7e88594eeb43": {
+    "name": "Designer's Note (forgeworld)",
+    "kind": "rule",
+    "plain": "When you add this unit to your army, pick the forgeworld it comes from. Use that name wherever the <FORGEWORLD> keyword appears on this datasheet."
+  }
+}

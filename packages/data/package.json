@@ -11,7 +11,9 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "fetch-bsdata": "tsx scripts/fetch-bsdata.ts",
-    "build-data": "tsx src/build.ts"
+    "build-data": "tsx src/build.ts",
+    "content-todo": "tsx scripts/content-todo.ts",
+    "check-content": "tsx scripts/check-content.ts"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",

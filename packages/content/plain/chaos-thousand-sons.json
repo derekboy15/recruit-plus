@@ -1,0 +1,617 @@
+{
+  "0218b323c782": {
+    "name": "Rehati",
+    "kind": "ability",
+    "plain": "In your Psychic phase, this model can try to manifest one extra psychic power."
+  },
+  "067795f3ab70": {
+    "name": "Seeded Strategy",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your CULT OF SCHEMING CORE units within 24\" of this psyker. For the rest of the turn, it is eligible to shoot and to declare a charge even in a turn in which it Fell Back."
+  },
+  "097a7f2227bb": {
+    "name": "Desecration of Worlds",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 24\" of this PSYKER that it can see. Until your next Psychic phase starts, every time that unit Advances, Falls Back, makes a Normal Move or makes a charge move, you roll one D6 per model in it, and the unit suffers 1 mortal wound for each 6 rolled."
+  },
+  "0b5ce6018866": {
+    "name": "Airborne Predator",
+    "kind": "ability",
+    "plain": "When you declare a charge with this model, only AIRCRAFT units can be its targets. This model can only be targeted by a charge from a unit that can FLY. This model can only fight if it is within Engagement Range of enemy units that can FLY, and its melee attacks can only target units that can FLY. An enemy unit can only make melee attacks against this model if it can FLY."
+  },
+  "0e29b0c11aa6": {
+    "name": "Brayhorn",
+    "kind": "ability",
+    "plain": "The bearer's unit adds 1 to its Advance and charge rolls."
+  },
+  "12af58f5f5ca": {
+    "name": "Warp Reality",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick a terrain feature within 24\" of this PSYKER that it can see, then pick an enemy unit within 3\" of that terrain feature. Until your next Psychic phase starts, halve that unit's Move characteristic, and take 1 off its Advance and charge rolls."
+  },
+  "15a28e1b4d64": {
+    "name": "Metaphysical Focus",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, after an ARCANA ASTARTES PSYKER unit from your army has attempted a psychic action: that unit can try to manifest one psychic power this phase."
+  },
+  "173f082cb861": {
+    "name": "Blessed Transmutations",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one WARPMELD PACT PSYKER model from your army. For every one of your TZAANGOR units within 6\" of that model:\n- if the unit has the BRAY keyword, up to D3+1 of its destroyed models return to it with full wounds;\n- if not, up to 1 destroyed model returns to it with full wounds."
+  },
+  "183deb1fb976": {
+    "name": "Warp Vortex",
+    "kind": "ability",
+    "plain": "In your Shooting phase, this model can use as many Vortex Powers as its characteristics table allows. Each time it does, choose one of the powers below that no friendly model has used this turn and resolve it.\n\nImmaterial Flare: pick an enemy unit within 18\" of this model that it can see and roll one D6 per model in that unit. The unit suffers 1 mortal wound for each 6 rolled.\n\nTurbulent Discharge: find the nearest enemy unit within 18\" of this model that it can see and roll one D6. A 2-4 inflicts D3 mortal wounds on it, and a 5+ inflicts 3 mortal wounds on it.\n\nMaelstrom of Madness: for every enemy unit within 9\" of this model, roll one D6; on a 2+, the unit suffers 1 mortal wound.\n\nBeam of Unreality: pick an enemy unit within 24\" of this model that it can see and that has a Wounds characteristic of 10 or more. Roll one D6; subtract 1 if that unit has the AIRCRAFT keyword, and add 1 if it has the TITANIC keyword. A 3-4 inflicts D3 mortal wounds on the unit, and a 5+ inflicts D6 mortal wounds on it."
+  },
+  "18d4cf0e825d": {
+    "name": "Cabbalistic Rituals",
+    "kind": "ability",
+    "plain": "Your army is a Cabal of Sorcerers if every unit in it, apart from UNALIGNED units, has the THOUSAND SONS keyword. At the start of your Psychic phase, your army gains Cabal points for each model on the battlefield that has this ability.\n\nDuring your Psychic phase you can spend those points on Cabbalistic Rituals; every time you do, lower your Cabal point total by the listed cost. Points you have not spent are lost when your Psychic phase ends.\n\nUnless a ritual says otherwise, you can use each Cabbalistic Ritual once in your Psychic phase, and each of your units can gain the benefit of only one of them. Only a unit that has that ability can benefit from a Cabbalistic Ritual."
+  },
+  "1d39fbfd0a07": {
+    "name": "Temporal Surge",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, choose a unit within 6\" of this PSYKER that is a THOUSAND SONS INFANTRY, THOUSAND SONS CAVALRY or THOUSAND SONS BEASTS unit. It gets to make a Normal Move."
+  },
+  "1e98c3124faa": {
+    "name": "Unwavering Phalanx",
+    "kind": "stratagem",
+    "plain": "This Stratagem costs 1CP if the unit has 5 or fewer models, otherwise 3CP. In your opponent's Shooting phase, when one of your THOUSAND SONS RUBRIC MARINES or THOUSAND SONS SCARAB OCCULT TERMINATORS units is chosen as an attack's target: for the rest of the phase, subtract 1 from the Damage characteristic of each attack made against that unit (to a minimum of 1)."
+  },
+  "1f30743cd324": {
+    "name": "Risen Rubricae",
+    "kind": "stratagem",
+    "plain": "Once per battle, during deployment, when you set up one of your RUBRIC MARINES units: you can place it anywhere on the battlefield as long as it is more than 9\" away from both the enemy deployment zone and all enemy models."
+  },
+  "236af48cf2a1": {
+    "name": "Inferno combi-melta",
+    "kind": "weapon",
+    "plain": "Before choosing targets, pick one or both of the profiles below to attack with. If you pick both, subtract 1 from the hit roll of each attack made with this weapon this phase."
+  },
+  "23efdbf4a6da": {
+    "name": "Mutant Regeneration",
+    "kind": "ability",
+    "plain": "In your Command phase, this model gets back up to D3 lost wounds."
+  },
+  "254a5632ab8f": {
+    "name": "Paradigm of Change",
+    "kind": "ability",
+    "plain": "Increase this model's Wounds and Attacks characteristics by 1 each."
+  },
+  "25733a90948b": {
+    "name": "Daemon Primarch",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this model has to be your WARLORD. If several models in your army have a rule like this, one of them has to be your WARLORD."
+  },
+  "269296be5f0a": {
+    "name": "Arcane Smokescreen",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when one of your THOUSAND SONS SMOKESCREEN units is chosen as an attack's target: for the rest of the phase, every attack made against that unit has 1 subtracted from its hit roll."
+  },
+  "29829dedb316": {
+    "name": "Herd banner",
+    "kind": "ability",
+    "plain": "You can re-roll any Morale test taken for the bearer's unit."
+  },
+  "29e9fe84270d": {
+    "name": "Guided by Fate",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks with anything other than disc blades, an unmodified 6 to hit automatically wounds the target."
+  },
+  "2ee628e87851": {
+    "name": "Slow and Purposeful",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your ARCANA ASTARTES INFANTRY units makes a Normal Move: until your next turn starts, it counts as having Remained Stationary."
+  },
+  "307b417c8e5b": {
+    "name": "Rites of Coalescence",
+    "kind": "ability",
+    "plain": "In your Command phase, one other model in this model's unit gets back all of its lost wounds."
+  },
+  "3a92d4cc0439": {
+    "name": "Wrath of the Wronged",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase when one of your ARCANA ASTARTES INFANTRY units is chosen to shoot, or in the Fight phase when one is chosen to fight: for the rest of the phase, add 1 to the wound roll of each attack made by a model in that unit."
+  },
+  "3aeed7bed3c6": {
+    "name": "Touched by Tzeentch",
+    "kind": "rule",
+    "plain": "- Models in this unit have a 5+ invulnerable save.\n- Whenever a model in this unit would lose a wound because of a mortal wound, roll one D6: on a 5+ the wound isn't lost.\n- When the first battle round starts, before either player takes a turn, this unit's models may each make a Normal Move of up to 6\", but can't end it within 9\" of any enemy models. When both players have units able to do this, whoever takes the first turn moves their models first."
+  },
+  "3c3b61b0516b": {
+    "name": "The Blade of Magnus",
+    "kind": "weapon",
+    "plain": "Each time the bearer has fought, pick one enemy model that lost wounds to attacks made with this weapon but survived. That model's unit suffers D3 mortal wounds."
+  },
+  "3cc089ae3ab3": {
+    "name": "Scarab Occult Sorcerer",
+    "kind": "psychic",
+    "plain": "This model knows Smite and one power from either the Discipline of Change or the Discipline of Vengeance."
+  },
+  "3e5cd41a315f": {
+    "name": "Malicious Volleys",
+    "kind": "ability",
+    "plain": "Models in this unit don't use the normal Rapid Fire rules. Instead, a model shooting a Rapid Fire weapon makes twice as many attacks if any of these is true:\n- its unit is within half the weapon's range;\n- the model is INFANTRY and, in your previous Movement phase, its unit Remained Stationary;\n- the model is a TERMINATOR.\n\nFor this ability, a Rapid Fire bolt weapon means any bolt weapon of the Rapid Fire type."
+  },
+  "40c7028a4abe": {
+    "name": "Disc of Tzeentch",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is 12\". It gains the FLY and CAVALRY keywords and loses the INFANTRY keyword."
+  },
+  "40dc77629182": {
+    "name": "Biomechanical Mutation",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your THOUSAND SONS VEHICLE models would lose a wound to a mortal wound: for the rest of the phase, whenever that model would lose a wound because of a mortal wound, roll one D6; on a 5+ the wound isn't lost."
+  },
+  "44af8fda5cab": {
+    "name": "Malevolent Machine Spirit",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your THOUSAND SONS MACHINE SPIRIT models. Until your next Command phase starts, when working out which characteristics on its profile to use, treat that model as having all of its wounds remaining."
+  },
+  "45729e08033d": {
+    "name": "Warped Regeneration",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, after a THOUSAND SONS unit from your army manifests a psychic power with an unmodified Psychic test of 9 or more: if a model in that unit has lost any wounds, that model is healed and gets back up to D3 lost wounds (a model can only be healed once per turn). If not, and any models from that unit have been destroyed, you can bring one of them back to the battlefield in unit coherency with all of its wounds."
+  },
+  "494110f1f313": {
+    "name": "Time Flux",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your CULT OF TIME INFANTRY units within 6\" of this PSYKER. You can bring one destroyed model from that unit back to the battlefield in unit coherency, with all of its wounds."
+  },
+  "496e2f2208c9": {
+    "name": "Weaver of Fates",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one THOUSAND SONS unit within 18\" of this PSYKER. Until your next Psychic phase starts, its models have a 4+ invulnerable save."
+  },
+  "4c64a6e61bac": {
+    "name": "Reality Unbound",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase or the Fight phase, when one of your WARPMELD PACT TZAANGOR ENLIGHTENED units is chosen to shoot or fight: for the rest of the phase, attacks made by models in that unit with a fatecaster greatbow or divining spear have their Armour Penetration improved by 2."
+  },
+  "564a9fa14cfb": {
+    "name": "Divine the Future",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, roll one D6 and put it aside. Until your next Psychic phase starts, you can use that roll in place of any single dice rolled for a CULT OF PROPHECY unit from your army, as long as the dice is for one of these: a hit, wound, Advance or charge roll; a Psychic test; a Deny the Witch test; or a Morale test."
+  },
+  "576e72bf4421": {
+    "name": "Tzaangor Onslaught",
+    "kind": "stratagem",
+    "plain": "In the Fight phase: pick one of your WARPMELD PACT BRAY units. For the rest of the phase, whenever a model in that unit piles in or consolidates, it can move up to 3\" further."
+  },
+  "57a51dadad1e": {
+    "name": "Inhuman Savagery",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your TZAANGOR units is chosen to fight: for the rest of the phase, you can re-roll the hit roll for melee attacks made by models in that unit."
+  },
+  "58bde68c4cfc": {
+    "name": "Smite (Magnus)",
+    "kind": "psychic",
+    "plain": "If manifested, the closest enemy unit that is visible to the psyker and within 18\" of it takes D6 mortal wounds. If the Psychic test result was more than 11, the target takes 3D3 mortal wounds instead."
+  },
+  "5a559340fa21": {
+    "name": "Loyal Thrall",
+    "kind": "ability",
+    "plain": "This model can attempt a psychic action in place of one attempt to manifest a psychic power, rather than in place of all of them."
+  },
+  "5abf2c7a8c55": {
+    "name": "Mere Servants",
+    "kind": "rule",
+    "plain": "In each THOUSAND SONS Detachment in your army:\n- the number of THOUSAND SONS CULTISTS units can't exceed how many RUBRIC MARINES or SCARAB OCCULT TERMINATORS units it has;\n- the number of BRAY units can't exceed how many RUBRIC MARINES or SCARAB OCCULT TERMINATORS units it has."
+  },
+  "5accfa497ae8": {
+    "name": "Protégé",
+    "kind": "ability",
+    "plain": "This model knows one extra psychic power from any discipline available to it."
+  },
+  "5caa99637b40": {
+    "name": "Soul Reap",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your THOUSAND SONS units is chosen to shoot: for the rest of the phase, soulreaper cannons carried by models in that unit gain this ability: \"When an attack is made with this weapon against a unit of 11 or more models, make 2 hit rolls for it instead of 1.\""
+  },
+  "5ea99e4f1f78": {
+    "name": "Psychic Stalk",
+    "kind": "psychic",
+    "plain": "Witchfire: when manifested, pick an enemy unit within 18\" of this PSYKER that it can see and that is not a VEHICLE, MONSTER or CHARACTER. Roll 2D6. If the total is higher than that unit's unmodified Leadership characteristic, your opponent chooses one model in it and that model is slain."
+  },
+  "6010d3552288": {
+    "name": "Thousand Sons Daemon Prince",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus two powers from the Discipline of Change, the Discipline of Vengeance, or a mix of both."
+  },
+  "6067aae8a6fa": {
+    "name": "Dysmanifestation",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, take 1 off that unit's Leadership and Attacks characteristics."
+  },
+  "60f92bd06131": {
+    "name": "Coruscator",
+    "kind": "ability",
+    "plain": "Only a model with an inferno bolt pistol can take this. It replaces that model's inferno bolt pistol."
+  },
+  "633d1587e71b": {
+    "name": "Presage",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 18\" of this PSYKER. Until your next Psychic phase starts, add 1 to the hit roll for every attack a model in that unit makes."
+  },
+  "665d01afbaef": {
+    "name": "Sorcerous Might",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your THOUSAND SONS SORCERER or THOUSAND SONS EXALTED SORCERER units with a force stave (not a Relic) is chosen to fight: for the rest of the phase, that force stave's Damage characteristic becomes D3+1."
+  },
+  "673cc856ff48": {
+    "name": "Aspiring Sorcerer",
+    "kind": "psychic",
+    "plain": "This model knows Smite and one power from either the Discipline of Change or the Discipline of Vengeance."
+  },
+  "686f87e08f26": {
+    "name": "Aetheric Saturation",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, when a PSYKER CHARACTER of yours that is within 12\" of one of your MUTALITH VORTEX BEAST models is chosen to manifest psychic powers: instead of manifesting one psychic power, that model is healed and gets back up to D3 lost wounds. A model can only be healed once per turn."
+  },
+  "68c58cd98e2c": {
+    "name": "Warp Explosion",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll one D6 before you take it off the battlefield. It explodes on a 4+: every unit within 6\" suffers D3 mortal wounds."
+  },
+  "693b11d90ebc": {
+    "name": "Infernal Master",
+    "kind": "ability",
+    "plain": "This model knows two of the Infernal Pacts. In your Command phase, while it is on the battlefield, it can try to make one pact it knows, as long as no friendly model has already tried that pact this battle round. Roll one D6: on a 3+, the pact succeeds."
+  },
+  "6d08f78466ce": {
+    "name": "Ardent Automata",
+    "kind": "ability",
+    "plain": "While this model's unit is performing an action, it can shoot and the action does not fail."
+  },
+  "6dbd8fc9155e": {
+    "name": "Malefic Scroll",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, when one of your THOUSAND SONS PSYKER units, other than MAGNUS THE RED, manifests Smite: that Smite inflicts 3 mortal wounds instead of D3 or D6, with no dice rolled."
+  },
+  "739fafd0bcfd": {
+    "name": "Infernal Master",
+    "kind": "psychic",
+    "plain": "This model knows Smite and one power from either the Discipline of Change or the Discipline of Vengeance."
+  },
+  "7637f85ed43f": {
+    "name": "Jealous Tyrant",
+    "kind": "ability",
+    "plain": "Each THOUSAND SONS Detachment in your army can include no more than one DAEMON PRINCE unit."
+  },
+  "78f0348e6b21": {
+    "name": "Twisted Mirage",
+    "kind": "stratagem",
+    "plain": "In your opponent's Charge phase, when one of your WARPMELD PACT PSYKER CHARACTER units is chosen as a charge target: if no enemy units are within Engagement Range of it, it can make a Normal Move of up to 6\". For the rest of the phase, it can't fire Overwatch or Set to Defend. Your opponent can then pick new targets for that charge."
+  },
+  "792d7afae7d2": {
+    "name": "Sorcerous Arcana",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the THOUSAND SONS keyword: give one THOUSAND SONS CHARACTER model in your army one Sorcerous Arcana Relic it is allowed to have. Every Relic in your army must be unique, and this Stratagem can't give a model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "7a9634ed75dc": {
+    "name": "Fated Mutation",
+    "kind": "ability",
+    "plain": "Whenever this unit is chosen to fight, you don't roll for its Mutated Beyond Reason ability. Instead, choose which result applies for that fight."
+  },
+  "7d9fdc74a0e1": {
+    "name": "Warpflame Gargoyles",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase: pick one of your ARCANA ASTARTES VEHICLE models, other than HELBRUTEs. For every other unit within Engagement Range of it, roll one D6, subtracting 2 when rolling for a CHARACTER or VEHICLE unit. Each unit that rolls a 4+ suffers D3 mortal wounds."
+  },
+  "7fe5b093f5b3": {
+    "name": "Perplex",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 24\" of this PSYKER. Until your next Psychic phase starts, whenever that unit is chosen to shoot, it can't pick any unit more than 24\" away as a target for ranged attacks."
+  },
+  "8297e88e12f7": {
+    "name": "Temporal Manipulation",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS models within 12\" of this PSYKER, other than VEHICLES. That model is healed and gets back up to D3 lost wounds. A model can only be healed once per turn."
+  },
+  "83f9e9b166ff": {
+    "name": "Skaeloch's Talon",
+    "kind": "ability",
+    "plain": "Only a model that has a force stave can take this Relic, and it takes the place of a force stave."
+  },
+  "845dcc399b69": {
+    "name": "Vengeance for Prospero",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your THOUSAND SONS units is chosen to fight: for the rest of the phase, whenever a model in that unit attacks a SPACE WOLVES unit in melee, you can re-roll both the hit roll and the wound roll."
+  },
+  "8739908dd5a4": {
+    "name": "High Acolytes",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the THOUSAND SONS keyword: pick one ARCANA ASTARTES CHARACTER model in your army (not a named character) and give it one Warlord Trait it is allowed to have. That model only counts as your WARLORD for that Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if rolling randomly), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "8b5ad6b39f79": {
+    "name": "Inescapable Forewarning",
+    "kind": "stratagem",
+    "plain": "Use this at the end of the Reinforcements step in your opponent's Movement phase, if any enemy unit arrived as Reinforcements within 18\" of one of your ARCANA ASTARTES PSYKER units. Pick one of your ARCANA ASTARTES CORE units within 6\" of that ARCANA ASTARTES PSYKER unit that is not within Engagement Range of any enemy units. It can shoot as if it were your Shooting phase. When it does, its models can only target one eligible enemy unit that arrived as Reinforcements this turn within 18\" of both their own unit and that ARCANA ASTARTES PSYKER unit."
+  },
+  "8f878fc30818": {
+    "name": "Unholy Susurrus",
+    "kind": "stratagem",
+    "plain": "At the start of your Psychic phase: pick one THOUSAND SONS PSYKER unit from your army and one psychic power from a discipline it has access to. That power takes the place of one psychic power the unit already knows."
+  },
+  "92d874a670f5": {
+    "name": "Unearthly Power",
+    "kind": "ability",
+    "plain": "You can re-roll Psychic tests taken for this model. Add 1 to every Psychic test and Deny the Witch test taken for this model, or add 2 instead while it has 10 or more wounds remaining."
+  },
+  "930e2c0207f4": {
+    "name": "Implacable Guardians",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Shooting phase: pick one of your ARCANA ASTARTES CHARACTER models, other than MAGNUS THE RED. For the rest of the phase, it can use the Look Out, Sir rule while it is within 3\" of any of your RUBRIC MARINES or SCARAB OCCULT TERMINATORS units, even when this unit has fewer than 3 models."
+  },
+  "94534fb62093": {
+    "name": "Explodes (D6\")",
+    "kind": "ability",
+    "plain": "When this model is destroyed, before removing it from play and before any models embarked inside it disembark, roll one D6. On a 6 it explodes: every unit within D6\" suffers D3 mortal wounds."
+  },
+  "94f6081cd166": {
+    "name": "Fated Mutation",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your THOUSAND SONS CHAOS SPAWN units is chosen to fight: for the rest of the phase, you can choose the result of that unit's Mutated Beyond Reason ability instead of rolling for it, and add 1 whenever you work out how many Attacks a model in that unit makes."
+  },
+  "95a2e7634600": {
+    "name": "Tzaangor Shaman",
+    "kind": "psychic",
+    "plain": "This model knows Smite and one power from the Discipline of Change."
+  },
+  "96365e7f5c35": {
+    "name": "Sorcerous Facade",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your CULT OF DUPLICITY INFANTRY or CULT OF DUPLICITY MONSTER units within 6\" of this PSYKER. Take that unit off the battlefield and set it up again anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "96666d4580d6": {
+    "name": "Thrall",
+    "kind": "ability",
+    "plain": "For every <GREAT CULT> EXALTED SORCERER unit in a Detachment, you can add one <GREAT CULT> SORCERER unit to that Detachment that does not use up a Battlefield Role slot."
+  },
+  "97f6987cfd1e": {
+    "name": "Heldrake claws",
+    "kind": "weapon",
+    "plain": "Attacks from this weapon have Damage 4 when they are allocated to an AIRCRAFT."
+  },
+  "9b2bc2b0bf18": {
+    "name": "Webway Infiltration",
+    "kind": "stratagem",
+    "plain": "Once per battle, during deployment: if you spend 2CP, you can place one of your THOUSAND SONS INFANTRY units in the webway rather than on the battlefield. If you spend 3CP, you can place two of your THOUSAND SONS INFANTRY units there instead. Each of those units can then be set up in the Reinforcements step of one of your Movement phases, anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "9d4b488e56c6": {
+    "name": "Tzeentch's Firestorm",
+    "kind": "psychic",
+    "plain": "Witchfire: when manifested, pick an enemy unit within 18\" of this PSYKER that it can see and roll nine D6. That unit suffers 1 mortal wound for each 6 rolled. If the Psychic test was an unmodified 9+, it instead suffers 1 mortal wound for each 5+."
+  },
+  "9d813b608f45": {
+    "name": "Sorcerer in Terminator Armour",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus two powers from the Dark Hereticus discipline, the Discipline of Change, or a mix of both."
+  },
+  "a6480846e575": {
+    "name": "Coruscating Beam",
+    "kind": "stratagem",
+    "plain": "Once per battle, in your Command phase, if your THOUSAND SONS WARLORD is on the battlefield: pick a point on the battlefield and put a marker there. At the start of your next Command phase, put a second marker within 9\" of the centre of the first, and draw a line between the centres of the two markers. Roll one D6 for each unit the line passes over or through; add 1 if that unit has 11 or more models, and subtract 1 if it is a CHARACTER. Each unit that rolls a 4+ suffers D3 mortal wounds. Then remove the markers."
+  },
+  "a6d20371f488": {
+    "name": "Swelled by the Warp",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS models within 12\" of this PSYKER. Until your next Psychic phase starts, that model's Strength goes up by 2 and its Attacks go up by 1."
+  },
+  "a7a99499dc70": {
+    "name": "Baleful Devolution",
+    "kind": "psychic",
+    "plain": "Witchfire: when manifested, pick an enemy unit of 6 or more models within 18\" of this PSYKER that it can see. Roll as many D6 as the result of the Psychic test. For each 6, that unit suffers D3 mortal wounds."
+  },
+  "ab179d2d4b28": {
+    "name": "Glamour of Tzeentch",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 18\" of this PSYKER. Until your next Psychic phase starts, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "abcc51f33a84": {
+    "name": "Helbrute fist",
+    "kind": "weapon",
+    "plain": "When the bearer fights, if it has 2 Helbrute fists, it makes 1 extra attack with this weapon."
+  },
+  "acd431ce0e0d": {
+    "name": "The Stave Abominus",
+    "kind": "ability",
+    "plain": "Only a model with a force stave can take this. It replaces that model's force stave."
+  },
+  "afe191a09401": {
+    "name": "Ensorcelled Infusion",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your THOUSAND SONS VEHICLE models that is within 6\" of one of your ARCANA ASTARTES PSYKER units is chosen to shoot: for the rest of the phase, improve the Armour Penetration of that model's ranged weapons by 1."
+  },
+  "aff924680577": {
+    "name": "Pyric Flux",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your ARCANA ASTARTES units within 12\" of this PSYKER. Until the end of the turn, warpflamers, warpflame pistols and heavy warpflamers carried by models in that unit (and any relics that replace one of them) have their Strength increased by 1."
+  },
+  "b2b3ebce7394": {
+    "name": "Gaze of Hate",
+    "kind": "psychic",
+    "plain": "Witchfire: if this power is manifested, pick one enemy unit within 18\" of this PSYKER that it can see. Roll three D6; that unit suffers 1 mortal wound for each 4+."
+  },
+  "b5254a2b202d": {
+    "name": "Battle-psyker",
+    "kind": "ability",
+    "plain": "This model's Weapon Skill and Ballistic Skill become 2+, and its Attacks characteristic becomes 5."
+  },
+  "b65c97611000": {
+    "name": "Fatecaster greatbow",
+    "kind": "weapon",
+    "plain": "You can ignore the Look out, Sir! rule when choosing this weapon's target. Every attack made with this weapon, Overwatch included, is always successful on an unmodified hit roll of 2+."
+  },
+  "b8d42cd3b782": {
+    "name": "Psychic Dominion",
+    "kind": "stratagem",
+    "plain": "In your opponent's Psychic phase, when one of your THOUSAND SONS PSYKER units is chosen to try to deny a psychic power: as long as that unit is within 6\" of another of your THOUSAND SONS PSYKER units that could also try to deny that power, roll one extra D6 for that Deny the Witch test."
+  },
+  "b9573d918ab5": {
+    "name": "Lord of the Thousand Sons (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <GREAT CULT> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "ba1cfc3f2a69": {
+    "name": "Schemes of Change",
+    "kind": "stratagem",
+    "plain": "You can only use this Stratagem if every Detachment in your army is a THOUSAND SONS Detachment. Use it when playing a mission in which you pick secondary objectives or Agendas, once both players have revealed what they picked. You can swap one of your secondary objectives or Agendas for a different one; note your new choice on your army roster and tell your opponent. The usual rules for picking secondary objectives and Agendas still apply. If both players have a rule letting them pick new secondary objectives or Agendas, both make their new choices first and then reveal them to each other at the same time."
+  },
+  "bb9e930fa882": {
+    "name": "Dark Blessing",
+    "kind": "psychic",
+    "plain": "Witchfire: if manifested, pick one enemy model within 6\" of this PSYKER that it can see and roll one D6. If the roll beats that model's Toughness characteristic, the model's unit suffers D3+3 mortal wounds."
+  },
+  "c221e2d6971a": {
+    "name": "Exalted Sorcerer",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus two powers from the Discipline of Change, the Discipline of Vengeance, or a mix of both."
+  },
+  "c27fc30133e6": {
+    "name": "Masters of the Immaterium",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, when one of your THOUSAND SONS PSYKER units would suffer Perils of the Warp: it doesn't suffer it."
+  },
+  "c8bb2f865e69": {
+    "name": "Great Sorcerer",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase: pick one of your THOUSAND SONS PSYKER models. That unit can try to manifest one extra psychic power this turn."
+  },
+  "cb9f7163a946": {
+    "name": "Warpmeld Spawn",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army: pick one WARPMELD PACT CHAOS SPAWN unit from your army.\n- Models in that unit add 1 to their Strength characteristic.\n- Models in that unit add 1 to their Toughness characteristic."
+  },
+  "cbf755123961": {
+    "name": "Crown of the Crimson King",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save, and it never suffers Perils of the Warp."
+  },
+  "ceadfda746ed": {
+    "name": "Empyric Guidance",
+    "kind": "psychic",
+    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 12\" of this PSYKER. Until your next Psychic phase starts, Rapid Fire and Heavy weapons carried by models in that unit get 6\" more range."
+  },
+  "d10005dcf06a": {
+    "name": "Teleport Strike",
+    "kind": "ability",
+    "plain": "During deployment, you can put this model in a teleportarium chamber rather than on the battlefield. It can teleport in at the end of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "d25160f3fa14": {
+    "name": "Brotherhood of Sorcerers",
+    "kind": "rule",
+    "plain": "If your army is Battle-forged, every THOUSAND SONS unit in a THOUSAND SONS Detachment gets these abilities:\n- Add 1 to Psychic tests taken for the unit.\n- If the unit is ARCANA ASTARTES or TZAANGOR, each of its models has a 5+ invulnerable save."
+  },
+  "d408efe0cfe2": {
+    "name": "Doombolt",
+    "kind": "psychic",
+    "plain": "Witchfire: when manifested, the nearest enemy unit that is within 18\" of this PSYKER and visible to it suffers 3 mortal wounds."
+  },
+  "d997277747de": {
+    "name": "Empyric Reservoir",
+    "kind": "stratagem",
+    "plain": "At the start of your Psychic phase: pick one model from your army within 6\" of one of your MUTALITH VORTEX BEAST models. If the chosen model generates Cabal points, it generates D3 extra Cabal points."
+  },
+  "dbd2498bb6f6": {
+    "name": "Selfless Automata",
+    "kind": "stratagem",
+    "plain": "In the Heroic Interventions step of your opponent's Charge phase: pick one enemy unit that ended a charge move within Engagement Range of any of your ARCANA ASTARTES CHARACTER units this phase. One of your RUBRIC MARINES or SCARAB OCCULT TERMINATORS units can then perform a Heroic Intervention, if it is within 12\" of that enemy unit and is not within Engagement Range of any enemy units. During it, each model in that unit may move up to 2D6\" rather than 3\", and it doesn't need to end any closer to the nearest enemy model. Instead, at least one model in the unit must end within Engagement Range of the chosen enemy unit, and no model in the unit can end within Engagement Range of any other enemy unit; if that isn't possible, the unit doesn't move."
+  },
+  "dc30492e2db4": {
+    "name": "Incandeum (shooting)",
+    "kind": "weapon",
+    "plain": "Attacks made with this profile always hit the target automatically."
+  },
+  "e32941d9c32f": {
+    "name": "Ephemeral Existence",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your WARPMELD PACT TZAANGOR units is chosen to move: until the end of the turn, whenever that unit makes a Normal Move, Advances, Falls Back or makes a charge move, its models can move horizontally through models and terrain features during that move. They can't end a move on top of another model or its base."
+  },
+  "e36651fd65cb": {
+    "name": "Aura of Dark Glory",
+    "kind": "ability",
+    "plain": "Every model in this unit has a 5+ invulnerable save."
+  },
+  "e46ac6e62bd9": {
+    "name": "Gaze of Magnus",
+    "kind": "ability",
+    "plain": "When this model manifests Smite, it inflicts D6 mortal wounds instead of D3. If the Psychic test result was 11 or more, it inflicts 3D3 mortal wounds instead of D6."
+  },
+  "e68aff8c9fb3": {
+    "name": "Aspiring Magister",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army: pick one THOUSAND SONS Aspiring Sorcerer or THOUSAND SONS Scarab Occult Sorcerer model in your army. Even though it isn't a CHARACTER, that model can take one of these Sorcerous Arcana Relics: Coruscator, Skaeloch's Talon, Incandaeum or The Stave Abominus. Every Relic in your army must be unique and on a different model."
+  },
+  "e6e1e034edf3": {
+    "name": "Gift of Change",
+    "kind": "stratagem",
+    "plain": "Once per battle, in your Psychic phase, when an enemy CHARACTER unit is destroyed: put a new WARPMELD PACT CHAOS SPAWN unit from your army onto the battlefield, within 6\" of the destroyed unit but not within Engagement Range of any enemy units. This new CHAOS SPAWN unit has just 1 model, and in a game using a points limit it costs no Reinforcement points. In a Crusade game, the CHAOS SPAWN unit is not added to your Order of Battle when the battle ends."
+  },
+  "e73c7fdbcc4a": {
+    "name": "Attempted Possession",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 18\" of this PSYKER. It suffers 1 mortal wound. Also, until your next Psychic phase starts, subtract 2 from every Psychic test taken for that unit."
+  },
+  "e8c8fdd427b9": {
+    "name": "Witch-warrior",
+    "kind": "ability",
+    "plain": "Whenever this model manifests Smite, or a Witchfire power whose mortal wounds are decided by a dice roll (for example D3, or one D6 per model in the unit), you can re-roll one of the dice used to work out how many mortal wounds are inflicted."
+  },
+  "ec540fbfd8bf": {
+    "name": "Empyric Trespass",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 24\" of this PSYKER. Until your next Psychic phase starts, when a model in one of your CULT OF KNOWLEDGE units attacks that enemy unit, re-roll a wound roll of 1."
+  },
+  "ed01e47561f2": {
+    "name": "Malignant Pact",
+    "kind": "stratagem",
+    "plain": "In your Command phase, when one of your INFERNAL MASTER models fails to make a pact: pick one of your THOUSAND SONS INFANTRY or THOUSAND SONS CAVALRY units within 6\" of that model. The pact succeeds, but that unit suffers 1 mortal wound."
+  },
+  "eef21b965c13": {
+    "name": "Dilettante",
+    "kind": "ability",
+    "plain": "This model can take one extra Sorcerous Arcana relic, even if it already has a Relic. The relic must be one this model is allowed to have, and every Relic in your army must be different."
+  },
+  "f57990d4e2ae": {
+    "name": "Vector Strike",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, after one of your THOUSAND SONS HELDRAKE models makes a Normal Move: pick one enemy unit it moved across, other than a CHARACTER with a Wounds characteristic of 9 or less. Roll one D6; on a 2+ the enemy unit suffers D3 mortal wounds, or 3 mortal wounds instead if it can FLY."
+  },
+  "f58a066cf431": {
+    "name": "Infernal Fusillade",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your ARCANA ASTARTES INFANTRY units is chosen to shoot: for the rest of the phase, whenever a model in that unit shoots a bolt weapon, it makes one extra attack with it. For example, a model firing an inferno combi-bolter at a target within half range makes 5 attacks."
+  },
+  "f6222ea64573": {
+    "name": "Lord of the Thousand Sons (Aura) - Ahriman",
+    "kind": "ability",
+    "plain": "Aura: while one of your THOUSAND SONS CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "f9758eb1c7e3": {
+    "name": "Astral Blast",
+    "kind": "psychic",
+    "plain": "Witchfire: when manifested, the nearest enemy unit that is within 12\" of this PSYKER and visible to it suffers D3 mortal wounds, and every other unit within 3\" of that enemy unit suffers 1 mortal wound."
+  },
+  "f9c8409e9d44": {
+    "name": "Bestial Prophet (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BRAY or ENLIGHTENED units is within 6\" of this model, add 1 to the hit roll of each attack made by a model in that unit."
+  },
+  "fc3db8ebb389": {
+    "name": "Cacodaemonic Curse",
+    "kind": "psychic",
+    "plain": "Malediction: when manifested, pick an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, ranged weapons carried by models in that unit have 1 taken off their Strength."
+  },
+  "fce34b7b8b9f": {
+    "name": "Lord of the Planet of the Sorcerers",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your THOUSAND SONS CORE or THOUSAND SONS CHARACTER units within 6\" of this model. Until your next Command phase starts, you can re-roll the hit roll for attacks made by models in that unit."
+  },
+  "fe9d403a06f5": {
+    "name": "Ahriman",
+    "kind": "psychic",
+    "plain": "This model knows Smite, plus three powers chosen from the Discipline of Change, the Discipline of Vengeance, or both."
+  }
+}

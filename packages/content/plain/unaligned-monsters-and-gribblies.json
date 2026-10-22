@@ -1,0 +1,42 @@
+{
+  "42dc7626dcfe": {
+    "name": "Atomic dissassembler",
+    "kind": "weapon",
+    "plain": "When resolving an attack with this weapon, the target gets no cover benefit to its saving throw."
+  },
+  "6a58bfb92111": {
+    "name": "Rad-maggot Symbiosis",
+    "kind": "ability",
+    "plain": "At the start of every battle round, this model regains D3 lost wounds."
+  },
+  "6ddbd27d94c1": {
+    "name": "Hard to Hit",
+    "kind": "ability",
+    "plain": "Your opponent subtracts 1 from hit rolls for ranged weapons that target this unit."
+  },
+  "77396f20880d": {
+    "name": "Eradicator glove",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for attacks made with this weapon."
+  },
+  "befab3cbc85a": {
+    "name": "Vicious jaws",
+    "kind": "weapon",
+    "plain": "Each wound roll of 6+ you make for this model resolves that hit at AP -2 instead."
+  },
+  "c4267e03fc12": {
+    "name": "Disruptive Influence",
+    "kind": "ability",
+    "plain": "Enemy and friendly units within 3\" of any model with this ability subtract 1 from their Leadership characteristic."
+  },
+  "f7b9130c012c": {
+    "name": "Rapid Tunnelling",
+    "kind": "ability",
+    "plain": "At the start of your Movement phase, you can take this model off the battlefield. At the end of your next Movement phase, put it back anywhere on the battlefield more than 9\" from all enemy models."
+  },
+  "fea2f08bec22": {
+    "name": "Drone Commander",
+    "kind": "ability",
+    "plain": "While a Spindle Drone unit is within 6\" of any model with this ability, its Threat Level Rising ability doesn't work. Instead, as long as it stays within 6\" of such a model, its drone pulse gets 3 added to its Strength, Armour Penetration and Damage characteristics."
+  }
+}
