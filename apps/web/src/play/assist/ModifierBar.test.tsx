@@ -50,3 +50,18 @@ test('a note is kept with the effect in the log', async () => {
   await userEvent.click(screen.getByRole('button', { name: '+1 to wound' }));
   expect(gameLog(h.record()).at(-1)!.text).toBe('Necron Warriors: My Will Be Done.');
 });
+
+test('rules for a later phase last until they are used by default: Fights first until the Fight phase ends, +1 to charge for the turn', async () => {
+  const h = renderPanel(Bar, deployedGame());
+  await userEvent.click(screen.getByRole('button', { name: 'Fights first' }));
+  await userEvent.click(screen.getByRole('button', { name: '+1 to charge rolls' }));
+  await userEvent.click(screen.getByRole('button', { name: '+1 to hit' }));
+  expect(effects(h).map((e) => [e.note, e.until])).toEqual([
+    ['Fights first', 'fight'],
+    ['+1 to charge rolls', 'turn'],
+    ['+1 to hit', 'phase'],
+  ]);
+  await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Lasts' }), 'round');
+  await userEvent.click(screen.getByRole('button', { name: 'Fights last' }));
+  expect(effects(h).at(-1)).toMatchObject({ until: 'round' });
+});

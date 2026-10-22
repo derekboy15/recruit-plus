@@ -7,7 +7,8 @@ import { other, type Effect, type EffectKind, type EffectUntil, type Problem } f
 import { useState } from 'react';
 import type { PanelProps } from '../panels/types';
 
-type Chip = { label: string; side: Effect['side']; effect: EffectKind };
+/** `until`: how long it lasts unless the player picks otherwise (rules for a later phase must survive until then). */
+type Chip = { label: string; side: Effect['side']; effect: EffectKind; until?: EffectUntil };
 const GROUPS: { title: string; chips: Chip[] }[] = [
   {
     title: 'Re-rolls',
@@ -47,11 +48,11 @@ const GROUPS: { title: string; chips: Chip[] }[] = [
   {
     title: 'Its own rolls and order',
     chips: [
-      { label: '+1 to charge rolls', side: 'self', effect: { kind: 'mod', roll: 'charge', value: 1 } },
+      { label: '+1 to charge rolls', side: 'self', effect: { kind: 'mod', roll: 'charge', value: 1 }, until: 'turn' },
       { label: '+1 to Advance rolls', side: 'self', effect: { kind: 'mod', roll: 'advance', value: 1 } },
       { label: '+1 to Psychic tests', side: 'self', effect: { kind: 'mod', roll: 'psychic', value: 1 } },
-      { label: 'Fights first', side: 'self', effect: { kind: 'fights-first' } },
-      { label: 'Fights last', side: 'self', effect: { kind: 'fights-last' } },
+      { label: 'Fights first', side: 'self', effect: { kind: 'fights-first' }, until: 'fight' },
+      { label: 'Fights last', side: 'self', effect: { kind: 'fights-last' }, until: 'fight' },
     ],
   },
 ];
@@ -69,14 +70,14 @@ const untilText = (u: EffectUntil) => UNTIL.find(([k]) => k === u)?.[1] ?? u;
 export function ModifierBar({ sb, ui, unitId }: PanelProps & { unitId: string }) {
   const s = sb.state;
   const owner = s.units[unitId].player;
-  const [until, setUntil] = useState<EffectUntil>('phase');
+  const [until, setUntil] = useState<EffectUntil | 'usual'>('usual');
   const [note, setNote] = useState('');
   const [mortals, setMortals] = useState(1);
   const run = (problems: Problem[] | null) => {
     ui.setProblems(problems ?? []);
     if (!problems) setNote('');
   };
-  const add = (c: Chip) => run(sb.act({ type: 'addEffect', by: owner, effect: { unitId, side: c.side, effect: c.effect, until, note: note.trim() || c.label } }));
+  const add = (c: Chip) => run(sb.act({ type: 'addEffect', by: owner, effect: { unitId, side: c.side, effect: c.effect, until: until === 'usual' ? (c.until ?? 'phase') : until, note: note.trim() || c.label } }));
   const active = s.effects.filter((e) => e.unitId === unitId);
 
   return (
@@ -97,7 +98,8 @@ export function ModifierBar({ sb, ui, unitId }: PanelProps & { unitId: string })
         <div className="play-row">
           <label className="play-field">
             <span>Lasts</span>
-            <select aria-label="Lasts" value={until} onChange={(e) => setUntil(e.target.value as EffectUntil)}>
+            <select aria-label="Lasts" value={until} onChange={(e) => setUntil(e.target.value as EffectUntil | 'usual')}>
+              <option value="usual">Usual for the rule (this phase; fight rules to the Fight phase)</option>
               {UNTIL.map(([k, label]) => (
                 <option key={k} value={k}>
                   {label}
