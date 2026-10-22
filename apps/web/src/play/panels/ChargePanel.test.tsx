@@ -44,3 +44,14 @@ test('a failed charge roll offers The charge fails', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'The charge fails' }));
   expect(h.record().batches.at(-1)!.events.map((e) => e.type)).toContain('chargeFailed');
 });
+
+test('a charging model can be turned', async () => {
+  const h = await declare([6, 5]);
+  await screen.findByRole('heading', { name: /charges: 11"/ });
+  h.drag('A:war.m1', { x: 14, y: 8.4 });
+  await userEvent.click(screen.getByRole('button', { name: 'Turn left 15°' }));
+  const confirm = screen.getByRole('button', { name: 'Confirm charge move' });
+  await waitFor(() => expect(confirm).toBeEnabled());
+  await userEvent.click(confirm);
+  expect(stateOf(h.record()).models['A:war.m1'].pos!.rot).toBeCloseTo(Math.PI / 12);
+});

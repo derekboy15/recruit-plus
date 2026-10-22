@@ -6,6 +6,7 @@ import { toPositions } from '../game/plan';
 import { armyName } from '../game/names';
 import { unplacedOrigin } from './boardHelpers';
 import { Problems } from './Problems';
+import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { useDryRun } from './useDryRun';
 
@@ -63,6 +64,7 @@ export function PlacementPanel(props: PanelProps) {
       {current && (
         <>
           {!ready && <p className="muted">Tap where {s.units[current.unitId].name} gets out.</p>}
+          {ready && <TurnButtons ui={ui} />}
           {dry && <Problems problems={unitProblems} />}
           <button type="button" className="btn" disabled={!dry || unitProblems.length > 0} onClick={keep}>
             Keep {s.units[current.unitId].name} here

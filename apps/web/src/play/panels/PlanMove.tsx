@@ -5,6 +5,7 @@ import type { Ring } from '../board/scene';
 import { toMoves } from '../game/plan';
 import { engagementRings, originOf, rangeRings } from './boardHelpers';
 import { Problems } from './Problems';
+import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { useDryRun } from './useDryRun';
 
@@ -50,6 +51,7 @@ export function PlanMove(props: PlanMoveProps) {
         <input type="checkbox" checked={plan?.together ?? true} onChange={(e) => ui.planDispatch({ type: 'together', value: e.target.checked })} />
         <span>Move as a unit</span>
       </label>
+      <TurnButtons ui={ui} />
       {dry && <Problems problems={dry} />}
       <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={confirm}>
         {confirmLabel}

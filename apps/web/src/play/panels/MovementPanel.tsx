@@ -5,11 +5,10 @@ import { formation } from '../board/formation';
 import { toMoves, toPositions } from '../game/plan';
 import { engagementRings, originOf, rangeRings, unplacedOrigin } from './boardHelpers';
 import { Problems } from './Problems';
+import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
-
-const TURN = Math.PI / 12;
 
 export function MovementPanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -77,16 +76,7 @@ export function MovementPanel(props: PanelProps) {
               <input type="checkbox" checked={plan?.together ?? true} onChange={(e) => ui.planDispatch({ type: 'together', value: e.target.checked })} />
               <span>Move as a unit</span>
             </label>
-            {target && (
-              <div className="play-row" role="group" aria-label="Turn a model">
-                <button type="button" className="btn" onClick={() => ui.planDispatch({ type: 'rotate', modelId: target, radians: TURN })}>
-                  Turn left 15°
-                </button>
-                <button type="button" className="btn" onClick={() => ui.planDispatch({ type: 'rotate', modelId: target, radians: -TURN })}>
-                  Turn right 15°
-                </button>
-              </div>
-            )}
+            <TurnButtons ui={ui} modelId={target} />
             {transports.length > 0 && (
               <label className="play-field">
                 <span>Embark in</span>
@@ -124,6 +114,7 @@ export function MovementPanel(props: PanelProps) {
       <section>
         <h2>{name} gets out</h2>
         <p className="muted">Tap where to set it up: wholly within 3" of its transport, then drag to adjust.</p>
+        <TurnButtons ui={ui} />
         {dry && <Problems problems={dry} />}
         <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => outCmd && run(sb.act(outCmd)) && finish()}>
           Set up {name}

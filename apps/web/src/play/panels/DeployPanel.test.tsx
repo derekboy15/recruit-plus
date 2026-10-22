@@ -47,3 +47,14 @@ test('a refused reserve shows why', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Strategic Reserves' }));
   expect(h.problems()[0].message).toMatch(/No more than half your units/);
 });
+
+test('a model can be turned before deploying', async () => {
+  const h = renderPanel(DeployPanel, fresh());
+  await userEvent.click(screen.getByRole('button', { name: /Intercessor Squad/ }));
+  h.tap({ x: 22, y: 25 });
+  await userEvent.click(screen.getByRole('button', { name: 'Turn right 15°' }));
+  const deploy = screen.getByRole('button', { name: 'Deploy Intercessor Squad' });
+  await waitFor(() => expect(deploy).toBeEnabled());
+  await userEvent.click(deploy);
+  expect(stateOf(h.record()).models['B:int.m1'].pos!.rot).toBeCloseTo(-Math.PI / 12);
+});

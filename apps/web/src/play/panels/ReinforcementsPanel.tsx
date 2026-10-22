@@ -5,6 +5,7 @@ import { formation } from '../board/formation';
 import { toPositions } from '../game/plan';
 import { unplacedOrigin } from './boardHelpers';
 import { Problems } from './Problems';
+import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
@@ -48,6 +49,7 @@ export function ReinforcementsPanel(props: PanelProps) {
       {unitId && (
         <>
           {!plan || !Object.keys(plan.positions).length ? <p className="muted">Tap where {s.units[unitId].name} should arrive, then drag to adjust.</p> : null}
+          {cmd && <TurnButtons ui={ui} />}
           {dry && <Problems problems={dry} />}
           <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && run(sb.act(cmd))}>
             Set up {s.units[unitId].name}

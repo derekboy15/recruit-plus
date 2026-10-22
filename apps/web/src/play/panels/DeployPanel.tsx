@@ -5,6 +5,7 @@ import { formation } from '../board/formation';
 import { toPositions } from '../game/plan';
 import { armyName } from '../game/names';
 import { Problems } from './Problems';
+import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
@@ -77,6 +78,7 @@ export function DeployPanel(props: PanelProps) {
               ))}
             </fieldset>
           )}
+          {placed && <TurnButtons ui={ui} />}
           {dry && <Problems problems={dry} />}
           <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && done(sb.act(cmd))}>
             Deploy {name}

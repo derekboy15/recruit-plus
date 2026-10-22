@@ -7,6 +7,7 @@ import { charsOf, livingModels, profileOf, sheetOf, type ActivationKind, type Co
 import { useEffect, useRef, useState } from 'react';
 import { armyName } from '../game/names';
 import type { PanelProps } from '../panels/types';
+import { TurnButtons } from '../panels/TurnButtons';
 import { UnitPicker } from '../panels/UnitPicker';
 
 type Tool = 'move' | 'remove' | 'return' | 'add' | 'wounds' | 'die' | 'extra' | 'cp' | 'vp' | 'objectives' | 'order' | 'flags';
@@ -102,6 +103,7 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
       body = model ? (
         <>
           <p>Drag {modelName(model.id)} of {s.units[model.unitId].name} where it should go.</p>
+          <TurnButtons ui={ui} modelId={model.id} />
           <button type="button" className="btn btn--primary" onClick={() => ui.plan?.positions[model.id] && run({ type: 'placeModel', by: owner(model.unitId), modelId: model.id, pos: ui.plan.positions[model.id] })}>
             Put it here
           </button>
