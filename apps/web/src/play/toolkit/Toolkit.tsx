@@ -4,7 +4,7 @@
  * It replaces the phase panel while open, so the board stays free for picking models and places.
  */
 import { charsOf, livingModels, profileOf, sheetOf, type ActivationKind, type Command, type PlayerId, type Pos, type Problem } from '@recruit/engine';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { armyName } from '../game/names';
 import type { PanelProps } from '../panels/types';
 import { UnitPicker } from '../panels/UnitPicker';
@@ -47,7 +47,8 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
   const reset = () => {
     setModelId(null);
     setSpot(null);
-    ui.planDispatch({ type: 'clear' });
+    if (ownPlan.current) ui.planDispatch({ type: 'clear' });
+    ownPlan.current = false;
     ui.setInvalid([]);
   };
   const run = (cmd: Command) => {
@@ -65,7 +66,10 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
         if (!id) return;
         setModelId(id);
         const m = s.models[id];
-        if (tool === 'move') ui.planDispatch({ type: 'start', unitId: m.unitId, origin: { [id]: m.pos }, together: false });
+        if (tool === 'move') {
+          ownPlan.current = true;
+          ui.planDispatch({ type: 'start', unitId: m.unitId, origin: { [id]: m.pos }, together: false });
+        }
         if (tool === 'wounds') setWounds(m.woundsLeft);
         return;
       }
@@ -75,7 +79,9 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
     return () => ui.setTapHandler(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tool, s]);
-  useEffect(() => () => ui.planDispatch({ type: 'clear' }), []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Clears only a plan the toolkit started itself (a model moved by hand), never a move in progress.
+  const ownPlan = useRef(false);
+  useEffect(() => () => void (ownPlan.current && ui.planDispatch({ type: 'clear' })), []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (unitId && s.units[unitId]) setOrder(s.units[unitId].casualtyOrder.filter((id) => !s.models[id].destroyed));
     const ds = unitId && s.units[unitId] ? sheetOf(s, unitId) : null;

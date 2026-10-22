@@ -39,8 +39,9 @@ export function MovementPanel(props: PanelProps) {
     if (!moving || !a) return;
     if (ui.plan?.unitId !== moving) ui.planDispatch({ type: 'start', unitId: moving, origin: originOf(s, moving) });
     ui.setTapHandler((_at, id) => id && s.models[id]?.unitId === moving && setFocus(id));
+    // Restarted whenever the plan goes missing (e.g. a toolkit opened and closed mid-move), not only for a new move.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moving]);
+  }, [moving, ui.plan?.unitId]);
   const plan = ui.plan;
   const bonus = a?.bonus ?? 0;
   useEffect(() => {

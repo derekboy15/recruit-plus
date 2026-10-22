@@ -153,3 +153,15 @@ test('a game saved in the middle of a move reopens ready to confirm it', async (
   expect(await screen.findByRole('heading', { name: 'Necron Warriors: Normal Move' })).toBeInTheDocument();
   await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
 });
+
+test('opening and closing the toolkit in the middle of a move keeps the move ready', async () => {
+  let g = endPhases(deployedGame({ rollWindows: false }), 1);
+  g = must(g, { type: 'beginMove', by: 'A', unitId: 'A:war', kind: 'normal' } as Command);
+  await seed(g);
+  page();
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
+  await userEvent.click(screen.getByRole('button', { name: 'Menu' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Toolkit' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
+});
