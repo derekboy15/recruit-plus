@@ -38,6 +38,7 @@ export interface BoardScene {
   objectives: { id: string; pos: Pt; r: number; owner: PlayerId | null }[];
   models: SceneModel[];
   ghosts: { id: string; poly: Pt[] }[];
+  /** One per moved model; `text` is '' when another ruler already shows the same distance. */
   rulers: { from: Pt; to: Pt; text: string }[];
   rings: Ring[];
   links: { a: Pt; b: Pt; ok: boolean }[];
@@ -79,6 +80,13 @@ export function buildScene(s: GameState, ui: BoardUi): BoardScene {
       ghosts.push({ id: m.id, poly: polygonOf(base, from) });
       if (!sameSpot(from, planned)) rulers.push({ from: { x: from.x, y: from.y }, to: { x: planned.x, y: planned.y }, text: `${dist(from, planned).toFixed(1)}"` });
     }
+  }
+
+  // Models that moved the same distance (a unit moving together) share one label; the others' rulers stay unlabelled.
+  const labelled = new Set<string>();
+  for (const r of rulers) {
+    if (labelled.has(r.text)) r.text = '';
+    else labelled.add(r.text);
   }
 
   // Coherency links for the planned unit: each model to its nearest unit-mate, red when they're more than 2" apart.

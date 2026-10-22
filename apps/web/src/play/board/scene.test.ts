@@ -31,6 +31,18 @@ describe('buildScene', () => {
     expect(scene.links.every((l) => l.ok)).toBe(true);
   });
 
+  test('a unit moving together gets one ruler label, not one per model', () => {
+    const s = stateOf(deployedGame());
+    const origin = Object.fromEntries(s.units['A:war'].modelIds.map((id) => [id, s.models[id].pos]));
+    let plan = planReducer(null, { type: 'start', unitId: 'A:war', origin });
+    plan = planReducer(plan, { type: 'drag', modelId: 'A:war.m1', to: { x: 14, y: 8 } });
+    const rulers = buildScene(s, ui({ plan })).rulers;
+    expect(rulers).toHaveLength(10);
+    expect(rulers.filter((r) => r.text)).toEqual([expect.objectContaining({ text: '4.0"' })]);
+    plan = planReducer(planReducer(plan, { type: 'together', value: false }), { type: 'drag', modelId: 'A:war.m2', to: { x: 15.5, y: 6 } });
+    expect(buildScene(s, ui({ plan })).rulers.filter((r) => r.text).map((r) => r.text)).toEqual(['4.0"', '2.0"']);
+  });
+
   test('a model too far from its unit gets a red link', () => {
     const s = stateOf(deployedGame());
     const origin = Object.fromEntries(s.units['A:war'].modelIds.map((id) => [id, s.models[id].pos]));
