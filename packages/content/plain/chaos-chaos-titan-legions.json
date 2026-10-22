@@ -1,0 +1,57 @@
+{
+  "05baaf678b75": {
+    "name": "Warhound plasma blastgun",
+    "kind": "weapon",
+    "plain": "Before you pick targets, choose which one of the profiles below this weapon will attack with."
+  },
+  "11c1261b724f": {
+    "name": "Anvillus defence battery",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon can only be aimed at units that can FLY."
+  },
+  "24964a27805a": {
+    "name": "Reactor Meltdown",
+    "kind": "ability",
+    "plain": "Before you remove this model after it is destroyed, roll one D6. On a 6+, it explodes, and each unit within 3D6\" of it suffers 2D6 mortal wounds."
+  },
+  "2cc18cbd9639": {
+    "name": "Void Shields",
+    "kind": "ability",
+    "plain": "This model has 6 void shields, each with 3 shield points. As long as it still has at least one void shield, it gets a 5+ invulnerable save against ranged attacks.\n\nWhen a saving throw for this model against a ranged attack fails and it still has a void shield, it takes no damage. Instead, each point of damage removes 1 shield point from one of its void shields. Once a void shield has started losing shield points, all further damage must keep going to that shield until it collapses. When an attack brings a void shield down to 0 shield points, the shield collapses: this model loses it, and any damage left over from that attack is lost. Void shields never stop mortal wounds: each mortal wound inflicted on this model makes it lose 1 wound in the normal way.\n\nAt the start of your Command phase, any void shield on this model with fewer than 3 shield points left goes back up to 3 shield points."
+  },
+  "3e6b56529a00": {
+    "name": "Battle Titan",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. When it makes a Normal Move, Advances or Falls Back, it can move through other models as if they weren't there, except MONSTER and VEHICLE models. While doing this it can pass within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
+  },
+  "6b246ed0623d": {
+    "name": "Void Shields",
+    "kind": "ability",
+    "plain": "This model has 4 void shields, each with 3 shield points. As long as it still has at least one void shield, it gets a 5+ invulnerable save against ranged attacks.\n\nWhen a saving throw for this model against a ranged attack fails and it still has a void shield, it takes no damage. Instead, each point of damage removes 1 shield point from one of its void shields. Once a void shield has started losing shield points, all further damage must keep going to that shield until it collapses. When an attack brings a void shield down to 0 shield points, the shield collapses: this model loses it, and any damage left over from that attack is lost. Void shields never stop mortal wounds: each mortal wound inflicted on this model makes it lose 1 wound in the normal way.\n\nAt the start of your Command phase, any void shield on this model with fewer than 3 shield points left goes back up to 3 shield points."
+  },
+  "75ed33929231": {
+    "name": "Reaver melta cannon",
+    "kind": "weapon",
+    "plain": "Blast. Each time an attack is made with this weapon against a target unit within half range, the attack's Damage characteristic is 12."
+  },
+  "7bf10e306400": {
+    "name": "Reaver power fist",
+    "kind": "weapon",
+    "plain": "Each time an attack made with this weapon destroys a VEHICLE or MONSTER model, you can choose an enemy unit within 9\": roll one D6, and on a 4+ the chosen unit suffers D6 mortal wounds."
+  },
+  "a5ec6a644da1": {
+    "name": "Reaver feet",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, roll 2 hit rolls for it rather than 1."
+  },
+  "c213b7c58f56": {
+    "name": "Flank Speed",
+    "kind": "ability",
+    "plain": "Each time this model Advances, don't make an Advance roll. Instead, add 12\" to its Move characteristic until the end of the Movement phase."
+  },
+  "ee8b50c7437f": {
+    "name": "Ardex-defensor maulers",
+    "kind": "weapon",
+    "plain": "When this weapon profile is used to fire Overwatch, each of its attacks hits on a roll of 5 or 6."
+  }
+}

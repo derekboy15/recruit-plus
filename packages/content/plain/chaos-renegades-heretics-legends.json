@@ -1,0 +1,975 @@
+{
+  "011132a651b9": {
+    "name": "Xenos - Psychic Veil",
+    "kind": "psychic",
+    "plain": "Blessing (Aura): once manifested, this lasts until your next Psychic phase starts. While it lasts, enemies can target friendly ORDO XENOS units within 6\" of this psyker with attacks only if such a unit is the closest visible enemy unit, and can choose such a unit as a charge target only if the charging unit is within 6\" of it."
+  },
+  "0322d178fa13": {
+    "name": "Arbites Medi-kit",
+    "kind": "ability",
+    "plain": "Once per turn, when a model in the bearer's unit fails a saving throw for the first time that turn, change that attack's Damage characteristic to 0 for that attack."
+  },
+  "03326891d413": {
+    "name": "Steel Commissar",
+    "kind": "ability",
+    "plain": "Officer model only. As well as Mechanised Orders, this model knows Prefectus Orders. In your Command phase, it can issue one Mechanised Order and one Prefectus Order. When it issues a Prefectus Order, it can pick an Infantry Officer or Abhuman unit for that Order, but if it does, the Regimental Tactics ability does not apply (every other rule for issuing Orders still applies)."
+  },
+  "08c34f87afc3": {
+    "name": "Armoured Cockpit",
+    "kind": "ability",
+    "plain": "Models in this unit add 1 to armour saving throws against ranged attacks that have a Damage characteristic of 1 and are allocated to them."
+  },
+  "0a35b6902643": {
+    "name": "Banner of the Apostate (Aura)",
+    "kind": "ability",
+    "plain": "Aura: friendly RENEGADES AND HERETICS units within 6\" of this model can perform Heroic Interventions as though they were CHARACTERS."
+  },
+  "0a7d670101ab": {
+    "name": "Grim Demeanour",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Grim Demeanour keyword.\n\nWhenever a unit with this doctrine takes a Combat Attrition test, you can ignore some or all of the modifiers."
+  },
+  "0bb6ee11aab6": {
+    "name": "Executioner Pistol",
+    "kind": "weapon",
+    "plain": "When this weapon targets INFANTRY units, you can re-roll its wound rolls."
+  },
+  "0df9ccb66af6": {
+    "name": "Radical Bond (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while the DAEMONHOST model set up by this model's Malus Codicium ability is within 6\" of this model, add 1 to the hit roll and the wound roll for each attack that DAEMONHOST model makes, and add 1 to its invulnerable save against each attack made against it."
+  },
+  "0f766b02b97a": {
+    "name": "Inconceivable Customisation",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, you can roll one D6 for one friendly <ORDO> unit within 3\" of this model. Until the end of the turn, that unit gets the matching result below. More than one source of this ability (such as several JOKAERO WEAPONSMITHS) can affect a unit in the same Shooting phase, but getting the same result twice does nothing extra.\n1-2 Augmented Targeting: when a model in this unit makes an attack, you can re-roll its hit roll.\n3-4 Augmented Penetration: when a model in this unit makes an attack, you can re-roll its wound roll.\n5-6 Total Augmentation: when a model in this unit makes an attack, you can re-roll its hit roll and its wound roll."
+  },
+  "0fb3d0ab8e55": {
+    "name": "Artillery and Crew (Medusa Carriage)",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Medusa Carriage and its crew count as one single model, and the crew models must stay within 1\" of their Medusa Carriage model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Medusa Carriage model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "102f855feb20": {
+    "name": "Polymorphine",
+    "kind": "ability",
+    "plain": "During deployment, you can set this model up in disguise rather than on the battlefield. When any of your Movement phases ends, it can return to its true form: place it anywhere on the battlefield that's more than D6+3\" from every enemy model. For example, on a roll of 4 it must be placed more than 7\" from every enemy model."
+  },
+  "16e999364276": {
+    "name": "The Black Iconoclasts (Aura)",
+    "kind": "ability",
+    "plain": "Aura: each time a model in a friendly ORDO MALLEUS ACOLYTES unit within 6\" of this model makes an attack, add 1 to that hit roll."
+  },
+  "17ab49667f81": {
+    "name": "Captain on Deck",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one friendly Navis Imperialis Core unit that is within 9\" of the Cartographica Rogue Trader model in this unit. Until the start of your next Command phase, add 1 to the hit roll each time a model in that unit makes an attack."
+  },
+  "17ab5ee29e46": {
+    "name": "Smoke Grenades",
+    "kind": "ability",
+    "plain": "The bearer has the Smokescreen keyword."
+  },
+  "17abf7a8a9ab": {
+    "name": "Mortar",
+    "kind": "weapon",
+    "plain": "You can shoot this weapon at units the firer can't see."
+  },
+  "18861865eb08": {
+    "name": "Soulguilt Scanner",
+    "kind": "ability",
+    "plain": "Each time the bearer's unit is picked to shoot, choose one enemy unit the bearer can see. Until the end of the phase, that enemy unit gets no benefit from cover against ranged attacks made by models in the bearer's unit."
+  },
+  "1d87e2768304": {
+    "name": "Animus Speculum",
+    "kind": "weapon",
+    "plain": "While any enemy PSYKER units are within 18\" of the bearer, this weapon's Type becomes Assault D6."
+  },
+  "1ea61e6facdd": {
+    "name": "Mobile Command Vehicle",
+    "kind": "ability",
+    "plain": "In your Command phase, an OFFICER model that is embarked inside this TRANSPORT model can issue one Order it knows (only one such OFFICER can do this). When it does, all distances are measured to and from this TRANSPORT model."
+  },
+  "20f252f125dc": {
+    "name": "Hard to Hit",
+    "kind": "ability",
+    "plain": "Ranged attacks made against this model subtract 1 from their hit rolls."
+  },
+  "2280b5d93e64": {
+    "name": "True Believers",
+    "kind": "ability",
+    "plain": "Combat Attrition tests taken for this unit are passed automatically."
+  },
+  "228dfbf96cee": {
+    "name": "Industrial Efficiency",
+    "kind": "ability",
+    "plain": "If a model with this doctrine is allocated an attack whose Armour Penetration characteristic is -1, that attack's Armour Penetration becomes 0 instead."
+  },
+  "2456ee861dad": {
+    "name": "Killing Rampage",
+    "kind": "ability",
+    "plain": "Each time an attack made with a melee weapon by this model destroys a model in an enemy unit, this model can immediately make 1 extra attack against that same unit with one of its melee weapons. Those extra attacks can't generate any more attacks. This model can also consolidate up to 6\" rather than up to 3\"."
+  },
+  "25bbf97672b3": {
+    "name": "Banner of Hate (Aura)",
+    "kind": "ability",
+    "plain": "Aura: you can re-roll charge moves for any friendly RENEGADES AND HERETICS unit that is within 6\" of this model."
+  },
+  "26e167875531": {
+    "name": "Brutal Strength",
+    "kind": "ability",
+    "plain": "Infantry models with this doctrine ignore the hit roll penalty for shooting Heavy weapons in a turn in which their unit moved.\n\nWhen an Infantry unit with this doctrine fights in a turn in which it performed a Heroic Intervention, was charged or made a charge move, its models add 1 to their Strength characteristic until that fight is resolved."
+  },
+  "281707a4e374": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "This model can't declare a charge, and only units that can Fly can choose it as a target of a charge. It can only fight while within Engagement Range of one or more enemy units that can Fly, and its melee attacks can only target units that can Fly. Enemy units that can't Fly can't make melee attacks against it."
+  },
+  "283cfbefa4e5": {
+    "name": "Mechanical Pack Rat",
+    "kind": "ability",
+    "plain": "Whenever this model is attacked, an unmodified wound roll of 1-3 for that attack fails, no matter what abilities the attacking weapon or model has."
+  },
+  "2c92482cdcda": {
+    "name": "Melta bombs",
+    "kind": "weapon",
+    "plain": "When attacking VEHICLE units with this weapon, you can re-roll failed wound rolls."
+  },
+  "2c9aac515b4e": {
+    "name": "Artillery and Crew (Heavy Quad Launcher)",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Heavy Quad Launcher and its crew count as one single model, and the crew models must stay within 1\" of their Heavy Quad Launcher model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Heavy Quad Launcher model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "2eee62109305": {
+    "name": "Blitz Division",
+    "kind": "ability",
+    "plain": "Units with this doctrine placed into Strategic Reserves have their combined Power Ratings halved when working out how many Command points you spend to do so.\n\nDuring the second battle round, whenever a Vehicle unit with this doctrine (other than Sentinels units) is set up from Strategic Reserves, treat it as the third battle round when working out where it can be set up."
+  },
+  "2f7712364294": {
+    "name": "Artillery and Crew (Heavy Mortar)",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Heavy Mortar and its crew count as one single model, and the crew models must stay within 1\" of their Heavy Mortar model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Heavy Mortar model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "2f79995f1aa0": {
+    "name": "Frenzon",
+    "kind": "ability",
+    "plain": "Roll 3D6 instead of 2D6 for this model's charge rolls. Also, if this model charged or performed a Heroic Intervention this turn, add 2 to its Attacks characteristic."
+  },
+  "3046891eb0e4": {
+    "name": "Incinerator",
+    "kind": "weapon",
+    "plain": "Every attack with this weapon hits its target automatically."
+  },
+  "30c05024cb78": {
+    "name": "Shipborne Personnel",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit may not fill a compulsory slot in any Detachment other than a Navis Imperialis Detachment (for instance, it can't be the only Troops unit in a Patrol Detachment)."
+  },
+  "31686c6260ab": {
+    "name": "Turret Weapon",
+    "kind": "ability",
+    "plain": "This model can still use weapons with this ability while it is within Engagement Range of any enemy units, shooting at enemy units that aren't within Engagement Range of it. When it does, you still have to subtract 1 from the hit rolls because enemy models are within Engagement Range.\n\nAdd 1 to the hit roll of each attack this model makes with this weapon."
+  },
+  "31bb3f18eb27": {
+    "name": "Paralysis Grenades",
+    "kind": "ability",
+    "plain": "When the Fight phase begins, if this model has made a charge move this turn, you may choose one enemy unit within its Engagement Range. For the rest of that phase, that enemy unit can't be picked to fight until all other eligible units have fought."
+  },
+  "3233beaeda8a": {
+    "name": "Sniper rifle",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking a target for this weapon. Each wound roll of 6+ made for this weapon causes a mortal wound on top of its normal damage."
+  },
+  "3345149c2bed": {
+    "name": "Shang",
+    "kind": "ability",
+    "plain": "When this model manifests Smite, instead of the closest enemy unit you can choose any one enemy unit within 18\" of this model that it can see to be affected."
+  },
+  "340fda41a731": {
+    "name": "Agent",
+    "kind": "ability",
+    "plain": "If this unit has 1 Acolyte in it when the battle starts, it gains the CHARACTER keyword."
+  },
+  "34b8f4706a00": {
+    "name": "Authority of the Inquisition",
+    "kind": "ability",
+    "plain": "Infantry units with this ability can embark in any Imperium Transport model, even one that normally only lets models with other Faction keywords embark. Every other restriction still applies (for example, Terminator models can only embark in Transports that allow Terminator models). If your army is Battle-forged, each Inquisition Detachment (a Detachment made up only of Inquisition units) can include at most one Inquisitor unit."
+  },
+  "357153a88545": {
+    "name": "Mental Interrogation",
+    "kind": "psychic",
+    "plain": "Malediction: if manifested, pick one enemy Character model within 12\" of this Psyker that it can see. Until the start of your next Psychic phase, subtract 1 from the hit roll each time that enemy model makes an attack. Also, if your army is Battle-forged, roll 3D6: if the total equals or beats that enemy model's Leadership characteristic, you gain 1 Command point."
+  },
+  "362b92177452": {
+    "name": "Refractor Field",
+    "kind": "ability",
+    "plain": "This model gets a 5+ invulnerable save."
+  },
+  "38924c52db53": {
+    "name": "Hydra Quad Autocannon",
+    "kind": "weapon",
+    "plain": "Turret Weapon. When this weapon attacks an AIRCRAFT unit, make 2 hit rolls for each attack instead of 1, and add 1 to each of those hit rolls."
+  },
+  "399052caf75d": {
+    "name": "Iron Will",
+    "kind": "ability",
+    "plain": "If an enemy model manifests a psychic power that targets this model, roll 2D6. If the result equals or beats that Psychic test's total, the power has no effect on this model (it still affects any other models normally)."
+  },
+  "3993a31c5c27": {
+    "name": "Demolition Charge",
+    "kind": "weapon",
+    "plain": "Blast. The bearer can shoot each of its demolition charges only once per battle."
+  },
+  "3bbcd2d93a5a": {
+    "name": "Instruments of Repression",
+    "kind": "ability",
+    "plain": "Unless the Detachment is an ADEPTUS ARBITES Detachment, this unit can't be taken as a compulsory choice in it when your army is Battle-forged (for example, it can't be a Patrol Detachment's only Troops unit)."
+  },
+  "3bd28b8a3549": {
+    "name": "Dominate",
+    "kind": "psychic",
+    "plain": "Malediction: if manifested, pick one enemy model that isn't a VEHICLE within 12\" of this psyker, then roll 3D6. If the result equals or beats that model's Leadership characteristic, it can at once do one of two things: shoot with one of its weapons as though it were your Shooting phase, or make a single attack as though it were the Fight phase. While it shoots or makes that close combat attack, treat it as a separate unit belonging to your army."
+  },
+  "3c95091d4223": {
+    "name": "Explodes (6+/6\"/D6)",
+    "kind": "ability",
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 6+, the model explodes: every unit within 6\" suffers D6 mortal wounds."
+  },
+  "3d784321d867": {
+    "name": "Heirloom Weapons",
+    "kind": "ability",
+    "plain": "Ranged weapons (other than Relics) that models with this doctrine are equipped with get 4\" added to their Range characteristic."
+  },
+  "3de66603d718": {
+    "name": "Minions of Chaos",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and every model in this unit's Detachment has the RENEGADES AND HERETICS keyword or the UNALIGNED keyword, this unit has the Objective Secured ability."
+  },
+  "3ef5074830bb": {
+    "name": "Faultless Aim",
+    "kind": "ability",
+    "plain": "If this model hasn't moved this turn, its ranged weapon attacks always hit on a 2+ (but hit rolls of 6 are still needed when firing Overwatch)."
+  },
+  "41c20a3568e2": {
+    "name": "Instrument of Repression",
+    "kind": "ability",
+    "plain": "Unless the Detachment is an Adeptus Arbites Detachment, this unit can't be taken as a compulsory choice in it when your army is Battle-forged (for example, it can't be a Patrol Detachment's only Troops unit)."
+  },
+  "41e5e1a14001": {
+    "name": "Explodes (5+/6\"/D3)",
+    "kind": "ability",
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 5+, the model explodes: every unit within 6\" suffers D3 mortal wounds."
+  },
+  "42d4f8deca89": {
+    "name": "Baleful Judge (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in friendly RENEGADES AND HERETICS CORE units within 6\" of this model get 2 added to their Leadership characteristic."
+  },
+  "42ecedc0a362": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Earthshaker Carriage and its crew count as one single model, and the crew models must stay within 1\" of their Earthshaker Carriage model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Earthshaker Carriage model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "43b242dcb987": {
+    "name": "Hereticus - Scourging",
+    "kind": "psychic",
+    "plain": "If manifested, choose one enemy unit within 12\" of this psyker. Until your next Psychic phase begins, models in that unit have 1 fewer attack each, but never fewer than 1 attack. Next, roll 2D6. If you roll at least the highest Leadership characteristic in that unit, hit rolls for attacks made by that unit's models are also reduced by 1 until your next Psychic phase begins."
+  },
+  "46128a1faeec": {
+    "name": "Curse of Mutation",
+    "kind": "ability",
+    "plain": "When the battle starts, roll one D3 and look up the result on the table."
+  },
+  "48863424efb3": {
+    "name": "Vanquisher Battle Cannon",
+    "kind": "weapon",
+    "plain": "Turret Weapon. When an attack made with this weapon wounds the target, no invulnerable saving throws can be made against it, and the target suffers D3 mortal wounds on top of any normal damage."
+  },
+  "4b7ffed4b85d": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 6+, the model explodes: every unit within 6\" suffers D3 mortal wounds."
+  },
+  "4be9a9bfb60c": {
+    "name": "Macharius Twin Vanquisher Cannon",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon against a VEHICLE or MONSTER unit get 1 added to their hit roll."
+  },
+  "4c14cf245aa6": {
+    "name": "Electrobane grenades",
+    "kind": "weapon",
+    "plain": "Against a VEHICLE unit: if an attack with this weapon gets an unmodified wound roll of 4 or 5, the target suffers 1 mortal wound as well as the normal damage; on an unmodified 6, it suffers D3 mortal wounds as well as the normal damage."
+  },
+  "4d5a18e357fe": {
+    "name": "Hover Jet",
+    "kind": "ability",
+    "plain": "This model can hover in your Command phase. If it does, then until the start of your next Command phase it has a Move characteristic of 20\" and loses its Supersonic and Hard to Hit abilities."
+  },
+  "4e89d77d01ad": {
+    "name": "Trophy Hunters",
+    "kind": "ability",
+    "plain": "You can't pick this doctrine if you have picked any other doctrine, and if you pick it you can't pick a second one. When a model with this doctrine attacks a Monster or Vehicle unit, add 1 to that attack's Strength characteristic."
+  },
+  "4fcee7f070c8": {
+    "name": "Needle Pistol",
+    "kind": "weapon",
+    "plain": "Against any target other than VEHICLES, this weapon always wounds on a 2+."
+  },
+  "4fd95058b5c9": {
+    "name": "Omega Pattern Plasma Blastgun Maximal Bolts",
+    "kind": "weapon",
+    "plain": "Blast. Each time an attack with this profile gets an unmodified hit roll of 1, the bearer suffers 1 mortal wound once it has finished shooting this weapon."
+  },
+  "53084a96eaeb": {
+    "name": "Chaos Sigil",
+    "kind": "ability",
+    "plain": "Melee attacks by models in the bearer's unit re-roll hit rolls of 1 if that unit made a charge move this turn, or if it was charged."
+  },
+  "566f40827cb0": {
+    "name": "Banner of the Apostate",
+    "kind": "ability",
+    "plain": "The bearer gets the Banner of the Apostate (Aura) ability: any friendly <CHAOS COVENANT> RENEGADES AND HERETICS unit that is within 6\" of this model can perform Heroic Interventions as if it were a CHARACTER."
+  },
+  "577a65acdeee": {
+    "name": "Explodes (6/6\"/D6)",
+    "kind": "ability",
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 6, the model explodes: every unit within 6\" suffers D6 mortal wounds."
+  },
+  "58e4b1e62083": {
+    "name": "Regimental Tactics",
+    "kind": "ability",
+    "plain": "Only if every model in your army has the ASTRA MILITARUM keyword (ignoring AGENT OF THE IMPERIUM and UNALIGNED models):\n- When an OFFICER from your army gives a Regimental or Prefectus Order to a unit with this ability, that Order can also affect one or more friendly PLATOON units of your choice within 6\" of that unit.\n- When an OFFICER from your army gives a Mechanised Order to a unit with this ability, that Order can also affect one or more other friendly SQUADRON units of your choice within 6\" of that unit."
+  },
+  "5b08fb360d00": {
+    "name": "Malus Codicium",
+    "kind": "ability",
+    "plain": "Once per battle, when your Movement phase ends, you may activate this ability. This model then loses its Unquestionable Wisdom ability, and you place a DAEMONHOST unit more than 9\" from all enemy models and within 6\" of this model. That model's Strength, Toughness, Wounds and Attacks characteristics are each increased by 2 (these increases are already built into the Malus Codicium Daemonhost profile in this model's entry). If this model is destroyed, the DAEMONHOST unit is destroyed as well."
+  },
+  "5b82fda8bd6c": {
+    "name": "Castigation",
+    "kind": "psychic",
+    "plain": "Witchfire: if manifested, pick one enemy unit within 18\" of this psyker that it can see, and roll 3D6. If the total is higher than the lowest Leadership characteristic in that unit, it suffers D3 mortal wounds."
+  },
+  "5cee169e4ec0": {
+    "name": "Armoured Frontis",
+    "kind": "ability",
+    "plain": "If this model is allocated an attack whose Armour Penetration characteristic is -1, change that attack's Armour Penetration characteristic to 0 instead."
+  },
+  "5e924aa16cd0": {
+    "name": "Executioner Plasma Cannon - Supercharge",
+    "kind": "weapon",
+    "plain": "Blast. Turret Weapon. Each time an attack with this profile gets an unmodified hit roll of 1, the bearer suffers 1 mortal wound once it has finished shooting this weapon."
+  },
+  "5fb8bad519d6": {
+    "name": "Artillery and Crew (Earthshaker Carriage)",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Earthshaker Carriage and its crew count as one single model, and the crew models must stay within 1\" of their Earthshaker Carriage model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Earthshaker Carriage model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "5fba25febfad": {
+    "name": "Endurant Shield",
+    "kind": "ability",
+    "plain": "The bearer has a 5+ invulnerable save, and you add 1 to its armour saving throws."
+  },
+  "62f65c9959d3": {
+    "name": "Dread Reputation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in enemy INFANTRY units within 6\" of this model subtract 1 from their Leadership characteristic."
+  },
+  "640996bd61db": {
+    "name": "Quarry",
+    "kind": "ability",
+    "plain": "A unit gets one of the abilities below if it has the matching keyword. Each lets you re-roll both the hit roll and the wound roll when a model in that unit attacks the listed kind of unit. • ORDO MALLEUS: CHAOS or DAEMON units. • ORDO HERETICUS: CHAOS or PSYKER units. • ORDO XENOS: units that are not CHAOS, IMPERIUM or UNALIGNED. • ORDO MINORIS: CHARACTER units."
+  },
+  "65101e405e0f": {
+    "name": "Grav Chute Insertion",
+    "kind": "ability",
+    "plain": "In your Movement phase, while this Transport model is making a Normal Move, one or more of the units embarked inside it can disembark at any point of that move. When they do:\n- Set up models from those units more than 9\" away from all enemy models (Militarum Tempestus models from those units only have to be more than 6\" away from enemy models).\n- If this Transport model moves 20\" or more in this phase, roll one D6 for every model disembarking with this ability, apart from Militarum Tempestus models, before you set it up. On a 1, that model is destroyed.\n- Models from those units count as having made a Normal Move in this phase; they can't move any further in this phase and can never benefit from rules that would let them count as having Remained Stationary in this turn. Those units also can't declare a charge in this turn, but can otherwise act as normal (shooting, fighting, etc.) in this turn."
+  },
+  "678e6b0af51d": {
+    "name": "Loyal Servant",
+    "kind": "ability",
+    "plain": "When one of your <ORDO> INQUISITOR models within 3\" of this unit would lose any wounds because of an attack made against it, this unit can try to intercept that attack. Roll one D6. On a 2+, the INQUISITOR doesn't lose those wounds and one model from this unit is destroyed. Each attack can only be intercepted once."
+  },
+  "68f8a8b84e84": {
+    "name": "Dirgesinger",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, a wound roll of 6+ gives that attack an Armour Penetration characteristic of -3."
+  },
+  "697a78cab27c": {
+    "name": "Shield Line",
+    "kind": "ability",
+    "plain": "Models in this unit have a 5+ invulnerable save. Also, whenever an enemy unit declares a charge against this unit, this unit can Set to Defend as long as it isn't within Engagement Range of any enemy units."
+  },
+  "6a98e25881fb": {
+    "name": "Smoke Launchers",
+    "kind": "ability",
+    "plain": "Once per game, in the Shooting phase, this model can use its smoke launchers rather than shoot any of its weapons. If it does, your opponent subtracts 1 from every hit roll made for ranged weapons targeting this vehicle, until your next Shooting phase."
+  },
+  "6cdde43c5355": {
+    "name": "Combat Stimms",
+    "kind": "ability",
+    "plain": "Once per turn, when this unit is picked to fight, you can have it use its combat stimms. Roll one D6 if you do: on a 1, one of its models is destroyed. Then, whatever you rolled, this unit's models add 1 to their Attacks characteristic until the turn ends."
+  },
+  "719be35b67fa": {
+    "name": "Warding Sigils",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll for each attack made against this model."
+  },
+  "7244840f7e3e": {
+    "name": "Head Shot",
+    "kind": "ability",
+    "plain": "After resolving an attack by this model with an exitus pistol or exitus rifle, if a model in an enemy unit lost any wounds from it but survived, roll one D6: on a 3+ it takes 1 mortal wound. If it still survives, you can roll another D6, and this time it takes 1 mortal wound on a 4+. Keep rolling one D6 at a time, with the score needed going up by 1 each roll, until that model is destroyed or a roll fails."
+  },
+  "72918e2bdeda": {
+    "name": "Condemnor stake",
+    "kind": "weapon",
+    "plain": "Whenever an attack from this weapon profile is allocated to a PSYKER model, the unit that model belongs to takes D3 mortal wounds as well as the normal damage."
+  },
+  "73acb3066d50": {
+    "name": "Etherium",
+    "kind": "ability",
+    "plain": "When resolving an attack against this model, the attacker's Weapon Skill and Ballistic Skill count as 6+."
+  },
+  "7505bf8dc719": {
+    "name": "Quarry - Minoris",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks a Character unit, both the hit roll and the wound roll for that attack may be re-rolled."
+  },
+  "75a3c31d11b4": {
+    "name": "Steel Behemoth",
+    "kind": "ability",
+    "plain": "This model can still declare a charge in a turn when it has Fallen Back. When it is picked to shoot while within Engagement Range of enemy units, it can make attacks against eligible enemy units outside its Engagement Range, as though no enemy models were within Engagement Range of it."
+  },
+  "75e1e02674b0": {
+    "name": "Medusa Siege Cannon",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see."
+  },
+  "763cad996972": {
+    "name": "Neural Shredder",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon and it hits, skip the wound roll. Roll 3D6 instead: if the total equals or beats the highest Leadership characteristic in the target unit, that unit suffers D3 mortal wounds."
+  },
+  "76ccf4a8711e": {
+    "name": "Psychic Fortitude",
+    "kind": "psychic",
+    "plain": "Blessing: if manifested, pick one friendly IMPERIUM unit within 12\" of this Psyker. That unit automatically passes Morale tests, without rolling any dice, until your next Psychic phase starts."
+  },
+  "775edfb758a1": {
+    "name": "Explodes (6+/3\"/1)",
+    "kind": "ability",
+    "plain": "Roll one D6 for each model in this unit that is destroyed, before taking it off the battlefield. On a 6, the model explodes: every unit within 3\" suffers 1 mortal wound."
+  },
+  "77af5511a3d3": {
+    "name": "Nuncio Aquila",
+    "kind": "ability",
+    "plain": "In your Morale phase, you can pick one enemy Infantry, Cavalry or Biker unit that is within 9\" of the bearer, visible to it, and not already sanctioned. Roll 2D6. If the total equals or beats that unit's Leadership characteristic, the unit is sanctioned until the start of your next Morale phase. While a unit is sanctioned, subtract 1 from the hit roll each time one of its models makes an attack."
+  },
+  "7815ab6c45f9": {
+    "name": "Armoured Tracks",
+    "kind": "ability",
+    "plain": "This model adds 1 to armour saving throws against any ranged attack that has a Damage characteristic of 1 and is allocated to it."
+  },
+  "7ab38b55bc93": {
+    "name": "Warp Possession",
+    "kind": "ability",
+    "plain": "If this model suffers Perils of the Warp and survives, its characteristics change: Weapon Skill becomes 2+, Strength becomes 8 and Attacks becomes 5. Its bare hands get an Armour Penetration characteristic of -2 and a Damage characteristic of 2."
+  },
+  "7f2c5caf84ed": {
+    "name": "Covenant of Chaos",
+    "kind": "ability",
+    "plain": "Whenever this unit fights in a turn in which it was charged, made a charge move or performed a Heroic Intervention, its models' Strength characteristic goes up by 1 until that fight is resolved."
+  },
+  "7fba61f590ba": {
+    "name": "Griffon Heavy Mortar",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see. Targets of attacks made with this weapon don't get the benefit of cover to their saving throws."
+  },
+  "8183c8ff1b21": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Heavy Quad Launcher and its crew count as one single model, and the crew models must stay within 1\" of their Heavy Quad Launcher model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Heavy Quad Launcher model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "82278f0323ce": {
+    "name": "Explodes (6+/2D6\"/D6)",
+    "kind": "ability",
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 6, the model explodes: every unit within 2D6\" suffers D6 mortal wounds."
+  },
+  "841d653c59a6": {
+    "name": "Deadshot",
+    "kind": "ability",
+    "plain": "Whenever you make a ranged attack, Look Out, Sir can be ignored. Also, for an attack with an exitus pistol or exitus rifle, an unmodified wound roll of 6 makes the weapon's Damage D6 for that attack."
+  },
+  "84c90f328eea": {
+    "name": "Blind Grenades",
+    "kind": "weapon",
+    "plain": "Blast. This weapon never inflicts damage, so no wound rolls are made for it. Instead, any unit hit by one or more blind grenades must subtract 1 from the hit rolls of all its attacks until the end of the turn."
+  },
+  "8686f065e2d1": {
+    "name": "Spymask",
+    "kind": "ability",
+    "plain": "Targets of this model's ranged attacks don't get the benefit of Light cover."
+  },
+  "86c47777d6d0": {
+    "name": "Brutal Judgement",
+    "kind": "ability",
+    "plain": "When models in this unit attack a target that is within half range, each unmodified hit roll of 6 wounds the target automatically."
+  },
+  "88addf190032": {
+    "name": "Spy Network",
+    "kind": "ability",
+    "plain": "Whenever your opponent sets up a unit on the battlefield as reinforcements, you can choose one friendly ORDO MALLEUS unit within 6\" of this model to shoot at it as though it were your Shooting phase. Also, once per battle, this model can use its spy network when your opponent uses a Stratagem. That Stratagem then costs your opponent 1 extra Command Point to resolve; if they don't pay it, the Stratagem has no effect and the Command Points they spent on it are treated as unspent. This can't affect Stratagems used 'before the battle'."
+  },
+  "895de944a319": {
+    "name": "Healing Serum",
+    "kind": "ability",
+    "plain": "While this unit has a Rejuvenat Adept model, roll one D6 each time a model in this unit would lose a wound: on a 5+, it doesn't lose that wound."
+  },
+  "8dad3cc3ea95": {
+    "name": "Exitus Rifle",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, the target can't make an invulnerable saving throw against it. This weapon wounds INFANTRY units on a 2+."
+  },
+  "8e774b04c0ab": {
+    "name": "Master of Camouflage",
+    "kind": "ability",
+    "plain": "When this model is targeted by a ranged attack from an attacker more than 12\" away, it gets the benefits of Light Cover against that attack. A model with the Titanic keyword only gets this when the attacker is more than 18\" away."
+  },
+  "8fb719e83650": {
+    "name": "Grav-chute Insertion",
+    "kind": "ability",
+    "plain": "In your Movement phase, while this TRANSPORT model is making a Normal Move, one or more of the units embarked inside it can disembark at any point of that move. When they do:\n- Set up models from those units more than 9\" away from all enemy models (MILITARUM TEMPESTUS models from those units only have to be more than 6\" away from enemy models).\n- If this TRANSPORT model moves 20\" or more in this phase, roll one D6 for every model disembarking with this ability, apart from MILITARUM TEMPESTUS models, before you set it up. On a 1, that model is destroyed.\n- Models from those units count as having made a Normal Move in this phase; they can't move any further in this phase and can never benefit from rules that would let them count as having Remained Stationary in this turn. Those units also can't declare a charge in this turn, but can otherwise act as normal (shooting, fighting, etc.) in this turn."
+  },
+  "8ff5b5ba1d72": {
+    "name": "Airborn Assault",
+    "kind": "ability",
+    "plain": "During deployment, this unit can be placed high in the skies rather than on the battlefield. If you do that, set it up anywhere on the battlefield more than 9\" from every enemy model, in the Reinforcements step of one of your Movement phases."
+  },
+  "921634213d53": {
+    "name": "Psyk-Out Grenades",
+    "kind": "weapon",
+    "plain": "Blast. When this weapon attacks a PSYKER or DAEMON unit, a hit roll of 6+ deals 1 mortal wound to that unit and ends the attack sequence."
+  },
+  "9397bcb14f44": {
+    "name": "Swift as the Wind",
+    "kind": "ability",
+    "plain": "Infantry and Artillery models with this doctrine add 1\" to their Move characteristic; all other models with this doctrine add 2\" to theirs.\n\nAdd 1 to charge rolls for units with this doctrine."
+  },
+  "95fff622f1ff": {
+    "name": "Bio-meltdown",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll one D6 for each enemy unit within 6\" of it before you remove it. On a 4+, that enemy unit suffers D3 mortal wounds."
+  },
+  "975f7049ab1f": {
+    "name": "Parade drill",
+    "kind": "ability",
+    "plain": "Until the end of your next Shooting phase, lasguns and hot-shot lasguns carried by models in a unit with this doctrine have a Type characteristic of Heavy 2, if that unit Remained Stationary in your Movement phase."
+  },
+  "98aa2a699d21": {
+    "name": "Avalanche of Rage",
+    "kind": "ability",
+    "plain": "If this unit made a charge move this turn, then whenever it fights, its models get 1 added to their Strength and Attacks characteristics until that fight is resolved."
+  },
+  "98c60bc2c6bf": {
+    "name": "Reign of Confusion",
+    "kind": "ability",
+    "plain": "If your army has any models with this ability: during the first battle round, each time your opponent spends CP to use a Stratagem, roll one D6. On a 4+, they must spend one more CP on that Stratagem or it has no effect, and any CP already spent on it are lost. Stratagems used before the battle can't be affected."
+  },
+  "9cf3d03c87a4": {
+    "name": "Supreme Will (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy models within 12\" of this model subtract 1 from the total of every Psychic test taken for them."
+  },
+  "a097b28b47ca": {
+    "name": "Daemonhost - Daemonic Power",
+    "kind": "ability",
+    "plain": "At the start of this model's Movement phase, roll a D6 for it and apply the result. On a 1 or 2 (Daemonic Speed): this model's Move becomes 12\" and it can FLY until the Movement phase ends. On a 3 or 4 (Re-knit Host Form): this model regains every wound it has lost earlier in the battle. On a 5 or 6 (Energy Torrent): each enemy unit within 3\" of this model takes D3 mortal wounds on a D6 roll of 2+ (roll separately for each unit)."
+  },
+  "a2ca4870b888": {
+    "name": "Masters of Close Confines",
+    "kind": "ability",
+    "plain": "Ranged attacks by this unit's models score one extra hit on each unmodified hit roll of 6 when the target is within 12\"."
+  },
+  "a2e2a4ed4f85": {
+    "name": "Unquestionable Wisdom (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in friendly Imperium units within 6\" of this model may use this model's Leadership characteristic rather than their own."
+  },
+  "a49a6b90b38c": {
+    "name": "Regimental Tactics",
+    "kind": "ability",
+    "plain": "Only if every model in your army has the ASTRA MILITARUM keyword (ignoring AGENT OF THE IMPERIUM and UNALIGNED models):\n- When an OFFICER from your army gives a Regimental or Prefectus Order to a unit with this ability, that Order can also affect one or more other friendly PLATOON units of your choice within 6\" of that unit.\n- When an OFFICER from your army gives a Mechanised Order to a unit with this ability, that Order can also affect one or more other friendly SQUADRON units of your choice within 6\" of that unit."
+  },
+  "a545cd8fe883": {
+    "name": "Shotgun",
+    "kind": "weapon",
+    "plain": "Add 1 to this weapon's Strength when the target is within half range."
+  },
+  "a54e25837ef7": {
+    "name": "Vaunted Praetorian",
+    "kind": "ability",
+    "plain": "Super-Heavy or Rogal Dorn Battle Tank model only. This model knows Mechanised Orders and gains the Officer keyword. It can issue one Order in your Command phase. If this is a Super-Heavy model, it can give that Order to an Astra Militarum Titanic unit; every other rule for issuing Orders still applies."
+  },
+  "a5b58bd46ce1": {
+    "name": "Armoured Superiority",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Armoured Superiority keyword. For control of an objective, models with this doctrine each count as several models: Sentinel models count as 3 models each, Titanic models as 10 models each, and all other Vehicle models as 5 models each."
+  },
+  "a7ba19781025": {
+    "name": "Inquisitor Eisenhorn",
+    "kind": "psychic",
+    "plain": "This psyker knows Smite and 2 psychic powers from the Telethesia discipline."
+  },
+  "aa75232098db": {
+    "name": "Abomination",
+    "kind": "ability",
+    "plain": "Psychic powers can never target or affect this model in any way. PSYKER units within 18\" of any CULEXUS ASSASSINS subtract 2 from their Psychic tests and Deny the Witch tests."
+  },
+  "ab138e9aefe7": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Medusa Carriage and its crew count as one single model, and the crew models must stay within 1\" of their Medusa Carriage model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Medusa Carriage model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "ab4cb42003d5": {
+    "name": "Nemesis Daemon Hammer",
+    "kind": "weapon",
+    "plain": "You must subtract 1 from hit rolls for attacks made with this weapon."
+  },
+  "acddac621743": {
+    "name": "Psychic Pursuit",
+    "kind": "psychic",
+    "plain": "Blessing: if manifested, pick one enemy CHARACTER unit within 18\" of this psyker and visible to it, in which every model has a Wounds characteristic of 9 or less. Then pick one friendly <ORDO> INFANTRY unit within 6\" of this psyker. Up to the end of your next Shooting phase, when you choose targets for the ranged weapons of models in that <ORDO> INFANTRY unit, you may ignore Look Out, Sir if you choose that CHARACTER unit.",
+    "waive": {
+      "<ORDO> NFANTRY": "misspelling of <ORDO> INFANTRY in the official text; the correct keyword <ORDO> INFANTRY is kept"
+    }
+  },
+  "ae5213913752": {
+    "name": "Quarry",
+    "kind": "ability",
+    "plain": "Units with one of the Ordo Malleus, Ordo Hereticus, Ordo Xenos or Ordo Minoris keywords get the ability that matches their keyword:\n- Ordo Malleus: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Chaos or Daemon unit.\n- Ordo Hereticus: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Chaos or Psyker unit.\n- Ordo Xenos: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a unit that is not a Chaos, Imperium or Unaligned unit.\n- Ordo Minoris: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Character unit."
+  },
+  "afd0274486e0": {
+    "name": "Scout Vehicle",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, before any turn begins, you can move this unit up to 9\", as long as it doesn't end that move within 9\" of enemy models. When both players have units that can do this, the player going first moves their units first."
+  },
+  "b031453ca06a": {
+    "name": "Renegade vox-caster",
+    "kind": "ability",
+    "plain": "Each model in the bearer's unit adds 1 to its Leadership characteristic."
+  },
+  "b15c184c4297": {
+    "name": "Psyk-out Grenades",
+    "kind": "weapon",
+    "plain": "Blast weapon. Against a PSYKER or DAEMON unit, if an attack with this weapon gets an unmodified hit roll of 6, the target suffers 1 mortal wound and that attack's sequence ends."
+  },
+  "b267438de47f": {
+    "name": "Poison Blades",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon. Against any target except a VEHICLE unit, attacks with this weapon wound on a 3+."
+  },
+  "b30188bb36e8": {
+    "name": "Webber",
+    "kind": "weapon",
+    "plain": "Blast. For every attack made with this weapon, don't roll to hit. Roll one D6 instead and end the attack sequence. If the result beats the highest Strength characteristic among the target unit's models, the target suffers 1 mortal wound."
+  },
+  "b660efdd3b75": {
+    "name": "Avalanche of Muscle",
+    "kind": "ability",
+    "plain": "If this unit made a charge move this turn, then whenever it fights, its models get 1 added to their Attacks characteristic until that fight is resolved."
+  },
+  "b70c4cbfbf3a": {
+    "name": "Throne of Judgement's stomping feet",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 2D3 extra attacks with this weapon."
+  },
+  "b71ab2a03368": {
+    "name": "Null Rod [Legends]",
+    "kind": "weapon",
+    "plain": "Against a PSYKER target, change the Damage of attacks with this weapon from 1 to D3 for those attacks."
+  },
+  "b72d0f54eaef": {
+    "name": "Chem Cannon",
+    "kind": "weapon",
+    "plain": "Turret Weapon. Attacks made with this weapon always hit the target. Against a target without the VEHICLE or TITANIC keywords, an unmodified wound roll of 2+ also always succeeds."
+  },
+  "b7972686b9ee": {
+    "name": "Knight of Piety",
+    "kind": "ability",
+    "plain": "- This model has a 5+ invulnerable save.\n- Each time this model would lose a wound because of a mortal wound, roll one D6. On a 5+, it doesn't lose that wound."
+  },
+  "b9b82099b71c": {
+    "name": "Psyocculum",
+    "kind": "ability",
+    "plain": "When this model makes ranged attacks, you may ignore Look Out, Sir when choosing a PSYKER CHARACTER or DAEMON CHARACTER unit as the target."
+  },
+  "bece17e47261": {
+    "name": "Execution Force",
+    "kind": "ability",
+    "plain": "If your Warlord has the IMPERIUM keyword (but not FALLEN), this unit can be part of a Vanguard Detachment in your army even when that Detachment has no HQ units. If you take it this way, that Detachment's Command Benefits become 'None' and its Restrictions become: the same datasheet can't be included more than once in it."
+  },
+  "bed43a725987": {
+    "name": "Daemonhost - Unholy Gaze",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon and the wound roll is 6+, the Damage characteristic is 3 for that attack."
+  },
+  "bfe8decaaf66": {
+    "name": "No Stranger to Pain",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever this model would lose a wound. On a 6, it doesn't lose that wound."
+  },
+  "c1c23056ee5c": {
+    "name": "Iron Will",
+    "kind": "ability",
+    "plain": "If this model isn't a PSYKER and an enemy model manifests a psychic power that targets it, roll 2D6. If the result equals or beats that Psychic test's total, the power has no effect on this model (it still affects any other models normally)."
+  },
+  "c206408d4d49": {
+    "name": "Indomitable",
+    "kind": "ability",
+    "plain": "Add 1 to the total of any Deny the Witch test taken for this model."
+  },
+  "c28a25cf71e5": {
+    "name": "Sentinel Array",
+    "kind": "ability",
+    "plain": "Each time an enemy unit within 1\" of this model Falls Back, this model can shoot before any of those models move, as if it were its Shooting phase, but it must target the unit that is Falling Back."
+  },
+  "c4252572f7ba": {
+    "name": "Phase Sword",
+    "kind": "weapon",
+    "plain": "Each time an attack is made with this weapon, the target can't use an invulnerable save against it."
+  },
+  "c63a93f6d8f4": {
+    "name": "Barbarisater",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for each attack made with this weapon."
+  },
+  "c6b74e2450ed": {
+    "name": "Psychic Assassin",
+    "kind": "ability",
+    "plain": "When choosing targets for this model's ranged weapons, you may ignore Look Out, Sir if you pick a Psyker Character unit. This model can also fire its psyk-out grenades and its animus speculum in the same phase."
+  },
+  "c8593e21f363": {
+    "name": "Independent Operative",
+    "kind": "ability",
+    "plain": "This unit can never be given a Warlord Trait. During deployment, you can set this unit up in concealment rather than on the battlefield. If you do, you can place it anywhere on the battlefield more than 9\" from all enemy models during the Reinforcements step of one of your Movement phases."
+  },
+  "c88ea784df64": {
+    "name": "Condemnor Boltgun",
+    "kind": "weapon",
+    "plain": "Against a PSYKER, this weapon's Damage is D3."
+  },
+  "ca25b59aaf31": {
+    "name": "Choir of Chaos",
+    "kind": "ability",
+    "plain": "Each time this unit takes a Psychic test, you can choose to add D3 to the result before you roll. If you do, this unit suffers D3 mortal wounds after the attempt to manifest the power."
+  },
+  "ca6202e64945": {
+    "name": "Colossus Siege Mortar",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can shoot at units the bearer can't see. Targets of attacks made with this weapon don't get the benefits of cover against them."
+  },
+  "caa17dfea701": {
+    "name": "Unquestionable Wisdom",
+    "kind": "ability",
+    "plain": "While friendly IMPERIUM units are within 6\" of this model, they can use its Leadership in place of their own."
+  },
+  "cb5c51ec533f": {
+    "name": "Void Armour",
+    "kind": "ability",
+    "plain": "Worsen the Armour Penetration characteristic by 1 for each attack allocated to a model in this unit."
+  },
+  "cdd0b61285dc": {
+    "name": "Recon Operators",
+    "kind": "ability",
+    "plain": "Before the first turn begins, at the start of the first battle round: each Infantry, Cavalry or Sentinel unit with this doctrine that begins wholly inside your deployment zone may make a Normal Move of up to 6\". It can't end that move within 9\" of any other models or of the enemy deployment zone."
+  },
+  "cf81440b5bca": {
+    "name": "Motive Force Evocation",
+    "kind": "ability",
+    "plain": "While this unit has a Lectro-Maester model, attacks made by its models improve their Armour Penetration characteristic by 1 when the wound roll is an unmodified 6 (only for that attack)."
+  },
+  "cfb5e5d06548": {
+    "name": "Agents of the Imperium",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each of your Imperium Patrol, Boarding Patrol, Battalion, Brigade and Arks of Omen Detachments (Fallen units excluded) can include one Agent of the Imperium unit, and that unit doesn't use up a Battlefield Role slot there. Adding it doesn't stop other units in that Detachment from getting Detachment abilities (such as Chapter Tactics), and doesn't stop other units in your army from getting abilities that need every model in the army to have them (such as Combat Doctrines). An Agent of the Imperium unit added to one of those Detachments this way is ignored when working out your Army Faction, and for any rule saying all units in that Detachment must share at least one Faction keyword (as in matched play). An Agent of the Imperium unit can never be part of a Brood Brothers Detachment."
+  },
+  "d13215f1952a": {
+    "name": "Cult of Sacrifice",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Cult of Sacrifice keyword.\n\nIf a unit with this doctrine was below its Starting Strength when it was picked to shoot or fight, add 1 to the hit roll of each attack its models make."
+  },
+  "d140e0eee739": {
+    "name": "Quarry - Hereticus",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks a Chaos or Psyker unit, both the hit roll and the wound roll for that attack may be re-rolled."
+  },
+  "d2c3abdce9e1": {
+    "name": "Vehicle Squadron",
+    "kind": "ability",
+    "plain": "The first time this unit is set up on the battlefield, its models can ignore unit coherency; instead, each model must be placed within 6\" of another model from its unit. After that, every model in this unit counts as a separate unit."
+  },
+  "d31fb4d8fa12": {
+    "name": "Dozer Blade",
+    "kind": "ability",
+    "plain": "The bearer now has the DOZER BLADE keyword. You can ignore some or all of the modifiers applied to its Move characteristic, its Advance rolls and its charge rolls."
+  },
+  "d33887665fe8": {
+    "name": "Militarum Plasma Cannon - Overcharged",
+    "kind": "weapon",
+    "plain": "Blast. Each time you get an unmodified hit roll of 1 for an attack with this profile, the bearer's unit suffers 1 mortal wound once it has finished shooting this weapon."
+  },
+  "d4141cdb1bd6": {
+    "name": "Quarry",
+    "kind": "ability",
+    "plain": "A unit gets one of the abilities below if it has the matching keyword. Each lets you re-roll both the hit roll and the wound roll when a model in that unit attacks the listed kind of unit. • ORDO MALLEUS: CHAOS or DAEMON units. • ORDO HERETICUS: CHAOS or PSYKER units. • ORDO XENOS: units that are not CHAOS, IMPERIUM or UNALIGNED. • ORDO MINORIS: CHARACTER units."
+  },
+  "d468f1cddfd3": {
+    "name": "Inquisitor Erasmus Cartavolnus",
+    "kind": "psychic",
+    "plain": "This psyker knows Smite and Ritual Shackle."
+  },
+  "d6c299169c27": {
+    "name": "Inferno Cannon",
+    "kind": "weapon",
+    "plain": "Turret Weapon. Every attack made with this weapon hits the target automatically."
+  },
+  "d808d38f4c5c": {
+    "name": "Elite Sharpshooters",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Elite Sharpshooters keyword.\n\nWhenever a unit with this doctrine is picked to shoot, you can re-roll a single hit roll for its attacks."
+  },
+  "d8ad3f1e85a5": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, start by pivoting it on the spot by up to 90° (the pivot doesn't count toward how far it moves), then move it straight forwards. After that first pivot it can't pivot again."
+  },
+  "d91cf2eeca9d": {
+    "name": "Agent of the Imperium",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each of your IMPERIUM Patrol, Boarding Patrol, Battalion, Brigade and Arks of Omen Detachments (FALLEN units excluded) can include one AGENT OF THE IMPERIUM unit, and that unit doesn't use up a Battlefield Role slot there. Adding it doesn't stop other units in that Detachment from getting Detachment abilities (such as Chapter Tactics), and doesn't stop other units in your army from getting abilities that need every model in the army to have them (such as Combat Doctrines). An AGENT OF THE IMPERIUM unit added to one of those Detachments this way is ignored when working out your Army Faction, and for any rule saying all units in that Detachment must share at least one Faction keyword (as in matched play). An AGENT OF THE IMPERIUM unit can never be part of a BROOD BROTHERS Detachment."
+  },
+  "db9599a64d6a": {
+    "name": "Inquisitor",
+    "kind": "psychic",
+    "plain": "This psyker knows Smite and 1 psychic power from the Telethesia discipline."
+  },
+  "dda90fa2857e": {
+    "name": "Mutated Beyond Reason",
+    "kind": "ability",
+    "plain": "In each Fight phase, roll one D3 the first time this unit is picked to fight, and apply the result:\n1 (Razor Claws): for the rest of the phase, the hideous mutations equipped by models in this unit have an Armour Penetration characteristic of -4.\n2 (Grasping Pseudopods): for the rest of the phase, this unit's models have D6+2 as their Attacks characteristic.\n3 (Toxic Haemorrhage): for the rest of the phase, you can re-roll wound rolls for attacks made by models in this unit."
+  },
+  "dec57aa8f6a9": {
+    "name": "Malleus - Warding Incantation",
+    "kind": "psychic",
+    "plain": "Blessing: if manifested, choose an IMPERIUM INFANTRY or IMPERIUM BIKER unit from your army that is within 12\" of this psyker. Its models have a 5+ invulnerable save until your next Psychic phase starts."
+  },
+  "e20a9d8618e7": {
+    "name": "Stealth Suit",
+    "kind": "ability",
+    "plain": "Ranged attacks that target this model subtract 1 from their hit rolls, or 2 if this model is on or in a terrain feature."
+  },
+  "e3ba5ed3495d": {
+    "name": "Mechanised Infantry",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Mechanised keyword.\n\nUnits with this doctrine may disembark from a Transport model (not an Aircraft model) after that model has made a Normal Move. If they do, they can't be picked to move again in this phase, though they still count as having moved, and neither they nor the Transport can declare a charge in this turn."
+  },
+  "e660652da11a": {
+    "name": "Terrify",
+    "kind": "psychic",
+    "plain": "Malediction: if manifested, pick one enemy unit within 18\" of the psyker that it can see. Until the start of your next Psychic phase, models in that unit subtract 1 from their Leadership characteristic, and that unit can't fire Overwatch."
+  },
+  "e82feaf6edb2": {
+    "name": "Field Generators and Uncanny Reflexes",
+    "kind": "ability",
+    "plain": "The Cartographica Rogue Trader model in this unit has a 4+ invulnerable save. Every other model in this unit has a 5+ invulnerable save."
+  },
+  "e9190a607714": {
+    "name": "Banner of Hate",
+    "kind": "ability",
+    "plain": "The bearer gets the Banner of Hate (Aura) ability: you can re-roll charge rolls for any friendly <CHAOS COVENANT> RENEGADES AND HERETICS unit that is within 6\" of this model."
+  },
+  "e93f7bf673ce": {
+    "name": "Master and Commander",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each Detachment in your army can include at most one Cartographica Rogue Trader model. This model can't fill a compulsory Battlefield Role slot."
+  },
+  "eb5adf7052cc": {
+    "name": "Hellstrike Missile",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll of each attack made with this weapon against an Aircraft unit. When this weapon's attack is allocated to an Aircraft model, that attack's Damage characteristic is D3+3."
+  },
+  "ec3394a217a3": {
+    "name": "Quarry - Xenos",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks a unit that isn't Chaos, Imperium or Unaligned, both the hit roll and the wound roll for that attack may be re-rolled."
+  },
+  "ed21d965d93f": {
+    "name": "Quarry - Malleus",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks a Chaos or Daemon unit, both the hit roll and the wound roll for that attack may be re-rolled."
+  },
+  "eda97d9bd66e": {
+    "name": "Expert Bombardiers",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Expert Bombardiers keyword.\n\nWhen an Artillery model with this doctrine makes a ranged attack against a target that is within 12\" of a friendly Vox-caster or Sentinel unit and visible to that unit, add 1 to the hit roll."
+  },
+  "ef13a84667af": {
+    "name": "Ritual Shackle",
+    "kind": "psychic",
+    "plain": "Malediction: if manifested, choose one enemy unit within 18\" of this psyker. Psychic tests taken for that unit have 1 subtracted until your next Psychic phase, as do the wound rolls of melee attacks made by its models. If the Psychic test to manifest this power came to 10 or more, the enemy unit can be up to 24\" away from this psyker instead of 18\"."
+  },
+  "f1859d740138": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For all rules purposes, each Heavy Mortar and its crew count as one single model, and the crew models must stay within 1\" of their Heavy Mortar model. As a result, the crew models can't be targeted or attacked by themselves, and you measure visibility and all ranges to and from the Heavy Mortar model rather than the crew models. This unit can't Advance, can never charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "f19aed467523": {
+    "name": "Melta Cannon",
+    "kind": "weapon",
+    "plain": "Blast. When an attack with this weapon targets a unit within half range, its Damage characteristic is D6+4."
+  },
+  "f1b621717db0": {
+    "name": "Murder Cultists",
+    "kind": "ability",
+    "plain": "Re-roll hit rolls of 1 for melee attacks made by models in this unit."
+  },
+  "f6c0487dcf70": {
+    "name": "Veteran Guerrillas",
+    "kind": "ability",
+    "plain": "This doctrine gives its units the Veteran Guerrillas keyword.\n\nWhen an Infantry or Sentinel model with this doctrine attacks a unit within 18\", that target gets no benefit from cover against the attack."
+  },
+  "f80373943dc4": {
+    "name": "Life Drain",
+    "kind": "ability",
+    "plain": "When this model attacks with a melee weapon, the target can't make saving throws or Daemonic saving throws against that attack, except invulnerable saving throws."
+  },
+  "f86ad44bca63": {
+    "name": "Eradicator Nova Cannon",
+    "kind": "weapon",
+    "plain": "Blast. Turret Weapon. Targets of attacks made with this weapon don't get the benefits of Light Cover against them."
+  },
+  "f8a65af7c997": {
+    "name": "Neuro-gauntlet",
+    "kind": "weapon",
+    "plain": "Wound rolls for this weapon's attacks can be re-rolled."
+  },
+  "f8b4ac5ef3b4": {
+    "name": "Cartavolnus' Force Sword",
+    "kind": "weapon",
+    "plain": "Each time an attack with this weapon is allocated to a DAEMON model, no saving throw of any kind can be taken against it."
+  },
+  "f8fa54f3b090": {
+    "name": "Veteran Commandeer",
+    "kind": "ability",
+    "plain": "When you add this model to your army, choose one doctrine from the Regimental Doctrines section that isn't held by any other unit in your army. This model gains that doctrine on top of any it already has."
+  },
+  "fd18ea9a06d9": {
+    "name": "Lord Inquisitor Kyria Draxus",
+    "kind": "psychic",
+    "plain": "This psyker knows Smite and 1 psychic power from the Telethesia discipline."
+  },
+  "fda3f0d8cf75": {
+    "name": "Hit and Run",
+    "kind": "ability",
+    "plain": "If this model Fell Back this turn, it can still shoot and charge this turn."
+  }
+}
