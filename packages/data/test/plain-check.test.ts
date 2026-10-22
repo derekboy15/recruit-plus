@@ -88,6 +88,12 @@ test('keyword edge cases from real data: 2CP, GREAT UNCLEAN ONE, AP-1', () => {
   expect(values('improve AP-1')).toEqual(['kw:AP', 'num:1']);
 });
 
+test('a number at the end of a sentence still counts', () => {
+  expect(values('Each time this unit is hit, subtract 1.')).toEqual(['num:1']);
+  expect(checkPlain('Each time this unit is hit, subtract 1.', 'When this unit is hit, take away 2 from it.').ok).toBe(false);
+  expect(values('a 1.5 metre gap')).toEqual([]); // decimals aren't counts (and never appear unless followed by an inch mark)
+});
+
 test('lower-case dice count in plain text', () => {
   expect(crossCheck('roll a D6', 'roll a d6')).toEqual({ missing: [], extra: [] });
 });

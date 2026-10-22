@@ -54,7 +54,8 @@ const RULES: { kind: Exclude<TokenKind, 'kw'>; re: RegExp; value: (m: RegExpExec
   { kind: 'roll', re: /\b(\d+)\+(?!\d)/g, value: (m) => `${m[1]}+` },
   { kind: 'mod', re: /(?<![\w"])([+-])(\d+)\b/g, value: (m) => `${m[1]}${m[2]}` },
   { kind: 'dist', re: /\b(\d+(?:\.\d+)?)"/g, value: (m) => `${m[1]}"` },
-  { kind: 'num', re: /(?<![\w.])(\d{1,3}(?:,\d{3})+|\d+)(?![\d.])/g, value: (m) => m[1].replace(/,/g, '') },
+  // A full stop after a number ends the sentence ("subtract 1."); only a decimal point (a digit either side) excludes it.
+  { kind: 'num', re: /(?<!\w|\d\.)(\d{1,3}(?:,\d{3})+|\d+)(?!\d|\.\d)/g, value: (m) => m[1].replace(/,/g, '') },
 ];
 
 const KW_WORD = /^<?[A-Z][A-Z0-9'-]*>?$/;
