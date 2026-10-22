@@ -3,7 +3,7 @@ import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import type { CatalogueOut, DataIndex, StratagemOut, UnitOut } from '../src/model/types';
-import { collectOfficialTexts, officialFor, spotSample, textKey, textsInCatalogue } from '../src/plain/collect';
+import { collectOfficialTexts, officialFor, ruleKeys, spotSample, textKey, textsInCatalogue } from '../src/plain/collect';
 import { applyPlain, loadPlainStore, type PlainShard } from '../src/plain/store';
 import { checkPlain, normaliseRulesText } from '../src/plain/check';
 
@@ -153,6 +153,14 @@ test("textsInCatalogue includes library unit texts and the catalogue's stratagem
   const names = textsInCatalogue(cats[1], all).map((t) => t.name).sort();
   expect(names).toEqual(['Command Protocols', 'Gauss blaster', 'Hit Them', 'Reanimate']);
   expect(textsInCatalogue(cats[0], all).map((t) => t.name)).toEqual(['Reanimate']);
+});
+
+test("ruleKeys lists a catalogue's army rules even when the same text was first collected as an ability", () => {
+  const cats = fixture();
+  cats[1].rules.push({ id: 'r2', name: 'Reanimate (army rule)', text: REANIMATE });
+  const all = collectOfficialTexts(cats, []);
+  expect(all.find((t) => t.key === textKey(REANIMATE))?.kind).toBe('ability');
+  expect(ruleKeys(cats[1])).toEqual([textKey(RULE), textKey(REANIMATE)]);
 });
 
 test('spotSample is deterministic and seeded', () => {

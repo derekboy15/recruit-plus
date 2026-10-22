@@ -10,7 +10,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { CatalogueOut, DataIndex, StratagemOut } from '../src/model/types';
 import { checkPlain, extractTokens } from '../src/plain/check';
-import { collectOfficialTexts, spotSample, textsInCatalogue, type OfficialText } from '../src/plain/collect';
+import { collectOfficialTexts, ruleKeys, spotSample, textsInCatalogue, type OfficialText } from '../src/plain/collect';
 import { loadPlainStore } from '../src/plain/store';
 
 const root = join(import.meta.dirname, '..');
@@ -60,7 +60,8 @@ if (arg === '--all') {
   // A catalogue's army rules (always part of its spot-check, besides the sample).
   const cat = cats.find((c) => c.slug === rest[0]);
   if (!cat) throw new Error('Usage: --rules <catalogue-slug>');
-  for (const t of textsInCatalogue(cat, texts).filter((x) => x.kind === 'rule')) console.log(`${t.key}\t${t.kind}\t${t.name}`);
+  const byKey = new Map(texts.map((t) => [t.key, t]));
+  for (const key of ruleKeys(cat)) console.log(`${key}\trule\t${byKey.get(key)!.name}`);
 } else if (arg === '--sample') {
   const [slug, n] = rest;
   const cat = cats.find((c) => c.slug === slug);

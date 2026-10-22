@@ -108,6 +108,14 @@ export function textsInCatalogue(cat: CatalogueOut, all: OfficialText[]): Offici
   return [...keys].map((k) => byKey.get(k)).filter((t): t is OfficialText => !!t);
 }
 
+/**
+ * The keys of a catalogue's own army rules, in order. Taken from its `rules`, not from the collected texts: a rule whose
+ * wording was first collected as a unit ability elsewhere still counts here.
+ */
+export function ruleKeys(cat: CatalogueOut): string[] {
+  return [...new Set(catalogueItems(cat, new Map()).filter((i) => i.kind === 'rule').map((i) => textKey(i.official)))];
+}
+
 /** A deterministic sample of `n` texts, ordered by a hash of seed and key (for the per-faction spot-check). */
 export function spotSample(texts: OfficialText[], seed: string, n: number): OfficialText[] {
   const rank = (t: OfficialText) => createHash('sha1').update(`${seed}:${t.key}`).digest('hex');
