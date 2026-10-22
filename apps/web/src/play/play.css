@@ -65,3 +65,5 @@
 .play-row > .btn { flex: 1 1 8rem; }
 .play-small { font-size: 0.8rem; }
 .play-actions { margin-top: 0.5rem; }
+.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; }
+.play-field select, .play-field input { min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }

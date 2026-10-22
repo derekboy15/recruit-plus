@@ -2,6 +2,8 @@
 import { PHASE_NAMES } from '../game/names';
 import { DeployPanel } from './DeployPanel';
 import { FirstTurnPanel } from './FirstTurnPanel';
+import { MovementPanel } from './MovementPanel';
+import { ReinforcementsPanel } from './ReinforcementsPanel';
 import type { PanelProps } from './types';
 
 /** Until a phase has its own panel: its name and a button to end it. */
@@ -44,5 +46,6 @@ export function PhasePanel(props: PanelProps) {
   const { state } = props.sb;
   if (state.pending?.kind === 'roll') return <PlainRoll {...props} />;
   if (state.phase === 'pre-battle') return state.step === 'deploy' ? <DeployPanel {...props} /> : <FirstTurnPanel {...props} />;
+  if (state.phase === 'movement') return state.step === 'move-units' ? <MovementPanel {...props} /> : <ReinforcementsPanel {...props} />;
   return <PlainPhase {...props} />;
 }

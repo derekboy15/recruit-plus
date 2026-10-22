@@ -1,5 +1,5 @@
 /** Test-only: renders a phase panel over a live in-memory game, with the board's taps and drags driven by the test. */
-import { currentStep, dispatch, gameLog, stateOf, undo, type GameRecord, type Problem, type Pt } from '@recruit/engine';
+import { currentStep, dispatch, gameLog, stateOf, undo, type Command, type GameRecord, type Problem, type Pt } from '@recruit/engine';
 import { act, render } from '@testing-library/react';
 import { useMemo, useReducer, useRef, useState, type ComponentType } from 'react';
 import { WordingProvider } from '../../rules/wording';
@@ -34,6 +34,8 @@ export interface PanelHarness {
   /** A finished drag of a planned model to a new centre. */
   drag(modelId: string, to: Pt): void;
   canDrag(modelId: string): boolean;
+  /** Sends a command as another part of the screen would (e.g. accepting a roll); throws when it is refused. */
+  act(cmd: Command): void;
 }
 
 export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord, meta: GameMeta = META): PanelHarness & ReturnType<typeof render> {
@@ -116,6 +118,11 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
           setDragging(false);
         }),
       canDrag: (modelId: string) => (dragRef.current ? dragRef.current(modelId) : !!plan?.positions[modelId]),
+      act: (cmd: Command) =>
+        act(() => {
+          const p = sb.act(cmd);
+          if (p) throw new Error(p.map((x) => x.message).join(' '));
+        }),
     });
     return <Panel sb={sb} ui={ui} />;
   }
@@ -135,5 +142,6 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
     tap: (at: Pt, modelId?: string | null) => out.tap(at, modelId),
     drag: (modelId: string, to: Pt) => out.drag(modelId, to),
     canDrag: (modelId: string) => out.canDrag(modelId),
+    act: (cmd: Command) => out.act(cmd),
   });
 }
