@@ -80,6 +80,13 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
 **Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."
 
+## R-22 Aircraft and the reserve limits
+**Decision:** AIRCRAFT units start in Strategic Reserves automatically and cost no CP. They don't count toward the "no more than half the units, less than half the points" limit. If they are more than half the army's points, no other unit may start in reserve.
+**Why:**
+- BD §6 (Jan 2023): Aircraft must start in Strategic Reserves.
+- MP §3: "If they make up more than half the army's points, no other unit may be in reserve". That only makes sense if they are outside the normal limit.
+- In Arks of Omen games Strategic Reserves are free anyway. For Core Book games, charging CP for a placement the rules force is not stated anywhere.
+
 ## R-19 Manual adjustments, undo and replay
 **Decision:**
 - Manual adjustments are always allowed, logged and undoable.

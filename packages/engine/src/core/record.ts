@@ -49,7 +49,9 @@ export function dispatch(game: GameRecord, command: Command): DispatchResult {
   const handler = handlerFor(type);
   if (!handler) return rejected('unknown-command', `The engine doesn't know the action "${type}".`, R.undo);
   const before = stateOf(game);
-  const draft = structuredClone(before);
+  // The setup is shared by reference: it never changes, and copying its datasheets on every command would be waste.
+  const { setup, ...rest } = before;
+  const draft = { ...structuredClone(rest), setup } as GameState;
   const events: GameEvent[] = [];
   try {
     handler(makeCtx(draft, command as never, events), command as never);
