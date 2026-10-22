@@ -88,9 +88,22 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** the engine uses whichever of the model's armour save (after AP, cover and modifiers) and invulnerable save needs the lower roll.
 **Why:** TS §5.7: the player chooses one save. The better one is always the right choice, and it saves a prompt for every attack.
 
+## R-16 One profile per weapon
+**Decision:** a weapon with several profiles fires only one of them each time the unit shoots, for example "Plasma gun - standard" and "Plasma gun - supercharge". Profiles count as the same weapon when their names match up to the first " - ", "(", "[" or ",".
+**Why:** TS §5.1: you choose the weapon's profile when selecting targets.
+
 ## R-24 Mixed Toughness
 **Decision:** wound rolls against a unit whose models have different Toughness use the Toughness most of its models have. On a tie, the higher value is used (the defender's choice).
 **Why:** the 9th Edition "mixed unit" rule, as quoted in community sources (the library doesn't cover it): "use the Toughness of the majority … in a tie the controlling player picks".
+
+## R-25 Look Out, Sir protectors
+**Decision:** a unit with a CHARACTER of W 9 or less is protected while within 3" of any of these friendly units:
+- a unit with a VEHICLE or MONSTER of W 10 or more;
+- a non-CHARACTER unit with any VEHICLE or MONSTER;
+- a non-CHARACTER unit of 3 or more models.
+
+It can still be shot if it is visible to the firing model and is the closest enemy unit to it. Other protected character units are ignored when working out which unit is closest.
+**Why:** the research library disagrees with itself. TS §5.3 lists all three protectors, while FAQ §2.1 says small vehicle units need 10+ wounds. Wahapedia's final Core Rules text lists all three, and the 10+ wounds clause applies only to the first one. Wahapedia's final text wins (spec §4 precedence: later GW text over the library).
 
 ## R-21 Daemonic Save
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
