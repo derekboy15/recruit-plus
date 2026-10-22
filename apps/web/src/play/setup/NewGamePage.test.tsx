@@ -13,6 +13,9 @@ import { sampleSetup } from '../__fixtures__/game';
 import type { GameData } from '../store/gameStore';
 import type { LoadedArmy } from './loadArmy';
 import { NewGamePage } from './NewGamePage';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { resetMissionCache } from '../../table/missionData';
 
 const loadArmy = vi.hoisted(() => vi.fn());
 vi.mock('./loadArmy', () => ({ loadArmy }));
@@ -55,6 +58,8 @@ beforeEach(() => {
 });
 afterEach(() => {
   vi.clearAllMocks();
+  vi.unstubAllGlobals();
+  resetMissionCache();
   db.close();
   localStorage.clear();
 });
@@ -139,4 +144,26 @@ test("battle size defaults to Player 1's list and warns when the lists differ", 
   expect(within(screen.getByRole('group', { name: 'Battle size' })).getByRole('radio', { name: /Strike Force/ })).toBeChecked();
   await pick('Player 2', 'Szarekhan Patrol');
   expect(await screen.findByText('Your lists are for different battle sizes; the game uses the size you pick here.')).toBeInTheDocument();
+});
+
+test('the real Core Book and Arks of Omen missions are offered for the battle size, after Practice', async () => {
+  const missions = readFileSync(join(__dirname, '..', '..', '..', '..', '..', 'packages', 'data', 'generated', 'missions.json'), 'utf8');
+  vi.stubGlobal('fetch', vi.fn(async () => new Response(missions)));
+  await seed('l1', 'l3');
+  page();
+  await pick('Player 1', 'Szarekhan Patrol');
+  const missionGroup = await screen.findByRole('group', { name: 'Mission' });
+  expect(await within(missionGroup).findByRole('radio', { name: /Incisive Attack/ })).toBeInTheDocument();
+  const names = within(missionGroup).getAllByRole('radio').map((r) => r.closest('label')!.querySelector('strong')!.textContent);
+  expect(names[0]).toBe('Practice');
+  expect(names).not.toContain('Cleanse the Land'); // an Incursion mission, not Combat Patrol
+});
+
+test("if the mission data can't load, Practice is still offered", async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => new Response('nope', { status: 500 })));
+  await seed('l1');
+  page();
+  await pick('Player 1', 'Szarekhan Patrol');
+  const missionGroup = await screen.findByRole('group', { name: 'Mission' });
+  expect(within(missionGroup).getAllByRole('radio')).toHaveLength(1);
 });

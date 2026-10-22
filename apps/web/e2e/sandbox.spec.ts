@@ -211,3 +211,30 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
   await noSidewaysScroll(page);
   await shot(page, 'game-over', project);
 });
+
+test('a real mission from the table companion data sets the board: Strike Force, Recover the Relics', async ({ page }, testInfo) => {
+  test.setTimeout(120_000);
+  page.setDefaultTimeout(15_000);
+  await buildList(page);
+  await page.goto('/play');
+  await page.getByRole('link', { name: 'New game' }).click();
+  for (const player of ['Player 1', 'Player 2']) await page.getByRole('group', { name: player }).getByRole('radio', { name: /Necrons Combat Patrol/ }).check();
+  await page.getByRole('group', { name: 'Battle size' }).getByRole('radio', { name: /Strike Force/ }).check();
+  await page.getByRole('group', { name: 'Mission' }).getByRole('radio', { name: /Recover the Relics/ }).check();
+  await page.getByRole('group', { name: 'Terrain' }).getByRole('radio', { name: /Open field/ }).check();
+  const startGame = page.getByRole('button', { name: 'Start game' });
+  await expect(startGame).toBeEnabled({ timeout: 30_000 });
+  await startGame.click();
+  await expect(page).toHaveURL(/\/play\/[0-9a-f-]{36}$/);
+  await expect(page.getByRole('banner', { name: 'Game status' })).toContainText('Deployment');
+
+  // The 60"x44" map is turned onto the 44"x60" board: the long-edge deployment zones end up at the short ends.
+  const s = (await state(page)) as SandboxState & { setup: { board: { w: number; h: number }; objectives: { pos: Pt }[] } };
+  expect(s.setup.board).toEqual({ w: 44, h: 60 });
+  expect(s.setup.objectives).toHaveLength(6);
+  const ys = (k: 'A' | 'B') => s.setup.zones[k].map((p) => p.y);
+  expect(Math.max(...ys('A')) <= 30 || Math.min(...ys('A')) >= 30).toBe(true);
+  expect(Math.max(...ys('B')) <= 30 || Math.min(...ys('B')) >= 30).toBe(true);
+  await handOver(page);
+  await shot(page, 'real-mission', testInfo.project.name);
+});

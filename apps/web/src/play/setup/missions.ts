@@ -1,6 +1,6 @@
 /**
- * Where armies deploy and where the objectives are. This milestone ships one practice layout; Milestone 7 adds the real
- * Arks of Omen and Core Book missions by registering a provider, and nothing else needs to change.
+ * Where armies deploy and where the objectives are: the built-in practice layout here, plus the table companion's
+ * Arks of Omen and Core Book missions, which the setup screen adds through missionAdapter.ts.
  */
 import type { BattleSizeId, Edge, PlayerId, Pt } from '@recruit/engine';
 

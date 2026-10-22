@@ -10,7 +10,9 @@ import type { Doc } from '../../storage/types';
 import { createGame, type GameMeta } from '../store/gameStore';
 import { buildGameSetup, setupBlockers } from './buildSetup';
 import { loadArmy, type LoadedArmy } from './loadArmy';
-import { missionsFor } from './missions';
+import { getMissions } from '../../table/missionData';
+import { missionDataProvider } from './missionAdapter';
+import { missionsFor, type SandboxMission } from './missions';
 import { TERRAIN_LAYOUTS } from './terrainLayouts';
 
 type Loading = { status: 'loading' } | { status: 'ready'; army: LoadedArmy } | { status: 'error'; message: string };
@@ -75,6 +77,25 @@ function ListPicker({ label, name, lists, value, onPick, army }: { label: string
 }
 
 /** Setting up a sandbox game: two saved lists, the battle size, mission, terrain, who attacks, and options. */
+/**
+ * Practice, then the table companion's real missions for this battle size once /data/missions.json has loaded. If it
+ * can't load (offline before it was cached), Practice is still there.
+ */
+function useSandboxMissions(size: BattleSizeId): SandboxMission[] {
+  const [data, setData] = useState<Awaited<ReturnType<typeof getMissions>> | null>(null);
+  useEffect(() => {
+    let live = true;
+    getMissions().then(
+      (d) => live && setData(d),
+      () => {},
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  return useMemo(() => [...missionsFor(size), ...(data ? missionDataProvider(data).missions(size) : [])], [size, data]);
+}
+
 export function NewGamePage() {
   const { user } = useAuth();
   const { repo } = useStorage();
@@ -93,7 +114,7 @@ export function NewGamePage() {
   const docs = picks.map((id) => lists.find((l) => l.id === id)) as [Doc<ListData> | undefined, Doc<ListData> | undefined];
   const armies = [useArmy(docs[0], 'A'), useArmy(docs[1], 'B')];
   const battleSize: BattleSizeId = size ?? docs[0]?.data.roster.battleSize ?? 'combat-patrol';
-  const missions = missionsFor(battleSize);
+  const missions = useSandboxMissions(battleSize);
   const mission = missions.find((m) => m.id === missionId) ?? missions[0];
   const layout = TERRAIN_LAYOUTS.find((l) => l.id === layoutId) ?? TERRAIN_LAYOUTS[0];
   const ready = armies.every((a) => a?.status === 'ready') ? (armies.map((a) => (a as Extract<Loading, { status: 'ready' }>).army) as [LoadedArmy, LoadedArmy]) : null;
