@@ -28,7 +28,12 @@ export type FactionGroup = 'Imperium' | 'Chaos' | 'Xenos' | 'Unaligned';
 export interface ProfileOut {
   name: string;
   chars: Record<string, string>;
+  /** Plain-English versions of the TEXT_CHARS values, by characteristic name (only those that passed the checks). */
+  plain?: Record<string, string>;
 }
+
+/** Profile characteristics that hold rules text (weapon abilities, psychic power details, psyker notes). */
+export const TEXT_CHARS = ['Abilities', 'Details', 'Powers Known', 'Other'] as const;
 
 export interface AbilityOut {
   name: string;
@@ -36,6 +41,8 @@ export interface AbilityOut {
   source: 'bsdata' | 'wahapedia';
   /** Our note of a final GW change the sources missed. */
   amended?: string;
+  /** Our plain-English version (only when it passed the checks). */
+  plain?: string;
 }
 
 export interface UnitOut {
@@ -94,7 +101,7 @@ export interface CatalogueOut {
   library: boolean;
   units: UnitOut[];
   /** `amended`: our note of a final GW change the sources missed. */
-  rules: { id: string; name: string; text: string; amended?: string }[];
+  rules: { id: string; name: string; text: string; amended?: string; plain?: string }[];
   /** Matched-play stratagems; [] for library catalogues. */
   stratagems: StratagemOut[];
 }

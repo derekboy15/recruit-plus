@@ -1,10 +1,11 @@
-/** CLI + library: BSData + Wahapedia -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, roster/<slug>.json, roster/policy.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, roster/<slug>.json, roster/policy.json, report.json}. */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
 import { coreStratagems, selectStratagems } from './extract/stratagems';
+import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
 import { extractUnits } from './extract/units';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
@@ -19,6 +20,8 @@ export interface BuildOptions {
   rawDir: string;
   overridesDir: string;
   outDir: string;
+  /** packages/content: plain-English texts are read from <contentDir>/plain. Without it no plain English is attached. */
+  contentDir?: string;
 }
 
 export interface ReportEntry {
@@ -55,7 +58,7 @@ export const SYSTEM_ROSTER_SLUG = 'system';
 
 const roleOrder = (u: UnitOut) => (u.role ? BATTLEFIELD_ROLES.indexOf(u.role) : BATTLEFIELD_ROLES.length);
 
-export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry> } {
+export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
@@ -76,6 +79,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
   validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
   const amendmentTotals = new Map<Amendment, number>();
+  const outs: CatalogueOut[] = [];
   const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
@@ -97,7 +101,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     for (const [a, n] of applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name || a.catalogueName === '*'))) {
       amendmentTotals.set(a, (amendmentTotals.get(a) ?? 0) + n);
     }
-    writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
+    outs.push(out);
     index.catalogues.push({
       id: cat.id,
       slug,
@@ -117,7 +121,12 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     };
   }
   checkSelectorMatches(amendments, amendmentTotals);
-  writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(coreStratagems(w, overrides.coreStratagems.map((c) => c.id))));
+  const core = coreStratagems(w, overrides.coreStratagems.map((c) => c.id));
+  // Plain English is attached after amendments: a text's key covers its amendment.
+  const plain = applyPlain(outs, core, loadPlainStore(opts.contentDir ? join(opts.contentDir, 'plain') : ''));
+  for (const out of outs) writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
+  writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
+  writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
@@ -142,7 +151,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
-  return { index, report };
+  return { index, report, plain };
 }
 
 /**
@@ -391,13 +400,16 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const root = join(import.meta.dirname, '..');
   const started = Date.now();
-  const { index, report } = buildAll({
+  const { index, report, plain } = buildAll({
     rawDir: join(root, 'raw'),
     overridesDir: join(root, 'overrides'),
     outDir: join(root, 'generated'),
+    contentDir: join(root, '..', 'content'),
   });
   const totals = Object.values(report).reduce((a, r) => ({ u: a.u + r.units, m: a.m + r.matched, s: a.s + r.stratagems }), { u: 0, m: 0, s: 0 });
   console.log(
     `Built ${index.catalogues.length} catalogues, ${totals.u} units (${totals.m} matched to Wahapedia), ${totals.s} stratagems in ${Date.now() - started} ms`,
   );
+  const p = Object.values(plain.shards).reduce((a, r) => ({ t: a.t + r.total, w: a.w + r.written, f: a.f + r.flagged.length + r.copied.length }), { t: 0, w: 0, f: 0 });
+  console.log(`Plain English: ${p.w} of ${p.t} texts written, ${p.f} flagged, ${plain.orphans.length} orphaned (see generated/plain-report.json)`);
 }
