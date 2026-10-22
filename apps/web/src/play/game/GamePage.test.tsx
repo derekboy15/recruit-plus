@@ -113,7 +113,7 @@ test('a game saved with a roll window open reopens on the roll', async () => {
   await seed(g);
   page();
   expect(await screen.findByRole('heading', { name: 'Necron Warriors Advance roll' })).toBeInTheDocument();
-  expect(screen.getByLabelText(`Die 1: ${die}`)).toBeInTheDocument();
+  expect(await screen.findByLabelText(`Die 1: ${die}`)).toBeInTheDocument();
 });
 
 test('an unreadable game shows why and offers to delete it', async () => {

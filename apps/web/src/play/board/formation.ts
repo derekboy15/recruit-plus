@@ -12,17 +12,20 @@ function bounds(points: Pt[]) {
   return { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) };
 }
 
-/** Rows of up to 5 with 1" between bases (so they are in coherency), centred on `at`, then nudged wholly inside `zone`. */
-export function formation(bases: { id: string; base: BaseShape }[], at: Pt, zone?: Pt[]): Record<string, Pos> {
+/**
+ * Rows of up to 5 (or `perRow`) with 1" (or `gap`) between bases (so they are in coherency), centred on `at`, then nudged wholly
+ * inside `zone`. Narrower, tighter rows keep a unit close to a transport it gets out of.
+ */
+export function formation(bases: { id: string; base: BaseShape }[], at: Pt, zone?: Pt[], perRow = ROW, gap = GAP): Record<string, Pos> {
   if (!bases.length) return {};
-  const cellW = Math.max(...bases.map((b) => extent(b.base).w)) + GAP;
-  const cellH = Math.max(...bases.map((b) => extent(b.base).h)) + GAP;
-  const rows = Math.ceil(bases.length / ROW);
-  const cols = Math.min(ROW, bases.length);
+  const cellW = Math.max(...bases.map((b) => extent(b.base).w)) + gap;
+  const cellH = Math.max(...bases.map((b) => extent(b.base).h)) + gap;
+  const rows = Math.ceil(bases.length / perRow);
+  const cols = Math.min(perRow, bases.length);
   let pos = bases.map((b, i) => ({
     id: b.id,
-    x: at.x + ((i % ROW) - (cols - 1) / 2) * cellW,
-    y: at.y - (Math.floor(i / ROW) - (rows - 1) / 2) * cellH,
+    x: at.x + ((i % perRow) - (cols - 1) / 2) * cellW,
+    y: at.y - (Math.floor(i / perRow) - (rows - 1) / 2) * cellH,
   }));
   if (zone) {
     const z = bounds(zone);

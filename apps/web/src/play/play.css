@@ -67,3 +67,13 @@
 .play-actions { margin-top: 0.5rem; }
 .play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; }
 .play-field select, .play-field input { min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
+.dice { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+.dice .die { position: relative; min-width: var(--touch); height: var(--touch); margin: 0; border: 2px solid transparent; cursor: default; font: inherit; font-weight: 700; font-size: 1.2rem; }
+.dice button.die { cursor: pointer; }
+.die small { position: absolute; top: 1px; right: 3px; font-size: 0.65rem; }
+.die--pass { background: var(--ok); }
+.die--fail { background: #8a8580; color: #2a2724; }
+.die--picked { border-color: var(--focus); box-shadow: 0 0 0 2px var(--focus); }
+.die--rolling { animation: die-tumble 0.15s linear infinite; }
+@keyframes die-tumble { 0% { transform: rotate(0deg); } 50% { transform: rotate(12deg) scale(1.08); } 100% { transform: rotate(0deg); } }
+@media (prefers-reduced-motion: reduce) { .die--rolling { animation: none; } }

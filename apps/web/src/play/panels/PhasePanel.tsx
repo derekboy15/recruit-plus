@@ -3,7 +3,10 @@ import { PHASE_NAMES } from '../game/names';
 import { DeployPanel } from './DeployPanel';
 import { FirstTurnPanel } from './FirstTurnPanel';
 import { MovementPanel } from './MovementPanel';
+import { PlacementPanel } from './PlacementPanel';
+import { ReactionPanel } from './ReactionPanel';
 import { ReinforcementsPanel } from './ReinforcementsPanel';
+import { RollPanel } from './RollPanel';
 import type { PanelProps } from './types';
 
 /** Until a phase has its own panel: its name and a button to end it. */
@@ -20,31 +23,11 @@ function PlainPhase({ sb, ui }: PanelProps) {
   );
 }
 
-/** Until the roll panel: the roll's dice and Accept. */
-function PlainRoll({ sb, ui }: PanelProps) {
-  const p = sb.state.pending;
-  if (p?.kind !== 'roll') return null;
-  const roll = sb.state.rolls[p.rollId];
-  return (
-    <section>
-      <h2>{roll.context}</h2>
-      <p>
-        {roll.dice.map((d, i) => (
-          <span key={i} aria-label={`Die ${i + 1}: ${d.value}`} className="die">
-            {d.value}
-          </span>
-        ))}
-      </p>
-      <button type="button" className="btn btn--primary" onClick={() => ui.setProblems(sb.act({ type: 'confirmRoll', by: p.player }) ?? [])}>
-        Accept
-      </button>
-    </section>
-  );
-}
-
 export function PhasePanel(props: PanelProps) {
   const { state } = props.sb;
-  if (state.pending?.kind === 'roll') return <PlainRoll {...props} />;
+  if (state.pending?.kind === 'roll') return <RollPanel {...props} />;
+  if (state.pending?.kind === 'reaction') return <ReactionPanel {...props} />;
+  if (state.placements?.length) return <PlacementPanel {...props} />;
   if (state.phase === 'pre-battle') return state.step === 'deploy' ? <DeployPanel {...props} /> : <FirstTurnPanel {...props} />;
   if (state.phase === 'movement') return state.step === 'move-units' ? <MovementPanel {...props} /> : <ReinforcementsPanel {...props} />;
   return <PlainPhase {...props} />;

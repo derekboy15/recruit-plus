@@ -145,7 +145,7 @@ export function MovementPanel(props: PanelProps) {
     const base = sheetOf(s, sel).base;
     setGettingOut(sel);
     ui.planDispatch({ type: 'start', unitId: sel, origin: unplacedOrigin(models.map((m) => m.id)) });
-    ui.setTapHandler((at) => ui.planDispatch({ type: 'place', positions: formation(models.map((m) => ({ id: m.id, base })), at) }));
+    ui.setTapHandler((at) => ui.planDispatch({ type: 'place', positions: formation(models.map((m) => ({ id: m.id, base })), at, undefined, 4, 0.5) }));
   };
   const engaged = u?.location === 'battlefield' && isEngaged(s, u.id);
 
