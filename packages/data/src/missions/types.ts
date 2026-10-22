@@ -89,6 +89,8 @@ export interface SecondaryOut {
   name: string;
   category: string;
   type: 'progressive' | 'end-game' | 'progressive-and-end-game';
+  /** Wahapedia faction id and name; universal and mission secondaries have none. */
+  factionId?: string;
   faction?: string;
   text: string;
   plain?: string;
@@ -114,6 +116,9 @@ export interface MissionOut {
   source: { url: string; retrieved: string };
 }
 
+/** A step of the pre-battle sequence, summarised in our words (no official-wording toggle). */
+export interface SetupStep { id: string; name: string; text: string; source: string }
+
 export interface PackOut {
   id: Pack;
   name: string;
@@ -125,12 +130,12 @@ export interface PackOut {
   secondaryCount: number;
   firstTurn: 'winner-takes-first' | 'winner-chooses';
   concede: 'opponent-wins' | 'conceder-scores-0';
-  setupSteps: RulesText[];
+  setupSteps: SetupStep[];
   secondaries: SecondaryOut[];
   source: string;
 }
 
-export interface SecondaryFaction { faction: string; note?: string }
+export interface SecondaryFaction { factionId: string; faction: string; note?: string }
 export interface MissionsOut {
   generatedAt: string;
   packs: PackOut[];
