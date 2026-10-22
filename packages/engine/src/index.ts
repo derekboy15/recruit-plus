@@ -11,3 +11,8 @@ export * from './geometry/shapes';
 export * from './geometry/measure';
 export * from './geometry/coherency';
 export * from './geometry/path';
+export * from './terrain/types';
+export * from './terrain/visibility';
+export * from './terrain/cover';
+export * from './terrain/movement';
+export * from './terrain/ld';

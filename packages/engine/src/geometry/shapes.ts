@@ -96,12 +96,26 @@ export function segmentTouchesPolygon(a: Pt, b: Pt, poly: Pt[]): boolean {
 
 /** True when the segment passes through the polygon's interior (not just grazing an edge or vertex). */
 export function segmentCrossesPolygon(a: Pt, b: Pt, poly: Pt[]): boolean {
-  const len = dist(a, b);
-  const steps = Math.max(2, Math.ceil(len / 0.05));
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps;
-    const p = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
-    if (signedDistToPolygon(p, poly) < -EPS) return true;
+  // Split the segment where it meets the polygon's edges; it crosses the interior iff some piece's midpoint is inside.
+  const ts = [0, 1];
+  const rx = b.x - a.x;
+  const ry = b.y - a.y;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const sx = poly[i].x - poly[j].x;
+    const sy = poly[i].y - poly[j].y;
+    const den = rx * sy - ry * sx;
+    if (Math.abs(den) < 1e-12) continue;
+    const qx = poly[j].x - a.x;
+    const qy = poly[j].y - a.y;
+    const t = (qx * sy - qy * sx) / den;
+    const u = (qx * ry - qy * rx) / den;
+    if (t > 0 && t < 1 && u >= -1e-9 && u <= 1 + 1e-9) ts.push(t);
+  }
+  ts.sort((x, y) => x - y);
+  for (let i = 1; i < ts.length; i++) {
+    if (ts[i] - ts[i - 1] < 1e-9) continue;
+    const t = (ts[i] + ts[i - 1]) / 2;
+    if (signedDistToPolygon({ x: a.x + rx * t, y: a.y + ry * t }, poly) < -EPS) return true;
   }
   return false;
 }
