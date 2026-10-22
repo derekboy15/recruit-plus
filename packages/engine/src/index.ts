@@ -5,3 +5,5 @@ export * from './core/state';
 export * from './core/record';
 export * from './core/context';
 export { R } from './core/rules';
+export * from './datasheet/types';
+export * from './datasheet/profile';
