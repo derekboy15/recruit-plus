@@ -4,7 +4,8 @@ import { basename, join } from 'node:path';
 import type { Block, CatalogueOut, FactionGuide, GlossaryTerm, Inline, KeyUnit, RulesArticle, RulesData } from '../model/types';
 import { blocksText, compileMarkdown, parseFrontmatter, type Frontmatter } from './markdown';
 
-const SOURCE = /^0[1-5]_[^/]+\/.+\.md( §[\d.]+)?$/;
+// A library file (optionally with a section), or "catalogue data" when a guide rests on the faction's own rules and units.
+const SOURCE = /^(0[1-5]_[^/]+\/.+\.md( §[\d.]+)?|catalogue data)$/;
 const GUIDE_SECTIONS = ['How this army plays', 'Army rules', 'Key units'];
 const FORBIDDEN: [RegExp, string][] = [
   [/\(unverified\)/i, '(unverified)'],

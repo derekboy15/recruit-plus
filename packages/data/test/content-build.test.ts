@@ -181,6 +181,11 @@ test('sources must name library files', () => {
   expect(() => buildContent(dir, cats)).toThrow(/01-basics\.md: source "Goonhammer" is not a library file/);
 });
 
+test('a guide may cite the catalogue data itself as a source', () => {
+  const dir = withFile('guides/necrons.md', fixtureFile('guides/necrons.md').replace('sources: [03_Codexes/Xenos/Necrons.md]', 'sources: [catalogue data]'));
+  expect(buildContent(dir, cats).guides).toHaveLength(1);
+});
+
 test('an article needs every frontmatter field', () => {
   const dir = withFile('rules/01-basics.md', fixtureFile('rules/01-basics.md').replace('summary: Datasheets, dice and measuring.\n', ''));
   expect(() => buildContent(dir, cats)).toThrow(/01-basics\.md: missing "summary"/);
