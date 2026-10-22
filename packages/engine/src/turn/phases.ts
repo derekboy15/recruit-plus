@@ -182,6 +182,7 @@ export function inBattle(ctx: Ctx): void {
 
 function activeOnly(ctx: Ctx, by: PlayerId): void {
   inBattle(ctx);
+  if (ctx.state.pending) ctx.reject('pending-decision', 'Finish the current roll or decision first.', '[R-19]');
   if (by !== ctx.state.active) ctx.reject('not-your-turn', 'Only the player whose turn it is can move the game on.', '[TS §1.9]');
 }
 
