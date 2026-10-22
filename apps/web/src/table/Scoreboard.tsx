@@ -6,6 +6,9 @@ export const PHASE_NAME: Record<TablePhase, string> = {
   charge: 'Charge phase', fight: 'Fight phase', morale: 'Morale phase',
 };
 
+/** "Your turn" for the default "You", "Opponent's turn" otherwise. */
+export const turnOf = (name: string) => (name === 'You' ? 'Your turn' : `${name}'s turn`);
+
 /** Both players' CP and VP, and where the game is. Stays at the top of the game screen. */
 export function Scoreboard({ setup, state }: { setup: TableSetup; state: TableState }) {
   const order: PlayerKey[] = [setup.firstTurn, setup.firstTurn === 'A' ? 'B' : 'A'];
@@ -21,7 +24,7 @@ export function Scoreboard({ setup, state }: { setup: TableSetup; state: TableSt
         ))}
       </div>
       <p className="scoreboard__pos" aria-live="polite">
-        {state.ended || !state.pos ? 'Game over' : `Round ${state.pos.round} · ${setup.players[state.active!].name}'s turn · ${PHASE_NAME[state.pos.phase]}`}
+        {state.ended || !state.pos ? 'Game over' : `Round ${state.pos.round} · ${turnOf(setup.players[state.active!].name)} · ${PHASE_NAME[state.pos.phase]}`}
       </p>
     </div>
   );

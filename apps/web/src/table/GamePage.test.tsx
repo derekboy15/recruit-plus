@@ -61,7 +61,7 @@ test('Arks of Omen Command phase adds 1 CP to both players', async () => {
     expect(within(player('You')).getByText('7 CP')).toBeInTheDocument();
     expect(within(player('Opponent')).getByText('7 CP')).toBeInTheDocument();
   });
-  expect(screen.getByText(/Round 1 · You's turn · Command phase/)).toBeInTheDocument();
+  expect(screen.getByText(/Round 1 · Your turn · Command phase/)).toBeInTheDocument();
   expect(screen.getByText(/Both players gain 1 CP/)).toBeInTheDocument();
 });
 
@@ -108,7 +108,7 @@ test('leaving Command in round 2 opens the hold prompt and 2 controlled vs 1 sco
   await tap(u, 'More: Objective markers your opponent controls', 1);
   await u.click(within(prompt).getByRole('button', { name: 'Score 12 VP' }));
   await waitFor(() => expect(within(player('You')).getByText('12 VP')).toBeInTheDocument());
-  expect(await screen.findByText(/Round 2 · You's turn · Movement phase/)).toBeInTheDocument();
+  expect(await screen.findByText(/Round 2 · Your turn · Movement phase/)).toBeInTheDocument();
 });
 
 test('round 5 second player is prompted for the hold at End turn', async () => {
@@ -171,7 +171,7 @@ test('End turn of turn 2 asks Break Them for both players', async () => {
   await u.click(within(first).getByRole('button', { name: 'Score 2 VP' }));
   const second = await screen.findByRole('region', { name: /Score: Opponent/ });
   await u.click(within(second).getByRole('button', { name: 'Skip' }));
-  expect(await screen.findByText(/Round 2 · You's turn · Command phase/)).toBeInTheDocument();
+  expect(await screen.findByText(/Round 2 · Your turn · Command phase/)).toBeInTheDocument();
   await waitFor(() => expect(within(player('You')).getByText('2 VP')).toBeInTheDocument());
 });
 

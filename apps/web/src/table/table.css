@@ -23,7 +23,7 @@
 .new-game .mission-map { margin-top: 0.75rem; }
 /* Game screen */
 .game { display: grid; gap: 0.75rem; }
-.scoreboard { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.scoreboard { position: sticky; top: calc(var(--touch) + 1rem + 1px); /* below the sticky top bar */ z-index: 4; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
 .scoreboard__players { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 .scoreboard__player { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0 0.5rem; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .scoreboard__player--active { border-color: var(--brass-strong); box-shadow: inset 0 -3px 0 var(--brass); }
@@ -32,7 +32,7 @@
 .scoreboard__cp { grid-column: 1 / -1; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .scoreboard__pos { margin: 0.4rem 0 0; font-weight: 600; color: var(--brass-strong); }
 .game__tabs { display: flex; width: 100%; margin: 0; overflow-x: auto; }
-.game__tabs .seg__btn { flex: 1 0 auto; min-height: var(--touch); }
+.game__tabs .seg__btn { flex: 1 1 auto; min-height: var(--touch); padding: 0 0.35rem; font-size: 0.85rem; }
 .game__tabs .seg__btn[aria-selected='true'] { background: var(--surface-2); color: var(--text); box-shadow: inset 0 -3px 0 var(--brass); }
 .turn { display: grid; gap: 0.75rem; }
 .prompt { border-color: var(--brass-strong); }
@@ -54,9 +54,9 @@
 .stratagems { display: grid; gap: 0.75rem; }
 .tools, .dice, .odds { display: grid; gap: 0.75rem; }
 .tools > .seg { display: flex; width: 100%; margin: 0; }
-.tools > .seg .seg__btn { flex: 1; min-height: var(--touch); }
+.tools > .seg .seg__btn { flex: 1 1 0; min-width: 0; min-height: var(--touch); padding: 0 0.3rem; font-size: 0.9rem; }
 .tools > .seg .seg__btn[aria-selected='true'] { background: var(--surface-2); color: var(--text); box-shadow: inset 0 -3px 0 var(--brass); }
-.dice .seg { margin: 0; }
+.dice .seg { margin: 0; justify-self: start; }
 .dice .seg__btn { min-height: var(--touch); min-width: var(--touch); }
 .dice__results { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .die { width: var(--touch); height: var(--touch); display: grid; place-items: center; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); font-weight: 700; font-size: 1.2rem; }

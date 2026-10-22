@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { MissionsOut } from '@recruit/data/missions';
 import { activePlayer, makeEvent, type TableEvent, type TableGameData, type TableSetup, type TablePhase } from './game';
-import { PHASE_NAME } from './Scoreboard';
+import { PHASE_NAME, turnOf } from './Scoreboard';
 
 const SHORT: Record<TablePhase, string> = {
   command: 'Command', movement: 'Movement', psychic: 'Psychic', shooting: 'Shooting', charge: 'Charge', fight: 'Fight', morale: 'Morale',
@@ -12,7 +12,7 @@ const END: Record<string, string> = { complete: 'all 5 battle rounds played', ag
 export function describeEvent(e: TableEvent, setup: TableSetup, missions: MissionsOut): string {
   const name = (p: 'A' | 'B') => setup.players[p].name;
   if (e.t === 'start') return 'Game started';
-  if (e.t === 'advance') return `Round ${e.to.round} · ${name(activePlayer(setup, e.to))}'s turn · ${PHASE_NAME[e.to.phase]}`;
+  if (e.t === 'advance') return `Round ${e.to.round} · ${turnOf(name(activePlayer(setup, e.to)))} · ${PHASE_NAME[e.to.phase]}`;
   const where = e.pos ? `Round ${e.pos.round} · ${name(activePlayer(setup, e.pos))} · ${SHORT[e.pos.phase]}: ` : '';
   const secondaryName = (id: string) =>
     missions.packs.flatMap((p) => p.secondaries).find((s) => s.id === id)?.name ??
