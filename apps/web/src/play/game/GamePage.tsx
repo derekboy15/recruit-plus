@@ -96,8 +96,8 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   // DEV only: end-to-end tests read the state to find models (BoardCanvas adds their screen positions).
   useEffect(() => {
     if (!import.meta.env.DEV) return;
-    window.__sandbox = { ...window.__sandbox, state: () => state };
-  }, [state]);
+    window.__sandbox = { ...window.__sandbox, state: () => state, plan: () => plan };
+  }, [state, plan]);
 
   const ui: PanelProps['ui'] = useMemo(
     () => ({

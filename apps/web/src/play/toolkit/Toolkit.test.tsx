@@ -42,6 +42,8 @@ test('returning a destroyed model puts it where tapped', async () => {
   const m = stateOf(h.record()).models['A:war.m1'];
   expect(m.destroyed).toBe(false);
   expect(m.pos).toMatchObject({ x: 14, y: 6.5 });
+  // Like Reanimation Protocols, by default it stops counting as destroyed for this turn's Morale test.
+  expect(stateOf(h.record()).units['A:war'].turn.lostThisTurn).toBe(0);
 });
 
 test("+1 CP raises that player's CP", async () => {

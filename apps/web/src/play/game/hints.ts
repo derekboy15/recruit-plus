@@ -12,6 +12,7 @@ export function hintFor(s: GameState, step: CurrentStep, selectedUnitId: string 
     case 'first-turn':
       return 'Roll off to see who takes the first turn. In Core Book missions the winner chooses; in Arks of Omen the winner goes first.';
     case 'move-units':
+      if (s.activation?.kind === 'move') return 'Drag the models; the ring shows how far they can go. The app checks the move when you let go.';
       return selectedUnitId
         ? 'Choose a Normal Move, an Advance (add a D6 to its Move, but then it can only shoot Assault weapons and can’t charge) or Remain Stationary.'
         : 'Tap one of your units to move it. Each model can move up to its Move characteristic (M).';

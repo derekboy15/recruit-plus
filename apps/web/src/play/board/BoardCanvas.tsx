@@ -32,7 +32,7 @@ const pixi: RendererFactory = async (host, view) => (await import('./pixiRendere
 declare global {
   interface Window {
     /** DEV only: lets end-to-end tests find models on the canvas. */
-    __sandbox?: { screenOf?(modelId: string): Pt | null; state?(): unknown };
+    __sandbox?: { screenOf?(modelId: string): Pt | null; state?(): unknown; plan?(): unknown };
   }
 }
 

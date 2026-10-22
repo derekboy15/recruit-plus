@@ -34,6 +34,12 @@ describe('hints', () => {
     expect(picked).toMatch(/Advance/);
   });
 
+  test('during a move the hint is about dragging, whoever is selected', () => {
+    const [s, step] = at('movement', 'move-units');
+    const moving = { ...s, activation: { kind: 'move', unitId: 'A:war', moveKind: 'normal', bonus: 0, rolled: true } } as GameState;
+    expect(hintFor(moving, step, null)).toMatch(/^Drag the models/);
+  });
+
   test('no hint once the game is over', () => {
     expect(hintFor(...at('ended', 'main'), null)).toBeNull();
   });

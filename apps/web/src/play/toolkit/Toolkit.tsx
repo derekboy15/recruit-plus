@@ -39,7 +39,7 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
   const [modelId, setModelId] = useState<string | null>(null);
   const [spot, setSpot] = useState<Pos | null>(null);
   const [unitId, setUnitId] = useState<string | null>(ui.selectedUnitId);
-  const [counts, setCounts] = useState(true);
+  const [counts, setCounts] = useState(false);
   const [wounds, setWounds] = useState(1);
   const [profile, setProfile] = useState('');
   const [order, setOrder] = useState<string[]>([]);
