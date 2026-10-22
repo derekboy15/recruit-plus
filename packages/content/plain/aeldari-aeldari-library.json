@@ -1,0 +1,87 @@
+{
+  "0a6c08765419": {
+    "name": "Strands of Fate",
+    "kind": "rule",
+    "plain": "The full rules for this are in your Codex."
+  },
+  "1b5ecd577d7e": {
+    "name": "Luck of the Laughing God",
+    "kind": "rule",
+    "plain": "The battle-size table in the Luck of the Laughing God ability no longer applies. At the start of the battle round you get 0 Luck re-rolls, whatever the battle size: the only way to gain Luck re-rolls is to make a Luck of the Laughing God roll."
+  },
+  "289a87f8f338": {
+    "name": "Reckless Abandon [LEGENDS]",
+    "kind": "rule",
+    "plain": "This unit can make Heroic Interventions just as a CHARACTER could."
+  },
+  "31fb1c2e237d": {
+    "name": "Battle Focus",
+    "kind": "rule",
+    "plain": "Advancing doesn't stop this unit from shooting that turn, but if it does shoot after Advancing, then until the end of the phase its models can only attack with Assault or Pistol weapons they have, and the unit counts as having Remained Stationary when those attacks are resolved. In your Shooting phase, once this unit has finished its attacks, it can make a Battle Focus move unless it Fell Back or Advanced this turn: roll one D6, and each model in the unit can make a Normal Move of up to that many inches, as if it were your Movement phase. After a Battle Focus move, the unit can't embark within a TRANSPORT model when that move ends, and it can't declare a charge until the end of the turn. A unit that arrived as Reinforcements this turn can't make a Battle Focus move, and no unit can make more than one Battle Focus move in a turn. Note (Area Terrain): if any model in the unit wants to cross any part of an Area Terrain feature during a Battle Focus move, subtract 3\" from how far the unit's models can move for that move (to a minimum of 0). The penalty still applies when no part of that Area Terrain feature is taller than 1\", but it doesn't stack with other penalties that terrain feature imposes (such as the Difficult Ground terrain trait)."
+  },
+  "33f07c2fc916": {
+    "name": "Poisoned Weapon",
+    "kind": "rule",
+    "plain": "Many Drukhari weapons have the Poisoned Weapon ability, shown as 'Poisoned Weapon' followed by a value such as (4+) or (2+). When an attack with a poisoned weapon targets a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of that value always succeeds."
+  },
+  "3ccc5a513666": {
+    "name": "Insensible to Pain",
+    "kind": "rule",
+    "plain": "Each time one of this unit's models would lose a wound, roll one D6; the wound isn't lost on a 5+."
+  },
+  "51fd4a90b229": {
+    "name": "Mysterious Appearance",
+    "kind": "ability",
+    "plain": "During deployment, when you set up this unit, you can place it anywhere on the battlefield more than 12\" from the enemy deployment zone and from all enemy models. Whenever this unit is set up on the battlefield, its two Wraithbone Arches must be within 3\" of each other. Once set up, each Wraithbone Arch counts as an Obstacle terrain feature with these terrain traits: Light Cover, Heavy Cover, Unstable Position and Inspiring (AELDARI)."
+  },
+  "53835ca385b2": {
+    "name": "Sudden Assault",
+    "kind": "rule",
+    "plain": "If every model in this unit has this ability, then during deployment you can set it up preparing a sudden assault instead of on the battlefield. In that case, in the Reinforcements step of any one of your Movement phases it can be placed anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "5db1ee33467a": {
+    "name": "Power From Pain",
+    "kind": "rule",
+    "plain": "Each effect below applies from the listed battle round onwards. Inured to Suffering (battle round 1+): models in this unit get a 6+ invulnerable save. Eager to Flay (battle round 2+): the unit is allowed to declare a charge in a turn in which it Advanced. Flensing Fury (battle round 3+): add 1 to the hit roll of every melee attack made by this unit's models; also, if this unit has the VEHICLE or MONSTER keyword, it ignores the hit roll penalty for firing Heavy weapons at enemy units within its Engagement Range. Mantle of Agony (battle round 4+): models in this unit get a 5+ invulnerable save. Emboldened by Bloodshed (battle round 5+): the unit passes Morale tests automatically, and if its characteristics change as it takes damage, it counts as having twice its remaining wounds when you work out which characteristics apply."
+  },
+  "8f4a4001a8f0": {
+    "name": "Harlequin's Panoply",
+    "kind": "rule",
+    "plain": "This unit's models have a 5+ invulnerable save. During any Normal Move, Advance, Fall Back or charge move this unit makes, its models can pass horizontally through models and terrain features (but they can't end the move on top of another model or its base). Subtract 1 from the hit roll of every melee attack made against this unit."
+  },
+  "b3af1bfdee9d": {
+    "name": "Shuriken Weapons",
+    "kind": "rule",
+    "plain": "Shuriken weapons are Aeldari weapons with an ability that says 'Shuriken'. When an attack is made with one, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 2."
+  },
+  "bf0f5041d926": {
+    "name": "Webway Strike",
+    "kind": "ability",
+    "plain": "Whenever an AELDARI unit from your army arrives from Strategic Reserves, you can choose to place it anywhere on the battlefield wholly within 6\" of both Wraithbone Arches of one of your WEBWAY GATE units. If you do, it may be set up within 9\" of enemy models. If it ends up within Engagement Range of any enemy models this way, it is treated as having made a charge move this turn (no Overwatch attacks can be made against it), and until the end of the turn it can make melee attacks against any enemy unit it is within Engagement Range of, even though it didn't declare a charge this turn."
+  },
+  "c54803c659d6": {
+    "name": "Favoured of Khaine",
+    "kind": "rule",
+    "plain": "This model has a 4+ invulnerable save, can't lose more than 3 wounds in any one phase, and can never be given a Relic or a Warlord Trait."
+  },
+  "db5e569aaf96": {
+    "name": "Advanced Positions",
+    "kind": "rule",
+    "plain": "During deployment, if every model in this unit has this ability, you can place it anywhere on the battlefield more than 9\" from the enemy deployment zone and from all enemy models."
+  },
+  "f9e8b4726ae2": {
+    "name": "Webway Travellers",
+    "kind": "ability",
+    "plain": "If this unit is part of your army and the Strategic Reserves rule is being used, the Command Point cost of putting AELDARI units into Strategic Reserves can be halved (round fractions down). This doesn't stack with similar abilities, such as Prince of Corsairs."
+  },
+  "fb5171358032": {
+    "name": "Rising Crescendo",
+    "kind": "rule",
+    "plain": "Advancing doesn't stop this unit from declaring a charge that turn. Falling Back doesn't stop it from shooting and from declaring a charge that turn."
+  },
+  "fc76df3a0c80": {
+    "name": "Blade Artists",
+    "kind": "rule",
+    "plain": "When a model in this unit attacks with a melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  }
+}

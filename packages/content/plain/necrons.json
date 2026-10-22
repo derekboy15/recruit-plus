@@ -1,0 +1,1082 @@
+{
+  "01c6123adb67": {
+    "name": "Wraith Form",
+    "kind": "ability",
+    "plain": "Each model in this unit has a 4+ invulnerable save. Also, whenever this unit makes a Normal Move, Advances, Falls Back or makes a charge move, its models can pass horizontally through other models and terrain features until that move ends, but they can't end the move on top of another model or its base."
+  },
+  "03453726a677": {
+    "name": "Fractal Targeting",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase: pick one of your TOMB BLADES units. Until the phase ends, the Rapid Fire weapons its models carry count as Assault 2 weapons, and its models ignore the hit roll penalty for shooting Assault weapons in a turn when their unit Advanced."
+  },
+  "03befb49e557": {
+    "name": "Enslaved Protectors",
+    "kind": "stratagem",
+    "plain": "In your opponent's Charge phase: pick one of your CANOPTEK units. Until the phase ends, it can perform Heroic Interventions as though it were a CHARACTER."
+  },
+  "05aacd962e1b": {
+    "name": "Matter Absorption",
+    "kind": "ability",
+    "plain": "At the end of every phase, roll a D6 for each enemy VEHICLE model that this model destroyed that phase, either with an attack or with one of its C'tan Powers. For every 2+, this model gets back 1 lost wound, up to a limit of 3 wounds regained per phase."
+  },
+  "089c6a330cda": {
+    "name": "Eternal Protectors",
+    "kind": "stratagem",
+    "plain": "In the Fight phase: pick one of your <DYNASTY> LYCHGUARD units. Until the phase ends, while it is within 3\" of one of your <DYNASTY> NOBLE models, each of its models gets 1 extra attack."
+  },
+  "0b61188c9251": {
+    "name": "Cryptogeometric Adjuster",
+    "kind": "ability",
+    "plain": "At the start of your opponent's Shooting phase, you can pick one enemy unit within 12\" of the bearer that the bearer can see. Until the phase ends, subtract 1 from the hit roll of every attack made by a model in that unit."
+  },
+  "0b9fba20f65b": {
+    "name": "Living Lightning",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, roll a D6 for each enemy unit that is within 6\" of this model; each unit you roll a 4+ for takes 1 mortal wound."
+  },
+  "0d9eb85fac20": {
+    "name": "Resurrection Protocols",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your NECRONS INFANTRY NOBLE or NECRONS INFANTRY CRYPTEK models is destroyed: instead of using any rules that trigger when it is destroyed (such as Surrogate Hosts abilities), you can choose to roll a D6 at the end of the phase. On a 4+, put that model back on the battlefield as close as possible to the spot where it was destroyed and more than 1\" away from all enemy models, with D3 wounds left. You can't use this Stratagem to bring back the same model more than once per battle."
+  },
+  "0f904a29e575": {
+    "name": "Protectors (Aura)",
+    "kind": "ability",
+    "plain": "Aura: a CRYPTEK unit of yours that is within 3\" of this unit can benefit from the Look Out, Sir rule, even if this unit has fewer than 3 models."
+  },
+  "10dd0f32b8cf": {
+    "name": "Teleportation matrix",
+    "kind": "ability",
+    "plain": "This model gets the Dimensional Translocation ability."
+  },
+  "114752eab02f": {
+    "name": "Lord of the Storm",
+    "kind": "ability",
+    "plain": "In your Shooting phase, once per battle, this model can call the storm. To do so, choose an enemy model that it can see within 48\" (a CHARACTER model with a Wounds characteristic of 9 or less is only a valid choice if it is the closest enemy model to Imotekh). For every other enemy unit within 6\" of the chosen model, roll a D6: on a 4+ that unit takes D3 mortal wounds. After that, roll a single D6: on a 4+ the chosen model takes 3 mortal wounds."
+  },
+  "135f6eed05b7": {
+    "name": "Cult of Annihilation",
+    "kind": "ability",
+    "plain": "This unit never gets a Dynastic Code. Whenever a model with this ability attacks a unit that was below its Starting Strength when this model was picked to shoot or fight, add 1 to that attack's hit roll. If the target unit was below Half-strength at that time, also add 1 to the attack's wound roll."
+  },
+  "14586c074c99": {
+    "name": "My Will Be Done",
+    "kind": "ability",
+    "plain": "In your Command phase, this unit can choose one of your <DYNASTY> CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "160caea635c6": {
+    "name": "Chronometron",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your <DYNASTY> units that is within 9\" of this model. Until your next Command phase begins, the chosen unit's models have a 5+ invulnerable save and you can re-roll its charge rolls."
+  },
+  "16abec903b82": {
+    "name": "Relentless March (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <DYNASTY> CORE units is within 6\" of this model, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "172ab2afe557": {
+    "name": "The Stars Are Right",
+    "kind": "ability",
+    "plain": "If this model is on the battlefield in your Command phase, roll a D6. When the result is lower than the current battle round number, switch this model to its Orikan Empowered profile for the rest of the battle (any wounds it has already lost stay lost)."
+  },
+  "175c7df67a67": {
+    "name": "Ever-Present Protector",
+    "kind": "ability",
+    "plain": "If NEMESOR ZAHNDREKH is in a Detachment, VARGARD OBYRON can also be in that Detachment without using up a Battlefield Role slot."
+  },
+  "18f4021d6b11": {
+    "name": "The Royal Court",
+    "kind": "rule",
+    "plain": "When you muster your army, your WARLORD must be chosen in this order of priority: THE SILENT KING model if your army has one; if not, a PHAERON model; if not, an OVERLORD model; if not, a LORD model. If your army has none of these models, pick your WARLORD in the normal way."
+  },
+  "1af90a895fe1": {
+    "name": "Nano-Scarab Reanimation Beam (Aura)",
+    "kind": "ability",
+    "plain": "Aura: in your Command phase, you can pick one of your <DYNASTY> units within 6\" of this model that it can see. Until the start of your next Command phase, while that unit stays within 6\" of this model and visible to it, it is being healed by this model's reanimation beam. A unit being healed by a reanimation beam adds 1 to its Reanimation Protocol rolls. A unit can never be healed by more than one reanimation beam at the same time."
+  },
+  "1b98a1c4aa99": {
+    "name": "Powers of the C'tan (Instructions)",
+    "kind": "ability",
+    "plain": "Before the battle, work out the Powers of the C'tan for your C'TAN SHARD units using the table below. Either roll a D6 for each power to generate it at random (re-roll any duplicates), or choose the powers each unit knows. If you choose, every power must have been chosen at least once across your army before any power can be picked again, and a single unit can't know one power twice. Record the Powers of the C'tan each unit knows on your army roster.\n\nOn the table, 1 is Antimatter Meteor, 2 is Time's Arrow, 3 is Sky of Falling Stars, 4 is Cosmic Fire, 5 is Seismic Assault and 6 is Transdimensional Thunderbolt."
+  },
+  "1c911a505a5c": {
+    "name": "Reclaim a Lost Empire",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase: pick one of your NIHILAKH INFANTRY units that is in the middle of performing an action. It can shoot this phase and the action does not fail."
+  },
+  "204acb6479dc": {
+    "name": "Rarefied Nobility",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the NECRONS keyword: pick one NECRONS CHARACTER model in your army (not a C'TAN SHARD model) and give it one Warlord Trait it is allowed to have. That model counts as your WARLORD only for that Warlord Trait. Every Warlord Trait in your army must be different (re-roll duplicates if generating them at random), and this Stratagem can't give a model a second Warlord Trait. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "209301605138": {
+    "name": "Death Descending",
+    "kind": "ability",
+    "plain": "During deployment, you can place this model in the upper atmosphere rather than on the battlefield. If you do, in the Reinforcements step of any one of your Movement phases you can set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "20a22fc4a6ff": {
+    "name": "Extermination Protocols",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your LOKHUST DESTROYERS or LOKHUST HEAVY DESTROYERS units is picked to shoot: until the phase ends, you can re-roll the wound roll for every attack made by a model in that unit."
+  },
+  "20d93044d877": {
+    "name": "Wrecked",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit is destroyed, roll a D6 before you remove it. On a 6, it explodes and every unit within 9\" takes D6 mortal wounds. On any other roll, it becomes a wreck: it counts as destroyed for all rules, but you leave it on the battlefield, and for the rest of the battle it is an Obstacle terrain feature with the Difficult Ground, Exposed Position and Unstable Position terrain traits.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "22fd57c533af": {
+    "name": "Ancient Collector",
+    "kind": "ability",
+    "plain": "If this model is in your army, the first time you use the Dynastic Heirlooms Stratagem it costs 1 Command point less. If this model is in your Crusade force, the Relic Requisition costs 0 Requisition Points."
+  },
+  "23b6ee852be7": {
+    "name": "Tesseract Singularity Chamber (Particle Hurricane)",
+    "kind": "weapon",
+    "plain": "Every attack made with this weapon hits the target automatically, and a wound roll of 2+ always succeeds. Against a VEHICLE target, a wound roll of 6 always succeeds instead."
+  },
+  "23d058328d43": {
+    "name": "Atavistic Instigation",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your DOOM SCYTHE models is picked to shoot: after choosing the target for its heavy death ray, pick one enemy unit within 3\" of that target (it can be the target itself). That enemy unit chooses whether to brace or duck for cover. If it braces and is not a VEHICLE or MONSTER unit, it takes D3 mortal wounds. If it ducks for cover, then until the end of the turn its models subtract 1 from their Attacks characteristic, and it can't fire Overwatch or Set to Defend."
+  },
+  "2402a6fabfdb": {
+    "name": "Their Number Is Legion",
+    "kind": "ability",
+    "plain": "Each 1 rolled on this unit's Reanimation Protocol rolls must be re-rolled."
+  },
+  "24b16c816af2": {
+    "name": "Evasion Protocol",
+    "kind": "ability",
+    "plain": "While this model is within 3\" of one of your <DYNASTY> DESTROYER CULT units, enemy models can't target it with ranged weapons unless it is the closest eligible target. Also, this unit can't perform actions."
+  },
+  "24c0fa49f3e4": {
+    "name": "Grand Illusion",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, you can pick up to three of your NECRONS units. Take them off the battlefield and set them up again anywhere wholly within your deployment zone. Then, if the mission uses Strategic Reserves, you can put any of these units into Strategic Reserves at no extra CP cost, no matter how many units are already there. If both players have abilities that redeploy units, roll off, and the winner decides who redeploys first."
+  },
+  "288140f8b453": {
+    "name": "Murderous Demise",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when a CHARACTER model from your army is destroyed before it has been picked to fight this phase: use this instead of any other abilities that trigger on its death. Leave the model in play. Once the attacking model's unit has finished its attacks, the destroyed model can either shoot as though it were your Shooting phase, or be picked to fight. Remove it after its attacks are resolved."
+  },
+  "288f50116b1b": {
+    "name": "The Swarm Descends",
+    "kind": "stratagem",
+    "plain": "Before the battle: pick one of your CANOPTEK SCARAB SWARM units. It gains the Dimensional Translocation ability."
+  },
+  "28af2a8c8efd": {
+    "name": "Dimensional Translocation",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit in a hyperspace dimension rather than on the battlefield. If you do, in the Reinforcements step of any one of your Movement phases you can set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "2aaf6c682854": {
+    "name": "Disintegration Capacitors",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your NECRONS units is picked to shoot: until the phase ends, whenever a model in it attacks with a gauss weapon, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "2b82100a4f02": {
+    "name": "Death Sphere Bombardment",
+    "kind": "ability",
+    "plain": "Once per battle, when this model finishes a Normal Move or Advance in your Movement phase and is still on the battlefield, you can choose one enemy unit it passed over during that move. Then roll 3D6 for every VEHICLE or MONSTER model in the chosen unit, plus one D6 for every other model in it (to a maximum of twelve D6). The unit takes 1 mortal wound for each 3+ rolled.",
+    "waive": {
+      "2023": "date of the rules update note (January 2023 dataslate), not a game value"
+    }
+  },
+  "2bd895385d13": {
+    "name": "Command Protocols",
+    "kind": "ability",
+    "plain": "This unit can benefit from this ability, and the rules below apply, if every unit in your army (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units) comes from the same dynasty and your WARLORD is a NECRONS CHARACTER model.\n\nOnce both sides have deployed, and before you determine who takes the first turn, you must secretly assign a different command protocol to each of the first five battle rounds and write this on your army roster.\n\nAt the start of every battle round, if at least one NECRONS CHARACTER unit from your army is on the battlefield, the command protocol assigned to that round becomes active for your army until that round ends. Every command protocol has two directives. When one becomes active, show it to your opponent and choose one of its directives. For as long as that protocol stays active, each unit eligible for this ability that is on the battlefield gets the benefit of the chosen directive.\n\nAlso, if all your army's units are from the same dynasty (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units), pick one command protocol that wasn't assigned to any battle round (normally there is only one left). It is active in every battle round on top of that round's assigned protocol; at the start of each battle round, choose which of its directives your units benefit from. If this extra protocol is the one named in your dynasty's code, then both of its directives apply to every unit with this ability in your army in every battle round, on top of the protocol assigned to that round."
+  },
+  "30206059fae5": {
+    "name": "Guardian Protocols (Aura)",
+    "kind": "ability",
+    "plain": "Aura: any of your <DYNASTY> INFANTRY NOBLE or DYNASTIC AGENT INFANTRY NOBLE units within 3\" of this unit can benefit from the Look Out, Sir rule, even if this unit has fewer than 3 models."
+  },
+  "30316f843d57": {
+    "name": "Sentinel Construct",
+    "kind": "ability",
+    "plain": "Whenever an enemy unit declares a charge against one of your <DYNASTY> or DYNASTIC AGENT units within 6\" of this model, this model can fire Overwatch at the charging unit as though it were also a target of the charge, as long as it is not within Engagement Range of any enemy models. This is on top of any other units firing Overwatch. Whenever this model fires Overwatch, it attacks with the high power profile of its doomsday blaster."
+  },
+  "3396719c0df2": {
+    "name": "Phaeron of the Stars (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, you can re-roll the hit roll for each ranged attack made by a model in that unit."
+  },
+  "34f17a09c074": {
+    "name": "Arkana: Autodivinator",
+    "kind": "ability",
+    "plain": "If the bearer is on the battlefield when your Command phase starts, roll a D6; you gain 1 Command point on a 5+."
+  },
+  "3558eb540bd8": {
+    "name": "Efficient Disintegration",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your LOKHUST DESTROYERS or LOKHUST HEAVY DESTROYERS units is picked to shoot: until the phase ends, whenever a model in it attacks with a gauss cannon or gauss destructor, add 1 to that attack's damage roll."
+  },
+  "35c0cb7299db": {
+    "name": "Predictive Strategist",
+    "kind": "ability",
+    "plain": "Once per battle, when you use a Stratagem while your army is Battle-forged and this model is on the battlefield, this model can use its Predictive Strategy to make that Stratagem cost 1CP less (to a minimum of 0CP). This discount only applies to that single use; using the Stratagem again later costs the usual amount of CP."
+  },
+  "3a54c9b9fce7": {
+    "name": "Adaptive Strategy",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. For the rest of the turn, that unit can still shoot and declare a charge in a turn when it Fell Back."
+  },
+  "3c09cc9017d9": {
+    "name": "Dimensional Sanctum",
+    "kind": "ability",
+    "plain": "The bearer gets the Dimensional Translocation ability."
+  },
+  "3c20b1751e08": {
+    "name": "Fractured Personality",
+    "kind": "ability",
+    "plain": "Before the battle, choose one ability from the table below for this model to keep for the whole battle. Or, instead, roll two D6 and look up both results to give this model two random abilities (if both dice show the same number, roll both again until they differ).\n\n1 Cosmic Tyrant: at the end of your Movement phase, if this model didn't Advance or Fall Back that phase, it can use one extra C'tan Power it knows, but it may never use any one C'tan Power twice in a turn.\n2 Immune to Natural Law: whenever an attack targets this model, an unmodified wound roll of 1-3 always fails, whatever abilities the weapon or attacker has.\n3 Sentient Necrodermis: this model's Save characteristic is 3+.\n4 Transdimensional Displacement: this model gets the Dimensional Translocation ability.\n5 Untamed Power: this model's Attacks characteristic is 6 and its Strength characteristic is 7.\n6 Writhing Worldscape: when your Movement phase starts, every enemy unit within Engagement Range of this model takes 1 mortal wound on a D6 roll of 4+. Also, whenever a unit declares a charge against this model, subtract 2 from that unit's charge rolls until the phase ends."
+  },
+  "3c6a5a857901": {
+    "name": "Recall Protocol",
+    "kind": "ability",
+    "plain": "In the Unit Coherency Checks step of the Morale phase, this model is destroyed if it is not within 6\" of any of your <DYNASTY> DESTROYER CULT units."
+  },
+  "3c87aad9da14": {
+    "name": "Tachyon Arrow",
+    "kind": "weapon",
+    "plain": "The bearer can fire this weapon only once per battle."
+  },
+  "3d7e9b364d3d": {
+    "name": "Enslaved Star God",
+    "kind": "ability",
+    "plain": "This model can never be given a Relic or a Warlord Trait. Also, when enemy models pick this model as the target of a ranged attack, they can ignore the Look Out, Sir rule."
+  },
+  "3d9fc81edda3": {
+    "name": "Defence Field (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in any of your <DYNASTY> units have a 5+ invulnerable save while their unit is within 6\" of this unit's Power Crucible model."
+  },
+  "403c47209545": {
+    "name": "The Silent King",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, Szarekh has to be its WARLORD. If Szarekh is your WARLORD, you get 3 extra Command points."
+  },
+  "425be7590e12": {
+    "name": "Gauss Annihilator (Focused Beam)",
+    "kind": "weapon",
+    "plain": "Blast. Add 2 to the hit roll of each attack this weapon makes against an AIRCRAFT unit."
+  },
+  "4307a65911ef": {
+    "name": "Arkana: Obedience Nanoscarabs",
+    "kind": "ability",
+    "plain": "PSYCHOMANCER model only: whenever you use the bearer's Harbinger of Despair ability, you can pick two of its effects rather than just one."
+  },
+  "440576934b73": {
+    "name": "Resurrection Amplifier (Aura)",
+    "kind": "ability",
+    "plain": "Aura: add 1 to the Reanimation Protocol rolls of any of your <DYNASTY> CORE units while they are within 6\" of this unit's Power Crucible model."
+  },
+  "4414875eb6d7": {
+    "name": "Powers of the C'tan (Deceiver)",
+    "kind": "ability",
+    "plain": "Besides the Cosmic Insanity C'tan Power, this model knows one more power chosen from the Powers of the C'tan. If it neither Advanced nor Fell Back during your Movement phase, it can use two different C'tan Powers it knows at the end of that phase; it can't use any one C'tan Power more than once per turn."
+  },
+  "4499c4448b6c": {
+    "name": "Living Metal",
+    "kind": "ability",
+    "plain": "At the start of your Command phase, every model in this unit gets back 1 lost wound."
+  },
+  "44f72e453645": {
+    "name": "Repair Barge",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your <DYNASTY> NECRON WARRIORS units within 6\" of this model. If you do, up to D3 of that unit's destroyed models Reanimate. A unit can't be picked for this ability more than once per phase."
+  },
+  "462f970e1b17": {
+    "name": "Exalted Cryptek",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army: pick one CRYPTEK model from your army. It can have two items of Cryptek Arkana rather than one. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "46f1426f74ef": {
+    "name": "The Deathless Arise",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your TECHNOMANCER models. Until the phase ends, it can use its Rites of Reanimation ability one extra time."
+  },
+  "47a66cfde595": {
+    "name": "Aeonstave (Melee)",
+    "kind": "weapon",
+    "plain": "Your opponent can't use invulnerable saves against attacks made with this weapon."
+  },
+  "4868b3c0e723": {
+    "name": "Fail-Safe Overcharger",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your CANOPTEK units that is within 9\" of the bearer. Until your next Command phase begins, add 1 to the Attacks characteristic of that unit's models, or add D3 instead if it is a MONSTER or VEHICLE unit."
+  },
+  "487261160aa6": {
+    "name": "Hypermaterial Ablator",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE or <DYNASTY> CANOPTEK units that is within 9\" of the bearer. Until your next Command phase begins, that unit counts as having the benefits of light cover against any ranged attack whose attacker is more than 12\" away."
+  },
+  "4a5869f4eb02": {
+    "name": "Bound Creation",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each CRYPTEK unit in a Detachment lets you include one CRYPTOTHRALLS unit in that Detachment without using up a Battlefield Role slot."
+  },
+  "5218e93a1768": {
+    "name": "Resurrection Orb",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, the bearer can activate its resurrection orb. When it does, choose one of your <DYNASTY> units within 6\" of the bearer that is below Starting Strength and whose reanimation protocols haven't been enacted yet this phase. Enact that unit's reanimation protocols: all of its destroyed models start to reassemble."
+  },
+  "53a78f3ff72b": {
+    "name": "Metalodermal Tesla Weave",
+    "kind": "ability",
+    "plain": "At the end of the Charges step in your opponent's Charge phase, you may choose an enemy unit that ended a charge move this phase within 6\" of the bearer. Roll a D6, and on a 2+ it takes D3 mortal wounds."
+  },
+  "547322b0f4d7": {
+    "name": "Canoptek Tail Blades",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it makes D6 extra attacks with this weapon."
+  },
+  "55f9561416c9": {
+    "name": "Prismatic Obfuscatron",
+    "kind": "ability",
+    "plain": "Enemy models can't target the bearer with ranged attacks unless it is the closest eligible target."
+  },
+  "560ed895956c": {
+    "name": "Phylactery",
+    "kind": "ability",
+    "plain": "Whenever this model uses its Living Metal ability, it gets back up to D3 lost wounds rather than 1."
+  },
+  "56115f438623": {
+    "name": "Reconstitution Protocols",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your GHOST ARK units. Until the phase ends, whenever it uses its Repair Barge ability, you can put up to D6 destroyed models back on the battlefield rather than D3."
+  },
+  "5612117b84cc": {
+    "name": "Overkill Protocols",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your CANOPTEK WRAITHS units. Until the start of your next Command phase, whenever a model in it attacks with vicious claws, that attack's Armour Penetration characteristic improves by 1; and whenever a model in it attacks with whip coils, you make one extra hit roll."
+  },
+  "57f876ee08ac": {
+    "name": "Ziggurat Dock",
+    "kind": "ability",
+    "plain": "During deployment, you can put one of your <DYNASTY> MONOLITH or <DYNASTY> SENTRY PYLON models on top of the Tomb Ziggurat model in this unit. If so, add 1 to the Strength characteristic of that model's weapons until that Monolith or Sentry Pylon unit moves."
+  },
+  "594727913f81": {
+    "name": "Disruption Fields",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your NECRONS CORE units is picked to fight: models in that unit add 1 to their Strength characteristic until the phase ends."
+  },
+  "59803865b7e3": {
+    "name": "Curse of the Phaeron",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your NECRONS VEHICLE models is destroyed: it explodes automatically, so don't roll to see whether it does. This Stratagem costs 3CP if that model has the TITANIC keyword, or 1 CP if it does not."
+  },
+  "5b09597fe8d4": {
+    "name": "Phase Shift Generator",
+    "kind": "ability",
+    "plain": "While they are within 6\" of this model, your NECRONS models get a 5+ invulnerable save against ranged attacks."
+  },
+  "5b77d2315c86": {
+    "name": "Spirit of Madness",
+    "kind": "ability",
+    "plain": "Whenever this model makes a melee attack against a unit whose Leadership characteristic is lower than this model's, you can re-roll the hit roll."
+  },
+  "5d474ca02c89": {
+    "name": "Shadows of Drazak",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your FLAYED ONES units is picked as the target of an attack: until the phase ends, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "5f4f8dc33efc": {
+    "name": "Quantum Deflection",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your NECRONS QUANTUM SHIELDING units is picked as the target of an attack: its models have a 4+ invulnerable save until the phase ends."
+  },
+  "606a87ec3b57": {
+    "name": "Systematic Vigour",
+    "kind": "ability",
+    "plain": "While this unit is within 6\" of any of your CRYPTEK units, its models have Weapon Skill 3+, Ballistic Skill 3+ and an Attacks characteristic of 6."
+  },
+  "6526103295c9": {
+    "name": "Fabricator Claw Array",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, the bearer can repair one of your <DYNASTY> VEHICLE models within 3\" of it, which gets back up to D3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "66699eb017df": {
+    "name": "Aetheric Interception",
+    "kind": "stratagem",
+    "plain": "During the Reinforcements step of your opponent's Movement phase, once an enemy unit has been placed on the battlefield: choose one of your HYPERSPACE HUNTER units that is currently in Strategic Reserves, in a hyperspace dimension, or on the battlefield. If the chosen unit is in a hyperspace dimension or Strategic Reserves, place it anywhere on the battlefield that is more than 9\" away from all enemy models and within 18\" of that enemy unit. Then, at the end of the phase, the HYPERSPACE HUNTER unit can shoot as though it were your Shooting phase; until the phase ends, the only unit it can target is the enemy unit that was just set up (and only when that unit is an eligible target)."
+  },
+  "66f727e4b3f4": {
+    "name": "Fractured Personality (Instructions)",
+    "kind": "ability",
+    "plain": "Before the battle, choose one ability from the table for this model to keep for the whole battle. Or, instead, roll two D6 and look up both results to give this model two random abilities (if both dice show the same number, roll both again until they differ). On the table, 1 is Cosmic Tyrant, 2 is Immune to Natural Law, 3 is Sentient Necrodermis, 4 is Transdimensional Displacement, 5 is Untamed Power and 6 is Writhing Worldscape."
+  },
+  "69c41b52d3f6": {
+    "name": "Harbinger of Despair",
+    "kind": "ability",
+    "plain": "In your Morale phase, you can pick an enemy unit within 12\" of this model, then roll 3D6. If the result beats that unit's Leadership characteristic, choose one of the results opposite; it applies until the start of your next Morale phase. A unit can't be picked for this ability more than once per phase."
+  },
+  "6ab64d78a5cb": {
+    "name": "Atomic Energy Manipulator",
+    "kind": "ability",
+    "plain": "If this model destroys at least one enemy model in the Fight phase, it can use its Mechanical Augmentation ability at the end of that phase, as though it were the end of your Movement phase."
+  },
+  "6aff7c2c9aff": {
+    "name": "Arkana: Neutron Shroud",
+    "kind": "ability",
+    "plain": "The bearer's Save characteristic is 2+. Once per battle, the bearer can activate the shroud before you make a saving throw for it; if it does, it has a 3+ invulnerable save until the phase ends."
+  },
+  "6c0cbab1d07b": {
+    "name": "Transient Madness",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your SAUTEKH CORE units that is within 9\" of this model, then roll 3D6. If the result is lower than this model's Leadership characteristic, you can choose one of the results below to apply to that unit; if not, roll a D3 to find out which result below applies to it."
+  },
+  "6dc8cbf4db48": {
+    "name": "Malevolent Arcing",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your NECRONS models targets an enemy unit with a tesla weapon: once that weapon's attacks are made, roll a D6 for every other unit within 6\" of that enemy unit. Each unit you roll a 4+ for takes 1 mortal wound."
+  },
+  "6eac84e9f90d": {
+    "name": "Gloom Prism",
+    "kind": "ability",
+    "plain": "During your opponent's Psychic phase, the bearer's unit can try to deny a single psychic power, as though it were a PSYKER."
+  },
+  "70fa19605e31": {
+    "name": "Slinking Strike",
+    "kind": "ability",
+    "plain": "This unit can shoot and declare a charge in a turn in which it Fell Back."
+  },
+  "71eb3d492a45": {
+    "name": "My Will Be Done (Necrons)",
+    "kind": "ability",
+    "plain": "In your Command phase, this unit can choose one of your NECRONS CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "72d2fcfc006c": {
+    "name": "Powers of the C'tan (Transcendent)",
+    "kind": "ability",
+    "plain": "From the Powers of the C'tan, this model knows two C'tan Powers. If it neither Advanced nor Fell Back during your Movement phase, it can use one C'tan Power it knows at the end of that phase. It may never use any one C'tan Power twice in a turn."
+  },
+  "7495b887d1b6": {
+    "name": "Dynastic Heirlooms",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the NECRONS keyword: pick one NECRONS CHARACTER model in your army (not a C'TAN SHARD model) and give it one Relic it is allowed to have. Every Relic in your army must be different, and this Stratagem can't give a model a second Relic. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "75cef71e4601": {
+    "name": "Rites of Reanimation (Necrons)",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your NECRONS CORE units that is within 6\" of this model. One of that unit's destroyed models is Reanimated, or D3 of them if it is a NECRON WARRIORS unit. No unit can be chosen for this ability more than once per phase."
+  },
+  "768b03fa2c1a": {
+    "name": "Hyperdense Particle Beams",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your CULT OF THE CRYPTEK units is picked to shoot: until the phase ends, improve the Armour Penetration characteristic by 2 for every attack a model in it makes with a particle beamer or particle caster."
+  },
+  "77a1d38e55b5": {
+    "name": "Phylacterine Hive",
+    "kind": "ability",
+    "plain": "Once per battle, when using the bearer's Rites of Reanimation ability, you may have it affect one of your <DYNASTY> CANOPTEK, <DYNASTY> DESTROYER CULT or TRIARCH PRAETORIAN units rather than one of your <DYNASTY> CORE units."
+  },
+  "787b2db408ae": {
+    "name": "Revenge of the Doomstalker",
+    "kind": "stratagem",
+    "plain": "In any phase, when an enemy unit destroys one of your <DYNASTY> CHARACTER units: pick one of your <DYNASTY> CANOPTEK DOOMSTALKER models. When the phase ends, that CANOPTEK DOOMSTALKER model can shoot as though it were your Shooting phase, but only at that enemy unit (and only if it is an eligible target for the attack). For the rest of the battle, add 1 to the hit roll whenever that CANOPTEK DOOMSTALKER model attacks that enemy unit."
+  },
+  "7892d2280142": {
+    "name": "Tomb Citadel",
+    "kind": "ability",
+    "plain": "Once this unit has been set up: its Tomb Ziggurat counts as a terrain feature with the Scaleable, Defensible, Light Cover and Obscuring traits; its Power Crucible counts as a terrain feature with the Unstable Position, Dense Cover and Obscuring traits; and its Gun Emplacement Mounts count as terrain features with the Unstable Position, Dense Cover and Obscuring traits."
+  },
+  "78deedc0e123": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, first turn it on the spot by up to 90 degrees (this doesn't count toward the distance it moves), then move it straight forwards. After that first pivot, it can't pivot again."
+  },
+  "7a01fbdf2cee": {
+    "name": "The Vargard's Duty (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy models can't target a NEMESOR ZAHNDREKH unit of yours with ranged attacks while it is within 3\" of this model."
+  },
+  "7f4a86db2a5b": {
+    "name": "Reanimation Protocols",
+    "kind": "ability",
+    "plain": "Whenever an enemy unit shoots or fights, once it has made its attacks, if those attacks destroyed any models in this unit but did not destroy the unit itself, this unit's reanimation protocols are enacted and the destroyed models begin to reassemble.\n\nWhenever a unit's reanimation protocols are enacted, make its Reanimation Protocol rolls: roll a number of D6 equal to the total of the Wounds characteristics of all the reassembling models. Put every Reanimation Protocol roll of 5+ into a pool. Reanimation Protocol rolls can never be modified beyond -1 or +1.\n\nIf the pool holds at least as many dice as the Wounds characteristic of any reassembling model, choose one of those models to be Reanimated. A Reanimated model:\n- returns to its unit with all of its wounds;\n- may be set up in Engagement Range only of those enemy units that its unit is already within Engagement Range of;\n- in your Charge phase, can't be set up any closer to enemy units that are targets of a charge its unit declared this phase;\n- stops counting as destroyed for Morale tests this turn.\n\nNext, take out of the pool a number of dice equal to the Reanimated model's Wounds characteristic, and repeat these steps until either no reassembling models are left or the pool has fewer dice than the Wounds characteristic of any of the reassembling models. Reassembling models that weren't Reanimated fail to reassemble, and any dice still in the pool are discarded."
+  },
+  "80111b87ad7e": {
+    "name": "Targeting Relay",
+    "kind": "ability",
+    "plain": "Whenever this model makes a ranged attack against an enemy unit and scores a hit, then for the rest of the phase, any hit roll of 1 is re-rolled for ranged attacks that your other NECRONS models make against that enemy unit."
+  },
+  "82527f096715": {
+    "name": "Empyric Damping",
+    "kind": "stratagem",
+    "plain": "In your opponent's Psychic phase, when an enemy PSYKER tries to manifest a psychic power within 18\" of one of your SZAREKHAN units: roll a D6; on a 4+, that power is denied."
+  },
+  "873c9e0e44e2": {
+    "name": "Preservative Auto-Torpor",
+    "kind": "ability",
+    "plain": "While Szarekh has 8 or fewer wounds left, it can't attack with its Staff of Stars and it loses the Phaeron of the Stars ability. While it has 4 or fewer wounds left, it also can't attack with its Scythe of Dust and it loses the Phaeron of the Blades ability."
+  },
+  "89592a22eb81": {
+    "name": "Guardian Protocols",
+    "kind": "ability",
+    "plain": "Even if this unit has fewer than 3 models, a NOBLE unit of yours can benefit from the Look Out, Sir rule while it is within 3\" of this unit, as long as it is a <DYNASTY> INFANTRY NOBLE or DYNASTIC AGENT INFANTRY NOBLE unit."
+  },
+  "8ab2f6165fa2": {
+    "name": "Canoptek Control Node",
+    "kind": "ability",
+    "plain": "The bearer gains this ability: 'Control Node (Aura): while one of your <DYNASTY> CANOPTEK units is within 6\" of this model, add 1 to the hit roll of every attack made by a model in that unit.'"
+  },
+  "8b7cfb1acf0c": {
+    "name": "Convergence of Dominion",
+    "kind": "ability",
+    "plain": "The first time this unit is set up on the battlefield, its models don't need to be in unit coherency; instead, every model must be set up wholly within 12\" of another model from its unit. From then on, treat each model in this unit as a separate unit."
+  },
+  "8cb16ef8af1b": {
+    "name": "Obeisance Generators",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, any enemy units within Engagement Range of Szarekh can't fight this phase until every other eligible unit from your army has fought."
+  },
+  "8d5639e6f063": {
+    "name": "Tomb Guardians",
+    "kind": "rule",
+    "plain": "This unit never gets a Dynastic Code. Each model in this unit has 1 extra attack. You can re-roll any Reanimation Protocol roll of 1 for this unit."
+  },
+  "8f4cb6f7e943": {
+    "name": "Rites of Reanimation",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 6\" of this model. One of that unit's destroyed models is Reanimated, or D3 of them if it is a NECRON WARRIORS unit. No unit can be chosen for this ability more than once per phase."
+  },
+  "9059aa7cc0fd": {
+    "name": "Spear of the Void Dragon (Melee)",
+    "kind": "weapon",
+    "plain": "This weapon's Damage characteristic becomes D3+3 for any of its attacks that are allocated to a VEHICLE model."
+  },
+  "9154e5e34088": {
+    "name": "Aeonstave (Shooting)",
+    "kind": "weapon",
+    "plain": "Blast. Your opponent can't use invulnerable saves against attacks made with this weapon."
+  },
+  "94541a1589c0": {
+    "name": "Solar Pulse",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase: pick one enemy unit. Until the phase ends, it doesn't get the benefits of cover against ranged attacks made by models in your NECRONS units."
+  },
+  "947cdeb3faeb": {
+    "name": "Dynastic Advisors",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, then for every CRYPTEK unit (other than DYNASTIC AGENTS units) in a Detachment that also has at least one NOBLE unit, you can include a second CRYPTEK unit (also not a DYNASTIC AGENTS unit) in that Detachment without using up an extra Battlefield Role slot."
+  },
+  "97107028e78a": {
+    "name": "Tunnelling Horrors",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit underground rather than on the battlefield. If you do, in the Reinforcements step of any one of your Movement phases you can set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "9788236e2d58": {
+    "name": "The Lord's Will",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
+  },
+  "9c0b33a04e3d": {
+    "name": "Dimensional Destabilisation",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase, after one of your C'TAN SHARD models has used a Power of the C'tan: roll a D6, and that model can immediately use the matching power from the Powers of the C'tan, even if that power has already been used this turn. This Stratagem costs 2CP if the model has the TITANIC keyword, or 1CP if it does not."
+  },
+  "9c280a88dbf6": {
+    "name": "Dimensional Corridor",
+    "kind": "stratagem",
+    "plain": "At the start of your Movement phase: pick one of your <DYNASTY> CORE INFANTRY units that is on the battlefield and remove it. In the Reinforcements step of this phase, set it up again anywhere on the battlefield wholly within 3\" of one of your <DYNASTY> MONOLITH models and more than 9\" away from all enemy models."
+  },
+  "9cbdd77a2a5a": {
+    "name": "Dynastic Agents and Star Gods",
+    "kind": "rule",
+    "plain": "Putting DYNASTIC AGENT and C'TAN SHARD units in a NECRONS Detachment doesn't prevent that Detachment's other units from gaining a Dynastic Code. No DYNASTIC AGENT or C'TAN SHARD unit ever gains a Dynastic Code. Each NECRONS Detachment in your army can include no more than one C'TAN SHARD model."
+  },
+  "9dbc7cafd632": {
+    "name": "Dynastic Command Node",
+    "kind": "ability",
+    "plain": "While your army has an active command protocol, your units that have the Command Protocols ability and are within 6\" of this model benefit from the directive(s) selected for it."
+  },
+  "9dbf06f2160c": {
+    "name": "Relentless March (Necrons) (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your NECRONS CORE units is within 6\" of this model, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "9e47e705a136": {
+    "name": "Harbinger of Destruction",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, if this model did not Fall Back in it, roll three D6s: each 4+ inflicts 1 mortal wound on the closest enemy unit within 24\" of this model that it can see."
+  },
+  "a00c6aef58b0": {
+    "name": "Mind in the Machine",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, you can pick one enemy VEHICLE model within 12\" of this model that it can see, and roll 3D6 (or 2D6 if that model is TITANIC). If the total equals or beats the selected model's Leadership characteristic, you can shoot one of its ranged weapons as though it were a unit from your army, using this model's Ballistic Skill characteristic rather than the target model's."
+  },
+  "a1428e858512": {
+    "name": "United in Destruction (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <DYNASTY> DESTROYER CULT units is within 6\" of this model, re-roll any wound roll of 1 for attacks made by models in that unit."
+  },
+  "a26b12068a45": {
+    "name": "Powers of the C'tan (Vault)",
+    "kind": "ability",
+    "plain": "From the Powers of the C'tan, this model knows four C'tan Powers. If it neither Advanced nor Fell Back during your Movement phase, then at the end of that phase it can use as many C'tan Powers it knows as this table shows: 3 Powers at 16+ Wounds, 2 Powers at 9-15 Wounds, 1 Power at 1-8 Wounds. It may never use any one C'tan Power twice in a turn."
+  },
+  "a3619f3c280c": {
+    "name": "Stellar Alignment Protocol",
+    "kind": "stratagem",
+    "plain": "In the Command phase: pick one of your NECRONS VEHICLE models whose Wounds characteristic is 10 or more. Until your next Command phase starts, when working out which characteristics on its profile to use, treat it as if it had all of its wounds remaining. This Stratagem costs 2CP if the model has the TITANIC keyword, or 1CP if it does not."
+  },
+  "a433491522c4": {
+    "name": "My Will Be Done",
+    "kind": "ability",
+    "plain": "In your Command phase, this model can choose one of your NECRONS CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "a56c5a5bfd25": {
+    "name": "Atavindicator",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick one enemy unit (not a VEHICLE unit) within 18\" of the bearer and roll 3D6. If the total equals or beats that unit's Leadership characteristic, it takes D3 mortal wounds."
+  },
+  "a802ed00b375": {
+    "name": "Stalking Annihilator",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase: pick one of your CANOPTEK DOOMSTALKER models that made a Normal Move or Fell Back this turn. It can shoot this turn, and when it does, you can use the high power profile of its doomsday blaster even though it didn't Remain Stationary this turn."
+  },
+  "a87b385a9e5b": {
+    "name": "Annihilation Protocols",
+    "kind": "ability",
+    "plain": "This unit can benefit from this ability, and the rules below apply, if your army is an Annihilation Legion and your WARLORD is a SKORPEKH LORD or LOKHUST LORD model.\n\nOnce both sides have deployed, and before you determine who takes the first turn, you must secretly give each of the first five battle rounds its own different annihilation protocol and note this on your army roster.\n\nAt the start of every battle round, if at least one SKORPEKH LORD or LOKHUST LORD unit from your army is on the battlefield, the annihilation protocol assigned to that round becomes active for your army until that round ends. Every annihilation protocol has two directives. When one becomes active, show it to your opponent and choose one of its directives. For as long as that protocol stays active, each unit eligible for this ability gets the benefit of the chosen directive while it is within 6\" of one of your SKORPEKH LORD or LOKHUST LORD models.\n\nIf the battle goes on past the fifth battle round, the annihilation protocol that was active in the fifth battle round stays active for the rest of the battle."
+  },
+  "a893e901c682": {
+    "name": "Cortical Subjugator Scarabs",
+    "kind": "ability",
+    "plain": "Once per battle, when the Heroic Interventions step of your opponent's Charge phase begins, you may choose one of your <DYNASTY> units within 6\" of the bearer. Unless it is within Engagement Range of any enemy units, that unit can perform a Heroic Intervention as though it were a CHARACTER."
+  },
+  "a8a3583ecf33": {
+    "name": "Countertemporal Nanomines",
+    "kind": "ability",
+    "plain": "In your Shooting phase, you may choose an enemy unit within 18\" of the bearer. Advance rolls and charge rolls for that unit are halved until your next turn starts."
+  },
+  "a9026a97492e": {
+    "name": "Gravity Pulse",
+    "kind": "ability",
+    "plain": "In your Shooting phase, you can pick one enemy unit within 24\" of this model that can FLY. For its models, halve the Move characteristic until your next Shooting phase starts. If the picked unit is an AIRCRAFT, roll 2D6: it takes 1 mortal wound for each point by which the total is higher than its Toughness characteristic. A unit can't be picked for this ability more than once per phase."
+  },
+  "a98179d7455c": {
+    "name": "Whirling Onslaught",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your SKORPEKH DESTROYERS or SKORPEKH LORD units is picked as the target of an attack: until the phase ends, subtract 1 from the wound roll of every attack made against that unit."
+  },
+  "aa9892933a51": {
+    "name": "Inspiring Leader (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your units add 1 to their Leadership characteristic while they are within 6\" of this WARLORD."
+  },
+  "afc88ffeea20": {
+    "name": "Power Crucible Terrain Features",
+    "kind": "ability",
+    "plain": "The Power Crucible counts as a terrain feature with the Unstable Position, Dense Cover and Obscuring terrain traits.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "b046d54468f7": {
+    "name": "Arkana: Aurorocular Mantle",
+    "kind": "ability",
+    "plain": "TECHNOMANCER model with a canoptek cloak only. The bearer gains this ability: 'Aurorocular Mantle (Aura): while one of your CULT OF THE CRYPTEK units is within 6\" of this model, targets of attacks made by models in that unit don't get the benefits of cover against those attacks.'"
+  },
+  "b0a0aca37059": {
+    "name": "Titanic Forelimbs (Reaping Sweep)",
+    "kind": "weapon",
+    "plain": "For every attack made with this weapon, make 2 hit rolls."
+  },
+  "b1236327b0e9": {
+    "name": "Master Chronomancer",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your NECRONS units that is within 9\" of this model. Until your next Command phase begins, the chosen unit's models have a 5+ invulnerable save and you can re-roll its charge rolls."
+  },
+  "b1acb2c36c46": {
+    "name": "Dominion Protocols (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <DYNASTY> CORE units is within 6\" of this model, its models add 2 to their Leadership characteristic."
+  },
+  "b1d6f0c24edb": {
+    "name": "Entropic Strike",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your C'TAN SHARD models is picked to fight: until the phase ends, invulnerable saves can't be taken against its melee attacks."
+  },
+  "b210f2c43175": {
+    "name": "Relentless Onslaught",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your CORE INFANTRY units is picked to shoot: until the phase ends, whenever a model in it uses a Rapid Fire weapon to attack, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "b25b1e3ac835": {
+    "name": "Aggression Overrides",
+    "kind": "stratagem",
+    "plain": "In your Command phase: choose one of your CANOPTEK SPYDERS units. Until your next Command phase starts, its models add 2\" to their Move characteristic and their Weapon Skill characteristic becomes 2+."
+  },
+  "b27be2f08c47": {
+    "name": "Techno-oracular Targeting",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, before you make the wound roll for an attack by one of your NECRONS models: skip that wound roll, and the attack wounds the target automatically."
+  },
+  "b2c37cf4247f": {
+    "name": "Canoptek Reinforcement",
+    "kind": "stratagem",
+    "plain": "Once per battle, in the Reinforcement step of your Movement phase: pick one of your CANOPTEK PLASMACYTE units that has been destroyed. Put it back on the battlefield, anywhere within 3\" of one of your DESTROYER CULT units but not within Engagement Range of any enemy models."
+  },
+  "b3fad0de95c5": {
+    "name": "Surrogate Hosts",
+    "kind": "ability",
+    "plain": "When this model is destroyed, you can choose to roll a D6 after removing it, instead of using any other rule that triggers when a model is destroyed. On a 2+, you can choose another of your NECRONS INFANTRY CHARACTER models on the battlefield (not a named character). Remove that model as though it were destroyed (no rules that trigger on a model being destroyed can be used), then put this model back into play in the spot the removed model occupied, with 3 wounds left."
+  },
+  "b5407ec04a6a": {
+    "name": "A Moment of Clarity",
+    "kind": "stratagem",
+    "plain": "In your Command phase: choose one of your ANNIHILATION LEGION units. It has the Objective Secured ability until your next Command phase starts."
+  },
+  "b8c51f99c0a3": {
+    "name": "Phaeron of the Blades (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, you can re-roll the wound roll for each melee attack made by a model in that unit."
+  },
+  "b960f9e49bf9": {
+    "name": "Scarab Hive",
+    "kind": "ability",
+    "plain": "In your Command phase, each of your <DYNASTY> CANOPTEK SCARAB SWARM units within 6\" of this unit has one of its destroyed models Reanimated. No unit can be affected by this ability more than once per phase."
+  },
+  "bb039b4f2230": {
+    "name": "Cleaving Counterblow",
+    "kind": "ability",
+    "plain": "If a melee attack destroys this model, leave it in play: once the attacking model's unit has finished its attacks, this model fights as though it were the Fight phase, and is then removed from play."
+  },
+  "bb4fbae52e91": {
+    "name": "Hardwired for Destruction",
+    "kind": "ability",
+    "plain": "Re-roll any hit roll of 1 for attacks made by this model."
+  },
+  "bd5c7caf0922": {
+    "name": "Powers of the C'tan (Nightbringer)",
+    "kind": "ability",
+    "plain": "Besides the Gaze of Death C'tan Power, this model knows one more power chosen from the Powers of the C'tan. If it neither Advanced nor Fell Back during your Movement phase, it can use two different C'tan Powers it knows at the end of that phase; it can't use any one C'tan Power more than once per turn."
+  },
+  "be19de7f0251": {
+    "name": "Empathic Obliterator",
+    "kind": "weapon",
+    "plain": "Whenever an attack with this weapon destroys a CHARACTER model, every enemy unit within 6\" of the bearer takes D3 mortal wounds."
+  },
+  "c0b19d0a4506": {
+    "name": "Judgement of the Triarch",
+    "kind": "stratagem",
+    "plain": "When a TRIARCH unit is picked to shoot in your Shooting phase, or picked to fight in the Fight phase: until the phase ends, add 1 to the hit roll of every attack made by a model in that unit."
+  },
+  "c1642ab8c8c7": {
+    "name": "Burrowing Nightmares",
+    "kind": "stratagem",
+    "plain": "At the start of your Movement phase: pick one of your OPHYDIAN DESTROYERS units that is on the battlefield and take it off the battlefield. During your next Movement phase's Reinforcements step, you may set it back up anywhere on the battlefield more than 9\" away from all enemy models. If it is still not on the battlefield when the battle ends, it is destroyed."
+  },
+  "c2a09a406dff": {
+    "name": "Hovering Sentinel",
+    "kind": "ability",
+    "plain": "If this model Remains Stationary during your Movement phase, its tesla spheres change until your next Movement phase starts: their Type becomes Assault 6, their Strength characteristic becomes 8 and their Damage characteristic becomes 2."
+  },
+  "c37229717aa0": {
+    "name": "Arkana: Atomiser Stave",
+    "kind": "ability",
+    "plain": "PLASMANCER model only. Whenever you use the bearer's Harbinger of Destruction ability, you roll 6 D6 instead of the usual 3 dice."
+  },
+  "c4936808a8cb": {
+    "name": "Noctilith Beacons",
+    "kind": "ability",
+    "plain": "During your opponent's Psychic phase, Szarekh can try to deny a single psychic power, as though he were a PSYKER."
+  },
+  "c56a56a5aa11": {
+    "name": "Translocation Protocols",
+    "kind": "ability",
+    "plain": "While at least one STARSTELE unit from your army is on the battlefield, your CRYPTEK units can attempt this action: 'Activate Translocation Protocols (Action): one of your CRYPTEK units that is within 3\" of any of your STARSTELE units can start this action at the end of your Movement phase. It is completed at the end of your turn. When it is completed, pick one of those STARSTELE units and take it off the battlefield; then set that STARSTELE unit back up during the Reinforcements step of your next Movement phase, anywhere on the battlefield more than 9\" away from all enemy models. If that STARSTELE unit is not on the battlefield when the battle ends, it is destroyed.'"
+  },
+  "c5f0e6b0187b": {
+    "name": "Multi-Threat Eliminator",
+    "kind": "ability",
+    "plain": "Whenever a ranged attack made with this model's enmitic disintegrator pistols destroys an enemy model, this model can shoot one of its enmitic disintegrator pistols one more time after it has made the rest of its attacks. Those extra attacks can't generate further attacks."
+  },
+  "c60a6a65daf4": {
+    "name": "Powers of the C'tan (Void Dragon)",
+    "kind": "ability",
+    "plain": "Besides the Voltaic Storm C'tan Power, this model knows one more power chosen from the Powers of the C'tan. If it neither Advanced nor Fell Back during your Movement phase, it can use two different C'tan Powers it knows at the end of that phase; it can't use any one C'tan Power more than once per turn."
+  },
+  "c81f971c54c3": {
+    "name": "Hyperphase Impalement",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your OPHYDIAN DESTROYERS units is picked to fight: until that fight is resolved, whenever a model in it makes a melee attack, no rules that ignore wounds can be used."
+  },
+  "c82a5a822012": {
+    "name": "Talent for Annihilation",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your MEPHRIT units is picked to shoot: until the phase ends, whenever a model in it attacks, an unmodified wound roll of 6 deals 1 mortal wound to the target on top of any normal damage (no more than 3 mortal wounds per phase can be dealt through this Stratagem)."
+  },
+  "cb3cc4f505ea": {
+    "name": "Blood Rites",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your NOVOKH units is picked to fight: its models add 1 to their Attacks characteristic until the phase ends."
+  },
+  "cb690b52c2e8": {
+    "name": "Drain Life",
+    "kind": "ability",
+    "plain": "When an enemy model has a melee attack from this model allocated to it, that enemy model can't use any rules to ignore the wounds it loses."
+  },
+  "cc30255f1444": {
+    "name": "Doomsday Blaster (High Power)",
+    "kind": "weapon",
+    "plain": "Blast. The bearer can attack with this profile only if it Remained Stationary in its previous Movement phase."
+  },
+  "ccededf77c7b": {
+    "name": "Gun Emplacement Mount Terrain Features",
+    "kind": "ability",
+    "plain": "The Gun Emplacement Mounts count as terrain features with the Unstable Position, Dense Cover and Obscuring terrain traits.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "cd5297583775": {
+    "name": "Hyperphase Reap-Blades",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit attacks with a hyperphase reap-blade, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "cdfad4127f2f": {
+    "name": "Photonic Transubjector",
+    "kind": "ability",
+    "plain": "Once per turn, the first time the bearer fails a saving throw, the Damage characteristic of that attack becomes 0."
+  },
+  "ce388244766a": {
+    "name": "The Lord's Will (Sautekh)",
+    "kind": "ability",
+    "plain": "In your Command phase, you can choose one of your SAUTEKH CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
+  },
+  "cec4a8a22490": {
+    "name": "Arkana: Entropic Chronoshackle",
+    "kind": "ability",
+    "plain": "CHRONOMANCER model only: at the start of your opponent's Movement phase, you can pick one enemy unit within 12\" of the bearer and roll a D6. On a 4+, that enemy unit can't be picked to Fall Back until the phase ends."
+  },
+  "cf07b9a49f3e": {
+    "name": "Mechanical Augmentation",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, you can pick one of your NECRONS CORE units within 6\" of this model. If you do, roll a D3 and check the table below. No unit can be picked for this ability more than once per battle."
+  },
+  "cf0daa1819b9": {
+    "name": "Weaponised Bodies",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, when one of your DESTROYER CULT units finishes a charge move: pick one enemy unit within Engagement Range of it. For every model of that DESTROYER CULT unit within Engagement Range of the chosen enemy unit, roll as many D6 as its Wounds characteristic. Each 5+ inflicts 1 mortal wound on the enemy unit, up to a maximum of 6 mortal wounds."
+  },
+  "cfdba9bf3a2b": {
+    "name": "Ghostwalk Mantle",
+    "kind": "ability",
+    "plain": "At the start of your Movement phase, you can take this model off the battlefield. If you do, in the Reinforcements step of that phase, set it up again anywhere on the battlefield within 3\" of one of your NEMESOR ZAHNDREKH models."
+  },
+  "d137c18fe1d3": {
+    "name": "Nightmare Shroud (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this model, its models subtract 1 from their Leadership characteristic, and 1 is also subtracted from Combat Attrition tests taken for that unit."
+  },
+  "d242ff30ee75": {
+    "name": "Lurking Murderers",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase: pick one of your FLAYED ONES units that is wholly within an Area Terrain feature. Until the phase ends, you can re-roll the wound roll for every attack made by a model in that unit. This Stratagem costs 2CP if the unit has 11 or more models, or 1CP if it does not."
+  },
+  "d667afde1265": {
+    "name": "Reanimation Prioritisation",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when one of your NECRONS units is picked as the target of an attack: choose a CANOPTEK REANIMATOR model from your army within 6\" of the targeted unit and visible to it. As though it were your Command phase, that model can use its Nanoscarab Reanimation Beam ability, picking the targeted unit to be healed by its beam (if any other unit was being healed by that model's reanimation beam, it stops being healed by it)."
+  },
+  "d71607f1915a": {
+    "name": "Enhanced Gloom Prism",
+    "kind": "stratagem",
+    "plain": "When one of your CANOPTEK SPYDERS units is about to take a Deny the Witch test in your opponent's Psychic phase: add 2 to the test's result."
+  },
+  "d74b2c87f585": {
+    "name": "Infused Madness",
+    "kind": "ability",
+    "plain": "Once per turn, at the start of your Charge phase or of the Fight phase, you can pick one of your <DYNASTY> DESTROYER CULT units within 3\" of this model. If you do, roll a D6: on a 1, one model in that unit is destroyed. Whatever the roll, until the end of the turn, models in that unit add 1 to their Strength and Attacks characteristics. No unit can be picked for this ability more than once per turn."
+  },
+  "d879145324bc": {
+    "name": "Triarchal Menhir",
+    "kind": "ability",
+    "plain": "While this unit has any Triarchal Menhirs models, it doesn't count as a CHARACTER for the Look Out, Sir rule, and any attack that successfully wounds this unit must be allocated to one of those models. Ignore destroyed Triarchal Menhirs for Morale tests. If Szarekh is ever destroyed, any Triarchal Menhirs left in this unit are destroyed too."
+  },
+  "d9005a71e1df": {
+    "name": "Eternity Gate",
+    "kind": "ability",
+    "plain": "In your Movement phase, if this model Remains Stationary, it can summon a unit in the Reinforcement step of that phase. If it does, pick one of your <DYNASTY> CORE INFANTRY units that is in Strategic Reserves and set it up anywhere on the battlefield wholly within 3\" of this model, but not within Engagement Range of any enemy models. Any model in a unit set up this way counts as having moved, in the Movement phase, as many inches as its Move characteristic."
+  },
+  "d93a800dbf6d": {
+    "name": "Relentless March (Sautekh) (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your SAUTEKH CORE units is within 6\" of this model, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "d957b6edd286": {
+    "name": "Canoptek Cloak",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is 10\" and it has the FLY keyword. Also, at the end of your Movement phase, you can repair one of your <DYNASTY> models within 3\" of this model, which gets back up to D3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "d978c436fd6e": {
+    "name": "Lord of the Pyrrhian Legions (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your NECRONS CORE units is within 6\" of this model, each model in that unit gets 1 extra attack."
+  },
+  "daab4467ad13": {
+    "name": "Counter Tactics",
+    "kind": "ability",
+    "plain": "Once per battle, this model can engage its counter tactics when your opponent declares they will use a Stratagem during a battle round, before they spend any Command points on it. If it does, your opponent can't use that Stratagem during this battle round."
+  },
+  "db36aeb71d72": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "This model can't declare a charge, and only a unit that can FLY can pick it as a charge target. It can fight only while it is within Engagement Range of enemy units that can FLY, and it can make melee attacks only against units that can FLY. Enemy units can make melee attacks against it only if they can FLY."
+  },
+  "db837ae03357": {
+    "name": "Canoptek Overdrive",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your CANOPTEK WRAITHS models is destroyed: until the phase ends, whenever a melee attack destroys a model in this unit that has not fought this phase, don't remove it yet. It can fight once the attacking model's unit has finished its attacks, and is removed afterwards."
+  },
+  "dc013a008b36": {
+    "name": "Quantum Orb",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, the bearer may activate this Cryptek Arkana item. When it does, choose a point anywhere on the battlefield within 24\" of the bearer and put a marker there. When your next Command phase starts, roll a D6 for each unit within 6\" of the marker's centre, subtracting 1 from the roll for a CHARACTER unit. A 4-5 inflicts D3 mortal wounds on that unit, and a 6 inflicts 3 mortal wounds. Then remove the marker."
+  },
+  "dc5faf8dbc6e": {
+    "name": "Flesh Hunger",
+    "kind": "ability",
+    "plain": "Melee attacks by models in this unit against enemy units other than VEHICLE units score 1 extra hit on each unmodified hit roll of 6."
+  },
+  "e09e8138919b": {
+    "name": "Eternal Engines",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your MAYNARKH VEHICLE units within 6\" of this model. When it uses its Living Metal ability this phase, it gets back up to D3 lost wounds rather than 1."
+  },
+  "e19ba2618511": {
+    "name": "Hand of the Phaeron",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if it has no model with the PHAERON keyword: pick one NECRONS OVERLORD model from your army (not a named character). It gains the PHAERON keyword, and it can use its My Will Be Done ability one extra time in your Command phase. You can use this Stratagem only once."
+  },
+  "e1c9a1372901": {
+    "name": "Prismatic Dimensional Breach",
+    "kind": "stratagem",
+    "plain": "In the Reinforcements step of your Movement phase: pick one of your <DYNASTY> CORE units that is in Strategic Reserves, then pick one of your <DYNASTY> NIGHT SCYTHE or <DYNASTY> MONOLITH models on the battlefield. Set up the CORE unit anywhere on the battlefield wholly within 3\" of the NIGHT SCYTHE or MONOLITH model and not in Engagement Range of any enemy units. You can't use this Stratagem in the first battle round."
+  },
+  "e3c252640f94": {
+    "name": "Voice of the Triarch",
+    "kind": "ability",
+    "plain": "Once per battle, at the start of any battle round, Szarekh can alter your command protocols if he is on the battlefield. If he does, then for that battle round, a command protocol you didn't assign to any battle round before the battle becomes active for your army in place of the one you did assign to it."
+  },
+  "e401794a9d15": {
+    "name": "Swift Dismemberment",
+    "kind": "stratagem",
+    "plain": "In your Charge phase: pick one of your DESTROYER CULT units. Until the end of the turn, it can charge even though it Advanced this turn."
+  },
+  "e52f9e190ebe": {
+    "name": "Quantum Shielding",
+    "kind": "ability",
+    "plain": "This model has a 5+ invulnerable save. Also, whenever an attack targets this model, an unmodified wound roll of 1-3 always fails, whatever abilities the weapon or attacker has."
+  },
+  "e5c1973f08fc": {
+    "name": "Spear of the Void Dragon (Shooting)",
+    "kind": "weapon",
+    "plain": "Whenever an attack with this weapon scores a hit, draw a straight line from the closest point of this model's base (or hull) to the closest point of the nearest model in the target unit. Roll to wound once against the target unit, and once against each other unit the line crosses. This weapon's Damage characteristic becomes D3+3 for any of its attacks allocated to a VEHICLE model."
+  },
+  "e5dfca6d2b5d": {
+    "name": "Viral Construct",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each <DYNASTY> DESTROYER CULT unit in a Detachment lets you include one <DYNASTY> CANOPTEK PLASMACYTE unit in that Detachment without using up a Battlefield Role slot. A Detachment can't contain more <DYNASTY> CANOPTEK PLASMACYTE units than it has <DYNASTY> DESTROYER CULT units."
+  },
+  "e778f624f410": {
+    "name": "Vengeance of the Enchained",
+    "kind": "ability",
+    "plain": "When Szarekh is destroyed, roll a D6 before you remove it. On a 4+, it explodes and every unit within 2D6\" takes D6 mortal wounds."
+  },
+  "e7aaa6a8c994": {
+    "name": "My Will Be Done",
+    "kind": "ability",
+    "plain": "In your Command phase, this model can choose one of your SAUTEKH CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "e7d8bf243267": {
+    "name": "My Will Be Done (Silent King)",
+    "kind": "ability",
+    "plain": "In your Command phase, Szarekh can choose one of your NECRONS CORE or TRIARCH PRAETORIANS units that is within 9\" of him. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "e80a613d0318": {
+    "name": "Strange Echoes",
+    "kind": "stratagem",
+    "plain": "In your Command phase: pick one of your C'TAN SHARD models, and choose a power from the Powers of the C'tan that it doesn't know. That power takes the place of one of the Powers of the C'tan it does know."
+  },
+  "e96ca58ea0f3": {
+    "name": "My Will Be Done (Sautekh)",
+    "kind": "ability",
+    "plain": "In your Command phase, this unit can choose one of your SAUTEKH CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
+  },
+  "ea2c8aedacd0": {
+    "name": "Phase Shifter",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save."
+  },
+  "ec2016adad95": {
+    "name": "Self-destruction",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your CANOPTEK SCARAB SWARMS units is picked to fight: pick one model in it. Once that unit has finished piling in, you can pick one enemy unit within Engagement Range of that model and roll a D6. On a 2-5, that enemy unit takes D3 mortal wounds; on a 6, it takes 3 mortal wounds. That CANOPTEK SCARAB SWARM model is then destroyed."
+  },
+  "eee817f96c0b": {
+    "name": "Grand Strategist",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and you pick this model as your WARLORD, you get 2 extra Command points."
+  },
+  "f0ad7ce918a0": {
+    "name": "Relentless March (Silent King) (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "f286e92eba6e": {
+    "name": "Illuminor",
+    "kind": "ability",
+    "plain": "This model can use its Rites of Reanimation ability one extra time each turn."
+  },
+  "f6a4a2f2a53a": {
+    "name": "Empyric Overcharger (Aura)",
+    "kind": "ability",
+    "plain": "Aura: whenever a Psychic test is taken for an enemy PSYKER unit that is within 12\" of this model, any double rolled on it, not only a double 1 or double 6, makes that unit suffer Perils of the Warp."
+  },
+  "f70f3dcee6f1": {
+    "name": "Translocation Crypt",
+    "kind": "stratagem",
+    "plain": "Before the battle, when declaring reserves and transports (or during deployment, if your mission has no such step): pick one of your NEPHREKH units that is not a VEHICLE or MONSTER unit. It gains the Dimensional Translocation ability."
+  },
+  "f816c5901156": {
+    "name": "Phaeron",
+    "kind": "ability",
+    "plain": "This model can use My Will Be Done one extra time each turn."
+  },
+  "f8ef03f0f33c": {
+    "name": "Artillery Battery",
+    "kind": "ability",
+    "plain": "The first time this unit is set up on the battlefield, its models don't need to be in unit coherency; instead, every model must be set up within 6\" of another model from its unit. From then on, treat each model in this unit as a separate unit."
+  },
+  "f9da11c592f9": {
+    "name": "Methodical Destruction",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, once one of your SAUTEKH units has finished making its attacks: pick one enemy unit that a model in that SAUTEKH unit attacked this phase. Until the phase ends, add 1 to the hit roll whenever a model in a different SAUTEKH unit of yours attacks that enemy unit."
+  },
+  "fa047206b1c3": {
+    "name": "Tomb Ziggurat Terrain Features",
+    "kind": "ability",
+    "plain": "The Tomb Ziggurat counts as a terrain feature with the Scalable, Defensible, Light Cover and Obscuring terrain traits.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "fb045cc298d3": {
+    "name": "Storm of Flensing Blades",
+    "kind": "stratagem",
+    "plain": "At the end of the Fight phase: pick one of your FLAYED ONES units that is within Engagement Range of any enemy units. It can fight again."
+  },
+  "fb1379965e55": {
+    "name": "Inescapable Death",
+    "kind": "ability",
+    "plain": "Whenever this model makes a ranged attack, you can ignore any or all modifiers to the hit roll and Ballistic Skill, and the target doesn't get the benefits of cover against that attack. Also, when this model fires Overwatch, it hits on unmodified hit rolls of 2+ rather than 6."
+  }
+}
