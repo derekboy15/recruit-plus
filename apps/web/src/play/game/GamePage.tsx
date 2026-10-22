@@ -172,7 +172,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
           <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
         ) : (
           <>
-            {selectedUnitId && !state.ended && (
+            {selectedUnitId && !state.ended && state.phase !== 'pre-battle' && (
               <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
                 Adjust {state.units[selectedUnitId]?.name}…
               </button>

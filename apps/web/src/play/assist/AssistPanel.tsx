@@ -83,7 +83,7 @@ export function AssistPanel(props: PanelProps) {
                 ))}
               </details>
             )}
-            <ModifierBar {...props} unitId={id} />
+            {s.phase !== 'pre-battle' && <ModifierBar {...props} unitId={id} />}
           </section>
         );
       })}

@@ -46,3 +46,13 @@ test("lists the army's rules by name", async () => {
   const rules = await screen.findByRole('region', { name: 'Army rules' });
   expect(within(rules).getByText('The Royal Court')).toBeInTheDocument();
 });
+
+test('before the battle it offers no one-tap rules (they apply from battle round 1)', async () => {
+  const { newGame } = await import('@recruit/engine');
+  const { sampleSetup } = await import('../__fixtures__/game');
+  const h = renderPanel(AssistPanel, newGame(sampleSetup()));
+  h.tap({ x: 0, y: 0 }, 'A:war.m1');
+  expect(await screen.findByRole('region', { name: 'Necron Warriors' })).toBeInTheDocument();
+  await screen.findByRole('region', { name: 'Stratagems now' });
+  expect(screen.queryByText('Apply a rule (one tap)')).toBeNull();
+});
