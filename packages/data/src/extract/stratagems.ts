@@ -15,6 +15,11 @@ export interface StratagemFaction {
    * aren't HERETIC ASTARTES, say).
    */
   groups?: string[];
+  /**
+   * Only these stratagem ids, for catalogues with so few units that most of the faction's stratagems need keywords none of
+   * them have (Legion of the Damned, Adeptus Astra Telepathica).
+   */
+  ids?: string[];
   source: string;
 }
 
@@ -156,6 +161,7 @@ export function selectStratagems(
       return toOut(w, r, detailById.get(r.id)?.group ?? group, kind);
     })
     .filter((s) => !entry.groups || entry.groups.includes(s.group))
+    .filter((s) => !entry.ids || entry.ids.includes(s.id))
     .sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
 }
 

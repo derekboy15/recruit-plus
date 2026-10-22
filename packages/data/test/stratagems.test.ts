@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildAll, validateStratagemOverrides } from '../src/build';
+import { selectStratagems } from '../src/extract/stratagems';
 import { loadOverrides, type Overrides } from '../src/join/wahapedia';
 import type { CatalogueOut, DataIndex, StratagemOut } from '../src/model/types';
 import { loadWahapedia, type Row, type Wahapedia } from '../src/wahapedia/load';
@@ -106,6 +107,7 @@ test('stratagem overrides naming an unknown catalogue, id, subfaction or group t
   expect(bad({ stratagemFactions: [{ ...first, factionId: 'XX' }, ...rest] })).toThrow(/unknown faction "XX"/);
   expect(bad({ stratagemFactions: [{ ...first, subfactions: ['CHXX'] }, ...rest] })).toThrow(/CHXX/);
   expect(bad({ stratagemFactions: [{ ...first, groups: ['No Such Group'] }, ...rest] })).toThrow(/unknown group "No Such Group"/);
+  expect(bad({ stratagemFactions: [{ ...first, ids: ['000002134002'] }, ...rest] })).toThrow(/does not otherwise list stratagem "000002134002"/);
   expect(bad({ stratagemFactions: rest })).toThrow(/no stratagem-factions entry/);
   expect(bad({ excludedStratagems: [{ id: '000000000000', name: 'X', reason: 'x', source: 'x' }] })).toThrow(/unknown stratagem "000000000000"/);
   expect(bad({ coreStratagems: [{ id: '000002134002', name: 'Wrong Name', source: 'x' }] })).toThrow(/Wrong Name/);
@@ -113,6 +115,13 @@ test('stratagem overrides naming an unknown catalogue, id, subfaction or group t
   const swordBrethren = { id: '000003187002', name: 'Sword Brethren', group: 'Sword Brethren (Specialist Detachment)', source: 'x' };
   expect(bad({ stratagemDetails: [...details, { ...swordBrethren, subfactionId: 'LGBL' }] })).toThrow(/LGBL/);
   expect(bad({ stratagemDetails: [...details, { ...swordBrethren, group: undefined }] })).toThrow(/neither group nor subfactionId/);
+});
+
+test('an ids allow-list keeps only those stratagems', () => {
+  const necrons = overrides.stratagemFactions.find((e) => e.catalogueName === 'Necrons')!;
+  const all = selectStratagems(w, necrons, new Set(), overrides.stratagemDetails);
+  const keep = [all[3].id, all[0].id];
+  expect(selectStratagems(w, { ...necrons, ids: keep }, new Set(), overrides.stratagemDetails).map((s) => s.id).sort()).toEqual([...keep].sort());
 });
 
 const names = (slug: string) => catalogue(slug).stratagems.map((s) => s.name);

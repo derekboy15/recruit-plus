@@ -54,6 +54,25 @@ function categoryNamesById(files: RawCatalogue[]): Map<string, string> {
   return out;
 }
 
+/** An army rule BSData carries that isn't a current 9th Edition rule (an 8th-edition leftover, a page reference, an empty entry). */
+export interface RuleExclusion {
+  catalogueName: string;
+  name: string;
+  reason: string;
+  source: string;
+}
+
+/** The catalogue's rules without its excluded ones; throws if an exclusion matches nothing or lacks a reason or source. */
+export function excludeRules(catalogueName: string, rules: CatalogueOut['rules'], exclusions: RuleExclusion[]): CatalogueOut['rules'] {
+  const own = exclusions.filter((x) => x.catalogueName === catalogueName);
+  for (const x of own) {
+    if (!x.reason || !x.source) throw new Error(`rule-exclusions.json: ${catalogueName} "${x.name}" needs a reason and a source`);
+    if (!rules.some((r) => r.name === x.name)) throw new Error(`rule-exclusions.json: ${catalogueName} has no army rule "${x.name}"`);
+  }
+  const names = new Set(own.map((x) => x.name));
+  return rules.filter((r) => !names.has(r.name));
+}
+
 /** The .gst's roster file is always `system`. */
 export const SYSTEM_ROSTER_SLUG = 'system';
 
@@ -78,6 +97,8 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const excludedStratagems = new Set(overrides.excludedStratagems.map((e) => e.id));
   const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
   const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
+  const ruleExclusions: RuleExclusion[] = JSON.parse(readFileSync(join(opts.overridesDir, 'rule-exclusions.json'), 'utf8'));
+  for (const x of ruleExclusions) if (!catalogues.some((c) => c.name === x.catalogueName)) throw new Error(`rule-exclusions.json names unknown catalogue "${x.catalogueName}"`);
   validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
   const amendmentTotals = new Map<Amendment, number>();
   const outs: CatalogueOut[] = [];
@@ -96,7 +117,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       group: faction.group,
       library,
       units,
-      rules: catalogueRules(cat),
+      rules: excludeRules(cat.name, catalogueRules(cat), ruleExclusions.filter((x) => x.catalogueName === cat.name)),
       stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems, overrides.stratagemDetails),
     };
     for (const [a, n] of applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name || a.catalogueName === '*'))) {
@@ -334,6 +355,10 @@ export function validateStratagemOverrides(
   for (const e of o.stratagemFactions.filter((x) => x.groups)) {
     const present = new Set(selectStratagems(w, { ...e, groups: undefined }, excluded, o.stratagemDetails).map((s) => s.group));
     for (const g of e.groups!) if (!present.has(g)) throw new Error(`stratagem-factions.json (${e.catalogueName}) names unknown group "${g}"`);
+  }
+  for (const e of o.stratagemFactions.filter((x) => x.ids)) {
+    const present = new Set(selectStratagems(w, { ...e, ids: undefined }, excluded, o.stratagemDetails).map((s) => s.id));
+    for (const id of e.ids!) if (!present.has(id)) throw new Error(`stratagem-factions.json (${e.catalogueName}) does not otherwise list stratagem "${id}"`);
   }
   for (const name of playable) if (!seen.has(name)) throw new Error(`no stratagem-factions entry for catalogue "${name}"`);
   const byId = new Map(w.stratagems.map((s) => [s.id, s]));
