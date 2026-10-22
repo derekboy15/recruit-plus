@@ -107,12 +107,12 @@
   "cbaded1ffb55": {
     "name": "Moonfang",
     "kind": "weapon",
-    "plain": "If the target is a CHARACTER, this weapon has double Strength."
+    "plain": "If the target is a CHARACTER, this weapon has double Strength (x2)."
   },
   "e20351fb0560": {
     "name": "Khan's spear",
     "kind": "weapon",
-    "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled for its attacks."
+    "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled (x2) for its attacks."
   },
   "e4c35d9489de": {
     "name": "Rites of Battle (Aura)",

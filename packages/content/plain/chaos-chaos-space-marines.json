@@ -1779,7 +1779,7 @@
   "efc485fdb7a9": {
     "name": "Surgeon Acolyte",
     "kind": "ability",
-    "plain": "While this unit includes a SURGEON ACOLYTE model:\n- Whenever FABIUS BILE finishes the Enhance Warriors action, roll a pair of D3 rather than a single D3 to find the chosen unit's enhancement, then pick either result.\n- Ignore a destroyed SURGEON ACOLYTE model when taking Morale tests.\n- Should FABIUS BILE be destroyed at any point, the SURGEON ACOLYTE model in this unit is destroyed as well."
+    "plain": "While this unit includes a SURGEON ACOLYTE model:\n- Whenever FABIUS BILE finishes the Enhance Warriors action, roll two D3 rather than a single D3 to find the chosen unit's enhancement, then pick either result.\n- Ignore a destroyed SURGEON ACOLYTE model when taking Morale tests.\n- Should FABIUS BILE be destroyed at any point, the SURGEON ACOLYTE model in this unit is destroyed as well."
   },
   "f053719676a1": {
     "name": "Explodes (Venomcrawler)",

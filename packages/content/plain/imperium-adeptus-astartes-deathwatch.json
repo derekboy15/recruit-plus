@@ -224,6 +224,7 @@
     "kind": "rule",
     "plain": "If every unit in your army has the DEATHWATCH keyword (UNALIGNED units don't count), every unit in a DEATHWATCH Detachment that has the Combat Doctrines ability also gains this Mission Tactics ability:\nIgnore the usual Space Marines rules for deciding which combat doctrine is active each battle round. Instead, at the start of each battle round, pick any one of the Devastator Doctrine, Tactical Doctrine or Assault Doctrine; it is active for your army until that battle round ends. There is no limit on how many times you can pick each doctrine.",
     "waive": {
+      "3": "\"three times\" is a pick limit the Rules update removed; the plain text says there is no limit",
       "2023": "date of the dataslate that made the change, not part of the rule"
     }
   },
@@ -343,6 +344,8 @@
     "kind": "rule",
     "plain": "This unit gets a bonus from whichever combat doctrine your army has active, but only if every unit in your army has the ADEPTUS ASTARTES keyword (AGENT OF THE IMPERIUM and ALIGNED units don't count).\nWhich doctrine is active:\n• In the first battle round, the Devastator Doctrine is active.\n• From the second battle round onwards, at the start of each battle round you can either move on to the next doctrine in the order Devastator, Tactical, Assault, or keep the doctrine that is already active. You are never forced to move on, so the Devastator or Tactical Doctrine can stay active.\nThe bonuses:\n• Devastator Doctrine: improve the Armour Penetration characteristic of every Heavy and Grenade weapon this unit's models are equipped with by 1.\n• Tactical Doctrine: improve the Armour Penetration characteristic of every Rapid Fire and Assault weapon this unit's models are equipped with by 1.\n• Assault Doctrine: improve the Armour Penetration characteristic of every Pistol and Melee weapon this unit's models are equipped with by 1.\nUnless a rule says otherwise, this bonus doesn't stack with other rules that improve a weapon's Armour Penetration characteristic (for example, the Storm of Fire Warlord Trait).",
     "waive": {
+      "3": "\"third battle round\" belongs to the old fixed sequence that the Rules update replaced; the plain text describes the updated rule",
+      "4": "\"fourth battle round\" belongs to the old fixed sequence that the Rules update replaced; the plain text describes the updated rule",
       "2023": "date of the dataslate that made the change, not part of the rule"
     }
   },

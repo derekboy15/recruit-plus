@@ -72,7 +72,7 @@
   "6bdb1c732d87": {
     "name": "Blade of the Scorpion",
     "kind": "weapon",
-    "plain": "The Strength characteristic is doubled for attacks made with this weapon against a MONSTER or VEHICLE."
+    "plain": "The Strength characteristic is doubled (x2) for attacks made with this weapon against a MONSTER or VEHICLE."
   },
   "6c76830566fd": {
     "name": "Rites of Battle (Aura)",

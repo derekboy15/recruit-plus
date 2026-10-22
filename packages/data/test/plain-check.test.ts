@@ -91,7 +91,26 @@ test('keyword edge cases from real data: 2CP, GREAT UNCLEAN ONE, AP-1', () => {
 test('a number at the end of a sentence still counts', () => {
   expect(values('Each time this unit is hit, subtract 1.')).toEqual(['num:1']);
   expect(checkPlain('Each time this unit is hit, subtract 1.', 'When this unit is hit, take away 2 from it.').ok).toBe(false);
-  expect(values('a 1.5 metre gap')).toEqual([]); // decimals aren't counts (and never appear unless followed by an inch mark)
+});
+
+test('number words in the official text count, except one and first', () => {
+  expect(values('select up to three units')).toEqual(['num:3']);
+  expect(values('in the second battle round')).toEqual(['num:2']);
+  expect(values('select one unit in the first battle round')).toEqual([]);
+  expect(crossCheck('select up to three units', 'pick up to 2 units').missing).toEqual([{ kind: 'num', value: '3' }]);
+  expect(crossCheck('in the second battle round', 'in the 2nd battle round').missing).toEqual([]);
+});
+
+test('multipliers are strict tokens', () => {
+  expect(values('Strength x2')).toEqual(['mult:x2']);
+  expect(crossCheck('Strength x2', 'Strength x3')).toEqual({ missing: [{ kind: 'mult', value: 'x2' }], extra: [{ kind: 'mult', value: 'x3' }] });
+  expect(crossCheck('Strength ×2', 'double Strength (x2)')).toEqual({ missing: [], extra: [] });
+});
+
+test('halves and decimals are read as one number', () => {
+  expect(values('within 2½" of it')).toEqual(['dist:2.5"']);
+  expect(values('a 1.5 metre gap')).toEqual(['num:1.5']);
+  expect(crossCheck('within 2½"', 'within 2"').missing).toEqual([{ kind: 'dist', value: '2.5"' }]);
 });
 
 test('lower-case dice count in plain text', () => {

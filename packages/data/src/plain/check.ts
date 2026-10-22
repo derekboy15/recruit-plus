@@ -4,8 +4,8 @@
  * be copied. Browser-safe: no Node imports.
  */
 
-export type TokenKind = 'dice' | 'roll' | 'mod' | 'dist' | 'num' | 'kw';
-/** Canonical value: 'D3+3', '5+', '+1', '6"', '3', 'CORE INFANTRY'. */
+export type TokenKind = 'dice' | 'roll' | 'mod' | 'dist' | 'mult' | 'num' | 'kw';
+/** Canonical value: 'D3+3', '5+', '+1', '6"', 'x2', '3', 'CORE INFANTRY'. */
 export interface Token { kind: TokenKind; value: string }
 
 /** Curly quotes and dashes to plain ones, inch words and spaced inch marks to `"`, whitespace collapsed. */
@@ -14,6 +14,8 @@ export function normaliseRulesText(s: string): string {
     .replace(/[″“”]/g, '"')
     .replace(/[’‘]/g, "'")
     .replace(/[–—]/g, '-')
+    .replace(/×/g, 'x')
+    .replace(/(\d)½/g, '$1.5')
     .replace(/ /g, ' ')
     .replace(/\s+/g, ' ')
     .replace(/(\d+)\s*(?:inches|inch)\b/gi, '$1"')
@@ -30,11 +32,16 @@ const ORDINAL_WORDS = [
   'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth',
 ];
 
-/** Plain English may spell numbers out; read them as digits. ALL-CAPS words are keywords (GREAT UNCLEAN ONE) and stay. */
-function numberWordsToDigits(s: string): string {
+/**
+ * Numbers spelled out read as digits. ALL-CAPS words are keywords (GREAT UNCLEAN ONE) and stay. In official text "zero",
+ * "one" and "first" stay words: "one unit" is everywhere and is rarely a value a player could get wrong.
+ */
+const OFFICIAL_SKIP = new Set(['zero', 'one', 'first']);
+function numberWordsToDigits(s: string, official = false): string {
   return s.replace(/\b[a-z]+\b/gi, (w) => {
     if (w.length > 1 && w === w.toUpperCase()) return w;
     const lower = w.toLowerCase();
+    if (official && OFFICIAL_SKIP.has(lower)) return w;
     const n = NUMBER_WORDS.indexOf(lower);
     if (n >= 0) return String(n);
     const o = ORDINAL_WORDS.indexOf(lower);
@@ -54,8 +61,9 @@ const RULES: { kind: Exclude<TokenKind, 'kw'>; re: RegExp; value: (m: RegExpExec
   { kind: 'roll', re: /\b(\d+)\+(?!\d)/g, value: (m) => `${m[1]}+` },
   { kind: 'mod', re: /(?<![\w"])([+-])(\d+)\b/g, value: (m) => `${m[1]}${m[2]}` },
   { kind: 'dist', re: /\b(\d+(?:\.\d+)?)"/g, value: (m) => `${m[1]}"` },
-  // A full stop after a number ends the sentence ("subtract 1."); only a decimal point (a digit either side) excludes it.
-  { kind: 'num', re: /(?<!\w|\d\.)(\d{1,3}(?:,\d{3})+|\d+)(?!\d|\.\d)/g, value: (m) => m[1].replace(/,/g, '') },
+  { kind: 'mult', re: /(?<!\w)x(\d+)\b/gi, value: (m) => `x${m[1]}` },
+  // A full stop after a number ends the sentence ("subtract 1."); a decimal ("1.5") is read as one number.
+  { kind: 'num', re: /(?<!\w|\d\.)(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)(?!\d|\.\d)/g, value: (m) => m[1].replace(/,/g, '') },
 ];
 
 const KW_WORD = /^<?[A-Z][A-Z0-9'-]*>?$/;
@@ -90,7 +98,7 @@ function keywordRuns(masked: string): Found[] {
 }
 
 function extract(text: string, plain: boolean): Found[] {
-  let work = normaliseRulesText(plain ? numberWordsToDigits(text) : text);
+  let work = normaliseRulesText(numberWordsToDigits(text, !plain));
   const found: Found[] = [];
   for (const rule of RULES) {
     work = work.replace(rule.re, (...args) => {
@@ -126,6 +134,7 @@ function numericValues(t: Token): string[] {
     case 'roll': return [t.value.slice(0, -1)];
     case 'mod': return [t.value.slice(1)];
     case 'dist': return [t.value.slice(0, -1)];
+    case 'mult': return [t.value.slice(1)];
     case 'dice': {
       const m = /^(\d*)D\d+(?:[+-](\d+))?$/.exec(t.value)!;
       return [m[1], m[2]].filter(Boolean);
@@ -142,7 +151,7 @@ function hasKeyword(plain: string, run: string): boolean {
   return new RegExp(`(?<![A-Za-z<])${body}s?(?![\\w>])`, 'i').test(plain);
 }
 
-const STRICT: TokenKind[] = ['dice', 'roll', 'mod', 'dist'];
+const STRICT: TokenKind[] = ['dice', 'roll', 'mod', 'dist', 'mult'];
 
 export function crossCheck(official: string, plain: string): CrossCheck {
   const off = extractTokens(official);

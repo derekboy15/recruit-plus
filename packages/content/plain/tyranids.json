@@ -311,6 +311,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your GORGON TOXIN SACS units is chosen to fight. For the rest of the phase, melee attacks by TOXIN SACS models in that unit wound the target automatically on an unmodified hit roll of 5+."
   },
+  "49185cd54970": {
+    "kind": "ability",
+    "name": "Swarming Masses",
+    "plain": "Each time this unit fights, a model in it can fight if it is within Engagement Range of any enemy units, or if it is within 2½ inches of any enemy units. However, if during the Fight phase this unit is affected by any other rule that would cut down the number of its models able to fight, then for that phase that other rule and Swarming Masses both have no effect."
+  },
   "4ab9354aaa58": {
     "kind": "ability",
     "name": "Rapacious Hunger",
@@ -1095,11 +1100,6 @@
     "kind": "psychic",
     "name": "Lurking Maws",
     "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of this PSYKER. Until your next Psychic phase starts, whenever one of your JORMUNGANDR models makes a melee attack against that unit, that attack's Armour Penetration is improved by 1."
-  },
-  "eef28094767f": {
-    "kind": "ability",
-    "name": "Swarming Masses",
-    "plain": "Each time this unit fights, a model in it can fight if it is within Engagement Range of any enemy units, or if it is within 2½ inches of any enemy units. However, if during the Fight phase this unit is affected by any other rule that would cut down the number of its models able to fight, then for that phase that other rule and Swarming Masses both have no effect."
   },
   "f021e1b7f76d": {
     "name": "Bombardment Organism",
