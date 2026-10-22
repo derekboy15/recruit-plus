@@ -1,8 +1,10 @@
 /** Saved sandbox games: a storage doc of kind 'game' holding the engine record and what the app needs around it. */
-import type { GameRecord, Phase, PlayerId } from '@recruit/engine';
+import { EngineLoadError, loadGame, newGame, stateOf, totalVp, type GameRecord, type GameSetup, type Phase, type PlayerId } from '@recruit/engine';
 import { liveQuery } from 'dexie';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../auth/AuthContext';
+import { newDocId } from '../../storage/ids';
+import type { Repository } from '../../storage/repository';
 import { useStorage } from '../../storage/StorageContext';
 import type { Doc } from '../../storage/types';
 
@@ -18,6 +20,38 @@ export interface GameMeta {
 }
 export interface GameSummary { round: number; phase: Phase; ended: boolean; winner: PlayerId | null; vp: Record<PlayerId, number> }
 export interface GameData { record: GameRecord; meta: GameMeta; summary: GameSummary }
+
+export function summarise(record: GameRecord): GameSummary {
+  const s = stateOf(record);
+  return { round: s.round, phase: s.phase, ended: !!s.ended, winner: s.ended?.winner ?? null, vp: { A: totalVp(s, 'A'), B: totalVp(s, 'B') } };
+}
+
+export async function createGame(repo: Repository, ownerId: string, setup: GameSetup, meta: GameMeta): Promise<string> {
+  const record = newGame(setup);
+  const id = newDocId();
+  await repo.saveDoc<GameData>({ id, kind: 'game', ownerId, data: { record, meta, summary: summarise(record) } });
+  return id;
+}
+
+export function saveGameDoc(repo: Repository, doc: Doc<GameData>, record: GameRecord): Promise<Doc<GameData>> {
+  return repo.saveDoc<GameData>({ id: doc.id, kind: 'game', ownerId: doc.ownerId, data: { ...doc.data, record, summary: summarise(record) } });
+}
+
+export type Opened =
+  | { ok: true; doc: Doc<GameData>; record: GameRecord }
+  | { ok: false; reason: 'missing' }
+  | { ok: false; reason: 'unreadable'; message: string };
+
+/** Opens a saved game; a record this engine can't replay comes back as unreadable with the engine's reason. */
+export async function openGameDoc(repo: Repository, id: string): Promise<Opened> {
+  const doc = await repo.getDoc<GameData>(id);
+  if (!doc || doc.deleted || doc.kind !== 'game') return { ok: false, reason: 'missing' };
+  try {
+    return { ok: true, doc, record: loadGame(JSON.stringify(doc.data.record)) };
+  } catch (e) {
+    return { ok: false, reason: 'unreadable', message: e instanceof EngineLoadError ? e.message : `This saved game couldn't be opened: ${(e as Error).message}` };
+  }
+}
 
 /** The signed-in user's saved games, newest first (the same contract as useLists). */
 export function useGames(): { games: Doc<GameData>[]; loading: boolean; error: Error | null } {
