@@ -119,3 +119,69 @@ describe('Core Book missions', () => {
     }
   });
 });
+
+describe('Arks of Omen Incursion missions', () => {
+  const inc = () => missions.filter((m) => m.pack === 'arks-of-omen' && m.battleSize === 'incursion');
+  test('nine missions on a 44x30 board, rolled on a D33', () => {
+    expect(inc().map((m) => m.roll).sort()).toEqual(['11', '12', '13', '21', '22', '23', '31', '32', '33']);
+    for (const m of inc()) expect(m.map.board, m.id).toEqual({ width: 44, height: 30 });
+  });
+  test('the hold part: 4 VP per condition, max 12, round 5 second player at end of turn', () => {
+    for (const m of inc()) {
+      const h = m.primary.components.find((c) => c.kind === 'hold')!;
+      expect(h, m.id).toMatchObject({ vpPerCondition: 4, max: 12, rounds: [2, 3, 4, 5], round5SecondPlayer: 'end-of-turn' });
+    }
+  });
+  test('Cleanse the Land: Direct Assault', () => {
+    expect(score('aoo-cleanse-the-land', 'direct-assault', { flags: { objectives: true, kill: true } })).toBe(3);
+    expect(score('aoo-cleanse-the-land', 'direct-assault', { flags: { kill: true } })).toBe(2);
+    expect(score('aoo-cleanse-the-land', 'hold', { controlled: 2, opponentControlled: 1 })).toBe(12);
+  });
+  test('Deliverance: VP per no-man’s-land objective rises by round', () => {
+    expect(score('aoo-deliverance', 'secure-landing-sites', { counts: { nml: 2 } }, 4)).toBe(6);
+    expect(score('aoo-deliverance', 'secure-landing-sites', { counts: { nml: 1 } }, 3)).toBe(2);
+    expect(comp('aoo-deliverance', 'secure-landing-sites').rounds).toEqual([3, 4, 5]);
+  });
+  test('Desperate Raid: Domination and Raid Supply Lines', () => {
+    expect(score('aoo-desperate-raid', 'hold', { controlled: 3, opponentControlled: 0 })).toBe(12);
+    expect(score('aoo-desperate-raid', 'hold', { controlled: 2, opponentControlled: 3 })).toBe(4);
+    expect(score('aoo-desperate-raid', 'raid-supply-lines', { flags: { raid: true } }, 1)).toBe(3);
+    expect(cpBonusPlan(byId('aoo-desperate-raid').cp, { round: 2, player: 'A', active: 'A' }).extras.map((e) => e.cp)).toEqual([1]);
+  });
+  test('Sacred Ground: Wisdom is the Cornerstone of Faith', () => {
+    expect(score('aoo-sacred-ground', 'wisdom', { flags: { 'enemy-home': true }, counts: { others: 2 } })).toBe(4);
+    expect(score('aoo-sacred-ground', 'wisdom', { flags: { 'lose-home': true } })).toBe(-1);
+    expect(byId('aoo-sacred-ground').cp.gates.map((g) => g.onNo)).toEqual(['roll-1-3-lose']);
+  });
+  test('Ascension: Ascend each turn and at the end', () => {
+    expect(score('aoo-ascension', 'ascend', { flags: { centre: true, kill: true } })).toBe(2);
+    expect(score('aoo-ascension', 'ascend-end', { flags: { warlord: true, 'enemy-warlord': true } }, 5)).toBe(6);
+    expect(byId('aoo-ascension').cp.gates.map((g) => g.id)).toEqual(['leading-from-the-front']);
+  });
+  test('Surge of Faith: VP by objective and player', () => {
+    expect(score('aoo-surge-of-faith', 'surge-of-faith', { pick: 'A' }, 2, 'B')).toBe(4);
+    expect(score('aoo-surge-of-faith', 'surge-of-faith', { pick: 'A' }, 2, 'A')).toBe(0);
+    expect(score('aoo-surge-of-faith', 'surge-of-faith', { pick: 'C' }, 2, 'A')).toBe(3);
+  });
+  test('Rise of the Machine Spirit: Inload Data-psalm', () => {
+    expect(score('aoo-rise-of-the-machine-spirit', 'inload-data-psalm', { flags: { done: true }, counts: { held: 4 } })).toBe(3);
+    expect(score('aoo-rise-of-the-machine-spirit', 'inload-data-psalm', { counts: { held: 4 } })).toBe(0);
+  });
+  test('Display of Spiritual Might: Break Them, and Secret Intel Inbound', () => {
+    expect(score('aoo-display-of-spiritual-might', 'break-them', { counts: { destroyed: 5 } })).toBe(3);
+    const rule = byId('aoo-display-of-spiritual-might').cp;
+    expect(cpBonusPlan(rule, { round: 2, player: 'B', active: 'A' }).base).toBe(0);
+    expect(cpBonusPlan(rule, { round: 3, player: 'B', active: 'A' }).base).toBe(1);
+    expect(cpBonusPlan(rule, { round: 4, player: 'A', active: 'A' }).extras.map((e) => e.cp)).toEqual([1]);
+  });
+  test('Reconnaissance Mission: Recon Sweep table', () => {
+    expect(score('aoo-reconnaissance-mission', 'recon-sweep', { counts: { reconnoitred: 3 } }, 5)).toBe(10);
+    expect(score('aoo-reconnaissance-mission', 'recon-sweep', { counts: { reconnoitred: 4 } }, 5)).toBe(15);
+  });
+  test('objective counts', () => {
+    expect(Object.fromEntries(inc().map((m) => [m.id, m.map.objectives.length]))).toEqual({
+      'aoo-cleanse-the-land': 5, 'aoo-deliverance': 5, 'aoo-desperate-raid': 6, 'aoo-sacred-ground': 4, 'aoo-ascension': 5,
+      'aoo-surge-of-faith': 4, 'aoo-rise-of-the-machine-spirit': 5, 'aoo-display-of-spiritual-might': 4, 'aoo-reconnaissance-mission': 4,
+    });
+  });
+});
