@@ -4,11 +4,11 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildContent } from '../src/content/build';
 import { blocksText, compileMarkdown, parseFrontmatter } from '../src/content/markdown';
-import type { CatalogueOut, UnitOut } from '../src/model/types';
+import type { Block, CatalogueOut, Inline, UnitOut } from '../src/model/types';
 
 const FIXTURE = join(__dirname, 'fixtures', 'content');
-const t = (v: string) => ({ t: 'text', v });
-const p = (...c: unknown[]) => ({ t: 'p', c });
+const t = (v: string): Inline => ({ t: 'text', v });
+const p = (...c: Inline[]): Block => ({ t: 'p', c });
 
 function unit(name: string): UnitOut {
   return {
