@@ -39,6 +39,8 @@ const lazyPage = (page: ReactNode) => <LazyPage>{page}</LazyPage>;
 /** Wraps routes that need a signed-in user (replaced by RequireAuth in Task 10). */
 export type Guard = (children: ReactNode) => ReactNode;
 
+const TableRoutes = lazy(() => import('./table/TableRoutes').then((m) => ({ default: m.TableRoutes })));
+
 export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: ReactNode }) {
   return (
     <Routes>
@@ -58,8 +60,8 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
         element={guard(<Placeholder title="Play" milestone={5} blurb="The on-screen sandbox: two players, one device, core rules handled for you." />)}
       />
       <Route
-        path="/table"
-        element={guard(<Placeholder title="Table" milestone={7} blurb="The tabletop companion: phases, CP, VP, missions and stratagems." />)}
+        path="/table/*"
+        element={guard(lazyPage(<TableRoutes />))}
       />
       <Route path="/rules" element={guard(lazyPage(<RulesHome />))} />
       <Route path="/rules/glossary" element={guard(lazyPage(<GlossaryPage />))} />

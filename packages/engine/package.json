@@ -5,7 +5,9 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./data": "./src/data/index.ts"
+    "./data": "./src/data/index.ts",
+    "./dice": "./src/core/dice.ts",
+    "./attack-math": "./src/attack/resolve.ts"
   },
   "scripts": {
     "test": "vitest run",

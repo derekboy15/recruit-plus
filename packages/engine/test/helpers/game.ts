@@ -62,10 +62,10 @@ export interface TestGameOpts {
   rules?: Partial<MissionRules>;
 }
 
-/** A 44"×60" board (90" at Onslaught); A deploys in y < 12 (south edge), B in y > board.h − 12 (north edge); A attacks. */
+/** A 44"×60" test board (90" at Onslaught; the smaller real boards are stretched to 60" so the zones fit); A deploys in y < 12 (south edge), B in y > board.h − 12 (north edge); A attacks. */
 export function testSetup(o: TestGameOpts = {}): GameSetup {
   const size = o.size ?? 'strike-force';
-  const board = { ...BOARD_SIZES[size], h: size === 'combat-patrol' ? 60 : BOARD_SIZES[size].h };
+  const board = { ...BOARD_SIZES[size], h: Math.max(60, BOARD_SIZES[size].h) };
   const h = board.h;
   return {
     seed: o.seed ?? 1,
@@ -143,7 +143,7 @@ export function placeAll(game: GameRecord, positions: Record<string, Record<stri
 /** Deployment zones covering the whole board for both players (for tests that need models anywhere). */
 export function FULL_ZONES(size: BattleSizeId = 'strike-force'): Record<PlayerId, Pt[]> {
   const b = BOARD_SIZES[size];
-  const h = size === 'combat-patrol' ? 60 : b.h;
+  const h = Math.max(60, b.h);
   return { A: rect(0, 0, b.w, h), B: rect(0, 0, b.w, h) };
 }
 

@@ -63,7 +63,7 @@ export function missionRulesFor(size: BattleSizeId): MissionRules {
 /** Spec §4 board sizes. */
 export const BOARD_SIZES: Record<BattleSizeId, { w: number; h: number }> = {
   'combat-patrol': { w: 44, h: 30 },
-  incursion: { w: 44, h: 60 },
+  incursion: { w: 44, h: 30 },
   'strike-force': { w: 44, h: 60 },
   onslaught: { w: 44, h: 90 },
 };
