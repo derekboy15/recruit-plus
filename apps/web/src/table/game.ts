@@ -34,10 +34,11 @@ export interface TableSetup {
 export type EventBody =
   | { t: 'start' }
   | { t: 'advance'; to: Pos }
-  | { t: 'cp'; player: PlayerKey; delta: number; reason: 'bonus' | 'mission' | 'stratagem' | 'manual'; note?: string }
+  /** `auto`: written by the Command phase CP prompt (undone together with entering the phase). */
+  | { t: 'cp'; player: PlayerKey; delta: number; reason: 'bonus' | 'mission' | 'stratagem' | 'manual'; note?: string; auto?: true }
   | { t: 'vp'; player: PlayerKey; category: 'primary' | 'secondary'; sourceId: string; vp: number; detail: string }
   | { t: 'stratagem'; player: PlayerKey; stratagemId: string; name: string; cp: number }
-  | { t: 'roll'; label: string; sides: 3 | 6; dice: number[] }
+  | { t: 'roll'; label: string; sides: 3 | 6; dice: number[]; auto?: true }
   | { t: 'note'; text: string }
   | { t: 'end'; reason: 'complete' | 'agreed' | 'concede'; concededBy?: PlayerKey };
 export type TableEvent = EventBody & { id: string; at: string; pos: Pos | null };
@@ -77,9 +78,23 @@ export function makeEvent(body: EventBody, pos: Pos | null): TableEvent {
   return { ...body, id: crypto.randomUUID(), at: new Date().toISOString(), pos };
 }
 
-/** Drops the last event; the start event is never removed. */
+const samePos = (a: Pos | null, b: Pos | null) => !!a && !!b && a.round === b.round && a.turn === b.turn && a.phase === b.phase;
+const isAuto = (e: TableEvent) => (e.t === 'cp' || e.t === 'roll') && e.auto === true;
+
+/**
+ * Drops the last event; the start event is never removed. Undoing an automatic Command phase CP event also undoes the
+ * rest of that phase's automatic CP and the step into the phase, or the CP prompt would simply add the bonus again.
+ */
 export function undo(g: TableGameData): TableGameData {
-  return g.events.length > 1 ? { ...g, events: g.events.slice(0, -1) } : g;
+  if (g.events.length <= 1) return g;
+  const events = g.events.slice(0, -1);
+  const last = g.events[g.events.length - 1];
+  if (isAuto(last)) {
+    while (events.length > 1 && isAuto(events[events.length - 1]) && samePos(events[events.length - 1].pos, last.pos)) events.pop();
+    const before = events[events.length - 1];
+    if (events.length > 1 && before.t === 'advance' && samePos(before.to, last.pos)) events.pop();
+  }
+  return { ...g, events };
 }
 
 export function deriveState(g: TableGameData, pack: PackOut): TableState {
@@ -101,10 +116,13 @@ export function deriveState(g: TableGameData, pack: PackOut): TableState {
     } else if (e.t === 'cp') {
       cp[e.player] = Math.max(0, cp[e.player] + e.delta);
     } else if (e.t === 'vp') {
-      // A score can never be reduced below 0 (Sacred Ground, Conversion).
-      const applied = Math.max(e.vp, -running(e.player));
+      // VP over a cap are never scored, so a later loss comes off the capped score; and a player's score can never
+      // be reduced below 0 (Sacred Ground, Conversion).
+      const held = e.category === 'primary' ? primaryRaw[e.player] : (secondaryRaw[e.player][e.sourceId] ?? 0);
+      const cap = e.category === 'primary' ? pack.caps.primary : pack.caps.secondaryEach;
+      const applied = e.vp >= 0 ? Math.max(0, Math.min(e.vp, cap - held)) : Math.max(e.vp, -running(e.player));
       if (e.category === 'primary') primaryRaw[e.player] += applied;
-      else secondaryRaw[e.player][e.sourceId] = (secondaryRaw[e.player][e.sourceId] ?? 0) + applied;
+      else secondaryRaw[e.player][e.sourceId] = held + applied;
     } else if (e.t === 'stratagem') {
       stratagemsThisPhase = [...stratagemsThisPhase, { player: e.player, name: e.name }];
     } else if (e.t === 'end') {

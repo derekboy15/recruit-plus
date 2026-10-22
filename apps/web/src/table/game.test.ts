@@ -78,6 +78,16 @@ describe('VP', () => {
     expect(s.players.A.primary).toBe(45);
     expect(s.players.A.total).toBe(45);
   });
+  test('a loss after the primary cap comes off the capped 45', () => {
+    const s = deriveState(game([vp('A', 12), vp('A', 12), vp('A', 12), vp('A', 12), vp('A', -1)]), pack());
+    expect(s.players.A.primary).toBe(44);
+    expect(s.players.A.total).toBe(44);
+  });
+  test('a loss after a secondary cap comes off the capped 15', () => {
+    const sec = (n: number) => vp('A', n, 'secondary', 's1');
+    const s = deriveState(game([sec(5), sec(5), sec(5), sec(5), sec(-1)]), pack());
+    expect(s.players.A.secondary.s1).toBe(14);
+  });
   test('secondary capped at 15 each', () => {
     const g = game([vp('B', 10, 'secondary', 't1'), vp('B', 8, 'secondary', 't1'), vp('B', 4, 'secondary', 't2')]);
     const s = deriveState(g, pack());
@@ -106,6 +116,32 @@ describe('stratagems and undo', () => {
     const used = { t: 'stratagem' as const, player: 'A' as const, stratagemId: 'x', name: 'Command Re-roll', cp: 1 };
     expect(deriveState(game([used]), pack()).stratagemsThisPhase).toEqual([{ player: 'A', name: 'Command Re-roll' }]);
     expect(deriveState(game([used, { t: 'advance', to: { round: 1, turn: 1, phase: 'movement' } }]), pack()).stratagemsThisPhase).toEqual([]);
+  });
+  test('undo of an automatic Command phase CP bonus also undoes entering the phase', () => {
+    const morale: Pos = { round: 1, turn: 1, phase: 'morale' };
+    const command: Pos = { round: 1, turn: 2, phase: 'command' };
+    const g: TableGameData = {
+      mode: 'table', schema: 1, setup: setup(),
+      events: [
+        makeEvent({ t: 'start' }, null),
+        makeEvent({ t: 'advance', to: morale }, START),
+        makeEvent({ t: 'vp', player: 'A', category: 'primary', sourceId: 'x', vp: 2, detail: '' }, morale),
+        makeEvent({ t: 'advance', to: command }, morale),
+        makeEvent({ t: 'roll', label: 'Supply Lines (You)', sides: 6, dice: [2], auto: true }, command),
+        makeEvent({ t: 'cp', player: 'A', delta: 0, reason: 'bonus', auto: true }, command),
+        makeEvent({ t: 'cp', player: 'B', delta: 1, reason: 'bonus', auto: true }, command),
+      ],
+    };
+    const u = undo(g);
+    expect(u.events.map((e) => e.t)).toEqual(['start', 'advance', 'vp']);
+    expect(deriveState(u, pack()).pos).toEqual(morale);
+    expect(deriveState(undo(u), pack()).players.A.total).toBe(0);
+  });
+  test('undo of a dice roll in the Command phase only removes the roll', () => {
+    const g = game([{ t: 'roll', label: 'Dice', sides: 6, dice: [3] }]);
+    expect(undo(g).events.map((e) => e.t)).toEqual(['start']);
+    const g2 = game([{ t: 'cp', player: 'A', delta: 1, reason: 'bonus', auto: true }, { t: 'roll', label: 'Dice', sides: 6, dice: [3] }]);
+    expect(undo(g2).events.map((e) => e.t)).toEqual(['start', 'cp']);
   });
   test('undo never removes start', () => {
     const g = game([]);

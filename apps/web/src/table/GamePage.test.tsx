@@ -151,6 +151,23 @@ test('the round 5 hold prompt says it is scored at the end of the turn', async (
   expect(within(prompt).queryByText(/End of the Command phase/)).toBeNull();
 });
 
+test('Undo in the Command phase returns to the previous Morale phase and stays there', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 1, turn: 1, phase: 'morale' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'End turn' }));
+  await u.click(within(await screen.findByRole('region', { name: /Score: You/ })).getByRole('button', { name: 'Skip' }));
+  await waitFor(() => expect(within(player('Opponent')).getByText('7 CP')).toBeInTheDocument());
+  expect(screen.getByText(/Round 1 · Opponent's turn · Command phase/)).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Undo' }));
+  expect(await screen.findByText(/Round 1 · Your turn · Morale phase/)).toBeInTheDocument();
+  await new Promise((r) => setTimeout(r, 300));
+  expect(screen.getByText(/Round 1 · Your turn · Morale phase/)).toBeInTheDocument();
+  expect(within(player('Opponent')).getByText('6 CP')).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Undo' }));
+  await waitFor(async () => expect((await doc(id)).data.events.filter((e) => e.t === 'vp')).toHaveLength(0));
+});
+
 test('Undo removes the last score', async () => {
   const u = userEvent.setup();
   const pos: Pos = { round: 2, turn: 1, phase: 'movement' };

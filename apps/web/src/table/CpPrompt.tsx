@@ -26,7 +26,7 @@ export function CpPrompt({ mission, pos, player, active, name, roll, onResolve }
   const finish = (answered: boolean[], rolled: { gate: string; value: number }[]) => {
     if (done.current) return;
     done.current = true;
-    const events: EventBody[] = rolled.map((r) => ({ t: 'roll', label: `${ruleName(mission, r.gate)} (${name})`, sides: 6, dice: [r.value] }));
+    const events: EventBody[] = rolled.map((r) => ({ t: 'roll', label: `${ruleName(mission, r.gate)} (${name})`, sides: 6, dice: [r.value], auto: true }));
     let lostBy: string | null = plan.base === 0 ? (mission.cp.gates.find((g) => !g.question && (!g.rounds || g.rounds.includes(pos.round)))?.id ?? 'mission') : null;
     questions.forEach((q, i) => {
       if (q.kind !== 'gate' || answered[i]) return;
@@ -34,12 +34,12 @@ export function CpPrompt({ mission, pos, player, active, name, roll, onResolve }
       if (q.gate.onNo === 'lose' || (r && r.value <= 3)) lostBy ??= q.gate.id;
     });
     events.push({
-      t: 'cp', player, delta: lostBy ? 0 : 1, reason: 'bonus',
+      t: 'cp', player, delta: lostBy ? 0 : 1, reason: 'bonus', auto: true,
       note: lostBy ? `No Battle-forged CP bonus (${ruleName(mission, lostBy)})` : 'Battle-forged CP bonus',
     });
     for (const e of plan.extras) {
       const i = questions.findIndex((q) => q.kind === 'extra' && q.extra.id === e.id);
-      if (i === -1 || answered[i]) events.push({ t: 'cp', player, delta: e.cp, reason: 'mission', note: ruleName(mission, e.id) });
+      if (i === -1 || answered[i]) events.push({ t: 'cp', player, delta: e.cp, reason: 'mission', note: ruleName(mission, e.id), auto: true });
     }
     onResolve(events);
   };
