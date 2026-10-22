@@ -25,6 +25,8 @@ export interface TurnFlags {
   embarkedThisPhase: boolean;
   disembarkedThisPhase: boolean;
   brokeOut: boolean;
+  /** An Aircraft flew off into Strategic Reserves this turn (it can come back next turn, TS §3.5). */
+  leftThisTurn: boolean;
   shot: boolean;
   charged: boolean;
   chargeTargets: string[];
@@ -50,7 +52,7 @@ export interface UnitState {
   casualtyOrder: string[];
   turn: TurnFlags;
   /** Toolkit flags: counts as Remained Stationary this turn; Objective Secured forced on or off. */
-  flags: { countsAsStationary?: boolean; objectiveSecured?: boolean };
+  flags: { countsAsStationary?: boolean; objectiveSecured?: boolean; leftBattlefield?: boolean };
 }
 
 export interface ModelState {
@@ -85,7 +87,7 @@ declare module '../core/state' {
 export function freshTurnFlags(): TurnFlags {
   return {
     moved: 'none', arrived: false, countsAsCharged: false, arrivedLarge: false, disembarked: false, disembarkedFromDestroyed: false,
-    embarkedThisPhase: false, disembarkedThisPhase: false, brokeOut: false, shot: false, charged: false, chargeTargets: [],
+    embarkedThisPhase: false, disembarkedThisPhase: false, brokeOut: false, leftThisTurn: false, shot: false, charged: false, chargeTargets: [],
     heroic: false, fought: false, psychicAttempts: 0, lostThisTurn: 0, selected: {}, extra: {},
   };
 }

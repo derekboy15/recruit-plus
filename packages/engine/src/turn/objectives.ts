@@ -160,7 +160,8 @@ export function updateSticky(ctx: Ctx): void {
 registerRoundEnd((ctx) => {
   const s = ctx.state;
   if (s.round !== s.setup.rules.reservesDeadlineRound) return;
-  const offTable = Object.values(s.units).filter((u) => u.location === 'reserves');
+  // R-23: an Aircraft that flew off the battlefield into Strategic Reserves isn't a late arrival.
+  const offTable = Object.values(s.units).filter((u) => u.location === 'reserves' && !u.flags.leftBattlefield);
   const riders = Object.values(s.units).filter((u) => u.location === 'embarked' && offTable.some((t) => t.id === u.embarkedIn));
   const ids = [...offTable, ...riders].flatMap((u) => u.modelIds.filter((m) => !s.models[m].destroyed));
   if (ids.length) removeModels(ctx, ids, 'not arrived from reserves by the end of battle round 3', false);

@@ -34,3 +34,4 @@ export * from './move/moves';
 export * from './move/movement';
 export * from './move/breakout';
 export * from './move/transports';
+export * from './move/reserves';

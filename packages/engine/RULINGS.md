@@ -91,6 +91,10 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 - MP §3: "If they make up more than half the army's points, no other unit may be in reserve". That only makes sense if they are outside the normal limit.
 - In Arks of Omen games Strategic Reserves are free anyway. For Core Book games, charging CP for a placement the rules force is not stated anywhere.
 
+## R-23 Aircraft that leave the battlefield
+**Decision:** an Aircraft that flies off the battlefield into Strategic Reserves can arrive again from the next turn. The reserves deadline ("not arrived by the end of battle round 3, destroyed") doesn't apply to it: it already arrived once.
+**Why:** TS §3.5 lets Aircraft go into Strategic Reserves "for free and return next turn". The deadline (TS §3.2, MP §4) is about Reinforcements that never arrived.
+
 ## R-19 Manual adjustments, undo and replay
 **Decision:**
 - Manual adjustments are always allowed, logged and undoable.
