@@ -1,9 +1,9 @@
-import { dispatch, stateOf, totalVp, type Command, type GameRecord } from '@recruit/engine';
+import { ARKS_OF_OMEN, dispatch, newGame, stateOf, totalVp, type Command, type GameRecord } from '@recruit/engine';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { expect, test } from 'vitest';
-import { deployedGame } from '../__fixtures__/game';
+import { deployedGame, sampleSetup } from '../__fixtures__/game';
 import { ScoreSheet } from './ScoreSheet';
 
 function Harness({ start, out }: { start: GameRecord; out: { g: GameRecord } }) {
@@ -37,4 +37,13 @@ test('the score sheet shows each army\'s VP and objective control, and adds seco
   await userEvent.click(within(necrons).getByRole('button', { name: 'Painted army (10 VP)' }));
   expect(totalVp(stateOf(out.g), 'A')).toBe(13);
   expect(within(necrons).getByText(/Primary 0 · Secondary 3 · Painted 10/)).toBeInTheDocument();
+});
+
+test('the score sheet says when primary VP are scored, by mission pack', () => {
+  const core = render(<ScoreSheet state={stateOf(deployedGame())} act={() => null} onClose={() => {}} />);
+  expect(screen.getByText(/at the end of each player's Command phase from battle round 2\.$/)).toBeInTheDocument();
+  core.unmount();
+  const aoo = stateOf(newGame({ ...sampleSetup(), rules: { ...ARKS_OF_OMEN } }));
+  render(<ScoreSheet state={aoo} act={() => null} onClose={() => {}} />);
+  expect(screen.getByText(/in battle round 5 the player going second scores at the end of their turn instead\.$/)).toBeInTheDocument();
 });

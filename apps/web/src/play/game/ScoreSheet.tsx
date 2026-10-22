@@ -57,7 +57,11 @@ export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd:
   return (
     <Dialog label="Score" onClose={onClose}>
       <h2>Score</h2>
-      <p className="muted play-small">Primary VP are scored for you at the end of each Command phase from battle round 2.</p>
+      <p className="muted play-small">
+        {state.setup.rules.secondPlayerRound5 === 'end-of-turn'
+          ? "Primary VP are scored for you at the end of each player's Command phase from battle round 2; in battle round 5 the player going second scores at the end of their turn instead."
+          : "Primary VP are scored for you at the end of each player's Command phase from battle round 2."}
+      </p>
       <ul className="play-small">
         {state.setup.objectives.map((o) => (
           <li key={o.id}>{`Objective ${o.id}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
