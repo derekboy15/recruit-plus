@@ -1,0 +1,32 @@
+{
+  "14ac95866f59": {
+    "name": "Flaming Projectiles",
+    "kind": "ability",
+    "plain": "When this unit makes shooting attacks, the enemy units it targets get no bonus to their saving throws for being in cover."
+  },
+  "1747d3f9b270": {
+    "name": "Bolter Discipline",
+    "kind": "ability",
+    "plain": "Models in this unit don't use the normal Rapid Fire rules when they shoot Rapid Fire bolt weapons. Instead, they make twice as many attacks if at least one of these is true:\n• The target is within half the weapon's range.\n• The model is INFANTRY (but not a CENTURION model) and its unit Remained Stationary in your previous Movement phase.\n• The model is a TERMINATOR or BIKER.\nHere, a Rapid Fire bolt weapon means any bolt weapon of the Rapid Fire type."
+  },
+  "26f1b45e650e": {
+    "name": "Unyielding Spectres",
+    "kind": "ability",
+    "plain": "Every model in this unit has a 3+ invulnerable save."
+  },
+  "499a94cec946": {
+    "name": "Shock Assault",
+    "kind": "ability",
+    "plain": "Each time this unit fights, its models each get 1 extra attack until that fight is resolved, as long as the unit made a charge move, was charged, or carried out a Heroic Intervention earlier this turn."
+  },
+  "6357ab3636fa": {
+    "name": "Aid Unlooked For",
+    "kind": "ability",
+    "plain": "When you deploy, you can keep this unit in the aether rather than putting it on the battlefield. It can then materialise at the end of any of your Movement phases: place it anywhere on the battlefield over 9\" away from every enemy model."
+  },
+  "ef853b04365d": {
+    "name": "Saviours From Beyond",
+    "kind": "ability",
+    "plain": "As long as your Warlord is from the IMPERIUM, this unit can go in a Vanguard Detachment even if that Detachment has no HQ units. If you do this, that Detachment's Command Benefits become 'None'."
+  }
+}

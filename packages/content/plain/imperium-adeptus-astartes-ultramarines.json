@@ -1,0 +1,415 @@
+{
+  "047435300fcb": {
+    "name": "5) Psychic Shackles",
+    "kind": "psychic",
+    "plain": "Warp charge 6. If it's manifested, pick one enemy unit within 18\" of this psyker that it can see. Until the start of your next Psychic phase, models in that unit have their Move halved (round up), and subtract 1 from that unit's charge rolls and Advance rolls. A unit can't be under this power and the Tenebrous Curse power at the same time."
+  },
+  "08cb0c615b5b": {
+    "name": "1) Precognition",
+    "kind": "psychic",
+    "plain": "Warp charge 5. When manifested: this psyker gets a 5+ invulnerable save, and attacks that target it subtract 1 from their hit rolls. Both effects last until your next Psychic phase starts."
+  },
+  "0936a16027a0": {
+    "name": "Strike First, for Ultramar!",
+    "kind": "stratagem",
+    "plain": "When your opponent's Charge phase ends: choose a VICTRIX GUARD unit of yours that either made a Heroic Intervention or was charged during this phase. It can immediately pile in and fight, as though it were the Fight phase. It can still be picked to fight again in this turn's Fight phase as well."
+  },
+  "0b7b1b98c0b5": {
+    "name": "The Young Fury",
+    "kind": "ability",
+    "plain": "If this model gets a Warlord Trait, that trait has to be Iron Resolve. No other model in your army can take the Benediction of Fury Relic."
+  },
+  "131cd06c6419": {
+    "name": "Exemplar of the Chapter",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you choose an ULTRAMARINES model that isn't a named character as your WARLORD: give it one extra Warlord Trait, taken from the Ultramarines Warlord Traits table. Every Warlord Trait in your army has to be different (re-roll any duplicates you roll randomly)."
+  },
+  "1579ff6ef93c": {
+    "name": "Defensive Focus",
+    "kind": "stratagem",
+    "plain": "Use after one of your ULTRAMARINES units is picked as a charge target: pick up to three of your other ULTRAMARINES units that are within 6\" of the target unit and not within Engagement Range of any enemy models. Those units fire Overwatch at the charging unit as if the charge were aimed at them. They can't fire Overwatch again until the end of the phase."
+  },
+  "16d44645e124": {
+    "name": "Unyielding Exemplar",
+    "kind": "ability",
+    "plain": "Each time this model would lose a wound, roll a D6: on a 5+ the damage is ignored and it keeps that wound."
+  },
+  "16f7af0274f7": {
+    "name": "Mobidus Bolts",
+    "kind": "ability",
+    "plain": "When you give this Relic to a model, choose one bolt weapon that model has. Each time the model is picked to shoot, you can have that weapon fire a Morbidus bolt. If you do, that weapon makes only 1 attack, but if it hits:\n• the target suffers 2 mortal wounds and the attack sequence stops;\n• until the end of the turn, subtract 1 from that enemy unit's Combat Attrition tests."
+  },
+  "1a716bcd9bc8": {
+    "name": "Unfailing Nerve",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your CASTELLANS OF THE RIFT CORE units is picked to shoot: until the end of the phase, each bolt weapon attack its models make against a target within half range has its Armour Penetration improved by 1."
+  },
+  "1a917149203d": {
+    "name": "The Truthseeker",
+    "kind": "ability",
+    "plain": "If this model gets a Warlord Trait, that trait has to be Calm Under Fire. No other model in your army can take the Reliquary of Gathalamor Relic."
+  },
+  "1f419961f7f8": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ULTRAMARINES CORE units is within 6\" of this model, its models re-roll hit rolls of 1 on every attack they make."
+  },
+  "2104f5347cd1": {
+    "name": "Rapid Redeployment",
+    "kind": "stratagem",
+    "plain": "Before the first turn of the first battle round begins: choose up to three of your ULTRAMARINES units that are on the battlefield. Remove them and redeploy them using the mission's Deployment rules. If both players have abilities to redeploy units, roll off; the winner picks which player redeploys first."
+  },
+  "211c25e4b97e": {
+    "name": "Sons of Guilliman",
+    "kind": "stratagem",
+    "plain": "Use when one of your ULTRAMARINES INFANTRY or ULTRAMARINES BIKER units is picked to shoot in your Shooting phase or to fight in the Fight phase. Until that phase ends: if the unit has the Troops Battlefield Role, you can re-roll the hit roll for its attacks; otherwise you can re-roll hit rolls of 1 for its attacks."
+  },
+  "2150736c9247": {
+    "name": "Defence in Depth",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the first turn of the first battle round begins: choose up to three different CASTELLANS OF THE RIFT units of yours. Each may make a Normal Move. That move can't end within 9\" of your opponent's deployment zone, nor within 9\" of an enemy model. When both sides can do this, the player who takes the first turn moves their units first."
+  },
+  "221c06b8d98e": {
+    "name": "Talassarian Tempest Blade",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 6 with this weapon deals D3 mortal wounds to the target, and that attack's sequence then stops."
+  },
+  "22545e81fdf7": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 3 powers from the Librarius or Indomitus discipline."
+  },
+  "272874727638": {
+    "name": "Chapter Master",
+    "kind": "ability",
+    "plain": "In your Command phase, choose one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units that is within 6\" of this model. Its models can re-roll hit rolls for their attacks until your next Command phase starts."
+  },
+  "27b9c1c05e0e": {
+    "name": "Bane of Tyranids",
+    "kind": "ability",
+    "plain": "Models in this unit can re-roll the hit roll, the wound roll, or both, for attacks they make against TYRANIDS units."
+  },
+  "2c486680c131": {
+    "name": "Armour of Heraclus",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save, and all damage Marneus Calgar suffers is halved (round up)."
+  },
+  "33de3ac061f2": {
+    "name": "Psyker",
+    "kind": "psychic",
+    "plain": "This model knows Smite plus 2 powers from the Librarius or Indomitus discipline."
+  },
+  "34de3b7054e0": {
+    "name": "Honoured Sergeant",
+    "kind": "stratagem",
+    "plain": "Before the battle: pick one ULTRAMARINES model in your army whose profile includes the word 'Sergeant'. Even though it isn't a CHARACTER, it can take one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Hellfury Bolts or Sunwrath Pistol. Every Relic in your army must be different and each must go to a different model."
+  },
+  "35efde915977": {
+    "name": "Tactical Expertise",
+    "kind": "stratagem",
+    "plain": "Once per battle, at the start of your Movement phase while the Tactical Doctrine is active: until the next battle round starts, when your ULTRAMARINES models attack with Rapid Fire or Assault weapons, each unmodified wound roll of 6 improves that attack's Armour Penetration by 1 more."
+  },
+  "3cb3be7372d1": {
+    "name": "Calgar's Honour Guard",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit doesn't use up a slot in a Detachment that contains MARNEUS CALGAR."
+  },
+  "40951c16cd08": {
+    "name": "Paragon of War",
+    "kind": "ability",
+    "plain": "Each time this Warlord attacks, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the attack's normal damage."
+  },
+  "50928db44597": {
+    "name": "Chapter Master (Calgar)",
+    "kind": "ability",
+    "plain": "Your ULTRAMARINES units within 6\" of Marneus Calgar can re-roll their hit rolls."
+  },
+  "5592c6025739": {
+    "name": "Claim Runes",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your SILVER TEMPLARS PRIMARIS units is picked to fight: if, at the moment it was picked, it was within Engagement Range of an enemy unit with more models than it has, then until the end of the phase, for each attack a model in that SILVER TEMPLARS unit makes:\n• add 1 to the attack's Strength;\n• improve the attack's Armour Penetration by 1."
+  },
+  "55a23c71f231": {
+    "name": "2) Scryer's Gaze",
+    "kind": "psychic",
+    "plain": "Warp charge 7. If it's manifested and your army is Battle-forged, you can gain 1 Command Point straight away. If you don't take the point, then once this turn, when a model from one of your ULTRAMARINES units attacks while its unit is within 18\" of this psyker, you can re-roll that attack's hit roll, wound roll or damage roll."
+  },
+  "58d5d55e5a45": {
+    "name": "The Armour Umbral",
+    "kind": "ability",
+    "plain": "• For every attack made against the bearer, an unmodified hit roll of 1-3 is a miss, whatever abilities the attacking weapon or model has.\n• The bearer can charge in a turn when it Advanced."
+  },
+  "58fe894d8772": {
+    "name": "Master of Strategy",
+    "kind": "ability",
+    "plain": "Once per battle round, while this Warlord is on the battlefield, you can pick one of your ULTRAMARINES units within 6\" of it. Until that battle round ends, the Tactical Doctrine counts as active for every attack made by a model in that unit."
+  },
+  "644f21f1e469": {
+    "name": "This Is Our Ground!",
+    "kind": "stratagem",
+    "plain": "Once per battle, at the end of your Charge phase: pick one CASTELLANS OF THE RIFT unit from your army that is within range of an objective marker. It gains Objective Secured until the start of your next Charge phase. If a model in that unit has that ability already, it counts as one extra model when working out who controls an objective marker."
+  },
+  "65e79745e253": {
+    "name": "Skovakarah Uhl Zaûrn!",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your EMPEROR'S SPEARS CORE or EMPEROR'S SPEARS CHARACTER units is picked to fight, if it made a charge move, was charged or made a Heroic Intervention this turn: until the end of the phase, add 1 to the wound roll of each melee attack its models make.\nCost: 1CP if the unit has 5 or fewer models, otherwise 2CP."
+  },
+  "6a27cd651a38": {
+    "name": "Courage and Honour!",
+    "kind": "stratagem",
+    "plain": "When the Morale phase starts: the Leadership of your ULTRAMARINES models goes up by 1 until that phase ends."
+  },
+  "71536b76881a": {
+    "name": "Master of Prescience",
+    "kind": "ability",
+    "plain": "Each time an attack is made against this model, subtract 1 from the roll."
+  },
+  "73f3ea1a3f89": {
+    "name": "Let Them Come",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your CASTELLANS OF THE RIFT CORE units is picked to fight: until the end of the phase, if that unit was charged this turn, add 1 to the hit roll of each attack its models make."
+  },
+  "762cd9c5036c": {
+    "name": "Tank Commander",
+    "kind": "ability",
+    "plain": "This model isn't set up during deployment; it must start the battle commanding a tank. When you muster your army, choose one ULTRAMARINES VEHICLE model in it for Sergeant Chronus to command. It must have one of these keywords: RHINO WHIRLWIND RAZORBACK HUNTER PREDATOR STALKER VINDICATOR LAND RAIDER.\nWhile Sergeant Chronus commands a VEHICLE model, that model has a Ballistic Skill of 2+ (even if it is damaged) and gains the CHARACTER and SERGEANT CHRONUS keywords. Also, at the start of your turn it gets back 1 lost wound. While he commands a tank, Sergeant Chronus can't attack with his bolt pistol, servo arm, frag grenades or krak grenades.\nIf the VEHICLE model he commands is destroyed, set Sergeant Chronus up within 6\" of it, the same way a model disembarks from a transport."
+  },
+  "79cf9d1a34e5": {
+    "name": "Squad Doctrines",
+    "kind": "stratagem",
+    "plain": "At the start of your Movement phase: choose one of your ULTRAMARINES INFANTRY or ULTRAMARINES BIKER units, and pick the Assault, Tactical or Devastator Doctrine. Until your next Movement phase starts, that unit gets the picked doctrine's bonus in place of the active combat doctrine's."
+  },
+  "7b2a2f8dc0fb": {
+    "name": "Keeper of the Key",
+    "kind": "ability",
+    "plain": "If this model gets a Warlord Trait, that trait has to be Master of Strategy. No other model in your army can take the Sunwrath Pistol Relic."
+  },
+  "869e86e139b9": {
+    "name": "Captain of the 4th",
+    "kind": "ability",
+    "plain": "If this model gets a Warlord Trait, that trait has to be Paragon of War.\nCrusade: if you add this model to your Order of Battle, he gets the Master of the Fleet honorific automatically, even though he normally can't gain Battle Honours. His Crusade points don't go up because of this. You can't add Uriel Ventris to your Order of Battle if a model there already has that honorific."
+  },
+  "86c9ee103e28": {
+    "name": "Priest (Chaplain Cassius)",
+    "kind": "ability",
+    "plain": "This model knows the Litany of Hate and two other Litanies of Battle. In your Command phase, while it is on the battlefield, it can recite two of its litanies, as long as no friendly model has already recited them this turn. Roll one D6 per litany: on a 3+ it is inspiring and lasts until your next Command phase starts."
+  },
+  "88dd6739adc1": {
+    "name": "Fight Like Demigods",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase: pick one VICTRIX GUARD unit from your army that is within 6\" of one of your VICTRIX GUARD CAPTAIN models. Until the end of that phase, add 1 to the hit rolls of that unit's attacks."
+  },
+  "89514cd9a6d3": {
+    "name": "Voice of Experience",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, you can pick one of your ULTRAMARINES SCOUT units within 3\" of this model. Until that phase ends, models in that unit have a Ballistic Skill of 2+."
+  },
+  "8a1f96be1753": {
+    "name": "Avenge the Fallen",
+    "kind": "stratagem",
+    "plain": "Use when one of your ULTRAMARINES units is destroyed by an attack from an enemy unit. For the rest of the battle, re-roll hit rolls of 1 for attacks your ULTRAMARINES models make against that enemy unit."
+  },
+  "8b5f7d17a83f": {
+    "name": "4) Storm of the Emperor's Wrath",
+    "kind": "psychic",
+    "plain": "Warp charge 6. If it's manifested, pick the closest enemy unit within 18\" of this psyker that it can see. Roll one D6 per model in that unit; each 6 deals 1 mortal wound to the unit."
+  },
+  "981d9252cbbe": {
+    "name": "Heroes of Ultramar",
+    "kind": "ability",
+    "plain": "This unit can Heroically Intervene as though it were a CHARACTER."
+  },
+  "9b2bbc294ae1": {
+    "name": "Quietus",
+    "kind": "weapon",
+    "plain": "This weapon can pick targets while ignoring the Look Out, Sir rule. Each wound roll of 6+ with it also deals 1 mortal wound on top of its other damage."
+  },
+  "9e0b32d3a102": {
+    "name": "Hood of Hellfire",
+    "kind": "ability",
+    "plain": "You can re-roll Psychic tests taken for this model. Also add 1 to the total of every Psychic test and Deny the Witch test taken for this model."
+  },
+  "9e8637988877": {
+    "name": "Martial Superiority",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, this model fights first that phase if any enemy Character units are within Engagement Range of it."
+  },
+  "a2218b67cbf6": {
+    "name": "Unorthodox Strategist",
+    "kind": "ability",
+    "plain": "When you use the Adaptive Strategy Stratagem and pick an ULTRAMARINES CORE unit within 6\" of this model, that Stratagem costs only 1CP until the end of the phase. This applies every time you do so."
+  },
+  "a22f858af523": {
+    "name": "Push Them Back",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your CASTELLANS OF THE RIFT units is picked to shoot: until the end of the phase, each attack its models make against a unit that is within your deployment zone can re-roll the hit roll."
+  },
+  "a53fb77b1952": {
+    "name": "Vengeance for Calth",
+    "kind": "stratagem",
+    "plain": "Use when one of your ULTRAMARINES units is picked to fight in the Fight phase. Until the end of the phase, each melee weapon attack a model in that unit makes against a WORD BEARERS unit can re-roll the hit roll and can re-roll the wound roll."
+  },
+  "a67911d86d79": {
+    "name": "Warden of Macragge",
+    "kind": "ability",
+    "plain": "This Warlord can Heroically Intervene when any enemy unit is within 6\" of it (rather than 3\"), and its Heroic Intervention move can be up to 6\" (rather than 3\")."
+  },
+  "a771313044b7": {
+    "name": "Honour Guard",
+    "kind": "ability",
+    "plain": "If one of your ULTRAMARINES CHARACTER units has a Wounds characteristic of 9 or less and is within 3\" of this unit, then that CHARACTER unit may use Look Out, Sir even if this unit has under 3 models."
+  },
+  "b100d740a3ca": {
+    "name": "Take the Fight to Them",
+    "kind": "stratagem",
+    "plain": "In your opponent's Charge phase: choose a CASTELLANS OF THE RIFT unit of yours. For the rest of the phase:\n• it can make Heroic Interventions as though it were a CHARACTER;\n• it can make a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it;\n• when it makes a Heroic Intervention move, its models may move up to 6\" rather than 3\". All the other Heroic Intervention rules still apply."
+  },
+  "b3d200f71619": {
+    "name": "Cycle of War",
+    "kind": "stratagem",
+    "plain": "At the start of the battle round, if your ULTRAMARINES WARLORD is on the battlefield and the Assault Doctrine was active in the previous battle round: switch the active doctrine to the Devastator Doctrine."
+  },
+  "b7704f223cec": {
+    "name": "Fight as Brothers",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your EMPEROR'S SPEARS INFANTRY units is picked to fight: pick one enemy unit within Engagement Range of it, plus one or more of your other EMPEROR'S SPEARS INFANTRY units. Until the end of the phase, each melee attack one of your EMPEROR'S SPEARS INFANTRY units makes against that enemy unit can re-roll the hit roll."
+  },
+  "b9f12006b1a9": {
+    "name": "Spiritual Leaders (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in your ULTRAMARINES CORE units within 6\" of this model may use this model's Leadership in place of their own."
+  },
+  "c0b96f576529": {
+    "name": "Inspiring Command",
+    "kind": "stratagem",
+    "plain": "When the Shooting phase or Fight phase starts: choose one of your ULTRAMARINES CHAPTER MASTER, ULTRAMARINES CAPTAIN or ULTRAMARINES LIEUTENANT models. For the rest of the phase, add 3\" to the range of its aura abilities, up to a maximum of 9\"."
+  },
+  "c0cc316eb8b2": {
+    "name": "6) Empyric Channeling",
+    "kind": "psychic",
+    "plain": "Warp charge 5. If it's manifested, pick another of your ULTRAMARINES LIBRARIAN models within 12\" of this psyker. Until this Psychic phase ends, add 2 to the total of that model's Psychic tests, and it doesn't suffer Perils of the Warp when it rolls a double 1 or double 6."
+  },
+  "c271589c734b": {
+    "name": "Victrix Guard",
+    "kind": "stratagem",
+    "plain": "When you choose your army: pick one ULTRAMARINES Detachment in your army to be a Victrix Guard Specialist Detachment. The VANGUARD VETERAN SQUADS, STERNGUARD VETERAN SQUADS, CAPTAINS, ANCIENTS, HONOUR GUARD and VICTRIX HONOUR GUARD in that Detachment get the VICTRIX GUARD keyword."
+  },
+  "cd52d1908526": {
+    "name": "Bearer of the Tome Empiricus",
+    "kind": "ability",
+    "plain": "If this model gets a Warlord Trait, that trait has to be Nobility Made Manifest. No other model in your army can take the Seal of Oath Relic."
+  },
+  "cfc4db18d15c": {
+    "name": "Reliquary of Gathalamor (Aura)",
+    "kind": "ability",
+    "plain": "Aura: subtract 1 from Psychic tests taken for any enemy PSYKER unit while it is within 18\" of the bearer. Whenever such a unit fails a Psychic test, roll one D6; on a 4+ it suffers D3 mortal wounds."
+  },
+  "d3845a311c03": {
+    "name": "Iron Resolve",
+    "kind": "ability",
+    "plain": "Your warlord's Wounds characteristic goes up by 1. Whenever your warlord loses a wound, roll one D6: on a 6 the wound isn't lost."
+  },
+  "d7b17b545fc7": {
+    "name": "The Swordsman’s Strike",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase when one of your SILVER TEMPLARS PRIMARIS CORE units is picked to shoot, or in the Fight phase when one is picked to fight: until the end of the phase, add 1 to the hit roll of each attack its models make against a CHARACTER unit.\nCost: 1CP if the unit has 5 or fewer models, otherwise 2CP."
+  },
+  "d9bc6967ceb9": {
+    "name": "Armour of Heraclus",
+    "kind": "ability",
+    "plain": "Marneus Calgar has a 4+ invulnerable save, and all damage he suffers is halved (round up)."
+  },
+  "db183ebac060": {
+    "name": "Shadow's Touch",
+    "kind": "weapon",
+    "plain": "If the bearer manifests any Obscuration discipline power in your Psychic phase, then until the start of your next Psychic phase your opponent can't take invulnerable saves against attacks made with this weapon."
+  },
+  "dca960b51ead": {
+    "name": "Astartes Banner (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ULTRAMARINES CORE units is within 6\" of this model, add 1 to the Leadership of models in that unit. Also, each time a model in that unit is destroyed by an enemy model's attack, roll one D6. On a 4+, leave the destroyed model on the battlefield for now: once the attacking unit has finished its attacks, the destroyed model can do one of the following: shoot with a single ranged weapon as though it were your Shooting phase, or make a single attack with one melee weapon as though it were the Fight phase. Remove it once those attacks are resolved."
+  },
+  "e049e15c0f66": {
+    "name": "The Night's Blade",
+    "kind": "weapon",
+    "plain": "Against a unit that is not a Vehicle, every unmodified wound roll of 2+ with this weapon succeeds."
+  },
+  "e07d1c72b350": {
+    "name": "Unbroken and Unbowed",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when an enemy attack targets one of your CASTELLANS OF THE RIFT CORE INFANTRY units: roll one D6 whenever one of its models would lose a wound while the unit is within range of an objective marker; on a 5+ that wound isn't lost.\nCost: 2CP if the unit has 5 or fewer models, otherwise 3CP."
+  },
+  "e1457a6d252f": {
+    "name": "Honoured by Macragge",
+    "kind": "stratagem",
+    "plain": "Once per battle, after picking a model from an Ultramarines successor Chapter as your WARLORD: one CHARACTER model in your army that comes from an Ultramarines successor Chapter can get a Relic of Macragge, in place of a Special-issue Wargear Relic or a Chapter Relic. If so, wherever that Relic says ULTRAMARINES (if anywhere), use that model's <CHAPTER> keyword instead."
+  },
+  "e29f11b4f755": {
+    "name": "Seal of Oath",
+    "kind": "ability",
+    "plain": "Before the first turn of the first battle round begins, choose one enemy unit. Each attack made by one of your TOME KEEPERS units while it is within 6\" of this model can re-roll its hit roll and its wound roll if it targets that chosen enemy unit."
+  },
+  "e3ec57e9b2d8": {
+    "name": "Master Tactician",
+    "kind": "ability",
+    "plain": "If Marneus Calgar is your Warlord and your army is Battle-forged, you get 2 extra Command Points."
+  },
+  "e9b138c93ca6": {
+    "name": "Calm Under Fire (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ULTRAMARINES units is within 6\" of this Warlord, its models' ranged attacks in a turn when the unit Fell Back don't take the 1 hit roll penalty from the Codex Discipline Chapter Tactic."
+  },
+  "eabb41f48f0d": {
+    "name": "Adept of the Codex",
+    "kind": "ability",
+    "plain": "While this Warlord is on the battlefield, roll one D6 for each Command Point you spend on a Stratagem: on a 5+ you get that Command Point back. This Warlord Trait can refund at most 1 Command Point per battle round."
+  },
+  "ebdf9de31c51": {
+    "name": "3) Telepathic Assault",
+    "kind": "psychic",
+    "plain": "Warp charge 7. If it's manifested, pick one enemy unit within 24\" of this psyker that it can see. Roll 2D6 and add 2. For every point the total beats the highest Leadership in that unit, it suffers 1 mortal wound."
+  },
+  "edbc16fcbbe9": {
+    "name": "Chapter Banner",
+    "kind": "ability",
+    "plain": "In your Command phase, choose one of your ULTRAMARINES CORE units within 6\" of this model. Its models add 1 to the hit roll of their melee attacks until your next Command phase starts."
+  },
+  "ef876ed36609": {
+    "name": "Captain of the Third Company",
+    "kind": "ability",
+    "plain": "Crusade: if you include this model in your Crusade army, it gets the Master of the Arsenal honorific automatically, even though it normally can't gain battle honors. Its Crusade points don't go up because of this."
+  },
+  "effc514e4562": {
+    "name": "Martial Precision",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, before an attack by one of your ULTRAMARINES models is resolved: skip the hit roll for that attack; it hits automatically."
+  },
+  "f2e192f187a5": {
+    "name": "Regroup and Strike",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase or the Fight phase, when you pick one of your CASTELLANS OF THE RIFT units to shoot or fight: until the end of the phase, for each attack its models make:\n• if the unit is below its Starting Strength, the attack's Armour Penetration is improved by 1;\n• if the unit is below Half-strength, you can re-roll the wound roll."
+  },
+  "f374e89e50e3": {
+    "name": "Ultima Storm Shield",
+    "kind": "ability",
+    "plain": "This model has a 3+ invulnerable save."
+  },
+  "f826077b9369": {
+    "name": "Battle-forged Heroes",
+    "kind": "ability",
+    "plain": "At the start of the battle round, you can pick one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units within 6\" of this model. That unit has Objective Secured until the battle round ends.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "f928363fae37": {
+    "name": "Fall Back and Re-engage",
+    "kind": "stratagem",
+    "plain": "Use when one of your ULTRAMARINES units Falls Back. It costs 1 CP if the unit has the Codex Discipline Chapter Tactic, or 2 CP if not. The unit can shoot and charge this turn. If it has the Codex Discipline Chapter Tactic, it also ignores that tactic's hit roll penalty for shooting after Falling Back this turn."
+  },
+  "fe54085f819f": {
+    "name": "Master of Prescience",
+    "kind": "ability",
+    "plain": "At the start of the battle round, you can pick one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units within 6\" of this model. Until that battle round ends, subtract 1 from the hit roll of every attack made against that unit."
+  }
+}

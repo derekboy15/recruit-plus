@@ -1,0 +1,132 @@
+{
+  "10b1ac1662bd": {
+    "name": "Death From Above",
+    "kind": "ability",
+    "plain": "During deployment, you can put this unit high in the skies instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "12506b8b627b": {
+    "name": "Shadowmaster",
+    "kind": "ability",
+    "plain": "Enemy units can't fire Overwatch at this Warlord."
+  },
+  "19d34a74b3f9": {
+    "name": "A Deadly Prize",
+    "kind": "stratagem",
+    "plain": "At the end of your turn: pick an objective marker that is within 3\" of at least one of your RAVEN GUARD INFANTRY units but not within 3\" of any enemy unit. When an enemy unit next finishes a move within 3\" of that marker, roll one D6: on a 2-4, it suffers D3 mortal wounds, and on a 5+, 3 mortal wounds. Each objective marker can only be picked for this Stratagem once per battle."
+  },
+  "2717d6aabe26": {
+    "name": "Stealth Modified Armour",
+    "kind": "ability",
+    "plain": "When this model is receiving the benefits of cover, add a further 1 to armour saving throws against ranged attacks allocated to it."
+  },
+  "2bb91659797e": {
+    "name": "Decapitating Blow",
+    "kind": "stratagem",
+    "plain": "Use when one of your RAVEN GUARD units destroys an enemy WARLORD with an attack. Until the battle ends, every enemy unit has its Leadership characteristic reduced by 1."
+  },
+  "36a5e2632f07": {
+    "name": "Infiltrators",
+    "kind": "stratagem",
+    "plain": "At the start of the first battle round, before any turn has begun: pick one of your RAVEN GUARD INFANTRY units on the battlefield. It can make a move as though it were your Movement phase, but must finish more than 9\" away from any enemy models. If each player has units that can do this, whoever takes the first turn moves their units first. No unit can be picked for this Stratagem more than once per battle."
+  },
+  "3c2ec4262f76": {
+    "name": "Infiltrate, Isolate, Destroy (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your RAPTORS CORE INFANTRY units is within 6\" of this model, add 1 to its charge rolls, and each time it is picked to make a Normal Move, Advance or Fall Back, add 1\" to its models' Move characteristic until the end of the phase."
+  },
+  "42d61760b7b0": {
+    "name": "Stranglehold",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of the first battle round, before either player's first turn, if your army has at least one RAVEN GUARD SCOUT or RAVEN GUARD PHOBOS unit. For the rest of that battle round, each time your opponent spends Command Points on a Stratagem, you can roll one D6: on a 5+, they must spend 1 additional Command Point, or that Stratagem has no effect and can't be used again this phase (the Command Points already spent are lost)."
+  },
+  "4dca5e94bc80": {
+    "name": "Diving Charge",
+    "kind": "ability",
+    "plain": "When this model has finished a charge move, you can roll one D6 against one enemy unit in its Engagement Range: on a 4+, that unit suffers 1 mortal wound."
+  },
+  "5dc3bb45149a": {
+    "name": "Malice",
+    "kind": "weapon",
+    "plain": "Targets don't get the benefit of cover to their saving throws against attacks made with this weapon."
+  },
+  "5e43463bc5c5": {
+    "name": "Token of Brotherhood",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a model from a Raven Guard successor Chapter as your Warlord: one CHARACTER model in your army from a Raven Guard successor Chapter can have one Relic of the Ravenspire instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every RAVEN GUARD keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "ab6253e7ec20": {
+    "name": "Master of the Trifold Path",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a RAVEN GUARD CHARACTER model that is not a named character as your Warlord: it can have one extra Warlord Trait, which must come from the Raven Guard Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "af4e1be0e38c": {
+    "name": "Strike from the Skies",
+    "kind": "stratagem",
+    "plain": "At the start of your Charge phase: pick one RAVEN GUARD JUMP PACK unit. Until the end of the phase, it can be chosen to charge even if it Advanced this turn, and you add 1 to its charge rolls."
+  },
+  "b25efb2405cd": {
+    "name": "The Raven’s Blade",
+    "kind": "stratagem",
+    "plain": "At the start of your Charge phase: pick one enemy unit on the battlefield. Until the end of the phase, when you make a charge roll for one of your RAVEN GUARD units, you can re-roll it if that enemy unit was the only target picked for that charge."
+  },
+  "b714cbba357a": {
+    "name": "Vengeance for Isstvan V",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your RAVEN GUARD units is chosen to fight. Until the end of the phase, models in that unit can re-roll hit rolls for attacks against WORD BEARERS, IRON WARRIORS, NIGHT LORDS or ALPHA LEGION units."
+  },
+  "be7f0ba37f26": {
+    "name": "False Flight",
+    "kind": "stratagem",
+    "plain": "Use when one of your RAVEN GUARD units Falls Back. It can still shoot and charge this turn."
+  },
+  "c12379f8cb5f": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your RAVEN GUARD CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "c4b87bd3de82": {
+    "name": "Favour of the Ravenspire",
+    "kind": "stratagem",
+    "plain": "Use before the battle: pick one of your RAVEN GUARD models with the word 'Sergeant' in its profile. Even though it is not a CHARACTER, that model can have one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Silentus Pistol or Korvidari Bolts. Every Relic in your army must be different and on a different model."
+  },
+  "c9ee8db5d7f3": {
+    "name": "Winged Deliverance (Aura)",
+    "kind": "ability",
+    "plain": "Aura: when you make a charge roll for a RAVEN GUARD JUMP PACK or RAVEN GUARD PHOBOS unit that is within 6\" of this model at the time, you can re-roll it."
+  },
+  "dbed351cb146": {
+    "name": "Ambushing Fire",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of your Movement phase while the Tactical Doctrine is active. From then until the start of the next battle round, when one of your RAVEN GUARD models attacks with a Rapid Fire or Assault weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack (so AP -1 becomes AP -2)."
+  },
+  "df0805ae0b81": {
+    "name": "Winged Deliverance",
+    "kind": "ability",
+    "plain": "When you make a charge roll for a RAVEN GUARD JUMP PACK unit that is within 6\" of this model at the time, you can re-roll it."
+  },
+  "ecd5fa0c5d21": {
+    "name": "Raven's Talons",
+    "kind": "weapon",
+    "plain": "Failed wound rolls for this weapon can be re-rolled."
+  },
+  "eed5f760a700": {
+    "name": "Strike from the Shadows",
+    "kind": "stratagem",
+    "plain": "During the Declare Reserves and Transports step of your mission: pick one of your RAVEN GUARD INFANTRY units. You can place it in ambush rather than deploying it on the battlefield. If you do, it arrives at the end of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "f6783e9a566c": {
+    "name": "See, But Remain Unseen",
+    "kind": "stratagem",
+    "plain": "At the end of your turn: pick one of your RAVEN GUARD units (excluding BUILDINGS) that made no attacks this turn. Until the start of your next turn, subtract 1 from hit rolls for ranged attacks that target that unit."
+  },
+  "f985df93c9f5": {
+    "name": "Grim Hunter",
+    "kind": "ability",
+    "plain": "This model can shoot in a turn in which it Fell Back."
+  },
+  "fe94e0797f25": {
+    "name": "Lay Low the Tyrants",
+    "kind": "stratagem",
+    "plain": "Use when one of your RAVEN GUARD INFANTRY or RAVEN GUARD BIKER units is chosen to fight in the Fight phase. Until the end of the phase, add 1 to wound rolls for attacks by that unit's models that target either a non-VEHICLE CHARACTER unit, or a non-VEHICLE unit containing any models with a Wounds characteristic of 4 or more."
+  }
+}

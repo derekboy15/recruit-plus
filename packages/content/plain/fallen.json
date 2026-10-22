@@ -1,0 +1,132 @@
+{
+  "0ac551802ab0": {
+    "name": "Gift of Chaos",
+    "kind": "psychic",
+    "plain": "If manifested, pick an enemy unit within 6\" of the psyker that the psyker can see, and roll a D6. If the roll is higher than that unit's Toughness, it suffers D3+3 mortal wounds. If this power slays a CHARACTER, you may put a new Chaos Spawn into your army: before that character's model is removed, place the Spawn within 1\" of it."
+  },
+  "0c61f4f7b6c8": {
+    "name": "Self-repair",
+    "kind": "ability",
+    "plain": "At the start of each of your turns, roll a D6. On a 6, this unit heals one wound."
+  },
+  "102762e68512": {
+    "name": "Mysterious Protection",
+    "kind": "ability",
+    "plain": "Cypher has a 4+ invulnerable save. Also, if Cypher is slain, roll a D6. On a 2+, his model is still removed from play, but he doesn't count as slain for any mission victory conditions."
+  },
+  "13e26c23e76a": {
+    "name": "Escape",
+    "kind": "ability",
+    "plain": "Once per battle, you can take this model off the battlefield at the end of any Fight phase or Shooting phase and put it into Strategic Reserves. If it isn't on the battlefield when the battle ends, it is destroyed."
+  },
+  "15cbf70a0db2": {
+    "name": "Blazing Weapons",
+    "kind": "ability",
+    "plain": "Cypher can shoot his pistols in your Shooting phase even if he Advanced or Fell Back earlier that turn."
+  },
+  "1afe2285c1a2": {
+    "name": "Diabolic Strength",
+    "kind": "psychic",
+    "plain": "If manifested, choose a HERETIC ASTARTES model within 12\" of the psyker. Its Strength goes up by 2 and its Attacks go up by 1 until your next Psychic phase starts."
+  },
+  "3c2a79ca5e33": {
+    "name": "Malicious Volleys",
+    "kind": "ability",
+    "plain": "Models in this unit don't use the normal Rapid Fire rules when they fire Rapid Fire bolt weapons. Instead, they make twice as many attacks if at least one of these is true:\n• The target is within half the weapon's maximum range.\n• The model is INFANTRY, and all models in its unit Remained Stationary during your previous Movement phase.\n• The model is a TERMINATOR, BIKER or HELBRUTE.\nHere, a Rapid Fire bolt weapon means any bolt weapon of the Rapid Fire type. A bolt weapon is any weapon with the word 'bolt' in its profile (for example boltgun, bolt pistol, combibolter or Inferno boltgun). Bolt weapon rules also apply when you fire the boltgun profile of a combi-weapon, and when you fire an Artefact of Chaos that replaced a bolt weapon (such as Spitespitter). The Talon of Horus also counts as a Rapid Fire bolt weapon."
+  },
+  "3f72094808cf": {
+    "name": "The Murder Sword",
+    "kind": "ability",
+    "plain": "Only a model with a power sword can take this. It replaces that model's power sword."
+  },
+  "559986ea1239": {
+    "name": "Infernal Gaze",
+    "kind": "psychic",
+    "plain": "If manifested, roll 3 dice for one enemy unit that is visible and within 18\" of the psyker. Each 4+ inflicts one mortal wound on that unit."
+  },
+  "629d45524732": {
+    "name": "Fallen Angels",
+    "kind": "ability",
+    "plain": "When a Fallen unit shoots (firing Overwatch included), you can re-roll its hit rolls of 1, as long as it didn't move in its last Movement phase. Also, a Fallen unit never loses more than 1 model from any one failed Morale test; ignore any losses after the first."
+  },
+  "6736a9a19599": {
+    "name": "Smoke Launchers",
+    "kind": "ability",
+    "plain": "Once per game, in the Shooting phase, this model can use its Smoke Launchers instead of shooting any of its weapons. If it does, until your next Shooting phase your opponent must subtract 1 from every hit roll made with ranged weapons that target this vehicle."
+  },
+  "6fe39d097642": {
+    "name": "Daemon Weapon",
+    "kind": "ability",
+    "plain": "In the Fight phase, the first time this model is chosen to fight that phase, roll one D6. On a 1, it suffers 1 mortal wound and can't use this weapon for the rest of the phase. On a 2+, it fights with this weapon as normal."
+  },
+  "7522b6538716": {
+    "name": "The Black Mace",
+    "kind": "ability",
+    "plain": "Only a model with a power maul or accursed crozius can take this. It replaces that model's power maul or accursed crozius."
+  },
+  "8ff564ae0bfd": {
+    "name": "Jump Pack Assault",
+    "kind": "ability",
+    "plain": "When you deploy, if this model has a jump pack, you can keep it high in the skies rather than putting it on the battlefield. It can then assault from above at the end of any of your Movement phases: place it anywhere on the battlefield over 9\" away from every enemy model."
+  },
+  "9ab6d609bc53": {
+    "name": "The Murder Sword",
+    "kind": "weapon",
+    "plain": "At the start of the first battle round, before the first turn begins, you must pick one enemy CHARACTER as the target for the model carrying the Murder Sword (it can be a character that hasn't been set up on the battlefield yet). Tell your opponent which character you picked. Each Murder Sword attack that hits that character automatically inflicts a mortal wound on it, instead of the normal damage."
+  },
+  "a4ce02299ff6": {
+    "name": "No-one's Puppet",
+    "kind": "ability",
+    "plain": "The Daemonic Ritual ability isn't available to Cypher, despite him having the CHAOS and CHARACTER keywords."
+  },
+  "b6133ba69104": {
+    "name": "The Black Mace",
+    "kind": "weapon",
+    "plain": "Each time the Black Mace slays a model, roll a D6. On a 6, that model's unit suffers an extra mortal wound at the end of the phase."
+  },
+  "b6d2e4695228": {
+    "name": "Enigmatic Ally",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and one of its CHAOS SPACE MARINES Detachments includes any CHAOS LORD models, you can add CYPHER to that Detachment without him using up an extra Battlefield Role slot."
+  },
+  "bb23393fe385": {
+    "name": "Warptime",
+    "kind": "psychic",
+    "plain": "If manifested, choose a friendly HERETIC ASTARTES unit within 3\" of the psyker. It can make a move right now, as though it were its Movement phase. Each unit can be affected by Warptime no more than once in each Psychic phase."
+  },
+  "bce5aca4f1bf": {
+    "name": "Ul'o'cca, The Black Axe",
+    "kind": "weapon",
+    "plain": "Each time you attack with this weapon, an unmodified wound roll of 4+ also inflicts 1 mortal wound on the target, on top of any other damage."
+  },
+  "c049f5d15a47": {
+    "name": "Death Hex",
+    "kind": "psychic",
+    "plain": "If manifested, choose an enemy unit that is visible and within 12\" of the psyker. That unit can't take invulnerable saves until your next Psychic phase starts."
+  },
+  "c2db50a07b87": {
+    "name": "Caliban Steel Blade",
+    "kind": "weapon",
+    "plain": "Each time you attack with this weapon, a wound roll of 6+ gives that attack a Damage characteristic of D6."
+  },
+  "c742cc833cce": {
+    "name": "Caliban Steel Blade",
+    "kind": "ability",
+    "plain": "Only a model with a force sword can take this. It replaces that model's force sword and uses its own profile, shown below."
+  },
+  "e25bff239d6a": {
+    "name": "Lord Cypher",
+    "kind": "ability",
+    "plain": "Re-roll hit rolls of 1 for your FALLEN units while they are within 6\" of Cypher."
+  },
+  "ea28b66292ee": {
+    "name": "Agent of Discord",
+    "kind": "ability",
+    "plain": "While an enemy unit is within this model's discord range, neither that unit nor its models can use any abilities, Warlord Traits or Relics that would let your opponent gain or get back Command Points.\n\nThe discord range depends on how many other FALLEN ANGELS models are within 12\" of this model:\n• fewer than 10: discord range is 12\"\n• 10-19: discord range is 18\"\n• 20 or more: discord range is 24\""
+  },
+  "fd9205713a1e": {
+    "name": "Prescience",
+    "kind": "psychic",
+    "plain": "If manifested, pick a HERETIC ASTARTES unit within 18\" of the psyker. Until the start of your next Psychic phase, you can add 1 to every hit roll made for that unit."
+  }
+}

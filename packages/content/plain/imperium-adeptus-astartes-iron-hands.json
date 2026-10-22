@@ -1,0 +1,102 @@
+{
+  "12ea3f2cf2e6": {
+    "name": "Wrathful Machine Spirit",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of your IRON HANDS VEHICLE models is chosen to shoot or fight. Until the end of the phase, that model can re-roll hit rolls for its attacks."
+  },
+  "2758ee43d2ba": {
+    "name": "March of the Ancients",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the battle, after you nominate your WARLORD: pick one of your IRON HANDS DREADNOUGHT models. It gains the CHARACTER keyword, and you add 1 to its Attacks and Leadership characteristics."
+  },
+  "41a71da197af": {
+    "name": "Signum Array",
+    "kind": "ability",
+    "plain": "In your Command phase: pick one of your IRON HANDS units within 3\" of this model. Add 1 to hit rolls for ranged attacks by its models until your next Command phase starts."
+  },
+  "5631c8cdf85d": {
+    "name": "Rites of Tempering",
+    "kind": "ability",
+    "plain": "While their unit is within 6\" of this model, INFANTRY models in your IRON HANDS units get a 5+ invulnerable save."
+  },
+  "7b12704a38c4": {
+    "name": "Optimal Repulsion Doctrines",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Charge phase, when one of your IRON HANDS units fires Overwatch. Until the end of the phase, Overwatch attacks by models in that unit hit on a roll of 5 or 6. If the unit has The Flesh is Weak Chapter Tactic, they hit on a roll of 4-6 instead."
+  },
+  "7becc2feda90": {
+    "name": "Paragon of Iron",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the battle, after you nominate an IRON HANDS CHARACTER model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Iron Hands Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "7e00ec62003d": {
+    "name": "Methodical Firepower",
+    "kind": "stratagem",
+    "plain": "Use at the start of your Movement phase while the Devastator Doctrine is not active: pick one of your IRON HANDS units. Until your next Movement phase starts, attacks by models in that unit are resolved as if the Devastator Doctrine were active, on top of whichever doctrine currently is."
+  },
+  "8372d9f8816d": {
+    "name": "Artificer Bionics",
+    "kind": "ability",
+    "plain": "Roll one D6 each time this model would lose a wound; on a 5+, it doesn't lose that wound."
+  },
+  "8b7d5bcb70b3": {
+    "name": "Scion of the Forge",
+    "kind": "stratagem",
+    "plain": "Use before the battle: pick one of your IRON HANDS models with the word 'Sergeant' in its profile. Even though it is not a CHARACTER, that model can have one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Teeth of Mars or Haywire Bolts. Every Relic in your army must be different and on a different model."
+  },
+  "8ea7df801fd5": {
+    "name": "Cogitated Martyrdom",
+    "kind": "stratagem",
+    "plain": "At the start of the Shooting phase: pick one of your IRON HANDS INFANTRY units. Until the end of the phase, if an attack made against one of your IRON HANDS CHARACTER models (excluding VEHICLE models) within 3\" of that unit would make it lose any wounds, the unit can try to intercept that attack. Before any rolls to ignore wounds are made (such as The Flesh is Weak or Adamantine Mantle), roll one D6: on a 2+, the CHARACTER does not lose those wounds and the unit suffers 1 mortal wound per wound instead. Only one attempt to intercept can be made for each attack."
+  },
+  "bc38bf1d5af5": {
+    "name": "Machine Empathy",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, after one of your IRON HANDS TECHMARINE models has used its Blessing of the Omnissiah ability. It can use that ability one more time."
+  },
+  "c36c99d14508": {
+    "name": "Mercy Is Weakness",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or the Fight phase, when one of your IRON HANDS units is chosen to shoot or fight, and pick one enemy unit. Until the end of the phase, every attack by a model in that IRON HANDS unit that can target the picked unit must do so, but each unmodified wound roll of 6 for those attacks wounds the target unit twice instead of once."
+  },
+  "caeabe15063d": {
+    "name": "Engine Purge",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of your Movement phase while the Devastator Doctrine is active. From then until the start of the next battle round, when one of your IRON HANDS models attacks with a Heavy or Grenade weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "ce41dc363d00": {
+    "name": "Reject the Flesh, Embrace the Machine",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your IRON HANDS INFANTRY units is chosen as the target of an attack. Until the end of the phase, roll one D6 each time a model in that unit would lose a wound (models with the All Flesh is Weakness Warlord Trait add 1 to the roll). On a 5+, the wound is not lost."
+  },
+  "d37064054ebd": {
+    "name": "Student of History",
+    "kind": "ability",
+    "plain": "When this Warlord consolidates, it can move up to 6\" instead of 3\", and it doesn't have to finish that move closer to the nearest enemy model."
+  },
+  "d44a70acf0a5": {
+    "name": "Vengeance for Isstvan V",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your IRON HANDS units is chosen to fight. Until the end of the phase, models in that unit can re-roll hit rolls for melee weapon attacks against WORD BEARERS, IRON WARRIORS, NIGHT LORDS or ALPHA LEGION units."
+  },
+  "dda5b0907abe": {
+    "name": "Souls of Iron",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, after any Deny the Witch attempt, when an enemy PSYKER model manifests a power within 24\" of one of your IRON HANDS units. Roll one D6: on a 4+, the power is resisted."
+  },
+  "e93ec1cb7a28": {
+    "name": "Blessing of the Omnissiah",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may repair one of your IRON HANDS VEHICLE models within 3\" of it: the VEHICLE regains up to 3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "f1381722852b": {
+    "name": "Bequeathed by the Iron Council",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a model from an Iron Hands successor Chapter as your WARLORD: one CHARACTER model in your army from an Iron Hands successor Chapter can have one Relic of Medusa instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every IRON HANDS keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "f8d6a5d3a4f8": {
+    "name": "The Gorgon’s Rage",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your IRON HANDS units is chosen to fight. Until the end of the phase, add 1 to hit rolls for melee weapon attacks made by its models, and also add 1 to wound rolls for those attacks when they target an EMPEROR'S CHILDREN unit."
+  }
+}
