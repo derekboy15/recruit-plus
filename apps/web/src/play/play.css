@@ -7,3 +7,7 @@
 .play-problems p { margin: 0.25rem 0; }
 .play-problems ul { margin: 0.25rem 0; padding-left: 1.2rem; }
 .play-setup > .btn--primary { width: 100%; }
+.board { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #0d0d0c; border-radius: var(--radius); }
+.board__canvas { position: absolute; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
+.board__zoom { position: absolute; right: 6px; bottom: 6px; display: grid; gap: 6px; }
+.board__zoom .btn { min-width: var(--touch); padding: 0; font-size: 1.2rem; background: rgba(28, 27, 26, 0.85); }
