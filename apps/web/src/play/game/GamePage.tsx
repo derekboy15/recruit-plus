@@ -12,6 +12,7 @@ import type { PanelProps, ReadySandbox, TapHandler } from '../panels/types';
 import { hintFor } from './hints';
 import { armyName } from './names';
 import { GameLog, GameMenu, HandOver } from './Overlays';
+import { ScoreSheet } from './ScoreSheet';
 import { TopBar } from './TopBar';
 import { planReducer } from './plan';
 import { useSandbox } from './useSandbox';
@@ -57,7 +58,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   const [invalid, setInvalid] = useState<string[]>([]);
   const [problems, setProblems] = useState<Problem[]>([]);
   const [dragging, setDragging] = useState(false);
-  const [overlay, setOverlay] = useState<'log' | 'menu' | null>(null);
+  const [overlay, setOverlay] = useState<'log' | 'menu' | 'score' | null>(null);
   const [handOver, setHandOver] = useState<PlayerId | null>(null);
   const [tall, setTall] = useState(false);
   const tapRef = useRef<TapHandler | null>(null);
@@ -143,7 +144,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
 
   return (
     <div className={`game${tall ? ' game--tall' : ''}`}>
-      <TopBar state={state} onUndo={undo} onLog={() => setOverlay('log')} onMenu={() => setOverlay('menu')} />
+      <TopBar state={state} onUndo={undo} onLog={() => setOverlay('log')} onMenu={() => setOverlay('menu')} onScore={() => setOverlay('score')} />
       <div className="game__board">
         <BoardCanvas
           scene={scene}
@@ -168,6 +169,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
         <p className="game__disclaimer muted">{DISCLAIMER}</p>
       </div>
       {overlay === 'log' && <GameLog lines={sb.log} onClose={() => setOverlay(null)} />}
+      {overlay === 'score' && <ScoreSheet state={state} act={sb.act} onClose={() => setOverlay(null)} />}
       {overlay === 'menu' && (
         <GameMenu
           hints={meta.hints}
