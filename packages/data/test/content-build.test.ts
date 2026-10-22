@@ -164,6 +164,14 @@ test('too few key units is rejected', () => {
   expect(() => buildContent(dir, cats)).toThrow(/necrons\.md: "Key units" is a list of 3–8 items/);
 });
 
+test('a faction with fewer than 3 units lists every unit as a key unit', () => {
+  const small: CatalogueOut[] = [{ ...cats[0], units: ['Necron Warriors', 'Overlord'].map(unit) }];
+  const two = withFile('guides/necrons.md', fixtureFile('guides/necrons.md').replace('- [[Immortals]] - Elite Troops.\n', ''));
+  expect(buildContent(two, small).guides[0].keyUnits.map((k) => k.name)).toEqual(['Necron Warriors', 'Overlord']);
+  const one = withFile('guides/necrons.md', fixtureFile('guides/necrons.md').replace('- [[Overlord]] - Your Warlord.\n', '').replace('- [[Immortals]] - Elite Troops.\n', ''));
+  expect(() => buildContent(one, small)).toThrow(/necrons\.md: "Key units" is a list of 2–8 items/);
+});
+
 test('a guide for a library or unknown catalogue is rejected', () => {
   const lib = withFile('guides/library.md', fixtureFile('guides/necrons.md').replace('catalogue: Necrons', 'catalogue: Library'));
   expect(() => buildContent(lib, cats)).toThrow(/library\.md: "Library" is not a playable catalogue/);

@@ -93,8 +93,10 @@ function buildGuide(path: string, cats: CatalogueOut[]): FactionGuide {
   }
   const [plays, armyRules, key] = md.sections;
   const list = key.blocks[0];
-  if (key.blocks.length !== 1 || list.t !== 'ul' || list.items.length < 3 || list.items.length > 8) {
-    throw new Error(`${s.file}: "Key units" is a list of 3–8 items`);
+  // A faction with fewer than 3 units (Legion of the Damned) lists all of them.
+  const fewest = Math.min(3, cat.units.length);
+  if (key.blocks.length !== 1 || list.t !== 'ul' || list.items.length < fewest || list.items.length > 8) {
+    throw new Error(`${s.file}: "Key units" is a list of ${fewest}–8 items`);
   }
   // The list's line in the file: for messages only.
   const keyLine = s.bodyLine + s.body.split('\n').findIndex((l) => l.startsWith('## Key units'));
