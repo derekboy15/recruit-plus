@@ -60,6 +60,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   const [invalid, setInvalid] = useState<string[]>([]);
   const [problems, setProblems] = useState<Problem[]>([]);
   const [dragging, setDragging] = useState(false);
+  const [focusModelId, setFocusModelId] = useState<string | null>(null);
   const [overlay, setOverlay] = useState<'log' | 'menu' | 'score' | null>(null);
   const [handOver, setHandOver] = useState<PlayerId | null>(null);
   const [tall, setTall] = useState(false);
@@ -77,6 +78,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
     setTargets([]);
     setInvalid([]);
     setProblems([]);
+    setFocusModelId(null);
   }, [where]);
 
   // Pass-and-play: when someone else must act, hand the device over (not when the game is opened).
@@ -87,6 +89,12 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
     lastActing.current = acting;
   }, [acting, meta.handOver, state.ended]);
 
+  // DEV only: end-to-end tests read the state to find models (BoardCanvas adds their screen positions).
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    window.__sandbox = { ...window.__sandbox, state: () => state };
+  }, [state]);
+
   const ui: PanelProps['ui'] = useMemo(
     () => ({
       selectedUnitId,
@@ -94,6 +102,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
       plan,
       planDispatch,
       dragging,
+      focusModelId,
       setRings,
       setTargets,
       setInvalid,
@@ -106,7 +115,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
       problems,
       setProblems,
     }),
-    [selectedUnitId, plan, dragging, problems],
+    [selectedUnitId, plan, dragging, focusModelId, problems],
   );
 
   const scene = useMemo(
@@ -127,6 +136,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
       const pos = plan?.positions[modelId];
       if (phase === 'start') {
         if (pos) offset.current = { x: pos.x - at.x, y: pos.y - at.y };
+        setFocusModelId(modelId);
         setDragging(true);
         return;
       }

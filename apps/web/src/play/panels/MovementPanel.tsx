@@ -45,9 +45,9 @@ export function MovementPanel(props: PanelProps) {
   const bonus = a?.bonus ?? 0;
   useEffect(() => {
     if (!moving || !plan || plan.unitId !== moving) return;
-    ui.setRings([...rangeRings(plan, (id) => moveInches(s, s.models[id]) + bonus, 'move'), ...engagementRings(s, player)]);
+    ui.setRings([...rangeRings(plan, (id) => moveInches(s, s.models[id]) + bonus, 'move', ui.focusModelId), ...engagementRings(s, player)]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moving, bonus, plan?.origin]);
+  }, [moving, bonus, plan?.origin, ui.focusModelId]);
   useEffect(() => () => ui.setTapHandler(null), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const moveCmd: Command | null =
@@ -60,7 +60,7 @@ export function MovementPanel(props: PanelProps) {
 
   if (a) {
     const name = s.units[a.unitId].name;
-    const target = focus ?? Object.keys(plan?.positions ?? {})[0] ?? null;
+    const target = focus ?? (ui.focusModelId && plan?.positions[ui.focusModelId] ? ui.focusModelId : null) ?? Object.keys(plan?.positions ?? {})[0] ?? null;
     const transports = unitsOf(s, player).filter((u) => u.id !== a.unitId && u.location === 'battlefield' && unitHas(s, u.id, 'TRANSPORT'));
     return (
       <section>

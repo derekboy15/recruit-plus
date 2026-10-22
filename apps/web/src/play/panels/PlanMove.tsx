@@ -28,9 +28,9 @@ export function PlanMove(props: PlanMoveProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [unitId, !plan]);
   useEffect(() => {
-    if (plan) ui.setRings([...rangeRings(plan, () => radius, ringKind), ...engagementRings(s, s.units[unitId].player)]);
+    if (plan) ui.setRings([...rangeRings(plan, () => radius, ringKind, ui.focusModelId), ...engagementRings(s, s.units[unitId].player)]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [plan?.origin, radius]);
+  }, [plan?.origin, radius, ui.focusModelId]);
   const cmd = plan ? command(toMoves(plan)) : null;
   const dry = useDryRun(props, cmd);
   const confirm = () => {

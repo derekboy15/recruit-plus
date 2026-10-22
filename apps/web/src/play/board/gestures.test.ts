@@ -67,6 +67,20 @@ describe('gestures', () => {
     expect(state).toEqual({ kind: 'idle' });
   });
 
+  test('a press that ends far away with no moves in between drags the model, not a tap', () => {
+    const { out } = run([ev('down', 1, 10, 10), ev('up', 1, 40, 10)]);
+    expect(out).toEqual([
+      { type: 'drag-start', modelId: 'm1', at: { x: 10, y: 10 } },
+      { type: 'drag-move', modelId: 'm1', at: { x: 40, y: 10 } },
+      { type: 'drag-end', modelId: 'm1', at: { x: 40, y: 10 } },
+    ]);
+  });
+
+  test('on empty board such a press pans instead', () => {
+    const { out } = run([ev('down', 1, 200, 10), ev('up', 1, 230, 10)]);
+    expect(out).toEqual([{ type: 'pan', dx: 30, dy: 0 }]);
+  });
+
   test('cancel during a drag cancels it', () => {
     const { out, state } = run([ev('down', 1, 10, 10), ev('move', 1, 30, 10), ev('cancel', 1, 30, 10)]);
     expect(out.at(-1)).toEqual({ type: 'drag-cancel', modelId: 'm1' });

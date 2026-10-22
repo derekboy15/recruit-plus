@@ -54,7 +54,20 @@ export function reduceGesture(s: GestureState, e: PointerEv, env: GestureEnv): {
   if (e.id !== s.id) return none(s);
   if (e.type === 'cancel') return { state: IDLE, out: s.kind === 'drag' ? [{ type: 'drag-cancel', modelId: s.modelId }] : [] };
   if (e.type === 'up') {
-    if (s.kind === 'press') return { state: IDLE, out: [{ type: 'tap', at: e.pt, modelId: s.modelId }] };
+    if (s.kind === 'press') {
+      if (gap(s.start, e.pt) <= TAP_SLOP_PX) return { state: IDLE, out: [{ type: 'tap', at: e.pt, modelId: s.modelId }] };
+      // Lifted far from where it went down with no moves reported in between: still a drag (or a pan), never a tap.
+      if (s.modelId && env.canDrag(s.modelId))
+        return {
+          state: IDLE,
+          out: [
+            { type: 'drag-start', modelId: s.modelId, at: s.start },
+            { type: 'drag-move', modelId: s.modelId, at: e.pt },
+            { type: 'drag-end', modelId: s.modelId, at: e.pt },
+          ],
+        };
+      return { state: IDLE, out: [{ type: 'pan', dx: e.pt.x - s.start.x, dy: e.pt.y - s.start.y }] };
+    }
     if (s.kind === 'drag') return { state: IDLE, out: [{ type: 'drag-end', modelId: s.modelId, at: e.pt }] };
     return none(IDLE);
   }

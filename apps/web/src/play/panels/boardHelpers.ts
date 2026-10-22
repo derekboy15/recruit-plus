@@ -11,10 +11,14 @@ export const unplacedOrigin = (ids: string[]): Record<string, Pos | null> => Obj
 
 const inches = (n: number) => `${Math.round(n * 10) / 10}"`;
 
-/** A ring of `r` inches around each planned model's starting point (how far its centre can go); the first one labelled. */
-export function rangeRings(plan: Plan, r: (modelId: string) => number, kind: Ring['kind']): Ring[] {
-  return Object.entries(plan.origin)
-    .filter((e): e is [string, Pos] => !!e[1])
+/**
+ * A ring of `r` inches around a planned model's starting point (how far its centre can go): the model being dragged, or
+ * the unit's first model. One ring reads better than one per model, and every model of a unit moving together goes as far.
+ */
+export function rangeRings(plan: Plan, r: (modelId: string) => number, kind: Ring['kind'], focus: string | null = null): Ring[] {
+  const placed = Object.entries(plan.origin).filter((e): e is [string, Pos] => !!e[1]);
+  const one = placed.find(([id]) => id === focus) ?? placed[0];
+  return (one ? [one] : [])
     .map(([id, p], i) => ({ center: { x: p.x, y: p.y }, r: r(id), kind, ...(i === 0 ? { label: inches(r(id)) } : {}) }));
 }
 

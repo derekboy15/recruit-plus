@@ -50,7 +50,7 @@
 .game__log h3 { font-size: 0.95rem; color: var(--brass-strong); }
 .game__handover { text-align: center; }
 .game__handover-text { color: var(--text-muted); margin: 0; }
-.game__handover-name { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; }
+.game__handover-name { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; overflow-wrap: anywhere; }
 .game__menu-actions { display: grid; gap: 0.5rem; margin-top: 1rem; }
 .game__menu-actions [role='group'] { display: grid; gap: 0.5rem; }
 

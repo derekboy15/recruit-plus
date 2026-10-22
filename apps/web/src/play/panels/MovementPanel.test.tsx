@@ -18,14 +18,20 @@ async function startMove(kind: 'Normal Move' | 'Advance', g = inMovement()) {
 
 test('Normal Move then dragging the unit 5" and Confirm moves it', async () => {
   const h = await startMove('Normal Move');
-  expect(h.rings().filter((r) => r.kind === 'move')).toHaveLength(10);
-  expect(h.rings().find((r) => r.kind === 'move')).toMatchObject({ r: 5, label: '5"' });
+  // One ring, around the model being moved (the first one until another is dragged).
+  expect(h.rings().filter((r) => r.kind === 'move')).toEqual([{ center: { x: 14, y: 4 }, r: 5, kind: 'move', label: '5"' }]);
   h.drag('A:war.m1', { x: 14, y: 9 });
   const confirm = screen.getByRole('button', { name: 'Confirm move' });
   await waitFor(() => expect(confirm).toBeEnabled());
   await userEvent.click(confirm);
   expect(pos(h.record(), 'A:war.m10').y).toBeCloseTo(9);
   expect(stateOf(h.record()).units['A:war'].turn.moved).toBe('normal');
+});
+
+test('the move ring follows the model being dragged', async () => {
+  const h = await startMove('Normal Move');
+  h.drag('A:war.m3', { x: 17, y: 6 });
+  await waitFor(() => expect(h.rings().filter((r) => r.kind === 'move')).toEqual([{ center: { x: 17, y: 4 }, r: 5, kind: 'move', label: '5"' }]));
 });
 
 test('a 7" drag of 5" infantry keeps Confirm disabled and shows "can\'t move that far"', async () => {

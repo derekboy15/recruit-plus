@@ -50,6 +50,7 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
     const [invalid, setInvalid] = useState<string[]>([]);
     const [problems, setProblems] = useState<Problem[]>([]);
     const [dragging, setDragging] = useState(false);
+    const [focusModelId, setFocusModelId] = useState<string | null>(null);
     const tapRef = useRef<TapHandler | null>(null);
     const dragRef = useRef<((id: string) => boolean) | null>(null);
     const state = stateOf(record);
@@ -94,6 +95,7 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
       plan,
       planDispatch,
       dragging,
+      focusModelId,
       setRings,
       setTargets,
       setInvalid,
@@ -118,6 +120,7 @@ export function renderPanel(Panel: ComponentType<PanelProps>, start: GameRecord,
       drag: (modelId: string, to: Pt) =>
         act(() => {
           setDragging(true);
+          setFocusModelId(modelId);
           planDispatch({ type: 'drag', modelId, to });
           setDragging(false);
         }),

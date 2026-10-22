@@ -16,6 +16,8 @@ export interface PanelProps {
     planDispatch(a: PlanAction): void;
     /** True while a model is being dragged (panels dry-run the plan when it ends, not on every move). */
     dragging: boolean;
+    /** The model last dragged on the board (its move ring is the one shown). */
+    focusModelId: string | null;
     setRings(r: Ring[]): void;
     setTargets(ids: string[]): void;
     setInvalid(ids: string[]): void;
