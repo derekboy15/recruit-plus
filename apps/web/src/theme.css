@@ -347,3 +347,5 @@ label.opt { justify-content: flex-start; cursor: pointer; }
   color: var(--text-muted); font: inherit; font-size: 0.9rem; cursor: pointer;
 }
 .chip[aria-pressed='true'] { border-color: var(--brass-strong); color: var(--text); background: var(--surface-2); }
+/* Anchored headings land below the sticky top bar. */
+main h2[id], main h3[id], main article[id] { scroll-margin-top: 4.5rem; }
