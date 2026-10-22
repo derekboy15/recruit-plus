@@ -4,7 +4,7 @@
  * army rules.
  */
 import type { StratagemOut } from '@recruit/data/model';
-import { sheetOf, type Problem } from '@recruit/engine';
+import { other, sheetOf, type PlayerId, type Problem } from '@recruit/engine';
 import { RulesText } from '../../rules/RulesText';
 import { WordingToggle } from '../../rules/wording';
 import { armyName } from '../game/names';
@@ -44,10 +44,11 @@ export function AssistPanel(props: PanelProps) {
   const { texts, armyRules, stratagems, loading, error } = useUnitTexts(meta);
   const acting = sb.step.actingPlayer;
   const ids = [...new Set([ui.selectedUnitId, ...sb.step.involvedUnitIds].filter((x): x is string => !!x && !!s.units[x]))];
-  const now = stratagemsNow(stratagems[acting] ?? [], momentFor(s, acting));
-  const use = (st: StratagemOut, cp: number) => {
-    const unitIds = ui.selectedUnitId && s.units[ui.selectedUnitId]?.player === acting ? [ui.selectedUnitId] : [];
-    ui.setProblems((sb.act({ type: 'useStratagem', by: acting, name: st.name, cp, unitIds, note: firstSentence(st.plain ?? st.text) }) as Problem[] | null) ?? []);
+  // Both players' stratagems for this moment: the defender's ("Being targeted", "Enemy Shooting phase"…) matter while the other player acts.
+  const players: PlayerId[] = [acting, other(acting)];
+  const use = (player: PlayerId, st: StratagemOut, cp: number) => {
+    const unitIds = ui.selectedUnitId && s.units[ui.selectedUnitId]?.player === player ? [ui.selectedUnitId] : [];
+    ui.setProblems((sb.act({ type: 'useStratagem', by: player, name: st.name, cp, unitIds, note: firstSentence(st.plain ?? st.text) }) as Problem[] | null) ?? []);
   };
 
   return (
@@ -87,21 +88,25 @@ export function AssistPanel(props: PanelProps) {
           </section>
         );
       })}
-      {!loading && (
-        <section aria-label="Stratagems now" className="play-assist__strats">
-          <h3>{armyName(s, acting)}: stratagems you could use now</h3>
-          {now.length ? (
-            <ul className="list">
-              {now.map((st) => (
-                <StratagemCard key={st.id} st={st} onUse={(cp) => use(st, cp)} />
-              ))}
-            </ul>
-          ) : (
-            <p className="muted">None for this moment.</p>
-          )}
-          <p className="muted play-small">Using one spends its CP and logs it; apply what it does with the one-tap rules or the toolkit.</p>
-        </section>
-      )}
+      {!loading &&
+        players.map((p) => {
+          const now = stratagemsNow(stratagems[p] ?? [], momentFor(s, p));
+          return (
+            <section key={p} aria-label={`${armyName(s, p)}: stratagems now`} className="play-assist__strats">
+              <h3>{armyName(s, p)}: stratagems you could use now</h3>
+              {now.length ? (
+                <ul className="list">
+                  {now.map((st) => (
+                    <StratagemCard key={st.id} st={st} onUse={(cp) => use(p, st, cp)} />
+                  ))}
+                </ul>
+              ) : (
+                <p className="muted">None for this moment.</p>
+              )}
+            </section>
+          );
+        })}
+      {!loading && <p className="muted play-small">Using one spends its CP and logs it; apply what it does with the one-tap rules or the toolkit.</p>}
       {!loading && (
         <section aria-label="Army rules">
           <h3>Army rules</h3>
