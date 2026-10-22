@@ -131,6 +131,14 @@ It can still be shot if it is visible to the firing model and is the closest ene
 **Decision:** a unit firing Overwatch shoots, from every model that can see the charging unit, every ranged weapon in range. Pistols fire only if the model has no other weapon that can shoot, and grenades never do. Only one profile of each weapon fires. Each charge allows one reaction from the targets: Overwatch, Hold Steady (Overwatch at 5+) or Set to Defend.
 **Why:** CS §2 makes one target unit fire Overwatch, and there is no reason to hold weapons back. Choosing the weapons automatically keeps the reaction to one tap in pass-and-play.
 
+## R-20 Mustering a saved list
+**Decision:** a list's units are matched to their datasheets by BattleScribe id; each copy of a duplicated unit becomes its own unit. Names are then matched like this:
+- **Models:** a model entry uses the model profile with the same name. Failing that, it uses the profile named like the entry without a trailing "(loadout)", then the longest profile name it starts with. A datasheet with a single profile always uses it.
+- **Weapons:** a weapon entry (and the unit's own wargear, which every model gets) gives the weapon profiles with the same name, or with that name followed by " -", ",", " (" or " [". Combined entries such as "Bolt Pistol & Boltgun", "X w/ Y" and "2x Entropy cannon", and plurals, are split up first.
+
+Anything that still doesn't match is reported to the player and never guessed. The counts are pinned by `test/data/muster-baseline.json`.
+**Why:** the generated unit JSON has no link from wargear entries to weapon profiles, so names are all there is. A wrong weapon is worse than a reported missing one (spec §2 anti-goals).
+
 ## R-21 Daemonic Save
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
 **Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."
