@@ -1,0 +1,12 @@
+/* Table companion (Milestone 7). Phone first: 375px wide, 44px touch targets. */
+.mission-map { display: block; width: 100%; height: auto; max-height: 60vh; border-radius: var(--radius); background: var(--surface-2); }
+.map-board { fill: #8d877c; fill-opacity: 0.25; stroke: var(--border); stroke-width: 0.3; }
+.map-zone--A { fill: #4f6d7a; fill-opacity: 0.75; }
+.map-zone--B { fill: var(--red); fill-opacity: 0.75; }
+.map-zone--highlight { fill-opacity: 1; stroke: var(--focus); stroke-width: 0.4; }
+.map-area { fill: none; stroke: var(--text); stroke-width: 0.2; stroke-dasharray: 0.8 0.6; }
+.map-centre { fill: var(--text); }
+.map-objective { fill: var(--bg); stroke: var(--brass-strong); stroke-width: 0.35; }
+.map-label { fill: var(--text); font-size: 2px; font-weight: 700; }
+.mission-rules { display: grid; gap: 0.75rem; }
+.mission-rules h3 { margin: 0 0 0.25rem; }
