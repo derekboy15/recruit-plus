@@ -133,3 +133,14 @@ test('hints show when they are on and hide when turned off in the menu', async (
   await userEvent.click(screen.getByRole('checkbox', { name: 'Hints for new players' }));
   await waitFor(() => expect(screen.queryByRole('note', { name: 'Hint' })).toBeNull());
 });
+
+test('the toolkit opens from the menu in place of the phase panel, and closes again', async () => {
+  await seed(deployedGame());
+  page();
+  await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Toolkit' }));
+  expect(screen.getByRole('heading', { name: 'Toolkit' })).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'End Command phase' })).toBeNull();
+  await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
+  expect(screen.getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();
+});

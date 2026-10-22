@@ -16,6 +16,7 @@ import { GameLog, GameMenu, HandOver } from './Overlays';
 import { ScoreSheet } from './ScoreSheet';
 import { TopBar } from './TopBar';
 import { planReducer } from './plan';
+import { Toolkit } from '../toolkit/Toolkit';
 import { useSandbox } from './useSandbox';
 
 export function GamePage({ renderer }: { renderer?: RendererFactory }) {
@@ -62,6 +63,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   const [overlay, setOverlay] = useState<'log' | 'menu' | 'score' | null>(null);
   const [handOver, setHandOver] = useState<PlayerId | null>(null);
   const [tall, setTall] = useState(false);
+  const [toolkit, setToolkit] = useState(false);
   const tapRef = useRef<TapHandler | null>(null);
   const dragRef = useRef<((modelId: string) => boolean) | null>(null);
   const offset = useRef<Pt>({ x: 0, y: 0 });
@@ -166,8 +168,19 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
           </p>
         )}
         <Problems problems={problems} />
-        <PhasePanel sb={sb} ui={ui} />
-        {!state.ended && <AssistPanel sb={sb} ui={ui} />}
+        {toolkit ? (
+          <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
+        ) : (
+          <>
+            {selectedUnitId && !state.ended && (
+              <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
+                Adjust {state.units[selectedUnitId]?.name}…
+              </button>
+            )}
+            <PhasePanel sb={sb} ui={ui} />
+            {!state.ended && <AssistPanel sb={sb} ui={ui} />}
+          </>
+        )}
         <p className="game__disclaimer muted">{DISCLAIMER}</p>
       </div>
       {overlay === 'log' && <GameLog lines={sb.log} onClose={() => setOverlay(null)} />}
@@ -180,6 +193,10 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
           setHandOver={(v) => sb.setMeta({ handOver: v })}
           armies={armies}
           ended={!!state.ended}
+          onToolkit={() => {
+            setToolkit(true);
+            setOverlay(null);
+          }}
           onConcede={(p) => {
             setProblems(sb.act({ type: 'concede', by: p }) ?? []);
             setOverlay(null);
