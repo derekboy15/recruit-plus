@@ -51,3 +51,4 @@
 .log__note { display: flex; gap: 0.5rem; }
 .log__note .input { flex: 1; min-width: 0; }
 .log__list { margin: 0; padding-left: 1.5rem; display: grid; gap: 0.35rem; overflow-wrap: anywhere; }
+.stratagems { display: grid; gap: 0.75rem; }
