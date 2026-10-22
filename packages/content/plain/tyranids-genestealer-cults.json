@@ -1,0 +1,818 @@
+{
+  "00a51eac583c": {
+    "name": "Monstrous Vigour",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your ABERRANT or ABOMINANT units is chosen as an attack's target: until the end of the phase, attacks against that unit always fail on an unmodified wound roll of 1-3, whatever abilities the weapon or the attacking model has. This Stratagem costs 1CP if that unit has 5 or fewer models, and 2CP otherwise."
+  },
+  "01498045e9fb": {
+    "name": "Devotion Till Death",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase, choose one ANOINTED THRONG ABERRANT unit from your army. Until the end of the phase, when a model in that unit is slain, don't remove it straight away; instead it can pile in and fight at once, even if it was already chosen to fight this phase. Once its attacks are resolved, remove it from the battlefield."
+  },
+  "0561cf89dd37": {
+    "name": "Deliverance Broodsurge",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments a Deliverance Broodsurge Specialist Detachment. In that Detachment, ACOLYTE ICONWARDS, NEOPHYTE HYBRIDS, ACOLYTE HYBRIDS and GOLIATH TRUCKS gain the DELIVERANCE BROODSURGE keyword."
+  },
+  "08bfeca6dc4f": {
+    "name": "The First to Draw Blood",
+    "kind": "stratagem",
+    "plain": "At the start of your Fight phase, choose one of your DELIVERANCE BROODSURGE units that made a charge move this turn. Until the end of the phase, add 1 to wound rolls for that unit's attacks."
+  },
+  "0d44993b9568": {
+    "name": "Lurk in the Shadows",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Shooting phase, choose one of your GENESTEALER CULTS INFANTRY units. Until the end of the phase, whenever an enemy model shoots, it can't target that unit (until that shooting is resolved) unless that unit is the closest eligible target or is within 12\" of the enemy model. Also, until the end of the phase, if the chosen unit has the Bodyguard ability, it loses that ability."
+  },
+  "0d46dad6a825": {
+    "kind": "ability",
+    "name": "A Trap Sprung",
+    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, then until the end of the turn, whenever you make a charge roll for it, roll one extra dice and discard one of the dice.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "0e510932e5ff": {
+    "kind": "ability",
+    "name": "Jackal",
+    "plain": "Falling Back doesn't stop this model from shooting or declaring a charge in the same turn."
+  },
+  "0e6570ae8b34": {
+    "kind": "psychic",
+    "name": "Mind Control",
+    "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, attacks made by models in that unit subtract 1 from their hit roll. Also, if the Psychic test result equalled or beat that unit's Leadership characteristic, then for the same duration subtract 1 from its Leadership characteristic and subtract 1 from its Combat Attrition tests."
+  },
+  "11703e87b0d3": {
+    "name": "Anointed Throng",
+    "kind": "stratagem",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments an Anointed Throng Specialist Detachment. In that Detachment, ABOMINANTS and ABERRANTS gain the ANOINTED THRONG keyword."
+  },
+  "1558d0cdbf30": {
+    "kind": "ability",
+    "name": "Hand of Aberrance",
+    "plain": "The bearer's toxin injector claw is swapped for this Relic."
+  },
+  "16f3a6265058": {
+    "kind": "ability",
+    "name": "Reliquary of Saint Tenndarc (Aura)",
+    "plain": "Aura: models in any of your PAUPER PRINCES CORE units get a 5+ invulnerable save while their unit is within 6\" of the bearer."
+  },
+  "174751ef9954": {
+    "name": "Brood Brothers",
+    "kind": "rule",
+    "plain": "When mustering a Battle-forged army, for each GENESTEALER CULTS Detachment in it you may also include one ASTRA MILITARUM Detachment, even though its units share no Faction keywords with the rest of your army; this doesn't stop your army being Battle-forged. These ASTRA MILITARUM Detachments are called BROOD BROTHER Detachments, and these rules apply to them. Only units with the <REGIMENT> or UNALIGNED keyword can go in a BROOD BROTHERS Detachment. When you put an ASTRA MILITARUM unit in one, every instance of the IMPERIUM and <REGIMENT> keywords on its datasheet becomes the BROOD BROTHERS keyword. BROOD BROTHERS models can't be your WARLORD, can't have a Warlord Trait and can't be given any Relics. Having BROOD BROTHERS units in your army doesn't stop your GENESTEALER CULTS units using the Crossfire ability, as long as your BROOD BROTHERS units make up no more than 25% of your army's total Power Rating (or of its points, if the game uses points). BROOD BROTHERS units in a BROOD BROTHERS Detachment gain the Loyalty to the Cult Regimental Doctrine: models in a unit with this doctrine add 2 to their Leadership characteristic, and INFANTRY units with it gain the Unquestioning Loyalty ability.",
+    "waive": {
+      "89": "page number in a cross-reference to the Crossfire ability",
+      "BROOD BROTEHRS": "misspelling of BROOD BROTHERS in the official text; BROOD BROTHERS is used"
+    }
+  },
+  "17f4702efd2a": {
+    "name": "Genetic Lineage",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, choose one of your ACOLYTE HYBRIDS or HYBRID METAMORPHS units. Until the end of the turn, it can declare a charge even though it Advanced this turn."
+  },
+  "18f2666dc8ce": {
+    "name": "Cloaked",
+    "kind": "ability",
+    "plain": "When a ranged attack is allocated to this model while it has the benefit of cover, add a further 1 to the armour save taken against it."
+  },
+  "1a17bc7050b5": {
+    "kind": "ability",
+    "name": "Alchemicus Familiar",
+    "plain": "Once per battle, when this model begins the Twisted Experiment action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
+  },
+  "1def79cee03c": {
+    "kind": "ability",
+    "name": "From Every Angle",
+    "plain": "If the mission uses the Strategic Reserves rules, then at the start of the first battle round you can put this unit into Strategic Reserves without paying any extra CPs, no matter how many units are already there. When you set this unit up from Strategic Reserves, treat the battle round number as one higher than it is, so it can arrive from Strategic Reserves in the first battle round."
+  },
+  "1e66784abdee": {
+    "kind": "psychic",
+    "name": "Last Gasp",
+    "plain": "Blessing: pick one of your PAUPER PRINCES CORE units that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, whenever a melee attack destroys a model in that unit, roll one D6. On a 5+, the attacking model's unit suffers 1 mortal wound once it has finished making its attacks. A unit can suffer no more than 5 mortal wounds per phase from this power."
+  },
+  "1e7ef027d263": {
+    "name": "Subterranean Defence",
+    "kind": "stratagem",
+    "plain": "Use this before revealing your Cult Ambush markers in a Planetstrike mission in which you are the Defender, if your army includes any GENESTEALER CULTS units. For each CP you spend on this Stratagem, choose a different one of your Cult Ambush markers. Halve that marker's number of mortal wounds (rounding down) before revealing it, then resolve whatever mortal wounds remain."
+  },
+  "1f78fc7298e0": {
+    "name": "Gene-sire’s Gifts",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, if your WARLORD has the GENESTEALER CULTS keyword: choose one of your GENESTEALER CULTS CHARACTER models and give it one Sacred Relic of the Cult (one it could have). Every Relic in your army must be unique, and this Stratagem can't give a model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "1f7f06646948": {
+    "name": "Reductus Explosives",
+    "kind": "ability",
+    "plain": "At the end of the Movement phase or of your opponent's Charge phase, this model can use this ability if any enemy models are within 3\" of its Reductus Explosives marker. Roll one D6 for every model within 3\" of that marker (excluding AIRCRAFT models); add 2 to the roll for a BIKER, MONSTER or VEHICLE model. For each 4+, the unit of the model rolled for suffers 1 mortal wound, or 4 mortal wounds when that model is a MONSTER or VEHICLE. Afterwards, take this model's Reductus Explosives marker off the battlefield."
+  },
+  "200b5e6e556b": {
+    "name": "Drive-by Demolitions",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, after one of your RUSTED CLAW ATALAN units makes a Normal Move, Advances or Falls Back, one of its models can shoot as if it were your Shooting phase, using a Grenade weapon it has. If it does: when choosing a target, any enemy units that RUSTED CLAW ATALAN unit moved within 6\" of this phase are eligible, even if they aren't visible to or in range of the shooting model; and until the end of the phase, don't roll for that weapon's number of attacks, as it makes the maximum number instead (for example, a Grenade D6 weapon makes 6 attacks)."
+  },
+  "20856db21665": {
+    "kind": "weapon",
+    "name": "Heavy Improvised Weapon",
+    "plain": "For attacks made with this weapon, excess damage isn't lost. Keep allocating it to other models in the target unit until all of it has been allocated or the target unit is destroyed."
+  },
+  "220d8887a5ad": {
+    "kind": "ability",
+    "name": "Exacting Planner",
+    "plain": "Once per battle, in your Command phase, this model may use this ability. Until that phase ends, it can then use its Meticulous Planner ability one extra time, and whenever it uses Meticulous Planner you can pick any one of your <CULT> units within 9\" of this model for it, rather than a <CULT> CORE unit."
+  },
+  "23d5057e4f31": {
+    "kind": "psychic",
+    "name": "Psionic Blast",
+    "plain": "Witchfire: pick one enemy unit that is visible to this PSYKER and within 18\" of it. When picking that unit, the Look Out, Sir rule applies as if this power were a ranged weapon with a range of 18\", unless that unit is within Engagement Range of this PSYKER. That unit suffers D3 mortal wounds, or 3 mortal wounds instead if the Psychic test result equalled or beat its Leadership characteristic."
+  },
+  "23f714540b26": {
+    "name": "Strategic Coordination",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <CULT> CORE units on the battlefield, then pick one of your <CULT> CHARACTER models within 6\" of this model that is a PRIMUS, JACKAL ALPHUS or CLAMAVUS. Until your next Command phase starts, the chosen <CULT> CORE unit counts as being in range of that <CULT> CHARACTER model's aura abilities, and it can be chosen for any of that model's abilities that tell you to pick a friendly unit within a set range (such as Priority Target)."
+  },
+  "265389e26e00": {
+    "name": "Raking Fire",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your ATALAN or ACHILLES RIDGERUNNERS units is chosen to shoot: until the end of the phase, whenever a model in that unit attacks a target that has a crossfire marker and was Exposed when it was chosen as the target, you can re-roll the hit roll. The target must be Exposed through the Crossfire rule, not by some other means such as the Priority Target ability."
+  },
+  "2d0f6ba021b3": {
+    "kind": "ability",
+    "name": "Unquestioning Loyalty",
+    "plain": "Whenever a <CULT> CHARACTER model from your army fails a saving throw, you can choose another of your <CULT> or BROOD BROTHERS models with this ability that is within 3\" of the CHARACTER and make an Unquestioning Loyalty test: roll one D6, adding 1 when the CHARACTER is a PATRIARCH model. If you roll 4+, the test succeeds: the CHARACTER model takes no damage, the model you picked is destroyed instead, and the attack sequence ends."
+  },
+  "2dbb9f275592": {
+    "name": "Monstrous Bio-horrors",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your TWISTED HELIX ABERRANT or TWISTED HELIX ABOMINANT units is chosen to fight: for the rest of the turn, each enemy model that an attack by a model in that unit destroys counts as two models for Morale tests. Also, models in that unit can frenzy each time they fight; a model that does adds 1 to its Attacks characteristic and sets the Damage characteristic of its melee weapons to 1 until that fight is resolved."
+  },
+  "2e14aef6ec0b": {
+    "kind": "weapon",
+    "name": "Heavy Rock Drill",
+    "plain": "For attacks made with this weapon, a hit automatically wounds the target, and an unmodified hit roll of 6 also makes the target suffer 2 mortal wounds on top of any normal damage."
+  },
+  "2e4b0b48c2c7": {
+    "name": "Raiders",
+    "kind": "ability",
+    "plain": "When a model in this unit makes a ranged attack against an enemy unit within 6\" of it, treat the target as Exposed for that attack."
+  },
+  "2e9219d71ff7": {
+    "kind": "ability",
+    "name": "Elixir of the Prime Specimen",
+    "plain": "Choose one genomic enhancement for the bearer (see the Genomic Enhancement ability), even though it isn't a CORE or ABERRANT unit. If your army has any BIOPHAGUS units, you can choose two genomic enhancements for it instead.",
+    "waive": {
+      "102": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "311b42d30cde": {
+    "name": "Covering Fire",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, pick an enemy unit that has a crossfire marker. For the rest of this turn, that unit is unable to fire Overwatch, Set to Defend or perform Heroic Interventions."
+  },
+  "31214fcfeb74": {
+    "kind": "ability",
+    "name": "The Crouchling",
+    "plain": "The bearer's psychic familiar loses its usual ability and gets this one instead: 'The Crouchling: you can re-roll one Psychic test taken for this model, once per Psychic phase. When this model passes a Psychic test and every dice in that test shows the same result, that psychic power or psychic action can't be denied.'"
+  },
+  "3190dbfcd4c7": {
+    "kind": "ability",
+    "name": "Master Outrider",
+    "plain": "While this model is within 6\" of one of your <CULT> ATALAN JACKALS or <CULT> VEHICLE units, enemy models can only target it with ranged weapons if it is the closest eligible target. Attacks made against this model subtract 1 from their hit roll."
+  },
+  "3324d593b9e4": {
+    "name": "Soulsight",
+    "kind": "ability",
+    "plain": "Whenever this model makes an attack, that attack hits the target automatically, and the target gets no benefit from cover against it."
+  },
+  "34af391ce069": {
+    "kind": "ability",
+    "name": "The Voice of the Liberator",
+    "plain": "The bearer's Proclamation Hailer and Voice of New Truths abilities have their range increased by 6\". While one of your <CULT> units is within 12\" of the bearer, models in that unit add 1 to their Leadership characteristic."
+  },
+  "36f69cd2c4f1": {
+    "name": "Pack Hunters",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, choose one enemy unit within 6\" of and visible to one of your <CULT> ATALAN JACKALS units. Until the end of the phase, treat that enemy unit as Exposed for each ranged attack made against it by a model in a different friendly <CULT> unit."
+  },
+  "3790bc1280ff": {
+    "name": "Jackals",
+    "kind": "ability",
+    "plain": "This unit can shoot and declare a charge in a turn in which it Fell Back."
+  },
+  "3844c18b1eb5": {
+    "name": "Spotter",
+    "kind": "ability",
+    "plain": "The bearer's ranged weapons get 12\" added to their Range characteristic."
+  },
+  "3c24348cc078": {
+    "name": "Open-topped",
+    "kind": "ability",
+    "plain": "In your Shooting phase, units embarked within this TRANSPORT can be chosen to shoot; when they do, distances are measured and line of sight drawn from any point on this TRANSPORT. Embarked units count as having made a Normal Move, Advanced or Fell Back this turn if this TRANSPORT did so. Embarked units can only shoot with Pistols while any enemy units are within Engagement Range of this TRANSPORT."
+  },
+  "3cb96d68b920": {
+    "kind": "ability",
+    "name": "They Came From Below",
+    "plain": "If this unit is set up in ambush, then when ambush markers are revealed you can do one of these: remove one ambush marker from the battlefield and set this unit up underground instead; or, after this unit is set up from an ambush marker, let it make a Normal Move as if it were your Movement phase, ending that move more than 9\" from every enemy model.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "3e0cb1f411be": {
+    "kind": "ability",
+    "name": "Mark of the Clawed Omnissiah",
+    "plain": "The bearer gets a 4+ invulnerable save. When each Fight phase starts, roll one D6 for every enemy unit within Engagement Range of the bearer. A roll of 2-3 inflicts 1 mortal wound on that unit, 4-5 inflicts 2 mortal wounds, and 6 inflicts 3 mortal wounds."
+  },
+  "3fa7f33e23b5": {
+    "name": "Bodyguard",
+    "kind": "ability",
+    "plain": "During deployment, choose a <CULT> CHARACTER model from your army to be this model's ward; it can't be a LOCUS model. The ward can use the Look Out, Sir rule while it is within 3\" of this model, even if this unit has fewer than 3 models. An enemy model can't target the ward with melee attacks while this model is a viable target for that enemy model's melee attacks."
+  },
+  "4140fe9b655c": {
+    "name": "Leaders of the Cult",
+    "kind": "stratagem",
+    "plain": "Once per battle, before the battle while mustering your army, if your WARLORD is a <CULT> PATRIARCH: choose up to two other <CULT> models from your army that have the HQ Battlefield Role, and give each of them one Warlord Trait (one it could have). Those models count as your WARLORD only for the purposes of those Warlord Traits. Every Warlord Trait in your army must be unique; if you generate them randomly, re-roll duplicates."
+  },
+  "422360a2401c": {
+    "kind": "ability",
+    "name": "Priority Target",
+    "plain": "In your Command phase, pick one of your <CULT> CORE CROSSFIRE units within 9\" of this model, then pick one enemy unit that is visible to this model and within 36\" of it. Until the end of the turn, that enemy unit counts as being Exposed for every ranged attack made against it by this model or by models in that friendly unit."
+  },
+  "443bfb6e0261": {
+    "kind": "ability",
+    "name": "Cult Demagogue (Aura)",
+    "plain": "Aura: while one of your <CULT> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "49ee14d9f945": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model is destroyed, roll one D6 before it is removed from play and before any models embarked in it disembark. On a 6, it explodes and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "4b5caa2dd399": {
+    "name": "Savage Amalgam",
+    "kind": "ability",
+    "plain": "Whenever a melee attack destroys a model in this unit, if that model hasn't fought yet this phase, leave it in play. Once the attacking model's unit has finished its attacks, the destroyed model can fight. After that, resolve any other rules that trigger for this model 'when it is destroyed' (if there are any), then remove it from play."
+  },
+  "4bd17852b0a3": {
+    "name": "Quicksilver Strike",
+    "kind": "ability",
+    "plain": "If this model is within Engagement Range of one or more enemy units when the Fight phase starts, it fights first that phase."
+  },
+  "4beabd027f93": {
+    "kind": "ability",
+    "name": "Sacred Cult Banner (Action)",
+    "plain": "Action: once the Move Units step of your Movement phase ends, one of your ACOLYTE ICONWARD models can begin this action; it is completed when your Charge phase starts. If it succeeds, the model that did it gets this aura for the rest of the turn: 'Sacred Cult Banner (Aura): add 1 to charge rolls for any of your <CULT> INFANTRY, <CULT> BIKER or <CULT> CHARACTER units (GENESTEALER units excluded) while they are within 6\" of this model.'"
+  },
+  "50ebc21a786d": {
+    "kind": "weapon",
+    "name": "Sword of the Four-armed Emperor",
+    "plain": "Whenever the bearer fights, it makes 4 extra attacks with this weapon. For attacks made with this weapon, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "51ba1a710812": {
+    "name": "Sniper",
+    "kind": "ability",
+    "plain": "If this model has a cult sniper rifle (or a weapon replacing one), it gains the Crossfire ability and the CROSSFIRE keyword. Whenever it attacks with that weapon against a unit that has a crossfire marker, treat the target as Exposed for that attack."
+  },
+  "5361bbc27baf": {
+    "kind": "weapon",
+    "name": "Blessed Sledgehammer",
+    "plain": "If a Damage roll for this weapon comes up 1 or 2, treat it as a 3 instead of the rolled value."
+  },
+  "541b6ffafc39": {
+    "name": "Flare Launcher",
+    "kind": "ability",
+    "plain": "The bearer has a 6+ invulnerable save against ranged attacks. Whenever the bearer's unit is chosen as a charge target, subtract 2 from the charge roll, as long as the bearer isn't within Engagement Range of any enemy units."
+  },
+  "547786175fef": {
+    "name": "Rigged to Blow",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your GENESTEALER CULTS VEHICLE models equipped with a cache of demolition charges is destroyed, it explodes automatically; don't roll to see whether it does."
+  },
+  "554c765421da": {
+    "name": "Scout",
+    "kind": "ability",
+    "plain": "Before the first turn of the first battle round begins, this unit can make a Normal Move of up to 9\", as though it were your Movement phase, unless it was set up in ambush. It must finish that move more than 9\" from any enemy models. If both players have units able to do this, the player taking the first turn moves theirs first."
+  },
+  "571b91d04735": {
+    "name": "Deploy Explosives",
+    "kind": "ability",
+    "plain": "This model can perform the Plant Explosives action. One REDUCTUS SABOTEUR model from your army can begin it in your Command phase, and it is completed at the end of your Movement phase. On a successful completion, put a Reductus Explosives marker within 1\" of the model; this model can't perform the action again. If this model is destroyed, take its Reductus Explosives marker off the battlefield."
+  },
+  "58d192f77f7b": {
+    "name": "Rapid Advance",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, when one of your GENESTEALER CULTS GENESTEALER, GENESTEALER CULTS BIKER or GENESTEALER CULTS VEHICLE units Advances, don't make an Advance roll. Instead, models in that unit add 6\" to their Move characteristic until the end of the phase."
+  },
+  "5c0a69b38903": {
+    "name": "Heroic Deeds, Heroic Inspiration (Aura)",
+    "kind": "ability",
+    "plain": "If this model destroys any enemy models in your Shooting phase, it becomes a heroic inspiration until the end of that phase. Aura: while this model is a heroic inspiration and one of your <CULT> CORE units is within 6\" of it, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "5d1c72008868": {
+    "kind": "weapon",
+    "name": "Magus Bio-dagger",
+    "plain": "Whenever the bearer fights, it can make at most 1 attack with this weapon. Against any unit other than a VEHICLE or TITANIC unit, an unmodified wound roll of 3+ with this weapon causes 1 mortal wound to the target and ends the attack sequence."
+  },
+  "5e0af28e587e": {
+    "name": "Cloaked Assassin",
+    "kind": "ability",
+    "plain": "Enemy models can only target this model with ranged attacks if they are within 12\" of it. When a ranged attack is allocated to this model while it has the benefit of cover, add a further 1 to the armour save taken against it."
+  },
+  "619d6da71fdb": {
+    "name": "Strategic Coordinator",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <CULT> CORE units on the battlefield, then pick one of your <CULT> CHARACTER models within 6\" of this model that is a PRIMUS, JACKAL ALPHUS or CLAMAVUS. Until your next Command phase starts, the chosen <CULT> CORE unit counts as being in range of that <CULT> CHARACTER model's aura abilities, and it can be chosen for any of that model's abilities that tell you to pick a friendly unit within a set range (such as Priority Target)."
+  },
+  "642bf187fe52": {
+    "kind": "ability",
+    "name": "Mindwyrm Familiar",
+    "plain": "Whenever this model is chosen to fight, you may re-roll a single hit roll or a single wound roll for its attacks."
+  },
+  "654f8e7dedfe": {
+    "kind": "ability",
+    "name": "Spiritual Leader (Aura)",
+    "plain": "Aura: in the Psychic phase, while one of your <CULT> INFANTRY or <CULT> BIKER units is within 6\" of this model, whenever a model in that unit would lose a wound to a mortal wound, roll one D6: on a 5+ that wound is not lost."
+  },
+  "6753deb3e71f": {
+    "kind": "ability",
+    "name": "Blessed Sledgehammer",
+    "plain": "Only an ABOMINANT can take this. It takes the place of the bearer's power sledgehammer."
+  },
+  "67773d1ab2d7": {
+    "kind": "ability",
+    "name": "Wyrmtooth Rounds",
+    "plain": "Whenever the bearer shoots, you can pick any number of its liberator autostubs to fire a liberator wyrmtooth round. If you do, each picked autostub uses the liberator wyrmtooth round profile until that shooting is resolved. A wyrmtooth round doesn't get the liberator autostub's abilities."
+  },
+  "6a196ed0cc55": {
+    "kind": "psychic",
+    "name": "Synaptic Blast",
+    "plain": "Witchfire: roll one D6 and add 2 to the result for every one of your HIVECULT CORE units within 6\" of this PSYKER. Then compare it with the Movement characteristic of the closest enemy unit that is visible to this PSYKER and within 18\" of it: if the result is lower, that enemy unit suffers D3 mortal wounds; if it is equal or higher, that enemy unit suffers 3 mortal wounds."
+  },
+  "6b4f636a5844": {
+    "kind": "weapon",
+    "name": "Sword of the Void's Eye",
+    "plain": "Attacks made with this weapon can re-roll the hit roll and can re-roll the wound roll."
+  },
+  "6c18782ddc76": {
+    "kind": "weapon",
+    "name": "Web Pistol",
+    "plain": "Attacks made with this weapon skip the hit roll. Roll one D6 instead, then the attack sequence ends: if the roll beats the highest Strength characteristic among models in the target unit, 1 mortal wound is inflicted on that unit."
+  },
+  "6d214a669865": {
+    "name": "Meticulous Uprising",
+    "kind": "stratagem",
+    "plain": "When you would reveal your ambush markers: in a Combat Patrol or Incursion battle, you may take away one of your ambush markers; in a Strike Force or Onslaught battle, you may take away up to two. Place each marker taken away anywhere on the battlefield wholly within your deployment zone and more than 9\" from any enemy models. Then reveal all your ambush markers as normal."
+  },
+  "75905cadf9fb": {
+    "kind": "ability",
+    "name": "Sword of the Void's Eye",
+    "plain": "The bearer's cult bonesword or Locus blades are swapped for this Relic."
+  },
+  "78b61f5c71fd": {
+    "kind": "weapon",
+    "name": "Scoped Needle Pistol",
+    "plain": "When an attack with this weapon targets a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of 2+ always succeeds."
+  },
+  "7ac74dd9ca52": {
+    "kind": "weapon",
+    "name": "Patriarch's Claws",
+    "plain": "Attacks made with this weapon can re-roll the wound roll. An unmodified wound roll of 6 gives that attack AP -6 and Damage 3."
+  },
+  "7b1cf5f5f3d0": {
+    "kind": "ability",
+    "name": "Alchemist Supreme",
+    "plain": "When a unit is given this ability, choose one <CULT> CORE or <CULT> ABERRANT unit from your army; that unit gains one genomic enhancement of your choice (as described in the Genomic Enhancement ability).",
+    "waive": {
+      "102": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "7f6e80786b13": {
+    "kind": "ability",
+    "name": "Vockor's Talisman",
+    "plain": "When the bearer makes a melee attack and the unmodified wound roll is 5+, no saving throw of any kind (invulnerable saves included) can be made against that attack."
+  },
+  "823e5799f0f3": {
+    "kind": "ability",
+    "name": "The Unwilling Orb",
+    "plain": "The bearer can try to deny one extra psychic power in your opponent's Psychic phase. While it is on the battlefield, it can try to deny psychic powers at any range, rather than only within 24\". Whenever the bearer tries to manifest a Malediction or Witchfire psychic power, add 1 to the Psychic test for it."
+  },
+  "838e64993a8e": {
+    "kind": "weapon",
+    "name": "The Gift From Beyond",
+    "plain": "When you pick a target for this weapon, the Look Out, Sir rule can be ignored. For attacks made with this weapon, an unmodified wound roll of 4+ also inflicts 1 mortal wound on the target, on top of any normal damage."
+  },
+  "83c57088cf4d": {
+    "kind": "psychic",
+    "name": "Mental Onslaught",
+    "plain": "Witchfire: pick one enemy unit that is visible to this PSYKER and within 24\" of it, and roll four D6. For each 5+, that unit suffers 1 mortal wound. If those mortal wounds destroy any of its models but not the whole unit, repeat this, rolling 1 fewer dice each time (three D6 on the first repeat, two D6 on the second and so on). Stop when the number of dice to roll is 0, when you roll no 5+ results, or when no enemy models are destroyed."
+  },
+  "84c312dcf3d9": {
+    "name": "Primed Explosive",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your GENESTEALER CULTS models shoots with a Grenade weapon or a cache of demolition charges, don't roll for that weapon's number of attacks for the rest of the phase; it makes the maximum number instead (for example, an Assault D6 weapon makes 6 attacks)."
+  },
+  "853052ac206a": {
+    "kind": "psychic",
+    "name": "Psychic Stimulus",
+    "plain": "Blessing: pick one of your <CULT> units that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, that unit can shoot and/or declare a charge in a turn in which it Advanced or Fell Back, and its models ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced."
+  },
+  "858a33578198": {
+    "kind": "ability",
+    "name": "Sword of the Four-armed Emperor",
+    "plain": "The model's cult bonesword or Locus blades are swapped for this relic."
+  },
+  "863ee0b19fda": {
+    "kind": "ability",
+    "name": "Sacred Cult Banner",
+    "plain": "Action: once the Move Units step of your Movement phase ends, one of your ACOLYTE ICONWARD models can begin this action; it is completed when your Charge phase starts. If it succeeds, the model that did it gets this aura for the rest of the turn: 'Sacred Cult Banner (Aura): add 1 to charge rolls for any of your <CULT> INFANTRY, <CULT> BIKER or <CULT> CHARACTER units (GENESTEALER units excluded) while they are within 6\" of this model.'"
+  },
+  "8652e8da1fc1": {
+    "kind": "ability",
+    "name": "Nexus of Devotion",
+    "plain": "In your Command phase, one of your <CULT> CORE units that is within 6\" of this model can summon the cult."
+  },
+  "8c7370f51051": {
+    "name": "One with the Shadows",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when one of your GENESTEALER CULTS INFANTRY units is chosen as an attack's target: until the end of the phase, add a further 1 to the armour save against each ranged attack allocated to a model in that unit while that model has the benefit of cover."
+  },
+  "8e938399df1e": {
+    "kind": "ability",
+    "name": "The Gift From Beyond",
+    "plain": "The bearer's cult sniper rifle is swapped for this relic."
+  },
+  "90164469731a": {
+    "name": "Gunslinger",
+    "kind": "ability",
+    "plain": "Whenever this model makes a ranged attack that scores a hit, it can make 1 additional ranged attack with the same weapon against the same target once it has finished the rest of its ranged attacks. That bonus attack can't itself create any more additional attacks."
+  },
+  "92a185fcb62a": {
+    "name": "Dig Them Out",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your GENESTEALER CULTS units is chosen to shoot: until the end of the phase, whenever a model in that unit attacks with an industrial weapon and the target is within 12\" of it, treat the target as Exposed for that attack."
+  },
+  "9317a97be851": {
+    "name": "Bore Through",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your GENESTEALER CULTS units is chosen to fight: until the end of the phase, whenever a model in that unit attacks an enemy MONSTER or VEHICLE unit with an industrial weapon, you can re-roll the wound roll."
+  },
+  "933b4d7fc00f": {
+    "kind": "weapon",
+    "name": "Webber",
+    "plain": "This weapon has the Blast ability. Attacks made with it skip the hit roll. Roll one D6 instead, then the attack sequence ends: if the roll beats the highest Strength characteristic among models in the target unit, 1 mortal wound is inflicted on that unit."
+  },
+  "95915c8f7b6c": {
+    "name": "Roaming Engagement",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, after one of your ATALAN or ACHILLES RIDGERUNNERS units has made its attacks, it can move up to 7\" with a Normal Move, as though it were your Movement phase. That unit then can't declare a charge until the end of the turn."
+  },
+  "95fbf4b57c64": {
+    "name": "Tunnel Crawlers",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, choose one Area Terrain feature. Until the end of the turn, whenever one of your GENESTEALER CULTS INFANTRY units declares a charge against an enemy unit within that feature, enemy units within that feature can't fire Overwatch or Set to Defend, and the charging GENESTEALER CULTS INFANTRY unit ignores that feature's Difficult Ground trait."
+  },
+  "9681608930f5": {
+    "name": "Survey Augur",
+    "kind": "ability",
+    "plain": "When the bearer makes a ranged attack against an enemy unit within 24\", the target gets no benefit from cover against that attack."
+  },
+  "96e8dab5aea8": {
+    "kind": "ability",
+    "name": "Vial of the Grandsire's Blood",
+    "plain": "Your GENESTEALER CULTS units within 6\" of the bearer get 1 added to their Leadership characteristic. Also, once per battle, when the Fight phase starts, you may choose a GENESTEALER CULTS INFANTRY model within 3\" of the bearer: it adds 2 to its Attacks and Strength characteristics until that phase ends."
+  },
+  "97133a3ef70c": {
+    "kind": "ability",
+    "name": "Cranial Inlay",
+    "plain": "While the bearer is on the battlefield, whenever you spend a Command point on a Stratagem, you can roll one D6: on a 5+ you get that Command point back. The bearer can also use its Strategic Coordination ability one more time each turn."
+  },
+  "988596542fe6": {
+    "name": "Cache of Demolition Charges",
+    "kind": "weapon",
+    "plain": "This weapon has the Blast ability. The bearer can only shoot with it if a friendly unit is embarked within the bearer."
+  },
+  "98d5786b09d5": {
+    "kind": "ability",
+    "name": "Dagger of Swift Sacrifice",
+    "plain": "Whenever the bearer is chosen to fight, you can re-roll one wound roll for its attacks. After the bearer has fought, pick one enemy model that lost any wounds to an attack from the bearer's Magus bio-dagger or Sanctus bio-dagger but wasn't destroyed, and roll one D6. On a 3+ it suffers D3 mortal wounds; if this destroys it, ignore any leftover mortal wounds."
+  },
+  "99efe0d87071": {
+    "name": "Gestalt Consciousness",
+    "kind": "stratagem",
+    "plain": "In your Psychic phase, when one of your <CULT> PSYKER models manifests a Blessing psychic power that tells you to pick a friendly unit: you can pick any one friendly <CULT> unit anywhere on the battlefield to be affected, without it needing to be visible to that PSYKER model or within any specified range of it."
+  },
+  "9b651a4dbf4f": {
+    "kind": "psychic",
+    "name": "Magus",
+    "plain": "This model knows Smite and 2 powers from the Broodmind discipline."
+  },
+  "9b9ef28cc899": {
+    "name": "Overload Fuel Cells",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase when one of your GENESTEALER CULTS units is chosen to shoot, or in the Fight phase when one is chosen to fight: until the end of the phase, whenever an industrial weapon is chosen for a model in that unit to attack with, the model may overload the weapon. If it does, then until that shooting or fight is resolved, for each attack that model makes with that weapon: if it's a ranged weapon, add 1 to the attack's Damage characteristic; if it's a melee weapon, add 1 to the attack's Strength characteristic. If that weapon's attacks roll any unmodified hit rolls of 1, it suffers 1 mortal wound after the attacking model's unit is done attacking."
+  },
+  "9c3883538e03": {
+    "name": "Reckless Demolitions",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your GENESTEALER CULTS units is chosen to fight, pick one model in it and one Grenade weapon that model has (not a weapon that can only be shot once per battle and that the model has already shot with). For the rest of the phase, that Grenade weapon is the only weapon the model can attack with, even though it isn't a melee weapon and even if the Blast special rule applies to it, and it can do so even while within Engagement Range of an enemy unit; it makes as many attacks as the weapon's Type characteristic. Whenever that model attacks with that weapon, an unmodified hit roll of 2+ always succeeds, and an unmodified hit roll of 1 means one model in that unit is destroyed once the unit has finished all its attacks. If the weapon you picked can only be shot once per battle, that model counts as having shot with it after this Stratagem is used."
+  },
+  "9e2b64ef6306": {
+    "kind": "ability",
+    "name": "Swift and Deadly",
+    "plain": "This unit can declare a charge in a turn in which it Advanced."
+  },
+  "9f7fbcbdde17": {
+    "kind": "ability",
+    "name": "Genomic Enhancement",
+    "plain": "Twisted Experiment (Action): when your Movement phase ends, one of your BIOPHAGUS models can begin this action. When it begins, pick one of your <CULT> CORE or <CULT> ABERRANTS units that is within 3\" of the model performing it and doesn't already have a genomic enhancement. The action completes at the end of your Shooting phase, as long as the picked unit is still within 3\" of that BIOPHAGUS model. If it completes, the picked unit gains one genomic enhancement from the list for the rest of the battle: if it is an ABERRANTS unit you choose which one, otherwise roll one D3 to determine it at random."
+  },
+  "a24bbcb047d9": {
+    "name": "Clandestine",
+    "kind": "ability",
+    "plain": "While this model is within an Area terrain feature, enemy models can only target it with ranged attacks if they are within 12\" of it. Subtract 1 from the hit roll of every ranged attack made against this model."
+  },
+  "a2dbbf47ff73": {
+    "name": "Clandestine Goals",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you select secondary objectives or Agendas: pick one of your selections and keep it secret from your opponent. Reveal it the first time you score victory points or experience points for it. You still have to record the selection; writing it down and keeping it hidden until it is revealed is recommended."
+  },
+  "a3cdc60473b8": {
+    "name": "Neural Overload",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase or the Fight phase, after one of your SANCTUS models makes an attack: if an enemy model lost any wounds from that attack but wasn't destroyed, roll 3D6. If the total is higher than that enemy model's Leadership characteristic, that model's unit loses any aura abilities it has until the start of your next Shooting phase; and if that model is a PSYKER, Perils of the Warp is suffered by its unit. No enemy unit can be affected by this Stratagem more than once."
+  },
+  "a4f17c6767e0": {
+    "name": "Vengeance for the Martyred",
+    "kind": "stratagem",
+    "plain": "When one of your PAUPER PRINCES CHARACTER models is destroyed by an enemy unit: for the rest of the battle, whenever a friendly PAUPER PRINCES model makes a melee attack against that enemy unit, add 1 to that attack's wound roll."
+  },
+  "a5c6e6d15e98": {
+    "name": "Coordinated Assault",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase, choose one enemy unit with a crossfire marker that is within Engagement Range of any of your GENESTEALER CULTS units. Until the end of the phase, that enemy unit can't fight until every eligible unit from your army has fought."
+  },
+  "a89841456f2b": {
+    "kind": "weapon",
+    "name": "Oppressor's Bane",
+    "plain": "For attacks made with this weapon, treat the target as Exposed and as having a crossfire marker.",
+    "waive": {
+      "89": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "a97ae90199cf": {
+    "name": "A Plan Generations in the Making",
+    "kind": "stratagem",
+    "plain": "Once per battle, after your opponent uses a Stratagem (other than Command Re-roll): for the rest of the battle, that Stratagem costs your opponent 1 more CP each time they use it again."
+  },
+  "a9bf4a4f559c": {
+    "kind": "ability",
+    "name": "Cult Lash Whip",
+    "plain": "When the bearer makes a melee attack against a unit that isn't a MONSTER or VEHICLE unit, you can re-roll the hit roll.",
+    "waive": {
+      "VEHICLER": "typo for VEHICLE in the official text; written as VEHICLE"
+    }
+  },
+  "ab568b940bfd": {
+    "kind": "psychic",
+    "name": "Undermine",
+    "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it (it can't be a unit that can FLY). Until the start of your next Psychic phase, models in that unit have their Move characteristic reduced by 3\" (to no less than 0\"), charge rolls for that unit subtract 2, and Advance rolls for that unit are halved."
+  },
+  "adc56266b463": {
+    "kind": "ability",
+    "name": "Crossfire",
+    "plain": "This unit can use this ability, and the rules below apply, if every unit in your army has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units) and every unit in your army that belongs to a cult belongs to the same one. Some other rules boost or interact with these Crossfire rules; whatever their source, you can only use them if your army meets that same condition: every unit has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units), and all units that belong to a cult belong to the same one.",
+    "waive": {
+      "54": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "aec6ed3d03ad": {
+    "kind": "ability",
+    "name": "Our Time is Nigh",
+    "plain": "The first time in the battle this unit is chosen to fight, add 1 to the Attacks characteristic of its models until that fight is resolved. This doesn't stack with the extra attack from the Might From Beyond psychic power.",
+    "waive": {
+      "71": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "b042c42c2179": {
+    "name": "Drilldozer Blade",
+    "kind": "weapon",
+    "plain": "If the bearer made a charge move this turn, it gets 2 extra attacks with this weapon each time it fights."
+  },
+  "b363a3753688": {
+    "name": "Return to the Shadows",
+    "kind": "stratagem",
+    "plain": "In your Movement phase when one of your GENESTEALER CULTS INFANTRY units is chosen to move, or in your Fight phase after one of them has resolved all its attacks but before it consolidates: if no enemy units are within 6\" of that unit, take it off the battlefield. Then, in the Reinforcements step of your next Movement phase, place it anywhere on the battlefield more than 9\" from any enemy models. If the battle ends while that unit isn't on the battlefield, it is destroyed."
+  },
+  "b381c8f0b591": {
+    "name": "Creeping Shadow",
+    "kind": "ability",
+    "plain": "This model has a 5+ invulnerable save. Subtract 1 from the hit roll of every attack made against this model."
+  },
+  "b469b557e2fa": {
+    "name": "Remote Explosives",
+    "kind": "weapon",
+    "plain": "This weapon has the Blast ability. It can't target AIRCRAFT units. Its attacks have a Damage characteristic of 3 when they are allocated to a VEHICLE or MONSTER unit."
+  },
+  "b50008bf5c24": {
+    "name": "Data Parasite",
+    "kind": "stratagem",
+    "plain": "In your Movement phase, choose one enemy VEHICLE model that is within 18\" of and visible to one of your CLAMAVUS models. If that model's characteristics change as it suffers damage, roll one D6. On a 3+, work out those characteristics as if it had only half of its remaining wounds, until your next Command phase starts. This Stratagem costs 2CP if that VEHICLE model has the TITANIC keyword, and 1CP otherwise."
+  },
+  "b74efb611f10": {
+    "kind": "ability",
+    "name": "The Nomad's Mantle",
+    "plain": "The bearer can still shoot, charge and manifest psychic powers in a turn when it Advanced or Fell Back. Whenever it makes a Normal Move, Advances, Falls Back or makes a charge move, it can move horizontally through models and terrain features until that move ends (but it can't end the move on top of another model or its base)."
+  },
+  "b821559f9bde": {
+    "kind": "ability",
+    "name": "Injector Goad",
+    "plain": "Whenever this model fights, once it has made its attacks, pick one enemy model (not a VEHICLE or TITANIC model) that lost any wounds to an attack from this model's injector goad but wasn't destroyed. Roll one D6: if the result is higher than that model's Wounds characteristic, it is destroyed."
+  },
+  "ba430a26ae39": {
+    "name": "Reckless Manoeuvre",
+    "kind": "stratagem",
+    "plain": "At the end of your Movement phase, choose one of your DELIVERANCE BROODSURGE GOLIATH TRUCK units. Any DELIVERANCE BROODSURGE units embarked within that GOLIATH TRUCK that didn't embark this turn can disembark straight away. If any do, roll a D6 for every disembarking model; for each 1, one model that disembarked (you choose which) is slain. Models disembarking this way can't move that phase, and they must be set up more than 9\" from any enemy models."
+  },
+  "bb16bec9ba0f": {
+    "kind": "ability",
+    "name": "Conceal",
+    "plain": "During deployment, instead of placing this unit on the battlefield, you can set it up in ambush. If it is an INFANTRY or BIKER unit, you can instead set it up underground, rather than on the battlefield or in ambush."
+  },
+  "c37ddd8b8145": {
+    "kind": "ability",
+    "name": "Meticulous Planner",
+    "plain": "In your Command phase, pick one of your <CULT> Core units within 9\" of this model. Until your next Command phase starts, models in that unit re-roll wound rolls of 1 for their attacks."
+  },
+  "c521a09926b5": {
+    "kind": "ability",
+    "name": "Living Idol (Aura)",
+    "plain": "Aura: while one of your <CULT> units is within 6\" of this model, whenever that unit takes a Combat Attrition test, you can ignore any or all modifiers to it."
+  },
+  "c594bc24e5c7": {
+    "name": "Voice of New Truths",
+    "kind": "ability",
+    "plain": "In your Morale phase, pick one enemy unit that is within 12\" of this model, then roll 3D6. If the total is higher than that unit's Leadership characteristic, choose one effect, which lasts until the start of your next Morale phase: that unit can't perform actions (and any action it is performing right now fails at once); or that unit loses the Objective Secured ability. The same unit can't be picked for this ability more than once in a phase."
+  },
+  "c72ec7cb4558": {
+    "name": "Battlefield Analysis",
+    "kind": "ability",
+    "plain": "While this model is on the battlefield, you can choose one enemy unit on the battlefield in each of your Command phases; that unit gains a crossfire marker."
+  },
+  "c7783e781e6f": {
+    "kind": "ability",
+    "name": "Cult Icon",
+    "plain": "In your Command phase, if a model in this unit is equipped with a cult icon, this unit can summon the cult."
+  },
+  "c84c56178bb9": {
+    "name": "Massed Firearms",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your GENESTEALER CULTS CROSSFIRE units that has 6 or more models is chosen to shoot: until the end of the phase, if every model in that unit targets the same single enemy unit, and that enemy unit has a crossfire marker, each unmodified hit roll of 6 for that unit's ranged attacks automatically wounds the target."
+  },
+  "c967037dde2e": {
+    "kind": "psychic",
+    "name": "Mass Hypnosis",
+    "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, models in that unit subtract 1 from their Attacks characteristic, and in the Fight phase that unit can't fight until every eligible unit from your army has fought."
+  },
+  "ca91d7ce75a5": {
+    "kind": "ability",
+    "name": "A Perfect Ambush",
+    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, you can use this ability: pick an enemy unit that is within 12\" of it. For the rest of the turn, that enemy unit counts as Exposed and as having a crossfire marker for every ranged attack that models in this unit make against it.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text",
+      "89": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "d55c4e5ac519": {
+    "kind": "psychic",
+    "name": "Might From Beyond",
+    "plain": "Blessing: pick one of your <CULT> units that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, models in that unit add 1 to their Attacks characteristic."
+  },
+  "da61a6d02315": {
+    "kind": "psychic",
+    "name": "Broodvolt Surge (Aura)",
+    "plain": "Blessing (Aura): until the start of your next Psychic phase, while one of your BLADED COG units is within 3\" of this PSYKER, armour saving throws against attacks with a Damage characteristic of 1 that are allocated to models in that unit get 1 added to them."
+  },
+  "dc9f2b5076b8": {
+    "kind": "weapon",
+    "name": "Hand of Aberrance",
+    "plain": "Whenever the bearer fights, it makes 1 extra attack with this weapon. For attacks made with this weapon against a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of 2+ always succeeds."
+  },
+  "dee491b9226e": {
+    "name": "Xenoform Bionics",
+    "kind": "stratagem",
+    "plain": "Before the battle, while mustering your army, choose one of your BLADED COG INFANTRY or BLADED COG BIKER units. Models in that unit have a 5+ invulnerable save. This Stratagem costs 1CP if that unit's Power Rating is 6 or less, and 2CP otherwise."
+  },
+  "e355ac8ed73f": {
+    "name": "Fanatical Devotion",
+    "kind": "stratagem",
+    "plain": "In the Heroic Interventions step of your opponent's Charge phase, choose one enemy unit within Engagement Range of one of your <CULT> PATRIARCH, <CULT> PRIMUS or <CULT> MAGUS units. One of your <CULT> CORE units that is within 6\" of that enemy unit can then perform a Heroic Intervention, as long as it isn't within Engagement Range of any enemy units. For that Heroic Intervention, each model in that <CULT> unit can move up to 6\" rather than 3\", and doesn't need to end closer to the closest enemy model. Instead, at least one of its models must end within Engagement Range of the chosen enemy unit, and none of its models may end within Engagement Range of any other enemy units; if that can't be done, the unit doesn't move."
+  },
+  "e3642c96e272": {
+    "name": "Sanctus Bio-dagger",
+    "kind": "weapon",
+    "plain": "The bearer makes 1 extra attack with this weapon whenever it fights. For attacks made with this weapon against any unit other than a VEHICLE or TITANIC unit, an unmodified wound roll of 3+ makes the target suffer 1 mortal wound, and the attack sequence ends."
+  },
+  "e39cc2103bcf": {
+    "name": "Fire Discipline",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your HIVECULT CORE CROSSFIRE units is chosen to shoot, choose one enemy unit that has no crossfire marker; give it one before resolving any attacks against it. For the rest of the phase, that enemy unit is the only unit that models in that CROSSFIRE unit can target."
+  },
+  "e68a6f23f495": {
+    "name": "Summon Familiar",
+    "kind": "stratagem",
+    "plain": "In your Command phase, choose one of your GENESTEALER CULTS models that is equipped with a psychic familiar or alchemicus familiar whose ability it has already used. It can use that ability one more time this battle. Each GENESTEALER CULTS model in your army can only be chosen for this Stratagem once."
+  },
+  "e84553c2a785": {
+    "name": "Devoted Crew",
+    "kind": "stratagem",
+    "plain": "In your Command phase, choose one of your GENESTEALER CULTS VEHICLE models. Until the start of your next Command phase, use the characteristics on its profile as if it had its full wounds remaining."
+  },
+  "ebbf7c7cf824": {
+    "kind": "ability",
+    "name": "Excavate",
+    "plain": "Before the battle, if this unit is set up underground, it can excavate. If it does, in the Resolve Pre-battle Abilities step of the mission sequence, pick one terrain feature on the battlefield that isn't a Fortification. That terrain feature gains the Difficult Ground trait and loses these traits: Defensible, Heavy Cover, Light Cover, Inspiring.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "ebfedb6b0045": {
+    "kind": "ability",
+    "name": "Lying in Wait",
+    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, it can lie in wait. If it does, you can set it up anywhere on the battlefield more than 3\" from every enemy model, but it can't declare a charge until the end of the turn.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "ecfad0eb7e89": {
+    "name": "Booby Trap",
+    "kind": "stratagem",
+    "plain": "At the end of your turn, choose one objective marker you control that has one of your REDUCTUS SABOTEUR or GENESTEALER CULTS CORE units in range of it. Roll one D6 the next time any enemy unit (excluding AIRCRAFT units) finishes any kind of move in range of that marker: on a 2-4, that unit suffers D3 mortal wounds; on a 5+, it suffers 3 mortal wounds. Each objective marker can only be chosen for this Stratagem once."
+  },
+  "f218c37f0ce7": {
+    "kind": "ability",
+    "name": "Proclamation Hailer",
+    "plain": "In your Command phase, pick one of your <CULT> CORE units within 12\" of this model. Until your next Command phase starts, that unit can shoot while performing an action without the action failing, and any Combat Attrition test taken for it is passed automatically."
+  },
+  "f43c9a78c935": {
+    "kind": "ability",
+    "name": "Amulet of the Voidwyrm",
+    "plain": "The bearer gets a 4+ invulnerable save. Once per battle, when an attack gets allocated to it, the bearer may channel the Shadow in the Warp: the saving throw then counts as a 6 without rolling. Whenever the bearer declares a charge, enemy units it targeted with that charge can't fire Overwatch or Set to Defend against it."
+  },
+  "f49949cee496": {
+    "kind": "ability",
+    "name": "Meditations in Shadow",
+    "plain": "This model knows one extra power from the Broodmind discipline."
+  },
+  "f63d16f4acb5": {
+    "kind": "weapon",
+    "name": "Toxin Injector Claw",
+    "plain": "Whenever the bearer fights, it makes 1 extra attack with this weapon. When an attack with this weapon targets a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of 2+ always succeeds."
+  },
+  "f6a19c3fef73": {
+    "kind": "psychic",
+    "name": "Mutagenic Deviation",
+    "plain": "Blessing: pick one of your TWISTED HELIX units that is visible to this PSYKER and within 12\" of it. Until the start of your next Psychic phase, an unmodified hit roll of 6 on a melee attack by a model in that unit wounds the target automatically."
+  },
+  "f85393038786": {
+    "kind": "ability",
+    "name": "Oppressor's Bane",
+    "plain": "The bearer gets the Crossfire ability and the CROSSFIRE keyword. This Relic takes the place of an autopistol.",
+    "waive": {
+      "89": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "f89520b0539b": {
+    "name": "Sudden Assault",
+    "kind": "ability",
+    "plain": "This model is eligible for a Heroic Intervention when any enemy unit is within 6\" horizontally and 5\" vertically of it, rather than the usual 3\" horizontally and 5\" vertically. When it makes a Heroic Intervention move, it can move up to 6\", as long as it finishes that move closer to the nearest enemy model, or within Engagement Range of a CHARACTER unit belonging to your opponent. Every other Heroic Intervention rule still applies."
+  },
+  "f9ad7167c23b": {
+    "name": "Fight for the Anointed One!",
+    "kind": "stratagem",
+    "plain": "At the start of your Fight phase, choose one ANOINTED THRONG ABERRANT unit that is within 6\" of an ANOINTED THRONG ABOMINANT. Until the end of the phase, that unit re-rolls wound rolls of 1 for its attacks."
+  },
+  "fb2403b9c386": {
+    "name": "Hyper-metabolism",
+    "kind": "stratagem",
+    "plain": "In your Command phase, choose one of your GENESTEALER CULTS CHARACTER models. It regains up to D3 lost wounds."
+  },
+  "fbc4ec6cf0f8": {
+    "name": "Legendary Demise",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your KELERMORPH models is destroyed by an enemy model: leave it in play. Once the attacking model's unit has finished its attacks, the KELERMORPH can shoot as if it were your Shooting phase. After those attacks are resolved, remove the destroyed KELERMORPH model."
+  },
+  "fc528478a86f": {
+    "kind": "psychic",
+    "name": "Inescapable Decay",
+    "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it. Until the start of your next Psychic phase, whenever one of your RUSTED CLAW models attacks that enemy unit, improve that attack's Armour Penetration characteristic by 1."
+  },
+  "fd60a4ead883": {
+    "kind": "ability",
+    "name": "The Chosen One",
+    "plain": "Aura: while one of your <CULT> ABERRANT units is within 6\" of this model, models in that unit can re-roll hit rolls for their melee attacks."
+  },
+  "feb53a4d70fa": {
+    "name": "Hypersensory Abilities",
+    "kind": "ability",
+    "plain": "In your Shooting phase, once this model has shot, it can Fall Back or make a Normal Move, just as it could in your Movement phase. This works even if it arrived as Reinforcements this turn."
+  }
+}

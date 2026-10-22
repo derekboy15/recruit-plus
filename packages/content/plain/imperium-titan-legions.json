@@ -1,0 +1,37 @@
+{
+  "057e47e36b47": {
+    "name": "Reactor Meltdown",
+    "kind": "ability",
+    "plain": "Before you remove this model from play after it is destroyed, roll one D6. If you get a 6+, it blows up: 3D6 mortal wounds are inflicted on each unit that is within 4D6\" of it."
+  },
+  "262f8609c337": {
+    "name": "Sunfury Plasma Annihilator (Supercharge)",
+    "kind": "weapon",
+    "plain": "This weapon has the Blast ability. For each unmodified hit roll of 1 made for an attack with this profile, the bearer suffers 4 mortal wounds once it has finished shooting with this weapon."
+  },
+  "28f3681e6b64": {
+    "name": "Void Shields",
+    "kind": "ability",
+    "plain": "Each void shield has 3 shield points. As long as this model has at least one void shield, it has a 5+ invulnerable save against ranged attacks.\n\nWhenever this model fails a saving throw against a ranged attack while it has a void shield, the model takes no damage. Instead, one of its void shields loses 1 shield point for every point of damage the attack inflicts. Once a void shield has lost any shield points, further damage keeps coming off that same shield until it collapses. When an attack takes a void shield down to 0 shield points, that shield collapses: this model loses it, and any damage left over from that attack is lost. Void shields never stop mortal wounds; each mortal wound on a model with void shields makes it lose one wound in the usual way.\n\nAt the start of your Command phase, any void shield on this model with fewer than 3 shield points left goes back up to 3 shield points."
+  },
+  "3a9a0ca51dd0": {
+    "name": "Flank Speed",
+    "kind": "ability",
+    "plain": "Whenever this model Advances, don't roll for the Advance. Instead, add 12\" to its Move characteristic until the end of that phase."
+  },
+  "5cdbccc8de0b": {
+    "name": "Battle Titan",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move across other models (but not MONSTER or VEHICLE models) as though they were not there. While doing so it can move within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
+  },
+  "aec27f0871a9": {
+    "name": "Reaver Power Fist",
+    "kind": "weapon",
+    "plain": "Whenever an attack made with this weapon destroys a VEHICLE or MONSTER model, you can choose one enemy unit that is within 9\" and roll one D6: if you get a 4+, D6 mortal wounds are inflicted on that unit."
+  },
+  "b3fc1028df62": {
+    "name": "Reactor Meltdown",
+    "kind": "ability",
+    "plain": "Before you remove this model from play after it is destroyed, roll one D6. If you get a 6+, it blows up: 2D6 mortal wounds are inflicted on each unit that is within 3D6\" of it."
+  }
+}

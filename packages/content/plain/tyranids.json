@@ -1,0 +1,1197 @@
+{
+  "00107ab52941": {
+    "kind": "ability",
+    "name": "The Maw-claws of Thyrax",
+    "plain": "The bearer's Attacks characteristic is increased by 1, and you can re-roll the wound roll whenever it makes a melee attack. Also, each time the bearer destroys an enemy unit with a melee attack, its Attacks characteristic goes up by 1 more for the rest of the battle, up to a maximum of +3 from this effect."
+  },
+  "00cf5d311d0e": {
+    "kind": "ability",
+    "name": "Voracious Ammunition",
+    "plain": "After this model finishes making its attacks each time it shoots, choose one unit that at least one of those attacks hit, then roll one D6: on a 2+, that unit takes D3 mortal wounds."
+  },
+  "046694e37b14": {
+    "name": "Rarefied Enhancements",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the HIVE TENDRIL keyword. Pick one HIVE TENDRIL CHARACTER model from your army and give it one Relic (one it is allowed to have). Every Relic in your army must be unique, and this Stratagem can't give a model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "0694400c78a6": {
+    "kind": "ability",
+    "name": "Chameleonic Skin",
+    "plain": "Subtract 1 from the hit roll of every attack made against this model. While this model is receiving the benefits of cover, it can't be chosen as the target of a ranged attack by an attacker more than 12\" away. This model has a 5+ invulnerable save."
+  },
+  "09ba15b53eb8": {
+    "name": "Floating Death (Spore Mine)",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit finishes a move within 3\" of any enemy units, or when an enemy unit finishes a move during which one or more of its models came within 3\" of a model in this unit, that model of yours can explode. An exploding model is destroyed; pick one of those enemy units and roll a D6: on a 2-4, the picked unit takes 1 mortal wound; on a 5+, it takes D3 mortal wounds."
+  },
+  "09e2a45d52d0": {
+    "name": "Unbreakable Chitin",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your CRUSHER STAMPEDE units is chosen as the target of an attack. For the rest of the phase, attacks against that unit always fail to wound on an unmodified wound roll of 1-3, no matter what abilities the attacking model or its weapon has. Cost: 2CP if that unit has 5 or more models, or has any models with a Wounds characteristic of 10 or more; otherwise 1CP."
+  },
+  "0d20245b77ab": {
+    "name": "Hypertoxic Poison Cloud",
+    "kind": "ability",
+    "plain": "At the end of the Fight phase, for each enemy model within Engagement Range of this model, roll one D6: on a 5+, the unit that model belongs to takes 1 mortal wound."
+  },
+  "107ce1916ea6": {
+    "name": "Instinctive Behaviour",
+    "kind": "rule",
+    "plain": "A <HIVE FLEET> unit with this ability that is outside the range of every friendly <HIVE FLEET> unit's Synapse ability can only shoot at the nearest visible enemy unit, and can only declare a charge against the nearest visible enemy unit."
+  },
+  "116c07214d5b": {
+    "kind": "ability",
+    "name": "Tyrant Goading",
+    "plain": "Models in this unit get 1 added to their Attacks characteristic while the unit is within 3\" of any <HIVE FLEET> HIVE TYRANT models from your army."
+  },
+  "132d594b82e7": {
+    "kind": "ability",
+    "name": "Chitin Thorns",
+    "plain": "Whenever this model makes a melee attack, that attack's Armour Penetration is improved by 1."
+  },
+  "137c95e01774": {
+    "kind": "psychic",
+    "name": "Hive Nexus",
+    "plain": "Blessing: choose one of your CORE LEVIATHAN units within Synaptic Link range of this PSYKER, and one of your LEVIATHAN SYNAPSE models that is also within Synaptic Link range of this PSYKER, then choose one of that model's Synaptic Imperative abilities. Until your next turn begins, the chosen unit benefits from that SYNAPSE model's Synaptic Imperative as if it were in effect for your army, in addition to the one your army already has active, and as if the unit and the model were within 6\" of each other."
+  },
+  "148f1bd052e5": {
+    "kind": "ability",
+    "name": "Death from Below",
+    "plain": "At deployment, you may place this unit underground instead of on the battlefield. If you do, you can later set it up during the Reinforcements step of any one of your Movement phases, anywhere on the battlefield more than 9\" from every enemy model."
+  },
+  "14a80cbb01c6": {
+    "kind": "ability",
+    "name": "Foul Spores (Aura)",
+    "plain": "Aura: while one of your <HIVE FLEET> units (other than TITANIC units) is within 6\" of this unit, subtract 1 from the hit roll of each ranged attack made against that unit."
+  },
+  "14eb3a061f49": {
+    "name": "Encircle the Prey",
+    "kind": "stratagem",
+    "plain": "Use at the end of your Movement phase. Pick one of your BURROWERS units, or one of your units that can FLY, and take it off the battlefield. You can set it back up in the Reinforcements step of your next Movement phase, anywhere on the battlefield more than 9\" from all enemy models. If it still isn't on the battlefield when the battle ends, it is destroyed. A unit that was set up on the battlefield this turn can't be picked."
+  },
+  "15abd2a5fab7": {
+    "name": "Terrifying Charge",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Morale phase. Pick an enemy unit that is within Engagement Range of one of your CRUSHER STAMPEDE MONSTER models which made a charge move this turn. For the rest of the turn, models in that enemy unit have 3 subtracted from their Leadership characteristic."
+  },
+  "16f1cd84921c": {
+    "name": "Float Down (Meiotic Spores)",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit in the upper atmosphere rather than on the battlefield. If you do, you can set it up in the Reinforcements step of your Movement phase, anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "177057384858": {
+    "name": "Power of the Hive Mind",
+    "kind": "stratagem",
+    "plain": "Use in your Psychic phase. Pick one of your HIVE TENDRIL PSYKER CHARACTER units. For the rest of the phase, it can attempt to manifest one extra psychic power."
+  },
+  "1966623e0b02": {
+    "name": "Buried in Wait",
+    "kind": "stratagem",
+    "plain": "Use before the battle, in the Declare Reserves and Transports step (or during deployment, if your mission has no such step). Pick one JORMUNGANDR unit from your army (excluding TITANIC units). You can place it near to the surface instead of on the battlefield. If you do, you can set it up in the Reinforcements step of one of your Movement phases, anywhere on the battlefield more than 9\" away from any enemy models. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "1a106bfcfa53": {
+    "kind": "ability",
+    "name": "Enhanced Toxic Miasma",
+    "plain": "When the Fight phase ends, make a separate D6 roll for each enemy unit in Engagement Range of this model: each unit that gets a 4+ takes D3 mortal wounds."
+  },
+  "1a315ced7981": {
+    "name": "Psychotropic Venom",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Morale phase. Pick an enemy unit, other than a VEHICLE unit, that is within Engagement Range of one of your LASH WHIP or TOXIC LASHES units. For the rest of the phase, that enemy unit's models have their Leadership characteristic reduced by 2, and you subtract 1 from any Combat Attrition test taken for it."
+  },
+  "1a32cbb4d9a8": {
+    "name": "Synaptic Channelling",
+    "kind": "stratagem",
+    "plain": "Use in your Psychic phase. Pick one of your <HIVE FLEET> PSYKER units. For the rest of the phase, it knows every psychic power that is known by friendly <HIVE FLEET> PSYKER units on the battlefield."
+  },
+  "1adae71e1af1": {
+    "kind": "weapon",
+    "name": "Thresher Scythe",
+    "plain": "Each time the bearer fights, it makes 3 extra attacks with this weapon, and it can't make more than 3 attacks with this weapon in that fight."
+  },
+  "1c65001f1902": {
+    "name": "Impaling Hooks",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your FLESH HOOKS units is chosen to fight. For the rest of the phase, add 1 to the hit roll of each melee attack a FLESH HOOKS model in that unit makes against an enemy unit, unless that enemy unit is a VEHICLE or MONSTER unit."
+  },
+  "1f778491c10b": {
+    "kind": "ability",
+    "name": "It's Out There (Aura)",
+    "plain": "Aura: enemy units within 6\" of this model can't start to perform actions."
+  },
+  "1fc6ebaeedbd": {
+    "name": "Vicious Devourers",
+    "kind": "ability",
+    "plain": "Re-roll hit rolls of 1 for melee attacks by this unit's models, as long as the attacking model has no ranged weapons."
+  },
+  "2058c383c88a": {
+    "kind": "ability",
+    "name": "Synaptic Enhancement",
+    "plain": "This model gains the Shadow in the Warp and Synapse abilities and the SYNAPSE keyword.",
+    "waive": {
+      "86": "page reference to the codex, not part of the rule"
+    }
+  },
+  "20aedc77c317": {
+    "name": "Synapse",
+    "kind": "rule",
+    "plain": "<HIVE FLEET> units within 8\" of any friendly <HIVE FLEET> unit that has this ability automatically pass Morale tests."
+  },
+  "234229391f0d": {
+    "kind": "ability",
+    "name": "Alpha Leader",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CARNIFEX models within 9\" of this model. Until your next Command phase starts, add 1 to the hit roll whenever that model makes an attack."
+  },
+  "25040e401cec": {
+    "name": "Floating Death",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit finishes a move within 3\" of any enemy units, or when an enemy unit finishes a move during which one or more of its models came within 3\" of a model in this unit, that model of yours can explode. An exploding model is destroyed; pick one of those enemy units and roll a D6: on a 2-4, the picked unit takes D6 mortal wounds; on a 5+, it takes D3+3 mortal wounds."
+  },
+  "259b97b585b8": {
+    "name": "Lashwhip Pods",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 10 extra attacks with this weapon, and it can't make more than 10 attacks with this weapon."
+  },
+  "26cddf5a464d": {
+    "kind": "ability",
+    "name": "Preceptic Node",
+    "plain": "Whenever an enemy unit is placed on the battlefield as Reinforcements within 18\" of the bearer during the Reinforcements step of your opponent's Movement phase, you can choose one of your LEVIATHAN CORE or LEVIATHAN CHARACTER units within 6\" of the bearer. That unit may then shoot as if it were your Shooting phase, targeting only that enemy Reinforcements unit. No unit can be chosen to shoot more than once per phase through this Relic."
+  },
+  "2a94620fd6f9": {
+    "kind": "ability",
+    "name": "Volatile",
+    "plain": "Roll one D6 each time a model in this unit is destroyed, before taking it off the battlefield. On a 6 the model explodes and every unit within 3\" takes 1 mortal wound."
+  },
+  "2ad68268fca9": {
+    "name": "Death Throes (3\"/3)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, before you remove it, roll one D6. On a 6+, the nearest enemy unit within 3\" takes 3 mortal wounds."
+  },
+  "2ce661cd231d": {
+    "name": "Thunderous Impact",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your CRUSHER STAMPEDE MONSTER models has completed a pile-in move. Pick an enemy MONSTER or VEHICLE unit within Engagement Range of it. For the rest of the phase, that model can only attack the picked unit, and every attack it makes gets 1 added to its hit roll, 1 added to its wound roll and 1 added to its damage roll."
+  },
+  "2d17713b7415": {
+    "name": "Symbiotic Targeting",
+    "kind": "ability",
+    "plain": "If this model Remains Stationary in your Movement phase, or moves less than half its Move characteristic in total, then until the end of the turn the target of each of its ranged attacks gets no benefit from cover against that attack."
+  },
+  "2d2e34c88d8a": {
+    "kind": "psychic",
+    "name": "Infused Energies",
+    "plain": "Blessing: pick one of your CRUSHER STAMPEDE units within 18\" of this PSYKER, other than a SYNAPSE unit. Until your next Psychic phase starts, you can re-roll the hit roll whenever a model in that unit makes a melee attack."
+  },
+  "3017176fee2b": {
+    "name": "Terror from the Deep",
+    "kind": "ability",
+    "plain": "In your Command phase, if any of your MAWLOC models are underground (via the Death from Below ability), you can pick one of them and place a Terror from the Deep marker on any one point of the battlefield. If you do, that model can't be set up with Death from Below this turn. Instead, at the start of the Reinforcements step of the Movement phase in your next turn, roll one D6 for each enemy unit within 6\" of the marker's centre. Add 1 to the roll if that unit has between 6 and 10 models, or add 2 if it has 11 or more models. On a 3-6, the unit takes D3 mortal wounds; on a 7+, it takes D3+3 mortal wounds. Then set up that MAWLOC anywhere on the battlefield within 12\" of the marker's centre and not within Engagement Range of any enemy models, and remove the marker. If the MAWLOC is set up within 9\" of any enemy models, it can't charge until the end of the turn.",
+    "waive": {
+      "86": "page number in a cross-reference remark (\"see ... page 86\"), not part of the rule"
+    }
+  },
+  "3036c2840d14": {
+    "kind": "psychic",
+    "name": "Psychic Shriek",
+    "plain": "Witchfire: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of this PSYKER. Roll one D6 for every one of your HYDRA INFANTRY and HYDRA BEAST models within 3\" of that unit, and three D6 for every one of your HYDRA MONSTER models within 3\" of it. Each 5+ inflicts 1 mortal wound on that enemy unit, up to a maximum of 6 mortal wounds."
+  },
+  "30696913f644": {
+    "kind": "ability",
+    "name": "Hardened Biology",
+    "plain": "Against any attack whose Damage characteristic is 1, add 1 to armour saving throws made for this model once that attack is allocated to it."
+  },
+  "31952b97c929": {
+    "name": "Tentaclids",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a VEHICLE unit, an unmodified wound roll of 4+ always wounds. Attacks made with this weapon that are allocated to an AIRCRAFT model have a Damage characteristic of 4."
+  },
+  "31f55c03c1df": {
+    "kind": "ability",
+    "name": "Encephalic Diffusion",
+    "plain": "This unit can attempt the following psychic action. Encephalic Diffusion (Psychic Action - Warp Charge 6): this PSYKER can attempt it in your Psychic phase. If it is completed, this PSYKER has the following ability until your next Psychic phase starts: 'Diffusion Field (Aura): while one of your <HIVE FLEET> units is within 6\" of this PSYKER, subtract 1 from the Strength characteristic of each ranged attack made against that unit.'"
+  },
+  "322d18110328": {
+    "name": "Voracious Appetite",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your HIVE TENDRIL MONSTER models is chosen to fight. For the rest of the phase, you can re-roll the wound roll for each melee attack it makes."
+  },
+  "329702713d76": {
+    "name": "Bounding Advance",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your HORMAGAUNTS units is chosen to Advance. Until the end of the turn: whenever that unit Advances, don't make an Advance roll; instead, its models add 6\" to their Move characteristic until the end of the phase. The unit can also still declare a charge this turn even though it Advanced. Cost: 1CP if the unit has 15 or fewer models, otherwise 2CP."
+  },
+  "33929bbadf63": {
+    "kind": "ability",
+    "name": "Barbworm Infestation",
+    "plain": "Whenever the bearer makes a ranged attack, you can re-roll its wound roll."
+  },
+  "33ba42da0770": {
+    "kind": "ability",
+    "name": "Domination of the Hive Mind",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this model. Until your next Command phase starts, re-roll the hit roll whenever a model in that unit makes an attack.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "348811df4c5e": {
+    "kind": "ability",
+    "name": "Shadow in the Warp (Aura)",
+    "plain": "Aura: for any enemy PSYKER unit within 18\" of this unit, Psychic tests it takes are reduced by 1, and every time it suffers Perils of the Warp it takes 1 more mortal wound than normal."
+  },
+  "37df11df9a3d": {
+    "name": "Float Down",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit in the upper atmosphere rather than on the battlefield. If you do, you can set it up in the Reinforcements step of one of your Movement phases, anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "3896c6e521b1": {
+    "name": "Animated by the Hive Mind",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your LEVIATHAN MONSTER models (excluding TITANIC models) is destroyed. If it has an ability triggered by a dice roll on its destruction (such as Death Throes), skip that roll: the ability triggers automatically."
+  },
+  "3a17dba2b2d8": {
+    "name": "*Designers Note",
+    "kind": "ability",
+    "plain": "If this model has no base, both players must agree on the footprint of its 'base' before deployment, the same way they would for an Area Terrain feature. The suggested method is to imagine straight lines drawn from each point of the model that would touch the battlefield if it stood on a flat surface; the area inside those lines is treated as the model's 'base'. If the model is posed with one or more legs raised, agree with your opponent where each raised leg would touch the battlefield, and use those points to help define the shape of the model's 'base'."
+  },
+  "3a7500a819fd": {
+    "name": "Floating Death",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit finishes a move within 3\" of any enemy units, or when an enemy unit finishes a move during which one or more of its models came within 3\" of a model in this unit, that model of yours can explode. An exploding model is destroyed; pick one of those enemy units and roll a D6: on a 2-4, the picked unit takes 1 mortal wound; on a 5+, it takes D3 mortal wounds."
+  },
+  "3e302989e01e": {
+    "name": "Spore Mine Launcher",
+    "kind": "weapon",
+    "plain": "This weapon can target units the bearer can't see, as long as a friendly <HIVE FLEET> SYNAPSE model can see them. If an attack with this weapon scores a hit, the target takes 1 mortal wound and the attack sequence ends."
+  },
+  "3f5b5756910a": {
+    "kind": "psychic",
+    "name": "Broodlord",
+    "plain": "This model knows Smite and 1 psychic power from the Hive Mind discipline."
+  },
+  "3fe1ab765b63": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "You can't declare a charge with this model, and only a unit that can FLY can pick it as a charge target. This model can fight only while it is within Engagement Range of enemy units that can FLY, and it can make melee attacks only against enemy units that can FLY. Enemy units without FLY can't make melee attacks against it."
+  },
+  "41776a61d84e": {
+    "name": "Death Surge",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when a CRUSHER STAMPEDE MONSTER model from your army (excluding CHARACTER models) is destroyed. Don't remove it from play: it can fight once the attacking model's unit has finished making attacks. While doing so, that CRUSHER STAMPEDE model is treated as having all its wounds remaining when working out which characteristics on its profile to use. After its attacks are resolved, remove it."
+  },
+  "4276e3edc294": {
+    "kind": "ability",
+    "name": "Death from Above",
+    "plain": "At deployment, you may place this model high in the skies instead of on the battlefield. If you do, you can later set it up during the Reinforcements step of any one of your Movement phases, anywhere on the battlefield more than 9\" from every enemy model; for the rest of that turn, charge rolls for this model can be re-rolled."
+  },
+  "42a8726a8ed2": {
+    "kind": "ability",
+    "name": "Bio-impulses",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this model that hasn't yet been picked for this ability this turn. Until your next Command phase starts, add 1 to that unit's Advance rolls and add 1 to its charge rolls.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "43c27af7fbb9": {
+    "name": "Lesser Organisms",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, this unit can't fill a compulsory Battlefield Role slot in a Detachment."
+  },
+  "44fba35f1d3a": {
+    "kind": "ability",
+    "name": "The Passenger",
+    "plain": "ADRENAL GLANDS models only. Add 2 to the bearer's Advance rolls and add 2 to its charge rolls."
+  },
+  "485e61524fbb": {
+    "name": "Defensive Stance",
+    "kind": "ability",
+    "plain": "This unit can perform the Defensive Stance action. Any number of your HIVE GUARD units can begin it at the start of your Command phase, and it completes at the end of your next Movement phase. Once it completes, until the start of your next Movement phase, every model in this unit counts as 3 models when working out who controls an objective marker."
+  },
+  "48f78be85b6e": {
+    "name": "Hyper-toxicity",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your GORGON TOXIN SACS units is chosen to fight. For the rest of the phase, melee attacks by TOXIN SACS models in that unit wound the target automatically on an unmodified hit roll of 5+."
+  },
+  "4ab9354aaa58": {
+    "kind": "ability",
+    "name": "Rapacious Hunger",
+    "plain": "Whenever an attack made by this model destroys an enemy model, this model regains 1 lost wound, up to a maximum of 3 wounds regained per phase."
+  },
+  "4aec0a439de1": {
+    "name": "Adrenal Surge",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADRENAL GLANDS units is chosen to fight. If that unit made a charge move this turn, then for the rest of the phase, its models (excluding MONSTER models) add 1 to their Attacks characteristic and its MONSTER models add D3 to theirs. Cost: 1CP if that unit has 19 or fewer models, otherwise 2CP."
+  },
+  "4bbb468a447f": {
+    "name": "Impaler Cannon",
+    "kind": "weapon",
+    "plain": "This weapon can target units the bearer can't see, as long as a friendly <HIVE FLEET> SYNAPSE model can see the target. Targets of attacks made with this weapon get no benefit from Light Cover against those attacks."
+  },
+  "4e445814182c": {
+    "kind": "ability",
+    "name": "Vanguard Predator",
+    "plain": "When you deploy, you can set this unit up anywhere on the battlefield more than 9\" away from both the enemy deployment zone and all enemy models."
+  },
+  "4e850043114a": {
+    "name": "Alpha Leader-beast",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, after you nominate a LEVIATHAN CHARACTER model that isn't a named character as your WARLORD. You can generate one extra Warlord Trait for them from the Leviathan Warlord Traits table. Every Warlord Trait in your army must be unique (if rolling randomly, re-roll duplicates). You can use this Stratagem only once."
+  },
+  "4eb1df1df8e0": {
+    "name": "Airborne Predator",
+    "kind": "ability",
+    "plain": "When you declare a charge with this model, it can only target AIRCRAFT units. Only a unit that can FLY can pick this model as a charge target. This model can fight only while it is within Engagement Range of enemy units that can FLY, and it can make melee attacks only against units that can FLY. Enemy units without FLY can't make melee attacks against it."
+  },
+  "5029a4841862": {
+    "kind": "ability",
+    "name": "Lightning Reflexes (Genestealers)",
+    "plain": "Every model in this unit has a 5+ invulnerable save, improved to 4+ against melee attacks."
+  },
+  "50eb157ed131": {
+    "kind": "ability",
+    "name": "Leaper-killer",
+    "plain": "This model has a 5+ invulnerable save. Also, while making a Normal Move, an Advance, a Fall Back or a charge move, it can move horizontally and vertically through models and terrain features until the move is over (but it cannot end a move on top of another model, or its base)."
+  },
+  "523256f49520": {
+    "name": "Spore Clouds",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your SPORECASTER units is chosen to Remain Stationary. That unit's aura abilities have their range increased by 6\" until the start of your next Command phase."
+  },
+  "52a75e6c6990": {
+    "kind": "ability",
+    "name": "Regeneration",
+    "plain": "In your Command phase, this model regenerates, regaining up to D3 lost wounds. A model can't be regenerated more than once per turn."
+  },
+  "53eaf001d6cc": {
+    "name": "Toxic Entanglement",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your TOXICRENE models hits an enemy unit (other than an AIRCRAFT unit) with a ranged attack. Roll a D6. On a 2+, the following apply until the start of your next Movement phase: that enemy unit's models have their Move characteristic halved; if that enemy unit declares a charge, the TOXICRENE model must be one of its targets; and if the TOXICRENE model declares a charge, that enemy unit must be one of its targets, and you also add 2 to that charge roll."
+  },
+  "558241baa38b": {
+    "kind": "ability",
+    "name": "Blade Parry",
+    "plain": "Once per turn, the first time this model fails a saving throw against a melee attack, that attack's Damage characteristic becomes 0."
+  },
+  "5645178abda6": {
+    "name": "Shadow Hunter",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of each attack made against this model, and that hit roll can't be re-rolled."
+  },
+  "5693e3adc698": {
+    "kind": "psychic",
+    "name": "Poisonous Influence",
+    "plain": "Blessing: pick one of your GORGON units within Synaptic Link range of this PSYKER. Until your next Psychic phase starts, whenever a model in that unit makes a melee attack and gets an unmodified wound roll of 6, the target suffers 1 mortal wound on top of the normal damage, up to a maximum of 6 mortal wounds."
+  },
+  "589780153a51": {
+    "name": "Scorch Bugs",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your HIVE TENDRIL units is chosen to shoot. For the rest of the phase, fleshborer and fleshborer hive weapons carried by models in that unit get 6\" added to their Range characteristic and 1 added to their Strength characteristic. Cost: 2CP if the unit has 16 or more models or has the MONSTER keyword, otherwise 1CP."
+  },
+  "5a96dee7f6bd": {
+    "kind": "psychic",
+    "name": "Catalyst",
+    "plain": "Blessing: pick one of your <HIVE FLEET> units within Synaptic Link range of this PSYKER. Until your next Psychic phase starts, whenever a model in that unit would lose a wound, roll one D6: the wound is not lost on a 5+, or only on a 6 if that model is TITANIC."
+  },
+  "5b39f1d1b080": {
+    "name": "Critical Mass",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your HYDRA units is chosen to fight. For the rest of the phase, when a model in that unit makes a melee attack against an enemy unit that has fewer models than the attacker's own unit, you can re-roll the wound roll."
+  },
+  "5b6cb56269cc": {
+    "name": "Gargantuan Scything Talons",
+    "kind": "weapon",
+    "plain": "Re-roll hit rolls of 1 for attacks made with this weapon."
+  },
+  "5c81aba8cc7e": {
+    "name": "Swooping Assault",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit high in the skies rather than on the battlefield. If you do, you can set it up in the Reinforcements step of one of your Movement phases, anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "5d828b4ec141": {
+    "kind": "ability",
+    "name": "Pathogenesis",
+    "plain": "Ranged weapons the bearer is equipped with get 8\" added to their Range characteristic. Whenever the bearer shoots, you can re-roll one hit roll and one wound roll while resolving those attacks."
+  },
+  "5d8783ebb20a": {
+    "name": "Death Throes (2D6\"/D6)",
+    "kind": "ability",
+    "plain": "When this model is destroyed, before you remove it, roll one D6. On a 6+, the nearest enemy unit within 2D6\" takes D6 mortal wounds."
+  },
+  "5de353d3bf69": {
+    "kind": "ability",
+    "name": "Flesh Hooks",
+    "plain": "The bearer gets the FLESH HOOKS keyword. Whenever the bearer's unit makes a Normal Move, Advances or Falls Back, any vertical distance the bearer moves doesn't count towards how far it can move that turn."
+  },
+  "5e0488fa68aa": {
+    "name": "Combined Assault",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase. Pick an enemy unit that two or more of your LEVIATHAN units are within Engagement Range of. For the rest of the phase, improve the Armour Penetration characteristic by 1 for each melee attack a LEVIATHAN model makes against that enemy unit."
+  },
+  "5e12a1cc41af": {
+    "kind": "ability",
+    "name": "Enraged Reserves",
+    "plain": "If this model has characteristics that change as it is damaged, count its remaining wounds as doubled to decide what those characteristics are. Once per battle, when you choose this model for a Tyranids Epic Deed Stratagem, that use of the Stratagem costs no Command points. Using that Stratagem again later costs the usual number of CPs."
+  },
+  "5e81ac1014ec": {
+    "name": "Subterranean Assault",
+    "kind": "stratagem",
+    "plain": "When one of your <HIVE FLEET> TRYGON or <HIVE FLEET> TRYGON PRIME models is set up on the battlefield in the Reinforcements step of your Movement phase using its Death From Below ability, you can use this Stratagem. Pick a friendly <HIVE FLEET> unit in Strategic Reserves whose Battlefield Role is Troops, and set it up wholly within 9\" of the TRYGON or TRYGON PRIME model, anywhere on the battlefield but not within 9\" of an enemy model."
+  },
+  "5f6d8b54e7f5": {
+    "kind": "ability",
+    "name": "Fear of the Unseen",
+    "plain": "While an enemy unit is within Engagement Range of this model, your opponent can't select that unit for Stratagems, and Stratagems your opponent uses can't affect that unit when it is selected to shoot or fight."
+  },
+  "61049527ee91": {
+    "kind": "ability",
+    "name": "Brood Progenitor",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> TERMAGANTS units within Synaptic Link range of this model that hasn't yet been picked for this ability this turn. Until your next Command phase starts, add 1 to the hit roll whenever a model in that unit makes a ranged attack.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "61aa459ac5b1": {
+    "kind": "ability",
+    "name": "Death Throes (6\"/D3)",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield: on a 6+, the nearest enemy unit within 6\" takes D3 mortal wounds."
+  },
+  "62e3977f1496": {
+    "name": "Aerial Seeding",
+    "kind": "ability",
+    "plain": "This model must be set up high in the skies during deployment, not on the battlefield. Neither it nor any units embarked in it count towards any mission limit on the maximum number of Reinforcement units in your army. In your first, second or third Movement phase, during the Reinforcements step and whatever the mission rules say, you can set up this TRANSPORT model anywhere on the battlefield more than 9\" away from any enemy models. Units embarked in it must disembark as soon as it is set up, and must be placed more than 9\" from all enemy models. Once this TRANSPORT model is on the battlefield, no models can embark in it."
+  },
+  "62eb0f2fdfa2": {
+    "kind": "psychic",
+    "name": "Unstoppable Onslaught",
+    "plain": "Blessing: choose one of your BEHEMOTH units within Synaptic Link range of this PSYKER. Its models add 1 to the wound roll of their melee attacks until your next turn begins."
+  },
+  "64bd01c648b6": {
+    "kind": "ability",
+    "name": "The Dirgeheart of Kharis",
+    "plain": "After the bearer resolves its attacks each time it is selected to fight, choose one enemy unit the bearer hit with an attack this phase. For the rest of this turn and all of the next turn, that unit loses the Objective Secured ability and its models have 1 subtracted from their Leadership characteristic."
+  },
+  "64dfdf48b84c": {
+    "name": "Acidic Torrent",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when a unit of yours that contains any ACID MAW models is chosen to fight. Pick an enemy unit within Engagement Range of it. Roll a D6 for each ACID MAW INFANTRY model in your unit that is within Engagement Range of the picked enemy unit, or three D6 for such a model that has the MONSTER keyword. For each 3+, the enemy unit takes 1 mortal wound, up to a maximum of 6 mortal wounds."
+  },
+  "653ab0c90704": {
+    "name": "Shadow in the Warp",
+    "kind": "rule",
+    "plain": "Enemy PSYKERS within 8\" of any units with this ability must subtract 1 from every Psychic test they take. TYRANID PSYKERS are unaffected."
+  },
+  "66a0d8784d2f": {
+    "kind": "ability",
+    "name": "Biostatic Rattle",
+    "plain": "When the Fight phase starts, pick one enemy unit within Engagement Range of the bearer and roll 3D6. If the total is higher than that unit's Leadership characteristic, then until the phase ends, hit rolls and wound rolls can't be re-rolled for attacks made by models in that unit."
+  },
+  "66f61ea0318a": {
+    "kind": "ability",
+    "name": "Scythes of Tyran",
+    "plain": "Only for a model that has 2 monstrous scything talons. This Relic takes the place of those 2 monstrous scything talons."
+  },
+  "68d98117de5e": {
+    "name": "Massive Scything Sickle-talons",
+    "kind": "weapon",
+    "plain": "You can re-roll the hit roll for attacks made with this weapon."
+  },
+  "68e3e4d5e17e": {
+    "kind": "psychic",
+    "name": "Neuroparasite",
+    "plain": "Witchfire: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of it. Roll one D6 per model in that unit; each roll higher than that model's Toughness characteristic causes 1 mortal wound to that unit, up to a maximum of 6 mortal wounds.",
+    "waive": {
+      "PSTKER": "misspelling of PSYKER in the official text; written correctly as PSYKER"
+    }
+  },
+  "6f9519be6ee3": {
+    "name": "Synaptic Domination",
+    "kind": "stratagem",
+    "plain": "Use in your Psychic phase. Pick one of your LEVIATHAN SYNAPSE units and one of your LEVIATHAN non-SYNAPSE units. Until the start of your next Psychic phase, as long as the SYNAPSE unit you picked is on the battlefield, the non-SYNAPSE unit always counts as within its range for the Synapse and Instinctive Behaviour abilities."
+  },
+  "6ff9fb135559": {
+    "name": "Endless Swarm",
+    "kind": "stratagem",
+    "plain": "Use at the start of your Command phase. Pick one of your ENDLESS MULTITUDE units. You can return up to D3+3 of its destroyed models to it, each with its full wounds. The returned models may only be set up within Engagement Range of enemy units already within Engagement Range of the unit they are rejoining."
+  },
+  "701927866d94": {
+    "name": "Hyper Adaptation",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one LEVIATHAN unit from your army and one Hive Fleet Adaptation. Until the end of the turn, that unit's models have the chosen Hive Fleet Adaptation in place of the Synaptic Imperative Hive Fleet Adaptation."
+  },
+  "7072d0dfefcb": {
+    "kind": "ability",
+    "name": "Adrenal Glands",
+    "plain": "The bearer gets the ADRENAL GLANDS keyword. Its Move characteristic is increased by 1\" and its Strength characteristic is increased by 1."
+  },
+  "71b42dfe9096": {
+    "kind": "ability",
+    "name": "Psybrood Coterie",
+    "plain": "If your army is Battle-forged, each Detachment that contains any <HIVE FLEET> NEUROTHROPE units can also include one <HIVE FLEET> ZOANTHROPE unit that doesn't take up a Battlefield Role slot."
+  },
+  "71da2ad94d1e": {
+    "name": "Trampling Charge",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase, when one of your HIVE TENDRIL MONSTER models finishes a charge move. Pick an enemy unit within Engagement Range of that MONSTER model and roll a D6. If the MONSTER model has the HORNED CHITIN keyword: on a 2-4 the enemy unit takes 3 mortal wounds, and on a 5+ it takes D3+3 mortal wounds. If it doesn't have the HORNED CHITIN keyword: on a 2-4 the enemy unit takes D3 mortal wounds, and on a 5+ it takes 3 mortal wounds."
+  },
+  "71e75f978d0c": {
+    "name": "Bio-adapted Borer Grubs",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your LEVIATHAN units is chosen to shoot. For the rest of the phase, when a model in that unit attacks with a fleshborer or fleshborer hive, an unmodified wound roll of 6 inflicts 1 mortal wound on the target on top of the normal damage (no more than 6 mortal wounds per phase from this Stratagem). Cost: 2CP if that unit is a TYRANNOFEX, otherwise 1CP. You can't use both this Stratagem and the Scorch Bugs Stratagem on the same unit in the same phase."
+  },
+  "7405dc59a09d": {
+    "name": "Floating Death (Meiotic Spores)",
+    "kind": "ability",
+    "plain": "At the end of the Charge phase, any model in this unit that is within 3\" of any enemy units explodes. For each Meiotic Spore that explodes, roll one D6: on a 2-3, the nearest enemy unit takes D3 mortal wounds; on a 4+, it takes 3 mortal wounds. The exploding Meiotic Spore model is then destroyed."
+  },
+  "743e2788e738": {
+    "kind": "ability",
+    "name": "Digestion Spine",
+    "plain": "If this model's Thorax Spine-maw ability destroys any enemy models, then when the turn ends this model has the following ability for the rest of the battle: 'Regenerative Physiology: roll one D6 each time this model would lose a wound; on a 5+, it doesn't lose that wound.'"
+  },
+  "754b4ba8b244": {
+    "kind": "ability",
+    "name": "Nullnode",
+    "plain": "In your Command phase, pick one enemy unit within Synaptic Link range of the bearer. Until your next Command phase starts, hit rolls and wound rolls can't be re-rolled for attacks made by models in that unit, and Psychic tests taken for that unit can't be re-rolled.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "7581f9d7b1da": {
+    "name": "Corrosive Viscera",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when a model in one of your ACID BLOOD units would lose a wound. For the rest of the phase, whenever a model in that unit would lose a wound because of a melee attack, roll a D6: on a 4+, once the attacking model's unit has made all of its attacks, it takes 1 mortal wound (to a maximum of 6 mortal wounds)."
+  },
+  "773eb4210295": {
+    "kind": "psychic",
+    "name": "Onslaught",
+    "plain": "Blessing: pick one of your <HIVE FLEET> units within Synaptic Link range of this PSYKER. Until your next Psychic phase starts, its models ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced and the hit roll penalty for firing Heavy weapons in a turn their unit moved, and the unit can declare a charge in a turn in which it Advanced."
+  },
+  "7795c098df6c": {
+    "name": "Rapid Adaptation",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army. Pick one CRUSHER STAMPEDE TYRANID WARRIORS unit from your army. Its models have Weapon Skill 2+ and Ballistic Skill 3+. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "78a6927a761a": {
+    "kind": "ability",
+    "name": "Massive Grasping Tendrils",
+    "plain": "Once per turn, this model can use this ability when an enemy unit in its Engagement Range is chosen to Fall Back, unless that unit is an AIRCRAFT unit. Roll one D6, and add 1 to the roll if the enemy unit has the INFANTRY keyword: on a 3+, it can't Fall Back and has to Remain Stationary instead."
+  },
+  "78b790baa5b9": {
+    "kind": "ability",
+    "name": "Alpha Warrior",
+    "plain": "In your Command phase, choose a <HIVE FLEET> CORE unit from your army that is within Synaptic Link range of this model and hasn't been chosen for this ability yet this turn. Until your next Command phase begins, wound rolls of 1 are re-rolled for attacks made by that unit's models.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "798eb7145007": {
+    "name": "Parasitic Infection",
+    "kind": "ability",
+    "plain": "When an attack with this weapon wounds an enemy unit that isn't a VEHICLE unit, that unit takes 1 mortal wound in addition to any normal damage and is now infected with parasites. At the start of your opponent's Command phase, your opponent must roll a D6 for every enemy unit infected with parasites: on a 1-3, the unit takes D3 mortal wounds and stops being infected; on a 4-6, it takes D3 mortal wounds and is still infected. If a unit takes 2 or more mortal wounds from this ability in that phase, you set up a new <HIVE FLEET> RIPPER SWARMS unit of yours on the battlefield within 3\" of it but not within Engagement Range of any enemy units. That new RIPPER SWARMS unit has 1 model and, in games with a points limit, it costs no Reinforcement points."
+  },
+  "7a3b62f7d875": {
+    "kind": "ability",
+    "name": "Berserk Rampage",
+    "plain": "Whenever this model fights in a turn in which it made a charge move or performed a Heroic Intervention, add D3+1 to its Attacks characteristic until that fight is resolved."
+  },
+  "7d3f63f55dbf": {
+    "name": "Vicious Hunter",
+    "kind": "ability",
+    "plain": "When this model makes a ranged attack, the target gets no benefit from Light Cover against it, and an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "7e9788a53504": {
+    "kind": "ability",
+    "name": "The Reaper of Obilterax",
+    "plain": "Only for a model equipped with a bonesword or monstrous bonesword. That weapon gains these abilities: whenever an attack made with it wounds the target, the target also suffers 1 mortal wound on top of any other damage, up to a maximum of 3 mortal wounds; and whenever an attack made with it is allocated to an enemy model, that model can't use any rules to ignore the wounds it loses."
+  },
+  "800fc4717986": {
+    "kind": "ability",
+    "name": "Psychic Overload",
+    "plain": "If the Psychic test for a psychic power this model successfully manifests, or for a psychic action it completes, was 7 or more, then once that psychic power is resolved, the nearest enemy unit within 12\" takes mortal wounds equal to the number given in the table that goes with this ability."
+  },
+  "81e4243270e2": {
+    "kind": "ability",
+    "name": "Spirit Leech",
+    "plain": "During your Psychic phase, whenever a mortal wound is suffered by an enemy unit within 18\" of this model, choose a <HIVE FLEET> NEUROTHROPE or <HIVE FLEET> ZOANTHROPE model from your army within 12\" of this model; it regains 1 lost wound (3 regained wounds per phase at most)."
+  },
+  "82f9568e1753": {
+    "kind": "ability",
+    "name": "Superior Chameleonic Skin",
+    "plain": "Subtract 1 from the hit roll of every attack made against this model. While this model is receiving the benefits of cover, it can't be chosen as the target of a ranged attack by an attacker more than 12\" away. This model has a 4+ invulnerable save."
+  },
+  "83d690daee8b": {
+    "kind": "ability",
+    "name": "Guardian Organism",
+    "plain": "If a <HIVE FLEET> HIVE TYRANT model from your army is within 3\" of this unit, that HIVE TYRANT may use the Look Out, Sir rule even when this unit has fewer than 3 models. HIVE TYRANTS within this ability's range benefit from Look Out, Sir despite being Character units whose Wounds characteristic is more than 9."
+  },
+  "83eee6cfa4fa": {
+    "kind": "weapon",
+    "name": "Broodlord Claws and Talons",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon, and an attack with an unmodified wound roll of 6 has an AP characteristic of -5."
+  },
+  "8496692b036c": {
+    "name": "The Void in the Warp",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, once an enemy PSYKER unit has passed a Psychic test and any Deny the Witch attempt has been made. If any of your LEVIATHAN SYNAPSE units are within 24\" of that PSYKER unit, roll a D6: on a 4+, the psychic power is denied."
+  },
+  "865b2a8a83df": {
+    "kind": "psychic",
+    "name": "Aggressive Surge",
+    "plain": "Blessing: pick one of your CRUSHER STAMPEDE models within 18\" of this PSYKER. Until your next Psychic phase starts, that model's Attacks characteristic is increased by D3."
+  },
+  "8804109824fe": {
+    "name": "Hive Mind Imperative",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your LEVIATHAN units that is within 12\" of a friendly LEVIATHAN SYNAPSE unit. The following apply until the start of your next Command phase: the picked unit gains the Objective Secured ability, and if a model in it already has that ability, it counts as one extra model when determining control of an objective marker; and if the picked unit performs an action, it can shoot without that action failing."
+  },
+  "8947c5f13c78": {
+    "name": "Synaptic Guidance",
+    "kind": "ability",
+    "plain": "If a model in this unit targets an enemy unit with a ranged attack, and a friendly <HIVE FLEET> SYNAPSE model can see that enemy unit, you can ignore any or all modifiers to that attack's hit roll and to Ballistic Skill."
+  },
+  "8ace63b7ece5": {
+    "name": "Shockcannon",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a VEHICLE unit, an unmodified wound roll of 4+ always wounds and also inflicts 1 mortal wound on top of any normal damage."
+  },
+  "8b9db01f3bd6": {
+    "kind": "ability",
+    "name": "Hypertoxic Miasma",
+    "plain": "When the Fight phase starts, roll one D6 for every enemy unit within Engagement Range of this model. On a 4+, that unit suffers D3 mortal wounds and can't fight this phase until all eligible units from your army have fought."
+  },
+  "8bca2d5e5e7a": {
+    "kind": "ability",
+    "name": "Balethorn Cannon",
+    "plain": "Only a model equipped with a stranglethorn cannon can have this Relic, and it takes the place of that stranglethorn cannon."
+  },
+  "8be7a23ce708": {
+    "name": "Enhanced Brain Functions",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase. Pick one of your CRUSHER STAMPEDE TYRANID WARRIORS units that is within Engagement Range of any enemy models. For the rest of the phase, its models can use the Big Guns Never Tire rule to make ranged attacks as though they had the MONSTER keyword. Cost: 1CP if the unit has 5 or fewer models, otherwise 2CP."
+  },
+  "8c0eb314e57d": {
+    "kind": "ability",
+    "name": "Chameleonic Mutation",
+    "plain": "Whenever an attack is made against the bearer, subtract 1 from its hit roll, and that hit roll can't be re-rolled."
+  },
+  "8c1b34344149": {
+    "kind": "ability",
+    "name": "Infrasonic Roar",
+    "plain": "When your Movement phase ends, choose an enemy unit within 12\" of the bearer, then roll 3D6. If the total is at least that unit's Leadership characteristic, it can't perform actions until your next Movement phase begins, and any action it is in the middle of fails at once."
+  },
+  "8e5737b219b5": {
+    "kind": "weapon",
+    "name": "Grasping Tongue",
+    "plain": "When choosing targets for this weapon, the Look Out, Sir rule can be ignored."
+  },
+  "8eb1ba281bc5": {
+    "kind": "ability",
+    "name": "Hidden Hunter",
+    "plain": "At deployment, you may hide this model instead of placing it on the battlefield. If you do, during the Reinforcements step of any one of your Movement phases you can set it up wholly within 6\" of a battlefield edge or of any terrain feature, and more than 9\" from every enemy model (or only more than 6\" from enemy models if it is set up wholly inside your deployment zone). For the rest of that turn, charge rolls for this model can be re-rolled."
+  },
+  "8eb532052197": {
+    "kind": "ability",
+    "name": "Grasping Tendrils",
+    "plain": "Once per turn, this unit can use this ability when an enemy unit in its Engagement Range is chosen to Fall Back, unless that unit is a MONSTER or VEHICLE unit. Roll one D6: on a 4+, it can't Fall Back and has to Remain Stationary instead."
+  },
+  "8ec093ff0e65": {
+    "kind": "ability",
+    "name": "Shrouding Spores (Aura)",
+    "plain": "Aura: while one of your <HIVE FLEET> units that isn't TITANIC is within 6\" of this model, subtract 1 from the hit roll of each ranged attack made against that unit."
+  },
+  "8f1222b7ddda": {
+    "kind": "ability",
+    "name": "The Ymgarl Factor",
+    "plain": "When the Fight phase starts, choose one of these effects for the bearer, lasting until the phase ends: add 2 to its Strength characteristic; add 1 to its Attacks characteristic; or add 1 to its Toughness characteristic."
+  },
+  "8fa1e54f780a": {
+    "kind": "ability",
+    "name": "Warp Siphon",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> PSYKER units within Synaptic Link range of this model that hasn't yet been picked for this ability this turn. Until your next Command phase starts, whenever a Psychic test is taken for that unit, roll an extra D6 and then discard one of the dice.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "8fb316ef8e41": {
+    "name": "Spore Mine Cysts",
+    "kind": "ability",
+    "plain": "Once per turn, after this model moves in your Movement phase, you can pick one unit or one point on the battlefield that it moved across. If you pick a unit, roll a D6 for each model in it, but six D6s for each VEHICLE or MONSTER model in it (to a maximum of ten D6s in total); each 4+ inflicts 1 mortal wound on that unit. If you pick a point, set up a new SPORE MINES unit of yours with 3 models on the battlefield, within 1\" of that point and not within 6\" of any enemy units. As updated in January 2023: setting up a Spore Mines unit this way requires spending Reinforcement Points, and this ability only works if this aircraft is still on the battlefield when its move ends."
+  },
+  "919ccf9a7a3f": {
+    "kind": "ability",
+    "name": "Armoured Exoskeleton",
+    "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1, to a minimum of 1. This doesn't stack with any other abilities that reduce an attack's Damage characteristic."
+  },
+  "927010b2f7a0": {
+    "kind": "ability",
+    "name": "Thorax Spine-maw",
+    "plain": "After this model has made its close combat attacks and before it consolidates, pick one enemy model within Engagement Range (not AIRCRAFT). That model's controlling player rolls one D6 and adds that model's Strength characteristic; if the total is equal to or less than this model's Strength characteristic, that enemy model's unit suffers D6 mortal wounds."
+  },
+  "934c611f4219": {
+    "name": "Carapace Chitin Rams",
+    "kind": "ability",
+    "plain": "Whenever this model makes a charge move, you can pick one enemy unit within Engagement Range and roll a D6; on a 4+, that unit takes D3 mortal wounds, or D6 mortal wounds instead if it is a VEHICLE or MONSTER unit. Also, if this model made a charge move this turn, its melee attacks add 1 to their hit rolls."
+  },
+  "940581e1c024": {
+    "name": "Living Bombs (Meiotic Spores)",
+    "kind": "ability",
+    "plain": "This unit automatically passes Morale tests. It is also ignored for any victory conditions: it never awards victory points, and its models don't count towards how many models are controlling an objective."
+  },
+  "94830319f7fe": {
+    "name": "Spore Cysts",
+    "kind": "ability",
+    "plain": "The bearer gets the benefits of Light Cover against every ranged attack made against it."
+  },
+  "94eb98f730a7": {
+    "kind": "psychic",
+    "name": "Psychic Scream",
+    "plain": "Witchfire: the nearest enemy unit within 18\" of this PSYKER suffers D3 mortal wounds. Then, if it is a unit with the PSYKER keyword and your Psychic test result was higher than its Leadership characteristic, pick at random one psychic power it knows: that unit loses that power for the rest of the battle."
+  },
+  "96942be3879f": {
+    "name": "Indomitable Monstrosity",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your HIVE TENDRIL MONSTER units is chosen as the target of an attack. For the rest of the phase, attacks against that unit always fail to wound on an unmodified wound roll of 1-3, no matter what abilities the attacking model or its weapon has."
+  },
+  "9ab1e1b14e5a": {
+    "kind": "ability",
+    "name": "Hypermorphic Biology",
+    "plain": "The bearer gets 1 extra point of Toughness. Also, if the bearer has characteristics that change as it is damaged, count its remaining wounds as doubled to decide what those characteristics are."
+  },
+  "9aecd09209da": {
+    "kind": "ability",
+    "name": "Will of the Hive Mind",
+    "plain": "In your Command phase, choose a <HIVE FLEET> CORE unit from your army that is within Synaptic Link range of this model. Until your next Command phase begins, hit rolls of 1 are re-rolled for attacks made by that unit's models.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "9d8e91a50c9c": {
+    "name": "The Deepest Shadow",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, when a Psychic test is failed by an enemy unit. Pick one of your KRONOS PSYKER units within 18\" of that enemy unit. The enemy unit takes D3 mortal wounds, and for the rest of the phase your KRONOS PSYKER unit gains this ability: Deepest Shadow (Aura): whenever a Psychic test is failed for an enemy PSYKER unit within 18\" of this unit, that enemy unit takes D3 mortal wounds."
+  },
+  "9e82d1ef6f98": {
+    "kind": "ability",
+    "name": "Whipcoil Reflexes",
+    "plain": "Each time an enemy unit in Engagement Range of this model is chosen to Fall Back, you roll one D6; on a 2+, that unit takes D3 mortal wounds."
+  },
+  "a00b43656890": {
+    "kind": "ability",
+    "name": "Searhive",
+    "plain": "TOXIN SACS models only. Whenever the bearer makes a melee attack against any unit other than MONSTER and VEHICLE units, a hit automatically wounds the target."
+  },
+  "a0b0afa537e2": {
+    "name": "Terrifying",
+    "kind": "ability",
+    "plain": "Whenever this model destroys a model in an enemy unit, subtract 1 from the Leadership characteristic of that unit's models until the end of the turn (up to a total of -4)."
+  },
+  "a206acb10cff": {
+    "name": "Relentless Flurry",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase or in the Fight phase, when you pick one of your LEVIATHAN units to shoot or fight. For the rest of the phase, when a model in that unit makes an attack, an unmodified hit roll of 6 scores 1 extra hit (or 2 extra hits if the unit has 11 or more models at that time). Cost: 2CP if that unit is a GENESTEALER unit, otherwise 1CP."
+  },
+  "a2d956da80f6": {
+    "name": "Observer Organism",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your EXOCRINE models is chosen to shoot. For the rest of the phase, whenever it makes an attack, the target gets no benefit of cover against it, and an unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "a6e7439b4447": {
+    "name": "Instinctive Rampage",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when an enemy unit destroys one of your <HIVE FLEET> HIVE TYRANT models. For the rest of the battle: whenever a friendly <HIVE FLEET> TYRANT GUARD unit declares a charge that targets that enemy unit, add 4 to the charge roll; and whenever a friendly <HIVE FLEET> TYRANT GUARD unit attacks that enemy unit, add 1 to the attack's hit roll and add 1 to its wound roll."
+  },
+  "a7c84c9d593f": {
+    "name": "Drone Bioform",
+    "kind": "ability",
+    "plain": "This unit automatically passes Morale tests, can't perform actions and can't declare a charge. For scoring mission objectives or Agendas, ignore this unit and all its models. When an enemy unit is being set up on the battlefield, ignore this unit and its models for any rules that limit where that enemy unit may be placed. While an enemy unit is making a Normal Move, Advance, Fall Back or charge move, its models may pass horizontally through this unit's models, though they can't end the move on top of another model or its base. The Look Out, Sir rule ignores this unit."
+  },
+  "a8cdc79c306c": {
+    "name": "Rapid Regeneration",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one HIVE TENDRIL model from your army. It regenerates, regaining up to D3 lost wounds. A model can only regenerate once per turn."
+  },
+  "a979d2254ffd": {
+    "name": "Floating Death (Mucolid Spore)",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit finishes a move within 3\" of any enemy units, or when an enemy unit finishes a move during which one or more of its models came within 3\" of a model in this unit, that model of yours can explode. An exploding model is destroyed; pick one of those enemy units and roll a D6: on a 2-4, the picked unit takes D6 mortal wounds; on a 5+, it takes D3+3 mortal wounds."
+  },
+  "a98d53fd8ef5": {
+    "name": "Death Throes",
+    "kind": "ability",
+    "plain": "When this transport is destroyed, before you remove it and before any models embarked in it disembark, roll one D6. On a 6+, the nearest enemy unit within 2D6\" takes D6 mortal wounds."
+  },
+  "ad7a4259766b": {
+    "name": "Blinding Venom",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Pick an enemy unit that is within Engagement Range of any of your GARGOYLES units. For the rest of the phase, hit rolls for attacks made by models in that enemy unit can't be re-rolled, and subtract 1 from the hit roll of each melee attack they make."
+  },
+  "afe3eb61a39e": {
+    "kind": "ability",
+    "name": "Prey Adaption",
+    "plain": "When an enemy model is destroyed within 3\" of this model, this model gains the following ability at the end of that phase, for the remainder of the battle: 'Prey Adaption (Aura): your <HIVE FLEET> units within 6\" of this model re-roll wound rolls of 1 for their models' attacks.'"
+  },
+  "b0ca630f0412": {
+    "name": "Floating Death",
+    "kind": "ability",
+    "plain": "At the end of the Charge phase, any model in this unit that is within 3\" of any enemy units explodes. For each Meiotic Spore model that explodes, roll one D6: on a 2-3, the nearest of those enemy units takes D3 mortal wounds; on a 4+, the nearest of those enemy units takes 3 mortal wounds. That Meiotic Spore model is then destroyed."
+  },
+  "b2b0e7ac5da6": {
+    "name": "Invisible Hunter",
+    "kind": "stratagem",
+    "plain": "Use at the end of your turn. Pick one of your LICTOR models that wasn't set up on the battlefield this turn and take it off the battlefield. In your next Movement phase's Reinforcements step, you can set it back up anywhere on the battlefield that is wholly within 9\" of a battlefield edge and more than 9\" from all enemy models. If it still isn't on the battlefield when the battle ends, it is destroyed."
+  },
+  "b2f61faaf329": {
+    "kind": "psychic",
+    "name": "Synaptic Lure",
+    "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of this PSYKER. Until your next Psychic phase starts, whenever one of your KRAKEN units declares a charge with that enemy unit among its targets, you can re-roll the charge roll."
+  },
+  "b6c752504e3a": {
+    "kind": "psychic",
+    "name": "Hive Tyrant",
+    "plain": "This model knows Smite and 2 psychic powers from the Hive Mind discipline."
+  },
+  "b8c0ca7958ae": {
+    "name": "Synaptic Relay",
+    "kind": "ability",
+    "plain": "While this model is within 12\" of any friendly <HIVE FLEET> SYNAPSE unit (excluding SPOROCYST models), it gains the SYNAPSE keyword and the Synapse ability.",
+    "waive": {
+      "86": "page number in a cross-reference (\"pg 86\"), not part of the rule"
+    }
+  },
+  "bbb4e84bd7ba": {
+    "name": "Synaptic Legacy",
+    "kind": "stratagem",
+    "plain": "Use at the start of the battle round, when choosing which Synaptic Imperative ability is active for your army. If your WARLORD has the HIVE TENDRIL keyword and is on the battlefield, then this turn you may choose the Synaptic Imperative ability of a destroyed model from your army rather than one from a model on the battlefield. Unless something else allows it, you still can't choose an ability you have already chosen earlier in the battle."
+  },
+  "bed541b41f3a": {
+    "kind": "ability",
+    "name": "Infiltration Spawning",
+    "plain": "If your army is Battle-forged, each Detachment that contains any <HIVE FLEET> GENESTEALERS units can also include one <HIVE FLEET> BROODLORD unit that doesn't take up a Battlefield Role slot."
+  },
+  "bf312c95a328": {
+    "name": "Barbed Ovipositor",
+    "kind": "weapon",
+    "plain": "The bearer makes 1 additional attack with this weapon each time it fights, and in resolving that fight it can't make more than 1 attack with this weapon. This weapon also has the Parasitic Infection ability."
+  },
+  "bf37565a8aec": {
+    "name": "Float Down",
+    "kind": "ability",
+    "plain": "During deployment, you can put this unit high in the skies rather than on the battlefield. If you do, it arrives during the Reinforcements step of your first, second or third Movement phase (whatever the mission rules say): set it up anywhere on the battlefield more than 9\" from all enemy models."
+  },
+  "bfbac61e0b35": {
+    "kind": "ability",
+    "name": "Insidious Infestation",
+    "plain": "This unit can perform the action below if it has an infestation node and no friendly <HIVE FLEET> Infestation Node marker was set up within 1\" of it during deployment. Insidious Infestation (Action): in your Command phase, as many GENESTEALERS units from your army as you like can begin this action; it is finished at the end of your next Movement phase. When it finishes, the unit's <HIVE FLEET> Infestation Node marker is placed on the battlefield within 1\" of it."
+  },
+  "c19fd19f22d6": {
+    "kind": "ability",
+    "name": "Lash Whip",
+    "plain": "The bearer gets the LASH WHIP keyword, and whenever it makes a melee attack, re-roll a hit roll of 1."
+  },
+  "c22031604835": {
+    "kind": "ability",
+    "name": "Death Throes (6\"/D6)",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield: on a 6+, the nearest enemy unit within 6\" takes D6 mortal wounds."
+  },
+  "c2be81b18e62": {
+    "name": "Reinforced Hive Node",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your TYRANID WARRIORS or TYRANID PRIME units is chosen as the target of an attack. For the rest of the phase, whenever an attack is allocated to one of that unit's models, subtract 1 from that attack's Damage characteristic (to a minimum of 1). Cost: 1CP if the unit has 5 or fewer models, otherwise 2CP."
+  },
+  "c3446df73933": {
+    "name": "Control of the Swarm",
+    "kind": "stratagem",
+    "plain": "Use when a LEVIATHAN WARLORD from your army is destroyed. You can immediately pick another LEVIATHAN SYNAPSE CHARACTER model from your army that has no Warlord Trait, then pick a Warlord Trait that no model in your army has and that the newly picked model can have. That model gains that Warlord Trait until the end of the battle and counts as your WARLORD for all rules purposes. Any mission objective, secondary objective, tactical objective or Agenda rules that would trigger when your original WARLORD is destroyed don't trigger until your new WARLORD is destroyed."
+  },
+  "c352e05e9d20": {
+    "name": "Seed Spore Mines",
+    "kind": "ability",
+    "plain": "This unit can perform the Seed Spore Mines action. One of your BIOVORES units can begin it at the start of your Shooting phase, and it completes at the end of that phase. Once it completes, place a new SPORE MINES unit of yours on the battlefield, wholly within 48\" of this unit and more than 6\" away from all enemy units; it is made up of D3 models per BIOVORES model in this unit. Since the January 2023 update, setting up that new Spore Mines unit requires spending Reinforcement Points."
+  },
+  "c3c190b50d0a": {
+    "kind": "psychic",
+    "name": "The Horror",
+    "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 24\" of this PSYKER. Until your next Psychic phase starts, subtract 2 from the Leadership characteristic of that unit's models and subtract 1 from Combat Attrition tests taken for that unit."
+  },
+  "c44e3a82c56c": {
+    "kind": "ability",
+    "name": "Predator Instincts",
+    "plain": "This model is eligible to make Heroic Interventions as if it were a CHARACTER model. For it, the range for making a Heroic Intervention is any enemy unit within 6\" horizontally and 5\" vertically (instead of 3\" horizontally and 5\" vertically), and each of its Heroic Intervention moves can be up to 6\". Every other Heroic Intervention rule still applies."
+  },
+  "c4dabab45fda": {
+    "kind": "ability",
+    "name": "Infestation Node",
+    "plain": "Each <HIVE FLEET> Infestation Node marker has the abilities below, and is never treated as a model for any rule. Hive Infestation: in your Command phase, choose a <HIVE FLEET> GENESTEALERS unit from your army within 3\" of this marker that hasn't been chosen for this ability yet this turn; up to D3 of its destroyed models return to it. Those models can't be placed within Engagement Range of enemy units, except enemy units already in Engagement Range of that Genestealers unit. Burn Them Out: when any phase ends, if there are enemy models within 3\" of this marker and no friendly models within 3\" of it, the marker is removed from the battlefield."
+  },
+  "c51f910f0914": {
+    "name": "Death Frenzy",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your HIVE TENDRIL CHARACTER models that hasn't yet been chosen to fight this phase is destroyed, instead of using any rules triggered by its destruction (such as the Death Throes ability). Don't remove it from play: it can fight once the attacking model's unit has finished making attacks. For those attacks, if the destroyed model's characteristics change as it suffers damage, treat it as having all its wounds remaining when working out those characteristics. After its attacks are resolved, remove it."
+  },
+  "c5b402709c67": {
+    "name": "Opportunistic Advance",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your KRAKEN units is chosen to move. Until the end of the turn: whenever that unit Advances, don't make an Advance roll; instead, add 8\" to its models' Move characteristic until the end of the phase (a unit can't benefit from this Stratagem and from the Bounding Advance Stratagem in the same phase). Also, its models don't suffer the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
+  },
+  "c7074e894475": {
+    "kind": "ability",
+    "name": "Toxin Sacs",
+    "plain": "The bearer gets the TOXIN SACS keyword. Whenever it makes a melee attack, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "ccadc6f45f40": {
+    "kind": "ability",
+    "name": "Vicious Insight",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this model that hasn't yet been picked for this ability this turn. Until your next Command phase starts, whenever a model in that unit makes a melee attack and the wound roll is an unmodified 6, that attack's Armour Penetration is improved by 1.",
+    "waive": {
+      "87": "page reference to the codex, not part of the rule"
+    }
+  },
+  "d0cd283d8ad7": {
+    "kind": "ability",
+    "name": "Acid Maw",
+    "plain": "The bearer gets the ACID MAW keyword."
+  },
+  "d3f4ab5c5666": {
+    "kind": "ability",
+    "name": "Gestation Sac",
+    "plain": "Once per battle, the bearer can do this action. Bursting the Sac (Action): this model can begin it at the start of your Shooting phase, and it completes when that phase ends. On completion, place a new <HIVE FLEET> RIPPER SWARMS unit of D3+1 models on the battlefield within 3\" of this model, outside Engagement Range of all enemy units. If the game uses a points limit, that RIPPER SWARMS unit costs no Reinforcement points."
+  },
+  "d3f6b68a752f": {
+    "kind": "ability",
+    "name": "Choking Spores (Aura)",
+    "plain": "Aura: while an enemy unit is within 3\" of this model, subtract 1 from the hit roll of each attack made by models in that unit."
+  },
+  "d484887fdbd2": {
+    "kind": "ability",
+    "name": "Warp Field (Neurothrope)",
+    "plain": "This model has a 3+ invulnerable save."
+  },
+  "d5ba3c500e56": {
+    "kind": "psychic",
+    "name": "Paroxysm",
+    "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of this PSYKER. Until your next Psychic phase starts, that unit can't fire Overwatch or Set to Defend, and its models subtract 1 from the wound roll of each melee attack they make."
+  },
+  "d8849ecd8f02": {
+    "kind": "ability",
+    "name": "Toxic Miasma",
+    "plain": "At the start of the Fight phase you may choose an enemy unit within 3\" of this unit and roll one D6. On a 3+, it takes 1 mortal wound and isn't allowed to fight this phase until every eligible unit of yours has fought."
+  },
+  "d96dc7bdd693": {
+    "kind": "ability",
+    "name": "Warrior Spawning",
+    "plain": "If your army is Battle-forged, each Detachment that contains any <HIVE FLEET> TYRANID WARRIORS units can also include one <HIVE FLEET> TYRANID PRIME model that doesn't take up a Battlefield Role slot."
+  },
+  "d976e3ff50a6": {
+    "kind": "psychic",
+    "name": "Smite",
+    "plain": "The nearest visible enemy unit within 18\" of the psyker takes D3 mortal wounds. If the Psychic test came to more than 10, it takes D6 mortal wounds instead."
+  },
+  "da16d35ec158": {
+    "name": "Unparalleled Ferocity",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your BEHEMOTH INFANTRY units (excluding CHARACTER units) that hasn't fought yet this phase is chosen as the target of a melee attack. Until the unit making that attack finishes its attacks, whenever a model in that BEHEMOTH unit is destroyed, don't use any rules triggered by its destruction and don't remove it from play; once that attacking unit is done, the destroyed model can attack as if its unit had been chosen to fight. After those attacks are resolved, remove the destroyed model. Cost: 1CP if that BEHEMOTH INFANTRY unit has the ENDLESS MULTITUDE keyword, otherwise 2CP."
+  },
+  "db09bc97e2d1": {
+    "kind": "ability",
+    "name": "Hive Commander",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this model. Until your next Command phase starts, that unit has the Objective Secured ability. If it already had that ability, each of its models counts as one extra model when working out control of an objective marker.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "dbf8ed42363d": {
+    "kind": "ability",
+    "name": "Shardgullet",
+    "plain": "Only for a model equipped with a heavy venom cannon. This Relic takes the place of its heavy venom cannon."
+  },
+  "dc982e06d3bf": {
+    "name": "Pheromone Trail",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase. Pick an enemy unit within 6\" of one of your <HIVE FLEET> LICTOR models. For the rest of the phase, add 2 to the charge roll whenever a friendly <HIVE FLEET> unit declares a charge against that enemy unit."
+  },
+  "dcb1a2880486": {
+    "name": "Living Bombs",
+    "kind": "ability",
+    "plain": "Meiotic Spores automatically pass Morale tests. They are also ignored for any victory conditions: they never award victory points, and they don't count towards how many models are controlling an objective."
+  },
+  "dd27bce956b6": {
+    "kind": "ability",
+    "name": "Warp Blast",
+    "plain": "When this unit tries to manifest Smite or any Witchfire psychic power, its Psychic test gets 1 added for each model in the unit. When this unit manifests Smite, the mortal wounds suffered by the enemy unit increase by 1 per model in the unit, to a maximum of +3 mortal wounds."
+  },
+  "ddc15fda85d1": {
+    "kind": "ability",
+    "name": "Extended Carapace",
+    "plain": "The bearer's Move characteristic is 7\" and its Save characteristic is 4+."
+  },
+  "dfc0adf115ac": {
+    "kind": "ability",
+    "name": "Ablative Brood",
+    "plain": "In a Battle-forged army, each <HIVE FLEET> HIVE TYRANT model in a Detachment lets you add one <HIVE FLEET> TYRANT GUARD unit to that Detachment, and that unit doesn't use up a Battlefield Role slot."
+  },
+  "e13e13dca761": {
+    "name": "Hive Predator",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the HIVE TENDRIL keyword. Pick one of your HIVE TENDRIL CHARACTER models and determine one Warlord Trait for it (one it is allowed to have); that model counts as your Warlord only for that Warlord Trait. Every Warlord Trait in your army must be unique (if rolling randomly, re-roll duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "e1591b30153f": {
+    "kind": "psychic",
+    "name": "Synaptic Barrier",
+    "plain": "Blessing: pick one of your CRUSHER STAMPEDE models within 18\" of this PSYKER. That model has a 4+ invulnerable save until your next Psychic phase starts."
+  },
+  "e183b8c13da0": {
+    "kind": "ability",
+    "name": "Death Throes (3\"/1)",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield: on a 6+, the nearest enemy unit within 3\" takes 1 mortal wound."
+  },
+  "e2589f38dd10": {
+    "kind": "ability",
+    "name": "Bounding Leap",
+    "plain": "Whenever a model in this unit piles in, it can move up to 3\" further, to a maximum of 9\"."
+  },
+  "e4745a39166d": {
+    "name": "Blistering Assault",
+    "kind": "ability",
+    "plain": "Whenever this model fights, if it made a charge move or a Heroic Intervention this turn, add 1 to its Attacks characteristic until that fight is resolved."
+  },
+  "e6b30b29e8f8": {
+    "name": "Distensible Jaws",
+    "kind": "ability",
+    "plain": "Each time this model is chosen to Fight, pick one enemy unit (excluding VEHICLE units) within Engagement Range of it and roll one D6. On a 2-5, that unit takes D3 mortal wounds; on a 6, it takes 3 mortal wounds. If those mortal wounds destroy any models, that enemy unit counts as below Half-strength for Combat Attrition tests until the end of the turn."
+  },
+  "ea0a3e905daf": {
+    "name": "Questing Tendrils",
+    "kind": "stratagem",
+    "plain": "Use in your second Movement phase, when you set up one of your LEVIATHAN units arriving from Strategic Reserves. You can set it up as if it were battle round 3."
+  },
+  "ea46fcc86fbe": {
+    "name": "Seed Spores",
+    "kind": "ability",
+    "plain": "This model can perform the Seed Spores action. One of your SPOROCYST models can begin it at the start of your Movement phase, and it completes at the end of that phase. Once it completes, place on the battlefield either a new SPORE MINES unit of yours with 6 models or a new MUCOLID SPORES unit of yours with 1 model; it must be wholly within 18\" of this model and more than 6\" away from all enemy units. Since the January 2023 update, setting up that new Spore Mines or Mucolid Spores unit requires spending Reinforcement Points."
+  },
+  "ead0e98daf34": {
+    "kind": "ability",
+    "name": "Wall of Flesh",
+    "plain": "While one of your <HIVE FLEET> TERMAGANTS units with 15 or more models is within 1\" of this model and is closer to any enemy models than this model is, the Look Out, Sir rule is available to this model even if this unit has fewer than 3 models. TERVIGONS within range of the Wall of Flesh ability of one of your <HIVE FLEET> TERMAGANT units benefit from Look Out, Sir despite being CHARACTERS whose Wounds characteristic is more than 9. Wall of Flesh still only works with a unit of at least 15 Termagants, even though other Bodyguard abilities work with fewer than 3 models."
+  },
+  "eb0e8c8ff451": {
+    "kind": "psychic",
+    "name": "Symbiostorm",
+    "plain": "Blessing: pick one of your KRONOS units within Synaptic Link range of this PSYKER. Until your next Psychic phase starts, add 1 to the Strength characteristic of each ranged attack made by a model in that unit.",
+    "waive": {
+      "KRDNOS": "misspelling of the KRONOS keyword in the official text; written correctly as KRONOS"
+    }
+  },
+  "ec0f14f7c63d": {
+    "name": "Hover",
+    "kind": "ability",
+    "plain": "During your Command phase, this model may start hovering. If it does, its Move characteristic is 15\" until the start of your next Command phase, and for that time it no longer has its Airborne Predator, Hard to Hit or Manoeuvrable abilities."
+  },
+  "ec42a708a0a4": {
+    "kind": "ability",
+    "name": "Synapse (Aura)",
+    "plain": "Aura: your <HIVE FLEET> units automatically pass Morale tests while they are within 6\" of this unit."
+  },
+  "ee7f9d3beda0": {
+    "kind": "psychic",
+    "name": "Lurking Maws",
+    "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 18\" of this PSYKER. Until your next Psychic phase starts, whenever one of your JORMUNGANDR models makes a melee attack against that unit, that attack's Armour Penetration is improved by 1."
+  },
+  "eef28094767f": {
+    "kind": "ability",
+    "name": "Swarming Masses",
+    "plain": "Each time this unit fights, a model in it can fight if it is within Engagement Range of any enemy units, or if it is within 2½ inches of any enemy units. However, if during the Fight phase this unit is affected by any other rule that would cut down the number of its models able to fight, then for that phase that other rule and Swarming Masses both have no effect."
+  },
+  "f021e1b7f76d": {
+    "name": "Bombardment Organism",
+    "kind": "ability",
+    "plain": "During deployment, when you set up this model, you can place it anywhere on the battlefield more than 12\" away from both the enemy deployment zone and any enemy models."
+  },
+  "f17273571a48": {
+    "name": "Shard Lure",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when a model in one of your <HIVE FLEET> SYNAPSE units hits an enemy unit with a ranged attack. Until the end of the turn, whenever a friendly <HIVE FLEET> unit declares a charge and that enemy unit is one of its targets, roll one extra D6 when making the charge roll and discard one of the dice."
+  },
+  "f19bfadbc00b": {
+    "name": "Frenzied Metabolism",
+    "kind": "ability",
+    "plain": "You can use this ability the first time this model is chosen to shoot in each of your Shooting phases. If you do, this model takes D3 mortal wounds, and until the end of the phase, add 1 to the wound roll of each ranged attack it makes."
+  },
+  "f266a86d2ded": {
+    "name": "It Itches",
+    "kind": "ability",
+    "plain": "A unit loses the Objective Secured ability for as long as it is infected with parasites."
+  },
+  "f34a163b3ddd": {
+    "kind": "ability",
+    "name": "Prehensile Pincer Tail",
+    "plain": "When resolving the bearer's attacks each time it is chosen to fight, one hit roll or one wound roll may be re-rolled."
+  },
+  "f578414aca15": {
+    "name": "Breaking Through",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase, when one of your CRUSHER STAMPEDE MONSTER models finishes a charge move. Pick an enemy model within Engagement Range of it, then roll as many D6 as that MONSTER model has Wounds remaining. If the MONSTER model's Strength characteristic is higher than the enemy model's Toughness characteristic, each 3+ inflicts 1 mortal wound on the enemy model's unit; if the two are equal, each 4+ does so; if its Strength is lower, each 5+ does so. In every case, no more than 6 mortal wounds can be inflicted this way."
+  },
+  "f5fec612d329": {
+    "kind": "ability",
+    "name": "Monstrous Musculature",
+    "plain": "The bearer's melee weapons each get 1 added to their Damage characteristic."
+  },
+  "f7174958f9b1": {
+    "name": "Tusks",
+    "kind": "ability",
+    "plain": "The bearer has the HORNED CHITIN keyword."
+  },
+  "f729cb950f47": {
+    "name": "Enfolding Strike",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your PARASITE OF MORTREX models finishes a Normal Move or an Advance. Pick an enemy unit that it moved across this phase and roll a D6: on a 2-5, that unit takes D3 mortal wounds and becomes infected with parasites (as described in the Parasitic Infection ability on the model's datasheet); on a 6, it takes 3 mortal wounds and becomes infected with parasites."
+  },
+  "f778a01a7bbc": {
+    "name": "Enhanced Senses",
+    "kind": "ability",
+    "plain": "The bearer's Ballistic Skill is 3+."
+  },
+  "f7ddd47fc354": {
+    "name": "Pathogenic Slime",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your HIVE TENDRIL units is chosen to shoot. For the rest of the phase, any attack by a model in that unit that has an unmodified hit roll of 6 automatically wounds the target. Cost: 1CP if the unit has the TOXIN SACS keyword, otherwise 2CP."
+  },
+  "f93d1bbece1c": {
+    "kind": "weapon",
+    "name": "Toxinspike",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon, and it can't make more than 1 attack with this weapon in that fight."
+  },
+  "faad8df61f28": {
+    "name": "Hover",
+    "kind": "ability",
+    "plain": "During your Command phase, this model may start hovering. If it does, its Move characteristic is 20\" until your next Command phase, and for that time it no longer has its Airborne, Hard to Hit or Supersonic abilities."
+  },
+  "fb9ac8821113": {
+    "name": "Overrun",
+    "kind": "stratagem",
+    "plain": "Use at the end of the Fight phase. Pick one of your HIVE TENDRIL CORE units that made a charge move this turn. Its models can make a Normal Move, provided no enemy models are within Engagement Range of the unit."
+  },
+  "fd21d72511a6": {
+    "name": "Hierodule Scything Talons",
+    "kind": "weapon",
+    "plain": "Re-roll hit rolls of 1 for attacks made with this weapon."
+  },
+  "fdbffa3dc636": {
+    "name": "Wrecker Claws",
+    "kind": "weapon",
+    "plain": "If the bearer has two wrecker claws, you can re-roll the hit roll for attacks made with this weapon. Attacks made with this weapon that are allocated to a VEHICLE or MONSTER model have a Damage characteristic of 5."
+  },
+  "fde68ab27c12": {
+    "kind": "ability",
+    "name": "Spawn Termagants",
+    "plain": "In your Command phase, you can choose one of these. (1) Pick one of your <HIVE FLEET> TERMAGANTS units within 6\" of this model and return up to 2D6 of its destroyed models to it, placing them back on the battlefield with their full wounds, wholly within 6\" of this model and not within Engagement Range of any enemy units, unless those enemy units are already within Engagement Range of that TERMAGANTS unit. (2) Once per battle, spawn a new unit: set up a new <HIVE FLEET> TERMAGANTS unit of 10 models, each equipped with fleshborers, on the battlefield wholly within 6\" of this model and not within Engagement Range of any enemy units. In a game using a points limit, that unit costs no Reinforcement points."
+  },
+  "fffbceaf5d41": {
+    "kind": "ability",
+    "name": "Resonance Barb",
+    "plain": "Only a PSYKER model can have this. Add 1 to the bearer's Psychic tests; it also knows one more psychic power from the Hive Mind discipline.",
+    "waive": {
+      "69": "page reference to the codex, not part of the rule"
+    }
+  }
+}

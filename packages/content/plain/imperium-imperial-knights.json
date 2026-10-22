@@ -1,0 +1,413 @@
+{
+  "0070515598d7": {
+    "name": "Glory in Honour",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your HOUSE TERRYN models is chosen to fight: for the rest of the phase, its Attacks characteristic goes up by 1, and you can re-roll a hit roll of 1 whenever it makes a melee attack."
+  },
+  "00b9a4ca5cd6": {
+    "name": "Our Darkest Hour",
+    "kind": "stratagem",
+    "plain": "Once per battle, in any phase, when one of your HOUSE TARANIS CHARACTER models is destroyed without exploding: mark the centre of where its base was with a marker on the battlefield. At the end of the phase, you may roll one D6 in place of any rules that trigger when that model is destroyed (apart from Explodes, which you must roll for first). If you do, on a 4+ put the model back on the battlefield as near as possible to the marker, within 6\" of it but outside Engagement Range of all enemy models, with 3 wounds left. If the model can't be placed, it is destroyed. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "0a628740be6c": {
+    "name": "Pack Tactics",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase, choose an enemy unit that has 2 or more of your ARMIGER-CLASS models within Engagement Range of it. For the rest of the phase, each of your ARMIGER-CLASS models that was in Engagement Range of that unit when the phase started gets 1 added to its Attacks characteristic."
+  },
+  "13fb11e09a27": {
+    "name": "A Squire’s Duty",
+    "kind": "stratagem",
+    "plain": "When one of your ARMIGER CLASS models Falls Back in your Movement phase, you can use this Stratagem: that model can still shoot and charge this turn despite having Fallen Back."
+  },
+  "140516d314a4": {
+    "name": "Machine Spirit Resurgent",
+    "kind": "stratagem",
+    "plain": "In your Command phase, choose one of your QUESTOR MECHANICUS models. Up to the start of your next Command phase, when working out which characteristics on its profile to use, treat it as if it had all of its wounds left. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "16bf0f034d36": {
+    "name": "Survivors of Strife",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your ARMIGER-CLASS models is chosen as the target of an attack: for the rest of the phase, any attack made against that model fails to wound on an unmodified wound roll of 1-3, whatever abilities the attacking model or its weapon has."
+  },
+  "192500686b9b": {
+    "name": "Chainbreaker",
+    "kind": "ability",
+    "plain": "When CANIS REX attacks a unit that is not IMPERIUM, an unmodified hit roll of 6 scores one extra hit."
+  },
+  "19a686e74af6": {
+    "name": "Errant's Duty (Bondsman)",
+    "kind": "ability",
+    "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Until your next Command phase starts, that ARMIGER-CLASS model can declare a charge in a turn when it Advanced, and Advance and charge rolls made for it get 1 added."
+  },
+  "1b21634634b9": {
+    "name": "Staunch Allies",
+    "kind": "stratagem",
+    "plain": "In the Heroic Interventions step of your opponent's Charge phase, before any other Heroic Interventions are made: choose one of your HOUSE HAWKSHROUD models, plus one enemy unit that made a charge move this phase and is within 12\" horizontally and 5\" vertically of your model. Your model is eligible to perform a Heroic Intervention, and when it makes a Heroic Intervention move this phase it can move up to 6+D6\", as long as it finishes within Engagement Range of the chosen enemy unit. Every other Heroic Intervention rule still applies. If your model does perform a Heroic Intervention, it can fight first in the following Fight phase."
+  },
+  "252c9868c03d": {
+    "name": "Benevolence of the Machine God",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your QUESTOR MECHANICUS models would lose a wound because of a mortal wound: for the rest of the phase, roll one D6 each time that model would lose a wound to a mortal wound; on a 5+, the wound is not lost."
+  },
+  "26f5fd7264a1": {
+    "name": "Strength from Exile",
+    "kind": "stratagem",
+    "plain": "When one of your FREEBLADE LANCE models is chosen to shoot in your Shooting phase, or chosen to fight in the Fight phase: for the rest of the phase, as long as no friendly models are within 12\" of it, you re-roll a hit roll of 1 and a wound roll of 1 each time it attacks."
+  },
+  "29d6ca53b73a": {
+    "name": "Rolling Thunder",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, once one of your HOUSE RAVEN models (other than an ARMIGER CLASS model) has finished a charge move: until the turn ends, any enemy model within 3\" of that HOUSE RAVEN model subtracts 1 from the hit roll of each attack it makes."
+  },
+  "2d18d3b736ed": {
+    "name": "Brothers and Sisters in Burden",
+    "kind": "stratagem",
+    "plain": "In your Command phase, if your army is Dishonoured, choose one of your FREEBLADE LANCE CHARACTER models. It has the following ability until your next Command phase starts. Brothers and Sisters in Burden (Aura): the Honoured Chivalric ability of your chosen Oaths stays active for this WARLORD while any friendly FREEBLADE LANCE model is within 12\" of this CHARACTER. As a result, the Chivalric abilities active for these models may differ from those active for your other IMPERIAL KNIGHTS models."
+  },
+  "2dc975b81e10": {
+    "name": "Siege Claw",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of attacks made with this weapon. If such an attack targets a VEHICLE or TITANIC unit, add 2 to its Damage characteristic."
+  },
+  "2e4928c2043a": {
+    "name": "Crimson Wall",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when a melee attack is allocated to one of your HOUSE RAVEN CHARACTER models, the saving throw against it is not rolled; it is treated as a 6 automatically."
+  },
+  "3662dddf30f1": {
+    "name": "Knight of the Iron Cog",
+    "kind": "ability",
+    "plain": "This unit has the Canticles of the Omnissiah ability, and counts as having the ADEPTUS MECHANICUS keyword for that ability."
+  },
+  "3bcd911818ae": {
+    "name": "Bondsman Abilities",
+    "kind": "ability",
+    "plain": "If your army is Honoured or Virtuous, then while an ARMIGER-CLASS model is under the effect of a Bondsman Ability, it also gets this on top of any other effects: each time an attack is allocated to it, reduce that attack's Damage characteristic by 1 (minimum 1)."
+  },
+  "3d2dfcef9c29": {
+    "name": "Hurled Wreckage",
+    "kind": "stratagem",
+    "plain": "At the end of the Fight phase, choose one of your IMPERIAL KNIGHTS models equipped with Freedom's Hand or a thunderstrike gauntlet (or a Relic replacing either). If any VEHICLE or MONSTER model was destroyed during that phase while within Engagement Range of your model, you can pick one enemy unit that is visible to it and within 9\" of it, and that isn't within Engagement Range of any of your units. Roll one D6; subtract 1 from the roll if the chosen unit is a CHARACTER whose Wounds characteristic is 9 or less. On a 3-5, that unit suffers D3 mortal wounds, and on a 6 it suffers 3 mortal wounds."
+  },
+  "3f882779b05f": {
+    "name": "Horrors at Bay",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when an enemy unit is chosen to fight while it is within Engagement Range of one of your HOUSE RAVEN models: for the rest of the phase, the only models in that unit that can make close combat attacks against your HOUSE RAVEN model are those within Engagement Range of it. For example, models in that unit that aren't in Engagement Range of your model but are within 1/2\" of a model that is within 1/2\" can't attack it in close combat, though they may still attack other eligible targets in close combat."
+  },
+  "4b723fdc31df": {
+    "name": "Rotate Ion Shields",
+    "kind": "stratagem",
+    "plain": "In your opponent's Shooting phase, when one of your IMPERIAL KNIGHTS VEHICLE models is chosen as the target of a ranged attack: for the rest of the phase, that model gets a 4+ invulnerable save against ranged attacks. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "57e520eae895": {
+    "name": "Dragon Slayer",
+    "kind": "stratagem",
+    "plain": "When one of your HOUSE GRIFFITH models is chosen to shoot in your Shooting phase or to fight in the Fight phase: for the rest of the phase, add 1 to the wound roll of each attack that model makes against a target containing any VEHICLE or MONSTER models."
+  },
+  "5d3dc58ddd26": {
+    "name": "Crushed",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when an attack made by an IMPERIAL KNIGHTS model from your army with Freedom's Hand or a thunderstrike gauntlet (or a Relic replacing either) is allocated to an enemy model. Before any saving throw is made for that attack, both players roll off; add 1 to your result if this IMPERIAL KNIGHTS model's Strength characteristic is higher than that of the model the attack was allocated to. If you win, invulnerable saving throws can't be taken against that attack; if not, that attack's Damage characteristic becomes 0."
+  },
+  "5f682fdcc643": {
+    "name": "Thundercoil Harpoon",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll of attacks made with this weapon against MONSTER or VEHICLE units (but not AIRCRAFT). Whenever an attack from this profile is allocated to a model, the unit of that model also suffers 3 mortal wounds besides the normal damage."
+  },
+  "601981c8a7a9": {
+    "name": "Crusader's Duty (Bondsman)",
+    "kind": "ability",
+    "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Its Ballistic Skill characteristic is improved by 1 until your next Command phase starts."
+  },
+  "698b736fdfe3": {
+    "name": "Twin Icarus Autocannon",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll of each attack made against an AIRCRAFT unit."
+  },
+  "6b4f9a01cdcd": {
+    "name": "Honour Inviolate",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your HOUSE RAVEN models is chosen to shoot: for the rest of the phase, as long as it did not Advance, its ranged weapons get 1 added to their Strength characteristic. This costs 3CP for an ACASTUS CLASS or DOMINUS CLASS model and 2CP for any other model."
+  },
+  "6de8c00c0d9e": {
+    "name": "Saturation Bombardment",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your HOUSE VULKER models is chosen to shoot: for the rest of the phase, each unmodified hit roll of 6 for its ranged attacks scores one additional hit. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "6fd171431903": {
+    "name": "Skyfire Protocols",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your ARMIGER-CLASS models is chosen to shoot: for the rest of the phase, its attacks against AIRCRAFT units get 1 added to their hit rolls."
+  },
+  "6fe2fc33067b": {
+    "name": "Thunderstomp",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS TITANIC models is chosen to fight: for the rest of the phase, its melee attacks with its titanic feet have 1 subtracted from their hit rolls, and if such an attack hits a target that isn't a VEHICLE, MONSTER or CHARACTER unit, it inflicts 2 mortal wounds on the target and the attack sequence ends."
+  },
+  "70590ed15a85": {
+    "name": "Kolossi Eternal",
+    "kind": "stratagem",
+    "plain": "Once per battle, at the start of your opponent's Shooting phase: pick one HOUSE RAVEN model from your army (not an ARMIGER CLASS model), then pick two other HOUSE RAVEN models within 3\" of it. Until the end of the phase, while those two models stay within 3\" of the first model, all three have a 4+ invulnerable save against ranged attacks."
+  },
+  "7063c87e7807": {
+    "name": "Hekaton Siege Claw (Crush)",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of attacks made with this weapon. If such an attack targets a VEHICLE or MONSTER unit, add 2 to its Damage characteristic."
+  },
+  "71f2493a44c7": {
+    "name": "Order of Companions",
+    "kind": "stratagem",
+    "plain": "Use before the battle while mustering your army, if your WARLORD has the HOUSE RAVEN keyword. Pick one HOUSE RAVEN QUESTORIS-CLASS model from your army; it gains this ability. Order of Companions: each time this model is chosen to shoot or fight, while resolving its attacks you can re-roll a single hit roll, wound roll or damage roll. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "73e440b8a45a": {
+    "name": "Point Blank Barrage",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your IMPERIAL KNIGHTS models is chosen to shoot: for the rest of the phase, it can make attacks with Blast weapons against units within its Engagement Range, and for each such attack against a unit within its Engagement Range, an unmodified hit roll of 1 causes this model to suffer 1 mortal wound after all its attacks have been resolved."
+  },
+  "79955d52443a": {
+    "name": "Pains of Old Night",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models is chosen to fight: for the rest of the phase, you re-roll a wound roll of 1 for its attacks against CHAOS models."
+  },
+  "83f3be23139e": {
+    "name": "Chainsweep",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models carrying a reaper chainsword or reaper chain-cleaver (or a Relic that takes the place of one) is chosen to fight: for the rest of the phase, hit rolls for that model's attacks can never be re-rolled, but each attack it makes with the Sweep profile of one of those weapons (or of such a Relic) makes 1 extra hit roll."
+  },
+  "87ca9870480b": {
+    "name": "Code Chivalric",
+    "kind": "ability",
+    "plain": "If every unit in your army has the IMPERIAL KNIGHTS keyword (not counting any AGENT OF THE IMPERIUM or UNALIGNED units), and, FREEBLADES aside, all of them come from the same noble household, you must swear 2 Oaths from the Oath tables when you write your army list and record them on it. You begin the battle with 1 Honour point. During the battle you can gain Honour points (usually by fulfilling the Pledge of your chosen Oaths) and lose them (usually when the Troth of your chosen Oaths applies), but your total can't drop below 0 or rise above 6. At the start of each battle round, check your total to find your army's level of Honour: 0 points is Dishonoured, 1-4 is Honoured, and 5-6 is Virtuous. Models with this ability gain Chivalric abilities based on that level. While Dishonoured, neither the Honoured nor the Virtuous Chivalric abilities of your chosen Oaths are active. While Honoured, the Honoured Chivalric ability of your chosen Oaths is active for every IMPERIAL KNIGHTS unit in your army, but the Virtuous ones are not. While Virtuous, both the Honoured and Virtuous Chivalric abilities of your chosen Oaths are active for every IMPERIAL KNIGHTS unit in your army.",
+    "waive": {
+      "ARMY HONOURNUMBER OF HONOUR POINTSARMY'S LEVEL OF": "column headers of the Honour table run together in the source data; the table itself is described"
+    }
+  },
+  "9169947238a1": {
+    "name": "Thin Their Ranks",
+    "kind": "stratagem",
+    "plain": "At the start of the Shooting phase, choose up to 3 of your ARMIGER-CLASS models. For the rest of the phase, each unmodified hit roll of 6 for a ranged attack by one of those models wounds the target automatically."
+  },
+  "985eaa4350af": {
+    "name": "Exacting Charge",
+    "kind": "stratagem",
+    "plain": "In your Charge phase, once one of your IMPERIAL KNIGHTS VEHICLE models has finished a charge move, choose one enemy unit within Engagement Range of it and roll four D6s (six D6s if this model is TITANIC). That unit suffers 1 mortal wound for each result equal to or greater than its Toughness characteristic, or 2 mortal wounds instead for each unmodified 6. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "9a4c37fdced3": {
+    "name": "Recount the Virtues",
+    "kind": "stratagem",
+    "plain": "At the start of any of your phases except your Command phase, choose one of your MENTOR units that hasn't recounted a teaching this turn. It can recount one teaching that no friendly model has recounted yet this turn; that teaching is automatically inspiring (no roll is made) and lasts until your next Command phase starts."
+  },
+  "9f10dc7f1d01": {
+    "name": "Lockstep Advance",
+    "kind": "stratagem",
+    "plain": "When you choose one of your HOUSE RAVEN units to move in your Movement phase: until the turn ends, its Move characteristic is halved, but whenever this model fires a weapon with a random number of attacks (for example 2D6), roll one extra dice when finding out how many attacks it makes, then discard one of the dice. This costs 3CP for an ACASTUS CLASS or DOMINUS CLASS model and 1CP for any other model."
+  },
+  "9f6e90c416fd": {
+    "name": "Slayers of Shadows",
+    "kind": "stratagem",
+    "plain": "When one of your HOUSE MORTAN models is chosen to shoot in your Shooting phase or to fight in the Fight phase: for the rest of the phase, whenever that model attacks, you can ignore any or all modifiers to the hit roll, Ballistic Skill and Weapon Skill."
+  },
+  "a07fc71c8558": {
+    "name": "Flanking Manoeuvres",
+    "kind": "stratagem",
+    "plain": "At the start of your Movement phase, choose up to two of your ARMIGER-CLASS models that are within 6\" of any battlefield edge and more than 6\" away from every enemy model. If the mission you are playing uses the Strategic Reserves rule, put that unit into Strategic Reserves; it can't then arrive from Strategic Reserves in the turn it was put there."
+  },
+  "a4876cf0fb79": {
+    "name": "Sir Hekhtur",
+    "kind": "ability",
+    "plain": "If CANIS REX is destroyed and does not explode, before removing it, set up SIR HEKHTUR within 3\" of CANIS REX, treating him as a passenger disembarking from a destroyed TRANSPORT. If he survives, SIR HEKHTUR then uses his own profile and keywords. He is armed with Hekhtur's pistol, but he does not have the Ion Shields or Super-heavy Walker abilities. The unit only counts as destroyed once SIR HEKHTUR has also been destroyed."
+  },
+  "a49f731b2f8f": {
+    "name": "Calculated Targeting",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your QUESTOR MECHANICUS models is chosen to shoot: for the rest of the phase, an unmodified wound roll of 6 for any of its ranged attacks inflicts mortal wounds on the target equal to that attack's Damage characteristic, and the attack sequence ends. This costs 2CP for an ARMIGER-CLASS model, 3CP for a QUESTORIS-CLASS model, and 4CP for any other model."
+  },
+  "a6e2eb8dcb00": {
+    "name": "Warden's Duty (Bondsman)",
+    "kind": "ability",
+    "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Until your next Command phase starts, that ARMIGER-CLASS model counts as 10 models when working out which player controls objective markers."
+  },
+  "a7146ebe9f73": {
+    "name": "Unyielding Knight",
+    "kind": "ability",
+    "plain": "When working out who controls an objective marker, this model counts as 5 models, or as 10 models if it is TITANIC."
+  },
+  "a9fec186936e": {
+    "name": "Favoured Knight",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army. Pick one FREEBLADE LANCE CHARACTER model from your army (not a named character) that has one Heirloom Relic. It can take a second Heirloom Relic, which must be one it could have. Every Relic in your army must be unique. You can use this Stratagem only once."
+  },
+  "ab5dafbb7a06": {
+    "name": "Deeds of Legend",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your FREEBLADE LANCE models destroys an enemy VEHICLE, MONSTER or CHARACTER unit, choose one Chivalric ability. For the rest of the battle, this model has that ability and it is active for it whatever your army's current level of Honour. If you chose Martial Legacy, you can only use it to change a roll's result to a 6 when that roll was made for this model. You can use this Stratagem only once."
+  },
+  "ad39a83b7380": {
+    "name": "Rad-Cleanser",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon hit the target automatically. Unless the target is a VEHICLE or TITANIC unit, a wound roll of 2+ always succeeds for these attacks."
+  },
+  "af9799bfcdff": {
+    "name": "Bio-scryer Cogitator Array",
+    "kind": "stratagem",
+    "plain": "When the Reinforcements step of your opponent's Movement phase ends, choose one of your HOUSE CADMUS models that isn't within Engagement Range of any enemy units. That unit may shoot as though it were your Shooting phase, but the only target its models may pick is one eligible enemy unit within 12\" of them that was set up as Reinforcements this turn. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "b196bbb5578a": {
+    "name": "Freedom's Hand - Sweep",
+    "kind": "weapon",
+    "plain": "For each attack made with this weapon profile, make 2 hit rolls rather than 1. Also, on an unmodified wound roll of 6, the target suffers 1 mortal wound on top of the normal damage."
+  },
+  "b1b03717f916": {
+    "name": "Controlled Aggression",
+    "kind": "stratagem",
+    "plain": "At the start of the Fight phase, choose either up to 2 of your HOUSE KRAST ARMIGER-CLASS models, or one other HOUSE KRAST unit of yours. For the rest of the phase, the chosen models get 1 added to their Attacks characteristic, and the Armour Penetration characteristic of their melee attacks is improved by 1."
+  },
+  "b23860b94100": {
+    "name": "Shadow’s Reach",
+    "kind": "stratagem",
+    "plain": "At the start of your opponent's Movement phase, choose one of your HOUSE RAVEN models (not an ARMIGER CLASS model). For the rest of the phase, an enemy model counts as being within Engagement Range of it if it is within 3\" horizontally and 5\" vertically of it, rather than the usual 1\" horizontally and 5\" vertically.",
+    "waive": {
+      "1\"": "the official text has an OCR error (a letter l in place of the 1 in 1\"); 1\" horizontally is the normal Engagement Range being replaced"
+    }
+  },
+  "b533238c1687": {
+    "name": "Gallant's Duty (Bondsman)",
+    "kind": "ability",
+    "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Its Weapon Skill characteristic is improved by 1 until your next Command phase starts."
+  },
+  "b5d142e80a78": {
+    "name": "Exalted Court",
+    "kind": "rule",
+    "plain": "An upgraded model can use its Noble Exemplar ability only while your army is Honoured or Virtuous; it can't use it if your army is Dishonoured or if the model has no Bondsman abilities. A bearer that has a Bondsman ability can use that Bondsman ability one extra time in each of your Command phases."
+  },
+  "b87f09a5876e": {
+    "name": "Full Tilt",
+    "kind": "stratagem",
+    "plain": "When one of your IMPERIAL KNIGHTS VEHICLE models Advances in your Movement phase, don't make an Advance roll for it. Instead, until the end of the phase, add 6\" to its Move characteristic (9\" instead if it is an ARMIGER-CLASS model)."
+  },
+  "bb94a0bdbc75": {
+    "name": "Heirlooms of the Household",
+    "kind": "stratagem",
+    "plain": "Use before the battle while mustering your army, if your WARLORD has the IMPERIAL KNIGHTS keyword. Pick one IMPERIAL KNIGHTS model from your army: it can have one Heirloom Relic even if it isn't a CHARACTER model (the Relic must be one it could have). Every Relic in your army must be unique, and this Stratagem can't be used to give one model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "be87f67acd5e": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If CANIS REX is destroyed, before taking it off the battlefield, roll one D6. On a 6 it explodes, and every unit within 2D6\" of it takes D6 mortal wounds."
+  },
+  "bef7bbb1db6a": {
+    "name": "Impetuous Glory",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase when an ARMIGER-CLASS model from your army is selected to fight. Until the end of the phase, an unmodified hit roll of 6 on its melee attacks scores one additional hit."
+  },
+  "c58fc5bded10": {
+    "name": "Stormstriders",
+    "kind": "stratagem",
+    "plain": "When you choose one of your QUESTOR IMPERIALIS TITANIC models to make a Normal Move or Advance in your Movement phase, then once it has moved, pick one enemy unit (not an AIRCRAFT unit) that it moved across and roll one D6, adding 1 if that unit has 6-10 models or adding 2 if it has 11 or more models. On a 3-6, that unit suffers D3 mortal wounds; on a 7+, it suffers D6 mortal wounds."
+  },
+  "c62945f9d421": {
+    "name": "Linebreaker",
+    "kind": "stratagem",
+    "plain": "In your Fight phase, when one of your QUESTOR IMPERIALIS VEHICLE models makes a consolidation move: for that consolidation move this phase, the model can consolidate up to 6\" rather than up to 3\" (this stacks with the Vow of Honour Questor Allegiance Oath, so such a model would consolidate up to 7\" this phase), and it can move in any direction, as long as it ends the move either within Engagement Range of an enemy model or at least 3\" closer to your opponent's battlefield edge."
+  },
+  "c850832df759": {
+    "name": "Graviton Crusher",
+    "kind": "weapon",
+    "plain": "When an attack made with this weapon is allocated to a model whose Save characteristic is 3+ or better, the attack's Damage characteristic is 3."
+  },
+  "ce506954ed54": {
+    "name": "Freedom's Hand - Strike",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon inflict D3 mortal wounds on the target on an unmodified wound roll of 6, on top of their normal damage."
+  },
+  "d28cff67a87e": {
+    "name": "Hammer Blow",
+    "kind": "stratagem",
+    "plain": "In your Shooting phase, when one of your HOUSE RAVEN models that Remained Stationary this turn is chosen to shoot: until the turn ends, it can't make a charge move, and each ranged attack it makes with a Blast weapon can re-roll a hit roll of 1 (or re-roll the hit roll whatever the result, if the target unit had 6 or more models when this unit was chosen to shoot). This costs 3CP for an ACASTUS CLASS or DOMINUS CLASS model and 1CP for any other model."
+  },
+  "d3813ac6ca9a": {
+    "name": "Legendary Freeblade",
+    "kind": "ability",
+    "plain": "Once per battle round, you can re-roll a single roll made for CANIS REX, as long as it is a hit roll, wound roll, charge roll or saving throw."
+  },
+  "d5c8333306ed": {
+    "name": "Code Chivalric",
+    "kind": "rule",
+    "plain": "You begin the battle with 1 Honour point. During the battle you can gain Honour points (usually by fulfilling the Pledge of your chosen Oaths) and lose them (usually when the Troth of your chosen Oaths applies), but your total can't drop below 0 or rise above 6. At the start of each battle round, check your total to find your army's level of Honour: 0 points is Dishonoured, 1-4 is Honoured, and 5-6 is Virtuous. While Dishonoured, neither the Honoured nor the Virtuous Chivalric abilities of your chosen Oaths are active. While Honoured, the Honoured Chivalric ability of your chosen Oaths is active for every IMPERIAL KNIGHTS unit in your army, but the Virtuous ones are not. While Virtuous, both the Honoured and Virtuous Chivalric abilities of your chosen Oaths are active for every IMPERIAL KNIGHTS unit in your army."
+  },
+  "d6cb5cacfabb": {
+    "name": "Trophy Claim",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models destroys an enemy TITANIC unit with a melee attack: this model's Attacks characteristic goes up by 1 for the rest of the battle. If all units in your army have the IMPERIAL KNIGHTS keyword (not counting AGENT OF THE IMPERIUM or UNALIGNED units), you gain 1 Honour point. Also, for the rest of the battle, this model is always treated as if your army were Virtuous when you work out which Chivalric abilities are active for your IMPERIAL KNIGHTS models, so different models in your army may have different Chivalric abilities active."
+  },
+  "d8b7204e778b": {
+    "name": "Martial Prowess",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS VEHICLE units is chosen as the target of an attack: for the rest of the phase, add 1 to any armour saving throw made against an attack allocated to that model. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "d9df3851a083": {
+    "name": "Shieldbreaker Missile",
+    "kind": "weapon",
+    "plain": "Each shieldbreaker missile can be fired only once in the battle, and a model can fire no more than one per turn. Invulnerable saving throws can't be made against its attack."
+  },
+  "da6b10de5d76": {
+    "name": "Noble Households",
+    "kind": "rule",
+    "plain": "In a Battle-forged army, a Detachment can't contain units from two different noble households, but it can contain any number of FREEBLADES."
+  },
+  "dba75ca7961f": {
+    "name": "Protection Protocols",
+    "kind": "ability",
+    "plain": "As long as any friendly <HOUSEHOLD> TITANIC models are within 6\" of it, this model can make Heroic Interventions as if it were a CHARACTER. It is eligible to do so whenever an enemy unit is within 6\" horizontally and 5\" vertically of it, and its Heroic Intervention move can be up to 6\" rather than 3\". Every other Heroic Intervention rule still applies."
+  },
+  "dc12ab2457ec": {
+    "name": "Paladin's Duty (Bondsman)",
+    "kind": "ability",
+    "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Until your next Command phase starts, whenever that ARMIGER-CLASS model attacks, you re-roll a hit roll of 1 and a wound roll of 1."
+  },
+  "dc8d29548c66": {
+    "name": "Knight Baron",
+    "kind": "stratagem",
+    "plain": "Use before the battle while mustering your army, if your WARLORD has the IMPERIAL KNIGHTS keyword. Pick one IMPERIAL KNIGHTS model from your army (not a named character). It gains the CHARACTER keyword and you must give it one Warlord Trait (one it is able to have); it counts as your Warlord only for that Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if generating randomly), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "dcceb3170571": {
+    "name": "Defiant Fury",
+    "kind": "stratagem",
+    "plain": "In any phase, when one of your IMPERIAL KNIGHTS <NOBLE HOUSEHOLD> CHARACTER units is destroyed by an enemy unit, choose one of your <NOBLE HOUSEHOLD> ARMIGER-CLASS models. At the end of that phase, the ARMIGER-CLASS model may shoot as though it were your Shooting phase, but it may only target that enemy unit (and only if that unit is an eligible target). For the rest of the battle, you can re-roll the hit roll for any attack that ARMIGER-CLASS model makes against that enemy unit."
+  },
+  "dd7f6cc2c532": {
+    "name": "Reaper Chainsword - Sweep",
+    "kind": "weapon",
+    "plain": "For each attack made with this weapon profile, make 3 hit rolls rather than 1."
+  },
+  "df733e7858a5": {
+    "name": "Armiger Squadron",
+    "kind": "ability",
+    "plain": "When this unit is first set up on the battlefield, if it has more than one model, every model must be placed within 6\" of at least one other model from the unit. After that, each model acts on its own and counts as a separate unit."
+  },
+  "df96e5c623dd": {
+    "name": "Valiant Last Stand",
+    "kind": "stratagem",
+    "plain": "In the Fight phase, when one of your QUESTOR IMPERIALIS models that hasn't been chosen to fight yet this phase is destroyed without exploding: don't remove it from play. It can fight once the attacking model's unit has finished its attacks, using the characteristics for having 1 wound remaining. After its attacks are resolved, remove it. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "ed7c751cb362": {
+    "name": "Ion Aegis",
+    "kind": "stratagem",
+    "plain": "In your opponent's Command phase, choose one of your DOMINUS-CLASS models. It has the following ability until the turn ends. Ion Aegis (Aura): each friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 6\" of this model gets a 4+ invulnerable save against ranged weapons while it stays in range."
+  },
+  "ee41932ad0a8": {
+    "name": "Noble Sacrifice",
+    "kind": "stratagem",
+    "plain": "Once per battle, when an IMPERIAL KNIGHTS VEHICLE model from your army is destroyed: don't roll to see whether it explodes, because it explodes automatically. If it is a DOMINUS-CLASS model, roll one D6; on a 4+, the explosion's range is 3D6\". Costs 1CP for an ARMIGER-CLASS model, 2CP for a QUESTORIS-CLASS model, and 3CP for any other model."
+  },
+  "fba9e61e981b": {
+    "name": "Revered Paragon",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate an IMPERIAL KNIGHTS CHARACTER model as your WARLORD: it can have one extra Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if generating randomly). You can't use this Stratagem if your WARLORD is a named character."
+  },
+  "ff8dd7188501": {
+    "name": "Cerastus Shock Lance (Melee - Charged)",
+    "kind": "weapon",
+    "plain": "This model can only use the Charged profile if it made a charge move this turn."
+  }
+}
