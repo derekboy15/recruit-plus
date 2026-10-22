@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { MissionOut, PackOut } from '@recruit/data/missions';
 import { prompts } from './checklist';
 import { CpPrompt } from './CpPrompt';
@@ -21,7 +21,17 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
   const [ticked, setTicked] = useState<Record<string, boolean>>({});
   const active = state.active!;
   const cpNeeded = cpDecisionsNeeded(data, mission, pos);
-  const write = (bodies: EventBody[]) => append(bodies.map((b) => makeEvent(b, pos)));
+  // Each tap's events are worked out from the phase on screen, so a tap must not run until the previous tap's change
+  // has been saved and drawn: otherwise it acts on the phase it already left (a lost or doubled advance).
+  const wrote = useRef(false);
+  const write = (bodies: EventBody[]) => {
+    wrote.current = true;
+    return append(bodies.map((b) => makeEvent(b, pos)));
+  };
+  const saveChange = (change: (d: TableGameData) => TableGameData) => {
+    wrote.current = true;
+    return update(change);
+  };
 
   const proceed = async (items: ScoreItem[], after: () => Promise<void>) => {
     if (items.length) {
@@ -50,17 +60,29 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
       ];
       return proceed(items, last ? finishGame : advance);
     });
-  // One write at a time: a second tap on a button whose save hasn't finished does nothing.
+  // One change at a time. `waitingOn` is the game data a tap started from: the buttons stay disabled until newer data
+  // arrives from the database (the tap's change, saved and drawn), or at once if the tap wrote nothing.
   const busy = useRef(false);
+  const [waitingOn, setWaitingOn] = useState<TableGameData | null>(null);
+  useEffect(() => {
+    if (waitingOn && waitingOn !== data) setWaitingOn(null);
+  }, [data, waitingOn]);
   const once = async (work: () => Promise<void>) => {
-    if (busy.current) return;
+    if (busy.current || waitingOn) return;
     busy.current = true;
+    wrote.current = false;
+    setWaitingOn(data);
     try {
       await work();
+      if (!wrote.current) setWaitingOn(null);
+    } catch (e) {
+      setWaitingOn(null);
+      throw e;
     } finally {
       busy.current = false;
     }
   };
+  const locked = waitingOn !== null;
   const resolveScore = (vp: number, detail: string) =>
     once(async () => {
       const [item, ...rest] = queue;
@@ -77,7 +99,7 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
     once(async () => {
       setQueue([]);
       setThen(null);
-      await update(undo);
+      await saveChange(undo);
     });
   const actionItems = dueScoring(mission, setup, pos, 'on-action');
   const blocked = cpNeeded.length > 0 || queue.length > 0;
@@ -117,8 +139,8 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
         <button type="button" className="btn" onClick={() => void proceed(actionItems, async () => {})}>Score an action</button>
       )}
       <div className="wizard-actions">
-        <button type="button" className="btn" onClick={() => void onUndo()} disabled={data.events.length <= 1}>Undo</button>
-        <button type="button" className="btn btn--primary" onClick={onNext} disabled={blocked}>{pos.phase === 'morale' ? 'End turn' : 'Next phase'}</button>
+        <button type="button" className="btn" onClick={() => void onUndo()} disabled={locked || data.events.length <= 1}>Undo</button>
+        <button type="button" className="btn btn--primary" onClick={onNext} disabled={locked || blocked}>{pos.phase === 'morale' ? 'End turn' : 'Next phase'}</button>
       </div>
     </div>
   );

@@ -198,3 +198,21 @@ test('the mission card shows the map and rules', async () => {
   expect(screen.getByRole('img', { name: /Deployment map/ })).toBeInTheDocument();
   expect(screen.getByText(/Any units arriving|can't arrive from Strategic Reserves/)).toBeInTheDocument();
 });
+
+test('quick taps never act on a stale phase: Next phase and Undo stay disabled until the new state is on screen', async () => {
+  const id = await seed(testSetup(), { round: 1, turn: 1, phase: 'movement' });
+  renderGame(id);
+  await screen.findByText(/Round 1 · Your turn · Movement phase/);
+  const next = screen.getByRole('button', { name: 'Next phase' });
+  fireEvent.click(next);
+  // Disabled straight away, before the save and redraw finish, so a second tap can't repeat the same advance.
+  expect(next).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Undo' })).toBeDisabled();
+  fireEvent.click(next);
+  await screen.findByText(/Round 1 · Your turn · Psychic phase/);
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Next phase' })).toBeEnabled());
+  fireEvent.click(screen.getByRole('button', { name: 'Next phase' }));
+  await screen.findByText(/Round 1 · Your turn · Shooting phase/);
+  const advances = (await doc(id)).data.events.filter((e) => e.t === 'advance');
+  expect(advances.map((e) => (e as { to: Pos }).to.phase)).toEqual(['movement', 'psychic', 'shooting']);
+});
