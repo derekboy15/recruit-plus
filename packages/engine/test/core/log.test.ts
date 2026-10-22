@@ -42,6 +42,21 @@ describe('queries for the board and lessons', () => {
     expect(currentStep(stateOf(g)).pending).toMatchObject({ kind: 'roll' });
   });
 
+  test('[TS §8.1] with no Morale tests to take, the player whose turn it is acts (only they can end the phase)', () => {
+    let g = game();
+    for (let i = 0; i < 6; i++) g = play(g, { type: 'endPhase', by: 'A' } as Command);
+    expect(stateOf(g)).toMatchObject({ phase: 'morale', step: 'morale-tests', active: 'A' });
+    expect(currentStep(stateOf(g)).actingPlayer).toBe('A');
+  });
+
+  test('[TS §7.1] with no unit left to fight, the player whose turn it is acts', () => {
+    let g = game();
+    for (let i = 0; i < 5; i++) g = play(g, { type: 'endPhase', by: 'A' } as Command);
+    const s = stateOf(g);
+    expect(s).toMatchObject({ phase: 'fight', active: 'A' });
+    for (const picker of ['A', 'B'] as const) expect(currentStep({ ...s, fight: { picker, next: null } }).actingPlayer).toBe('A');
+  });
+
   test('eligibleUnits("charge") leaves out units that Advanced', () => {
     let g = game();
     for (let i = 0; i < 4; i++) g = play(g, { type: 'endPhase', by: 'A' } as Command);
