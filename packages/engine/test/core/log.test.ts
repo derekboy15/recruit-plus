@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { currentStep, describedEventTypes, eligibleUnits, EngineLoadError, gameLog, loadGame, registeredEventTypes, saveGame, stateOf, type Command } from '../../src';
 import { guardsmen, marines } from '../fixtures/units';
-import { FULL_ZONES, line, newTestGame, placeAll, play, setTurnFlag, shift, unitInput } from '../helpers/game';
+import { deploy, FULL_ZONES, line, newTestGame, placeAll, play, setTurnFlag, shift, unitInput } from '../helpers/game';
 
 const game = (o: Parameters<typeof newTestGame>[0] = {}) =>
   placeAll(newTestGame({ zones: FULL_ZONES(), a: [unitInput('a1', marines(), 5), unitInput('a2', marines(), 5)], b: [unitInput('b1', guardsmen(), 5)], ...o }), {
@@ -35,11 +35,52 @@ describe('game log', () => {
   });
 });
 
+/** Deploys a1 and b1 in turn, leaving the game at the first-turn step. */
+function placeAllButBattle(g: ReturnType<typeof newTestGame>) {
+  for (let i = 0; i < 2; i++) {
+    const s = stateOf(g);
+    const id = s.deploy.next === 'A' ? 'a1' : 'b1';
+    g = play(g, deploy(s.deploy.next, id, line(5, s.deploy.next === 'A' ? 30 : 38, id)));
+  }
+  return g;
+}
+
 describe('queries for the board and lessons', () => {
   test('currentStep names the player who must act on a roll', () => {
     const g = play(game({ windows: true }), { type: 'endPhase', by: 'A' } as Command, { type: 'beginMove', by: 'A', unitId: 'a1', kind: 'advance' } as Command);
     expect(currentStep(stateOf(g))).toMatchObject({ round: 1, phase: 'movement', step: 'move-units', actingPlayer: 'A', involvedUnitIds: ['a1'] });
     expect(currentStep(stateOf(g)).pending).toMatchObject({ kind: 'roll' });
+  });
+
+  test('[MP §4] during deployment the player due to set up a unit acts; then the roll-off winner chooses', () => {
+    const fresh = newTestGame({ zones: FULL_ZONES(), a: [unitInput('a1', marines(), 5), unitInput('a2', marines(), 5)], b: [unitInput('b1', guardsmen(), 5)], firstTurn: null });
+    const s0 = stateOf(fresh);
+    expect(currentStep(s0).actingPlayer).toBe(s0.deploy.next);
+    const g = play(fresh, deploy(s0.deploy.next, s0.deploy.next === 'A' ? 'a1' : 'b1', line(5, s0.deploy.next === 'A' ? 30 : 38, s0.deploy.next === 'A' ? 'a1' : 'b1')));
+    const s1 = stateOf(g);
+    expect(s1.deploy.next).not.toBe(s0.deploy.next);
+    expect(currentStep(s1).actingPlayer).toBe(s1.deploy.next);
+    // Core Book rules: the roll-off winner chooses who goes first.
+    let core = placeAllButBattle(newTestGame({ zones: FULL_ZONES(), size: 'combat-patrol', a: [unitInput('a1', marines(), 5)], b: [unitInput('b1', guardsmen(), 5)], firstTurn: null }));
+    core = play(core, { type: 'rollOffFirstTurn', by: stateOf(core).active } as Command);
+    const s2 = stateOf(core);
+    expect(s2.firstPlayer).toBeNull();
+    expect(currentStep(s2).actingPlayer).toBe(s2.rollOffWinner);
+  });
+
+  test('[TS §8.1] with no Morale tests to take, the player whose turn it is acts (only they can end the phase)', () => {
+    let g = game();
+    for (let i = 0; i < 6; i++) g = play(g, { type: 'endPhase', by: 'A' } as Command);
+    expect(stateOf(g)).toMatchObject({ phase: 'morale', step: 'morale-tests', active: 'A' });
+    expect(currentStep(stateOf(g)).actingPlayer).toBe('A');
+  });
+
+  test('[TS §7.1] with no unit left to fight, the player whose turn it is acts', () => {
+    let g = game();
+    for (let i = 0; i < 5; i++) g = play(g, { type: 'endPhase', by: 'A' } as Command);
+    const s = stateOf(g);
+    expect(s).toMatchObject({ phase: 'fight', active: 'A' });
+    for (const picker of ['A', 'B'] as const) expect(currentStep({ ...s, fight: { picker, next: null } }).actingPlayer).toBe('A');
   });
 
   test('eligibleUnits("charge") leaves out units that Advanced', () => {

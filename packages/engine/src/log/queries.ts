@@ -30,8 +30,17 @@ export function currentStep(s: GameState): CurrentStep {
   let acting: PlayerId = s.active;
   if (s.pending) acting = s.pending.player;
   else if (s.placements?.length) acting = s.placements[0].player;
-  else if (s.phase === 'fight' && !s.activation) acting = fightOrder(s).picker;
-  else if (s.phase === 'morale' && s.step === 'morale-tests') acting = needsMoraleTest(s, s.morale.next).length ? s.morale.next : other(s.morale.next);
+  else if (s.phase === 'pre-battle' && s.step === 'deploy') {
+    // MP §4: the players alternate setting up units; one with nothing left to set up passes to the other.
+    const waiting = (p: PlayerId) => unitsOf(s, p).some((u) => u.location === 'deploying');
+    acting = waiting(s.deploy.next) ? s.deploy.next : other(s.deploy.next);
+  } else if (s.phase === 'pre-battle' && s.rollOffWinner && !s.firstPlayer) acting = s.rollOffWinner;
+  else if (s.phase === 'fight' && !s.activation) {
+    // With no unit left to fight, the player whose turn it is ends the phase.
+    const order = fightOrder(s);
+    acting = order.selectable.length ? order.picker : s.active;
+  } else if (s.phase === 'morale' && s.step === 'morale-tests' && needsMoraleTest(s).length)
+    acting = needsMoraleTest(s, s.morale.next).length ? s.morale.next : other(s.morale.next);
   else if (s.phase === 'charge' && s.step === 'heroic-interventions') acting = other(s.active);
   return { round: s.round, active: s.active, phase: s.phase, step: s.step, pending: s.pending, actingPlayer: acting, involvedUnitIds: [...involved] };
 }

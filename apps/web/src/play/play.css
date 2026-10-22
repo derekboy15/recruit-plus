@@ -1,0 +1,102 @@
+/* Sandbox styles (loaded with the /play routes). */
+.play-game { display: grid; gap: 0.4rem; }
+.play-game > .btn { justify-self: end; }
+.play-game__confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.play-game__confirm p { margin: 0; flex-basis: 100%; }
+.play-problems { border: 1px solid var(--red-strong); background: var(--bad-bg); border-radius: var(--radius); padding: 0.5rem 0.75rem; margin: 0.5rem 0; }
+.play-problems p { margin: 0.25rem 0; }
+.play-problems ul { margin: 0.25rem 0; padding-left: 1.2rem; }
+.play-setup > .btn--primary { width: 100%; }
+.board { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #0d0d0c; border-radius: var(--radius); }
+.board__canvas { position: absolute; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
+.board__zoom { position: absolute; right: 6px; bottom: 6px; display: grid; gap: 6px; }
+.board__zoom .btn { min-width: var(--touch); padding: 0; font-size: 1.2rem; background: rgba(28, 27, 26, 0.85); }
+
+/* ---------- Game screen: fills the window above the app's own bars ---------- */
+.game {
+  position: fixed; inset: 0; z-index: 20; background: var(--bg);
+  display: grid; grid-template-rows: auto minmax(45vh, 1fr) auto; grid-template-columns: minmax(0, 1fr);
+  height: 100dvh;
+}
+.game__top { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'where tools' 'armies armies'; gap: 0.25rem 0.5rem; align-items: center; padding: 0.25rem 0.5rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.game__where { grid-area: where; font-weight: 700; color: var(--brass-strong); font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game__tools { grid-area: tools; display: flex; gap: 0.25rem; }
+.game__tools .btn { padding: 0 0.55rem; }
+.game__armies { grid-area: armies; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.25rem; }
+.game__army { min-height: var(--touch); display: grid; text-align: left; padding: 0.15rem 0.5rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; font-size: 0.8rem; cursor: pointer; min-width: 0; }
+.game__army-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game__army-nums { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.game__army--A { box-shadow: inset 4px 0 0 var(--brass); }
+.game__army--B { box-shadow: inset 4px 0 0 var(--red-strong); }
+.game__army[data-active='true'] { border-color: var(--focus); }
+.game__board { position: relative; min-height: 0; }
+.game__panel { overflow-y: auto; max-height: 40vh; padding: 0.25rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--border); }
+.game--tall .game__panel { max-height: 85vh; }
+.game--tall { grid-template-rows: auto minmax(15vh, 1fr) auto; }
+.game__handle { display: block; width: 100%; min-height: var(--touch); background: none; border: 0; color: var(--text-muted); font: inherit; font-size: 0.85rem; cursor: pointer; }
+.game__hint { margin: 0.25rem 0 0.5rem; padding: 0.4rem 0.6rem; border-left: 3px solid var(--brass); background: var(--surface-2); font-size: 0.9rem; }
+.game__disclaimer { font-size: 0.7rem; margin-top: 1rem; }
+.game__panel h2 { font-size: 1.05rem; margin: 0.25rem 0 0.5rem; }
+.game__panel .btn--primary { width: 100%; margin-top: 0.5rem; }
+.play-rule { font-size: 0.75rem; }
+.play-units { margin: 0.5rem 0; }
+.play-unit { width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.die { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; margin: 0 0.25rem 0.25rem 0; border-radius: 6px; background: var(--text); color: #111; font-weight: 700; font-size: 1.1rem; }
+.game__overlay { position: fixed; inset: 0; z-index: 30; background: rgba(0, 0, 0, 0.6); display: grid; place-items: center; padding: 1rem; }
+.game__dialog { position: relative; width: min(100%, 520px); max-height: 85vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
+.game__close { position: absolute; top: 0.5rem; right: 0.5rem; }
+.game__dialog h2 { margin-top: 0; }
+.game__log ol { padding-left: 1.2rem; font-size: 0.9rem; }
+.game__log h3 { font-size: 0.95rem; color: var(--brass-strong); }
+.game__handover { text-align: center; }
+.game__handover-text { color: var(--text-muted); margin: 0; }
+.game__handover-name { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; overflow-wrap: anywhere; }
+.game__menu-actions { display: grid; gap: 0.5rem; margin-top: 1rem; }
+.game__menu-actions [role='group'] { display: grid; gap: 0.5rem; }
+
+@media (min-width: 768px) {
+  .game, .game--tall { grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: auto minmax(0, 1fr); }
+  .game__top { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'where armies tools'; }
+  .game__panel, .game--tall .game__panel { max-height: none; border-top: 0; border-left: 1px solid var(--border); }
+  .game__handle { display: none; }
+}
+.play-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.play-row > .btn { flex: 1 1 8rem; }
+.play-small { font-size: 0.8rem; }
+.play-actions { margin-top: 0.5rem; }
+.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; }
+.play-field select, .play-field input { min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
+.dice { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+.dice .die { position: relative; min-width: var(--touch); height: var(--touch); margin: 0; border: 2px solid transparent; cursor: default; font: inherit; font-weight: 700; font-size: 1.2rem; }
+.dice button.die { cursor: pointer; }
+.die small { position: absolute; top: 1px; right: 3px; font-size: 0.65rem; }
+.die--pass { background: var(--ok); }
+.die--fail { background: #8a8580; color: #2a2724; }
+.die--picked { border-color: var(--focus); box-shadow: 0 0 0 2px var(--focus); }
+.die--rolling { animation: die-tumble 0.15s linear infinite; }
+@keyframes die-tumble { 0% { transform: rotate(0deg); } 50% { transform: rotate(12deg) scale(1.08); } 100% { transform: rotate(0deg); } }
+@media (prefers-reduced-motion: reduce) { .die--rolling { animation: none; } }
+.play-weapons { display: grid; gap: 0.5rem; margin: 0.5rem 0; }
+.play-weapon { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.25rem 0.5rem 0.5rem; }
+.play-weapon[data-focus='true'] { border-color: var(--focus); }
+.play-weapon select { flex: 1 1 10rem; min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); font: inherit; }
+.play-details { margin: 0.5rem 0; }
+.play-details summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; color: var(--brass-strong); }
+.play-actions > .btn { display: block; width: 100%; margin-top: 0.5rem; }
+.play-count { min-width: 2rem; text-align: center; font-weight: 700; align-self: center; }
+.play-assist { margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.5rem; }
+.play-assist > summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 700; color: var(--brass-strong); }
+.play-assist h3 { font-size: 1rem; margin: 0.75rem 0 0.25rem; }
+.play-assist h4 { font-size: 0.9rem; margin: 0.5rem 0 0.15rem; }
+.play-assist .rules-text { font-size: 0.9rem; margin: 0 0 0.25rem; }
+.play-assist__unit { border-left: 3px solid var(--border); padding-left: 0.5rem; margin: 0.5rem 0; }
+.play-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.play-tags { list-style: none; padding: 0; margin: 0.25rem 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.play-strat { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.4rem 0.6rem; }
+.play-strat p { margin: 0.2rem 0; }
+.play-mods .play-field { flex: 1 1 10rem; }
+.game__adjust { float: right; margin: 0 0 0.25rem 0.5rem; }
+.play-tools { display: grid; gap: 0.4rem; margin: 0.5rem 0; }
+.play-toolkit > .btn { display: block; width: 100%; margin-top: 0.5rem; }
+.play-grow { flex: 1 1 auto; align-self: center; }
+.play-order { padding-left: 1.2rem; }
