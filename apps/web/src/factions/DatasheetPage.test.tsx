@@ -1,14 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { CatalogueOut } from '@recruit/data/model';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { afterEach, expect, test, vi } from 'vitest';
-import { WordingProvider } from '../rules/wording';
+import { Route, Routes } from 'react-router-dom';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
+import { TestProviders } from '../rules/__fixtures__/TestProviders';
+import { openDb, type RecruitDb } from '../storage/db';
 import { resetDataCache } from './dataClient';
 import { DatasheetPage } from './DatasheetPage';
 import { necronWarriors, necrons } from './__fixtures__/necrons';
 
+let db: RecruitDb;
+let n = 0;
+beforeEach(() => {
+  db = openDb(`datasheet-${++n}`);
+});
 afterEach(() => {
+  db.close();
   vi.unstubAllGlobals();
   resetDataCache();
   localStorage.clear();
@@ -17,13 +24,11 @@ afterEach(() => {
 function renderDatasheet(cat: CatalogueOut) {
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(cat))));
   render(
-    <WordingProvider>
-      <MemoryRouter initialEntries={['/factions/necrons/units/necron-warriors']}>
-        <Routes>
-          <Route path="/factions/:slug/units/:unitSlug" element={<DatasheetPage />} />
-        </Routes>
-      </MemoryRouter>
-    </WordingProvider>,
+    <TestProviders db={db} path="/factions/necrons/units/necron-warriors">
+      <Routes>
+        <Route path="/factions/:slug/units/:unitSlug" element={<DatasheetPage />} />
+      </Routes>
+    </TestProviders>,
   );
 }
 
@@ -72,6 +77,12 @@ test('the official wording switch shows the official texts', async () => {
   expect(screen.getByText('Models may stand back up.')).toBeInTheDocument();
   expect(screen.getByText(/an unmodified hit roll of 6 scores 1 additional hit/)).toBeInTheDocument();
   expect(screen.queryByText('Destroyed models can come back.')).not.toBeInTheDocument();
+});
+
+test('every ability and the datasheet itself can be reported', async () => {
+  renderDatasheet(withPlain);
+  await screen.findByText('Destroyed models can come back.');
+  expect(await screen.findAllByRole('button', { name: 'Report a rules error' })).toHaveLength(3);
 });
 
 test('an ability without plain English shows the official wording with a label', async () => {

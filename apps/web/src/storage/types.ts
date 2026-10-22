@@ -1,4 +1,4 @@
-export type DocKind = 'list' | 'game' | 'progress';
+export type DocKind = 'list' | 'game' | 'progress' | 'report';
 
 /** A user document stored locally first and synced to the server (last write wins). */
 export interface Doc<T = unknown> {

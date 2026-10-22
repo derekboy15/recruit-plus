@@ -7,6 +7,7 @@ import { Placeholder } from './pages/Placeholder';
 import { DatasheetPage } from './factions/DatasheetPage';
 import { FactionPage } from './factions/FactionPage';
 import { FactionsPage } from './factions/FactionsPage';
+import { ReportsPage } from './rules/ReportsPage';
 
 // The builder pages carry the roster engine, so they load on first visit rather than with the app.
 const ListsPage = lazy(() => import('./lists/ListsPage').then((m) => ({ default: m.ListsPage })));
@@ -56,6 +57,7 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
         path="/rules"
         element={guard(<Placeholder title="Rules" milestone={3} blurb="Searchable plain-English rules, glossary and faction guides." />)}
       />
+      <Route path="/rules/reports" element={guard(<ReportsPage />)} />
       <Route path="/factions" element={guard(<FactionsPage />)} />
       <Route path="/factions/:slug" element={guard(<FactionPage />)} />
       <Route path="/factions/:slug/units/:unitSlug" element={guard(<DatasheetPage />)} />

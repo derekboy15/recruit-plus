@@ -325,3 +325,8 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .rules-text__label { font-size: 0.8rem; margin: 0 0 0.25rem; }
 .note { margin: 0.5rem 0; padding: 0.5rem 0.75rem; border-radius: var(--radius); border: 1px solid var(--border); border-left-width: 4px; }
 .note--update { border-color: var(--brass); }
+.btn--quiet { min-height: var(--touch); padding: 0 0.6rem; background: none; border-color: transparent; color: var(--text-muted); font-size: 0.85rem; text-decoration: underline; }
+.btn--quiet:hover { color: var(--text); border-color: transparent; }
+.report { margin-top: 0.25rem; }
+.report__thanks { color: var(--ok); font-size: 0.9rem; margin: 0.25rem 0 0; }
+.report__actions { display: flex; justify-content: flex-end; margin-top: 0.75rem; }

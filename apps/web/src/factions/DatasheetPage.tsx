@@ -1,5 +1,6 @@
-import { TEXT_CHARS, type ProfileOut, type UnitOut } from '@recruit/data/model';
+import { TEXT_CHARS, type AbilityOut, type ProfileOut, type UnitOut } from '@recruit/data/model';
 import { Link, useParams } from 'react-router-dom';
+import { ReportButton } from '../rules/ReportButton';
 import { RulesText } from '../rules/RulesText';
 import { useWording, WordingToggle } from '../rules/wording';
 import { getCatalogue } from './dataClient';
@@ -55,6 +56,17 @@ function ProfileTable({ caption, profiles, preferred }: { caption: string; profi
   );
 }
 
+function AbilityCard({ a }: { a: AbilityOut }) {
+  const { wording } = useWording();
+  return (
+    <div className="card" style={{ marginBottom: '0.5rem' }}>
+      <h3 style={{ marginTop: 0 }}>{a.name}</h3>
+      {a.text ? <RulesText official={a.text} plain={a.plain} amended={a.amended} /> : <p className="muted">No text available.</p>}
+      {a.text && <ReportButton target={{ kind: 'ability', name: a.name }} text={wording === 'plain' && a.plain ? a.plain : a.text} />}
+    </div>
+  );
+}
+
 export function Datasheet({ unit }: { unit: UnitOut }) {
   const size =
     unit.minModels == null ? null : unit.minModels === unit.maxModels ? `${unit.minModels}` : `${unit.minModels}–${unit.maxModels}`;
@@ -81,10 +93,7 @@ export function Datasheet({ unit }: { unit: UnitOut }) {
         <section>
           <h2>Abilities</h2>
           {unit.abilities.map((a) => (
-            <div key={a.name} className="card" style={{ marginBottom: '0.5rem' }}>
-              <h3 style={{ marginTop: 0 }}>{a.name}</h3>
-              {a.text ? <RulesText official={a.text} plain={a.plain} amended={a.amended} /> : <p className="muted">No text available.</p>}
-            </div>
+            <AbilityCard key={a.name} a={a} />
           ))}
         </section>
       )}
@@ -95,6 +104,8 @@ export function Datasheet({ unit }: { unit: UnitOut }) {
           {unit.factionKeywords.length > 0 && <p className="muted">Faction: {unit.factionKeywords.join(', ')}</p>}
         </section>
       )}
+      {/* Profile, weapon and keyword errors: one report for the whole datasheet. */}
+      <ReportButton target={{ kind: 'datasheet', name: unit.name }} text={unit.name} />
     </article>
   );
 }
