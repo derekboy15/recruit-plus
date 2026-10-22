@@ -94,5 +94,13 @@ registerHandler('inflictMortalWounds', (ctx, cmd) => {
   const u = ctx.state.units[cmd.unitId];
   if (!u || u.location === 'destroyed') ctx.reject('unknown-unit', 'Pick a unit that is still in the game.', '[TS §5.8]');
   if (cmd.count < 1) ctx.reject('bad-amount', 'Inflict at least 1 mortal wound.', '[TS §5.8]');
-  inflictMortalWounds(ctx, cmd.unitId, cmd.count, cmd.note ?? 'mortal wounds');
+  // During an attack, mortal wounds wait until its normal damage is done (FAQ §2.1).
+  if (ctx.state.attack) queueMortals(ctx, cmd.unitId, cmd.count);
+  else inflictMortalWounds(ctx, cmd.unitId, cmd.count, cmd.note ?? 'mortal wounds');
 });
+
+let queueMortals: (ctx: Ctx, unitId: string, count: number) => void = () => {};
+/** Wired by sequence.ts (avoids an import cycle). */
+export function setMortalQueue(fn: (ctx: Ctx, unitId: string, count: number) => void): void {
+  queueMortals = fn;
+}

@@ -187,3 +187,13 @@ export function shift(game: GameRecord, unitId: string, dx: number, dy: number):
   }
   return out;
 }
+
+// A test-only command that sets one of a unit's per-turn flags (e.g. "charged this turn").
+registerHandler('testTurnFlag' as never, (ctx, cmd: { unitId: string; flag: string; value: unknown }) => {
+  ctx.emit({ type: 'testTurnFlagged', unitId: cmd.unitId, flag: cmd.flag, value: cmd.value } as never);
+});
+registerApplier('testTurnFlagged' as never, (s, e: { unitId: string; flag: string; value: unknown }) => {
+  (s.units[e.unitId].turn as unknown as Record<string, unknown>)[e.flag] = e.value;
+});
+export const setTurnFlag = (game: GameRecord, unitId: string, flag: string, value: unknown) =>
+  play(game, { type: 'testTurnFlag', by: 'A', unitId, flag, value } as never);

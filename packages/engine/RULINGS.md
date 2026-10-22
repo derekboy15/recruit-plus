@@ -80,6 +80,18 @@ Features 1" tall or less, and hills, cost nothing. INFANTRY, BEAST and SWARM pas
 **Decision:** a model within range of more than one objective marker counts only toward the nearest one. On a tie it counts toward the marker listed first in the mission.
 **Why:** TS §9: "each model counts toward only one marker per turn". The core rules don't say which marker it counts toward, and nearest is the natural reading on a digital board.
 
+## R-14 Allocating attacks in advance
+**Decision:** the defender's choice of which model receives each attack is set in advance as the unit's casualty order. The owner can change it at any time with the toolkit. By default the order is the reverse of the unit's model list, so sergeants and special models go last. The core rule is always applied: if any model in the unit has lost wounds or has had an attack allocated this phase, the attack goes to that model.
+**Why:** TS §5.6. Allocation happens before each saving throw, so choosing ahead gives the same outcomes as choosing each time. It lets saves be rolled together ("fast dice", TS §5.1), and the sandbox stays playable with one device.
+
+## R-15 The defender takes the better save
+**Decision:** the engine uses whichever of the model's armour save (after AP, cover and modifiers) and invulnerable save needs the lower roll.
+**Why:** TS §5.7: the player chooses one save. The better one is always the right choice, and it saves a prompt for every attack.
+
+## R-24 Mixed Toughness
+**Decision:** wound rolls against a unit whose models have different Toughness use the Toughness most of its models have. On a tie, the higher value is used (the defender's choice).
+**Why:** the 9th Edition "mixed unit" rule, as quoted in community sources (the library doesn't cover it): "use the Toughness of the majority … in a tie the controlling player picks".
+
 ## R-21 Daemonic Save
 **Decision:** a LEGIONES DAEMONICA model whose Save reads "5+/4+" has a Daemonic Save and no armour save. The first value is used against melee attacks and the second against ranged attacks. The roll is never modified (no AP, no cover, no modifiers), and an unmodified 1 still fails.
 **Why:** the datasheets' "Daemonic Invulnerability" ability text in the BSData v9.8.0 data: "The first characteristic is used when a melee attack is allocated to that model, while the second … ranged … the saving throw cannot be modified in any way."

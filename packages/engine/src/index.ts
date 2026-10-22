@@ -30,6 +30,8 @@ export * from './interact/stratagems';
 export * from './interact/effects';
 export * from './interact/activation';
 export * from './attack/allocate';
+export * from './attack/resolve';
+export * from './attack/sequence';
 export * from './move/moves';
 export * from './move/movement';
 export * from './move/breakout';
