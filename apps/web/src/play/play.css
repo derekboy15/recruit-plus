@@ -3,3 +3,7 @@
 .play-game > .btn { justify-self: end; }
 .play-game__confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 .play-game__confirm p { margin: 0; flex-basis: 100%; }
+.play-problems { border: 1px solid var(--red-strong); background: var(--bad-bg); border-radius: var(--radius); padding: 0.5rem 0.75rem; margin: 0.5rem 0; }
+.play-problems p { margin: 0.25rem 0; }
+.play-problems ul { margin: 0.25rem 0; padding-left: 1.2rem; }
+.play-setup > .btn--primary { width: 100%; }
