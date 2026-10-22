@@ -330,3 +330,11 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .report { margin-top: 0.25rem; }
 .report__thanks { color: var(--ok); font-size: 0.9rem; margin: 0.25rem 0 0; }
 .report__actions { display: flex; justify-content: flex-end; margin-top: 0.75rem; }
+.note--tip { border-color: var(--ok); }
+.note--unconfirmed { border-color: var(--red-strong); }
+.stack { display: grid; gap: 0.75rem; margin-bottom: 1rem; }
+.stratagem__meta { font-size: 0.85rem; margin: 0.15rem 0 0.5rem; }
+.rules-section { margin-bottom: 1.25rem; }
+.blocks__list { padding-left: 1.25rem; }
+.blocks__list p { margin: 0.2rem 0; }
+.blocks__table td, .blocks__table th { white-space: normal; text-align: left; min-width: 6rem; }
