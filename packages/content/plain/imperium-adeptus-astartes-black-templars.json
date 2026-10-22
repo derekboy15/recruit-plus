@@ -1,0 +1,1934 @@
+{
+  "00d7710561dc": {
+    "name": "Infernum Halo-launcher",
+    "kind": "ability",
+    "plain": "Add 1 to armour saving throws made for the bearer against ranged attacks from Aircraft models."
+  },
+  "013f6d631fac": {
+    "name": "Shield Dome",
+    "kind": "ability",
+    "plain": "Each model that has a shield dome has a 5+ invulnerable save."
+  },
+  "0275ddfe941e": {
+    "name": "Skyspear missile launcher",
+    "kind": "weapon",
+    "plain": "Add 2 to the hit roll for attacks made with this weapon against an AIRCRAFT unit. Attacks from this weapon allocated to an AIRCRAFT model have Damage D6+6."
+  },
+  "036b8138439f": {
+    "name": "Datalink Telemetry",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, pick one enemy unit within 18\" of this unit and visible to it. Until the end of the phase, add 1 to the hit roll each time a friendly <CHAPTER> WHIRLWIND model attacks the selected unit with a Blast weapon."
+  },
+  "03c797e3096f": {
+    "name": "Dragonrage Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a dragonrage bolt. If you do, that weapon makes only one attack, but if that attack hits, make D6 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the target gets no benefit of cover to its saving throw, and the weapon has Damage 1 and Armour Penetration -1."
+  },
+  "0632dae1c522": {
+    "name": "Frost Weapon",
+    "kind": "ability",
+    "plain": "When you give this Relic to a model, pick one weapon it has: lightning claw, master-crafted power axe, master-crafted power sword, power axe or power sword. Add 1 to that weapon's Strength and to its Damage (if the model has two lightning claws, both of them get this bonus). The chosen weapon (or both lightning claws) counts as a Chapter Relic."
+  },
+  "066413400d38": {
+    "name": "Blade Stance",
+    "kind": "ability",
+    "plain": "If this model is within Engagement Range of any enemy units when the Fight phase starts, choose one stance below for it to use until that phase ends:\n• Defensive Parries: this model gets a 4+ invulnerable save, and you add 1 to its armour saving throws.\n• Beheading Strikes: add 1 to this model's Strength, and whenever it makes a melee attack, an unmodified wound roll of 6 deals 1 mortal wound to the target on top of any normal damage.\n• Whirling Blade: add 1 to this model's Attacks, and it fights first this phase."
+  },
+  "0688e47f2e87": {
+    "name": "Suppressing Fire",
+    "kind": "ability",
+    "plain": "When a model in this unit attacks an enemy INFANTRY unit with an accelerator autocannon and scores a hit, that enemy unit can't fire Overwatch this turn."
+  },
+  "07a3d22fe2fe": {
+    "name": "Operated Artillery",
+    "kind": "ability",
+    "plain": "Enemy models can't shoot ranged weapons at a GUNNER unit while it is within 3\" of its ARTILLERY unit."
+  },
+  "08b015908188": {
+    "name": "Thunderhawk Cluster Bombs",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer has moved, if it is still on the battlefield at the end of that move, you can pick one unit it moved across. Roll six D6 for each Vehicle or Monster model in that unit and 1 D6 for each other model in that unit, up to a maximum of eighteen D6: for each 4+, that unit suffers 1 mortal wound.",
+    "waive": {
+      "2023": "date of the dataslate that made the change, not part of the rule"
+    }
+  },
+  "0904cee565b4": {
+    "name": "Vow-sworn Bladesmen",
+    "kind": "ability",
+    "plain": "While any Templar Vows are active, this unit ignores that Vow's Passion."
+  },
+  "091e4c9a8c82": {
+    "name": "Helios launcher",
+    "kind": "weapon",
+    "plain": "Blast. Add 1 to the hit roll for attacks made with this weapon against an AIRCRAFT unit."
+  },
+  "0974a62848bc": {
+    "name": "Terror Troops",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your REIVER units.\n• It gains the Terror Troops (Aura) ability: until your next Command phase starts, any enemy unit within 3\" of it loses Objective Secured and any similar abilities that let it control an objective marker however many enemy models are in range.\n• For the rest of the turn, whenever that REIVER unit finishes a Normal Move, Advance or charge move within 3\" of an enemy unit performing an action, roll 2D6; if the result beats that enemy unit's Leadership characteristic, the action it is attempting fails immediately."
+  },
+  "0996c5ac1b04": {
+    "name": "Grapnel Launcher",
+    "kind": "ability",
+    "plain": "The bearer has the Outflank ability. Whenever its unit makes a Normal Move, Advances or Falls Back, ignore any vertical distance the bearer moves when working out how far it can move this turn.",
+    "waive": {
+      "125": "page reference to the core rules, not part of the rule"
+    }
+  },
+  "0a5fa5d325aa": {
+    "name": "Tempest hammer",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of each attack made with this weapon."
+  },
+  "0ad222846989": {
+    "name": "Self-repair",
+    "kind": "ability",
+    "plain": "When each of your turns starts, roll a D6 for this model. If you get a 6, it gets back one lost wound."
+  },
+  "0b50bfd9e321": {
+    "name": "Incendiary Shells",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your BLACK TEMPLARS units is chosen to shoot. Until the end of the phase, attacks its models make with Astartes shotguns have a Damage characteristic of 2."
+  },
+  "0b5afa280635": {
+    "name": "Storm shield",
+    "kind": "ability",
+    "plain": "The bearer has a 4+ invulnerable save. Also add 1 to its armour saves."
+  },
+  "0b6ecf5094be": {
+    "name": "Covering Fire",
+    "kind": "ability",
+    "plain": "In your Shooting phase, once this unit has finished shooting, it may make a Normal Move (as though it were your Movement phase) if it contains an Eliminator Sergeant armed with an instigator bolt carbine and is not within Engagement Range of any enemy units."
+  },
+  "0c285b35f5be": {
+    "name": "Ocular Networking",
+    "kind": "stratagem",
+    "plain": "Use when one of your VANGUARD SPEARHEAD units is chosen to shoot (in your Shooting phase) or to fight (in the Fight phase). For the rest of the phase, whenever one of its models attacks a MONSTER or VEHICLE unit, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 2 (this stacks with the bonus from the Combat Doctrines ability)."
+  },
+  "0ca0068433b6": {
+    "name": "Unyielding Ancient",
+    "kind": "ability",
+    "plain": "Whenever this model loses a wound, roll a D6. If the result is 6, ignore the damage: the wound isn't lost."
+  },
+  "0ca166b3c27c": {
+    "name": "Venator neutron laser",
+    "kind": "weapon",
+    "plain": "If the bearer Remained Stationary during your last Movement phase, attacks from this weapon have Damage 6 when they are allocated to a model."
+  },
+  "0d0fd30afbed": {
+    "name": "Arbiter's Gaze",
+    "kind": "ability",
+    "plain": "• Whenever the bearer attacks, a hit roll of 2+ always succeeds, whatever modifiers or abilities the target has, and this includes Overwatch.\n• The target gets no benefit from cover against the bearer's attacks."
+  },
+  "0d10e36d1c81": {
+    "name": "Colossal Flyer",
+    "kind": "ability",
+    "plain": "Always measure distances to and from this model's hull."
+  },
+  "0d15eac6ebce": {
+    "name": "Thunder hammer",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of each attack made with this weapon."
+  },
+  "0d3352624249": {
+    "name": "Astartes Banner (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in friendly <CHAPTER> CORE units add 1 to their Leadership while their unit is within 6\" of this model. Also, whenever an enemy model's attack destroys a model in such a unit, roll one D6. On a 4+, leave the destroyed model in play: once the attacking model's unit has finished its attacks, the destroyed model can either fire one of its ranged weapons as though it were your Shooting phase, or make one attack with a melee weapon as though it were the Fight phase. Remove it once those attacks are resolved."
+  },
+  "0d7a5a2b4447": {
+    "name": "Plasma cannon, Supercharge",
+    "kind": "weapon",
+    "plain": "Blast. If you roll any unmodified hit rolls of 1 for this profile's attacks, the bearer is destroyed once it has finished shooting this weapon."
+  },
+  "0e682fcc9910": {
+    "name": "Death to the Traitors!",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS ASTARTES units is chosen to fight. For the rest of the phase, that unit's models can re-roll the hit roll for their melee attacks against HERETIC ASTARTES units."
+  },
+  "0f1f6af25615": {
+    "name": "Haywire Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a haywire bolt. If you do, that weapon makes only one attack. If that attack targets a VEHICLE unit, an unmodified wound roll of 4 or 5 deals D3 mortal wounds to the target, and an unmodified wound roll of 6 deals 3 mortal wounds to it. These are on top of any other damage."
+  },
+  "0f5119f7deba": {
+    "name": "Suffer Not the Unclean to Live",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Pick one of your SWORD BRETHREN units. For this phase, add 1 to the Attacks characteristic of its models, and until the end of the phase you can re-roll wound rolls for attacks made by that unit."
+  },
+  "0fc883bcb15c": {
+    "name": "Transport",
+    "kind": "ability",
+    "plain": "This model can carry 25 <CHAPTER> INFANTRY models. Each JUMP PACK, WULFEN or TERMINATOR model counts as 2 models, and each CENTURION model counts as 3 models. It can't carry PRIMARIS models."
+  },
+  "100c786d9f03": {
+    "name": "Mechadendrite",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it gets 2 extra attacks with this weapon."
+  },
+  "1113ecfc291a": {
+    "name": "Spiritual Leaders (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CHAPTER> CORE units is within 6\" of this model, its models can choose to use this model's Leadership characteristic rather than their own."
+  },
+  "1124f5362329": {
+    "name": "Biker Bodyguard",
+    "kind": "ability",
+    "plain": "Each time a friendly <CHAPTER> BIKER CHARACTER loses a wound while within 3\" of this unit, roll a dice. On a 2+, a model from this unit intercepts the hit: the character doesn't lose the wound, but this unit suffers a mortal wound."
+  },
+  "12a3641850cb": {
+    "name": "Tactical Precision",
+    "kind": "ability",
+    "plain": "While one of your <CHAPTER> CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by models in that unit."
+  },
+  "13133d35ba52": {
+    "name": "Marksman bolt carbine",
+    "kind": "weapon",
+    "plain": "An unmodified hit roll of 6 for an attack with this weapon hits automatically and also wounds automatically; don't make a wound roll for it."
+  },
+  "13a79f408802": {
+    "name": "Orbital Comms Array",
+    "kind": "ability",
+    "plain": "In your Command phase, a model from your army with an Orbital comms array can call in an orbital barrage, if that array hasn't been used yet in this battle. Pick a point on the battlefield, then roll one D6 for every unit within D6\" of it (subtract 1 from the roll if the unit is a CHARACTER). On a 4+, the unit being rolled for suffers D3 mortal wounds."
+  },
+  "1411313bb1d0": {
+    "name": "Bolt sniper rifle",
+    "kind": "weapon",
+    "plain": "This weapon can target a CHARACTER even when that CHARACTER isn't the closest enemy unit. Also, each time you attack with this weapon, pick one of its profiles."
+  },
+  "151c9928be49": {
+    "name": "Volkite falconet battery",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this weapon deals 2 mortal wounds to the target on top of any normal damage."
+  },
+  "157d07486bb8": {
+    "name": "Skyreaper battery",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for each attack made with this weapon against an AIRCRAFT unit. Each attack from this weapon allocated to an AIRCRAFT model has a Damage characteristic of 4."
+  },
+  "160166d58c70": {
+    "name": "Rapid Fire",
+    "kind": "stratagem",
+    "plain": "Use at the end of your Shooting phase. Pick one of your INTERCESSOR SQUAD or VETERAN INTERCESSOR SQUAD units; it can shoot again."
+  },
+  "161fcdadbf2e": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll a D6 before any embarked models disembark and before you take it off the battlefield. On a 6 it explodes, and every unit within 3\" suffers 1 mortal wound."
+  },
+  "169450e90f41": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, roll a D6 before any embarked models disembark and before you take it off the battlefield. On a 6 it explodes, and every unit within 6\" suffers D3 mortal wounds."
+  },
+  "1774e1a50297": {
+    "name": "Turbo-boost",
+    "kind": "ability",
+    "plain": "When this model Advances, don't roll a dice: add 6\" to its Move characteristic for that Movement phase instead."
+  },
+  "18d5a9343d7d": {
+    "name": "Bolts of Judgement",
+    "kind": "ability",
+    "plain": "When you give this Relic to a model, pick one bolt weapon it has. Each time the bearer shoots with that weapon, you can choose to fire a bolt of judgement. If you do, the weapon makes only one attack, but that attack has AP -2 and Damage 3, and unless the target is a VEHICLE or MONSTER unit, its wound roll always succeeds on a 2+."
+  },
+  "1937f5ef06a3": {
+    "name": "Drakeblade",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this weapon deals 1 mortal wound to the target on top of the normal damage."
+  },
+  "19d1f84c2f81": {
+    "name": "Wolf Priest",
+    "kind": "ability",
+    "plain": "This unit gains the WOLF PRIEST keyword if it belongs to the Space Wolves or to a successor Chapter of the Space Wolves."
+  },
+  "1a7c2e918283": {
+    "name": "Fleshrender Grenades",
+    "kind": "weapon",
+    "plain": "Blast. The target gets no benefit from Light Cover against attacks made with this weapon."
+  },
+  "1b6e2a1f67f0": {
+    "name": "Unyielding in the Face of the Foe",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your MK X GRAVIS units is chosen as the target of an attack. For the rest of the phase, add 1 to armour saving throws against any attack with a Damage characteristic of 1 that is allocated to one of its models."
+  },
+  "1c2b29e72abf": {
+    "name": "Guerilla Tactics",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your PHOBOS units that is more than 6\" from any enemy models is chosen to move. If the mission uses the Strategic Reserves rule, put that unit into Strategic Reserves. It can't arrive from Strategic Reserves in the same turn it was put there."
+  },
+  "1c987648c0ad": {
+    "name": "Explodes (5+/D6+6\"/D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 5+ it explodes, and every unit within D6+6\" suffers D6 mortal wounds."
+  },
+  "1ef66af2627c": {
+    "name": "Conversion beamer",
+    "kind": "weapon",
+    "plain": "Attacks with a conversion beamer against targets more than half its range away are resolved at Strength 8, AP -1 and Damage 2."
+  },
+  "1fdce13878ba": {
+    "name": "Twin Icarus rocket pod",
+    "kind": "weapon",
+    "plain": "Blast. Add 1 to the hit roll for attacks made with this weapon against an Aircraft unit."
+  },
+  "2092c8dcc7cb": {
+    "name": "Bombastic Delivery",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase, when you pick one of your BLACK TEMPLARS CHAPLAIN units to recite a litany. One litany it recites this phase is automatically inspiring (don't roll), and it can recite one extra litany this phase."
+  },
+  "215a5f948307": {
+    "name": "Master-crafted occulus bolt rifle",
+    "kind": "weapon",
+    "plain": "Targets of attacks made with this weapon don't get the benefit of cover to their saving throws."
+  },
+  "218fd3ef7967": {
+    "name": "Master of Sanctity",
+    "kind": "ability",
+    "plain": "This model knows one extra litany from the Litanies of Battle. In your Command phase, while this model is on the battlefield, it can recite one extra litany it knows, as long as no friendly model has already recited that litany this turn."
+  },
+  "21f3157cd2a3": {
+    "name": "Twin hellstrike launcher",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for attacks made with this weapon against an AIRCRAFT unit. Attacks from this weapon allocated to an AIRCRAFT model have Damage D3+3."
+  },
+  "223643c76dc7": {
+    "name": "Armorium Cherub",
+    "kind": "ability",
+    "plain": "Once per battle, in your Shooting phase, once this unit has shot, one of its models can shoot again straight away with one of its ranged weapons."
+  },
+  "22cbe51a3666": {
+    "name": "Power of the Machine Spirit",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ADEPTUS ASTARTES MACHINE SPIRIT models. Until the start of your next Command phase, it counts as having its full wounds remaining when you work out which characteristics on its profile to use."
+  },
+  "2319a13fcfb0": {
+    "name": "Ironclad assault launchers",
+    "kind": "ability",
+    "plain": "The bearer gets the ASSAULT LAUNCHERS keyword."
+  },
+  "23b7e91445da": {
+    "name": "Adamantine Mantle",
+    "kind": "ability",
+    "plain": "Roll one D6 each time the bearer of this Relic would lose a wound: if you roll 5+, it doesn't lose that wound."
+  },
+  "23d4427f9347": {
+    "name": "Hammer of Wrath",
+    "kind": "stratagem",
+    "plain": "Use in your Charge phase, when one of your ADEPTUS ASTARTES JUMP PACK units finishes a charge move. Pick one enemy unit within Engagement Range of it, and roll one D6 for every model of that JUMP PACK unit within Engagement Range of the enemy unit. For each roll equal to or higher than the enemy unit's Toughness characteristic, it suffers 1 mortal wound."
+  },
+  "2431c2d7e893": {
+    "name": "Combat Squads",
+    "kind": "ability",
+    "plain": "At the start of the game, before any models are deployed, if this unit has its maximum number of models, you can split it into two units with an equal number of models each."
+  },
+  "244f480e56a1": {
+    "name": "Sword of the High Marshals - One Handed",
+    "kind": "weapon",
+    "plain": "Each attack with this profile gets 2 hit rolls instead of 1 hit roll."
+  },
+  "24bf3266d84f": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every <CHAPTER> COMPANY VETERANS unit in a Detachment, you can include one <CHAPTER> COMMAND SQUAD COMPANY CHAMPION unit in that Detachment without it using a Battlefield Role slot."
+  },
+  "26d92b7ac941": {
+    "name": "Smokescreen",
+    "kind": "ability",
+    "plain": "As long as this unit has at least 1 Neophyte in it, it has the SMOKESCREEN keyword."
+  },
+  "27c838fe3046": {
+    "name": "Heavy melta rifle",
+    "kind": "weapon",
+    "plain": "Against targets within half range, this weapon's attacks have Damage D6+4."
+  },
+  "294d9156cac2": {
+    "name": "Jump pack",
+    "kind": "ability",
+    "plain": "The bearer has a 12\" Move characteristic, the FLY and JUMP PACK keywords, and the Death From Above ability."
+  },
+  "29d04990ca45": {
+    "name": "Chapter Master",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <CHAPTER> CORE or <CHAPTER> CHARACTER units within 6\" of this model. Until your next Command phase starts, you can re-roll the hit roll for every attack its models make."
+  },
+  "2a073c55df0a": {
+    "name": "Icarus Rocket Pod",
+    "kind": "weapon",
+    "plain": "Blast. Add 1 to the hit roll for attacks made with this weapon against an Aircraft unit."
+  },
+  "2a3306ac77bf": {
+    "name": "Blizzard shield",
+    "kind": "ability",
+    "plain": "The bearer gets a 4+ invulnerable save."
+  },
+  "2ad5b9c3b5f0": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within D6+6\" suffers D6 mortal wounds."
+  },
+  "2e8d3c365118": {
+    "name": "Combat Restoratives",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick one model from a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit within 3\" of this model: this model heals it, and it regains up to D3 lost wounds. No model can be healed more than once per turn."
+  },
+  "2ea2fc52348d": {
+    "name": "Assault Vehicle",
+    "kind": "ability",
+    "plain": "Units inside this transport can disembark even if the transport made a Normal Move this phase, but a unit that disembarks after it made a Normal Move can't charge this turn."
+  },
+  "2fbbbd8cfee7": {
+    "name": "Relic shield",
+    "kind": "ability",
+    "plain": "Add 1 to the bearer's armour saves. Also, each time the bearer would lose a wound because of a mortal wound, roll one D6: on a 4+, the wound is not lost."
+  },
+  "2fd7a8fb28a4": {
+    "name": "2. Psalm of the Remorseless Persecution",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLAR CORE units within 6\" of this PRIEST. When a model in that unit makes a melee attack, an unmodified wound roll of 6 also inflicts 1 mortal wound on the target, on top of any normal damage. No unit can suffer more than 6 mortal wounds per phase from this ability."
+  },
+  "2fe9b06448ff": {
+    "name": "Explodes (3\"/1)",
+    "kind": "ability",
+    "plain": "Roll one D6 for this model when it is destroyed, before you take it off the battlefield. On a 6 it blows up, and every unit within 3\" of it suffers 1 mortal wound."
+  },
+  "32bb4ae253ef": {
+    "name": "Gatebreaker Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a gatebreaker bolt. If you do, that weapon makes only one attack, but if that attack hits, make D3 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the weapon has Armour Penetration -5 and Damage 1."
+  },
+  "338b50764ce0": {
+    "name": "Epitome of Piety",
+    "kind": "ability",
+    "plain": "• This Warlord can try to deny one psychic power in your opponent's Psychic phase, just as a Psyker could.\n• Add 1 to this Warlord's Deny the Witch tests."
+  },
+  "3404b226e0ec": {
+    "name": "Command Authority",
+    "kind": "ability",
+    "plain": "Each time your Command phase starts with this model on the battlefield, roll a D6: you get 1 command point on a 5+."
+  },
+  "347b1cbd9397": {
+    "name": "Unstoppable Fury",
+    "kind": "ability",
+    "plain": "If this model has two Dreadnought close combat weapons, add 1 to its Attacks characteristic."
+  },
+  "35b9326c4eab": {
+    "name": "Devout",
+    "kind": "ability",
+    "plain": "This unit can try to deny one psychic power in your opponent's Psychic phase, just as a PSYKER could."
+  },
+  "35fc9b87adec": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 6\" suffers 1 mortal wound."
+  },
+  "37573d2e4943": {
+    "name": "Deeds of Heroism (Aura)",
+    "kind": "ability",
+    "plain": "Aura: friendly <CHAPTER> BLADEGUARD units within 6\" of this model add 1 to the hit roll of every attack their models make."
+  },
+  "381103ebd1cb": {
+    "name": "Hunter-slayer missile",
+    "kind": "weapon",
+    "plain": "The bearer can shoot each hunter-slayer missile it has only once per battle. This weapon can target units the bearer can't see."
+  },
+  "38ca25a779b5": {
+    "name": "Seal of Oath",
+    "kind": "ability",
+    "plain": "Before the first turn begins, at the start of the first battle round, pick one enemy unit. From then until the battle ends, the bearer has this Aura ability (Seal of Oath): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, you can re-roll both the hit roll and the wound roll for attacks its models make against the enemy unit you picked."
+  },
+  "38e1cd77c812": {
+    "name": "Transhuman Physiology",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when one of your PRIMARIS units is chosen as the target of an attack. For the rest of the phase, each unmodified wound roll of 1-3 for an attack against that unit fails, whatever abilities the weapon or attacking model has. This Stratagem costs 1CP if that unit has 5 or fewer models, and 2CP otherwise."
+  },
+  "390281659351": {
+    "name": "Camo Cloak",
+    "kind": "ability",
+    "plain": "While the bearer is receiving the benefits of cover, its armour saving throws against ranged attacks allocated to it get an extra 1 added."
+  },
+  "3949707a015b": {
+    "name": "Uncompromising Fire",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase. Pick one of your ADEPTUS ASTARTES INFANTRY units that is performing an action. It can shoot this phase and its action doesn't fail."
+  },
+  "394ff17c0156": {
+    "name": "Only in Death Does Duty End",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS ASTARTES CHARACTER models is destroyed before it has been chosen to fight this phase. Don't remove it yet: it can fight once the attacking model's unit has finished its attacks. Remove it after its own attacks are resolved."
+  },
+  "3ac16341296f": {
+    "name": "Haywire Mine",
+    "kind": "ability",
+    "plain": "Once per battle, when an enemy unit ends a charge move within Engagement Range of the bearer's unit, you can set off the bearer's Haywire mine: roll one D6, and on a 2+ that enemy unit suffers D3 mortal wounds (3 mortal wounds instead if it is a VEHICLE)."
+  },
+  "3b0058b662cd": {
+    "name": "Neo-volkite pistol",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 with this weapon inflicts 1 mortal wound on the target as well as any other damage."
+  },
+  "3bef223ea229": {
+    "name": "Devastating Charge",
+    "kind": "ability",
+    "plain": "If this unit made a charge move this turn, then each time it fights, add 2 to the Attacks of its models until that fight is resolved."
+  },
+  "3de2ff07b127": {
+    "name": "Indomitus Crusaders",
+    "kind": "stratagem",
+    "plain": "Use when choosing your army. Pick one Space Marines Detachment in your army to be an Indomitus Crusaders Specialist Detachment. In that Detachment, these units gain the INDOMITUS CRUSADER keyword: INCEPTOR SQUADS, INTERCESSOR SQUADS, PRIMARIS ANCIENTS, PRIMARIS LIEUTENANTS and PRIMARIS CAPTAINS."
+  },
+  "3de7118295f2": {
+    "name": "Assault Launchers",
+    "kind": "stratagem",
+    "plain": "Use at the start of your Charge phase. Pick one of your ADEPTUS ASTARTES ASSAULT LAUNCHERS units and one enemy unit within 9\" of it (excluding VEHICLE or MONSTER units). That enemy unit can either brace or duck for cover:\n• If it braces, it suffers D3 mortal wounds.\n• If it ducks for cover, then until the end of the turn its models get 1 subtracted from their Attacks characteristic, and it can't fire Overwatch or Set to Defend."
+  },
+  "3e8909902cc7": {
+    "name": "Hellfire Shells",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your ADEPTUS ASTARTES INFANTRY models shoots with a heavy bolter, hellstorm heavy bolter or executor heavy bolter. That weapon makes only one attack this phase, but if it hits, the target suffers D3 mortal wounds (3 mortal wounds instead if it is a MONSTER unit) and the attack sequence ends."
+  },
+  "3f794f49ca3b": {
+    "name": "Twin Terrax volkite charger",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 6 for an attack with this weapon inflicts 1 mortal wound on the target as well as its normal damage."
+  },
+  "410e74604609": {
+    "name": "Explodes (6\"/D3)",
+    "kind": "ability",
+    "plain": "Roll one D6 for this model when it is destroyed, before you take it off the battlefield. On a 6 it blows up, and every unit within 6\" of it suffers D3 mortal wounds."
+  },
+  "411fc639cf24": {
+    "name": "Reiver grav-chute",
+    "kind": "ability",
+    "plain": "The bearer gains the Death From Above ability."
+  },
+  "41fbce66fce0": {
+    "name": "1. Litany of Divine Protection",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. Roll one D6 whenever one of that unit's models would lose a wound: on a 5+, it doesn't lose that wound."
+  },
+  "4211287ed0ba": {
+    "name": "Melta rifle",
+    "kind": "weapon",
+    "plain": "Against targets within half range, this weapon's attacks have Damage D6+2."
+  },
+  "4219aa80d472": {
+    "name": "Pivotal Moment",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your VANGUARD SPEARHEAD CORE models is chosen to shoot. For the rest of the phase, whenever it makes a ranged attack against an enemy WARLORD and the wound roll succeeds, the target suffers mortal wounds equal to the weapon's Damage characteristic, and the attack sequence ends."
+  },
+  "439fdb4ed730": {
+    "name": "Spiritual Leaders",
+    "kind": "ability",
+    "plain": "While one of your <CHAPTER> CORE units is within 6\" of this model, its models can choose to use this model's Leadership characteristic rather than their own."
+  },
+  "43e156af04fb": {
+    "name": "Superlative Duellist",
+    "kind": "ability",
+    "plain": "When this model makes an attack with a melee weapon against a CHARACTER unit, you can re-roll both the hit roll and the wound roll."
+  },
+  "4408341c9b01": {
+    "name": "Hellstrike missile battery",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for each attack made with this weapon against an AIRCRAFT unit. Each attack from this weapon allocated to an AIRCRAFT model has a Damage characteristic of D3+3."
+  },
+  "458775a70a48": {
+    "name": "Warden's Cuirass",
+    "kind": "ability",
+    "plain": "A model with this Relic has 1 added to its Wounds characteristic."
+  },
+  "45a56137baad": {
+    "name": "Auric Aquila",
+    "kind": "ability",
+    "plain": "The bearer of this Relic has a 4+ invulnerable save. Also, roll one D6 each time it would lose a wound to a mortal wound in the Psychic phase: on a 5+, it doesn't lose that wound."
+  },
+  "45b96d413c66": {
+    "name": "Armour of Fate",
+    "kind": "ability",
+    "plain": "This model's invulnerable save is 3+. The first time it is destroyed, roll one D6 when the phase ends: on a 4+, put it back on the battlefield as near as possible to where it was destroyed, not within Engagement Range of any enemy models, with D6 wounds left."
+  },
+  "45ff3afc4021": {
+    "name": "Exemplars of the Crusade",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase. Pick one of your SWORD BRETHREN units. Until the end of the phase, each unmodified hit roll of 6 for a melee attack made by a model in that unit scores 1 extra hit."
+  },
+  "467f731dcdcd": {
+    "name": "Command Uplink (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your units is within 6\" of this model, it always counts as being within range of the Rites of Battle and Tactical Precision aura abilities of any friendly <CHAPTER> units on the battlefield."
+  },
+  "47d090417cdb": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 6\" suffers 1 mortal wound."
+  },
+  "47eee01764ce": {
+    "name": "Tarantula air defence missiles",
+    "kind": "weapon",
+    "plain": "Blast. Against an AIRCRAFT unit, this weapon's attacks have Damage 2."
+  },
+  "48ec73666c99": {
+    "name": "Outflank",
+    "kind": "ability",
+    "plain": "During deployment, if every model in this unit has this ability, you can set the unit up behind enemy lines rather than on the battlefield. If you do, you can set it up during the Reinforcements step of any one of your Movement phases, wholly within 6\" of any battlefield edge and more than 9\" from all enemy models."
+  },
+  "49163aba8ac6": {
+    "name": "Angels of Death",
+    "kind": "ability",
+    "plain": "This unit has And They Shall Know No Fear, Bolter Discipline, Shock Assault and Combat Doctrines (described below)."
+  },
+  "49bbb50d9a2c": {
+    "name": "Hammerfall heavy flamer array",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon automatically hit the target."
+  },
+  "4b994c689c53": {
+    "name": "Righteous Zeal",
+    "kind": "rule",
+    "plain": "• Units with this tactic can re-roll their Advance and charge rolls.\n• Whenever a mortal wound would make a model with this tactic lose a wound, roll one D6; on a 5+, the wound is not lost."
+  },
+  "4b9bf8887ad5": {
+    "name": "Voxbreaker Auspex",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one enemy unit within 18\" of one of your VOXBREAKER AUSPEX units. Until the start of your next turn:\n• Subtract 1 from the hit roll of each ranged attack made by a model in that enemy unit.\n• If that enemy unit declares a charge, you can pick one of your units targeted by that charge; that unit can Hold Steady or Set to Defend."
+  },
+  "4c60f1449bc9": {
+    "name": "Liberators",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase starts. Pick one of your INDOMITUS CRUSADER units. Until your next turn starts, whenever a model in this unit rolls an unmodified 6 to hit, that attack scores 2 hits on the target rather than 1."
+  },
+  "4d375afd8b93": {
+    "name": "Defensive Array",
+    "kind": "ability",
+    "plain": "In your Shooting phase, each time this model is chosen to shoot, its Deathstorm cannon array or its Deathstorm missile array can target, and make attacks against, every eligible enemy unit. When this model fires Overwatch, it only makes attacks with its weapons against the charging unit, but its Deathstorm cannon array becomes Heavy 12 and its Deathstorm missile array becomes Heavy 4 for that."
+  },
+  "4dd5363a6a4b": {
+    "name": "The Emperor's Shield",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save.\nEach time you roll an unmodified 6 on a saving throw for this model against a melee attack, the attacking model's unit suffers 1 mortal wound once all of its models have finished their attacks (no more than 3 mortal wounds each phase)."
+  },
+  "4e8b3e5cf687": {
+    "name": "Vicious Riposte",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Pick one of your BLACK TEMPLARS CORE units. Until the end of the phase, each time a model in it is destroyed by a melee attack and doesn't explode, roll one D6: on a 5+, the attacking model's unit suffers 1 mortal wound once it has finished its attacks (no unit can suffer more than 6 mortal wounds per phase from this)."
+  },
+  "4e95a4938913": {
+    "name": "Litanies of Battle",
+    "kind": "ability",
+    "plain": "This model knows the Litany of Hate, plus one litany from the Litanies of Battle. When your Command phase starts, it can recite one of its litanies, provided no friendly model has recited that litany yet this battle round. Roll one D6. If you get 3+, the litany is inspiring, and its effect lasts until your next Command phase.",
+    "waive": {
+      "188": "page reference to the codex, not part of the rule"
+    }
+  },
+  "5017f96f705b": {
+    "name": "Crewed Artillery",
+    "kind": "ability",
+    "plain": "Once this unit has been set up on the battlefield for the first time, split it into two units: one with the ARTILLERY model and one with the GUNNER model. If the GUNNER unit isn't within 3\" of its ARTILLERY unit at the end of any phase, that ARTILLERY unit is destroyed."
+  },
+  "512bb9f126e5": {
+    "name": "Fury of the First",
+    "kind": "stratagem",
+    "plain": "Use when one of your ADEPTUS ASTARTES units is chosen to shoot (in your Shooting phase) or chosen to fight (in the Fight phase). Until the end of that phase, add 1 to the hit roll of each attack made by a TERMINATOR model in that unit."
+  },
+  "52b419ab3b38": {
+    "name": "Sword of the High Marshals",
+    "kind": "ability",
+    "plain": "Each time you make an attack with this weapon, choose one of the profiles below for that attack."
+  },
+  "52ef957550d5": {
+    "name": "Honour the Chapter",
+    "kind": "stratagem",
+    "plain": "Use at the end of the Fight phase. Pick one of your ASSAULT INTERCESSOR SQUAD units that is within Engagement Range of any enemy units; it can fight again."
+  },
+  "5323b5390fc8": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 2D6\" suffers 2D6 mortal wounds."
+  },
+  "532dfd768871": {
+    "name": "Drop Pod Assault",
+    "kind": "ability",
+    "plain": "This transport must begin the battle up in the skies (see Death From Above), but it and any units inside it don't count towards any mission limit on the number of Reinforcement units in your army. Whatever the mission rules say, it can arrive in your first, second or third Movement phase, during the Reinforcements step. Once it is on the battlefield, every unit inside must disembark straight away and be placed more than 9\" away from any enemy models. After that, no units can embark within it."
+  },
+  "538d31a401f4": {
+    "name": "3. Exhortation of Rage",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. Add 1 to the wound roll for every melee attack made by a model in that unit."
+  },
+  "5436efe57347": {
+    "name": "Frontline Commander",
+    "kind": "ability",
+    "plain": "• Add 1 to this Warlord's Advance rolls and charge rolls.\n• When one of your BLACK TEMPLAR CORE units declares a charge that targets an enemy unit within Engagement Range of this Warlord, that unit adds 1 to its charge roll."
+  },
+  "54f428e36105": {
+    "name": "Sword Brethren",
+    "kind": "stratagem",
+    "plain": "Use when choosing your army. Pick one BLACK TEMPLARS Detachment in your army to be a Sword Brethren Specialist Detachment. In that Detachment, these units gain the SWORD BRETHREN keyword: COMPANY VETERANS, COMPANY CHAMPIONS, CAPTAINS, EMPEROR'S CHAMPION and HIGH MARSHAL HELBRECHT."
+  },
+  "5575c3359678": {
+    "name": "Death Visions",
+    "kind": "ability",
+    "plain": "Once per battle, when this model is chosen to fight, it can use one of the Death Visions below. Each Death Vision can only be used once per battle."
+  },
+  "55c31c9fad47": {
+    "name": "Primarch of the First Legion (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE or DARK ANGELS CHARACTER units is within 6\" of this model, attacks made by models in that unit re-roll hit rolls of 1 and wound rolls of 1."
+  },
+  "561362f5f061": {
+    "name": "Quad launcher, Thunderfire shells",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the firing model can't see."
+  },
+  "564bb73f5b05": {
+    "name": "Promethean Plate",
+    "kind": "ability",
+    "plain": "Any attack against the bearer of this Relic always fails to wound on an unmodified wound roll of 1, 2 or 3, whatever abilities the attacker or its weapon have."
+  },
+  "57384aeea435": {
+    "name": "Vow-sworn Bladesman",
+    "kind": "ability",
+    "plain": "While any Templar Vows are active, this unit ignores that Vow's Passion."
+  },
+  "57483fb55604": {
+    "name": "Cyber-Eagle Helm",
+    "kind": "ability",
+    "plain": "When a model in one of your <CHAPTER> units within 6\" of a model from your army with this Relic makes an Overwatch attack, it hits on a hit roll of 5 or 6."
+  },
+  "586428a25d85": {
+    "name": "Rites of Battle",
+    "kind": "ability",
+    "plain": "While one of your <CHAPTER> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "58b52b56ac1b": {
+    "name": "Tenacious Assault",
+    "kind": "stratagem",
+    "plain": "Use when an enemy INFANTRY or BEAST unit that can't FLY is selected to Fall Back while it is within Engagement Range of one or more BLACK TEMPLARS units from your army. Roll one D6; on a 4+, the enemy unit isn't allowed to Fall Back."
+  },
+  "59529cd5881b": {
+    "name": "Automated Emplacement",
+    "kind": "ability",
+    "plain": "Each time a model in this unit shoots, first pick one of these keywords: INFANTRY or VEHICLE. Until those shots are resolved, that model's attacks must target the closest eligible enemy unit with the chosen keyword; if no eligible unit has either keyword, it must target the closest eligible unit. This unit can never be eligible to charge or perform a Heroic Intervention, and it can't make pile-in or consolidation moves."
+  },
+  "5a92a1bd893e": {
+    "name": "Teleport Strike",
+    "kind": "ability",
+    "plain": "During deployment, you can place this model in a teleportarium chamber rather than on the battlefield. It can then teleport in when any of your Movement phases ends: put it anywhere on the battlefield over 9\" from every enemy model."
+  },
+  "5b6147b91f2c": {
+    "name": "Heir of Sigismund",
+    "kind": "stratagem",
+    "plain": "Use after you choose a BLACK TEMPLARS CHARACTER model that isn't a named character as your WARLORD; you can only use it once. Give that model one extra Warlord Trait, which must come from the Black Templars Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "5c106596ce3e": {
+    "name": "Master-Crafted Weapon",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one weapon it is equipped with (not a weapon whose profile includes the word 'master-crafted'). Add 1 to that weapon's Damage characteristic. That weapon counts as a Chapter Relic."
+  },
+  "5ecf726efc84": {
+    "name": "Litany of Hate (Aura)",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, then while one of your Core or Character units is within 6\" of this Priest, you can re-roll the hit roll for each melee attack made by a model in that unit."
+  },
+  "5ed70c734dde": {
+    "name": "Power Overload",
+    "kind": "ability",
+    "plain": "If you roll three or more hit rolls of 1 in the same phase for this model's lascannons or twin lascannons, it suffers a power overload and takes 6 mortal wounds."
+  },
+  "60181812590c": {
+    "name": "Servo-skull Hub",
+    "kind": "ability",
+    "plain": "In each of your Shooting phases, pick one of these effects:\n• Targeting Data Skull: until the end of the phase, add 1 to hit rolls made for one of your CHAPTER units within 12\" of this model.\n• Repair Skull: pick one CHAPTER VEHICLE within 12\" of this model; it regains 1 lost wound.\n• Vox Skull: until your next Shooting phase, subtract 1 from Morale tests taken for your CHAPTER units within 12\" of this model."
+  },
+  "60289827435f": {
+    "name": "Occulus bolt carbine",
+    "kind": "weapon",
+    "plain": "The target gets no benefit from cover against attacks made with this weapon."
+  },
+  "6041544080e9": {
+    "name": "Hover Jet",
+    "kind": "ability",
+    "plain": "In your Movement phase, before this model moves, you can say it is hovering. If you do, its Move characteristic is 20\" until the end of that phase, and it loses the Airborne, Hard to Hit and Supersonic abilities until the start of your next Movement phase."
+  },
+  "60dec2580867": {
+    "name": "Combat shield",
+    "kind": "ability",
+    "plain": "Models equipped with a combat shield get a 5+ invulnerable save."
+  },
+  "6105540cdc61": {
+    "name": "Hard to Hit",
+    "kind": "ability",
+    "plain": "In the Shooting phase, your opponent subtracts 1 from hit rolls for attacks that target this model."
+  },
+  "611bce413fdd": {
+    "name": "Thunderfire Cannon",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the firing model can't see."
+  },
+  "62863cfc1bae": {
+    "name": "Grav Pulse",
+    "kind": "stratagem",
+    "plain": "Use in one of these two situations:\n• In your Movement phase, when one of your ADEPTUS ASTARTES REPULSOR FIELD units Falls Back: it can still shoot this turn even though it Fell Back.\n• In your opponent's Charge phase, when one of your ADEPTUS ASTARTES REPULSOR FIELD units is chosen as a charge target: for the rest of the phase, every unit that declares a charge targeting that REPULSOR FIELD unit subtracts 2 from its charge rolls."
+  },
+  "636fcb14f06f": {
+    "name": "Inner Circle",
+    "kind": "ability",
+    "plain": "This applies if the unit has the Grim Resolve Chapter Tactic, or if it has the Inheritors of the Primarch Successor tactic and uses the Dark Angels Chapter Tactic:\n• It passes Morale tests automatically.\n• Unless it has the VEHICLE keyword, it can't be selected to Fall Back while it is within Engagement Range of any enemy FALLEN units.\n• Whenever you want it to Fall Back, roll 2D6 unless it has the VEHICLE, RAVENWING or CHAPTER MASTER keyword: if the total is no higher than its Leadership characteristic, it can Fall Back; if not, it can't, and it must Remain Stationary instead."
+  },
+  "639e4b737ae4": {
+    "name": "Fist of Terra",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon."
+  },
+  "646b13fcc27a": {
+    "name": "Chapter Banner",
+    "kind": "ability",
+    "plain": "In your Command phase, choose one <CHAPTER> CORE unit within 6\" of this model. Until your next Command phase begins, that unit's models add 1 to the hit roll of each melee attack they make."
+  },
+  "646c806ccb33": {
+    "name": "Cyclonic melta lance",
+    "kind": "weapon",
+    "plain": "Blast. Against targets within half range, this weapon's attacks have Damage D6+2."
+  },
+  "64b29752277a": {
+    "name": "Hellfury Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a hellfury bolt. If you do, that weapon makes only one attack, but if that attack hits, the target suffers 1 mortal wound and the attack sequence ends."
+  },
+  "6545efa358e8": {
+    "name": "Martial Exemplar",
+    "kind": "ability",
+    "plain": "This model can fight first in the Fight phase if, when that phase starts, it is within Engagement Range of any enemy units."
+  },
+  "68ee16907a2b": {
+    "name": "Whirlwind Hyperios launcher",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the bearer can't see. Add 2 to the hit roll for attacks made with it against an AIRCRAFT unit, and attacks from it allocated to an AIRCRAFT model have Damage 2."
+  },
+  "691aa9f84009": {
+    "name": "Shadowmaster Cloak",
+    "kind": "ability",
+    "plain": "While a model with this Relic is wholly on or in a terrain feature, it has a 3+ invulnerable save."
+  },
+  "693cbada240f": {
+    "name": "Rites of Rage (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DEATH COMPANY CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "69f973ece936": {
+    "name": "Dispersal Protocols",
+    "kind": "stratagem",
+    "plain": "Use when the Fight phase ends. Pick one of your VANGUARD SPEARHEAD units that is within Engagement Range of one or more enemy units. That unit can Fall Back as though it were your Movement phase."
+  },
+  "6b04d92f5e6e": {
+    "name": "Bolt sniper rifle - Mortis round",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. For attacks made with it, a wound roll of 6+ deals 1 mortal wound to the target on top of any other damage."
+  },
+  "6beb95732fb2": {
+    "name": "Infiltrator comms array",
+    "kind": "ability",
+    "plain": "The bearer's unit always counts as being in range of the Rites of Battle and Tactical Precision aura abilities of any friendly <CHAPTER> PHOBOS units on the battlefield."
+  },
+  "6c103fffaace": {
+    "name": "Icarus Ironhail Heavy Stubber",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for attacks made with this weapon against an AIRCRAFT unit."
+  },
+  "6cd91b2adfdc": {
+    "name": "Executioner Relic Blade",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this weapon deals 1 mortal wound to the target on top of any other damage."
+  },
+  "6ddc571b09d8": {
+    "name": "Instigator Bolt Carbine",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon."
+  },
+  "6f8ce958758e": {
+    "name": "Explodes (D6+6\"/2D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within D6+6\" suffers 2D6 mortal wounds."
+  },
+  "6fac7e41de8a": {
+    "name": "For the Emperor’s Honour!",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase. Pick one of your BLACK TEMPLARS CHARACTER units (excluding VEHICLE units) and one enemy CHARACTER unit. For the rest of the phase, whenever that enemy CHARACTER unit is chosen to fight, if your chosen BLACK TEMPLARS CHARACTER unit is within Engagement Range of it when your opponent picks targets, its attacks can only target your chosen BLACK TEMPLARS CHARACTER unit."
+  },
+  "70d730feedeb": {
+    "name": "Servo-arm",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it can make no more than one attack with each servo-arm."
+  },
+  "72171519a0c8": {
+    "name": "Ravenwing",
+    "kind": "ability",
+    "plain": "This unit gains the RAVENWING keyword if it belongs to the Dark Angels or to a successor Chapter of the Dark Angels."
+  },
+  "729d949e8dd5": {
+    "name": "Narthecium",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, you can pick one friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit within 3\" of this model to receive its medical attention. If a model in that unit is missing wounds, it regains up to D3 of them. If not, and models from that unit have been destroyed, roll one D6: on a 4+, you may put one destroyed model from that unit back on the battlefield with 1 wound left, within 3\" of this model and in unit coherency (if it can't be placed like that, it doesn't come back). On a 3 or less, this model may not shoot, charge or fight this turn. A unit can only receive medical attention once per turn."
+  },
+  "72bb925b7a38": {
+    "name": "Martial Legacy",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, including this unit in a Detachment increases that Detachment's Command Cost by 1 CP."
+  },
+  "72bfaefc7999": {
+    "name": "Headtaker's Trophies",
+    "kind": "ability",
+    "plain": "While an enemy unit is within 6\" of a model from your army that has this Relic, subtract 1 from that enemy unit's Leadership characteristic."
+  },
+  "73d635a2346b": {
+    "name": "Tactical Aggression (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DEATH COMPANY CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by models in that unit."
+  },
+  "74bcd1102409": {
+    "name": "Swiftclaw",
+    "kind": "ability",
+    "plain": "If this unit belongs to the Space Wolves Chapter or one of its successors, it gains the SWIFTCLAW keyword."
+  },
+  "758e646b4695": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BLACK TEMPLARS CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "75b597e93175": {
+    "name": "Orbital Comms Array",
+    "kind": "ability",
+    "plain": "In your Shooting phase, you can choose one model in your army whose Orbital Comms Array hasn't been used yet this battle. It uses the array to call in an orbital barrage: choose a point on the battlefield, then roll a D6 for every unit within D6\" of it, subtracting 1 from the roll for a CHARACTER unit. On a 4+, the unit rolled for suffers D3 mortal wounds."
+  },
+  "75de5acb4639": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every <CHAPTER> COMPANY VETERANS unit in a Detachment, you can include one <CHAPTER> COMMAND SQUAD COMPANY ANCIENT unit in that Detachment without it using a Battlefield Role slot."
+  },
+  "75f9ad1157f3": {
+    "name": "Melta destroyer",
+    "kind": "weapon",
+    "plain": "Against targets within half range, this weapon's attacks have Damage D6+2."
+  },
+  "762170054d95": {
+    "name": "Plasma eradicator, Supercharge",
+    "kind": "weapon",
+    "plain": "Blast. After shooting with this weapon profile, the bearer suffers 1 mortal wound for each unmodified hit roll of 1 made for its attacks."
+  },
+  "766f414688e5": {
+    "name": "Brutalis Talon - Strike",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this profile."
+  },
+  "771bd12bca13": {
+    "name": "Explodes (2D6\"/2D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 2D6\" suffers 2D6 mortal wounds."
+  },
+  "781882c09270": {
+    "name": "Drop Pod Assault",
+    "kind": "ability",
+    "plain": "This transport has to begin the battle set up high in the skies (using Death From Above), but neither it nor any units embarked in it count towards any limit your mission sets on how many Reinforcements units your army can have. It can arrive during the Reinforcements step of your first, second or third Movement phase, whatever the mission rules say, and it must be set up more than 9\" from any enemy models. Once it has been set up on the battlefield, no units can embark in it.",
+    "waive": {
+      "125": "page reference to the core rules, not part of the rule"
+    }
+  },
+  "788b9b88fc10": {
+    "name": "Teeth of Mars",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon. When an attack with this weapon is made against a VEHICLE unit, this weapon has Strength x2 for that attack."
+  },
+  "78a7d772d4e0": {
+    "name": "Deeds of Heroism [Aura]",
+    "kind": "ability",
+    "plain": "Aura: while their unit is within 6\" of this model, friendly <CHAPTER> BLADEGUARD models add 1 to their hit rolls."
+  },
+  "7bc6f678d671": {
+    "name": "XIII Primarch (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units is within 6\" of this model, its models can re-roll hit rolls for their attacks. While one of your ULTRAMARINES CORE units is within 6\" of this model, its models also re-roll wound rolls of 1 for their attacks."
+  },
+  "7c2b0d967429": {
+    "name": "Mindlock",
+    "kind": "ability",
+    "plain": "Models in this unit have Weapon Skill 4+, Ballistic Skill 4+ and Leadership 9 while the unit is within 6\" of any friendly <CHAPTER> TECHMARINE units. Also, in a Battle-forged army, each <CHAPTER> TECHMARINE unit in a Detachment lets you add one <CHAPTER> SERVITORS unit to that Detachment that doesn't use up a Battlefield Role slot."
+  },
+  "7d496a65b5ab": {
+    "name": "Sceptre of Anointing",
+    "kind": "ability",
+    "plain": "Add 1 to the roll that decides whether a litany recited by Chaplain Grimaldus in this unit is inspiring."
+  },
+  "7d5e03648213": {
+    "name": "Hover Tank",
+    "kind": "ability",
+    "plain": "Measure distances and ranges to and from this model's hull, not its base."
+  },
+  "7e6f15b30218": {
+    "name": "Twin Volkite calivers",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this weapon deals 1 mortal wound to the target on top of any normal damage."
+  },
+  "7fc2b7fabdf2": {
+    "name": "Power of the Machine Spirit",
+    "kind": "ability",
+    "plain": "This model ignores the hit roll penalty for moving and shooting Heavy weapons."
+  },
+  "7fea0f0653a6": {
+    "name": "Explodes (6\"/D6)",
+    "kind": "ability",
+    "plain": "Roll one D6 for this model when it is destroyed, before you take it off the battlefield. On a 6 it blows up, and every unit within 6\" of it suffers D6 mortal wounds."
+  },
+  "8006f7bbb46e": {
+    "name": "Deadly Cargo",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase. Pick one of your BLACK TEMPLARS LAND RAIDER CRUSADER models that made a Normal Move this phase. Units embarked within that TRANSPORT can disembark this phase, but can't be chosen to move again this phase."
+  },
+  "81564dcef130": {
+    "name": "Angels of Death",
+    "kind": "ability",
+    "plain": "This unit gets Combat Doctrines, Shock Assault, Bolter Discipline and And They Shall Know No Fear."
+  },
+  "81f875c18375": {
+    "name": "Data Augurs",
+    "kind": "ability",
+    "plain": "Add 1 to this model's hit rolls for shooting attacks while it is within 24\" of any of your CHAPTER Rhino Primaris."
+  },
+  "82d9e7612780": {
+    "name": "Multi-Spectrum Array",
+    "kind": "ability",
+    "plain": "For ranged attacks made by this unit's models, you may disregard some or all hit roll modifiers and Ballistic Skill modifiers."
+  },
+  "830d6e3086a1": {
+    "name": "Astartes Banner [Aura]",
+    "kind": "ability",
+    "plain": "Aura: models in friendly <CHAPTER> CORE units add 1 to their Leadership while their unit is within 6\" of this model. Also, whenever an enemy model's attack destroys a model in such a unit, roll one D6. On a 4+, leave the destroyed model in play: once the attacking model's unit has finished its attacks, the destroyed model can either fire one of its ranged weapons as though it were your Shooting phase, or make one attack with a melee weapon as though it were the Fight phase. Remove it once those attacks are resolved."
+  },
+  "840e278eee07": {
+    "name": "Leviathan siege claw",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon."
+  },
+  "846a2d44c0cd": {
+    "name": "Auspex Scan",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Movement phase, at the end of its Reinforcements step. Pick one of your ADEPTUS ASTARTES INFANTRY units that isn't within Engagement Range of any enemy units. It can shoot as though it were your Shooting phase, but only at a single eligible enemy unit within 12\" of it that was set up as Reinforcements this turn."
+  },
+  "8474d39b4ac2": {
+    "name": "Pyre Pistol",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon always hit the target automatically."
+  },
+  "863472cb5df8": {
+    "name": "Banner of Fallen Crusaders",
+    "kind": "ability",
+    "plain": "The bearer has this Aura ability (Banner of Fallen Crusaders): while one of your BLACK TEMPLAR CORE or BLACK TEMPLAR CHARACTER units is within 6\" of this unit, each time you make an Advance roll for that unit, add D3+3\" to its Move characteristic instead of D6\"."
+  },
+  "86599a5e6ff1": {
+    "name": "Dreadnought Transport",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged: for each DREADNOUGHT model with a Wounds characteristic of 9 or less in a Detachment, you can add 1 DREADNOUGHT DROP POD model to that Detachment, and it doesn't use up an extra Battlefield Role slot. You can't take more than 1 DREADNOUGHT DROP POD model per such DREADNOUGHT model."
+  },
+  "869e6100b307": {
+    "name": "Hit-and-run Warfare",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your ADEPTUS ASTARTES BIKER, LAND SPEEDER or STORM SPEEDER units Falls Back. It can still shoot this turn even though it Fell Back."
+  },
+  "86ee6c3e6242": {
+    "name": "Silentus Pistol",
+    "kind": "weapon",
+    "plain": "When choosing targets for this weapon, the Look Out, Sir rule can be ignored. Attacks with it may also add 1 to their hit rolls."
+  },
+  "87c839d1cec5": {
+    "name": "Laser volley cannon, Overcharge fire",
+    "kind": "weapon",
+    "plain": "For each unmodified hit roll of 1 made for this profile's attacks, if the bearer didn't Remain Stationary in your previous Movement phase, the bearer suffers 1 mortal wound once it has finished shooting this weapon."
+  },
+  "894d7f976917": {
+    "name": "Hero of the Chapter",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the ADEPTUS ASTARTES keyword. Pick one ADEPTUS ASTARTES CHARACTER model from your army that isn't a named character and give it one Warlord Trait it is allowed to have; that model only counts as your WARLORD for that Warlord Trait. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly), and you can't use this Stratagem to give one model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "8a35f1deafbc": {
+    "name": "Duty Eternal",
+    "kind": "ability",
+    "plain": "Each time an attack is allocated to this model, reduce that attack's Damage characteristic by 1 (to a minimum of 1)."
+  },
+  "8d8e9b941094": {
+    "name": "Forge bolter",
+    "kind": "weapon",
+    "plain": "Even if the bearer also attacks with Pistols or Grenades when it shoots, it can still attack with this weapon."
+  },
+  "8d96fd7b74cc": {
+    "name": "Suppression Fire",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your WHIRLWIND models is chosen to shoot. Until the end of the phase, each time it hits with an attack from a weapon with the Blast ability, then until the start of your next turn the target can't fire Overwatch or Set to Defend, and can't be chosen to fight until all eligible units from your army have fought."
+  },
+  "8dbb13ed13a7": {
+    "name": "Chapter Command",
+    "kind": "ability",
+    "plain": "If this model is upgraded to a Chapter Champion (see Chapter Command), it has Attacks 6 and Leadership 9."
+  },
+  "8e1554aba2bd": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "For every <CHAPTER> COMPANY VETERANS unit in a Detachment, you can include one <CHAPTER> COMMAND SQUAD APOTHECARY unit in that Detachment without it using a Battlefield Role slot."
+  },
+  "8ebb6dd1c682": {
+    "name": "Gravis Fighting Style",
+    "kind": "ability",
+    "plain": "Each time the bearer fights:\n• if this model has an Astartes Chainsword, it can make 2 extra attacks with it (for a maximum of 3).\n• if it has a Power Sword, it can make 2 extra attacks with it.\n• if it has a Power Fist, it can make 1 extra attack with it.\nYou can't use this ability with a Relic that replaces any of these weapons."
+  },
+  "8ed3fce13061": {
+    "name": "Forestwalk",
+    "kind": "ability",
+    "plain": "When you deploy, you can place this model on shadowed paths rather than on the battlefield. If you do, then in one of your Movement phases, during the Reinforcements step, you can set it up anywhere on the battlefield more than 9\" from any enemy models; charge rolls for this model can be re-rolled until the end of that turn."
+  },
+  "8f22251e80cc": {
+    "name": "Concealed Positions",
+    "kind": "ability",
+    "plain": "When you set this unit up during Deployment, if all its models have this ability, you can place it anywhere on the battlefield over 9\" from the enemy deployment zone and from every enemy model."
+  },
+  "8fc16340e364": {
+    "name": "Author of the Codex",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged and Roboute Guilliman is your Warlord, you get 3 extra Command Points."
+  },
+  "90239f4abceb": {
+    "name": "Martial Legacy",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, including this unit in a Detachment increases that Detachment's Command Cost by 1 CP."
+  },
+  "92bb9a54348b": {
+    "name": "Brutalis Talon - Sweep",
+    "kind": "weapon",
+    "plain": "For each attack made with this profile, make 2 hit rolls rather than 1."
+  },
+  "937431be4fe3": {
+    "name": "Crusade of Wrath (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BLACK TEMPLARS CORE units is within 6\" of this model, its models get 1 added to their Strength characteristic."
+  },
+  "93e774243e78": {
+    "name": "Runic Weapon",
+    "kind": "ability",
+    "plain": "• Add 1 to Deny the Witch tests taken for the bearer.\n• When you give a model this Relic, pick one of these weapons it has: force axe, force stave or force sword. Add 1 to that weapon's Strength characteristic. That weapon counts as a Chapter Relic."
+  },
+  "94125b1fbf08": {
+    "name": "Smokescreen",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when one of your ADEPTUS ASTARTES SMOKESCREEN units is chosen as the target of an attack. For the rest of the phase, subtract 1 from the hit roll of every attack made against that unit."
+  },
+  "9475f1139e71": {
+    "name": "Fire Points",
+    "kind": "ability",
+    "plain": "In your Shooting phase, you can select embarked models to shoot: as many as 15 from inside the TACTICUS BUNKER model, and as many as 10 from inside each BUNKER ANNEX model. Measure their distances and line of sight from any point on that model. These embarked models can shoot even while the Building is within Engagement Range of enemy units."
+  },
+  "94fce1f4dc75": {
+    "name": "Helix gauntlet",
+    "kind": "ability",
+    "plain": "Once per turn, the first time the bearer's unit fails a saving throw, that attack's Damage becomes 0."
+  },
+  "951310c243e0": {
+    "name": "Tactical Resource",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each Detachment in your army can include only one Damocles Command Rhino model."
+  },
+  "955726d8bd3f": {
+    "name": "Auto launchers",
+    "kind": "ability",
+    "plain": "The bearer gets the SMOKESCREEN keyword."
+  },
+  "95d75c5fbd23": {
+    "name": "Rites of Battle",
+    "kind": "ability",
+    "plain": "You can re-roll hit rolls of 1 for your CHAPTER units within 6\" of this model."
+  },
+  "95da8c839c8c": {
+    "name": "Fortis-Pattern Data Spike",
+    "kind": "ability",
+    "plain": "TECHMARINE only. When a model with this Relic uses its Blessing of the Omnissiah ability, roll two dice for the number of lost wounds regained and discard one of them."
+  },
+  "95fe2356e239": {
+    "name": "Decimator Protocols",
+    "kind": "ability",
+    "plain": "Models in this unit don't take the hit roll penalty for moving and shooting Heavy weapons."
+  },
+  "9644fb6a02a0": {
+    "name": "Fenrisian great axe (Cleave)",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for each attack made with this profile."
+  },
+  "96bede264888": {
+    "name": "Plasma gun, Supercharged",
+    "kind": "weapon",
+    "plain": "Once this weapon has finished shooting, its bearer suffers 1 mortal wound for every roll of 1 made for its attacks."
+  },
+  "984b3eab0b22": {
+    "name": "Hover Jet",
+    "kind": "ability",
+    "plain": "You can declare that this model will hover before it moves in your Movement phase. If you do, it has a Move characteristic of 20\" for the rest of the phase, and it loses its Airborne, Hard to Hit and Supersonic abilities until your next Movement phase begins."
+  },
+  "9962da5bfc0a": {
+    "name": "Artificer Armour",
+    "kind": "ability",
+    "plain": "A model with this Relic has a 2+ Save characteristic and a 5+ invulnerable save."
+  },
+  "997903911c52": {
+    "name": "Camo cloak",
+    "kind": "ability",
+    "plain": "If a model in this unit is receiving the benefits of cover when a ranged attack is allocated to it, add an additional 1 to the armour save made against that attack."
+  },
+  "9a9fe7ace2b1": {
+    "name": "Astartes Banner",
+    "kind": "ability",
+    "plain": "<CHAPTER> units within 6\" of any friendly <CHAPTER> ANCIENTS add 1 to their Leadership. Each time a <CHAPTER> INFANTRY or <CHAPTER> BIKER model is destroyed while within 6\" of any friendly ANCIENTS, roll one D6 before taking it off the battlefield. On a 4+, it can either fire one of its ranged weapons as though it were your Shooting phase, or make one attack with a melee weapon as though it were the Fight phase."
+  },
+  "9ad64ec23ebc": {
+    "name": "Defensive Array",
+    "kind": "ability",
+    "plain": "When this model shoots in your Shooting phase, either the Hammerfall heavy bolter array or the Hammerfall heavy flamer array can target every eligible enemy unit and resolve attacks against all of them. When this model fires Overwatch, its weapons only resolve attacks against the charging unit, but while it does, the Hammerfall heavy bolter array's Type changes to Heavy 6 and the Hammerfall heavy flamer array's Type changes to 2D6."
+  },
+  "9b1b6c0e3aef": {
+    "name": "Castellan Launcher",
+    "kind": "weapon",
+    "plain": "Blast. This weapon can target units the bearer can't see."
+  },
+  "9c5888cad250": {
+    "name": "Blade Parry",
+    "kind": "ability",
+    "plain": "Against melee weapons, this model has a 4+ invulnerable save."
+  },
+  "9ce452827e24": {
+    "name": "Castellum air defence missiles",
+    "kind": "weapon",
+    "plain": "Add 2 to the hit roll for each attack made with this weapon against an AIRCRAFT unit."
+  },
+  "9d938a2499a4": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Every time this model moves, start by pivoting it on the spot up to 90° (this pivot is free and doesn't use up any of its move), then move it straight forwards. After that first pivot it can't pivot again. When it Advances, don't roll a dice: instead add 20\" to its Move characteristic until the end of the phase."
+  },
+  "9dda1bd554de": {
+    "name": "Omniscope",
+    "kind": "ability",
+    "plain": "If this unit includes a Centurion Sergeant, the target of each ranged attack made by a model in this unit gets no benefit from cover against that attack."
+  },
+  "9dfcc7b0194f": {
+    "name": "Holy Wargear",
+    "kind": "ability",
+    "plain": "This model can't ever be given Relics."
+  },
+  "9e6a92aa77ef": {
+    "name": "Indomitable Resolve",
+    "kind": "ability",
+    "plain": "Once per battle, when Chaplain Grimaldus in this unit is destroyed, you can choose not to use any rules triggered by his destruction (such as the Only in Death Does Duty End Stratagem) and roll one D6 once the phase ends instead. If you do, on a 4+ put Chaplain Grimaldus back on the battlefield with 3 wounds left, as near as he can be to the place he was destroyed and outside Engagement Range of every enemy unit."
+  },
+  "9fe8b2f302f9": {
+    "name": "Marksman Target-tracker",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your MARKSMAN TARGET-TRACKER units is chosen to shoot. Until the end of the phase, whenever you pick a target for an occulus bolt carbine that a model in that unit has, you can ignore the Look Out, Sir rule."
+  },
+  "a008e3cbb966": {
+    "name": "Omni-scramblers",
+    "kind": "ability",
+    "plain": "No enemy unit arriving as reinforcements can be placed within 12\" of this unit."
+  },
+  "a090158f7dd6": {
+    "name": "Tactical Precision (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CHAPTER> CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by models in that unit."
+  },
+  "a0b6bd535c2a": {
+    "name": "3. Plea of Deliverance",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this PRIEST.\n• Any psychic powers manifested by enemy models that are affecting that unit or its models stop affecting them.\n• Until the start of your next Command phase, psychic powers manifested by enemy units don't affect that unit or its models."
+  },
+  "a112524bdec1": {
+    "name": "Wisdom of the Ancients",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your ADEPTUS ASTARTES DREADNOUGHT models that isn't a WULFEN or DEATH COMPANY model. It gains one of these abilities until the start of your next Command phase:\n• Rites of Battle (Aura): while one of your <CHAPTER> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by that unit's models.\n• Tactical Precision (Aura): while one of your <CHAPTER> CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by that unit's models."
+  },
+  "a19fe8a10868": {
+    "name": "Skilled Riders",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Shooting phase, when one of your ADEPTUS ASTARTES BIKER, LAND SPEEDER or STORM SPEEDER units that Advanced is chosen as the target of a ranged attack. For the rest of the phase, subtract 1 from the hit roll of every attack against that unit."
+  },
+  "a2be00a15fc3": {
+    "name": "Wrecked",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit is destroyed, roll one D6 before removing it and before any embarked models disembark. On a 6, its stores explode: every unit within 6\" suffers D3 mortal wounds. On any other roll, the building is wrecked: it still counts as destroyed for every rule, but it stays on the battlefield and, for the rest of the battle, is an Obstacle terrain feature with these terrain traits:\n• Difficult Ground\n• Exposed Position\n• Unstable Position",
+    "waive": {
+      "40000": "part of the rules title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "a2e787e1b6bc": {
+    "name": "Morkai's Teeth Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a Morkai's Teeth bolt. If you do, that weapon makes only one attack, but if it hits, the attack sequence ends and the target unit becomes marked by Morkai for the rest of the turn. Wound rolls of 1 are re-rolled for any attack made against a unit marked by Morkai."
+  },
+  "a38aa3552578": {
+    "name": "Master-crafted instigator bolt carbine",
+    "kind": "weapon",
+    "plain": "When you pick a target for this weapon, you can ignore the Look Out, Sir rule."
+  },
+  "a3b26a16027e": {
+    "name": "Heretic’s Pyre",
+    "kind": "stratagem",
+    "plain": "Use at the start of your Shooting phase. Pick one of your BLACK TEMPLARS CORE units. Until the end of the phase:\n• When a flame weapon from that unit targets a unit with 6 to 10 models, it makes at least 3 attacks.\n• When a flame weapon from that unit targets a unit with 11 or more models, don't roll for the number of attacks; it makes the maximum number instead.\nThis Stratagem costs 2CP if the chosen unit is a MK X GRAVIS unit, and 1CP otherwise."
+  },
+  "a4246bcaa7cf": {
+    "name": "Commanding Oratory",
+    "kind": "stratagem",
+    "plain": "Use at the start of any of your phases except the Command phase. Pick one of your ADEPTUS ASTARTES CHAPLAIN units that hasn't recited a litany this turn. It can recite one litany no friendly model has recited this turn yet; that litany is automatically inspiring (don't roll) and lasts until the start of your next Command phase."
+  },
+  "a4a51e09614c": {
+    "name": "1. Litany of Faith (Aura)",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, then while one of your CORE or CHARACTER units is within 6\" of this PRIEST, roll one D6 whenever one of its models would lose a wound to a mortal wound: on a 5+, that wound isn't lost."
+  },
+  "a55e6ecf34b0": {
+    "name": "4. Mantra of Strength",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, this PRIEST'S Attacks and Strength characteristics each go up by 1, and so does the Damage characteristic of each melee weapon it has."
+  },
+  "a5b3b1176b7a": {
+    "name": "Explodes (D6+6\"/D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within D6+6\" suffers D6 mortal wounds."
+  },
+  "a6cd6899c84c": {
+    "name": "Archangel's Shard",
+    "kind": "weapon",
+    "plain": "Attacks from this weapon that are allocated to a model in a CHAOS unit have Damage 3. Attacks from this weapon that are allocated to a model in a CHAOS MONSTER unit have Damage 4."
+  },
+  "a6f686b1c9d6": {
+    "name": "Targeter Optics",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to the hit roll of every ranged attack it makes with a Heavy weapon."
+  },
+  "a804f2aa7130": {
+    "name": "Honour or Death",
+    "kind": "ability",
+    "plain": "This model can perform a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it, rather than the usual 3\" horizontally and 5\" vertically. When it makes a Heroic Intervention move, it can move up to 6\", provided it finishes either nearer to the nearest enemy model or within Engagement Range of an enemy CHARACTER unit. All other Heroic Intervention rules still apply."
+  },
+  "aa2061a1b953": {
+    "name": "Sigismund's Heir",
+    "kind": "ability",
+    "plain": "You can re-roll both the hit roll and the wound roll for each melee attack this model makes against an enemy Character unit."
+  },
+  "aa644b2c775d": {
+    "name": "Hover Tank",
+    "kind": "ability",
+    "plain": "Always measure distances and ranges to and from this model's hull, ignoring its base."
+  },
+  "ac233a907218": {
+    "name": "5. Recitation of Focus",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. Add 1 to the hit roll for every ranged attack made by a model in that unit."
+  },
+  "ad833d1ce6e5": {
+    "name": "Automated Weapons",
+    "kind": "ability",
+    "plain": "Each time a model in this unit is chosen to shoot in your Shooting phase while no friendly units are embarked inside it, that weapon's attacks can only target one of these:\n• the closest eligible enemy unit, or\n• the closest eligible enemy AIRCRAFT unit."
+  },
+  "ad9a67f669b3": {
+    "name": "Mindless Followers",
+    "kind": "ability",
+    "plain": "While this unit has any Cenobyte Servitor models, each attack that successfully wounds this unit must be allocated to one of them. Ignore destroyed Cenobyte Servitor models for Morale tests. If Chaplain Grimaldus is destroyed, any Cenobyte Servitors left in this unit are destroyed too. Cenobyte Servitor models can't be your Warlord."
+  },
+  "af05dd6e5455": {
+    "name": "Champion of the Feast",
+    "kind": "stratagem",
+    "plain": "Use before the battle (only once). Pick one BLACK TEMPLARS model from your army whose profile includes the word 'Sergeant' or 'Sword Brother'. Add 1 to its Attacks and Wounds characteristics, and improve its Weapon Skill characteristic by 1."
+  },
+  "b0ad7c73d28d": {
+    "name": "Steady Advance",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, when one of your ADEPTUS ASTARTES INFANTRY units makes a Normal Move. Until the end of the turn, it counts as having Remained Stationary."
+  },
+  "b25c23de0abc": {
+    "name": "Xiphon missile battery",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for each attack made with this weapon against an AIRCRAFT unit."
+  },
+  "b3a87a87c660": {
+    "name": "Command Squad",
+    "kind": "ability",
+    "plain": "If a Detachment has a <CHAPTER> CAPTAIN in it, you can include one <CHAPTER> COMPANY VETERANS unit in that Detachment without it using a Battlefield Role slot."
+  },
+  "b41fb7ffd467": {
+    "name": "Cerberus neutron pulse array",
+    "kind": "weapon",
+    "plain": "Each attack from this weapon that is allocated to a model has a Damage characteristic of 6 when the bearer Remained Stationary during your previous Movement phase."
+  },
+  "b4e543afea4f": {
+    "name": "The Emperor’s Will",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase. Pick one of your BLACK TEMPLARS INFANTRY units that Advanced this turn. Until the end of the phase:\n• It can still shoot, but only with Pistol, Rapid Fire or Assault weapons.\n• Its models ignore the hit roll penalty for shooting Assault weapons."
+  },
+  "b50c0ade8da2": {
+    "name": "5. Fervent Acclamation",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one Templar Vow that isn't in effect, and one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. That unit gets the effects of that vow.",
+    "waive": {
+      "44": "page reference to the codex, not part of the rule",
+      "45": "page reference to the codex, not part of the rule"
+    }
+  },
+  "b62f990ad9d3": {
+    "name": "Chief Apothecary",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, this model may use Combat Restoratives twice, not just once."
+  },
+  "b66ca50887c7": {
+    "name": "Bolt sniper rifle - Executioner round",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. Add 1 to the hit roll for attacks made with it, and the target gets no benefit of cover to its saving throw."
+  },
+  "b70ed1981e32": {
+    "name": "Reliquary of Vengeance",
+    "kind": "ability",
+    "plain": "Once per battle, a model with this Relic can reveal the reliquary at the start of the Fight phase. If it does, until that phase ends the bearer has this Aura ability (Reliquary of Vengeance): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, each model in that unit gets 1 extra attack."
+  },
+  "b72a06b4de6f": {
+    "name": "Smoke Launchers",
+    "kind": "ability",
+    "plain": "Once per game, in the Shooting phase, this model can use its smoke launchers instead of shooting any of its weapons. If it does, until your next Shooting phase, your opponent subtracts 1 from hit rolls for attacks that target it."
+  },
+  "b77ef2c06134": {
+    "name": "4. Fires of Devotion",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. When that unit fights, if this turn it made a charge move, was charged or performed a Heroic Intervention, add 1 to the Attacks characteristic of its models."
+  },
+  "b785e0c87906": {
+    "name": "Swiftclaw",
+    "kind": "ability",
+    "plain": "If this unit belongs to the Space Wolves Chapter or one of its successors, it gains the SWIFTCLAW keyword and is made up of 1 Biker Sergeant and 2-14 Space Marine Bikers.\nIts Power Rating depends on how many Space Marine Biker models it has: 3 to 5 models, Power Rating 9; 6 to 8 models, Power Rating 14; 9 to 11 models, Power Rating 18; 12 or more models, Power Rating 23. If it includes an Attack Bike, it gets Power Rating +2."
+  },
+  "b7c514c7ccb2": {
+    "name": "Narthecium [Aura]",
+    "kind": "ability",
+    "plain": "Aura: if a model in a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit would lose a wound while its unit is within 3\" of this model, roll one D6. On a 6, it doesn't lose that wound."
+  },
+  "b857bed40adc": {
+    "name": "Bodyguard",
+    "kind": "ability",
+    "plain": "Enemy models can't make ranged attacks against a friendly <CHAPTER> CHARACTER unit whose Wounds characteristic is 9 or less while that CHARACTER unit is within 3\" of this unit."
+  },
+  "b8922c59e441": {
+    "name": "Quake Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a quake bolt. If you do, that weapon makes only one attack, but if it hits, the target unit is felled until the end of the turn, on top of any normal damage. Add 1 to the hit roll of every melee attack made against a felled unit."
+  },
+  "b9693aa8a728": {
+    "name": "Boreas air defence missiles",
+    "kind": "weapon",
+    "plain": "Add 2 to the hit roll for attacks made with this weapon against an AIRCRAFT unit. Attacks from this weapon allocated to an AIRCRAFT model have Damage D3+3."
+  },
+  "b974c645dceb": {
+    "name": "Death from Above",
+    "kind": "ability",
+    "plain": "During deployment, if every model in this unit has this ability, you can set it up high in the skies instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "b988439a0456": {
+    "name": "Airborne",
+    "kind": "ability",
+    "plain": "This model can't charge. Only units that can FLY can charge it, and in the Fight phase it can only attack, or be attacked by, units that can FLY."
+  },
+  "ba8f02d71bdb": {
+    "name": "Martial Superiority",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, this model can fight first that phase if it is in Engagement Range of any enemy Character units."
+  },
+  "bbc20a0a7e4b": {
+    "name": "Skilful Parry",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of each melee attack made against this model."
+  },
+  "bdbf3281d2d9": {
+    "name": "Grav-flux bombard",
+    "kind": "weapon",
+    "plain": "Blast. When an attack from this weapon is allocated to a model whose Save characteristic is 3+ or better, that attack has Damage 3."
+  },
+  "bddb36d7f596": {
+    "name": "Auto Boltstorm Gauntlets (Melee)",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit rolls for attacks made with this weapon."
+  },
+  "bec775ed8d49": {
+    "name": "Aquilon Optics",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll each time this model attacks with its heavy laser destroyer or macro plasma incinerator."
+  },
+  "bfd9b8fbd18e": {
+    "name": "Transport",
+    "kind": "ability",
+    "plain": "This model has a transport capacity of 10 <CHAPTER> INFANTRY models. TERMINATOR, WULFEN and JUMP PACK models each count as two models, and CENTURION models each count as three. PRIMARIS models can't be carried."
+  },
+  "c000386b326d": {
+    "name": "Camo cloaks",
+    "kind": "ability",
+    "plain": "When a ranged attack is allocated to a model in this unit that has a camo cloak, and that model is receiving the benefits of cover, add a further 1 to any armour saving throw made against it."
+  },
+  "c03ea70a0717": {
+    "name": "Leviathan siege drill",
+    "kind": "weapon",
+    "plain": "When an attack from this weapon is allocated to a VEHICLE model, its Damage is 6 for that attack."
+  },
+  "c1ebf8e8670e": {
+    "name": "Gravis Fighting Styles",
+    "kind": "ability",
+    "plain": "Each time the bearer fights:\n• if this model has an Astartes chainsword, it can make 2 extra attacks with it (for a maximum of 3).\n• if it has a power sword, it can make 2 extra attacks with it.\n• if it has a power fist, it can make 1 extra attack with it.\nYou can't use this ability with a Relic that replaces any of these weapons."
+  },
+  "c2b6f69deef3": {
+    "name": "Master of the Forge",
+    "kind": "ability",
+    "plain": "When this model uses its Blessing of the Omnissiah ability to repair a model, the repaired model regains up to 3 lost wounds rather than D3."
+  },
+  "c3a2c8ce88cf": {
+    "name": "Great Wolf Claw",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon."
+  },
+  "c421821a2582": {
+    "name": "Attendant Thrall's Fists",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 2 extra attacks with this weapon, and it can make no more than 2 attacks with this weapon."
+  },
+  "c4320f665f29": {
+    "name": "Vows",
+    "kind": "rule",
+    "plain": "If all units in your army have the BLACK TEMPLARS keyword (ignoring UNALIGNED units), then each unit in a BLACK TEMPLARS Detachment with the Combat Doctrines ability gains the Templar Vows ability.\n\nTemplar Vows: when the Read Mission Briefing step ends, you can choose one vow from this list:\n• Uphold the Honour of the Emperor\n• Suffer Not the Unclean to Live\n• Accept any Challenge, No Matter the Odds\n• Abhor the Witch, Destroy the Witch\nUntil the battle ends, every unit from your army that has the Templar Vows ability gains that vow's effects. Every vow brings some abilities and also a passion, which is a drawback that applies to Black Templars units while that vow affects them.",
+    "waive": {
+      "44": "page reference to the codex (\"pages 44-45\"), not part of the rule",
+      "45": "page reference to the codex (\"pages 44-45\"), not part of the rule"
+    }
+  },
+  "c566df23f8cb": {
+    "name": "Signum",
+    "kind": "ability",
+    "plain": "In your Shooting phase, each time this unit shoots, if it has a Sergeant, you can pick one model in it. That model has Ballistic Skill 2+ until the end of the phase."
+  },
+  "c590c741ba32": {
+    "name": "2. Catechism of Fire",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. When a model in that unit shoots at the closest eligible target, add 1 to the wound roll for each of those ranged attacks."
+  },
+  "c59c52f48746": {
+    "name": "Open-topped",
+    "kind": "ability",
+    "plain": "Units embarked on this model can shoot in their Shooting phase; measure range and line of sight from any point on this model. Any restrictions or modifiers that apply to this model then apply to those passengers too. While this transport is within Engagement Range of any enemy units, the units inside it can only shoot with Pistols."
+  },
+  "c7bac886373d": {
+    "name": "Heavy Armour",
+    "kind": "ability",
+    "plain": "Models with this ability get a 5+ invulnerable save."
+  },
+  "c85b9c698bd5": {
+    "name": "Gene-wrought Might",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your PRIMARIS units is chosen to fight. For the rest of the phase, each unmodified hit roll of 6 for a melee attack by a model in that unit automatically wounds the target."
+  },
+  "c8a14db57b74": {
+    "name": "Omni-scrambler",
+    "kind": "ability",
+    "plain": "No enemy unit arriving as reinforcements can be placed within 12\" of this model."
+  },
+  "c903a638cc81": {
+    "name": "Orbital Bombardment",
+    "kind": "stratagem",
+    "plain": "Once per battle, in your Command phase, while your ADEPTUS ASTARTES WARLORD is on the battlefield: place a marker on any point of the battlefield. When your next Command phase starts, roll one D6 for every unit within 6\" of the marker's centre; add 1 to the roll if the unit is within 3\" of the centre, and subtract 1 if it is a CHARACTER. On a 2-5 the unit suffers D3 mortal wounds; on a 6+ it suffers D6 mortal wounds. Then remove the marker."
+  },
+  "c9f2f79244fe": {
+    "name": "Total Obliteration",
+    "kind": "ability",
+    "plain": "In your Shooting phase, each time this unit is chosen to shoot, if it hasn't Advanced this turn, it can unleash total obliteration. If it does, choose one enemy unit. This phase the unit's models may shoot twice, but they can only make attacks against that enemy unit (and only when it is an eligible target for those attacks)."
+  },
+  "cb376f0c8bc2": {
+    "name": "Terror Troops (Aura)",
+    "kind": "ability",
+    "plain": "Aura: each enemy unit within 3\" of this unit has 2 subtracted from its models' Leadership characteristic."
+  },
+  "cb95e865c438": {
+    "name": "Korvidari Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a korvidari bolt. If you do, add 6\" to that weapon's Range characteristic when choosing targets and ranged weapons for that model, and it can target units that aren't visible to the bearer, but that weapon can make only one attack."
+  },
+  "cbc4d4868b0f": {
+    "name": "Flakk Missile",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your ADEPTUS ASTARTES INFANTRY models targets an AIRCRAFT unit with a missile launcher. That weapon makes only one attack this phase, but add 1 to its hit roll. If it hits, the target suffers 2D3 mortal wounds and the attack sequence ends."
+  },
+  "ccd84c9fa097": {
+    "name": "Explodes (3\"/D3)",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll one D6 before it is removed from the battlefield and before any models embarked in it disembark. On a 6, it explodes: each unit within 3\" suffers D3 mortal wounds."
+  },
+  "cd4e767ccc1e": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll a D6 before any embarked models disembark and before you take it off the battlefield. On a 6 it explodes, and every unit within D6+6\" suffers 2D6 mortal wounds."
+  },
+  "ce1080b0615d": {
+    "name": "Explodes (6\"/1)",
+    "kind": "ability",
+    "plain": "Roll one D6 when this model is destroyed, before taking it off the battlefield. On a 6 it blows up, and every unit within 6\" takes 1 mortal wound."
+  },
+  "cee214cc729a": {
+    "name": "Twin Falchion volcano cannon",
+    "kind": "weapon",
+    "plain": "Blast. You can re-roll the wound roll for each attack made with this weapon against a TITANIC unit."
+  },
+  "cf090711d881": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CHAPTER> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "d17b154040dc": {
+    "name": "Hand Flamer",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit automatically; don't make a hit roll."
+  },
+  "d1c81d7b6a17": {
+    "name": "Saboteur Explosive Pack",
+    "kind": "stratagem",
+    "plain": "Use when one of your SABOTEUR EXPLOSIVE PACK units is chosen to Fall Back. Before it moves, pick one enemy VEHICLE or MONSTER unit within Engagement Range of it and roll one D6, with 3 added to the result against a BUILDING unit. On a 2-5 the target suffers D3 mortal wounds; on a 6+ it suffers D6 mortal wounds."
+  },
+  "d22d3966c4a2": {
+    "name": "Blessing of the Omnissiah",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, this model can repair one <CHAPTER> VEHICLE that is within 3\" of it; that VEHICLE gets back D3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "d313515e97dc": {
+    "name": "Adaptive Strategy",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase, while your army has an active combat doctrine and your <CHAPTER> WARLORD is on the battlefield. Pick one of your <CHAPTER> CORE units on the battlefield. Until the start of your next Command phase, the Devastator, Tactical and Assault Doctrines all count as active for every attack its models make."
+  },
+  "d34f015d0c24": {
+    "name": "Deathwing",
+    "kind": "ability",
+    "plain": "This unit gains the DEATHWING keyword if it belongs to the Dark Angels or to a successor Chapter of the Dark Angels."
+  },
+  "d3522b8745df": {
+    "name": "Shard of Isstvan",
+    "kind": "ability",
+    "plain": "A model with this Relic has 1 added to its Attacks characteristic. Also, Morale tests taken for <CHAPTER> units within 6\" of a friendly model with this Relic are passed automatically; don't roll the dice."
+  },
+  "d370289ccf2f": {
+    "name": "Watcher's in the Dark",
+    "kind": "ability",
+    "plain": "Up to two times in a battle, this model may try a Deny the Witch test as though it had the PSYKER keyword. If a CHAOS PSYKER is manifesting the power, you may re-roll that test."
+  },
+  "d3c2884054e9": {
+    "name": "A Storm of Death",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your VANGUARD SPEARHEAD REIVER SQUAD units is chosen to fight. Until the end of the phase, each unmodified wound roll of 6 for a melee attack a model in that unit makes against an INFANTRY or BIKER unit inflicts 1 mortal wound on the target as well as its normal damage (up to a maximum of 6 mortal wounds)."
+  },
+  "d4335fa53118": {
+    "name": "Void Shields",
+    "kind": "ability",
+    "plain": "This model has 2 void shields, each with 3 shield points. As long as at least one void shield is up, this model has a 5+ invulnerable save against ranged attacks.\n\nWhen this model fails a saving throw against a ranged attack while it still has a void shield, it suffers no damage; instead, each point of damage inflicted removes 1 shield point from one of its void shields. After a void shield has lost any shield points, it keeps taking all further damage until it collapses. When an attack takes a void shield down to 0 shield points, that shield collapses: this model loses it, and any excess damage from that attack is lost. Void shields never stop mortal wounds (each mortal wound still makes this model lose one wound as normal).\n\nWhen your Command phase starts, any void shield on this model with fewer than 3 shield points left is restored to 3 shield points."
+  },
+  "d4ea1313eb83": {
+    "name": "Revered Repositories",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army; you can only use it once. Pick one BLACK TEMPLARS model from your army whose profile includes the word 'Sergeant' or 'Sword Brother'. Even though it isn't a CHARACTER, it can have one of these Relics of the Eternal Crusade: Witchseeker Bolts, Sword of Judgement, Skull of the Cacodominus, Master-crafted Weapon or Digital Weapons. Every Relic in your army must be different, and you can't use this Stratagem to give one model two Relics."
+  },
+  "d4f9ebcfc3eb": {
+    "name": "Arma Luminis",
+    "kind": "weapon",
+    "plain": "Before you pick targets, choose one or both of the profiles below to attack with."
+  },
+  "d53f9db0f079": {
+    "name": "Subterranean Assault",
+    "kind": "ability",
+    "plain": "During deployment, instead of placing this model on the battlefield you can set it up underground, together with any units embarked inside it. At the end of any of your Movement phases, it can make a subterranean assault: place it anywhere on the battlefield that is more than 9\" from all enemy models. Units inside can then disembark immediately, but must be placed more than 9\" from all enemy models. Models that can't be placed because there isn't room are destroyed."
+  },
+  "d63a645e4247": {
+    "name": "Strength of Conviction",
+    "kind": "stratagem",
+    "plain": "Use in your Command phase. Pick one of your BLACK TEMPLARS CORE units. It has the Objective Secured ability until the start of your next Command phase."
+  },
+  "d6ce2705f47e": {
+    "name": "Termite Drill",
+    "kind": "weapon",
+    "plain": "Each attack from this weapon that is allocated to a VEHICLE model has a Damage characteristic of D3+6."
+  },
+  "d71082d58280": {
+    "name": "Uphold the Honour of the Emperor",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Pick one of your SWORD BRETHREN units. Until the end of that phase, each time a model in that unit loses a wound, roll a D6: on a 5+, the wound isn't lost."
+  },
+  "d7260e3ccf76": {
+    "name": "Twin plasma gun, Supercharge",
+    "kind": "weapon",
+    "plain": "On a hit roll of 1, the bearer is slain once all of this weapon's shots have been resolved."
+  },
+  "d74674d6b842": {
+    "name": "Gleaming Pinions",
+    "kind": "ability",
+    "plain": "• Falling Back in a turn doesn't stop the bearer from charging that turn.\n• Charge rolls for the bearer can be re-rolled."
+  },
+  "d81ad866e860": {
+    "name": "Tremor Shells",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when you pick a target for one of your THUNDERFIRE CANNON models. For the rest of the phase, subtract 1 from the wound roll of each ranged attack it makes. Each time one of those attacks hits a target that isn't TITANIC and can't FLY, the target unit's models have their Move characteristic halved, and it subtracts 2 from its Advance and charge rolls, until the start of your next Movement phase."
+  },
+  "d93197acb9fb": {
+    "name": "Narthecium (Aura)",
+    "kind": "ability",
+    "plain": "Aura: if a model in a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit would lose a wound while its unit is within 3\" of this model, roll one D6. On a 6, it doesn't lose that wound."
+  },
+  "da13919f5a89": {
+    "name": "Command Squad Bodyguard",
+    "kind": "ability",
+    "plain": "If a friendly <CHAPTER> CHARACTER model that is within 3\" of this unit would lose wounds because of an attack against it, this unit can try to block that attack: roll one D6. On a 2+, the CHARACTER keeps those wounds and this unit suffers 1 mortal wound for every one of them. You can only try to intercept each attack once."
+  },
+  "db04978fd414": {
+    "name": "Explodes (2D6\"/D6)",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 2D6\" suffers D6 mortal wounds."
+  },
+  "db87fa5ba390": {
+    "name": "Combat Revival",
+    "kind": "stratagem",
+    "plain": "Use at the end of your Movement phase. Pick one of your <CHAPTER> APOTHECARY units, then pick a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit that is within 3\" of that <CHAPTER> APOTHECARY and below its Starting Strength (an INVADER ATV SQUAD can't be picked). Return one destroyed model to that unit, with its full wounds."
+  },
+  "dcdeb12aef38": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "If this transport is destroyed, roll a D6 before any embarked models disembark and before you take it off the battlefield. On a 6 it explodes, and every unit within 2D6\" suffers 2D6 mortal wounds."
+  },
+  "dce072811ae0": {
+    "name": "Nobility Made Manifest (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while your ULTRAMARINES INFANTRY and ULTRAMARINES BIKER units are within 6\" of this Warlord, they can perform Heroic Interventions as if they were CHARACTERS."
+  },
+  "dd3a2ce06bda": {
+    "name": "Communication Relay",
+    "kind": "ability",
+    "plain": "If your WARLORD is embarked inside the bearer during your Command phase, you get 1CP."
+  },
+  "de113122bf14": {
+    "name": "Explorator Augury Web",
+    "kind": "ability",
+    "plain": "Enemy units arriving as reinforcements can't be set up within 12\" of the bearer. The bearer's transport capacity is reduced from 10 to 6 <CHAPTER> INFANTRY models."
+  },
+  "de3656f3f3f9": {
+    "name": "Servant of the Chapter",
+    "kind": "ability",
+    "plain": "This unit can't be upgraded to a MASTER OF SANCTITY."
+  },
+  "de9bf4f9e53b": {
+    "name": "Skillful Parry",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of each melee attack made against this model."
+  },
+  "df1d577a6597": {
+    "name": "Wrecker",
+    "kind": "ability",
+    "plain": "If this model is equipped with an ironclad combat weapon, re-roll any hit roll of 1 for its melee attacks."
+  },
+  "dffd5401775d": {
+    "name": "Armour of Contempt",
+    "kind": "stratagem",
+    "plain": "Use in any phase, when a mortal wound would make one of your ADEPTUS ASTARTES VEHICLE models lose a wound. Until the end of the phase, each time a mortal wound would make that model lose a wound, roll one D6: on a 5+, the wound isn't lost."
+  },
+  "e28dee94c7f6": {
+    "name": "Supersonic",
+    "kind": "ability",
+    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, start by pivoting it on the spot up to 90° (this pivot is free and doesn't use up any of its move), then move it straight forwards. After that first pivot it can't pivot again."
+  },
+  "e2caa04fbf70": {
+    "name": "Digital Weapons",
+    "kind": "ability",
+    "plain": "The bearer of this Relic can make 1 extra attack each time it fights, using the close combat weapon profile. If that attack hits, it inflicts 1 mortal wound on the target and its attack sequence ends.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 rulebook\""
+    }
+  },
+  "e3e35c33a026": {
+    "name": "Black Sword - Thrusting Strike",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll of each attack made with this profile."
+  },
+  "e673ce0932c7": {
+    "name": "Spiritual Leaders (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BLACK TEMPLARS CORE units is within 6\" of this model, its models can choose to use this model's Leadership characteristic rather than their own."
+  },
+  "e6bf9d28b889": {
+    "name": "Tactical Augury",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your VANGUARD SPEARHEAD units is chosen to shoot. Until the end of the phase, targets of ranged attacks made by its models don't get the benefit of cover against those attacks."
+  },
+  "e75f7808921b": {
+    "name": "Devout Push",
+    "kind": "stratagem",
+    "plain": "Use at the start of the Fight phase. Pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units, then choose one:\n• If it isn't within Engagement Range of an enemy unit, it makes a Normal Move of up to 3\". It must finish that move closer to either the closest enemy unit or the closest objective marker, and it can't use this move to embark within a TRANSPORT model.\n• If it is within Engagement Range of any enemy units, it makes a pile-in move."
+  },
+  "e88ada4e6849": {
+    "name": "Icarus stormcannon",
+    "kind": "weapon",
+    "plain": "Against an AIRCRAFT unit, each attack from this weapon makes 2 hit rolls instead of 1, with 1 added to each of those hit rolls."
+  },
+  "e8b14adebfbc": {
+    "name": "Aquilon Optics",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll each time this model attacks with a Lancer laser destroyer."
+  },
+  "e8c291b99fe3": {
+    "name": "Stormwrath Bolts",
+    "kind": "ability",
+    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a stormwrath bolt. If you do, that weapon makes only one attack, but for that attack it has Strength 7 and Armour Penetration -1, and Damage D6 if the target is a MONSTER."
+  },
+  "e8dfddcc3a95": {
+    "name": "Wolf Guard",
+    "kind": "ability",
+    "plain": "This unit gains the WOLF GUARD keyword if it belongs to the Space Wolves or to a successor Chapter of the Space Wolves."
+  },
+  "eba77a7865a1": {
+    "name": "Relic of the Chapter",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while mustering your army, if your WARLORD has the ADEPTUS ASTARTES keyword. Pick one ADEPTUS ASTARTES CHARACTER model from your army and give it one Chapter Relic it is allowed to have. Every Relic in your army must be different, and you can't use this Stratagem to give one model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "ecdc69d75a90": {
+    "name": "Obsidian Aquila",
+    "kind": "ability",
+    "plain": "While one of your SALAMANDERS CORE units is within 6\" of the bearer, each time a model in that unit would lose a wound, roll one D6: on a 6, the wound is not lost."
+  },
+  "ed04810237e5": {
+    "name": "Automated Emplacement",
+    "kind": "ability",
+    "plain": "Whenever a model in this unit shoots, its attacks must target the closest eligible enemy unit that can FLY, or, if no eligible units can FLY, the closest eligible unit. This unit can never charge or Heroically Intervene, and it can't pile in or consolidate."
+  },
+  "ed05b4d40708": {
+    "name": "Deathwing Command Squad",
+    "kind": "ability",
+    "plain": "If this unit belongs to the Dark Angels Chapter or one of its successors, it gains the DEATHWING keyword. For every DEATHWING COMMAND SQUAD unit in a Detachment, you can include one DEATHWING ANCIENT unit in that Detachment without it using a Battlefield Role slot."
+  },
+  "eec25b78dd67": {
+    "name": "Shock and Awe",
+    "kind": "stratagem",
+    "plain": "Use in your Shooting phase, when one of your ADEPTUS ASTARTES SHOCK GRENADES or LAND SPEEDER STORM units is chosen to shoot. Pick one enemy unit within 6\" of it. Until the start of your next turn, that enemy unit can't fire Overwatch or Set to Defend, and subtract 1 from the hit roll of each attack its models make."
+  },
+  "efdbc5437d6c": {
+    "name": "6. Oath of Glory",
+    "kind": "ability",
+    "plain": "If this litany is inspiring:\n• If any enemy units are within Engagement Range of this PRIEST model when the Fight phase starts, it can fight first that phase.\n• When this PRIEST model attacks using a Crozius arcanum, an artificer crozius or a Relic replacing either of them, each unmodified hit roll of 6 scores 2 extra hits.\n• This PRIEST model gets 1 added to its Strength characteristic."
+  },
+  "f0055acc971f": {
+    "name": "Teleport Homer",
+    "kind": "ability",
+    "plain": "Once per battle, at the start of your Movement phase, you may take this unit off the battlefield. Then, in the Reinforcements step of your next Movement phase, it may be set up again, either wholly within your own deployment zone or within 3\" of a friendly <CHAPTER> model, and in both cases more than 9\" away from all enemy models. If the battle ends while this unit is off the battlefield, it is destroyed. If this unit has split in two using its Combat Squads ability, only one of the two units can use Teleport Homer."
+  },
+  "f101406da1c5": {
+    "name": "Vindicator siege shield",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its armour saving throws against ranged attacks allocated to it."
+  },
+  "f1b25a4f61df": {
+    "name": "6. Canticle of Hate (Aura)",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, then while one of your CORE or CHARACTER units is within 6\" of this PRIEST:\n• add 2 to that unit's charge rolls (this doesn't stack with any other rule that adds to a unit's charge roll).\n• when a model in that unit piles in or consolidates, it can move up to 3\" further (this doesn't stack with any other rule that increases how far models can pile in or consolidate)."
+  },
+  "f3af76b3a3c3": {
+    "name": "Xenophase blade",
+    "kind": "weapon",
+    "plain": "Your opponent can't make invulnerable saves against attacks made with this weapon."
+  },
+  "f5284757511b": {
+    "name": "Remnant of the Fallen Temple",
+    "kind": "ability",
+    "plain": "The bearer has this Aura ability (Remnant of the Fallen Temple): while one of your BLACK TEMPLAR CORE or BLACK TEMPLAR CHARACTER units is within 6\" of this unit, each time a model in that unit would lose a wound, the wound is not lost on a 6+."
+  },
+  "f5819c24c790": {
+    "name": "Company Heroes",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, each LIEUTENANT unit in a Detachment lets you include a second LIEUTENANT unit in that Detachment without using up an extra Battlefield Role slot."
+  },
+  "f646d922e6bb": {
+    "name": "Awaken the Machine Spirits",
+    "kind": "ability",
+    "plain": "In your Command phase, this model can awaken one of your <CHAPTER> VEHICLE models that is within 3\" of it. Until your next Command phase starts, add 1 to the hit roll for every ranged attack made by that VEHICLE model. No model can be awakened more than once per turn."
+  },
+  "f6951c6b22c2": {
+    "name": "Master of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while a friendly IMPERIUM unit is within 12\" of Roboute Guilliman:\n• Add 1 to its Advance and charge rolls.\n• Re-roll hit rolls of 1 for attacks made by its models.\n• You can re-roll its Morale tests."
+  },
+  "f8f59f7cd692": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "Each Rapier Carrier and its crew count as one model for all rules purposes, and the crew models must stay within 1\" of their Rapier Carrier. So the crew can't be targeted or attacked on their own, and visibility and all ranges are measured to and from the Rapier Carrier model, not the crew. This unit can't Advance, is never eligible to charge or Heroically Intervene, and can't make pile-in or consolidation moves."
+  },
+  "f9543f7fcc7c": {
+    "name": "The Avenging Son",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, this model has to be your Warlord, even when some other model in your army has a rule saying it must be the Warlord."
+  },
+  "f95b819f740e": {
+    "name": "Crusader’s Wrath",
+    "kind": "stratagem",
+    "plain": "Use once per battle, in your Command phase, while your army's Assault Doctrine is active. Until your next Command phase starts, whenever a BLACK TEMPLARS model from your army attacks using a Pistol or Melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1. This adds to the Assault Doctrine bonus."
+  },
+  "f9a66b143cab": {
+    "name": "Bellicastus Missile Array - Icarus",
+    "kind": "weapon",
+    "plain": "Blast. Add 1 to the hit roll for each attack made with this weapon against an Aircraft unit."
+  },
+  "f9b2cb1291cb": {
+    "name": "Abhor the Witch",
+    "kind": "stratagem",
+    "plain": "Use in your opponent's Psychic phase, after an enemy PSYKER unit passes a Psychic test and after any attempt to Deny the Witch. If any BLACK TEMPLARS unit from your army is within 24\" of that PSYKER unit, roll one D6; on a 4+, the psychic power is denied."
+  },
+  "fa52e1473cff": {
+    "name": "Stronghold",
+    "kind": "ability",
+    "plain": "Once it is set up, each model in this unit counts as a separate terrain feature with these Terrain Traits:\n• Defensible\n• Light Cover\n• Heavy Cover\n• Obscuring",
+    "waive": {
+      "40000": "part of the rules title \"Warhammer 40,000 Core Rules\""
+    }
+  },
+  "faad7a4ac5c4": {
+    "name": "Centurion assault launcher",
+    "kind": "ability",
+    "plain": "The bearer's unit has the ASSAULT LAUNCHERS keyword as long as the bearer is on the battlefield."
+  },
+  "fadd114975fb": {
+    "name": "Auto-Medicae Bionics",
+    "kind": "ability",
+    "plain": "When your turn starts, a model with this Relic that has lost any wounds gets back up to D3 of them."
+  },
+  "fb825afebe85": {
+    "name": "The Emperor's Sword",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 6 for an attack with this weapon inflicts D3 mortal wounds on the target as well as any other damage."
+  },
+  "fd0a8c6f03db": {
+    "name": "Ironhail Sytalon Array",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for each attack made with this weapon against an Aircraft unit."
+  },
+  "fd46199a10fd": {
+    "name": "Arcus multi-launcher",
+    "kind": "weapon",
+    "plain": "Blast. This weapon may target units not visible to the target."
+  },
+  "fdc4796c6010": {
+    "name": "Combat shield",
+    "kind": "ability",
+    "plain": "The bearer has a 5+ invulnerable save, and you add 1 to armour saving throws made for it."
+  },
+  "fe204a960d25": {
+    "name": "Black Rage",
+    "kind": "ability",
+    "plain": "• This unit can't Fall Back when it is chosen to move in your Movement phase.\n• When this unit fights after making a charge move or a Heroic Intervention this turn, add 1 to its models' Attacks characteristic until that fight is over.\n• Roll one D6 each time one of this unit's models would lose a wound: on a 6, it doesn't lose that wound.\n• This unit can't perform Actions.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core book\""
+    }
+  },
+  "fef74fe99a48": {
+    "name": "Melta Bomb",
+    "kind": "stratagem",
+    "plain": "Use in the Fight phase, when one of your ADEPTUS ASTARTES MELTA BOMB units is chosen to fight. Pick one model in that unit: this phase it can only make one attack, which must target an enemy VEHICLE unit, but if it hits, that unit suffers 2D3 mortal wounds and the attack sequence ends."
+  }
+}

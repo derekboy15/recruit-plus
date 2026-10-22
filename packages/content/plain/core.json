@@ -1,0 +1,52 @@
+{
+  "2a6de61c4ca4": {
+    "name": "Counter-offensive",
+    "kind": "stratagem",
+    "plain": "Use after an enemy unit has fought this turn. Pick one of your units that is eligible to fight: it fights next."
+  },
+  "45500058f30e": {
+    "name": "Fire Overwatch",
+    "kind": "stratagem",
+    "plain": "Use after an enemy unit declares a charge against one or more of your units. One of the units that charge is targeting can fire Overwatch, before the charge roll is made."
+  },
+  "52b2af908801": {
+    "name": "Heroic Support",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while you are mustering your army. If a Detachment ability (other than Gene-sect) would only let you include a unit 1 time in that Detachment, you can instead include up to 2 of that unit in it. You can use this Stratagem only once."
+  },
+  "66913550c460": {
+    "name": "Relic",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. Pick one CHARACTER model in your army that isn't a named character and give it one Relic (it must be a Relic that model is allowed to have). You can use this Stratagem only once."
+  },
+  "67fbe1c4b2b3": {
+    "name": "Command Re-roll",
+    "kind": "stratagem",
+    "plain": "Use right after you make one of these rolls: a hit roll, wound roll, damage roll, saving throw, Advance roll, charge roll, Psychic test or Deny the Witch test, or the roll that sets how many attacks a weapon makes. You re-roll that roll, test or save."
+  },
+  "8095b524686a": {
+    "name": "Warlord Trait",
+    "kind": "stratagem",
+    "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. If your WARLORD is a CHARACTER model, give them a Warlord Trait (it must be one they are allowed to have). If your WARLORD is a named character who can have more than one specified Warlord Trait, a single use of this Stratagem gives them every one of those traits. You can use this Stratagem only once."
+  },
+  "88145666ca30": {
+    "name": "Desperate Breakout",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase. Pick one of your units that is within Engagement Range of at least one enemy unit and hasn't yet been picked to move this phase. Roll one D6 for each model in that unit: for every 1, you destroy one model of your choice from it. If the unit survives, it can now try to Fall Back, and its models can move across enemy models as if they weren't there. Any of its models that end the Fall Back move within Engagement Range of any enemy model are destroyed. If the unit still survives, it can't do anything else this turn (for example it can't try to manifest psychic powers, shoot, declare a charge or be picked to fight), even if it has a rule that would normally let it do so after Falling Back."
+  },
+  "a90c70874562": {
+    "name": "Emergency Disembarkation",
+    "kind": "stratagem",
+    "plain": "Use when one of your TRANSPORT models is destroyed. Before that model is removed from the battlefield, every unit embarked inside it can disembark and be set up wholly within 6\" of it, instead of the usual 3\". These units aren't affected by the destroyed model's Explodes ability (or similar ability). Instead, roll one D6 for each model you just set up: for each roll of 1 or 2, one model of your choice that disembarked is destroyed (normally this only happens on a 1). Units that disembarked from a destroyed TRANSPORT model can't declare a charge or perform a Heroic Intervention in that same turn."
+  },
+  "bd5d8700372e": {
+    "name": "Cut Them Down",
+    "kind": "stratagem",
+    "plain": "Use when an enemy unit Falls Back, before any of its models are moved. For each of your models within Engagement Range of that enemy unit, roll one D6. For every 6, that enemy unit suffers 1 mortal wound."
+  },
+  "dfdced1955e6": {
+    "name": "Insane Bravery",
+    "kind": "stratagem",
+    "plain": "Once per battle, use before you take a Morale test for one of your units. That unit passes the test automatically, so you don't roll any dice for it."
+  }
+}

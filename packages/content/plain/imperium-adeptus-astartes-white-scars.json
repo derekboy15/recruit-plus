@@ -1,0 +1,132 @@
+{
+  "0c2dfeca6e91": {
+    "name": "For the Khan!",
+    "kind": "ability",
+    "plain": "If one of your WHITE SCARS units charged this turn, add 1 to the Strength characteristic of its models when they attack in the Fight phase while the unit is within 6\" of Kor'sarro Khan."
+  },
+  "0f18ea8e873d": {
+    "name": "A Mighty Trophy",
+    "kind": "stratagem",
+    "plain": "Use when the enemy Warlord is destroyed by a melee weapon attack from one of your WHITE SCARS models. For the rest of the battle, your WHITE SCARS units pass Morale tests automatically; don't roll for them."
+  },
+  "14bcef596bb1": {
+    "name": "For the Khan! (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your WHITE SCARS CORE or WHITE SCARS CHARACTER units is within 6\" of this model, its models add 1 to the wound roll for their melee attacks in any turn in which the unit charged or performed a Heroic Intervention."
+  },
+  "16239b557a8d": {
+    "name": "Gift of the Khans",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a model from a White Scars successor Chapter as your WARLORD: one CHARACTER model in your army from a White Scars successor Chapter can have one Relic of Chogoris instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every WHITE SCARS keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "17e4ffa5a7b7": {
+    "name": "Wind-swift",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, after one of your WHITE SCARS units (excluding ARTILLERY) has made a Normal Move or Fallen Back. That unit can now make an Advance move as well. Until the end of the turn, that unit can't shoot, declare a charge or attempt to manifest psychic powers."
+  },
+  "28b324a49f49": {
+    "name": "The Eternal Hunt",
+    "kind": "stratagem",
+    "plain": "Once per battle, use at the start of your Movement phase while the Assault Doctrine is active. From then until the start of the next battle round, when one of your WHITE SCARS models attacks with a Pistol or melee weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "31047f352056": {
+    "name": "Lightning Debarkation",
+    "kind": "stratagem",
+    "plain": "Use in your Movement phase, after one of your WHITE SCARS TRANSPORT units without the Flyer Battlefield Role moves. WHITE SCARS units embarked within it can disembark right away, but any that do can't make a charge move this turn."
+  },
+  "4409278a5b8b": {
+    "name": "Strike for the Heart",
+    "kind": "stratagem",
+    "plain": "Use before one of your WHITE SCARS units (excluding ARTILLERY) consolidates. This phase, it consolidates D3+3\" instead of 3\", or D6+6\" if every model in it has a Move characteristic of 10\" or more."
+  },
+  "48113247fca3": {
+    "name": "Hunters’ Fusillade",
+    "kind": "stratagem",
+    "plain": "Use when one of your WHITE SCARS units Advances. Until the end of the turn, the Heavy and Rapid Fire weapons its models are equipped with count as Assault weapons (so Rapid Fire 2 counts as Assault 2)."
+  },
+  "48d0c6e47251": {
+    "name": "Trophy Taker",
+    "kind": "ability",
+    "plain": "When this Warlord destroys an enemy CHARACTER model, add 1 to its Attacks characteristic for the rest of the battle."
+  },
+  "5a01e057be03": {
+    "name": "Born in the Saddle",
+    "kind": "stratagem",
+    "plain": "Use when one of your WHITE SCARS BIKER units Advances. It can still shoot this turn."
+  },
+  "76797505e22f": {
+    "name": "Chogorian Thunderbolts",
+    "kind": "stratagem",
+    "plain": "Use when one of your WHITE SCARS BIKER units finishes a charge move. Each model in the unit can pick one enemy unit within 1\" of it and roll one D6; each 6 inflicts 1 mortal wound on that enemy unit."
+  },
+  "7a79fc0d2c21": {
+    "name": "Ride Hard, Ride Fast",
+    "kind": "stratagem",
+    "plain": "Use after one of your WHITE SCARS units Advances. Until the start of your next Movement phase, subtract 1 from hit rolls for ranged attacks that target that unit."
+  },
+  "89c0a7e49568": {
+    "name": "Encirclement",
+    "kind": "stratagem",
+    "plain": "During the Declare Reserves and Transports step of your mission: pick one of your WHITE SCARS units (excluding ARTILLERY and BUILDINGS). You can place it in outflank rather than deploying it on the battlefield. If you do, it arrives at the end of any one of your Movement phases: set it up more than 9\" away from any enemy models and wholly within 6\" of any battlefield edge."
+  },
+  "906a34b1ce42": {
+    "name": "Khan’s Champion",
+    "kind": "stratagem",
+    "plain": "Use before the battle: pick one of your WHITE SCARS models with the word 'Sergeant' in its profile. Even though it is not a CHARACTER, that model can have one of these Special-issue Wargear Relics: Master-crafted Weapon, Digital Weapons, Headtaker's Trophies or Stormwrath Bolts. Every Relic in your army must be different and on a different model."
+  },
+  "910198830e88": {
+    "name": "Feinting Withdrawal",
+    "kind": "stratagem",
+    "plain": "Use when one of your WHITE SCARS units Falls Back. It can still shoot this turn."
+  },
+  "95db042f05c7": {
+    "name": "Buckler",
+    "kind": "ability",
+    "plain": "Add 1 to saving throws against melee weapon attacks made against this model. This doesn't affect invulnerable saves."
+  },
+  "af6f98020805": {
+    "name": "Butchered Quarry",
+    "kind": "stratagem",
+    "plain": "Use when an enemy unit Falls Back from within 1\" of any of your WHITE SCARS INFANTRY or WHITE SCARS BIKER units, before it moves. From those WHITE SCARS units, pick one that is not within 1\" of any other enemy units: each of its models can make one melee weapon attack against that enemy unit as if it were within 1\" of it. After these attacks, if the enemy unit has not been destroyed, it can then make its Fall Back move; once it has moved, each model in the picked unit can move up to 3\", as long as it ends nearer to that enemy unit and more than 1\" away from every enemy unit."
+  },
+  "bd9cdaeea454": {
+    "name": "Moonfang",
+    "kind": "weapon",
+    "plain": "For this weapon's attacks against a CHARACTER unit, you may re-roll both the wound roll and the damage roll."
+  },
+  "be2b72eb3054": {
+    "name": "Fierce Rivalries",
+    "kind": "stratagem",
+    "plain": "Use at the start of your Charge phase. On the first charge roll you make for one of your WHITE SCARS units that phase, roll 3D6 rather than 2D6 and discard one of the dice."
+  },
+  "c5ec8ef8490a": {
+    "name": "Tempered by Wisdom",
+    "kind": "stratagem",
+    "plain": "Once per battle, after you nominate a WHITE SCARS CHARACTER model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the White Scars Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "cbaded1ffb55": {
+    "name": "Moonfang",
+    "kind": "weapon",
+    "plain": "If the target is a CHARACTER, this weapon has double Strength."
+  },
+  "e20351fb0560": {
+    "name": "Khan's spear",
+    "kind": "weapon",
+    "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled for its attacks."
+  },
+  "e4c35d9489de": {
+    "name": "Rites of Battle (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your WHITE SCARS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
+  },
+  "f0485d210d22": {
+    "name": "Anzuq",
+    "kind": "ability",
+    "plain": "When this model is chosen to shoot in your Shooting phase, you can pick one enemy unit within 12\" of it that is not a VEHICLE and roll one D6. On a 4+, it suffers 1 mortal wound."
+  },
+  "f89037a8c82f": {
+    "name": "For the Khan!",
+    "kind": "ability",
+    "plain": "While their unit is within 6\" of this model, models in your WHITE SCARS units add 1 to wound rolls for melee weapon attacks if the unit charged or performed a Heroic Intervention this turn."
+  }
+}
