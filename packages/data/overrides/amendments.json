@@ -1,0 +1,86 @@
+[
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "kind": "rule",
+    "name": "Combat Doctrines",
+    "note": "Arks of Omen dataslate (Jan 2023): you are no longer forced on to the next doctrine each battle round; you can let the Devastator or Tactical Doctrine remain active instead.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Dark Angels",
+    "kind": "rule",
+    "name": "Combat Doctrines",
+    "note": "Arks of Omen dataslate (Jan 2023): you are no longer forced on to the next doctrine each battle round; you can let the Devastator or Tactical Doctrine remain active instead.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "kind": "rule",
+    "name": "Combat Doctrines",
+    "note": "Arks of Omen dataslate (Jan 2023): you are no longer forced on to the next doctrine each battle round; you can let the Devastator or Tactical Doctrine remain active instead.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Space Marines",
+    "kind": "rule",
+    "name": "Objective Secured",
+    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row; BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "kind": "rule",
+    "name": "Objective Secured",
+    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row (Goonhammer's winners there include Space Wolves); BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Space Wolves",
+    "kind": "ability",
+    "name": "Objective Secured",
+    "note": "Arks of Omen dataslate (Jan 2023): an objective marker your Troops units take stays under your control until your opponent takes it back, even if none of your models remain in range.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Space Marines row (Goonhammer's winners there include Space Wolves); BSData shows the codex text"
+  },
+  {
+    "catalogueName": "Aeldari - Harlequins",
+    "kind": "stratagem",
+    "name": "Prismatic Blur",
+    "note": "Arks of Omen dataslate (Jan 2023): every Harlequins invulnerable save got 1 worse, so this gives a 4+ invulnerable save, not 3+.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Harlequins row (Prismatic Blur on 4+); Wahapedia still prints 3+"
+  },
+  {
+    "catalogueName": "Aeldari - Craftworlds",
+    "kind": "stratagem",
+    "name": "Prismatic Blur",
+    "note": "Arks of Omen dataslate (Jan 2023): every Harlequins invulnerable save got 1 worse, so this gives a 4+ invulnerable save, not 3+.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Harlequins row (Prismatic Blur on 4+); Wahapedia still prints 3+"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "kind": "ability",
+    "name": "Seed Spore Mines",
+    "note": "Arks of Omen dataslate (Jan 2023): you must spend Reinforcement Points to set up the new Spore Mines unit.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Tyranids row; BSData and Wahapedia show the codex text"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "kind": "ability",
+    "name": "Spore Mine Cysts",
+    "note": "Arks of Omen dataslate (Jan 2023): to set up a new Spore Mines unit this way you must spend Reinforcement Points.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Tyranids row; BSData and Wahapedia show the codex text"
+  },
+  {
+    "catalogueName": "Tyranids",
+    "kind": "ability",
+    "name": "Seed Spores",
+    "note": "Arks of Omen dataslate (Jan 2023): you must spend Reinforcement Points to set up the new Spore Mines or Mucolid Spores unit.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §8 (Arks of Omen dataslate, 5 Jan 2023), Tyranids row; BSData and Wahapedia show the codex text"
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astartes - Deathwatch",
+    "kind": "rule",
+    "name": "Mission Tactics",
+    "note": "Final dataslate (Apr 2023): the limits on how often each doctrine can be picked are gone; at the start of each battle round you can pick any of the three.",
+    "source": "05_Balance_Errata_and_Points/Balance_Dataslates.md §9 (final dataslate, 13 Apr 2023), Deathwatch row; BSData shows the codex text"
+  }
+]

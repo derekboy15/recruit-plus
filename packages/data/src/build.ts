@@ -73,6 +73,8 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   validateStratagemOverrides(w, overrides, playable);
   const excludedStratagems = new Set(overrides.excludedStratagems.map((e) => e.id));
   const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
+  const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
+  validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
   const rosterSlug = (c: RawCatalogue) => (c === gd.system ? SYSTEM_ROSTER_SLUG : slugify(c.name));
   for (const cat of catalogues) {
     const slug = slugify(cat.name);
@@ -91,6 +93,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       rules: catalogueRules(cat),
       stratagems: library ? [] : selectStratagems(w, stratagemFaction.get(cat.name)!, excludedStratagems, overrides.stratagemDetails),
     };
+    applyAmendments(out, amendments.filter((a) => a.catalogueName === cat.name));
     writeFileSync(join(opts.outDir, 'catalogues', `${slug}.json`), JSON.stringify(out));
     index.catalogues.push({
       id: cat.id,
@@ -154,6 +157,57 @@ function catalogueFactions(files: RosterFile[], rosterScope: string[], catalogue
     }
   }
   return [...names].sort();
+}
+
+/**
+ * A final GW change (dataslate, FAQ) that BSData and Wahapedia both missed, from overrides/amendments.json. `note` is our
+ * own words, one or two sentences; `source` says where the change is recorded.
+ */
+export interface Amendment {
+  catalogueName: string;
+  kind: 'ability' | 'rule' | 'stratagem';
+  name: string;
+  /** A stratagem's corrected CP cost. */
+  cp?: string;
+  note: string;
+  source: string;
+}
+
+const AMENDMENT_KINDS = new Set<string>(['ability', 'rule', 'stratagem']);
+
+/** Checks amendments.json: known catalogue names and kinds, one amendment per item, a cp only on stratagems, a note and a source on each. */
+export function validateAmendments(amendments: Amendment[], catalogueNames: Set<string>): void {
+  const seen = new Set<string>();
+  for (const a of amendments) {
+    const where = `amendments.json (${a.catalogueName}: ${a.kind} "${a.name}")`;
+    if (!catalogueNames.has(a.catalogueName)) throw new Error(`amendments.json names unknown catalogue "${a.catalogueName}"`);
+    if (seen.has(where)) throw new Error(`${where} is listed twice`);
+    seen.add(where);
+    if (!AMENDMENT_KINDS.has(a.kind)) throw new Error(`${where} has unknown kind "${a.kind}"`);
+    if (a.cp !== undefined && a.kind !== 'stratagem') throw new Error(`${where} sets cp on a ${a.kind}`);
+    if (!a.note?.trim()) throw new Error(`${where} has no note`);
+    if (!a.source?.trim()) throw new Error(`${where} has no source`);
+  }
+}
+
+/**
+ * Applies one catalogue's amendments in place: the note goes into `amended` on every unit ability with that name, or on
+ * the named rule or stratagem, whose cp is replaced when the amendment sets one. Throws if an amendment matches nothing.
+ */
+export function applyAmendments(out: CatalogueOut, amendments: Amendment[]): void {
+  for (const a of amendments) {
+    let matched = 0;
+    if (a.kind === 'ability') {
+      for (const u of out.units) {
+        u.abilities = u.abilities.map((x) => (x.name === a.name ? (matched++, { ...x, amended: a.note }) : x));
+      }
+    } else if (a.kind === 'rule') {
+      out.rules = out.rules.map((r) => (r.name === a.name ? (matched++, { ...r, amended: a.note }) : r));
+    } else {
+      out.stratagems = out.stratagems.map((s) => (s.name === a.name ? (matched++, { ...s, amended: a.note, ...(a.cp ? { cp: a.cp } : {}) }) : s));
+    }
+    if (!matched) throw new Error(`amendments.json: ${a.kind} "${a.name}" matches nothing in "${out.name}"`);
+  }
 }
 
 /**

@@ -34,6 +34,8 @@ export interface AbilityOut {
   name: string;
   text: string;
   source: 'bsdata' | 'wahapedia';
+  /** Our note of a final GW change the sources missed. */
+  amended?: string;
 }
 
 export interface UnitOut {
@@ -89,7 +91,8 @@ export interface CatalogueOut {
   group: FactionGroup;
   library: boolean;
   units: UnitOut[];
-  rules: { id: string; name: string; text: string }[];
+  /** `amended`: our note of a final GW change the sources missed. */
+  rules: { id: string; name: string; text: string; amended?: string }[];
   /** Matched-play stratagems; [] for library catalogues. */
   stratagems: StratagemOut[];
 }
