@@ -60,18 +60,20 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
       ];
       return proceed(items, last ? finishGame : advance);
     });
-  // One change at a time. `waitingOn` is the game data a tap started from: the buttons stay disabled until newer data
-  // arrives from the database (the tap's change, saved and drawn), or at once if the tap wrote nothing.
+  // One change at a time. A tap that can change the phase (Next phase, End turn, Undo, the last score of a turn) keeps
+  // the buttons disabled until newer game data arrives from the database (its change, saved and drawn), or at once if it
+  // wrote nothing: its events are worked out from the phase on screen. A score that leaves more prompts to answer only
+  // waits for its own save; the prompts come from the queue on screen, not from the saved game.
   const busy = useRef(false);
   const [waitingOn, setWaitingOn] = useState<TableGameData | null>(null);
   useEffect(() => {
     if (waitingOn && waitingOn !== data) setWaitingOn(null);
   }, [data, waitingOn]);
-  const once = async (work: () => Promise<void>) => {
+  const once = async (work: () => Promise<void>, lockUntilDrawn = true) => {
     if (busy.current || waitingOn) return;
     busy.current = true;
     wrote.current = false;
-    setWaitingOn(data);
+    if (lockUntilDrawn) setWaitingOn(data);
     try {
       await work();
       if (!wrote.current) setWaitingOn(null);
@@ -94,7 +96,7 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
         setThen(null);
         await after();
       }
-    });
+    }, queue.length <= 1);
   const onUndo = () =>
     once(async () => {
       setQueue([]);
