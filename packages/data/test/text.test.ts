@@ -36,3 +36,13 @@ test('htmlToText puts list items on their own lines and decodes upper-case entit
   expect(htmlToText('<ul><li>One</li></ul><br>After')).toBe('• One\n\nAfter');
   expect(htmlToText('that model’s &LT;CHAPTER&GT; keyword')).toBe('that model’s <CHAPTER> keyword');
 });
+
+test('htmlToText keeps table cells apart: one row per line, cells joined with " | "', () => {
+  const html =
+    'score as follows:<table><tbody><tr><td><table><tbody>' +
+    '<tr><td style="w"></td><td></td></tr>' +
+    '<tr><td><b>CONSECUTIVE COMMAND PHASES</b></td><td><b>VICTORY POINTS</b></td></tr>' +
+    '<tr><td>2</td><td>2</td></tr><tr><td>4</td><td>5</td></tr>' +
+    '</tbody></table></td></tr></tbody></table>For example, 3VP.';
+  expect(htmlToText(html)).toBe('score as follows:\nCONSECUTIVE COMMAND PHASES | VICTORY POINTS\n2 | 2\n4 | 5\nFor example, 3VP.');
+});

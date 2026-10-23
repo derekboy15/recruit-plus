@@ -1,8 +1,10 @@
 /**
  * Plain-English to-do lists, from the last `npm run data:build`.
  *   npm run content:todo -- <shard>            writes packages/content/todo/<shard>.json and prints its counts
+ *                                              (shard "missions": the faction secondaries, in content/missions/plain.json)
  *   npm run content:todo -- --all              prints the counts for every shard
  *   npm run content:todo -- --sample <slug> <n> prints a deterministic spot-check sample of a catalogue's texts
+ *                                              ("missions": of the faction secondaries)
  *   npm run content:todo -- --rules <slug>     prints a catalogue's army-rule texts
  *   npm run content:todo -- --show <key> [...] prints official text and plain English side by side
  */
@@ -10,7 +12,8 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { CatalogueOut, DataIndex, StratagemOut } from '../src/model/types';
 import { checkPlain, extractTokens } from '../src/plain/check';
-import { collectOfficialTexts, ruleKeys, spotSample, textsInCatalogue, type OfficialText } from '../src/plain/collect';
+import type { MissionsOut } from '../src/missions/types';
+import { collectOfficialTexts, officialFor, ruleKeys, spotSample, textKey, textsInCatalogue, type OfficialText } from '../src/plain/collect';
 import { loadPlainStore } from '../src/plain/store';
 
 const root = join(import.meta.dirname, '..');
@@ -23,8 +26,22 @@ const cats = index.catalogues.map((c) => read<CatalogueOut>(join(gen, 'catalogue
 const texts = collectOfficialTexts(cats, read<StratagemOut[]>(join(gen, 'core-stratagems.json')));
 const store = loadPlainStore(join(contentDir, 'plain'));
 
+/** The faction secondaries (the "missions" shard), one per distinct official text; their plain English is in content/missions/plain.json. */
+const MISSIONS = 'missions';
+const missionsStore = new Map(Object.entries(read<Record<string, { plain: string; waive?: Record<string, string> }>>(join(contentDir, 'missions', 'plain.json'))));
+const factionSecondaries: OfficialText[] = [];
+for (const s of read<MissionsOut>(join(gen, 'missions.json')).packs.flatMap((p) => p.secondaries)) {
+  if (!s.faction) continue;
+  const text = officialFor(s.text, s.amended);
+  const key = textKey(text);
+  // kind 'secondary' is the missions store's kind, outside the datasheet TextKind list: only listed and sampled here.
+  if (!factionSecondaries.some((t) => t.key === key)) factionSecondaries.push({ key, shard: MISSIONS, kind: 'secondary', name: `${s.name} (${s.faction})`, text } as unknown as OfficialText);
+}
+texts.push(...factionSecondaries);
+const entryFor = (t: OfficialText) => (t.shard === MISSIONS ? missionsStore.get(t.key) : store.get(t.key));
+
 function todo(t: OfficialText) {
-  const entry = store.get(t.key);
+  const entry = entryFor(t);
   const verdict = entry ? checkPlain(t.text, entry.plain, entry.waive) : null;
   if (verdict?.ok) return null;
   return {
@@ -53,7 +70,7 @@ if (arg === '--all') {
   for (const key of rest) {
     const t = texts.find((x) => x.key === key);
     if (!t) throw new Error(`No text with key ${key}`);
-    const e = store.get(key);
+    const e = entryFor(t);
     console.log(`## ${key} · ${t.kind} · ${t.name} · shard ${t.shard}\nOFFICIAL: ${t.text}\nPLAIN: ${e?.plain ?? '(none)'}${e?.waive ? `\nWAIVED: ${JSON.stringify(e.waive)}` : ''}\n`);
   }
 } else if (arg === '--rules') {
@@ -64,6 +81,10 @@ if (arg === '--all') {
   for (const key of ruleKeys(cat)) console.log(`${key}\trule\t${byKey.get(key)!.name}`);
 } else if (arg === '--sample') {
   const [slug, n] = rest;
+  if (slug === MISSIONS && n) {
+    for (const t of spotSample(factionSecondaries, slug, Number(n))) console.log(`${t.key}\t${t.kind}\t${t.name}`);
+    process.exit(0);
+  }
   const cat = cats.find((c) => c.slug === slug);
   if (!cat || !n) throw new Error('Usage: --sample <catalogue-slug> <n>');
   for (const t of spotSample(textsInCatalogue(cat, texts), slug, Number(n))) console.log(`${t.key}\t${t.kind}\t${t.name}`);

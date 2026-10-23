@@ -730,6 +730,14 @@
     "kind": "weapon",
     "plain": "You can re-roll the wound roll for each attack made with this weapon."
   },
+  "69ccea0990c6": {
+    "name": "Cabbalistic Rituals",
+    "kind": "ability",
+    "plain": "Your army is a Cabal of Sorcerers if every unit in it, not counting UNALIGNED units, has the THOUSAND SONS keyword. If it is, then at the start of each of your Psychic phases you gain Cabal points for every model on the battlefield that has this ability: Magnus the Red gives 4; Ahriman, an Exalted Sorcerer or a Thousand Sons Daemon Prince gives 3; a Sorcerer, Sorcerer in Terminator Armour or Infernal Master gives 2; a Scarab Occult Sorcerer, Aspiring Sorcerer or Tzaangor Shaman gives 1.\n\nDuring your Psychic phase you may spend Cabal points on the Cabbalistic Rituals listed below, taking each ritual's cost off your total. Unspent Cabal points are lost when your Psychic phase ends.\n\nEach Cabbalistic Ritual can be used once in your Psychic phase unless it says otherwise, and no unit of yours can benefit from more than one Cabbalistic Ritual. A unit without this ability can't benefit from a Cabbalistic Ritual.\n\nIf a ritual's timing mentions a 'unit from your army' (such as one used when a unit from your army is chosen to manifest psychic powers), that unit must have the THOUSAND SONS keyword for you to use it.\n\nIMBUED MANIFESTATION (costs 4 Cabal points): use when one of your units successfully manifests a psychic power. The range of that power's effects goes up by 6\" (if the power lists more than one range, such as Astral Blast, add 6\" to the first range it lists).\n\nMALEVOLENT CHARGE (costs 4 Cabal points): use when one of your units successfully manifests a psychic power. If that power inflicts mortal wounds on enemy units, once those mortal wounds are dealt, pick one of those units; it suffers D3 more mortal wounds.\n\nKINDRED SORCERERS (costs 5 Cabal points): use after one of your units takes a Psychic test. Add 1 to that test.\n\nWARP SIGHT (costs 3 Cabal points): use when one of your units successfully manifests a psychic power. If that power needs you to pick a unit visible to the PSYKER, for this manifestation you may pick a unit that any friendly unit with the Cabbalistic Rituals ability can see.\n\nECHOES FROM THE WARP (costs 4 Cabal points): use in your Psychic phase. Choose one of your PSYKER units. Until the phase ends, it can perform this psychic action: Echoes From the Warp (Warp Charge 3, Psychic Action): if it succeeds, you gain 1 Command point.\n\nPACT FROM BEYOND (costs 7 Cabal points): use when one of your units attempts to manifest a psychic power. Don't take a Psychic test; the test counts as passed at the lowest warp charge value it needed.\n\nCABBALISTIC FOCUS (costs 8 Cabal points): use after one of your units passes a Psychic test. That psychic power or psychic action can't be denied.\n\nPSYCHIC MAELSTROM (costs 8 Cabal points): use when one of your units is chosen to manifest psychic powers. Until the phase ends, that unit may try to manifest one Witchfire psychic power that a different PSYKER from your army already attempted this phase, even if the unit doesn't know it and even though the same power normally can't be attempted more than once per Psychic phase.\n\nWRATH OF THE IMMATERIUM (costs 9 Cabal points): use after one of your units takes a Psychic test. Add 2 to that test.",
+    "waive": {
+      "MODELCABAL": "table header 'MODEL / CABAL POINTS' run together in the source; the plain text lists each model's Cabal points instead"
+    }
+  },
   "6a2c5f481b07": {
     "name": "Wings",
     "kind": "ability",
@@ -844,19 +852,6 @@
     "name": "Aspiring Lord",
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the TRAITORIS ASTARTES keyword: pick one of your TRAITORIS ASTARTES CHARACTER models (not a named character) and give it one Warlord Trait it is allowed to have. That model counts as your WARLORD only for that Warlord Trait. Every Warlord Trait in your army must be different (re-roll duplicates if you generate them randomly), and you can't use this Stratagem to give one model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or 3 times in an Onslaught battle."
-  },
-  "78f847d21753": {
-    "name": "Contagions of Nurgle",
-    "kind": "ability",
-    "plain": "If every unit in your army has the DEATH GUARD keyword (not counting UNALIGNED units), this unit gains this ability:\n\nNurgle's Gift (Contagion): models in any enemy unit within this unit's Contagion Range have their Toughness characteristic reduced by 1.\n\nHow Contagion abilities work: they affect enemy models or units within Contagion Range, which grows as the battle goes on. Contagion Range is 1\" in battle round 1, 3\" in battle round 2, 6\" in battle round 3, and 9\" from battle round 4 onwards. Contagion abilities with the same name don't stack: if an enemy unit is in range of two models that have the same Contagion ability, it is only affected by it once. Contagion abilities work much like Aura abilities, but anything that affects Aura abilities does not affect Contagion abilities, and the reverse is also true.",
-    "waive": {
-      "BATTLE ROUND NUMBERCONTAGION RANGE11": "table header 'BATTLE ROUND NUMBER / CONTAGION RANGE' run together with the first row (round 1: 1\"); the plain text gives each round's range",
-      "23\"": "table row 'round 2: 3\"' run together in the source; written as 3\" in battle round 2",
-      "36\"": "table row 'round 3: 6\"' run together in the source; written as 6\" in battle round 3",
-      "1\"": "the round 1 range from the run-together table (official '...RANGE11\"')",
-      "3\"": "the round 2 range from the run-together table (official '23\"')",
-      "6\"": "the round 3 range from the run-together table (official '36\"')"
-    }
   },
   "78fe98dfbcd1": {
     "name": "Frag Assault Launchers",
@@ -1223,14 +1218,6 @@
     "kind": "weapon",
     "plain": "For attacks made with this weapon, excess damage is not lost. Keep allocating it to other models in the target unit until there is no excess damage left to allocate or the target unit is destroyed."
   },
-  "a9a54036aba1": {
-    "name": "Cabbalistic Rituals",
-    "kind": "ability",
-    "plain": "Your army is a Cabal of Sorcerers if every unit in it, not counting UNALIGNED units, has the THOUSAND SONS keyword. If it is, then at the start of each of your Psychic phases you gain Cabal points for every model on the battlefield that has this ability: Magnus the Red gives 4; Ahriman, an Exalted Sorcerer or a Thousand Sons Daemon Prince gives 3; a Sorcerer, Sorcerer in Terminator Armour or Infernal Master gives 2; a Scarab Occult Sorcerer, Aspiring Sorcerer or Tzaangor Shaman gives 1.\n\nDuring your Psychic phase you may spend Cabal points on the Cabbalistic Rituals listed below, taking each ritual's cost off your total. Unspent Cabal points are lost when your Psychic phase ends.\n\nEach Cabbalistic Ritual can be used once in your Psychic phase unless it says otherwise, and no unit of yours can benefit from more than one Cabbalistic Ritual. A unit without this ability can't benefit from a Cabbalistic Ritual.\n\nIf a ritual's timing mentions a 'unit from your army' (such as one used when a unit from your army is chosen to manifest psychic powers), that unit must have the THOUSAND SONS keyword for you to use it.\n\nIMBUED MANIFESTATION (costs 4 Cabal points): use when one of your units successfully manifests a psychic power. The range of that power's effects goes up by 6\" (if the power lists more than one range, such as Astral Blast, add 6\" to the first range it lists).\n\nMALEVOLENT CHARGE (costs 4 Cabal points): use when one of your units successfully manifests a psychic power. If that power inflicts mortal wounds on enemy units, once those mortal wounds are dealt, pick one of those units; it suffers D3 more mortal wounds.\n\nKINDRED SORCERERS (costs 5 Cabal points): use after one of your units takes a Psychic test. Add 1 to that test.\n\nWARP SIGHT (costs 3 Cabal points): use when one of your units successfully manifests a psychic power. If that power needs you to pick a unit visible to the PSYKER, for this manifestation you may pick a unit that any friendly unit with the Cabbalistic Rituals ability can see.\n\nECHOES FROM THE WARP (costs 4 Cabal points): use in your Psychic phase. Choose one of your PSYKER units. Until the phase ends, it can perform this psychic action: Echoes From the Warp (Warp Charge 3, Psychic Action): if it succeeds, you gain 1 Command point.\n\nPACT FROM BEYOND (costs 7 Cabal points): use when one of your units attempts to manifest a psychic power. Don't take a Psychic test; the test counts as passed at the lowest warp charge value it needed.\n\nCABBALISTIC FOCUS (costs 8 Cabal points): use after one of your units passes a Psychic test. That psychic power or psychic action can't be denied.\n\nPSYCHIC MAELSTROM (costs 8 Cabal points): use when one of your units is chosen to manifest psychic powers. Until the phase ends, that unit may try to manifest one Witchfire psychic power that a different PSYKER from your army already attempted this phase, even if the unit doesn't know it and even though the same power normally can't be attempted more than once per Psychic phase.\n\nWRATH OF THE IMMATERIUM (costs 9 Cabal points): use after one of your units takes a Psychic test. Add 2 to that test.",
-    "waive": {
-      "MODELCABAL": "table header 'MODEL / CABAL POINTS' run together in the source; the plain text lists each model's Cabal points instead"
-    }
-  },
   "aa3383d6c39c": {
     "name": "Fanatic Zealotry",
     "kind": "stratagem",
@@ -1295,6 +1282,15 @@
     "name": "Cursed Earth",
     "kind": "psychic",
     "plain": "Blessing (Aura): if this power is manifested, then until your next Psychic phase starts, while one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE units is within 6\" of this PSYKER:\n- That unit's DAEMONKIN and DAEMON ENGINE models get a 4+ invulnerable save.\n- Whenever an enemy unit ends a charge within Engagement Range of that unit, roll a D6. On a 2-4 the enemy unit suffers 1 mortal wound; on a 5+ it suffers D3 mortal wounds."
+  },
+  "b2f5548db368": {
+    "name": "Contagions of Nurgle",
+    "kind": "ability",
+    "plain": "If every unit in your army has the DEATH GUARD keyword (not counting UNALIGNED units), this unit gains this ability:\n\nNurgle's Gift (Contagion): models in any enemy unit within this unit's Contagion Range have their Toughness characteristic reduced by 1.\n\nHow Contagion abilities work: they affect enemy models or units within Contagion Range, which grows as the battle goes on. Contagion Range is 1\" in battle round 1, 3\" in battle round 2, 6\" in battle round 3, and 9\" from battle round 4 onwards. Contagion abilities with the same name don't stack: if an enemy unit is in range of two models that have the same Contagion ability, it is only affected by it once. Contagion abilities work much like Aura abilities, but anything that affects Aura abilities does not affect Contagion abilities, and the reverse is also true.",
+    "waive": {
+      "BATTLE ROUND NUMBER": "a heading of the range table, not a keyword",
+      "4+": "the table row \"4+\" means battle round 4 and later; written as \"from battle round 4 onwards\""
+    }
   },
   "b3283d09454f": {
     "name": "Death to the False Emperor!",
@@ -1530,6 +1526,11 @@
     "name": "Balefire tome",
     "kind": "psychic",
     "plain": "This unit knows Smite plus 1 power from the Dark Hereticus discipline."
+  },
+  "d0b099bad41a": {
+    "name": "Enhance Warriors",
+    "kind": "ability",
+    "plain": "While FABIUS BILE is part of this unit, it can attempt this action:\n\nEnhance Warriors (Action): FABIUS BILE can begin this action at the end of your Movement phase. If he does, pick one of your TRAITORIS ASTARTES CORE INFANTRY units within 3\" of him that has neither the MARK OF CHAOS keyword nor an enhancement (see below). The action completes at the end of your Shooting phase, as long as the chosen unit is still within 3\" of FABIUS BILE. If it is completed, roll one D3: the chosen unit gains the matching enhancement below for the rest of the battle.\n\nIn a Crusade battle, when the battle ends, every enhanced unit that lacks the CREATIONS OF BILE keyword must take an Out of Action test, even ones that were not destroyed.\n\nD3 result and enhancement:\n1: Enhanced Musculature. Models in that unit add 1 to their Strength.\n2: Enhanced Black Carapace. Models in that unit add 1 to their Toughness.\n3: Enhanced Ferocity. Models in that unit add 1 to their Attacks."
   },
   "d0df99555e80": {
     "name": "Without a Trace",
@@ -1870,11 +1871,6 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before taking it off the battlefield and before any models embarked in it disembark. On a 6, it explodes and every unit within 6\" takes D3 mortal wounds."
-  },
-  "fd4b44e6ccee": {
-    "name": "Enhance Warriors",
-    "kind": "ability",
-    "plain": "While FABIUS BILE is part of this unit, it can attempt this action:\n\nEnhance Warriors (Action): FABIUS BILE can begin this action at the end of your Movement phase. If he does, pick one of your TRAITORIS ASTARTES CORE INFANTRY units within 3\" of him that has neither the MARK OF CHAOS keyword nor an enhancement (see below). The action completes at the end of your Shooting phase, as long as the chosen unit is still within 3\" of FABIUS BILE. If it is completed, roll one D3: the chosen unit gains the matching enhancement below for the rest of the battle.\n\nIn a Crusade battle, when the battle ends, every enhanced unit that lacks the CREATIONS OF BILE keyword must take an Out of Action test, even ones that were not destroyed.\n\nD3 result and enhancement:\n1: Enhanced Musculature. Models in that unit add 1 to their Strength.\n2: Enhanced Black Carapace. Models in that unit add 1 to their Toughness.\n3: Enhanced Ferocity. Models in that unit add 1 to their Attacks."
   },
   "fecaa167e9db": {
     "name": "Chaos Familiar",

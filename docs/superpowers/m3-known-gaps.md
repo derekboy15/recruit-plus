@@ -30,6 +30,8 @@ Milestone 3 shows every official rules text in plain English. Each text was chec
 ## Fixed in Milestone 8
 
 - **Offline faction guide.** With no connection, a guide page used to say "No guide for this faction yet". It now shows the offline notice.
+- **Faction secondary objectives** (the 169 distinct texts, Arks of Omen and Core Book) now have checked and spot-checked plain English (`packages/content/review/missions-faction-secondaries.md`).
+- **Tables in official wording** used to run together ("VICTORY POINTS22334555"). They now show one row per line.
 
 ## Before deploy
 

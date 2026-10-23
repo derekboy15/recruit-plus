@@ -1,18 +1,91 @@
 {
+  "01d37ca72c35": {
+    "name": "Warrior Pride",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 3VP if 2 or more of your SPACE WOLVES units are each either within Engagement Range of any enemy units or finished a charge move this turn, and none of those units are within your deployment zone."
+  },
+  "01f121115179": {
+    "name": "Spread the Sickness",
+    "kind": "secondary",
+    "plain": "If you pick this, your DEATH GUARD INFANTRY units can do this action. Spread the Sickness (Action): at the end of your Movement phase, 1 of your units can start it if it is within 3\" of an objective marker that isn't contaminated. It can't start while any enemy units (not counting AIRCRAFT) are within 3\" of that marker. It is completed at the end of your turn. Once it is completed, choose one:\n• Roll a D6. On a 4+, that marker is now contaminated.\n• The unit doing the action suffers D3 mortal wounds, and that marker is now contaminated.\nWhen the battle ends, gain 3 victory points for each objective marker on the battlefield that one of your units has contaminated."
+  },
+  "036fe5ae9ff0": {
+    "name": "Defend the Shrine",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission you choose 1 objective marker outside your deployment zone to be the Sacred Shrine. If there is only 1 objective marker on the battlefield and it is in your deployment zone, that marker has to be the Sacred Shrine.\n• At the end of your turn, you score 3VP if the Sacred Shrine is under your control and one of your ADEPTUS MINISTORUM units is within range of it.\n• At the end of the battle, if the Sacred Shrine is controlled by your opponent, you lose 3VP from what you scored with this secondary objective (to no lower than 0)."
+  },
   "03f394d0b253": {
     "name": "Drop Zone Repleted",
     "kind": "mission",
     "plain": "Two objective markers are taken off the battlefield during this mission. At the start of battle round 3, the Defender picks 1 objective marker in no man's land at random: it becomes the Gamma objective marker. At the start of battle round 4, the Gamma marker is removed, and the Attacker picks 1 of the 2 remaining no man's land objective markers at random to be the Beta objective marker. At the start of battle round 5, the Beta marker is removed."
+  },
+  "0504cead4256": {
+    "name": "Might of Terra",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 4 victory points if 1 or more enemy units were destroyed in that round and none of your ADEPTUS CUSTODES or ANATHEMA PSYKANA units were destroyed in it."
+  },
+  "058537f02af8": {
+    "name": "Might of Terra",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score 4VP if your ADEPTUS CUSTODES units destroyed 1 or more enemy units this battle round and none of your ADEPTUS CUSTODES units were destroyed this battle round."
   },
   "075153837929": {
     "name": "Battle-forged CP Bonus",
     "kind": "mission",
     "plain": "At the start of every Command phase, yours or your opponent's, both players gain 1CP, not only the player whose turn it is. This CP is a Battle-forged CP bonus, so it doesn't count towards the usual limit of gaining at most 1CP per turn."
   },
+  "090400ae0e70": {
+    "name": "Hidden Archeovault",
+    "kind": "secondary",
+    "plain": "Before deployment, your opponent picks 1 objective marker on the battlefield that isn't in their own deployment zone.\n• When a battle round ends, gain 2 victory points if you control it.\n• When the battle ends, gain 5 victory points if you control it."
+  },
+  "0aa73ff25df3": {
+    "name": "A Fitting Challenge",
+    "kind": "secondary",
+    "plain": "If you pick this, before the battle and after deployment zones have been chosen, find the 3 units in your opponent's army with the highest points values and note them down. If 2 or more units are tied, your opponent chooses between them. If your opponent's army has 3 or fewer units, note all of their units instead. A unit's points cost includes the points of all its weapons and wargear. If a unit splits into several smaller units during the battle, every one of them must be destroyed before the original unit counts as destroyed for this objective.\nAt the end of each battle round, gain victory points for each noted unit that was destroyed during the battle by one of your CHAOS KNIGHTS units (at most 6 victory points per battle round). How many depends on the battle round in which that unit was destroyed:\n• Battle round 1: 6 victory points.\n• Battle round 2: 5 victory points.\n• Battle round 3: 4 victory points.\n• Battle round 4: 3 victory points.\n• Battle round 5: 2 victory points.\nWhen the battle ends, take 1 away from the victory points you've gained with this objective for each noted unit that hasn't been destroyed (it can't go below 0). If a unit was destroyed, came back to the battlefield (by being resurrected or any other way) and was then destroyed again, it counts as destroyed in the battle round when it was last removed from the battlefield.\nFor example: if one noted unit was destroyed in battle round 1, another in battle round 4 and the third in battle round 5, you gain 11 victory points from this objective. If 2 noted units were destroyed in battle round 2 but the third had not been destroyed when the battle ended, you gain 5 victory points.",
+    "waive": {
+      "BATTLE ROUNDVICTORY POINTS1625344352": "garbled table header run from the source; the table (battle round 1: 6, 2: 5, 3: 4, 4: 3, 5: 2) is written out in full"
+    }
+  },
+  "0b32ae04aacb": {
+    "name": "Cripple Stronghold",
+    "kind": "secondary",
+    "plain": "If you pick this, once both sides have deployed, your opponent picks 1 objective marker on the battlefield as their Stronghold objective marker. It must be one that is wholly within your opponent's deployment zone, if there are any. Your DEATHWATCH INFANTRY units can do this action. Cripple Stronghold (Action): at the end of your Movement phase, 1 of your DEATHWATCH INFANTRY units can start it if it is within range of the Stronghold objective marker while no enemy units (not counting AIRCRAFT) are within range of that marker. It is completed at the start of your next Command phase, as long as the unit is still within range of that marker. Gain 6 victory points each time one of your units completes this action."
+  },
   "0b3cf7118b43": {
     "name": "Thin Their Ranks",
     "kind": "secondary",
     "plain": "Keep a kill points tally if you pick this. Each time an enemy model is destroyed, add 1 to it, or 10 if that model had a Wounds characteristic of 10 or more. A model that is destroyed, brought back for any reason and destroyed again can add to the tally each time. At the end of the battle, divide your tally by 10, rounding down: that's how many victory points you score."
+  },
+  "0b99db012432": {
+    "name": "A Clean Victory",
+    "kind": "secondary",
+    "plain": "At the end of the battle round:\n• Score 1VP if your T’AU EMPIRE units destroyed 1 or more enemy units this battle round.\n• Score 3VP if your T’AU EMPIRE units destroyed 3 or more enemy units this battle round.\nWhich battle rounds you can score this in depends on the Tactical Philosophy you picked at the start of the battle. With Mont’ka, you can only score it at the end of battle rounds 1, 2 and 3. With Kauyon, you can only score it at the end of battle rounds 3, 4 and 5."
+  },
+  "0bf98a424313": {
+    "name": "The Long War",
+    "kind": "secondary",
+    "plain": "At the end of your turn:\n• You score 1VP for every enemy unit that your TRAITORIS ASTARTES units destroyed this turn and that was within range of an objective marker when this turn began.\n• You score 2VP if any objective markers your opponent controlled when this turn began are now under your control, and one of your TRAITORIS ASTARTES units is within range of any of them.\nThis secondary objective gives you at most 4VP per turn."
+  },
+  "0c4fc832e25f": {
+    "name": "Renew the Oaths",
+    "kind": "secondary",
+    "plain": "If you pick this, your IMPERIAL KNIGHTS units can try this action.\nRenew the Oaths (Action): at the end of your Movement phase, one of your IMPERIAL KNIGHTS models within 6\" of the battlefield's centre can start it. It is completed at the end of your turn, as long as the unit doing it is still within 6\" of the battlefield's centre.\nEach time one of your units completes it:\n• Score 3 victory points if a non-TITANIC model completed it.\n• Score 4 victory points if a TITANIC model completed it.\n• Score 1 more victory point if a CHARACTER model completed it.\n• Roll one D6: on a 4+, you gain 1 Honour point."
+  },
+  "0d45bd7faf18": {
+    "name": "Uncharted Sequencing",
+    "kind": "secondary",
+    "plain": "Before deployment, give each battle round its own objective marker and write this down on your army roster. The same marker can't be given to more than 1 battle round. When a battle round ends, gain 3 victory points if you control the marker given to that round."
+  },
+  "0d92dc2662d4": {
+    "name": "Sacred Grounds",
+    "kind": "secondary",
+    "plain": "If you pick this, your ADEPTA SORORITAS INFANTRY and CULT IMPERIALIS PRIEST units can do this action. Sacred Grounds (Action): at the end of your Movement phase, 1 of your ADEPTA SORORITAS INFANTRY or CULT IMPERIALIS PRIEST units can start it if it is in range of an objective marker your army hasn't consecrated yet. It can't start while any enemy units (not counting AIRCRAFT) are in range of that marker. It is completed at whichever comes first: the start of your next Command phase or the end of the battle, as long as the unit is still within range of that marker. Once it is completed, your army has consecrated that marker. For the rest of the battle, that marker gains the Inspiring (ADEPTUS MINISTORUM) terrain trait, treated as though it were a terrain feature, but it doesn't count as a terrain feature for anything else. Each time one of your units completes this action, score 1 victory point if the consecrated marker was wholly within your own deployment zone, or 4 victory points if it wasn't."
+  },
+  "0e129120bcbd": {
+    "name": "Get Da Good Bitz",
+    "kind": "secondary",
+    "plain": "If you picked this, then once both sides have deployed, the players take turns choosing objective markers outside every deployment zone to be Good Bitz objective markers, with your opponent choosing first, until 3 have been chosen. If only 1 such marker exists, just that one is a Good Bitz objective marker.\nYour ORKS CORE units can try this action.\nGet da Good Bitz (Action): 1 or more of your ORKS CORE units can start it at the end of your Movement phase. Each unit that starts it must be in range of a different Good Bitz objective marker from the others. No unit can start it while any enemy units (not counting AIRCRAFT) are in range of that same marker. It is completed at the end of your next Command phase, as long as the unit is still in range of that Good Bitz objective marker.\nEach time one of your units completes this action, score 3 victory points."
   },
   "0f19118fccfe": {
     "name": "Objective Cleansed",
@@ -44,6 +117,41 @@
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round): if at least 1 of your units finished the Inload Data-psalm action this turn, you get 1VP per objective marker you control at that point, up to 3VP per player per turn."
   },
+  "1396b7338a39": {
+    "name": "Infiltrate and Subvert",
+    "kind": "secondary",
+    "plain": "If you pick this, your ALPHA LEGION INFANTRY units can attempt this action.\nSubvert (Action): at the end of your Movement phase, 1 of your ALPHA LEGION INFANTRY units (not CHARACTER units) that is wholly within 6\" of your opponent's deployment zone can start this action. It completes at the end of your turn, as long as that unit is still wholly within 6\" of your opponent's deployment zone. When it is completed, if that unit is within range of an objective marker, roll a D6 to find out whether your army subverts that marker: a CULTISTS unit needs a 5+, and any other unit needs a 4+. Enemy units can never control an objective marker your army has subverted, and while they are within range of any such marker they can never perform actions.\nEach time one of your units completes this action, you score 3VP, or 4VP instead if that unit was wholly within your opponent's deployment zone when it completed it."
+  },
+  "13d1aa846e22": {
+    "name": "Despoilers of Reality",
+    "kind": "secondary",
+    "plain": "If you pick this, your LEGIONES DAEMONICA INFANTRY units can attempt this action.\nDark Ritual (Action): 1 or more of your LEGIONES DAEMONICA INFANTRY units can start this action at the end of your Movement phase. Each of those units needs to be within range of its own objective marker (a different one for each unit) that you control, that is outside your deployment zone, and that your army hasn't corrupted yet. The action is completed when your next Command phase starts or when the battle ends, whichever comes first. Once completed, your army has corrupted that objective marker.\nEach time one of your units completes this action, you score 4VP. Then roll a D6, adding 1 to the result for an ICON or INSTRUMENT unit: if you get 6+, your army gains 1 Warp Storm point."
+  },
+  "1486ad1ccff2": {
+    "name": "Herd the Prey",
+    "kind": "secondary",
+    "plain": "Not scored in the first battle round. When your turn ends, gain 2 victory points for each table quarter that has no enemy units (not counting AIRCRAFT units) wholly within it."
+  },
+  "15746c210639": {
+    "name": "Synaptic Insight",
+    "kind": "secondary",
+    "plain": "If you pick this, keep a Synaptic Kill points tally, and set it back to 0 at the start of each battle round. Each time one of your SYNAPSE models destroys an enemy model (not counting Dedicated Transport models):\n• If its Wounds characteristic was 3 to 5, add 1 to the tally.\n• If its Wounds characteristic was 6 to 9, add 2 to the tally.\n• If its Wounds characteristic was 10 or more, add 3 to the tally.\nAt the end of the battle round, score 3 victory points if your tally for that battle round is 4 or more. You can't score more than 12 victory points from this objective."
+  },
+  "16ebafe6a0b9": {
+    "name": "Fear and Terror",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 1 victory point per model that fled from any enemy unit in that round."
+  },
+  "171a874c9c77": {
+    "name": "Despoil Dominions",
+    "kind": "secondary",
+    "plain": "If you pick this, your BLACK LEGION INFANTRY and BLACK LEGION BIKER units can attempt this action.\nDespoil Dominions (Action): at the end of your Movement phase, 1 of your BLACK LEGION INFANTRY or BLACK LEGION BIKER units can start this action if it is within range of an objective marker that is under your control and that your army hasn't despoiled yet. A unit with the Troops Battlefield Role completes it at the end of your turn. Any other unit completes it when your next Command phase starts or when the battle ends, whichever comes first. In every case, the unit must still be within range of that same objective marker for the action to complete. Once completed, your army has despoiled that objective marker. From then until the battle ends, whenever an enemy unit within range of that despoiled marker starts to perform an action, roll a D6: on a 4+, that action fails immediately.\nEach time one of your units completes this action, you score 1VP if the marker it despoiled was wholly within your deployment zone, or 4VP if not."
+  },
+  "172181d44d5b": {
+    "name": "Scry Futures",
+    "kind": "secondary",
+    "plain": "If you pick this, your ASURYANI PSYKER units can attempt this psychic action. Scry Futures (Psychic Action - Warp Charge 4): in your Psychic phase, 1 of your PSYKER units can attempt it if it is within range of an objective marker your army hasn't scryed yet. If it succeeds, pick 1 unscryed objective marker that PSYKER unit is within range of. Your army has now scryed that marker, and for the rest of the battle this psychic action's warp charge value goes up by 1 for your army. Gain 3 victory points each time one of your units completes this psychic action."
+  },
   "17c9f8bb6a48": {
     "name": "Abhor the Witch",
     "kind": "secondary",
@@ -54,10 +162,41 @@
     "kind": "secondary",
     "plain": "At the end of the battle, score 10 victory points if 1 enemy TITANIC model has been destroyed, or 15 victory points if 2 or more have been."
   },
+  "19c7054cb783": {
+    "name": "Cull Order",
+    "kind": "secondary",
+    "plain": "If you pick this, once both sides have deployed, you and your opponent take turns picking Battlefield Roles (HQ, Troops and so on) from among the units in your opponent's army, starting with your opponent, until 3 different Battlefield Roles are picked. If your opponent's army doesn't have units with at least 3 different Battlefield Roles, pick as many as you can. When the battle ends, gain 5 victory points for each picked Battlefield Role if every unit in your opponent's army with that role has been destroyed."
+  },
+  "1be5e8495adb": {
+    "name": "Da Biggest and Da Best",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round, score 3 victory points for each of these your ORKS WARLORD achieved, up to a maximum of 5 victory points:\n• A melee attack by this WARLORD destroyed an enemy MONSTER or VEHICLE unit.\n• A melee attack by this WARLORD destroyed an enemy CHARACTER.\n• Attacks by this WARLORD destroyed 5 or more enemy models."
+  },
+  "1c56995f0093": {
+    "name": "Duel of Honour",
+    "kind": "secondary",
+    "plain": "If you pick this, then before the battle, once armies are deployed, note on your army roster your opponent's WARLORD plus the 2 units in their army with the highest points value (not counting their WARLORD). If 2 or more units are tied, your opponent picks between them. If your opponent's army has 3 or fewer units, note all of their units instead. A unit's points cost counts the points of all the weapons and wargear it has.\nAt the end of the battle, you score victory points for each noted enemy unit that has been destroyed, if one of your IMPERIAL KNIGHTS units destroyed it during the battle. How many depends on how it was destroyed (Manner of Destruction):\n• Honour to the King: a melee attack from your WARLORD destroyed it. 5 victory points.\n• Personal Combat: a melee attack from any other IMPERIAL KNIGHTS model in your army destroyed it. 4 victory points.\n• Cowardly Cur: it counted as destroyed because it wasn't on the battlefield when the battle ended. This doesn't apply if it is embarked in a TRANSPORT and that TRANSPORT is on the battlefield at that point. 4 victory points.\n• Inglorious Demise: it was destroyed in any other way. 3 victory points.\nAt the end of each battle round in which you achieved Honour to the King or Personal Combat, you gain 1 Honour point.\nWhen the battle ends, if the enemy WARLORD has been destroyed, you gain 1 more victory point, but you lose 1 victory point from this secondary objective (it can't go below 0) for each noted unit that hasn't been destroyed.\nExample: your WARLORD destroyed the enemy WARLORD with a melee attack, a ranged attack by one of your models destroyed another noted unit, and the third noted unit was still on the battlefield when the battle ended. This secondary objective would give you 8 victory points.",
+    "waive": {
+      "MANNER OF DESTRUCTIONVICTORY": "garbled header of the Manner of Destruction table (column headings run together); the table's rows and values are written out in full"
+    }
+  },
+  "1c8d36903c45": {
+    "name": "A Leap of Faith",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, you can discard 1 Miracle dice from your Miracle dice pool (it can't be a Cherub dice). If you do, you score VP based on the value of the dice you discarded:\n• 1, 2 or 3: 1VP.\n• 4 or 5: 2VP.\n• 6: 3VP.\nYou can score at most 12VP per battle from this secondary objective.",
+    "waive": {
+      "LEAP OF FAITH VALUE OF DISCARDED MIRACLE": "a heading of the scoring table, not a keyword"
+    }
+  },
   "1cc3c22ee44b": {
     "name": "Defuse Explosives",
     "kind": "mission",
     "plain": "Defuse Explosives (Action): at the end of your Movement phase, 1 of your units in range of a Primed Explosives objective marker in your own territory can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. It is completed at the end of your turn if the unit is still in range of the same marker. Then roll one D6, adding 3 if the unit has Objective Secured: on a 4+, remove that Primed Explosives marker."
+  },
+  "1df7933738f8": {
+    "name": "Pile the Skulls",
+    "kind": "secondary",
+    "plain": "When each battle round ends, and before you buy any Blessings of the Blood God, you may discard 1, 2 or 3 of your Blood Tithe points. Each point discarded this way scores you 2VP, up to 5VP per battle round."
   },
   "1e092b9e6b16": {
     "name": "Recon Sweep",
@@ -77,10 +216,30 @@
     "kind": "secondary",
     "plain": "At the end of your turn, score 4 victory points if 2 or more of your units (not AIRCRAFT) are wholly within your opponent's deployment zone."
   },
+  "1f23784991d7": {
+    "name": "Take Them Alive!",
+    "kind": "secondary",
+    "plain": "If you pick this, when a battle round ends, gain victory points for each of these that is true:\n• 3 victory points if a melee attack from one of your DRUKHARI units destroyed any CHARACTER or MONSTER units in that round.\n• 1 victory point if a melee attack from one of your DRUKHARI units destroyed any unit (not counting CHARACTER, MONSTER or VEHICLE units) in that round."
+  },
+  "1f8e410df584": {
+    "name": "Boots on the Ground",
+    "kind": "secondary",
+    "plain": "At the end of each of your turns, except your first:\n• You score 1VP for each table quarter with at least 1 of your PLATOON INFANTRY units wholly within it (units within 3\" of the battlefield's centre don't count).\n• You score 1VP if at least 1 of your REGIMENTAL STANDARD units is either wholly within 6\" of the battlefield's centre or wholly within your opponent's deployment zone."
+  },
   "244736089c25": {
     "name": "Secure the Sanctuaries",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 2VP if one of these is true, or 3VP if both are: you control the centre objective marker; you destroyed at least 1 enemy unit that started your turn within 6\" of the battlefield's centre."
+  },
+  "25bbac1de09a": {
+    "name": "The Ancestors Are Watching",
+    "kind": "secondary",
+    "plain": "At the end of each phase, score 2 victory points if, during that phase, one of your VOTANN units destroyed 1 or more enemy units that had 1 or more Judgement tokens. Score 1 more victory point for every one of those enemy units that had 3 or more Judgement tokens at the moment it was destroyed. At the end of the battle, take 1 victory point off what this secondary objective earned you (it can't go below 0) for each unit with 1 or more Judgement tokens that is on the battlefield, or embarked on a TRANSPORT that is on the battlefield."
+  },
+  "2703493e6459": {
+    "name": "Fleeing Vectors",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 3 victory points if any enemy unit that had 1 or more models destroyed by attacks with plague weapons in that round also failed a Morale test in that round."
   },
   "27cb1f43f923": {
     "name": "Raise the Banners High",
@@ -102,6 +261,40 @@
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in every battle round, each time one of your units completes the Data Intercept action, you score 1VP for each objective marker in no man's land you control at that moment, up to 3VP per action."
   },
+  "2b76fcf62ba7": {
+    "name": "Green Tide",
+    "kind": "secondary",
+    "plain": "At the start of the battle, split the battlefield into 4 equal quarters. At the end of the battle round, score 3 victory points if at least 2 of those quarters each have one of your ORKS units with 11 or more models wholly within it. Score 5 victory points instead if all 4 quarters each have such a unit wholly within them."
+  },
+  "2d4f8cd2b29c": {
+    "name": "The Ancestors Are Watching",
+    "kind": "secondary",
+    "plain": "At the end of each phase, if your VOTANN units destroyed at least 1 enemy unit with 1 or more Judgement tokens that phase, score 2VP. Also score 1VP more for each of those destroyed enemy units that had 3 or more Judgement tokens at the moment it was destroyed.\n\nWhen the battle ends, for each unit with 1 or more Judgement tokens that is on the battlefield (or embarked within a TRANSPORT model that is on the battlefield), take 1 off the VP this secondary objective has earned you (it can't go below 0)."
+  },
+  "2f62214119c8": {
+    "name": "Suffer Not the Alien",
+    "kind": "secondary",
+    "plain": "When the battle ends, gain 1 victory point for each enemy TYRANIDS, AELDARI, ORK, NECRONS or T'AU EMPIRE unit that one of your DEATHWATCH units destroyed during the battle."
+  },
+  "2fa0b62b2dee": {
+    "name": "Sow the Seed, Reap the Fear",
+    "kind": "secondary",
+    "plain": "If you pick this, score 1VP every time an enemy unit does one of these:\n• Fails a Morale test.\n• Falls Back.\n• Fails an action.\nAlso, each time a melee attack by one of your NIGHT LORDS models destroys an enemy unit, roll 2D6 before you take that unit's last model off the battlefield. If the total is equal to or higher than that enemy model's Leadership characteristic, score 1VP.\n\nA model that is resurrected for any reason (destroyed and later returned to the battlefield) can give you victory points from this secondary objective more than once, if it keeps being resurrected and destroyed again and your 2D6 total equals or beats its Leadership characteristic every time."
+  },
+  "2fd7ca2b4bcf": {
+    "name": "The Treasures of Aeons",
+    "kind": "secondary",
+    "plain": "If you picked this, then once both sides have deployed, your opponent chooses 3 objective markers on the battlefield. At the end of your turn, score victory points if you control 1 or more of those chosen markers: 2 victory points for 1 marker, 3 for 2 markers, or 5 for all 3.",
+    "waive": {
+      "NUMBER OF SELECTED OBJECTIVE MARKERS YOU CONTROL": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS SCORED": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "30a206b278be": {
+    "name": "Take Them Alive!",
+    "kind": "secondary",
+    "plain": "At the end of the battle round:\n• You score 3VP for every enemy CHARACTER or MONSTER unit that a melee attack from one of your DRUKHARI units destroyed this battle round.\n• You score 1VP for every other enemy unit that a melee attack from one of your DRUKHARI units destroyed this battle round.\nThis secondary objective gives you at most 5VP per battle round."
+  },
   "30c8e940360c": {
     "name": "Data Terminals",
     "kind": "mission",
@@ -117,15 +310,65 @@
     "kind": "mission",
     "plain": "No unit can use a pre-battle rule that sets it up anywhere on the battlefield to set up in no man's land. A unit that moves before the first turn begins can't end that move in no man's land. A redeploy rule can't set a unit up in no man's land. Reinforcement units set up during the first battle round can't be set up in no man's land."
   },
+  "32dcef2964c6": {
+    "name": "Death from Above",
+    "kind": "secondary",
+    "plain": "When your turn ends, gain 2 victory points if any enemy units were destroyed by one of your BLOOD ANGELS units that arrived on the battlefield during the Reinforcements step of a Movement phase of yours (in any turn). Gain 3 victory points instead if any of those enemy units was a CHARACTER unit."
+  },
+  "33d0e23d8e4b": {
+    "name": "Blood for the Blood God",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, if none of your WORLD EATERS units Fell Back this battle round, score VP for the enemy units that melee attacks by your WORLD EATERS models destroyed this battle round:\n• 2VP for each enemy MONSTER, CHARACTER or VEHICLE unit.\n• 1VP for each other enemy unit.\nYou can score at most 4VP each battle round from this."
+  },
   "343434543fef": {
     "name": "Raid Supply Lines",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 3VP if you control at least 1 of the objective markers in your opponent's deployment zone."
   },
+  "36c2063eda8c": {
+    "name": "Warrior Pride",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 3 victory points if 2 or more of your SPACE WOLVES units are within Engagement Range of any enemy units or finished a charge move this turn."
+  },
+  "37bb5b9a8fed": {
+    "name": "Weave Veil",
+    "kind": "secondary",
+    "plain": "If you pick this, your SHADOWSEER models can attempt this psychic action. Weave Veil (Psychic Action - Warp Charge 4): in your Psychic phase, 1 of your SHADOWSEER models can attempt it if it is within 12\" of an enemy unit your army hasn't veiled yet. If it succeeds, pick 1 enemy unit your army hasn't veiled yet that is within 12\" of that SHADOWSEER model. Your army has now veiled that unit, and for the rest of the battle this psychic action's warp charge value goes up by 1 for your army. Gain 3 victory points each time one of your units completes this psychic action."
+  },
+  "3887b445a4ff": {
+    "name": "Relentless Assault",
+    "kind": "secondary",
+    "plain": "When your turn ends, gain 4 victory points if you have more BLOOD ANGELS units in the enemy deployment zone than your opponent has units in your deployment zone."
+  },
+  "39e460cbaa94": {
+    "name": "For the Dark Gods",
+    "kind": "secondary",
+    "plain": "If you pick this, keep a tally called For the Dark Gods. It goes up by 1 each time one of your units dedicates a table quarter to a Chaos God by doing this action.\nFor the Dark Gods (Action): at the end of your Movement phase, one of your TRAITORIS ASTARTES INFANTRY or TRAITORIS ASTARTES BIKER units can start it if it is wholly within a table quarter your army hasn't yet dedicated to a Chaos God, and is within 3\" of that quarter's centre. If the unit had the Objective Secured ability when it started, it finishes at the end of your turn; if not, it finishes at the start of your next Command phase. Either way, it only completes if the unit is still within 3\" of that same table quarter's centre. When it completes, choose Khorne, Tzeentch, Nurgle or Slaanesh and dedicate that table quarter to that god. A KHORNE, TZEENTCH, NURGLE or SLAANESH unit that completes it can only choose its own patron deity (for example, a KHORNE unit can only choose Khorne). Your army can't dedicate the same table quarter to more than 1 Chaos God.\nWhile one of your TRAITORIS ASTARTES units is wholly within a table quarter your army has dedicated to a Chaos God, add 2 to the Leadership characteristic of its models, unless that god isn't their patron deity (for example, if a quarter is dedicated to KHORNE, your TZEENTCH, NURGLE and SLAANESH units don't get this bonus).\nAt the end of the battle, score victory points based on your tally: a tally of 1 gives 2 victory points, 2 gives 5, 3 gives 9 and 4 gives 14."
+  },
+  "3a8afdafbb80": {
+    "name": "Decisive Action",
+    "kind": "secondary",
+    "plain": "If you chose the Mont'ka Tactical Philosophy at the start of the battle: at the end of your turn in battle rounds 1, 2 and 3, score 4 victory points if you control at least half of all the objective markers on the battlefield.\nIf you chose the Kauyon Tactical Philosophy at the start of the battle: the same, but at the end of your turn in battle rounds 3, 4 and 5."
+  },
   "3b2fcb77efb6": {
     "name": "Psychic Ritual",
     "kind": "secondary",
     "plain": "Psychic Ritual (Psychic Action - Warp Charge 3): in your Psychic phase, 1 PSYKER CHARACTER unit from your army within 6\" of the battlefield's centre can attempt it. When the battle ends, gain 15 victory points if any of your units completed it 3 times during the battle."
+  },
+  "3b84f60a5e9a": {
+    "name": "Blade of Sanguinius",
+    "kind": "secondary",
+    "plain": "At the start of your first Command phase, you pick 1 of your BLOOD ANGELS CHARACTER models to issue a challenge, and your opponent picks 1 of their CHARACTER models to accept it. A player who has no CHARACTER model picks their WARLORD instead.\nWhen the battle ends, gain 5 victory points for each of these that has happened:\n• The model that accepted the challenge was destroyed.\n• It was destroyed by a melee attack.\n• It was destroyed by a melee attack from the model that issued the challenge."
+  },
+  "3bd317fd766d": {
+    "name": "Stand Vigil",
+    "kind": "secondary",
+    "plain": "Only count objective markers that aren't within either player's deployment zone. When a battle round ends, gain 3 victory points if you control more of those markers than your opponent does."
+  },
+  "3cae1d53a60c": {
+    "name": "Lay Claim",
+    "kind": "secondary",
+    "plain": "If you picked this, then during the Resolve Pre-battle Abilities step your opponent has to place 3 objective markers on the battlefield's ground level, anywhere that isn't within 6\" of their own deployment zone or of any battlefield edge. The markers can't be within 9\" of each other, and can't go on terrain features that have the Unstable Position terrain trait. A marker that can't be set up isn't set up. Each one is a Precious Resources marker. It only counts as an objective marker for this secondary objective, not for any other rules. At the end of the battle, score 5 victory points per Precious Resources objective marker of yours that you control."
   },
   "3d41617a66d2": {
     "name": "Secure the Rear",
@@ -142,6 +385,11 @@
     "kind": "secondary",
     "plain": "This has a progressive part and an end-game part. Progressive: at the end of each battle round, if an attack by one of your Troops, ARMIGER-CLASS or WAR DOG-CLASS units destroyed any enemy CHARACTER unit during that battle round, you gain 1 CP. End game: when the battle ends, gain 3VP for every enemy CHARACTER unit that has been destroyed, plus 1 more VP if the enemy WARLORD has been destroyed."
   },
+  "3ec383b00c47": {
+    "name": "Teleport Assault",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score 3 victory points if 1 or more enemy units were destroyed by one of your GREY KNIGHTS models that was set up on the battlefield with the Teleport Strike ability, with the Teleportation Shunt Stratagem or with the Gate of Infinity psychic power, during that battle round."
+  },
   "3f16986254f9": {
     "name": "Engage on All Fronts",
     "kind": "secondary",
@@ -152,20 +400,90 @@
     "kind": "secondary",
     "plain": "Not scored in battle round 1. At the end of your Command phase, score 5 victory points if you control both objective markers that aren't in either player's deployment zone."
   },
+  "43b960ce5d28": {
+    "name": "Burn Empires",
+    "kind": "secondary",
+    "plain": "If you pick this, your THOUSAND SONS INFANTRY units can try this action.\nBurn Empires (Action): at the end of your Movement phase, 1 or more of your THOUSAND SONS INFANTRY units can start it. Each unit that starts it must be in range of an objective marker outside your deployment zone that hasn't been burned, with each unit at a different marker. A unit can't start it while any enemy units (not counting AIRCRAFT) are in range of that same marker. It is completed at the start of your next Command phase, or when the battle ends if that comes first. When it is completed, that objective marker has been burned.\nScore 4 victory points each time one of your units completes this action.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
   "460628c0cee4": {
     "name": "Strategic Scan",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Then, when the battle ends, each player gets 3VP per objective marker on the battlefield that their army has scanned."
+  },
+  "47244bd109b5": {
+    "name": "Stubborn Defiance",
+    "kind": "secondary",
+    "plain": "In your first Command phase, choose 1 objective marker outside your deployment zone. Then, at the end of every one of your Command phases, check whether you control it and one of your DARK ANGELS units with the Objective Secured ability is within range of it. If so, you score VP based on how many of your Command phases in a row you have controlled that marker with that unit within range of it:\n• 1 Command phase: 1VP.\n• 2 in a row: 2VP.\n• 3 in a row: 3VP.\n• 4 in a row: 4VP.\n• 5 in a row: 5VP.\nFor example: at the end of your third Command phase, you score 3VP if you have controlled the chosen marker for 3 of your Command phases in a row, and that same DARK ANGELS unit, which has the Objective Secured ability, was within range of it at the end of each one.",
+    "waive": {
+      "STUBBORN DEFIANCE CONSECUTIVE NUMBER OF YOUR COMMAND PHASES": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "494d9cede600": {
+    "name": "Aerospace Targeting Relays",
+    "kind": "secondary",
+    "plain": "If you pick this, place an Aerospace Designation marker halfway along each battlefield edge. Your T’AU EMPIRE INFANTRY units can do this action. Install Targeting Relay (Action): at the end of your Movement phase, 1 or more of your T’AU EMPIRE INFANTRY units can start it. Each unit that starts it must be within 6\" of a different Aerospace Designation marker where your army hasn't installed a targeting relay yet. When a FIRE WARRIOR TEAM unit is doing it, it is completed at the end of your turn. Any other unit completes it when your next Command phase starts, or when the battle ends if that is sooner. Once it is completed, your army has installed a targeting relay at that Aerospace Designation marker.\n\nAt the end of the battle, score VP for the number of targeting relays your army installed:\n• 1 relay: 2VP.\n• 2 relays: 6VP.\n• 3 relays: 9VP.\n• 4 relays: 15VP.",
+    "waive": {
+      "AEROSPACE TARGETING RELAYS NUMBER OF TARGETING RELAYS INSTALLED": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "49845a5df465": {
+    "name": "Path of Destruction",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, you score 1VP for each of these that happened this battle round (up to 4VP):\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was wholly within your deployment zone.\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was in neither player's deployment zone.\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was wholly within your opponent's deployment zone.\n• All 3 of the conditions above happened this battle round."
   },
   "4a002c5d810a": {
     "name": "Secure the Search Area",
     "kind": "mission",
     "plain": "The search area is everything within 12\" of the battlefield's centre. An objective marker labelled A that you control at the end of your Command phase stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
   },
+  "4a094eb2cf4c": {
+    "name": "Hidden Archeovault",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission your opponent has to choose 1 objective marker outside their deployment zone to be the Hidden Archeovault. If there is only 1 objective marker on the battlefield and it is in their deployment zone, that marker has to be the Hidden Archeovault.\nAt the end of your turn, you score 5VP if the Hidden Archeovault is under your control and one of your ADEPTUS MECHANICUS units is within range of it."
+  },
+  "4caac47837d3": {
+    "name": "Path of Destruction",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 1 victory point for each of these that happened during that round (3 victory points at most):\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was wholly within your deployment zone.\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was more than 3\" away from either player's deployment zone.\n• One of your CHAOS KNIGHTS models destroyed 1 or more enemy units while it was wholly within your opponent's deployment zone."
+  },
+  "4ee7ca946190": {
+    "name": "Ancient Machineries",
+    "kind": "secondary",
+    "plain": "If you picked this, then once both sides have deployed, the players take turns choosing objective markers outside every deployment zone to be Ancient Machinery objective markers, with your opponent choosing first, until 3 have been chosen. If only 1 or 2 such markers exist, just those are Ancient Machinery objective markers.\nYour NECRONS CORE or NECRONS CANOPTEK units can try this action.\nAwaken Ancient Machinery (Action): 1 or more of your NECRONS CORE or NECRONS CANOPTEK units can start it at the end of your Movement phase. Each unit that starts it must be in range of a different Ancient Machinery objective marker from the others. No unit can start it while any enemy units (not counting AIRCRAFT) are in range of that same marker. It is completed at the end of your next Command phase, as long as the unit is still in range of that Ancient Machinery objective marker.\nEach time one of your units completes this action, score 3 victory points."
+  },
+  "4fd6d2c6223b": {
+    "name": "Ruthless Tyranny",
+    "kind": "secondary",
+    "plain": "If you pick this, when your turn ends you gain victory points like this (4 victory points at most):\n• 2 victory points if you control half or more of all the objective markers on the battlefield, and 1 or more of your CHAOS KNIGHTS models are within range of each of those markers.\n• 1 victory point if half or more of all the objective markers on the battlefield are within Dread range of 1 or more of your CHAOS KNIGHTS models.\n• 1 victory point if all objective markers on the battlefield are within Dread range of 1 or more of your CHAOS KNIGHTS models."
+  },
+  "5199d8b6e00b": {
+    "name": "Spread the Sickness",
+    "kind": "secondary",
+    "plain": "If you pick this, your DEATH GUARD INFANTRY units can attempt this action.\nSpread the Sickness (Action): at the end of your Movement phase, 1 of your DEATH GUARD INFANTRY units can start this action if it is within range of an objective marker that you control and that your army hasn't contaminated yet. The action completes at the end of your turn. When it completes, if the unit that did it has the Objective Secured ability, your army has contaminated that objective marker. If not, roll a D6: on a 4+, your army has contaminated that objective marker.\nYou score 3VP each time your army contaminates an objective marker in your deployment zone, and 4VP each time your army contaminates an objective marker outside your deployment zone."
+  },
+  "51da523eda2e": {
+    "name": "A Leap of Faith",
+    "kind": "secondary",
+    "plain": "At the end of each turn, if your ADEPTA SORORITAS units performed 2 Acts of Faith during that turn, score victory points: 1 if it is your turn, or 2 if it is your opponent's turn. If they performed 3 or more Acts of Faith during that turn, score 1 more victory point. Acts of Faith caused by Cherub dice from incensor cherubs don't count for this secondary objective. This secondary objective can give you no more than 12 victory points in the mission."
+  },
   "51f90d689120": {
     "name": "Direct Assault",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in every battle round, at the end of each turn, the player whose turn it is scores 2VP if one of these is true, or 3VP if both are: (a) they control every objective marker, or they control at least 1 objective marker they didn't control when their turn began; (b) they destroyed at least 1 enemy unit that was in range of an objective marker when their turn began."
+  },
+  "5298102d776e": {
+    "name": "Sorcerous Prowess",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score victory points for each enemy PSYKER unit that one of your THOUSAND SONS PSYKER units destroyed in the Psychic phase: 5 victory points if it was a PSYKER CHARACTER unit, and 3 victory points for any other PSYKER unit."
+  },
+  "529841a999f8": {
+    "name": "Accretion of Knowledge",
+    "kind": "secondary",
+    "plain": "At the end of the battle, you score 3VP for every destroyed enemy model that matches at least 1 of these:\n• It has a Warlord Trait.\n• It has a Relic.\n• It is a VEHICLE model with a Wounds characteristic of 8 or more."
   },
   "52e5b0b5d4b1": {
     "name": "Leading From the Front",
@@ -177,20 +495,108 @@
     "kind": "mission",
     "plain": "Both players' units can do these actions. Prime Explosives (Action): at the end of your Movement phase, 1 of your units that is wholly within your opponent's territory and more than 9\" from every Primed Explosives objective marker can start it. A unit with Objective Secured or a similar rule completes it at the end of your turn; any other unit completes it at the end of your next Command phase. When it's completed, place 1 Primed Explosives objective marker wholly within your opponent's territory and wholly within 3\" of that unit. This marker counts as an objective marker only for the Defuse Explosives action and the Detonation primary objective."
   },
+  "581c27474ce6": {
+    "name": "Purifying Ritual",
+    "kind": "secondary",
+    "plain": "Purifying Ritual (Psychic Action - Warp Charge 5): in your Psychic phase, any number of your units can do this. One of your GREY KNIGHTS PSYKER units within 3\" of an objective marker can try to purify that marker with this psychic action. No objective marker can be purified more than once in the same turn.\nAt the end of the battle round, score victory points based on how many of your units completed this psychic action successfully that battle round (the table counts purified objectives): 1 gives 1 victory point, 2 give 2, 3 give 4, and 4 or more give 6.",
+    "waive": {
+      "PURIFYING RITUAL NUMBER OF PURIFIED OBJECTIVES": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS SCORED": "a heading of the scoring table, not a keyword",
+      "4+": "the table's last row, \"4+\", means 4 or more; written out as \"4 or more\""
+    }
+  },
   "5874e8c593eb": {
     "name": "Surgical Assault",
     "kind": "secondary",
     "plain": "At the end of your turn: 5 victory points if the objective marker in your opponent's deployment zone is under your control."
+  },
+  "5cbda572759c": {
+    "name": "Weave Veil",
+    "kind": "secondary",
+    "plain": "If you pick this, your SHADOWSEER units can attempt this psychic action.\nWeave Veil (Psychic Action - Warp Charge 4): in your Psychic phase, 1 of your SHADOWSEER models can attempt it if it is within 18\" of an enemy unit your army hasn't veiled yet. If it is completed, pick 1 enemy unit your army hasn't veiled yet that is within 18\" of the SHADOWSEER model that completed it. Your army has now veiled that enemy unit, and for the rest of the battle the warp charge value of this psychic action goes up by 1 for your army.\nScore 3VP each time one of your units completes this psychic action."
+  },
+  "5f0ff26776d0": {
+    "name": "Stand Vigil",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, you score 3VP if the number of objective markers you control outside both players' deployment zones is higher than the number your opponent controls there."
+  },
+  "61c9f93934d5": {
+    "name": "Broodswarm",
+    "kind": "secondary",
+    "plain": "At the end of your turn, check these and score 1 victory point for every one that is true (4 victory points at most):\n• Your opponent's deployment zone holds more of your models than of theirs.\n• Your own deployment zone holds more of your models than of theirs.\n• Outside both deployment zones, you have more models on the battlefield than your opponent.\n• All 3 of the points above are true."
+  },
+  "624437791fa5": {
+    "name": "Wrath of Khaine",
+    "kind": "secondary",
+    "plain": "When a battle round ends, score for each of these that is true for that round:\n• 1 victory point if a melee attack by one of your ASPECT WARRIOR units destroyed 1 or more enemy units.\n• 1 victory point if a ranged attack by a different one of your ASPECT WARRIOR units destroyed 1 or more enemy units.\n• 2 victory points if both of the above are true."
+  },
+  "62576b6e362f": {
+    "name": "Heroic Challenge",
+    "kind": "secondary",
+    "plain": "At the start of the first Command phase, you must pick one of your SPACE WOLVES CHARACTER models to issue the challenge, and your opponent must pick one of their CHARACTER models to accept it. A player with no CHARACTER model must pick their WARLORD instead. At the end of the battle, score 5 victory points for each of these that happened:\n• The model that accepted the challenge was destroyed.\n• That model was destroyed by a melee attack.\n• That model was destroyed by a melee attack from the model that issued the challenge."
+  },
+  "6269d371c8a3": {
+    "name": "Mutate Landscape",
+    "kind": "secondary",
+    "plain": "If you pick this, your THOUSAND SONS PSYKER units can try this psychic action.\nMutate Landscape (Psychic Action - Warp Charge 4): in your Psychic phase, one of your PSYKER units can try it if it is within range of an objective marker your army hasn't mutated yet. If it succeeds, that marker has been mutated by your army, and for the rest of the battle the warp charge value of this psychic action goes up by 1 for your army.\nScore 3 victory points each time one of your units completes the Mutate Landscape psychic action.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "62ab6760fd91": {
+    "name": "We March for Macragge",
+    "kind": "secondary",
+    "plain": "If you pick this, your ULTRAMARINES CORE INFANTRY units can do this action. Claimed for Macragge (Action): at the end of your Movement phase, 1 or more of your ULTRAMARINES CORE INFANTRY units can start it. Each unit that starts it must be in range of a different objective marker that you control and that your army hasn't claimed for Macragge. It is completed when your next Command phase starts, or when the battle ends if that is sooner. Once it is completed, your army has claimed that marker for Macragge.\n\nScore 4VP each time one of your units completes this action."
+  },
+  "63000a34ba65": {
+    "name": "A Mighty Saga",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round, score 2 victory points for each of these your SPACE WOLVES WARLORD achieved, up to a maximum of 5 victory points:\n• A melee attack by this WARLORD made an enemy MONSTER or VEHICLE unit lose any wounds.\n• A melee attack by this WARLORD destroyed an enemy MONSTER or VEHICLE unit.\n• A melee attack by this WARLORD destroyed an enemy CHARACTER.\n• Attacks by this WARLORD destroyed 5 or more models.\n• At the start of your Command phase, this WARLORD was within range of an objective marker wholly within your opponent's deployment zone."
+  },
+  "63315036a1a7": {
+    "name": "Teleport Assault",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score 5VP if 1 or more enemy units were destroyed by one of your GREY KNIGHTS models that was set up on the battlefield with the Gate of Infinity psychic power, the Teleport Strike ability or the Teleportation Shunt Stratagem this battle round."
+  },
+  "6334cd271e44": {
+    "name": "Eradication of Flesh",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 3 victory points if both are true: at least 1 ADEPTUS MECHANICUS VEHICLE unit from your army is on the battlefield, and in that round your ADEPTUS MECHANICUS units destroyed more enemy INFANTRY units than the number of your VEHICLE units destroyed by enemy units."
   },
   "639655920b51": {
     "name": "Precious Objectives",
     "kind": "mission",
     "plain": "After deployment zones are chosen and before reserves and transports are declared, the objective markers labelled A and B are moved. First the Attacker moves 1 marker labelled A or B; second, the Defender moves 1 marker labelled A and 1 labelled B (no marker can be moved twice); last, the Attacker moves the remaining A or B marker that hasn't been moved. Each moved marker must end wholly within 6\" horizontally of where it started, and not on or in any Obstacles or Defensible Terrain feature. Then each player secretly writes down 1 objective marker in their opponent's territory as a Priority objective marker (not the one in the centre of the battlefield). Both players reveal their choice once both armies are deployed."
   },
+  "640473911e77": {
+    "name": "A Deadly Performance",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 3VP if at least 2 of these are true:\n• You control an objective marker that you didn't control at the start of the turn, and one of your HARLEQUINS units is within range of it.\n• One of your HARLEQUINS CORE units is wholly within your opponent's deployment zone.\n• This turn, attacks with ranged weapons by your HARLEQUINS models destroyed 2 or more enemy units.\n• This turn, attacks with melee weapons by your HARLEQUINS models destroyed 2 or more enemy units."
+  },
+  "641729904d03": {
+    "name": "Yield No Ground",
+    "kind": "secondary",
+    "plain": "Not scored in the first battle round. If you pick this, at the end of your turn, score victory points like this, up to 5 victory points in total:\n• 2 victory points if you control at least half of all the objective markers on the battlefield, and each of those markers has 1 or more of your IMPERIAL KNIGHTS models within range.\n• 2 victory points if no enemy units (not counting AIRCRAFT units) are wholly within your deployment zone.\n• 1 victory point as long as none of your IMPERIAL KNIGHTS units finished that turn nearer to your battlefield edge than where they started it, and none of your IMPERIAL KNIGHTS units Fell Back that turn."
+  },
+  "66e62d841f43": {
+    "name": "For the Dark Gods",
+    "kind": "secondary",
+    "plain": "If you pick this, keep a For the Dark Gods tally. Each time one of your units completes the action below, it dedicates a table quarter to a Chaos God, and you add 1 to the tally.\nFor the Dark Gods (Action): at the end of your Movement phase, 1 of your TRAITORIS ASTARTES INFANTRY or TRAITORIS ASTARTES BIKER units can start this action if it is wholly within a table quarter your army hasn't dedicated to a Chaos God, and it is within 6\" of that quarter's centre. A unit that had the Objective Secured ability when it began the action completes it at the end of your turn; any other unit completes it at the start of your next Command phase. Either way, the unit must still be within 6\" of the same table quarter's centre for it to complete. Once completed, pick Khorne, Tzeentch, Nurgle or Slaanesh, and dedicate that table quarter to that god. If the unit that completed it is a KHORNE, TZEENTCH, NURGLE or SLAANESH unit, it can only pick its own patron deity (for example, a KHORNE unit can only pick Khorne). Your army has now dedicated that table quarter to that Chaos God. Your army can't dedicate the same table quarter to more than 1 Chaos God.\nWhile one of your TRAITORIS ASTARTES units is wholly within a table quarter your army has dedicated to a Chaos God, add 2 to that unit's Leadership characteristic, unless that god isn't its patron deity (for example, in a table quarter dedicated to KHORNE, TZEENTCH, NURGLE and SLAANESH units don't get this bonus).\nWhen the battle ends, you score VP based on your For the Dark Gods tally:\n• Tally of 1: 2VP.\n• Tally of 2: 5VP.\n• Tally of 3: 9VP.\n• Tally of 4: 14VP."
+  },
   "67815f08d491": {
     "name": "Assassinate",
     "kind": "secondary",
     "plain": "At the end of the battle, score 3 victory points for each enemy CHARACTER model that has been destroyed."
+  },
+  "679e7c1b8806": {
+    "name": "Rise to Glory",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round, look at the CHARACTER, MONSTER or VEHICLE models that melee attacks from your TRAITORIS ASTARTES CHARACTER models destroyed in that battle round, and score 2 victory points for each one. For a destroyed model with a Wounds characteristic of 10 to 19, score 1 extra victory point; or score 2 extra victory points instead if it had the TITANIC keyword or was the enemy WARLORD. This secondary objective can't give you more than 5 victory points in a battle round.\nAlso, each time a melee attack from one of your TRAITORIS ASTARTES CHARACTER models destroys a CHARACTER, MONSTER or VEHICLE model, roll 2D6. If the total is lower than the destroyed model's Wounds characteristic, you get 1 Command point when the phase ends."
+  },
+  "67fa32423fd8": {
+    "name": "Destroy the Daemon",
+    "kind": "secondary",
+    "plain": "If you pick this, you score victory points for each unit that your GREY KNIGHTS units destroy during the battle:\n• 5 victory points for a DAEMON PRIMARCH unit.\n• 3 victory points for any other DAEMON MONSTER unit.\n• 3 victory points for a DAEMON VEHICLE unit.\n• 1 victory point for any other DAEMON unit."
   },
   "68a87896fbf8": {
     "name": "Grind Them Down",
@@ -207,15 +613,40 @@
     "kind": "mission",
     "plain": "Neither player gets a Battle-forged CP bonus in battle rounds 1 and 2. In battle rounds 4 and 5, at the start of each Command phase, the player whose turn it is gets 1 extra CP from their Battle-forged CP bonus, so they usually gain 2CP then."
   },
+  "6c91b597ac19": {
+    "name": "Storm of Darkness",
+    "kind": "secondary",
+    "plain": "If you pick this, your CHAOS KNIGHTS units can do this action. Storm of Darkness (Action): at the end of your Morale phase, 1 of your CHAOS KNIGHTS units can start it if it is in range of an objective marker your army hasn't cursed yet. It can't start while any enemy units (not counting AIRCRAFT) are in range of that marker. It is completed at the end of your next Psychic phase, as long as the unit is still within range of that marker. Once it is completed, your army has cursed that marker. For the rest of the battle, while a non-CHAOS unit is within 6\" of that marker, the Leadership characteristic of each model in that unit is reduced by 1. Gain 3 victory points each time one of your units completes this action."
+  },
   "6ca15b306c46": {
     "name": "Ascend",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round), you get 2VP if you control the centre objective marker or if you destroyed at least 1 enemy unit that started the turn within 6\" of the battlefield's centre (2VP at most, even if both are true). Then, when the battle ends, each player gets 3VP if their WARLORD is in range of the centre objective marker, and another 3VP if the opposing WARLORD has been destroyed."
   },
+  "6cdabd1639a1": {
+    "name": "Oaths of Moment",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round you score victory points for completing these 3 Oaths:\n• Oath of Valour: 1 victory point if one of your ADEPTUS ASTARTES units destroyed any CHARACTER, VEHICLE or MONSTER unit during that battle round.\n• Oath of Honour: 1 victory point as long as none of your ADEPTUS ASTARTES units failed a Morale test, and none of them Fell Back during that battle round.\n• Oath of Duty: 2 victory points if one of your ADEPTUS ASTARTES units is wholly within 6\" of the battlefield's centre."
+  },
   "6de3eb99248b": {
     "name": "Inload Data-psalm",
     "kind": "mission",
     "plain": "Both players' units can do this action. Inload Data-psalm (Action): at the end of your Movement phase, 1 or more of your units can start it, each in range of a different objective marker. A unit can't start it while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your next Command phase if the unit is still in range of the same objective marker. If a unit with Objective Secured completes it, that objective marker stays under its player's control even with none of their models in range, until the opponent controls it at the end of a later phase."
+  },
+  "70d4dc926e7b": {
+    "name": "Sorcerous Prowess",
+    "kind": "secondary",
+    "plain": "At the end of the battle, for each enemy unit that one of your THOUSAND SONS PSYKER units destroyed in the Psychic phase, score:\n• 5VP if it was a PSYKER CHARACTER unit.\n• 3VP if it was any other PSYKER unit.\n• 2VP if it was any other unit."
+  },
+  "72429aff5fc1": {
+    "name": "Get Da Good Bitz",
+    "kind": "secondary",
+    "plain": "If you pick this, your ORKS CORE units can do this action. Get da Good Bitz (Action): 1 or more of your ORKS CORE units can start it at the end of your Movement phase. Each unit that starts it must be in range of a different objective marker that you control and that is not in either player's deployment zone. When a LOOTAS or GRETCHIN unit is doing it, it is completed at the end of your turn. Any other unit completes it when your next Command phase starts, or when the battle ends if that is sooner. Either way, it is only completed if the unit is still in range of that same marker.\n\nScore 4VP each time one of your units completes this action, up to a maximum of 6VP each battle round."
+  },
+  "7310149f0359": {
+    "name": "Broodswarm",
+    "kind": "secondary",
+    "plain": "At the end of your turn, you score 1VP for each of these that is true (up to 5VP):\n• More of your models than your opponent's are wholly within your opponent's deployment zone.\n• More of your models than your opponent's are wholly within your deployment zone.\n• More of your models than your opponent's are on the battlefield and wholly within no man's land."
   },
   "739ef2f73408": {
     "name": "Bring It Down",
@@ -232,20 +663,143 @@
     "kind": "secondary",
     "plain": "Score 3VP each time you complete this psychic action. Psychic Interrogation (Psychic Action - Warp Charge 5): in your Psychic phase, 1 PSYKER CHARACTER unit from your army that is within 24\" of an enemy CHARACTER unit and can see it can attempt it. Also, if the Psychic test result equals or beats the Leadership characteristic of any enemy CHARACTER model within 24\" of the PSYKER unit that completed it, you gain 1 CP at the end of the phase."
   },
+  "74cade33e000": {
+    "name": "Ruthless Tyranny",
+    "kind": "secondary",
+    "plain": "At the end of your turn:\n• You score 2VP if you control at least half of all the objective markers on the battlefield and each of those markers has at least 1 of your CHAOS KNIGHTS models within range.\n• You score 1VP if at least half of all the objective markers on the battlefield are in Dread range of at least 1 of your CHAOS KNIGHTS models.\n• You score 2VP if each objective marker on the battlefield is in Dread range of at least 1 of your CHAOS KNIGHTS models."
+  },
+  "75e264547b4a": {
+    "name": "Spore Nodes",
+    "kind": "secondary",
+    "plain": "If you pick this, your HIVE TENDRIL Troops units can do this action. Seed Spore Node (Action): from the second battle round onwards, at the end of your Movement phase, 1 of your HIVE TENDRIL Troops units can start it if it is not within 6\" of any Spore Node objective markers and is within 6\" of your opponent's deployment zone. It is completed at the end of your turn. Once it is completed, place 1 objective marker anywhere within 1\" of the unit that did it. That marker is a Spore Node. It only counts as an objective marker for this secondary objective, not for any other rules.\n\nScore 4VP each time one of your units completes this action."
+  },
+  "76e9c81ddefa": {
+    "name": "Fear and Terror",
+    "kind": "secondary",
+    "plain": "Score 1VP each time an enemy unit does any of these:\n• fails a Morale test;\n• Falls Back;\n• fails an action.\nAlso, each time a melee attack made by one of your DRUKHARI models destroys an enemy unit, roll 2D6 before you remove the last model of that unit from the battlefield. If the result is equal to or higher than that enemy model's Leadership characteristic, score 1VP. A model that is brought back for any reason (destroyed and then returned to the battlefield) can score you VP from this secondary objective more than once, if it is brought back and destroyed again several times and your 2D6 result equals or beats that model's Leadership characteristic each time."
+  },
+  "787caefe35b0": {
+    "name": "Glory Kills",
+    "kind": "secondary",
+    "plain": "If you pick this, you score victory points like this:\n• 2 victory points if one of your SPACE WOLVES units destroyed any CHARACTER units during this battle round. If no CHARACTER units were destroyed, but attacks from your SPACE WOLVES units made a CHARACTER unit suffer 3 or more wounds, score 1 victory point instead.\n• 3 victory points if one of your SPACE WOLVES units destroyed any MONSTER units during this battle round. If no MONSTER units were destroyed, but attacks from your SPACE WOLVES units made a MONSTER unit suffer 3 or more wounds, score 1 victory point instead.\nA CHARACTER MONSTER unit can't count for both parts. You must choose whether it counts as a CHARACTER or a MONSTER for this objective."
+  },
+  "7b458e584aa8": {
+    "name": "The Hidden Path",
+    "kind": "secondary",
+    "plain": "If you pick this and your army has a WEBWAY GATE unit, you can't set that unit up within 6\" of your deployment zone. If your army has no WEBWAY GATE unit, pick 1 objective marker in your first Command phase that isn't within 6\" of your deployment zone. Then, at the end of each of your Command phases:\n• With a WEBWAY GATE unit: gain victory points equal to the current battle round number if one of your units (not a WEBWAY GATE unit) is within 3\" of that WEBWAY GATE unit and no enemy models are within 3\" of it.\n• Without a WEBWAY GATE unit: gain victory points equal to the current battle round number if you control the picked objective marker with one of your ASURYANI units."
+  },
+  "7c254743bba3": {
+    "name": "A Clean Victory",
+    "kind": "secondary",
+    "plain": "If you chose the Mont'ka Tactical Philosophy at the start of the battle, this scores at the end of battle rounds 1, 2 and 3. If you chose the Kauyon Tactical Philosophy at the start of the battle instead, it scores at the end of battle rounds 3, 4 and 5. In each of those battle rounds you can score both of these:\n• 1 victory point if 1 or more enemy units were destroyed in that battle round.\n• 3 victory points if 3 or more enemy units were destroyed in that battle round."
+  },
   "7e28768d5af8": {
     "name": "Sweep and Clear",
     "kind": "mission",
     "plain": "An objective marker you control at the end of your Command phase stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
+  },
+  "7fceaf1b7294": {
+    "name": "Eradication of Flesh",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, compare 2 counts for this battle round: the enemy units your ADEPTUS MECHANICUS VEHICLE units destroyed, and your ADEPTUS MECHANICUS VEHICLE units that enemy units destroyed. Score 4VP if the first count is higher."
+  },
+  "7fd2a1a89774": {
+    "name": "Specimens for the Spider",
+    "kind": "secondary",
+    "plain": "At the end of the battle round:\n• Score 3VP if a melee attack made by one of your CREATIONS OF BILE models destroyed 1 or more CHARACTER or MONSTER units this battle round.\n• Score 2VP if a melee attack made by one of your CREATIONS OF BILE models destroyed 1 or more units that aren't CHARACTER, MONSTER or VEHICLE units this battle round.\nAt the end of the battle, score 1 extra VP if a melee attack made by one of your CREATIONS OF BILE models destroyed 1 or more ADEPTUS ASTARTES, SANCTIC ASTARTES or HERETIC ASTARTES units during the battle."
+  },
+  "8233f83d3198": {
+    "name": "Renew the Oaths",
+    "kind": "secondary",
+    "plain": "If you pick this, your IMPERIAL KNIGHTS units can do this action. Renew the Oaths (Action): at the end of your Movement phase, 1 of your IMPERIAL KNIGHTS models can start it if it is within 6\" of the centre of the battlefield. It is completed at the end of your turn if the unit doing it is still within 6\" of the battlefield's centre.\n\nEach time one of your units completes this action:\n• Score 3VP if a non-TITANIC model completed it.\n• Score 4VP if a TITANIC model completed it.\n• Score 1 more VP if a CHARACTER model completed it.\n• Roll one D6: on a 4+, you gain 1 Honour point."
+  },
+  "849c36d852f4": {
+    "name": "Wrath of Khaine",
+    "kind": "secondary",
+    "plain": "At the end of the battle round:\n• Score 1VP if a ranged attack made by one of your ASPECT WARRIOR units destroyed 1 or more enemy units this battle round.\n• Score 1VP if a melee attack made by a different one of your ASPECT WARRIOR units destroyed 1 or more enemy units this battle round.\n• Score 2VP if you achieved both of the above this battle round."
+  },
+  "84fe684405bd": {
+    "name": "Prospects of Wealth",
+    "kind": "secondary",
+    "plain": "If you pick this, your VOTANN INFANTRY and VOTANN BIKER units can do this action. Prospect (Action): at the end of your Movement phase, 1 of your VOTANN INFANTRY or VOTANN BIKER units can start it if it is in range of an objective marker that your army hasn't prospected yet and that is not within your deployment zone. It can't start while any enemy units (not counting AIRCRAFT units) are in range of that same marker. It is completed at the end of the turn. Once it is completed, your army has prospected that marker. Then roll one D6, adding 1 to the roll if the unit that did it has the SCANNER keyword. On a 6+, the marker becomes a Rich Deposits objective marker.\n\nEach time one of your units completes this action, score 3VP. At the end of the battle, score 3VP more if you control at least 1 Rich Deposits marker."
   },
   "8a18050a7a14": {
     "name": "Objective Purged",
     "kind": "mission",
     "plain": "An objective marker you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase."
   },
+  "8a920e765e76": {
+    "name": "Scout the Enemy",
+    "kind": "secondary",
+    "plain": "Your units can do this action. Scout the Enemy (Action): at the end of your Movement phase, 1 of your units can start it if it isn't within 6\" of your deployment zone. If a RANGERS unit is doing it, it is completed at the end of the turn. For any other unit, it is completed at the start of your next turn. Once it is completed:\n• Gain 2 victory points if the unit is not wholly within your opponent's deployment zone.\n• Gain 4 victory points if the unit is wholly within your opponent's deployment zone."
+  },
+  "8b29b873b644": {
+    "name": "Storm of Darkness",
+    "kind": "secondary",
+    "plain": "If you pick this, your CHAOS KNIGHTS units can attempt this action.\nStorm of Darkness (Action): at the end of your Morale phase, 1 of your CHAOS KNIGHTS units can start this action if it is within range of an objective marker your army hasn't cursed yet. A unit can't start it while any enemy units (not counting AIRCRAFT units) are within range of that same objective marker. It completes at the end of your next Psychic phase, as long as the unit is still within range of that same objective marker. Once completed, your army has cursed that objective marker. For the rest of the battle, subtract 1 from the Leadership characteristic of models in any non-CHAOS unit while that unit is within 9\" of that objective marker.\nYou score 4VP each time one of your units completes this action."
+  },
+  "8b39d84252ac": {
+    "name": "Raid and Reave",
+    "kind": "secondary",
+    "plain": "If you pick this, your RED CORSAIRS INFANTRY and RED CORSAIRS BIKER units can do this action. Raid and Reave (Action): at the end of your Movement phase, 1 or more of your RED CORSAIRS INFANTRY or RED CORSAIRS BIKER units can start it. Each unit that starts it must be in range of a different objective marker that your army hasn't raided. A unit can't start it while any enemy units (not counting AIRCRAFT units) are in range of that same marker. It is completed at the end of your turn if the unit is still in range of that same marker. Once it is completed, your army has raided that marker, and the unit that did the action is carrying spoils of war until the battle ends.\n\nEach time one of your units completes this action, score VP depending on where the raided marker was:\n• Wholly within your deployment zone: 1VP.\n• Wholly within your opponent's deployment zone: 3VP.\n• Anywhere else: 2VP.\n\nWhen the battle ends, score 1VP for each of your RED CORSAIRS units carrying spoils of war. Score 2VP instead for such a unit if it is wholly within your deployment zone, or if it is embarked within a TRANSPORT model that is wholly within your deployment zone."
+  },
+  "8bb8b32cc6e1": {
+    "name": "Shock Tactics",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score 3 victory points if you control 1 or more objective markers that your opponent controlled when the battle round started, and one of your ADEPTUS ASTARTES units is within range of that marker."
+  },
+  "8ca018eab209": {
+    "name": "Scout the Enemy",
+    "kind": "secondary",
+    "plain": "Your ASURYANI units can attempt this action.\nScout the Enemy (Action): 1 of your ASURYANI units can start this action at the end of your Movement phase, as long as it isn't within 6\" of your deployment zone. A RANGERS unit completes it at the end of the turn. Any other unit completes it when your next Command phase starts or when the battle ends, whichever comes first. When it is completed:\n• You score 2VP if the unit doing it isn't wholly within your opponent's deployment zone.\n• You score 4VP if the unit doing it is wholly within your opponent's deployment zone."
+  },
+  "8eabfdf5b499": {
+    "name": "Burn Empires",
+    "kind": "secondary",
+    "plain": "If you pick this, your THOUSAND SONS INFANTRY units can do this action. Burn Empires (Action): at the end of your Movement phase, 1 or more of your THOUSAND SONS INFANTRY units (not CHARACTER units) can start it. Each unit that starts it must be in range of a different objective marker that you control, that is not within your deployment zone, and that your army hasn't burned. It is completed when your next Command phase starts, or when the battle ends if that is sooner. Once it is completed, your army has burned that marker.\n\nScore 4VP each time one of your units completes this action."
+  },
+  "8f3b28c7761a": {
+    "name": "Stubborn Defiance",
+    "kind": "secondary",
+    "plain": "In your first Command phase, pick 1 objective marker. From your second Command phase on, at the end of each of your Command phases, if you control that marker with one of your DARK ANGELS units that has the Objective Secured ability, gain victory points based on how many of your Command phases in a row you have controlled it with that unit:\n• 2 in a row: 2 victory points.\n• 3 in a row: 3 victory points.\n• 4 in a row: 5 victory points.\n• 5 in a row: 5 victory points.\nFor example, if in your third Command phase you have controlled that marker with a DARK ANGELS unit for 3 of your Command phases in a row, you gain 3 victory points that turn.",
+    "waive": {
+      "CONSECUTIVE NUMBER OF YOUR COMMAND PHASES": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "902d4b877a01": {
+    "name": "Oaths of Moment",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score VP for each of these 3 Oaths you fulfil:\n• Oath of Valour: score 1VP if one of your ADEPTUS ASTARTES units destroyed any CHARACTER, VEHICLE or MONSTER unit this battle round.\n• Oath of Honour: score 1VP if none of your ADEPTUS ASTARTES units failed a Morale test this battle round and none of them Fell Back this battle round.\n• Oath of Duty: score 2VP if one of your ADEPTUS ASTARTES units is wholly within 6\" of the battlefield's centre."
+  },
   "912849423e1b": {
     "name": "Binharic Interference",
     "kind": "mission",
     "plain": "Reinforcement units can't be set up within range of any objective marker in this mission."
+  },
+  "92ea69cff21a": {
+    "name": "Herd the Prey",
+    "kind": "secondary",
+    "plain": "At the end of your turn, you score 1VP for every table quarter that has no enemy units wholly within it (AIRCRAFT units don't count)."
+  },
+  "93c83be0561d": {
+    "name": "Purge the Vermin",
+    "kind": "secondary",
+    "plain": "You can't score this in the first battle round. When your turn ends:\n• Score 1VP for every table quarter with no enemy units (not counting AIRCRAFT units) in it.\n• Score 1VP if your deployment zone has no enemy units (not counting AIRCRAFT units) within it."
+  },
+  "94030eccbd1d": {
+    "name": "Auric Mortalis",
+    "kind": "secondary",
+    "plain": "If you pick this, before the battle you mark 1 unit in your opponent's army for death. It must have the PRIMARCH or SUPREME COMMANDER keyword. If they have no such unit, mark their unit with the highest points value instead. Ignore AIRCRAFT units when choosing.\nAt the end of the battle, add up your victory points for this objective (the total can't go below 0):\n• 5 victory points if the marked unit was destroyed.\n• 5 victory points if the marked unit was destroyed by a melee attack from one of your ADEPTUS CUSTODES or ANATHEMA PSYKANA units.\n• 5 victory points if both of the above apply and the marked unit was more than 6\" away from your deployment zone when it was destroyed.\n• -2 victory points for each of your units that the marked unit destroyed."
+  },
+  "986921275120": {
+    "name": "Cranial Feasting",
+    "kind": "secondary",
+    "plain": "Each time a melee attack by one of your HIVE TENDRIL models destroys an enemy CHARACTER model or unit champion, roll one D6. Add 1 to the roll if your HIVE TENDRIL model has the FEEDER TENDRILS keyword, and add 2 if the model it destroyed has the CHARACTER keyword. If the result is 6+, gain 1 Command point.\n\nWhen the battle ends:\n• Score 3VP if this secondary objective gained you 1 or more Command points during the battle.\n• Score 1VP for each enemy unit champion destroyed by a melee attack from one of your HIVE TENDRIL models.\n• Score 3VP for each enemy CHARACTER unit destroyed by a melee attack from one of your HIVE TENDRIL models.\n• Score 3VP more if the enemy WARLORD was destroyed by a melee attack from one of your FEEDER TENDRILS models."
+  },
+  "9ae6876dd547": {
+    "name": "Stomp ’Em Good",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round you can score:\n• 3 victory points if, during that battle round, melee attacks by your ORKS units destroyed more enemy units than the number of your non-GRETCHIN units that melee attacks destroyed.\n• 1 more victory point if, during that battle round, the number of enemy units destroyed by melee attacks from your ORKS units is at least 2 and is at least double the number of your non-GRETCHIN units that melee attacks destroyed."
   },
   "9bc0b4c3126d": {
     "name": "Secure Landing Sites",
@@ -255,65 +809,213 @@
       "VP PER OBJECTIVE MARKER IN NO MAN'S LAND CONTROLLED": "a table column heading, not a keyword"
     }
   },
+  "9f5f6dfba528": {
+    "name": "Death on the Wind",
+    "kind": "secondary",
+    "plain": "Gain 2 victory points each time an attack by one of your RAVENWING models destroys an enemy unit, if that model moved 12\" or more in that turn's Movement phase or made a charge move that turn."
+  },
   "a1285922cfd1": {
     "name": "Land Purged",
     "kind": "mission",
     "plain": "An objective marker you control at the end of your Command phase, while at least one of your units in range of it has Objective Secured, stays yours even with none of your models in range, until your opponent controls it at the end of a later phase.",
     "waive": {
       "40": "part of the book title \"Warhammer 40,000 Core Book\"",
-      "000": "part of the book title \"Warhammer 40,000 Core Book\"",
-      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\"",
+      "000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
+  },
+  "a371496499ed": {
+    "name": "Honour of the House",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, score 2VP if you have 6 Honour points, or if your Honour points total is higher than it was when that battle round began.\n\nAlso, at the end of the battle:\n• If your army is Virtuous, score 3 more VP.\n• If your army is Honoured, score 2 more VP.\n• If your army is Dishonoured, take 3 off the VP you have scored from this secondary objective (it can't go below 0)."
   },
   "a4729d913e12": {
     "name": "Domination",
     "kind": "secondary",
     "plain": "At the end of your turn, gain 3 victory points when you control over half of all the objective markers on the battlefield."
   },
+  "a70f308dcaa7": {
+    "name": "Wrath of Magnus",
+    "kind": "secondary",
+    "plain": "You can only pick this if your opponent's army has 1 or more PSYKER units. At the end of the battle round, score 3 victory points if psychic powers destroyed more enemy models than friendly models during that battle round."
+  },
+  "a81d9dee5c3c": {
+    "name": "Aerospace Targeting Relays",
+    "kind": "secondary",
+    "plain": "If you pick this, put an Aerospace Designation marker halfway along each battlefield edge.\nYour units can do this action.\nInstall Targeting Relay (Action): at the end of your Movement phase, 1 or more of your INFANTRY units can start it. Each unit that starts it needs to be within 6\" of the centre of an Aerospace Designation marker with no targeting relay installed yet, with each unit at a different marker. It is completed at the start of your next Command phase, or when the battle ends if that comes first. When it is completed, a targeting relay has been installed at that Aerospace Designation marker.\nAt the end of the battle, score victory points by the number of installed targeting relays: 1 gives 2 victory points, 2 gives 6, 3 gives 9 and 4 gives 15.",
+    "waive": {
+      "TARGETING RELAYS NUMBER OF TARGETING RELAYS INSTALLED": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "a8677f1ce6e2": {
+    "name": "Stomp’em Good",
+    "kind": "secondary",
+    "plain": "At the end of the battle round:\n• Score 3VP if melee attacks by your ORKS units destroyed more enemy units this battle round than the number of your non-GRETCHIN units that melee attacks destroyed this battle round.\n• Score 1 more VP if the enemy units that melee attacks by your ORKS units destroyed this battle round number at least 2, and also at least twice as many as your non-GRETCHIN units that melee attacks destroyed this battle round."
+  },
   "a879614f15c1": {
     "name": "Behind Enemy Lines",
     "kind": "secondary",
     "plain": "At the end of your turn, score 3VP if 1 unit from your army (not AIRCRAFT) is wholly within your opponent's deployment zone, or 4VP instead if 2 or more of your units (not AIRCRAFT) are. Also, if at least 1 of those units is a Troops, ARMIGER-CLASS or WAR DOG-CLASS unit, you gain 1 CP at the end of the current battle round."
+  },
+  "ab8042e34e65": {
+    "name": "Grudge Match",
+    "kind": "secondary",
+    "plain": "If you pick this, then before the battle you must choose 5 units from your opponent's army, including the enemy WARLORD, and note them on your army roster. If your opponent's army has 5 or fewer units, note all of them instead.\nAt the end of the battle, score 1 victory point for each noted unit that one of your VOTANN units destroyed. Score 1 more victory point if that unit's points cost was 150 or more, and/or 1 more if a melee attack destroyed it (up to 3 victory points per unit). A unit's points value counts all its weapons, other wargear and upgrades.\nAt the end of the battle, take 1 victory point off what this secondary objective earned you (it can't go below 0) for each noted unit that hasn't been destroyed. If a unit splits into several smaller units during the battle, it only counts as destroyed for this objective if all of those units (not counting DRONE units) are destroyed when the battle ends."
   },
   "ac5eac45ad76": {
     "name": "Supply Lines",
     "kind": "mission",
     "plain": "At the start of every Command phase, a player who doesn't control the objective marker in their own deployment zone rolls one D6: on a 1-3, that player doesn't get the Battle-forged CP bonus this phase."
   },
+  "adfdbae20ab6": {
+    "name": "Inflexible Command",
+    "kind": "secondary",
+    "plain": "At the end of your turn:\n• Score 2VP if each of your PLATOON INFANTRY units on the battlefield is within 6\" of one of your OFFICER units.\n• Score 1VP if each of your SQUADRON units on the battlefield is within 12\" of one of your OFFICER units.\n• Score 2VP if one of your ASTRA MILITARUM units destroyed any enemy units this turn while it was affected by an Order.\nFor this secondary objective:\n• While one of your OFFICER units is embarked within a TRANSPORT model, that TRANSPORT model also counts as having the OFFICER keyword.\n• Your PLATOON VOX-CASTER units that are within 24\" of any of your VOX-CASTER OFFICER units count as being within 6\" instead."
+  },
+  "ae2e32cfd3dc": {
+    "name": "Spore Nodes",
+    "kind": "secondary",
+    "plain": "Score 4 victory points each time one of your units successfully completes this action.\nSeed Spore Node (Action): from the second battle round onwards, at the end of your Movement phase, one of your Troops units can start it if it is within 6\" of your opponent's deployment zone, as long as no Spore Node objective markers are within 6\" of it. It is completed at the end of your turn. When it is completed, place 1 objective marker anywhere within 1\" of the unit that completed it. That marker is a Spore Node. It only counts as an objective marker for this secondary objective, not for any other rules."
+  },
   "b0c755b0c8c4": {
     "name": "While We Stand, We Fight",
     "kind": "secondary",
     "plain": "If you pick this, before the battle note on your army roster the 3 units in your army with the highest points values, not counting models with the Fortifications Battlefield Role (if 2 or more are tied, you choose). If your army has 3 or fewer units, note all of them. A unit's points include all the weapons and wargear it has. At the end of the battle, score 5 VP for each of those units still on the battlefield. If a unit splits into smaller units during the battle, every one of those units must be destroyed before the original unit counts as destroyed for this objective."
+  },
+  "b1f4b963602e": {
+    "name": "The Promethean Creed",
+    "kind": "secondary",
+    "plain": "In your first Command phase, pick 1 objective marker that is not within your deployment zone.\n• When each of your Command phases ends, score 2VP if you control that marker and one of your SALAMANDERS CORE INFANTRY units is in range of it.\n• Each time an enemy unit is picked to shoot or fight, if it aims one or more of its attacks at one of your SALAMANDERS INFANTRY units that is in range of that marker, but those attacks don't destroy your unit, score 1VP (maximum 2VP per turn).\n• At the end of every turn (yours and your opponent's), score 1VP if attacks by one of your SALAMANDERS INFANTRY units destroyed 1 or more enemy units that turn while your unit was in range of that marker. Score 2VP instead if any models in those destroyed units were destroyed by attacks with flame or melta weapons that turn."
+  },
+  "b45fd240e5c0": {
+    "name": "Lay Claim",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission your opponent sets up 3 objective markers anywhere on the battlefield. Each must be at ground level, not within 6\" of their deployment zone or of any battlefield edge, and not within 9\" of the others. None can go on a terrain feature with the Unstable Position terrain trait. If a marker can't be set up like this, it isn't set up. Each one is one of your Precious Resources. It only counts as an objective marker for this secondary objective, not for any other rules. At the end of the battle, score 5VP for each of your Precious Resources objective markers that you control."
+  },
+  "b5339c4cedcb": {
+    "name": "Despoiled Ground",
+    "kind": "secondary",
+    "plain": "If you pick this, you gain victory points like this:\n• When the battle ends, gain 4 victory points if you have 1 or more BUBONIC ASTARTES units wholly within your opponent's deployment zone and 1 or more BUBONIC ASTARTES units wholly within your own deployment zone.\n• When the battle ends, gain 4 victory points if you have BUBONIC ASTARTES units wholly within 3 different table quarters (at least 1 in each) and all of those units are more than 6\" from the centre of the battlefield. Gain 6 victory points instead if you have 1 or more of your BUBONIC ASTARTES units wholly within every table quarter, all of them more than 6\" from the centre.\n• When the battle ends, gain 4 victory points if you control more than half of all the objective markers on the battlefield and your BUBONIC ASTARTES units are within 3\" of each of those markers.\n• When the battle ends, gain 4 victory points if all objective markers on the battlefield are within Contagion range of a Contagion ability that your units have."
+  },
+  "b551dd3098e5": {
+    "name": "Allow Not the Worship of Unclean Idols",
+    "kind": "secondary",
+    "plain": "When a battle round ends, gain 4 victory points if you control 1 or more objective markers that your opponent controlled at the start of that round, and one of your BLACK TEMPLARS CHAPLAIN units is within range of that marker."
   },
   "b5fdde74bbbe": {
     "name": "Surge of Faith",
     "kind": "mission",
     "plain": "Both players' units can do this action. Surge of Faith (Action): at the start of your Movement phase, 1 of your units in range of an objective marker outside your deployment zone can start it (a unit with Objective Secured or a similar rule can start it at the end of your Movement phase instead). It can't start while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your turn if the unit is still in range of the same objective marker."
   },
+  "b6b13d8f5750": {
+    "name": "Secure or Sabotage",
+    "kind": "secondary",
+    "plain": "If you pick this, your RAVEN GUARD units can do this action. Plant Explosives (Action): at the end of your Movement phase, 1 or more of your RAVEN GUARD CORE INFANTRY units can start it. Each unit that starts it must be in range of a different objective marker that you control and that your army hasn't already planted explosives on. It is completed at the end of your turn. Once it is completed, your army has planted explosives on that marker.\n\nAt the end of any player's turn, you can set off a controlled explosion with each objective marker that your army has planted explosives on and that your opponent controls. If you do, your explosives are no longer planted on that marker, and you roll one D6 for each unit in range of it: on a 2+, that unit suffers 3 mortal wounds. You can't set off a controlled explosion with a marker in the same turn your army planted explosives on it.\n\nWhen the battle ends, score 3VP for every objective marker your army's explosives are still planted on."
+  },
+  "b76d3e30865c": {
+    "name": "Prospects of Wealth",
+    "kind": "secondary",
+    "plain": "If you pick this, your VOTANN INFANTRY and VOTANN BIKER units can try this action.\nProspect (Action): at the end of your Movement phase, one of your VOTANN INFANTRY or VOTANN BIKER units can start it if it is in range of an objective marker outside your deployment zone that your army hasn't prospected yet. It can't start while any enemy units (not counting AIRCRAFT units) are in range of that same objective marker. It is completed at the end of the turn. Once it is completed, your army has prospected that marker, and you must roll one D6. Add 1 to the roll if the unit that completed it has the SCANNER keyword. On a 6+, that marker becomes a Rich Deposits objective marker.\nScore 3 victory points each time one of your units completes this action. At the end of the battle, score 3 more victory points if you control 1 or more Rich Deposits markers."
+  },
+  "b8a337eae82c": {
+    "name": "By Lasgun and Bayonet",
+    "kind": "secondary",
+    "plain": "Score 1VP each time one of your ASTRA MILITARUM units destroys an enemy unit that was within range of an objective marker when the turn began."
+  },
   "b8ff57721c62": {
     "name": "Investigate Sites",
     "kind": "secondary",
     "plain": "Score 3 victory points each time one of your units completes this action. Investigate Site (Action): at the end of your Movement phase, 1 INFANTRY unit from your army (other than CHARACTERS) within 6\" of the centre of the battlefield can start it, as long as no enemy units other than AIRCRAFT are within 6\" of the centre. It is completed at the end of your turn."
+  },
+  "b94b3c631929": {
+    "name": "Carry Out Your Vows",
+    "kind": "secondary",
+    "plain": "You can only pick this if you have picked any Templar Vows. It has a Progressive part and an End Game part. For the End Game part, only the Templar Vow picked at the end of the Read Mission Briefing step counts, not any other vows picked during the battle.\nProgressive: when a battle round ends, gain 4 victory points if the count of enemy units destroyed by melee attacks from your BLACK TEMPLARS units is higher than the count of your BLACK TEMPLARS units destroyed during that round. You can gain at most 12 victory points from this part over the battle.\nEnd Game: when the battle ends, gain 3 victory points if any of these is true:\n• You picked the Suffer Not the Unclean to Live vow before the battle, and a melee attack from one of your BLACK TEMPLARS CHARACTER units destroyed an enemy WARLORD model during the battle.\n• You picked the Uphold the Honour of the Emperor vow before the battle, and when the battle ended one of your BLACK TEMPLARS INFANTRY units (not a CHARACTER unit) that isn't below Half-strength was in the enemy deployment zone.\n• You picked the Abhor the Witch, Destroy the Witch vow before the battle, and 1 or more enemy PSYKER CHARACTER units were destroyed during the battle.\n• You picked the Accept Any Challenge, No Matter the Odds vow before the battle, and during the battle either an enemy model with a Wounds characteristic of 20 or more, or an enemy unit whose Starting Strength was 20 or more models, was destroyed."
+  },
+  "bad0fe50fca3": {
+    "name": "Yield No Ground",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 1VP for each of these you achieve (maximum 3VP):\n• You control at least half of all the objective markers on the battlefield, and each of those markers has 1 or more of your IMPERIAL KNIGHTS models in range of it.\n• There are no enemy units (not counting AIRCRAFT units) wholly within your deployment zone.\n• None of your IMPERIAL KNIGHTS units finished the turn nearer to your battlefield edge than where they began it, and none of your IMPERIAL KNIGHTS units Fell Back this turn."
+  },
+  "bb0c710e2e84": {
+    "name": "Green Tide",
+    "kind": "secondary",
+    "plain": "When your turn ends, score 1VP for every table quarter containing 10 or more of your ORK models. Models within 3\" of any other table quarter don't count towards this."
+  },
+  "bbc95dc41a75": {
+    "name": "Cull Order",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission you choose 3 Battlefield Roles (HQ, Troops and so on) that units in your opponent's army have. If fewer than 3 different Battlefield Roles are found among your opponent's units, choose as many as you can.\nAt the end of the battle, for each Battlefield Role you chose: you score 3VP if at least 1 of your opponent's units with that role has been destroyed, or 5VP instead if all of your opponent's units with that role have been destroyed."
+  },
+  "bc26cf6805a5": {
+    "name": "Take Your Places",
+    "kind": "secondary",
+    "plain": "If you pick this, once both sides have deployed, you set up 1 extra objective marker in your opponent's deployment zone. Then your opponent sets up 1 extra objective marker in your deployment zone and 1 more within 6\" of the centre of the battlefield. Each of these markers must be set up more than 9\" from the others, more than 6\" from any battlefield edge and more than 1\" from any other objective marker. These are the Take Your Places objective markers. They only count as objective markers for this secondary objective, not for any other rules.\n• At the end of your turn, gain 2 victory points if you control 2 of the Take Your Places markers.\n• At the end of your turn, gain 4 victory points instead if you control all 3 of them."
+  },
+  "bf4c15e867de": {
+    "name": "Ancient Machineries",
+    "kind": "secondary",
+    "plain": "If you pick this, your NECRONS CORE and NECRONS CANOPTEK units can do this action. Awaken Ancient Machinery (Action): 1 of your NECRONS CORE INFANTRY, NECRONS CORE BIKER or NECRONS CANOPTEK units can start it at the end of your Movement phase if it is in range of an objective marker that you control, that is not within your deployment zone, and that your army hasn't awakened yet. If the unit doing it has the Objective Secured ability, it is completed at the end of your turn; if not, it is completed when your next Command phase starts. Either way, it is only completed if the unit is still in range of that same marker. Once it is completed, your army has awakened that marker.\n\nScore 4VP each time one of your units completes this action."
   },
   "bff9f8a44dbc": {
     "name": "Auspex Scan",
     "kind": "mission",
     "plain": "Both players' units can do this action. Auspex Scan (Action): at the end of your Movement phase, 1 of your units in range of an objective marker your army hasn't scanned yet can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. It is completed at the end of your turn if the unit is still in range of the same marker. When it's completed, your army has scanned that objective marker."
   },
+  "c190cbb2af50": {
+    "name": "Relentless Assault",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 4VP if the number of your BLOOD ANGELS units in your opponent's deployment zone is higher than the number of enemy units in your deployment zone."
+  },
   "c2d364c07df7": {
     "name": "Recon Sweep",
     "kind": "mission",
     "plain": "Both players' units can do this action. Recon Sweep (Action): at the end of your Movement phase, 1 of your units in range of an objective marker your army hasn't reconnoitred yet can start it, as long as no enemy unit other than AIRCRAFT is in range of that marker. A unit with the Fast Attack Battlefield Role or with Objective Secured completes it at the end of your turn if it's still in range of the same marker. Any other unit completes it at whichever comes first, the start of your next Command phase or the end of the battle, if it's still in range of the same marker. When it's completed, your army has reconnoitred that objective marker."
+  },
+  "c3186d24110b": {
+    "name": "Ambush",
+    "kind": "secondary",
+    "plain": "At the end of your turn, you can score each of these:\n• 1 victory point if, this turn, 1 or more enemy units were destroyed while they had a crossfire marker.\n• 1 victory point if, this turn, 1 or more enemy units were destroyed by your units that were set up from ambush or from underground in this same turn.\n• 1 victory point if, this turn, a ranged attack by one of your models destroyed 1 or more enemy units that were Exposed when picked as that attack's target. The enemy unit has to have been Exposed, not by any other means (for example the Priority Target ability)."
+  },
+  "c407b5c1d9fb": {
+    "name": "Take Your Places",
+    "kind": "secondary",
+    "plain": "If you pick this, in the Resolve Pre-battle Abilities step of the mission, you place 1 extra objective marker in your opponent's deployment zone. Your opponent then places 1 extra objective marker in your deployment zone, and 1 more within 6\" of the battlefield's centre. These markers can't be placed within 9\" of one another, within 6\" of any battlefield edge, or within 3\" of any other objective marker. They are your Take Your Places objective markers, and they only count as objective markers for this secondary objective, not for any other rule.\n• At the end of your turn, you score 2VP if 2 of your Take Your Places markers are under your control and each of them has at least 1 of your HARLEQUINS units within range.\n• At the end of your turn, you score 4VP instead if all 3 of your Take Your Places markers are under your control and each of them has at least 1 of your HARLEQUINS units within range."
+  },
+  "c610e2e998c7": {
+    "name": "Destroy the Daemon",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score VP for each enemy unit that your GREY KNIGHTS units destroyed during the battle:\n• A DAEMON PRIMARCH unit gives 5VP.\n• Any other DAEMON MONSTER unit gives 3VP.\n• A DAEMON VEHICLE unit gives 3VP.\n• Any other DAEMON unit gives 1VP."
+  },
+  "c8aa9b07aca5": {
+    "name": "Bolster Barricades",
+    "kind": "secondary",
+    "plain": "If you pick this, your IMPERIAL FISTS units can do this action. Bolster Barricades (Action): at the end of your Movement phase, 1 or more of your IMPERIAL FISTS CORE INFANTRY units can start it. Each one must be in range of an objective marker that you control and that your army hasn't barricaded yet. It is completed when your next Command phase starts, or when the battle ends if that is sooner, as long as the unit is still in range of that same objective marker. Once it is completed, your army has barricaded that objective marker.\n\nEach time one of your units completes this action:\n• If the marker it barricaded was within your deployment zone, score 1VP.\n• If the marker it barricaded was not within either player's deployment zone, score 4VP.\n• For the rest of the battle, whenever an enemy unit attacks one of your IMPERIAL FISTS INFANTRY units that is wholly within 6\" of an objective marker your army has barricaded, your unit gets the benefits of both Light Cover and Heavy Cover against it."
+  },
+  "c9638b26c32a": {
+    "name": "Scry Futures",
+    "kind": "secondary",
+    "plain": "If you pick this, your ASURYANI PSYKER units can attempt this psychic action.\nScry Futures (Psychic Action - Warp Charge 4): in your Psychic phase, 1 of your ASURYANI PSYKER units can attempt it if it is within range of an objective marker that you control and that your army hasn't scried yet. If it is completed, your army has now scried that objective marker.\nYou score 3VP each time one of your units completes this psychic action."
   },
   "ca02f0813111": {
     "name": "Search for the Portal",
     "kind": "secondary",
     "plain": "Each time one of your units completes the Search for the Portal action, score 1 victory point plus 1 more for each objective marker labelled A you control at that moment, up to 5 victory points. Search for the Portal (Action): at the end of your Movement phase, 1 INFANTRY unit from your army (other than CHARACTERS) that is wholly within the Search Area can start it. It is completed at the end of your next Command phase if the unit is still wholly within the Search Area."
   },
+  "cb6866a005b0": {
+    "name": "Lightning Strike",
+    "kind": "secondary",
+    "plain": "When your turn ends, score VP for enemy units destroyed by your WHITE SCARS units:\n• 3VP for each enemy CHARACTER or MONSTER unit destroyed by a melee attack from a WHITE SCARS unit of yours that made a charge move this turn.\n• 1VP for each other enemy unit destroyed by a melee attack from a WHITE SCARS unit of yours that made a charge move this turn.\n• 1VP for each enemy unit destroyed by a ranged attack from a WHITE SCARS unit of yours that Advanced this turn.\nThis secondary objective gives you no more than 5VP per turn."
+  },
   "cc2a9b8a85da": {
     "name": "Repair Teleport Homer",
     "kind": "secondary",
     "plain": "Score 5 victory points each time one of your units completes this action. Repair Teleport Homer (Action): at the end of your Movement phase, 1 INFANTRY unit from your army that is wholly within your opponent's deployment zone can start it. It is completed at the end of your next Command phase if the unit is still wholly within your opponent's deployment zone."
+  },
+  "ce276ab173e3": {
+    "name": "Cranial Feasting",
+    "kind": "secondary",
+    "plain": "Each time a melee attack by one of your HIVE TENDRIL models destroys an enemy CHARACTER model or unit champion, roll one D6. If that HIVE TENDRIL model has the FEEDER TENDRILS keyword, add 2 to the roll; if the destroyed model has the CHARACTER keyword, add 2 as well. On a 6+, you get 1 Command point (no more than 1 Command point can be gained this way in each battle round).\nWhen the battle ends:\n• Score 3 victory points if this objective gained you 1 or more Command points during the battle.\n• Score 1 victory point per enemy CHARACTER model, and per enemy unit champion, that a melee attack from one of your HIVE TENDRIL models destroyed.\n• Score 3 victory points if a melee attack from one of your HIVE TENDRIL models destroyed the enemy WARLORD."
   },
   "cfb77b7d4c95": {
     "name": "Recover Relics",
@@ -330,25 +1032,114 @@
     "kind": "secondary",
     "plain": "If you pick this, your units can do this action. Raise Banners (Action): at the end of your Movement phase, 1 or more of your INFANTRY units can start it, each in range of a different objective marker that doesn't already have one of your banners on it. A unit can't start it while any enemy unit other than AIRCRAFT is in range of that objective marker. It is completed at the end of your turn. Then one of your banners is raised on that objective marker. The banner comes down if your opponent controls that marker at the start of any phase. For each objective marker on the battlefield with one of your banners on it, you gain 1 victory point whenever one of your Command phases ends, and 1 more victory point when the battle ends."
   },
+  "d1d0dd6c2b2b": {
+    "name": "Fleeing Vectors",
+    "kind": "secondary",
+    "plain": "• When each player's turn ends, you score 2VP if your DEATH GUARD models' attacks destroyed 7 or more enemy models that turn. You score 1 extra VP if attacks with plague weapons destroyed 7 or more of those enemy models that turn.\n• When each Morale phase ends, you score 2VP if 1 or more enemy units failed a Morale test in that phase. You score 1 extra VP if any of those failing units lost 1 or more models to attacks made with plague weapons this turn."
+  },
+  "d2a52a86d8ab": {
+    "name": "Beasts for the Arenas",
+    "kind": "secondary",
+    "plain": "When the battle ends, gain 3 victory points for each enemy MONSTER, CAVALRY or BEAST unit destroyed by a melee attack from one of your <WYCH CULT> units. If that enemy unit was TITANIC, gain 5 victory points for it instead."
+  },
+  "d36af006f50c": {
+    "name": "The Long War",
+    "kind": "secondary",
+    "plain": "At the end of your turn:\n• Score 1 victory point per enemy unit destroyed this turn by your TRAITORIS ASTARTES units that was in range of an objective marker when this turn started.\n• Score 2 victory points if you control any objective markers your opponent controlled when this turn started, and one of your TRAITORIS ASTARTES units is in range of any of those markers.\nYou can't score more than 3 victory points from this secondary objective in a turn."
+  },
   "d3feee9fff79": {
     "name": "Detonation",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Then, when the battle ends, each player gets 4VP per Primed Explosives objective marker inside their opponent's territory, up to 15VP per player."
+  },
+  "d4137b079298": {
+    "name": "Fury of the Lost",
+    "kind": "secondary",
+    "plain": "When your turn ends, gain 3 victory points if one of your DEATH COMPANY units destroyed 1 or more enemy units in that turn."
   },
   "d55543344641": {
     "name": "Corrupted Ground",
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, at the end of each of your turns (every battle round): gain 4VP if you control the objective marker in your opponent's deployment zone; gain 2VP if you control at least 1 objective marker in no man's land; lose 1VP if you don't control the one in your own deployment zone. Your score never drops below 0."
   },
+  "d88f9272f375": {
+    "name": "Code of Combat",
+    "kind": "secondary",
+    "plain": "At the end of the battle, score 3 victory points for each enemy unit destroyed by one of your NECRONS NOBLE units."
+  },
+  "d990fbba1744": {
+    "name": "Despoiled Ground",
+    "kind": "secondary",
+    "plain": "At the end of the battle, you score 3VP for each of these you achieve:\n• At least 1 of your DEATH GUARD units is wholly within your opponent's deployment zone and at least 1 of your DEATH GUARD units is wholly within your deployment zone.\n• You have DEATH GUARD units wholly within 3 different table quarters, and all those units are more than 3\" away from any other table quarter.\n• You have DEATH GUARD units wholly within 4 different table quarters, and all those units are more than 3\" away from any other table quarter.\n• You control at least half of all the objective markers on the battlefield, and each of those markers has your DEATH GUARD units within range.\n• Each objective marker on the battlefield is in Contagion range of at least 1 Contagion ability that your DEATH GUARD units have."
+  },
   "db96ca7e2be9": {
     "name": "Take and Hold",
     "kind": "mission",
     "plain": "Not scored in battle round 1. At the end of each Command phase, the player whose turn it is gets 5 victory points for every one of these they meet, to a maximum of 15: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent."
   },
+  "dd236b2afd76": {
+    "name": "Purifying Ritual",
+    "kind": "secondary",
+    "plain": "If you pick this, your GREY KNIGHTS PSYKER units can do this psychic action. Purifying Ritual (Psychic Action - Warp Charge 6): in your Psychic phase, 1 or more of your GREY KNIGHTS PSYKER units can attempt it. Each unit that starts it must be in range of a different objective marker that you control and that your army hasn't purified this turn. If the psychic action is completed, your army has purified that objective marker this turn.\n\nAt the end of your turn, score VP for how many objective markers your army purified this turn:\n• 1 marker: 1VP.\n• 2 markers: 2VP.\n• 3 markers: 4VP.\n• 4 or more markers: 5VP.",
+    "waive": {
+      "PURIFYING RITUAL OBJECTIVES PURIFIED BY YOUR ARMY THIS TURN": "a heading of the scoring table, not a keyword",
+      "4+": "the table's last row, \"4+\", means 4 or more; written out as \"4 or more\""
+    }
+  },
+  "ddf1811d7c27": {
+    "name": "Ambush",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 2VP for each of these you achieve (up to 5VP per turn):\n• This turn, your units destroyed 1 or more enemy units while they had a crossfire marker.\n• This turn, your units that were set up from ambush or from underground this turn destroyed 1 or more enemy units.\n• This turn, a ranged attack made by one of your models destroyed 1 or more enemy units, and that enemy unit was Exposed when it was picked as the target of that attack. It must have been Exposed in this way, not by any other means (such as the Priority Target Jackal Alphus ability)."
+  },
+  "dec902176a7a": {
+    "name": "Honour of the House",
+    "kind": "secondary",
+    "plain": "If you pick this, at the end of each battle round, gain 2 victory points if you have 6 Honour points, or if your Honour points total is higher than it was when that battle round started.\nAt the end of the battle:\n• Gain 3 more victory points if your army is Virtuous.\n• Gain 2 more victory points if your army is Honoured.\n• If your army is Dishonoured, take 3 off the victory points earned from this secondary objective (it can't go below 0)."
+  },
+  "df01cf9e273f": {
+    "name": "Auric Mortalis",
+    "kind": "secondary",
+    "plain": "If you pick this, in the Resolve Pre-battle Abilities step of the mission, choose 1 PRIMARCH or SUPREME COMMANDER unit in your opponent's army to be marked for death. If there isn't one, mark the unit in your opponent's army with the highest points value instead (ignore AIRCRAFT units). If 2 or more units tie, you pick which one. A unit's points value counts the points of all its weapons, wargear and upgrades.\nAt the end of the battle:\n• Score 5VP if the marked unit is destroyed.\n• Score 5VP if the marked unit was destroyed by a melee attack made by one of your ADEPTUS CUSTODES or ANATHEMA PSYKANA units.\n• Score 5VP if both of the above are true and the marked unit wasn't within your deployment zone when it was destroyed."
+  },
   "df28c638abc0": {
     "name": "Surround Them",
     "kind": "secondary",
     "plain": "At the end of your Command phase, and again at the end of the battle, score 4 victory points if you control both objective markers in your deployment zone and at least 1 in your opponent's deployment zone. If you control all 4 objective markers that are in deployment zones, score 8 victory points instead."
+  },
+  "e3e4645868b8": {
+    "name": "Exalt the Dark Gods",
+    "kind": "secondary",
+    "plain": "If you pick this, keep an Exalt the Dark Gods tally. Add 1 to it each time one of your WORD BEARERS units completes this action. Exalt the Dark Gods (Action): at the end of your Movement phase, 1 of your WORD BEARERS INFANTRY units can start it if it is wholly within 6\" of the battlefield's centre. WORD BEARERS PSYKER units can try to manifest psychic powers while doing this action, and the action doesn't fail because of it. If a WORD BEARERS DARK APOSTLE, WORD BEARERS ICON or WORD BEARERS MASTER OF POSSESSION unit is doing it, it is completed at the end of your turn; if not, it is completed when your next Command phase starts. Either way, it is only completed if the unit is still wholly within 6\" of the battlefield's centre and no enemy units (not counting AIRCRAFT units) are wholly within 6\" of the battlefield's centre.\n\nAt the end of the battle, score VP based on your tally:\n• Tally of 1: 3VP.\n• Tally of 2: 5VP.\n• Tally of 3: 9VP.\n• Tally of 4 or more: 15VP."
+  },
+  "e51982a3eafb": {
+    "name": "Rise to Glory",
+    "kind": "secondary",
+    "plain": "At the end of the battle round, you score 3VP for every CHARACTER, MONSTER or VEHICLE model destroyed during that battle round by an attack from one of your TRAITORIS ASTARTES CHARACTER models. For each such model with a Wounds characteristic of 10-19, you score 1 extra VP, or 2 extra VP if it had the TITANIC keyword or was the enemy WARLORD. This secondary objective gives you at most 5VP per battle round.\nEach time a melee attack from one of your TRAITORIS ASTARTES CHARACTER models destroys a CHARACTER, MONSTER or VEHICLE model, roll 2D6. If the result is lower than that model's Wounds characteristic, you gain 1 Command point when the phase ends."
+  },
+  "e633a305b135": {
+    "name": "The Blood God’s Due",
+    "kind": "secondary",
+    "plain": "Whenever a player's turn ends, score 1VP for every objective marker on the battlefield that was Drowned in Blood during that turn. A marker is Drowned in Blood if, during that turn, 1 or more units (not counting VEHICLE units) that were in range of it when the turn began were destroyed."
+  },
+  "e81c8f6f808f": {
+    "name": "Slay the Heretic",
+    "kind": "secondary",
+    "plain": "At the end of each of your Shooting phases, gain 1 victory point per line below that is true:\n• An attack with a bolt weapon by one of your ADEPTUS MINISTORUM units destroyed 1 or more enemy units.\n• An attack with a flame weapon by one of your ADEPTUS MINISTORUM units destroyed 1 or more enemy units.\n• An attack with a melta weapon by one of your ADEPTUS MINISTORUM units destroyed 1 or more enemy units.\nIf all 3 are true at the end of that Shooting phase, score 1 extra victory point (4 victory points at most)."
+  },
+  "e8765b05a20c": {
+    "name": "Adorn the Canvas Eclectic",
+    "kind": "secondary",
+    "plain": "At the end of each turn, score 1VP for each of these you achieve:\n• You control more objective markers than your opponent.\n• Ranged attacks made by your EMPEROR'S CHILDREN units destroyed 1 or more enemy units this turn.\n• Melee attacks made by your EMPEROR'S CHILDREN units destroyed 1 or more enemy units this turn.\n• Attacks made by your EMPEROR'S CHILDREN CHARACTER units destroyed 1 or more enemy CHARACTER units this turn."
+  },
+  "eb25038f5ea8": {
+    "name": "Accretion of Knowledge",
+    "kind": "secondary",
+    "plain": "When the battle ends, gain 3 victory points for each enemy model that has been destroyed and matches at least 1 of these:\n• It has a Warlord Trait.\n• It has a Relic.\n• It is a VEHICLE with a Wounds characteristic of 14 or more."
+  },
+  "eb5dc6af02e4": {
+    "name": "Bathe Your Blade in the Blood of Your Foe",
+    "kind": "secondary",
+    "plain": "At the start of the first Command phase, you pick 1 of your BLACK TEMPLARS CHARACTER models to issue the challenge, and your opponent picks 1 of their CHARACTER models to accept it. A player who has no CHARACTER model picks their WARLORD instead.\nWhen the battle ends, gain 5 victory points for each of these that has happened:\n• The model that accepted the challenge was destroyed.\n• It was destroyed by a melee attack.\n• It was destroyed by a melee attack from the model that issued the challenge."
   },
   "ebaeeca69bd6": {
     "name": "Domination",
@@ -360,10 +1151,35 @@
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 2 or more objective markers; controlling 3 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, in battle rounds 1, 2, 3 and 4, at the end of each of your turns you get 2VP if you control at least 1 objective marker in your opponent's territory. Then, when the battle ends, each player gets 3VP per objective marker they control in their opponent's territory."
   },
+  "edaad9b43835": {
+    "name": "Mutate Landscape",
+    "kind": "secondary",
+    "plain": "If you pick this, your THOUSAND SONS PSYKER units can do this psychic action. Mutate Landscape (Psychic Action - Warp Charge 5): in your Psychic phase, 1 PSYKER unit from your army can attempt it if it is in range of an objective marker that you control and that your army hasn't mutated yet. If the psychic action is completed, your army has mutated that marker.\n\nScore 3VP each time one of your units completes this psychic action."
+  },
+  "f07f6fa10989": {
+    "name": "Masters of Demolition",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission your opponent sets up 3 objective markers anywhere on the battlefield. Each must be at ground level, not within 9\" of the others, and not within 6\" of any battlefield edge. None can go on a terrain feature with the Unstable Position terrain trait, and at most one of them can be within 6\" of your opponent's deployment zone. If a marker can't be set up, it isn't set up. Each one is a demolition site. It only counts as an objective marker for this objective, not for any other rules.\n\nYour IRON WARRIORS INFANTRY units can do this action. Total Demolition (Action): at the end of your Movement phase, 1 of your IRON WARRIORS INFANTRY units (not a CHARACTER unit) can start it if it is in range of a demolition site objective marker that you control. It is completed at the end of the turn if the unit is still in range of that same marker. Once it is completed, your army has demolished that marker: take it off the battlefield.\n\nWhen the battle ends, score 4VP for every demolition site objective marker your army demolished. Score 4VP more if one of the demolition sites your army demolished had been within 6\" of your opponent's deployment zone."
+  },
   "f1bafae5a705": {
     "name": "Bring It Down",
     "kind": "secondary",
     "plain": "At the end of the battle, score VP for each enemy MONSTER or VEHICLE model that has been destroyed: 1VP if its Wounds characteristic is 9 or less, 2VP if it is 10-14, 3VP if it is 15-19, and 4VP if it is 20 or more."
+  },
+  "f1fe53bcd824": {
+    "name": "Sacred Grounds",
+    "kind": "secondary",
+    "plain": "If you pick this, your units can attempt this action.\nSacred Grounds (Action): 1 or more of your ADEPTA SORORITAS INFANTRY or CULT IMPERIALIS PRIEST units can start this action at the end of your Movement phase. Each of those units needs to be within range of its own objective marker (a different one for each unit) that you control and that your army hasn't consecrated yet. The action is completed when your next Command phase starts or when the battle ends, whichever comes first. Once completed, your army has consecrated that objective marker, and for the rest of the battle it has the Inspiring (Adeptus Ministorum) terrain trait (it still doesn't count as a terrain feature for any other rule).\nEach time one of your units completes this action, you score 1VP if the marker it consecrated is wholly within your deployment zone, or 4VP if not."
+  },
+  "f21d755d1c09": {
+    "name": "Martial Interdiction",
+    "kind": "secondary",
+    "plain": "If you pick this, after both sides have deployed but before the first turn starts, your opponent picks 1 CHARACTER model from their army. If they have no CHARACTER models, they pick their WARLORD instead. When the battle ends, gain:\n• 6 victory points if a melee attack from one of your DARK ANGELS models destroyed the picked model.\n• 3 more victory points if it was destroyed by a melee attack from one of your INNER CIRCLE or DEATHWING models.\n• 6 more victory points if the unit of the DARK ANGELS model that destroyed it has not been destroyed itself."
+  },
+  "f27e4b7787ef": {
+    "name": "Defend the Shrine",
+    "kind": "secondary",
+    "plain": "If you pick this, once both sides have deployed, your opponent picks 1 objective marker that isn't within their own deployment zone; it becomes the Sacred Shrine objective marker. If the battlefield's only objective marker is in the enemy's deployment zone, that one must be the Sacred Shrine.\n• At the end of your turn, score 3 victory points if you control the Sacred Shrine.\n• At the end of the battle, score 3 more victory points if you control the Sacred Shrine.\n• At the end of the battle, if your opponent controls the Sacred Shrine, take 3 away from the victory points you've scored with this objective (it can't go below 0)."
   },
   "f3e7e52daa08": {
     "name": "Retrieve Battlefield Data",
@@ -385,6 +1201,16 @@
     "kind": "secondary",
     "plain": "At the end of your turn, if you have at least 1 unit (other than AIRCRAFT) wholly within 6\" of your battlefield edge and another unit (other than AIRCRAFT) wholly within 6\" of the opposing player's battlefield edge, gain 3 victory points. Gain 5 victory points instead if one of those 2 units is wholly inside your opponent's deployment zone."
   },
+  "f59ea543c8f4": {
+    "name": "A Deadly Performance",
+    "kind": "secondary",
+    "plain": "At the end of your turn, gain 3 victory points if at least 2 of these are true:\n• One of your HARLEQUINS units controls an objective marker you didn't control at the start of the turn.\n• One of your HARLEQUINS units is wholly within your opponent's deployment zone.\n• In this turn, attacks with ranged weapons by your HARLEQUINS models destroyed 2 or more enemy units.\n• In this turn, attacks with melee weapons by your HARLEQUINS models destroyed 3 or more enemy units."
+  },
+  "f67f58a9cf99": {
+    "name": "The Long Vigil",
+    "kind": "secondary",
+    "plain": "Not scored in the first battle round. At the start of your Command phase, gain 5 victory points if no enemy units (not counting AIRCRAFT) are within 6\" of your deployment zone and at least 1 of your DEATHWATCH units (not counting AIRCRAFT) is wholly within your deployment zone."
+  },
   "f6ed8d96974c": {
     "name": "Precious Artefacts",
     "kind": "mission",
@@ -395,14 +1221,86 @@
     "kind": "mission",
     "plain": "In battle rounds 2, 3 and 4, at the end of each Command phase, the player whose turn it is gets 4VP for every one of these they meet, to a maximum of 12VP: controlling 1 or more objective markers; controlling 2 or more; controlling more objective markers than the opponent. In battle round 5, the player who took the first turn scores this at the end of their Command phase as normal, but the player who took the second turn scores it at the end of their turn instead. Also, when each battle round ends, every player gets 1VP per enemy unit destroyed in that battle round, up to 3VP per player per battle round."
   },
+  "f91a61309160": {
+    "name": "Shock Tactics",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 4VP if you control 1 or more objective markers that your opponent controlled when that turn began, and one of your ADEPTUS ASTARTES units is in range of that marker."
+  },
+  "f9b39d2c7713": {
+    "name": "Nourished by Terror",
+    "kind": "secondary",
+    "plain": "• Score 1VP each time an enemy model flees the battlefield.\n• Each time one of your LEGIONES DAEMONICA units destroys an enemy unit, roll 2D6 before you remove the last model of that unit from the battlefield. If the result is equal to or higher than that enemy model's Leadership characteristic, score 1VP. A unit that is brought back for any reason (destroyed and then returned to the battlefield) can score you VP from this secondary objective more than once, if it is brought back and destroyed again several times and your 2D6 result equals or beats that model's Leadership characteristic each time."
+  },
+  "f9defc7ad217": {
+    "name": "Decisive Action",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 4VP if you control at least half of all the objective markers on the battlefield. Which battle rounds this works in depends on the Tactical Philosophy you picked at the start of the battle:\n• Mont’ka: battle rounds 1, 2 and 3.\n• Kauyon: battle rounds 3, 4 and 5."
+  },
+  "fa4ab070e0e7": {
+    "name": "Codex Warfare",
+    "kind": "secondary",
+    "plain": "At the end of the battle, look at each enemy unit that was destroyed by an attack from one of your ADEPTUS ASTARTES units, and score:\n• 2VP if that attack used a Heavy or Grenade weapon while your army's Devastator Doctrine was active.\n• 1VP if that attack used a Rapid Fire or Assault weapon while your army's Tactical Doctrine was active.\n• 1VP if that attack used a Pistol or Melee weapon while your army's Assault Doctrine was active.\nThe most you can score from this secondary objective is 5VP while your army's Devastator Doctrine is active, 5VP while its Tactical Doctrine is active, and 5VP while its Assault Doctrine is active."
+  },
   "fa9b7e66d666": {
     "name": "First Strike",
     "kind": "secondary",
     "plain": "When the battle ends, gain 5 victory points if any enemy units were destroyed in battle round 1, and 3 more victory points if, in that round, more enemy units were destroyed than friendly units."
   },
+  "fae08d322e30": {
+    "name": "Sabotage Critical Location",
+    "kind": "secondary",
+    "plain": "After deployment zones are chosen, your opponent places 2 critical location markers on the battlefield. Each must be more than 9\" from every battlefield edge and more than 9\" from their other critical location marker. If both players have to place these markers, they take turns, with the Defender going first.\nIf you pick this, your units can do this action. Sabotage Critical Location (Action): 1 or more of your INFANTRY or BIKER units (CHARACTER units can't, except REDUCTUS SABOTEUR units) can start it when the Move Units step of your Movement phase ends. Every unit starting it must be within 3\" of the centre of a different critical location marker belonging to your opponent. No enemy units (not counting AIRCRAFT units) may be within 3\" of the centre of that marker. It is completed at the end of your turn, as long as the unit is still in range of that same critical location marker. Once it is completed, you have sabotaged that critical location: remove its marker from the battlefield.\nEach time one of your units completes this action, gain victory points based on the battle round it was completed in:\n• Battle round 2: 9 victory points.\n• Battle round 3: 7 victory points.\n• Battle round 4: 5 victory points.\n• Battle round 5: 3 victory points.\nThis objective can't be scored in the first battle round.",
+    "waive": {
+      "SABOTAGE CRITICAL LOCATION BATTLE ROUND THE ACTION WAS COMPLETED": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS SCORED": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "fae7f7a98a0a": {
+    "name": "Synaptic Insight",
+    "kind": "secondary",
+    "plain": "If you pick this, keep a tally of Synaptic Kill points, resetting it to 0 when each battle round starts. Each time one of your SYNAPSE models destroys an enemy model, you gain Synaptic Kill points based on that enemy model's Wounds characteristic:\n• Wounds 3-5: 1 point.\n• Wounds 6-9: 2 points.\n• Wounds 10 or more: 3 points.\nWhen the battle round ends, score 3VP if your tally has reached 5 or more. This secondary objective can give you no more than 12VP in the battle."
+  },
   "fc4ff3fc2a86": {
     "name": "Attrition",
     "kind": "secondary",
     "plain": "At the end of each battle round, score 4 victory points if more enemy units than friendly units were destroyed during that battle round."
+  },
+  "fd4ccb716bd4": {
+    "name": "Carry Out Your Vows",
+    "kind": "secondary",
+    "plain": "You can only pick this if you have picked any Templar Vows. It has a Progressive part and an End Game part. For the End Game part, you can only score for the Templar Vow you picked at the end of the Read Mission Briefing step, not for any other vow you picked during the battle.\nProgressive part: at the end of the battle round, you score 4VP if melee attacks made by your BLACK TEMPLARS units destroyed more enemy units this battle round than the number of your BLACK TEMPLARS units that were destroyed this battle round. You can score at most 12VP per battle from this part.\nEnd Game part: at the end of the battle, you score 5VP if any of these is true:\n• Your vow before the battle was Suffer Not the Unclean to Live, and a melee attack made by one of your BLACK TEMPLARS CHARACTER units destroyed the enemy WARLORD during the battle.\n• Your vow before the battle was Uphold the Honour of the Emperor, and at the end of the battle one of your BLACK TEMPLARS INFANTRY units (not CHARACTER units) that isn't below Half-strength is in your opponent's deployment zone.\n• Your vow before the battle was Abhor the Witch, Destroy the Witch, and your BLACK TEMPLARS units destroyed 1 or more enemy PSYKER CHARACTER units during the battle.\n• Your vow before the battle was Accept Any Challenge, No Matter the Odds, and during the battle one of your BLACK TEMPLARS units destroyed either an enemy model with a Wounds characteristic of 20 or more, or an enemy unit whose Starting Strength was 20 or more models."
+  },
+  "fd6e9dec09e4": {
+    "name": "Cold Fury",
+    "kind": "secondary",
+    "plain": "At the end of your turn, score 1VP for each of these you achieve (maximum 4VP):\n• At least 1 of your IRON HANDS VEHICLE units (not AIRCRAFT units) is within your opponent's deployment zone.\n• At least 1 of your IRON HANDS VEHICLE units (not AIRCRAFT units) is within 6\" of the battlefield's centre.\n• Ranged attacks by your IRON HANDS VEHICLE units destroyed at least 1 enemy unit this turn.\n• Melee attacks by your IRON HANDS VEHICLE units destroyed at least 1 enemy unit this turn."
+  },
+  "fea89db94ed3": {
+    "name": "Codex Warfare",
+    "kind": "secondary",
+    "plain": "If you pick this, you score victory points at the end of the battle like this:\n• 1 victory point (up to 5) for each enemy unit destroyed by an attack from your ADEPTUS ASTARTES units with a Heavy or Grenade weapon while your army's Devastator Doctrine was active.\n• 1 victory point (up to 5) for each enemy unit destroyed by an attack from your ADEPTUS ASTARTES units with a Rapid Fire or Assault weapon while your army's Tactical Doctrine was active.\n• 1 victory point (up to 5) for each enemy unit destroyed by an attack from your ADEPTUS ASTARTES units with a Pistol or Melee weapon while your army's Assault Doctrine was active."
+  },
+  "feee9ddcfa52": {
+    "name": "Reality Rebels",
+    "kind": "secondary",
+    "plain": "At the end of your turn:\n• You score 1VP for each table quarter that has at least 1 of your LEGIONES DAEMONICA units wholly within it, as long as your opponent doesn't have more units wholly within that same quarter. For this bullet, ignore units within 6\" of the battlefield's centre.\n• You score 1VP if at least 1 of your LEGIONES DAEMONICA units is wholly within 6\" of the battlefield's centre."
+  },
+  "ff6b5ecd03bb": {
+    "name": "The Treasures of Aeons",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission your opponent picks 3 objective markers on the battlefield. They can't pick markers in their own deployment zone until they have already picked every objective marker in no man's land.\n\nAt the end of your turn, if you control 1 or more of those picked markers, score VP for how many you control:\n• 1 picked marker: 2VP.\n• 2 picked markers: 3VP.\n• 3 picked markers: 4VP.",
+    "waive": {
+      "THE TREASURES OF AEONS NUMBER OF SELECTED OBJECTIVE MARKERS YOU CONTROL": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS": "a heading of the scoring table, not a keyword"
+    }
+  },
+  "ffa4c5414d90": {
+    "name": "Sabotage Critical Location",
+    "kind": "secondary",
+    "plain": "If you pick this, then in the Resolve Pre-battle Abilities step of the mission your opponent places 2 critical location markers on the battlefield. Each one has to be more than 9\" from every battlefield edge and more than 9\" from their other critical location marker. If both players have to place these markers, they take turns, and the Defender goes first.\n\nYour GENESTEALER CULTS and BROOD BROTHERS units can then do this action. Sabotage Critical Location (Action): when the Move Units step of your Movement phase ends, 1 or more of your GENESTEALER CULTS INFANTRY, BROOD BROTHERS INFANTRY or GENESTEALER CULTS BIKER units can start it. CHARACTER units can't, unless they are REDUCTUS SABOTEUR units. Each unit that starts it must be in range of a different one of your opponent's critical location markers, and you must control that marker. It is completed at the end of your turn if the unit is still in range of that same marker. Once it is completed, you have sabotaged that critical location: take the marker off the battlefield.\n\nEach time one of your units completes this action, score VP depending on the battle round in which it was completed:\n• Battle round 2: 10VP.\n• Battle round 3: 8VP.\n• Battle round 4: 7VP.\n• Battle round 5: 6VP.",
+    "waive": {
+      "SABOTAGE CRITICAL LOCATION BATTLE ROUND IN WHICH THE ACTION WAS COMPLETED": "a heading of the scoring table, not a keyword",
+      "VICTORY POINTS": "a heading of the scoring table, not a keyword"
+    }
   }
 }

@@ -241,6 +241,11 @@
     "kind": "stratagem",
     "plain": "Use when your Movement phase ends, choosing one of your DREAD WAAAGH! units within 1\" of a MEK WORKSHOP. If that unit is given a kustom job through the Kustom Job ability, it receives something 'extra speshul' on a 4+ instead of needing a 6+."
   },
+  "20ec8e7d9607": {
+    "name": "Kustom Red Button",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Skreenwipers: no effect. 2-3 Boosta: this model's Move characteristic is increased by 3\" until your next Command phase. 4-5 Extra Spikes: until your next Command phase, whenever this model finishes a charge move, roll a D6 for every enemy unit within Engagement Range; each one that rolls 4+ takes D3 mortal wounds. 6 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit."
+  },
   "2218ca8156f0": {
     "name": "Waaagh! Effigy (Aura)",
     "kind": "ability",
@@ -554,11 +559,6 @@
     "kind": "stratagem",
     "plain": "Use when one of your BLITZ BRIGADE BONEBREAKA models is picked to fight in the Fight phase. For its Bonebreaka Ram ability, roll three D6 and keep the highest."
   },
-  "52d4d1c6ebd3": {
-    "name": "Kustom Red Button",
-    "kind": "ability",
-    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Snack Dispensa: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Hidden Rokkits: this model has 1 rokkit launcha until your next Command phase."
-  },
   "5329cd244f95": {
     "name": "Da Bigger Dey Iz...",
     "kind": "stratagem",
@@ -731,11 +731,6 @@
     "name": "Explodes (6+/3\"/1)",
     "kind": "ability",
     "plain": "When this model is reduced to 0 wounds, roll a D6 before you remove it and before any models embarked in it disembark. On a 6, it explodes and every unit within 3\" takes 1 mortal wound."
-  },
-  "6ca8d2258176": {
-    "name": "Kustom Red Button",
-    "kind": "ability",
-    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Shouty Speakas: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Force Fields: this model gets a 5+ invulnerable save until your next Command phase."
   },
   "6d8a9e372275": {
     "name": "Buzzgob's Dredheadz",
@@ -1421,10 +1416,10 @@
     "kind": "stratagem",
     "plain": "Use during deployment: instead of putting one of your STOMPA MOB units on the battlefield, you can set it up on a tellyporta pad. Units on a tellyporta pad can teleport in at the end of any of your Movement phases; place them on the battlefield anywhere more than 9\" from any enemy models."
   },
-  "d095cbf13a66": {
+  "d10fefb0930f": {
     "name": "Kustom Red Button",
     "kind": "ability",
-    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Skreenwipers: no effect. 2-3 Boosta: this model's Move characteristic is increased by 3\" until your next Command phase. 4-5 Extra Spikes: until your next Command phase, whenever this model finishes a charge move, roll a D6 for every enemy unit within Engagement Range; each one that rolls 4+ takes D3 mortal wounds. 6 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit."
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Snack Dispensa: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Hidden Rokkits: this model has 1 rokkit launcha until your next Command phase."
   },
   "d16d4dc7f316": {
     "name": "Extra Gubbinz",
@@ -1650,6 +1645,11 @@
     "name": "Cloud of Smoke",
     "kind": "stratagem",
     "plain": "Use as your opponent's Shooting phase begins, choosing one of your SPEED FREEKS VEHICLE units. Until the phase ends, if any friendly SPEED FREEKS VEHICLE unit is within 6\" of the chosen unit, subtract 1 from the hit roll of each ranged attack that targets that unit."
+  },
+  "f9b47280a1c5": {
+    "name": "Kustom Red Button",
+    "kind": "ability",
+    "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 Shouty Speakas: no effect. 2-3 Boosta: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 More Dakka: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 Force Fields: this model gets a 5+ invulnerable save until your next Command phase."
   },
   "f9c42b3813c9": {
     "name": "Goffs is da Best",

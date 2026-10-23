@@ -25,8 +25,10 @@ test('every mission and universal-secondary text has checked plain English', () 
   }
 });
 
-test('faction secondaries may lack plain English', () => {
+test('every faction secondary has checked plain English', () => {
   expect(report.faction.total).toBeGreaterThan(150);
+  expect(report.faction.written).toBe(report.faction.total);
+  for (const p of data.packs) for (const s of p.secondaries) expect(s.plain, `${p.id}: ${s.name}`).toBeTruthy();
 });
 
 test('no orphan plain entries', () => {

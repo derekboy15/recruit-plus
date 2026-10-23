@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, test } from 'vitest';
 import { join } from 'node:path';
-import { extractSecondaries, loadAmendments, loadPacks, loadSecondaryFactions } from '../src/missions/build';
+import { extractSecondaries, loadAmendments, loadPacks, loadSecondaryCorrections, loadSecondaryFactions } from '../src/missions/build';
 import type { SecondaryOut } from '../src/missions/types';
 import { loadWahapedia, type Wahapedia } from '../src/wahapedia/load';
 import { loadGameData, isPlayableCatalogue } from '../src/bsdata/gamedata';
@@ -97,5 +97,30 @@ describe('faction mapping', () => {
   });
   test('amendments file loads', () => {
     expect(Array.isArray(loadAmendments(join(ROOT, 'overrides')).items)).toBe(true);
+  });
+});
+
+describe('[Wahapedia data error] Core Book faction secondaries filed under the wrong faction', () => {
+  // Wahapedia's Matched Play (Core Book) rows give FOR THE DARK GODS, RISE TO GLORY and THE LONG WAR faction QI (Imperial
+  // Knights). Their text is about TRAITORIS ASTARTES units and the Chaos Gods, and the Arks of Omen, Nephilim and
+  // Nachmund packs file the same objectives under Chaos Space Marines (CSM).
+  const NAMES = ['For the Dark Gods', 'Rise to Glory', 'The Long War'];
+  let fixed: SecondaryOut[];
+  beforeAll(() => {
+    fixed = extractSecondaries(loadWahapedia(join(ROOT, 'raw', 'wahapedia')), 'core-book', loadSecondaryCorrections(join(ROOT, 'overrides')));
+  });
+
+  test('they belong to Chaos Space Marines', () => {
+    for (const name of NAMES) {
+      const s = fixed.find((x) => x.name === name)!;
+      expect(s, name).toBeDefined();
+      expect([s.factionId, s.faction, s.id], name).toEqual(['CSM', 'Chaos Space Marines', `cb-csm-${s.id.split('-').slice(2).join('-')}`]);
+    }
+  });
+
+  test('Imperial Knights keep only their own secondaries', () => {
+    const knights = fixed.filter((x) => x.factionId === 'QI').map((x) => x.name);
+    for (const name of NAMES) expect(knights).not.toContain(name);
+    expect(knights.length).toBeGreaterThan(0);
   });
 });

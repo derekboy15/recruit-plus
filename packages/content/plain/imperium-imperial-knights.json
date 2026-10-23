@@ -174,18 +174,18 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models carrying a reaper chainsword or reaper chain-cleaver (or a Relic that takes the place of one) is chosen to fight: for the rest of the phase, hit rolls for that model's attacks can never be re-rolled, but each attack it makes with the Sweep profile of one of those weapons (or of such a Relic) makes 1 extra hit roll."
   },
-  "87ca9870480b": {
-    "name": "Code Chivalric",
-    "kind": "ability",
-    "plain": "If every unit in your army has the IMPERIAL KNIGHTS keyword (not counting any AGENT OF THE IMPERIUM or UNALIGNED units), and, FREEBLADES aside, all of them come from the same noble household, you must swear 2 Oaths from the Oath tables when you write your army list and record them on it. You begin the battle with 1 Honour point. During the battle you can gain Honour points (usually by fulfilling the Pledge of your chosen Oaths) and lose them (usually when the Troth of your chosen Oaths applies), but your total can't drop below 0 or rise above 6. At the start of each battle round, check your total to find your army's level of Honour: 0 points is Dishonoured, 1-4 is Honoured, and 5-6 is Virtuous. Models with this ability gain Chivalric abilities based on that level. While Dishonoured, neither the Honoured nor the Virtuous Chivalric abilities of your chosen Oaths are active. While Honoured, the Honoured Chivalric ability of your chosen Oaths is active for every IMPERIAL KNIGHTS unit in your army, but the Virtuous ones are not. While Virtuous, both the Honoured and Virtuous Chivalric abilities of your chosen Oaths are active for every IMPERIAL KNIGHTS unit in your army.",
-    "waive": {
-      "ARMY HONOURNUMBER OF HONOUR POINTSARMY'S LEVEL OF": "column headers of the Honour table run together in the source data; the table itself is described"
-    }
-  },
   "9169947238a1": {
     "name": "Thin Their Ranks",
     "kind": "stratagem",
     "plain": "At the start of the Shooting phase, choose up to 3 of your ARMIGER-CLASS models. For the rest of the phase, each unmodified hit roll of 6 for a ranged attack by one of those models wounds the target automatically."
+  },
+  "9646633a9ac5": {
+    "name": "Code Chivalric",
+    "kind": "ability",
+    "plain": "If every unit in your army has the IMPERIAL KNIGHTS keyword (not counting any AGENT OF THE IMPERIUM or UNALIGNED units), and, FREEBLADES aside, all of them come from the same noble household, you must swear 2 Oaths from the Oath tables when you write your army list and record them on it. You begin the battle with 1 Honour point. During the battle you can gain Honour points (usually by fulfilling the Pledge of your chosen Oaths) and lose them (usually when the Troth of your chosen Oaths applies), but your total can't drop below 0 or rise above 6. At the start of each battle round, check your total to find your army's level of Honour: 0 points is Dishonoured, 1-4 is Honoured, and 5-6 is Virtuous. Models with this ability gain Chivalric abilities based on that level. While Dishonoured, neither the Honoured nor the Virtuous Chivalric abilities of your chosen Oaths are active. While Honoured, the Honoured Chivalric ability of your chosen Oaths is active for every IMPERIAL KNIGHTS unit in your army, but the Virtuous ones are not. While Virtuous, both the Honoured and Virtuous Chivalric abilities of your chosen Oaths are active for every IMPERIAL KNIGHTS unit in your army.",
+    "waive": {
+      "ARMY HONOUR NUMBER OF HONOUR POINTS": "a heading of the scoring table, not a keyword"
+    }
   },
   "985eaa4350af": {
     "name": "Exacting Charge",

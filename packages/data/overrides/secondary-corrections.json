@@ -1,0 +1,26 @@
+[
+  {
+    "pack": "core-book",
+    "name": "For the Dark Gods",
+    "fromFactionId": "QI",
+    "factionId": "CSM",
+    "faction": "Chaos Space Marines",
+    "source": "Wahapedia data error: its Matched Play (Core Book) secondaries file this objective under Imperial Knights (QI). Its text is about TRAITORIS ASTARTES units and the Chaos Gods, and Wahapedia's Arks of Omen, War Zone Nephilim and War Zone Nachmund GT secondaries file the same objective under Chaos Space Marines (CSM), from Codex: Chaos Space Marines (2022)."
+  },
+  {
+    "pack": "core-book",
+    "name": "Rise to Glory",
+    "fromFactionId": "QI",
+    "factionId": "CSM",
+    "faction": "Chaos Space Marines",
+    "source": "Wahapedia data error: its Matched Play (Core Book) secondaries file this objective under Imperial Knights (QI). Its text is about TRAITORIS ASTARTES units and the Chaos Gods, and Wahapedia's Arks of Omen, War Zone Nephilim and War Zone Nachmund GT secondaries file the same objective under Chaos Space Marines (CSM), from Codex: Chaos Space Marines (2022)."
+  },
+  {
+    "pack": "core-book",
+    "name": "The Long War",
+    "fromFactionId": "QI",
+    "factionId": "CSM",
+    "faction": "Chaos Space Marines",
+    "source": "Wahapedia data error: its Matched Play (Core Book) secondaries file this objective under Imperial Knights (QI). Its text is about TRAITORIS ASTARTES units and the Chaos Gods, and Wahapedia's Arks of Omen, War Zone Nephilim and War Zone Nachmund GT secondaries file the same objective under Chaos Space Marines (CSM), from Codex: Chaos Space Marines (2022)."
+  }
+]

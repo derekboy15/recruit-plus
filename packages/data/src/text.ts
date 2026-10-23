@@ -20,18 +20,38 @@ export function normalizeName(s: string): string {
 
 const ENTITIES: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", nbsp: ' ' };
 
-/** Plain text from Wahapedia's HTML fragments. List items become "• " lines. */
+const CELL = '\u0001';
+
+/**
+ * A table's rows on their own lines, cells joined with " | " (Wahapedia scoring tables, e.g. "2 | 2"). Rows with no
+ * text (layout spacers, the wrapper table around a table) are dropped.
+ */
+function tableRows(text: string): string {
+  return text
+    .split('\n')
+    .flatMap((line) => {
+      if (!line.includes(CELL)) return [line];
+      const cells = line.split(CELL).map((c) => c.trim()).filter(Boolean);
+      return cells.length ? [cells.join(' | ')] : [];
+    })
+    .join('\n');
+}
+
+/** Plain text from Wahapedia's HTML fragments. List items become "• " lines; table rows become lines of " | " cells. */
 export function htmlToText(html: string): string {
-  return html
+  const text = html
+    .replace(/<table\b[^>]*>/gi, '\n')
+    .replace(/<\/table>/gi, '\n')
+    .replace(/<\/t[dh]>/gi, CELL)
+    .replace(/<\/tr>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
     .replace(/<li\b[^>]*>/gi, '\n• ')
     .replace(/<\/ul>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&(amp|lt|gt|quot|#39|nbsp);/gi, (_, e: string) => ENTITIES[e.toLowerCase()])
-    .replace(/\n\s*\n• /g, '\n• ')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
+    .replace(/\n\s*\n• /g, '\n• ');
+  return (text.includes(CELL) ? tableRows(text).replace(/\n{2,}/g, '\n') : text).replace(/\n{3,}/g, '\n\n').trim();
 }
 
 const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'from', 'in', 'into', 'of', 'on', 'or', 'the', 'to', 'with']);

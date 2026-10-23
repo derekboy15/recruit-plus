@@ -49,12 +49,12 @@
     "kind": "ability",
     "plain": "This unit's models have a 5+ invulnerable save."
   },
-  "4739a44a685d": {
+  "4e1b3211ae4c": {
     "name": "Luck of the Laughing God",
     "kind": "ability",
     "plain": "If all units in your army have the HARLEQUINS keyword and all perform the same saedath (not counting units with the SOLITAIRE or UNALIGNED keyword), your army can use Luck re-rolls. Balance Dataslate update: ignore the battle-size table, so you get 0 Luck re-rolls from battle size, whatever size of battle you play; the only way to gain Luck re-rolls is a Luck of the Laughing God roll. To make one, roll up to six D6: if no two results match, you gain 1 Luck re-roll for each D6 you rolled (for example, rolling three D6 and getting 1, 3 and 5 gives you 3 Luck re-rolls). Each Luck re-roll can be spent to re-roll a single hit roll, wound roll, damage roll, saving throw or Advance roll for a unit from your army that has this ability. Luck re-rolls you haven't used by the end of the battle round are lost.",
     "waive": {
-      "BATTLE SIZELUCK": "garbled header of the battle-size table (\"BATTLE SIZE / LUCK RE-ROLLS\"), which the Balance Dataslate update says to ignore; not a keyword"
+      "4": "the Onslaught row of the battle-size table, which the Balance Dataslate update says to ignore"
     }
   },
   "51f66a1d41a6": {

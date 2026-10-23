@@ -17,25 +17,39 @@ const TYPES: Record<string, SecondaryOut['type']> = {
   'Progressive and End Game Objective': 'progressive-and-end-game',
 };
 
-/** The pack's secondary objectives from Wahapedia's Secondaries.csv (flavour `legend` dropped). */
-export function extractSecondaries(w: Wahapedia, pack: Pack): SecondaryOut[] {
-  return w.secondaries
+/** A Wahapedia secondary filed under the wrong faction (overrides/secondary-corrections.json). */
+export interface SecondaryCorrection { pack: Pack; name: string; fromFactionId: string; factionId: string; faction: string; source: string }
+
+export function loadSecondaryCorrections(overridesDir: string): SecondaryCorrection[] {
+  return JSON.parse(readFileSync(join(overridesDir, 'secondary-corrections.json'), 'utf8'));
+}
+
+/** The pack's secondary objectives from Wahapedia's Secondaries.csv (flavour `legend` dropped), corrections applied. */
+export function extractSecondaries(w: Wahapedia, pack: Pack, corrections: SecondaryCorrection[] = []): SecondaryOut[] {
+  const mine = corrections.filter((c) => c.pack === pack);
+  const used = new Set<SecondaryCorrection>();
+  const out = w.secondaries
     .filter((r) => r.game === GAME[pack])
     .map((r) => {
       const name = titleCase(r.name.trim());
       const type = TYPES[r.type.trim()];
       if (!type) throw new Error(`Unknown secondary type "${r.type}" for ${r.name}`);
-      const factionId = r.faction_id.trim() || undefined;
+      const fix = mine.find((c) => c.name === name && c.fromFactionId === r.faction_id.trim());
+      if (fix) used.add(fix);
+      const factionId = fix?.factionId ?? (r.faction_id.trim() || undefined);
+      const faction = fix?.faction ?? r.faction_name.trim();
       const id = [PREFIX[pack], factionId?.toLowerCase(), slugify(name)].filter(Boolean).join('-');
       return {
         id,
         name,
         category: r.category.trim(),
         type,
-        ...(factionId ? { factionId, faction: r.faction_name.trim() } : {}),
+        ...(factionId ? { factionId, faction } : {}),
         text: htmlToText(r.description),
       };
     });
+  for (const c of mine) if (!used.has(c)) throw new Error(`secondary-corrections.json: no ${c.pack} secondary "${c.name}" with faction ${c.fromFactionId}`);
+  return out;
 }
 
 export function loadPacks(missionsDir: string): Omit<PackOut, 'secondaries'>[] {
@@ -102,7 +116,8 @@ function plainTargets(missions: MissionOut[], packs: PackOut[]): PlainTarget[] {
 export function writeMissions(opts: BuildOptions, w: Wahapedia): MissionsReport {
   const missionsDir = join(dirname(opts.overridesDir), 'missions');
   const missions = loadMissions(missionsDir);
-  const packs: PackOut[] = loadPacks(missionsDir).map((p) => ({ ...p, secondaries: extractSecondaries(w, p.id) }));
+  const corrections = loadSecondaryCorrections(opts.overridesDir);
+  const packs: PackOut[] = loadPacks(missionsDir).map((p) => ({ ...p, secondaries: extractSecondaries(w, p.id, corrections) }));
   for (const m of missions) {
     const problems = validateMap(m.map);
     if (problems.length) throw new Error(`${m.id} map: ${problems.join('; ')}`);
@@ -118,7 +133,7 @@ export function writeMissions(opts: BuildOptions, w: Wahapedia): MissionsReport 
     else report.total++;
     const entry = store[t.key];
     if (!entry) {
-      if (!t.faction) report.missing.push(`${t.key} ${t.name}`);
+      report.missing.push(`${t.key} ${t.name}`);
       continue;
     }
     used.add(t.key);
