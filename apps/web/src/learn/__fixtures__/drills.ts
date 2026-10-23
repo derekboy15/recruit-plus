@@ -6,7 +6,9 @@ import type { Command } from '@recruit/engine';
 import { toDatasheet } from '@recruit/engine/data';
 import { deployedGame, realCatalogue } from '../../play/__fixtures__/game';
 import { actRun, answerRun, currentStage, startRun, watchOf, type DrillRun } from '../drill/run';
-import type { Drill, DrillCtx } from '../drill/types';
+import type { Drill, DrillCtx, ListCtx } from '../drill/types';
+import { getIndex, getPolicy, getRosterScope } from '../../factions/dataClient';
+import { slugsFor } from '../../lists/useRosterEditor';
 
 const GENERATED = join(__dirname, '..', '..', '..', '..', '..', 'packages', 'data', 'generated');
 let missions: MissionsOut | null = null;
@@ -81,3 +83,12 @@ export const tiny: Drill = {
     },
   ],
 };
+
+/** A list-drill context for a catalogue, from the generated data (needs stubGeneratedData()). */
+export async function listCtx(catalogueSlug: string): Promise<ListCtx> {
+  const index = await getIndex();
+  const cat = index.catalogues.find((c) => c.slug === catalogueSlug)!;
+  const slugs = slugsFor({ schema: 1, name: '', catalogueId: cat.id, battleSize: 'combat-patrol', forces: [] }, index.catalogues, cat.slug);
+  const [scope, policy] = await Promise.all([getRosterScope(slugs), getPolicy()]);
+  return { scope, policy, catalogueId: cat.id };
+}

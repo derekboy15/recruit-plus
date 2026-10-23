@@ -3,40 +3,35 @@ import type { UnitOut } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Datasheet } from '../../factions/DatasheetPage';
-import { currentStage, watchOf, type DrillRun } from './run';
+import type { CardView } from './types';
 
 export interface DrillCardProps {
-  run: DrillRun;
+  view: CardView;
   onAnswer(choiceId: string): void;
   onRestart(): void;
-  /** The catalogue entry for a unit on the board (for "See datasheet"). */
-  unitOut(unitId: string): UnitOut | null;
-  selectedUnitId: string | null;
+  /** A datasheet to offer ("See datasheet"); open at once when the question is about it. */
+  sheet: { unit: UnitOut; open: boolean } | null;
   next: { to: string; label: string } | null;
 }
 
-export function DrillCard({ run, onAnswer, onRestart, unitOut, selectedUnitId, next }: DrillCardProps) {
+export function DrillCard({ view, onAnswer, onRestart, sheet, next }: DrillCardProps) {
   const [choice, setChoice] = useState<string | null>(null);
-  const stage = currentStage(run);
-  const w = watchOf(run);
-  const asked = stage?.kind === 'ask' ? stage.datasheet?.(w) : undefined;
-  const sheetUnit = asked ?? selectedUnitId;
-  const sheet = sheetUnit ? unitOut(sheetUnit) : null;
+  const { stage } = view;
 
   return (
     <section aria-label="Drill" className="drill-card">
-      {run.status === 'done' && <h2>Drill complete</h2>}
-      {run.results.length === 0 && run.status === 'playing' && <p className="drill-card__intro">{run.drill.intro}</p>}
-      {run.results.length > 0 && (
+      {view.status === 'done' && <h2>Drill complete</h2>}
+      {view.results.length === 0 && view.status === 'playing' && <p className="drill-card__intro">{view.intro}</p>}
+      {view.results.length > 0 && (
         <ol className="drill-card__results">
-          {run.results.map((r) => (
+          {view.results.map((r) => (
             <li key={r.stageId}>{r.explain}</li>
           ))}
         </ol>
       )}
       {stage?.kind === 'do' && (
         <p className="drill-card__task" role="status">
-          {stage.prompt(w)}
+          {stage.prompt}
         </p>
       )}
       {stage?.kind === 'ask' && (
@@ -47,17 +42,17 @@ export function DrillCard({ run, onAnswer, onRestart, unitOut, selectedUnitId, n
           }}
         >
           <fieldset className="choices drill-card__question">
-            <legend>{stage.question(w)}</legend>
-            {stage.choices(w).map((c) => (
+            <legend>{stage.question}</legend>
+            {stage.choices.map((c) => (
               <label key={c.id} className="choices__option drill-card__choice">
                 <input type="radio" name={`drill-${stage.id}`} value={c.id} checked={choice === c.id} onChange={() => setChoice(c.id)} />
                 {c.label}
               </label>
             ))}
           </fieldset>
-          {run.wrong && (
+          {view.wrong && (
             <p role="alert" className="drill-card__wrong">
-              {run.wrong}
+              {view.wrong}
             </p>
           )}
           <button type="submit" className="btn btn--primary" disabled={!choice}>
@@ -65,15 +60,15 @@ export function DrillCard({ run, onAnswer, onRestart, unitOut, selectedUnitId, n
           </button>
         </form>
       )}
-      {run.status === 'failed' && (
+      {view.status === 'failed' && (
         <div className="drill-card__failed">
-          <p role="alert">{run.failure}</p>
+          <p role="alert">{view.failure}</p>
           <button type="button" className="btn btn--primary" onClick={onRestart}>
             Try again
           </button>
         </div>
       )}
-      {run.status === 'done' && (
+      {view.status === 'done' && (
         <div className="play-row">
           {next && (
             <Link to={next.to} className="btn btn--primary">
@@ -85,10 +80,10 @@ export function DrillCard({ run, onAnswer, onRestart, unitOut, selectedUnitId, n
           </Link>
         </div>
       )}
-      {sheet && run.status === 'playing' && (
-        <details className="play-details drill-card__sheet" open={!!asked}>
-          <summary>See datasheet: {sheet.name}</summary>
-          <Datasheet unit={sheet} />
+      {sheet && view.status === 'playing' && (
+        <details className="play-details drill-card__sheet" open={sheet.open}>
+          <summary>See datasheet: {sheet.unit.name}</summary>
+          <Datasheet unit={sheet.unit} />
         </details>
       )}
     </section>

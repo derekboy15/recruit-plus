@@ -4,6 +4,7 @@
  * the live game (the dice on the table, the datasheets, the engine's helpers), never typed in.
  */
 import type { MissionsOut } from '@recruit/data/missions';
+import type { PolicyData, Roster, Scope } from '@recruit/data/roster';
 import type { Command, Datasheet, GameRecord, GameState, PlayerId, Problem } from '@recruit/engine';
 
 export interface DrillCtx {
@@ -74,3 +75,42 @@ export interface Drill {
   /** The other side's moves: a command, or null to wait for the learner. Default: confirm the other side's open rolls and decline its reactions. */
   auto?(s: GameState, w: Watch): Command | null;
 }
+
+/** What the drill card shows, from either kind of drill. */
+export interface CardView {
+  intro: string;
+  results: { stageId: string; explain: string }[];
+  status: 'playing' | 'failed' | 'done';
+  failure: string | null;
+  wrong: string | null;
+  stage: { kind: 'do'; id: string; prompt: string } | { kind: 'ask'; id: string; question: string; choices: Choice[] } | null;
+}
+
+// ---------- List drills (lesson 14): the world is an army roster, judged by the army builder's own checks ----------
+
+export interface ListCtx { scope: Scope; policy: PolicyData; catalogueId: string }
+export interface ListWorld { roster: Roster; scope: Scope; policy: PolicyData; picker: { entryId: string; name: string; role: string | null }[] }
+export interface ListWatch { start: ListWorld; world: ListWorld; attempts: { entryId: string }[]; answers: Record<string, string> }
+export type ListStage =
+  | { kind: 'do'; id: string; prompt(w: ListWatch): string; check(w: ListWatch): Verdict | null; skip?(w: ListWatch): boolean }
+  | {
+      kind: 'ask';
+      id: string;
+      question(w: ListWatch): string;
+      choices(w: ListWatch): Choice[];
+      answer(w: ListWatch): string;
+      explain(w: ListWatch): string;
+      skip?(w: ListWatch): boolean;
+    };
+export interface ListDrill {
+  kind: 'list';
+  id: string;
+  title: string;
+  intro: string;
+  /** The catalogue the roster is built from. */
+  catalogue: string;
+  build(ctx: ListCtx): ListWorld;
+  stages: ListStage[];
+}
+export type AnyDrill = Drill | ListDrill;
+export const isListDrill = (d: AnyDrill): d is ListDrill => (d as ListDrill).kind === 'list';

@@ -10,7 +10,7 @@ import { useBoardUi } from '../../play/game/useBoardUi';
 import { PhasePanel } from '../../play/panels/PhasePanel';
 import { Problems } from '../../play/panels/Problems';
 import { getMissions } from '../../table/missionData';
-import { actRun, answerRun, currentStage, startRun, type DrillRun } from './run';
+import { actRun, answerRun, cardView, currentStage, startRun, watchOf, type DrillRun } from './run';
 import { drillSandbox } from './sandbox';
 import type { Drill, DrillCtx } from './types';
 import { DrillCard } from './DrillCard';
@@ -132,6 +132,10 @@ function Running({ drill, onDone, exitTo, next = null, renderer, seed, dice, loa
     return null;
   };
   const stage = currentStage(run);
+  const asked = stage?.kind === 'ask' ? stage.datasheet?.(watchOf(run)) : undefined;
+  const sheetUnit = asked ?? ui.selectedUnitId;
+  const sheetOut = sheetUnit ? unitOut(sheetUnit) : null;
+  const sheet = sheetOut ? { unit: sheetOut, open: !!asked } : null;
   const showPanel = run.status === 'playing' && stage?.kind === 'do';
 
   return (
@@ -158,15 +162,7 @@ function Running({ drill, onDone, exitTo, next = null, renderer, seed, dice, loa
         />
       </div>
       <div className="game__panel">
-        <DrillCard
-          key={`${run.seed}-${run.stage}`}
-          run={run}
-          onAnswer={answer}
-          onRestart={restart}
-          unitOut={unitOut}
-          selectedUnitId={ui.selectedUnitId}
-          next={next}
-        />
+        <DrillCard key={`${run.seed}-${run.stage}`} view={cardView(run)} onAnswer={answer} onRestart={restart} sheet={sheet} next={next} />
         {showPanel && (
           <>
             <Problems problems={ui.problems} />

@@ -7,6 +7,8 @@ import type { RendererFactory } from '../play/board/BoardCanvas';
 import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
 import { DrillScreen } from './drill/DrillScreen';
+import { ListDrillScreen } from './drill/ListDrillScreen';
+import { isListDrill } from './drill/types';
 import { DRILLS } from './drills';
 import { completeLesson } from './progress';
 import { lockOf, useLearnData } from './useLessons';
@@ -142,5 +144,6 @@ export function DrillRoute({ renderer }: { renderer?: RendererFactory }) {
   const drill = DRILLS[l.lesson.drill];
   if (!drill) return <p role="alert">This drill isn&apos;t ready yet.</p>;
   const next = nextOf(l.data.lessons, l.lesson);
-  return <DrillScreen drill={drill} renderer={renderer} onDone={onDone} exitTo={`/learn/${l.lesson.id}`} next={next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null} />;
+  const props = { onDone, exitTo: `/learn/${l.lesson.id}`, next: next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null };
+  return isListDrill(drill) ? <ListDrillScreen drill={drill} {...props} /> : <DrillScreen drill={drill} renderer={renderer} {...props} />;
 }

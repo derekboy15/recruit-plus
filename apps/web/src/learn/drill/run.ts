@@ -3,7 +3,7 @@
  * plays the other side's automatic moves, and moves through the drill's stages.
  */
 import { dispatch, stateOf, type Command, type GameRecord, type GameState, type PlayerId, type Problem } from '@recruit/engine';
-import type { Attempt, Drill, DrillCtx, Stage, Watch } from './types';
+import type { Attempt, CardView, Drill, DrillCtx, Stage, Watch } from './types';
 
 export interface DrillRun {
   drill: Drill;
@@ -120,4 +120,22 @@ export function answerRun(run: DrillRun, choiceId: string): DrillRun {
   if (choiceId !== stage.answer(w)) return { ...run, wrong: `Not quite. ${stage.explain(w)}`, mistakes: run.mistakes + 1 };
   const answered = { ...run, answers: { ...run.answers, [stage.id]: choiceId }, results: [...run.results, { stageId: stage.id, explain: stage.explain(w) }] };
   return settle(advance(answered));
+}
+
+/** The drill card's view of a run. */
+export function cardView(run: DrillRun): CardView {
+  const stage = currentStage(run);
+  const w = watchOf(run);
+  return {
+    intro: run.drill.intro,
+    results: run.results,
+    status: run.status,
+    failure: run.failure,
+    wrong: run.wrong,
+    stage: !stage
+      ? null
+      : stage.kind === 'do'
+        ? { kind: 'do', id: stage.id, prompt: stage.prompt(w) }
+        : { kind: 'ask', id: stage.id, question: stage.question(w), choices: stage.choices(w) },
+  };
 }
