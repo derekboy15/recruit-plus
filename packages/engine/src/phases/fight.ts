@@ -13,7 +13,7 @@ import { startAttacks, type AttackGroup } from '../attack/sequence';
 import { noActivation, selectedOut } from '../interact/activation';
 import { consumeNextActivation, effectsFor } from '../interact/effects';
 import { canAfford, spendStratagem } from '../interact/stratagems';
-import { noPending, offerReaction, registerContinuation } from '../interact/windows';
+import { choiceParts, noPending, offerReaction, registerContinuation } from '../interact/windows';
 import { checkMoves, closerProblems, type MoveSpec } from '../move/moves';
 import { charsOf, onBoard, placedModel, sheetOf, unitsOf, type ModelState } from '../setup/units';
 import { defenceLineBetween } from '../terrain/cover';
@@ -267,7 +267,7 @@ function offerCounterOffensive(ctx: Ctx, fought: PlayerId): void {
 
 registerContinuation('fight', 'counter', (ctx, d: { candidates: string[]; choice: string }) => {
   if (d.choice === 'decline') return;
-  const unitId = d.choice.split(':')[1] ?? d.candidates[0];
+  const unitId = choiceParts(d.choice).unitId ?? d.candidates[0];
   if (!d.candidates.includes(unitId)) ctx.reject('bad-choice', "That unit can't be chosen for Counter-offensive.", '[CS §2]');
   spendStratagem(ctx, ctx.state.units[unitId].player, 'Counter-offensive', 2, [unitId]);
   ctx.emit({ type: 'counterOffensive', unitId });

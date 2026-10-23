@@ -118,7 +118,7 @@ test('a guide resolves its key units to datasheets', () => {
 });
 
 test('an empty content directory builds nothing', () => {
-  expect(buildContent(mkdtempSync(join(tmpdir(), 'recruit-empty-')), cats)).toEqual({ rules: { articles: [], glossary: [] }, guides: [] });
+  expect(buildContent(mkdtempSync(join(tmpdir(), 'recruit-empty-')), cats)).toEqual({ rules: { articles: [], glossary: [] }, guides: [], lessons: { lessons: [] } });
 });
 
 test('HTML tags are rejected with file and line', () => {

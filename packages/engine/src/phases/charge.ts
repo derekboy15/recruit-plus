@@ -13,7 +13,7 @@ import { startAttacks } from '../attack/sequence';
 import { noActivation, selectedOut } from '../interact/activation';
 import { addEffect, effectsFor } from '../interact/effects';
 import { canAfford, spendStratagem } from '../interact/stratagems';
-import { noPending, offerReaction, registerContinuation, rollWindowed } from '../interact/windows';
+import { choiceParts, noPending, offerReaction, registerContinuation, rollWindowed } from '../interact/windows';
 import { checkMoves, closerProblems, type MoveSpec } from '../move/moves';
 import { afterMove, isEngaged } from '../move/movement';
 import { livingModels, modelView, onBoard, placedModel, sheetOf, unitHas, unitView } from '../setup/units';
@@ -154,10 +154,10 @@ function offerChargeReaction(ctx: Ctx, chargerId: string, targets: string[]): vo
 
 registerContinuation('charge', 'reacted', (ctx, d: { chargerId: string; targets: string[]; choice: string }) => {
   const s = ctx.state;
-  const [kind, unitId] = d.choice.split(':');
+  const { kind, unitId } = choiceParts(d.choice);
   if (kind === 'decline') return chargeRoll(ctx, d.chargerId);
   const foe = other(s.units[d.chargerId].player);
-  if (!unitId || !d.targets.includes(unitId)) ctx.reject('bad-choice', 'Only a unit being charged can react.', '[CS §2]');
+  if (!unitId || !d.targets.includes(unitId)) return ctx.reject('bad-choice', 'Only a unit being charged can react.', '[CS §2]');
   if ((kind === 'hold-steady' || kind === 'set-to-defend') && !defensible(s, unitId, d.chargerId))
     ctx.reject('not-defensible', `${s.units[unitId].name} isn't wholly in Defensible terrain.`, '[TR §3.3]');
   ctx.emit({ type: 'chargeReaction', unitId, choice: kind });

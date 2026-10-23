@@ -20,6 +20,11 @@ export function formation(bases: { id: string; base: BaseShape }[], at: Pt, zone
   if (!bases.length) return {};
   const cellW = Math.max(...bases.map((b) => extent(b.base).w)) + gap;
   const cellH = Math.max(...bases.map((b) => extent(b.base).h)) + gap;
+  // A zone narrower than the row (e.g. a 10" strip along a short edge): shorter rows, so the unit can fit wholly inside.
+  if (zone) {
+    const z = bounds(zone);
+    while (perRow > 1 && Math.min(perRow, bases.length) * cellW - gap > z.x1 - z.x0) perRow -= 1;
+  }
   const rows = Math.ceil(bases.length / perRow);
   const cols = Math.min(perRow, bases.length);
   let pos = bases.map((b, i) => ({

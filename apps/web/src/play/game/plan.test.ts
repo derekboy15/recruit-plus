@@ -11,6 +11,18 @@ describe('move plans', () => {
     expect(p.positions).toEqual({ a: at(2, 4), b: at(4, 4) });
   });
 
+  test('a drag past the move limit stops exactly on it, in the same direction (a charge roll of 5 moves 5.0")', () => {
+    const limited = planReducer(null, { type: 'start', unitId: 'u', origin: { a: at(1, 1), b: at(3, 1) }, limits: { a: 5, b: 5 } })!;
+    const p = planReducer(limited, { type: 'drag', modelId: 'a', to: { x: 1, y: 6.03 } })!;
+    expect(p.positions.a.y).toBe(6);
+    expect(p.positions.b).toEqual(at(3, 6));
+    const diagonal = planReducer(limited, { type: 'drag', modelId: 'a', to: { x: 7, y: 9 } })!;
+    expect(Math.hypot(diagonal.positions.a.x - 1, diagonal.positions.a.y - 1)).toBeCloseTo(5, 10);
+    expect(diagonal.positions.a.x / diagonal.positions.a.y).toBeCloseTo((1 + 3) / (1 + 4), 10);
+    const short = planReducer(limited, { type: 'drag', modelId: 'a', to: { x: 1, y: 3 } })!;
+    expect(short.positions.a).toEqual(at(1, 3));
+  });
+
   test('together off moves one model', () => {
     const p = planReducer(planReducer(start(), { type: 'together', value: false }), { type: 'drag', modelId: 'b', to: { x: 5, y: 2 } })!;
     expect(p.positions).toEqual({ a: at(1, 1), b: at(5, 2) });

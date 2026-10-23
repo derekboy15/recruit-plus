@@ -37,6 +37,15 @@ declare module '../core/types' {
   }
 }
 
+/**
+ * A reaction choice is "kind" or "kind:unitId". Unit ids may themselves contain ":" (the sandbox prefixes them with the
+ * player, e.g. "B:3f2a"), so only the first ":" separates the two.
+ */
+export function choiceParts(choice: string): { kind: string; unitId: string | undefined } {
+  const i = choice.indexOf(':');
+  return i < 0 ? { kind: choice, unitId: undefined } : { kind: choice.slice(0, i), unitId: choice.slice(i + 1) };
+}
+
 registerInitialiser((s) => {
   s.pending = null;
 });
@@ -152,7 +161,7 @@ registerHandler('respond', (ctx, cmd) => {
   const p = ctx.state.pending;
   if (!p || p.kind !== 'reaction') return ctx.reject('no-reaction', 'Nothing is waiting for an answer.', '[R-19]');
   if (p.player !== cmd.by) ctx.reject('not-your-choice', "It's the other player's choice.", '[R-19]');
-  const base = cmd.choice.split(':')[0];
+  const base = choiceParts(cmd.choice).kind;
   if (cmd.choice !== 'decline' && !p.options.includes(base)) ctx.reject('bad-choice', "That isn't one of the choices.", '[R-19]');
   ctx.emit({ type: 'pendingCleared' });
   runContinuation(ctx, p.then, { choice: cmd.choice });

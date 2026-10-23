@@ -35,6 +35,16 @@ describe('formation', () => {
     for (const m of ms) expect(Math.hypot(m.pos.x - 20, m.pos.y - 20) + 16 / 25.4).toBeLessThanOrEqual(3 + 30 / 25.4);
   });
 
+  test('in a zone narrower than a row of five, the rows get shorter so the unit fits wholly inside', () => {
+    // The Core Book Combat Patrol mission "Incisive Attack": 10"-wide zones along the short edges.
+    const zone = [{ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 30 }, { x: 0, y: 30 }];
+    const bases = Array.from({ length: 10 }, (_, i) => ({ id: `m${i}`, base: b32 }));
+    const ms = placed(formation(bases, { x: 5, y: 15 }, zone), b32);
+    for (const m of ms) expect(whollyWithinPolygon(m, zone)).toBe(true);
+    expect(inCoherency(ms)).toBe(true);
+    for (const a of ms) for (const b of ms) if (a !== b) expect(overlaps(a, b)).toBe(false);
+  });
+
   test('a single vehicle is centred on the point', () => {
     const hull: BaseShape = { kind: 'rect', w: 3, h: 5 };
     expect(formation([{ id: 'v', base: hull }], { x: 10, y: 12 })).toEqual({ v: { x: 10, y: 12, z: 0, rot: 0 } });

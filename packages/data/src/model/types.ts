@@ -168,6 +168,26 @@ export interface RulesData {
   articles: RulesArticle[];
   glossary: GlossaryTerm[];
 }
+/** A Learn lesson (packages/content/lessons): short text that points to the Rules Reference, plus a drill. */
+export interface LessonRef { article: string; section: string; title: string }
+export interface Lesson {
+  id: string;
+  title: string;
+  order: number;
+  minutes: number;
+  summary: string;
+  /** The drill's id; the app checks that drill exists. */
+  drill: string;
+  intro: Block[];
+  sections: RulesSection[];
+  /** "In the Rules Reference": article sections, with their titles. */
+  rules: LessonRef[];
+  /** Glossary term ids shown as the lesson's key words. */
+  glossary: string[];
+}
+export interface LessonsData {
+  lessons: Lesson[];
+}
 export interface KeyUnit {
   name: string;
   unitSlug: string;
