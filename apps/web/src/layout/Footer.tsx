@@ -8,7 +8,10 @@ export function Footer() {
     <footer className="footer">
       <p>{DISCLAIMER}</p>
       <p>
-        Data from the BSData community project and partly powered by Wahapedia. <Link to="/legal">Legal &amp; credits</Link>
+        Data from the BSData community project and partly powered by Wahapedia.
+      </p>
+      <p>
+        <Link to="/legal">Legal &amp; credits</Link> · <Link to="/privacy">Privacy</Link> · <Link to="/terms">Terms</Link>
       </p>
     </footer>
   );

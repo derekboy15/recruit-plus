@@ -6,6 +6,7 @@ import { crowdedGame, necronsListNamed } from './data';
 import { SESSION_KEY, sessionJson, type FakeRemote } from './fake-supabase';
 import { expect, test } from './fixtures';
 import { goOffline, goOnline, seedDoc, waitForServiceWorker } from './helpers';
+import { tableGame } from './seeds';
 
 test('shell data is precached', async ({ page }) => {
   await page.goto('/');
@@ -27,31 +28,6 @@ test("offline fallback page when the shell isn't cached", async ({ page, context
   await expect(page.getByText(DISCLAIMER)).toBeVisible();
   await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
 });
-
-/** A table companion game of the seeded Necrons list against Necrons, just started (Arks of Omen, Cleanse the Land). */
-function tableGame(listId: string) {
-  const player = (name: string, extra: object) => ({
-    name,
-    catalogueSlug: 'necrons',
-    secondaries: ['aoo-assassination', 'aoo-grind-them-down', 'aoo-behind-enemy-lines'],
-    battleReady: false,
-    startingCp: 6,
-    ...extra,
-  });
-  return {
-    mode: 'table',
-    schema: 1,
-    setup: {
-      battleSize: 'incursion',
-      pack: 'arks-of-omen',
-      missionId: 'aoo-cleanse-the-land',
-      players: { A: player('You', { listId }), B: player('Opponent', {}) },
-      attacker: 'A',
-      firstTurn: 'A',
-    },
-    events: [{ id: 'e2e-start', at: '2026-10-23T00:00:00.000Z', pos: null, t: 'start' }],
-  };
-}
 
 interface Visited { listId: string; tableId: string; playId: string }
 

@@ -3,6 +3,8 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from './layout/ErrorBoundary';
 import { Home } from './pages/Home';
 import { Legal } from './pages/Legal';
+import { Privacy } from './pages/Privacy';
+import { Terms } from './pages/Terms';
 import { DatasheetPage } from './factions/DatasheetPage';
 import { FactionPage } from './factions/FactionPage';
 import { FactionsPage } from './factions/FactionsPage';
@@ -47,6 +49,8 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/legal" element={<Legal />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
       <Route path="/learn/*" element={guard(lazyPage(<LearnRoutes />))} />
       <Route path="/build" element={guard(lazyPage(<ListsPage />))} />
       <Route path="/build/new" element={guard(lazyPage(<NewListPage />))} />

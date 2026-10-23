@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { DISCLAIMER } from '../layout/Footer';
 
 export function Legal() {
@@ -9,6 +10,9 @@ export function Legal() {
         <p>
           This site is a free, non-commercial fan project. Rules are summarised in plain English by default; official
           wording is shown only where you choose to view it.
+        </p>
+        <p>
+          See the <Link to="/privacy">privacy page</Link> for what we store, and the <Link to="/terms">terms of use</Link>.
         </p>
       </div>
       <h2>Data sources</h2>
