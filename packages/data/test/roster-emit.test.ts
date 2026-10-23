@@ -6,7 +6,7 @@ import { loadGameData } from '../src/bsdata/gamedata';
 import type { RawCatalogue, RawNode } from '../src/bsdata/types';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
-import { emitRosterFile, type AddedConstraint, type ConstraintOverride, type CostOverride, type FactionKeywordOverride } from '../src/roster/emit';
+import { emitRosterFile, type AddedConstraint, type ConstraintOverride, type CostOverride, type FactionKeywordOverride, type ModifierRemoval } from '../src/roster/emit';
 import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
 
 const ROOT = join(__dirname, '..');
@@ -269,6 +269,23 @@ describe('mini fixture', () => {
     expect(emit({ constraintId: 'missing' })).toThrow(/missing/);
     expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
     expect(emit({ scope: 'detachment' as ConstraintOverride['scope'] })).toThrow(/unknown scope "detachment"/);
+  });
+
+  test('modifier removals drop the modifiers of one field on the matching node', () => {
+    const before = findNode(emitRosterFile(cat, 'mini-faction').shared, 'se-warriors')!;
+    const field = before.mods![0].field;
+    const removal: ModifierRemoval = { catalogueName: 'Mini Faction', entryId: 'se-warriors', entryName: 'Warriors', field, source: 'test' };
+    const after = findNode(emitRosterFile(cat, 'mini-faction', { modifierRemovals: [removal, { ...removal, catalogueName: 'Other', entryId: 'nope' }] }).shared, 'se-warriors')!;
+    expect((after.mods ?? []).some((m) => m.field === field)).toBe(false);
+    expect((after.mods ?? []).length).toBe(before.mods!.filter((m) => m.field !== field).length);
+  });
+
+  test('modifier removals throw on an unknown entry, a different name or a field with no modifier', () => {
+    const emit = (o: Partial<ModifierRemoval>) => () =>
+      emitRosterFile(cat, 'mini-faction', { modifierRemovals: [{ catalogueName: 'Mini Faction', entryId: 'se-warriors', entryName: 'Warriors', field: 'hidden', source: 'test', ...o }] });
+    expect(emit({ entryId: 'missing' })).toThrow(/missing/);
+    expect(emit({ entryName: 'Wrong' })).toThrow(/expects "Wrong" but found "Warriors"/);
+    expect(emit({ field: 'no-such-field' })).toThrow(/no-such-field/);
   });
 
   const added = (o: Partial<AddedConstraint> = {}, c: Partial<AddedConstraint['constraint']> = {}): AddedConstraint => ({

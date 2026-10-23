@@ -167,7 +167,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
   const rosterSources = [...catalogues, gd.system];
-  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints]] as const) {
+  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints], ['modifier-removals.json', overrides.modifierRemovals]] as const) {
     for (const o of list) if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`${file} names unknown catalogue "${o.catalogueName}"`);
   }
   // The .gst's category ids by name: faction-keywords.json links units to its "Faction: …" categories.
@@ -179,7 +179,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
     const scopeCategories = categoryNamesById(cat === gd.system ? [gd.system] : catalogueScope(gd, cat.id));
-    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, systemCategories, scopeCategories });
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, modifierRemovals: overrides.modifierRemovals, systemCategories, scopeCategories });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }
@@ -409,12 +409,19 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
     return f;
   };
   for (const a of aooAllies) {
-    catalogue(a.catalogueName, 'aoo-allies.json');
-    for (const ally of a.allies) {
-      const where = `aoo-allies.json (${a.catalogueName})`;
+    const own = catalogue(a.catalogueName, 'aoo-allies.json');
+    const where = `aoo-allies.json (${a.catalogueName})`;
+    const category = (c: string) => {
+      if (!categoryNames.has(c)) throw new Error(`${where} names unknown category "${c}"`);
+    };
+    for (const ally of [...a.allies, ...(a.armiesOfRenown ?? []).flatMap((r) => r.allies)]) {
       catalogue(ally.catalogueName, where);
       for (const d of ally.detachments) if (!system.forces.some((f) => f.name === d)) throw new Error(`${where} names unknown detachment "${d}"`);
-      for (const c of ally.onlyFactions ?? []) if (!categoryNames.has(c)) throw new Error(`${where} names unknown category "${c}"`);
+      for (const c of [...(ally.onlyFactions ?? []), ...(ally.onlyKeywords ?? [])]) category(c);
+      for (const c of ally.onlyFactionsIf ?? []) [c.armyFaction, ...c.onlyFactions].forEach(category);
+    }
+    for (const r of a.armiesOfRenown ?? []) {
+      if (!own.rootEntries.some((n) => n.name === r.entryName)) throw new Error(`${where} names unknown Army of Renown entry "${r.entryName}"`);
     }
   }
   for (const e of equivalence) {

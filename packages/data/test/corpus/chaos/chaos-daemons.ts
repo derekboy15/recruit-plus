@@ -6,7 +6,8 @@
  * Codex: Chaos Daemons (03_Codexes/Chaos/Chaos_Daemons.md §2: Daemonic Legions; §6: Nurglings can't fill compulsory
  * slots); Wahapedia datasheet 000001465 (Rotigus).
  *
- * Disciples of Be'lakor (two allied detachments) is not supported yet, so no list uses it.
+ * Disciples of Be'lakor (two allied detachments, overrides/aoo-allies.json armiesOfRenown) is covered by
+ * test/roster-gaps.test.ts.
  */
 import type { CatalogueCorpus, UnitSpec } from '../spec';
 

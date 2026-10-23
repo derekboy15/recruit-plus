@@ -79,12 +79,25 @@ export interface AddedConstraint {
 }
 const ADDED_SCOPES = ['parent', 'force', 'roster'] as const;
 
+/**
+ * A BSData modifier that encodes a rule a later GW change removed (overrides/modifier-removals.json): every modifier of
+ * `field` (e.g. "hidden") on the entry or link `entryId` is dropped. Other modifiers on the node stay.
+ */
+export interface ModifierRemoval {
+  catalogueName: string;
+  entryId: string;
+  entryName: string;
+  field: string;
+  source: string;
+}
+
 /** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
 export interface EmitOverrides {
   costs: CostOverride[];
   factionKeywords: FactionKeywordOverride[];
   constraints: ConstraintOverride[];
   addedConstraints: AddedConstraint[];
+  modifierRemovals: ModifierRemoval[];
   /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
   systemCategories: Map<string, string>;
   /**
@@ -301,6 +314,21 @@ function applyAddedConstraints(file: RosterFile, catalogueName: string, added: A
   }
 }
 
+function applyModifierRemovals(file: RosterFile, catalogueName: string, removals: ModifierRemoval[]): void {
+  const relevant = removals.filter((x) => x.catalogueName === catalogueName);
+  if (!relevant.length) return;
+  const nodes = [...walk(file.rootEntries), ...walk(file.shared)];
+  for (const o of relevant) {
+    const node = nodes.find((n) => n.id === o.entryId);
+    if (!node) throw new Error(`Modifier removal for "${catalogueName}" names unknown entry ${o.entryId}`);
+    if (node.name !== o.entryName) throw new Error(`Modifier removal for "${catalogueName}" entry ${o.entryId} expects "${o.entryName}" but found "${node.name}"`);
+    if (!node.mods?.some((m) => m.field === o.field)) throw new Error(`Modifier removal for "${catalogueName}" entry ${o.entryId}: no modifier of ${o.field}`);
+    const mods = node.mods.filter((m) => m.field !== o.field);
+    if (mods.length) node.mods = mods;
+    else delete node.mods;
+  }
+}
+
 function applyConstraintOverrides(
   file: RosterFile,
   catalogueName: string,
@@ -364,5 +392,6 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   applyFactionKeywordOverrides(file, cat.name, overrides.factionKeywords ?? [], overrides.systemCategories ?? new Map());
   applyAddedConstraints(file, cat.name, overrides.addedConstraints ?? []);
   applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map(), overrides.scopeCategories ?? new Map());
+  applyModifierRemovals(file, cat.name, overrides.modifierRemovals ?? []);
   return file;
 }

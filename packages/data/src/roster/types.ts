@@ -53,6 +53,8 @@ export interface Issue {
   rule: RuleKind; forceSelId?: string; selId?: string;
   subject: { id: string; name: string };  // the entry, category or force the rule is about
   limit: number; actual: number; fix?: Fix;
+  /** A plain-language reason the policy data gives for this issue (an Arks of Omen ally restriction), shown as the explanation. */
+  detail?: string;
   /** BSData constraint issues: the constraint's scope key (`roster`, `force`, `parent`, `self`, or an id), which says what its count covers. */
   scope?: string;
   /**

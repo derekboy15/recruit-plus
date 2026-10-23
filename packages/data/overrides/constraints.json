@@ -652,5 +652,12 @@
     "constraintId": "b9c1-e18b-5a8a-b567",
     "value": 0,
     "source": "Arks of Omen: Grand Tournament (January 2023), Warlord Trait Requisition Stratagem (1 CP): a Warlord only gets a Warlord Trait if you use it, and a named character with listed traits gets them for that 1 CP (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6). BSData v9.8.0 makes Manik Gorg's listed trait, 5. Kunnin but Brutal, compulsory once Manik Gorg is the Warlord (link 96fe-5763-2489-beeb: min set to 1 whenever Manik Gorg is the Warlord or takes Stratagem: Big Boss, in any mission pack), so an Arks of Omen army that doesn't pay for the trait was reported as missing it; the minimum stays 0. The pin also drops the requirement outside Arks of Omen, and after the stratagem is used (controller ruling, task 11b; found by test/fixed-warlord-traits.test.ts, task 11b fix round 1)."
+  },
+  {
+    "catalogueName": "Tyranids",
+    "entryName": "Warlord",
+    "constraintId": "222c-c6d4-d4dc-50a0",
+    "value": 0,
+    "source": "Balance Dataslate #7 (13 April 2023), Tyranids: the June 2022 restrictions are removed, among them that a HIVE TYRANT in the army must be the Warlord (research library 05_Balance_Errata_and_Points/Balance_Dataslates.md §9, Faction changes; Wahapedia's final Hive Tyrant and Winged Hive Tyrant datasheets carry no such rule). BSData v9.8.0 still encodes the June 2022 rule: it raises this minimum to 1 (a Hive Tyrant must take the Warlord upgrade) once the army has a Hive Tyrant; the minimum stays 0."
   }
 ]

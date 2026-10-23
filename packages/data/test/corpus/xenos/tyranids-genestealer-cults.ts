@@ -37,10 +37,14 @@ const CULT: DetachmentSpec = {
     { name: 'Elites > Kelermorph' }, // 80 (3 liberator autostubs: 0), PL 3
   ],
 };
-/** §7.5 and Genestealer_Cults.md §3: a Patrol of <REGIMENT> units, neither of them the Warlord. */
+/**
+ * §7.5 and Genestealer_Cults.md §3: a Patrol of <REGIMENT> units, neither of them the Warlord, made Brood Brothers by
+ * the Brood Brothers Regimental Doctrine (BSData v9.8.0 swaps their ASTRA MILITARUM keyword for BROOD BROTHERS).
+ */
 const BROOD_BROTHERS: DetachmentSpec = {
   detachment: 'Patrol Detachment -2CP',
   catalogue: AM,
+  army: { 'Regimental Doctrine': 'Brood Brothers' },
   units: [
     { name: 'Platoon Command Squad' }, // 75 per unit (Platoon Commander and 4 Veteran Guardsmen), PL 4
     { name: 'Infantry Squad' }, // 65 per unit (Sergeant and 9 Guardsmen), PL 3

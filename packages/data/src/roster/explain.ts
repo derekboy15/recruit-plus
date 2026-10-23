@@ -158,6 +158,7 @@ function textFor(ctx: Ctx): string {
       if (issue.subject.id === SPECIALIST_DETACHMENT_CATEGORY) return `Specialist Detachments aren't used in Arks of Omen games. Remove "${name}".`;
       return `${forceName(ctx)} isn't allowed at ${sizeName(ctx)}. Remove it and pick from the detachments offered.`;
     case 'detachment-faction': {
+      if (issue.detail) return issue.detail;
       const catalogue = forceView(ctx) && ctx.scope.catalogue(forceView(ctx)!.force.catalogueId)?.name;
       const faction = catalogue ? factionDisplayName(catalogue) : '';
       const head = `Every unit in your ${forceName(ctx)} must share a faction${faction ? `, such as ${faction}` : ''}.`;

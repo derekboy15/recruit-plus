@@ -578,10 +578,26 @@
         "detachments": [
           "Patrol Detachment -2CP"
         ],
-        "restriction": "A Kabal, Wych Cult or Haemonculus Coven Patrol of a different type from the Arks of Omen Detachment (not checked)."
+        "differentType": {
+          "config": "Obsession",
+          "types": {
+            "Kabal": [
+              "Kabal of"
+            ],
+            "Wych Cult": [
+              "Cult of"
+            ],
+            "Haemonculus Coven": [
+              "The Prophets of Flesh",
+              "The Dark Creed",
+              "The Coven of Twelve"
+            ]
+          }
+        },
+        "explain": "A Drukhari ally Patrol must be a different type from your Arks of Omen Detachment: a Kabal can ally a Wych Cult or a Haemonculus Coven, not another Kabal."
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5); Wahapedia, Arks of Omen: Grand Tournament, Battle Brothers (https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/); research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5"
   },
   {
     "catalogueName": "Tyranids - Genestealer Cults",
@@ -593,10 +609,13 @@
           "Auxiliary Support Detachment -2CP",
           "Super-Heavy Auxiliary Detachment -3CP"
         ],
-        "restriction": "A Brood Brothers detachment (not checked)."
+        "onlyKeywords": [
+          "Brood Brothers"
+        ],
+        "explain": "A Genestealer Cults army's Astra Militarum ally must be Brood Brothers. Choose Brood Brothers as the detachment's Regimental Doctrine."
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5)"
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5); Wahapedia, Arks of Omen: Grand Tournament, Battle Brothers (https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/); research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5"
   },
   {
     "catalogueName": "Chaos - Chaos Knights",
@@ -630,10 +649,18 @@
         "detachments": [
           "Patrol Detachment -2CP"
         ],
-        "restriction": "Emperor’s Children take Slaanesh Daemons only (not checked)."
+        "onlyFactionsIf": [
+          {
+            "armyFaction": "Faction: Emperor's Children",
+            "onlyFactions": [
+              "Faction: Slaanesh"
+            ]
+          }
+        ],
+        "explain": "An Emperor's Children army may only ally Slaanesh Daemons. Swap the units that aren't SLAANESH for Slaanesh ones, or remove them."
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade.; Wahapedia, Arks of Omen: Grand Tournament, Battle Brothers (https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/); research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5"
   },
   {
     "catalogueName": "Chaos - Chaos Titan Legions",
@@ -660,11 +687,35 @@
         ],
         "onlyFactions": [
           "Faction: Dreadblade"
-        ],
-        "restriction": "A Disciples of Be'lakor army takes a House Korvax Knight here instead of a Dreadblade (not supported)."
+        ]
       }
     ],
-    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade."
+    "source": "Arks of Omen: Grand Tournament (January 2023), Battle Brothers: https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/ (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5). The Chaos Knights Super-heavy Auxiliary holds a single DREADBLADE (§7.5; 03_Codexes/Chaos/Other_Chaos_Content.md §6 and Chaos_Knights.md §9), so its units must have Faction: Dreadblade.; Wahapedia, Arks of Omen: Grand Tournament, Battle Brothers (https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/); research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5",
+    "armiesOfRenown": [
+      {
+        "entryName": "Army of Renown - Disciples of Be'lakor",
+        "maxAllies": 2,
+        "allies": [
+          {
+            "catalogueName": "Chaos - Chaos Space Marines",
+            "detachments": [
+              "Patrol Detachment -2CP"
+            ]
+          },
+          {
+            "catalogueName": "Chaos - Chaos Knights",
+            "detachments": [
+              "Super-Heavy Auxiliary Detachment -3CP"
+            ],
+            "onlyFactions": [
+              "Faction: House Korvax"
+            ],
+            "explain": "A Disciples of Be'lakor army's Chaos Knights ally must be from House Korvax. Choose House Korvax for the Knight."
+          }
+        ],
+        "source": "Wahapedia, Arks of Omen: Grand Tournament, Battle Brothers (https://wahapedia.ru/wh40k9ed/the-rules/arks-of-omen-grand-tournament/); research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §7.5: a LEGIONES DAEMONICA Arks of Omen Detachment in a Disciples of Be'lakor army may take two allies, one TRAITORIS ASTARTES Patrol and one CHAOS KNIGHTS Super-heavy Auxiliary with one HOUSE KORVAX unit. In BSData v9.8.0 only the Chaos Space Marines catalogue gives its units the TRAITORIS ASTARTES keyword."
+      }
+    ]
   },
   {
     "catalogueName": "Chaos - Death Guard",

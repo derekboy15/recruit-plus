@@ -7,9 +7,10 @@
  * one in the roster, as the June 2022 dataslate did); Wahapedia datasheets 000000479 (Deathleaper: "Your army can only
  * include one DEATHLEAPER model") and 000000468 (Termagants: 10-30 models).
  *
- * Every list either has no HIVE TYRANT or has one as the Warlord. The June 2022 dataslate made a HIVE TYRANT in the
- * army the Warlord, and BSData v9.8.0 enforces that; the sources don't settle whether the April 2023 dataslate, which
- * restored Synaptic Imperatives "in full" (Tyranids.md §2), lifted it.
+ * The June 2022 dataslate made a HIVE TYRANT in the army the Warlord; Dataslate #7 (13 April 2023) removed it
+ * (05_Balance_Errata_and_Points/Balance_Dataslates.md §9), so BSData v9.8.0's rule is dropped
+ * (overrides/modifier-removals.json, constraints.json) and test/roster-gaps.test.ts has a Hive Tyrant beside a Prime
+ * Warlord.
  */
 import type { CatalogueCorpus, DetachmentSpec, UnitSpec } from '../spec';
 

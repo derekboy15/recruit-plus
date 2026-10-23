@@ -1,0 +1,9 @@
+[
+  {
+    "catalogueName": "Tyranids",
+    "entryId": "c832-2f4e-ee51-f481",
+    "entryName": "Warlord",
+    "field": "hidden",
+    "source": "Balance Dataslate #7 (13 April 2023), Tyranids: the June 2022 restrictions are removed, among them that a HIVE TYRANT in the army must be the Warlord (research library 05_Balance_Errata_and_Points/Balance_Dataslates.md §9, Faction changes; Wahapedia's final Hive Tyrant and Winged Hive Tyrant datasheets carry no such rule). BSData v9.8.0 still encodes the June 2022 rule: it hides the Warlord option on every other model once the army has a Hive Tyrant."
+  }
+]

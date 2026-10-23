@@ -94,11 +94,27 @@ export interface AooAlly {
   detachments: string[];
   /** When set, every unit in the ally detachment must carry one of these faction categories (by name). */
   onlyFactions?: string[];
+  /**
+   * When set, every unit in the ally detachment must carry one of these categories (by name), and that is the faction
+   * it shares: Brood Brothers lose their Astra Militarum faction keyword in BSData and keep only IMPERIUM.
+   */
+  onlyKeywords?: string[];
+  /** onlyFactions that apply only when every unit of the Arks of Omen Detachment carries `armyFaction` (by name). */
+  onlyFactionsIf?: { armyFaction: string; onlyFactions: string[] }[];
+  /**
+   * The ally must be of a different type from the Arks of Omen Detachment. A detachment's type comes from the option
+   * chosen in its `config` selection: the first type with a prefix of that option's name.
+   */
+  differentType?: { config: string; types: Record<string, string[]> };
+  /** What the player reads when the ally breaks one of the restrictions above. */
+  explain?: string;
   /** A further restriction the app doesn't check, for the record. */
   restriction?: string;
 }
+/** An Army of Renown that changes the allies: chosen in the Arks of Omen Detachment as the root entry `entryName`. */
+export interface AooRenown { entryName: string; allies: AooAlly[]; maxAllies: number; source: string }
 /** The allied detachments an Arks of Omen army of `catalogueName` may take. */
-export interface AooAllies { catalogueName: string; allies: AooAlly[]; source: string }
+export interface AooAllies { catalogueName: string; allies: AooAlly[]; armiesOfRenown?: AooRenown[]; source: string }
 /** Datasheets that count as one for the Rule of Two/Three: every selection carrying the category, or any of the entries. */
 export interface DatasheetEquivalence {
   name: string;
@@ -179,13 +195,33 @@ export function detachmentChoices(scope: Scope, r: Roster, policy: PolicyData, c
     return [r.catalogueId, ...group.map((c) => c.id)].flatMap((id) => coreChoices(scope, id, id !== r.catalogueId));
   }
   if (!r.forces.some((f) => f.forceId === FORCE.arksOfOmen)) return choice(scope, FORCE.arksOfOmen, r.catalogueId, false);
-  if (r.forces.some((f) => f.forceId !== FORCE.arksOfOmen)) return [];
   const primaryName = catalogues.find((c) => c.id === r.catalogueId)?.name ?? scope.catalogue(r.catalogueId)?.name;
-  const allies = policy.aooAllies.find((a) => a.catalogueName === primaryName)?.allies ?? [];
-  return allies.flatMap((a) => {
+  const { allies, maxAllies } = alliesFor(scope, r, policy, primaryName);
+  const taken = r.forces.filter((f) => f.forceId !== FORCE.arksOfOmen);
+  if (taken.length >= maxAllies) return [];
+  // An Army of Renown's two allies are two different ones: an ally already in the roster isn't offered again.
+  const used = (a: AooAlly) => taken.some((f) => scope.catalogue(f.catalogueId)?.name === a.catalogueName && a.detachments.includes(scope.force(f.forceId)?.name ?? ''));
+  return allies.filter((a) => !used(a)).flatMap((a) => {
     const id = catalogues.find((c) => c.name === a.catalogueName)?.id;
     return id ? a.detachments.flatMap((name) => choice(scope, systemForceId(scope, name), id, true)) : [];
   });
+}
+
+/**
+ * The allies an Arks of Omen army may take, and how many: one, unless the Arks of Omen Detachment holds an Army of
+ * Renown that lists its own allies (Disciples of Be'lakor: two).
+ */
+export function alliesFor(scope: Scope, r: Roster, policy: PolicyData, primaryName: string | undefined): { allies: AooAlly[]; maxAllies: number; renown?: AooRenown } {
+  const entry = policy.aooAllies.find((a) => a.catalogueName === primaryName);
+  const arks = r.forces.find((f) => f.forceId === FORCE.arksOfOmen);
+  const chosen = new Set(
+    (arks?.selections ?? []).map((s) => {
+      const n = scope.node(s.entryId);
+      return n?.targetId ? (scope.node(n.targetId)?.name ?? n.name) : n?.name;
+    }),
+  );
+  const renown = entry?.armiesOfRenown?.find((x) => chosen.has(x.entryName));
+  return renown ? { allies: renown.allies, maxAllies: renown.maxAllies, renown } : { allies: entry?.allies ?? [], maxAllies: 1 };
 }
 
 /**
@@ -399,10 +435,18 @@ class PolicyCheck {
       this.issues.push({ rule: 'detachment-count', ...(arks[1] ? { forceSelId: arks[1].force.id } : {}), subject: { id: FORCE.arksOfOmen, name }, limit: 1, actual: arks.length });
     }
     const allies = forces.filter((f) => f.force.forceId !== FORCE.arksOfOmen);
-    if (allies.length > 1) {
-      const extra = allies[1];
-      this.issues.push({ rule: 'detachment-count', forceSelId: extra.force.id, subject: { id: extra.force.forceId, name: extra.name }, limit: 1, actual: allies.length });
-    }
+    const { maxAllies } = alliesFor(this.scope, this.r, this.policy, this.primaryName);
+    // Two allies (an Army of Renown) must be two different allowed detachments, e.g. one Patrol and one Knight.
+    const seen = new Set<AooAlly>();
+    const repeated = allies.find((f) => {
+      const a = this.ally(f);
+      if (!a) return false;
+      if (seen.has(a)) return true;
+      seen.add(a);
+      return false;
+    });
+    const extra = allies.length > maxAllies ? allies[maxAllies] : maxAllies > 1 ? repeated : undefined;
+    if (extra) this.issues.push({ rule: 'detachment-count', forceSelId: extra.force.id, subject: { id: extra.force.forceId, name: extra.name }, limit: maxAllies, actual: allies.length });
   }
 
   /** Whether the force's detachment may be in the roster at all (counts are detachmentCount's). */
@@ -419,7 +463,7 @@ class PolicyCheck {
   private ally(fv: ForceView): AooAlly | undefined {
     if (this.bs?.mode !== 'aoo' || fv.force.forceId === FORCE.arksOfOmen || !fv.entry) return undefined;
     const name = this.scope.catalogue(fv.force.catalogueId)?.name;
-    const allies = this.policy.aooAllies.find((a) => a.catalogueName === this.primaryName)?.allies ?? [];
+    const { allies } = alliesFor(this.scope, this.r, this.policy, this.primaryName);
     return allies.find((a) => a.catalogueName === name && a.detachments.includes(fv.entry!.name));
   }
 
@@ -515,13 +559,28 @@ class PolicyCheck {
     }
     if (!units.length) return;
     const issue: Issue = { rule: 'detachment-faction', forceSelId: fv.force.id, subject: { id: fv.force.forceId, name: fv.name }, limit: 1, actual: 0 };
+    const ally = this.ally(fv);
+    const explained: Issue = ally?.explain ? { ...issue, detail: ally.explain } : issue;
+    if (ally?.onlyKeywords) {
+      const offender = units.find((u) => !ally.onlyKeywords!.some((k) => this.hasCategory(u.v, k)));
+      if (offender) this.issues.push({ ...explained, selId: offender.v.sel.id });
+      return;
+    }
     if (![...shared(units)].some((k) => !BROAD_FACTIONS.has(k))) {
       this.issues.push(issue);
       return;
     }
-    const only = this.ally(fv)?.onlyFactions?.map(keyword);
+    const only = (this.conditionalOnly(ally) ?? ally?.onlyFactions)?.map(keyword);
     const offender = only && units.find((u) => !only.some((k) => u.factions.has(k)));
-    if (offender) this.issues.push({ ...issue, selId: offender.v.sel.id });
+    if (offender) {
+      this.issues.push({ ...explained, selId: offender.v.sel.id });
+      return;
+    }
+    if (ally?.differentType) {
+      const arks = this.view.forces.find((f) => f.force.forceId === FORCE.arksOfOmen);
+      const mine = arks && this.detachmentType(arks, ally.differentType);
+      if (mine && mine === this.detachmentType(fv, ally.differentType)) this.issues.push(explained);
+    }
   }
 
   /** Army Faction (§1): every unit shares at least one faction keyword. */
@@ -594,6 +653,22 @@ class PolicyCheck {
 
   private primaryRole(v: SelView): string | null {
     return v.primary === null ? null : (this.scope.category(v.primary)?.name ?? null);
+  }
+
+  /** The onlyFactionsIf restriction that applies: every unit of the Arks of Omen Detachment carries its faction. */
+  private conditionalOnly(ally: AooAlly | undefined): string[] | undefined {
+    if (!ally?.onlyFactionsIf) return undefined;
+    const arks = this.view.forces.find((f) => f.force.forceId === FORCE.arksOfOmen);
+    const units = arks ? this.factionUnits(arks.selections) : [];
+    const hit = ally.onlyFactionsIf.find((c) => units.length > 0 && units.every((u) => u.factions.has(keyword(c.armyFaction))));
+    return hit?.onlyFactions;
+  }
+
+  /** The type (e.g. Kabal) of a detachment, from the option chosen in its `config` selection. */
+  private detachmentType(fv: ForceView, t: NonNullable<AooAlly['differentType']>): string | undefined {
+    const options = fv.selections.filter((s) => s.name.trim() === t.config).flatMap((s) => s.children.map((c) => c.name.trim()));
+    for (const [type, prefixes] of Object.entries(t.types)) if (options.some((o) => prefixes.some((p) => o.startsWith(p)))) return type;
+    return undefined;
   }
 
   private hasCategory(v: SelView, name: string): boolean {

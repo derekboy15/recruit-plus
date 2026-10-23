@@ -7,8 +7,8 @@
  * Detachment, and nothing else); Drukhari.md §2 (Obsessions; Blades for Hire such as Incubi join any Obsession; Combat Drugs for Wych Cult units);
  * Wahapedia datasheet 000000643 (Drazhar).
  *
- * The "different type" condition on the Drukhari ally is recorded in overrides/aoo-allies.json but not checked, so no
- * list here depends on it: the legal ally is a Wych Cult Patrol beside a Kabal, and no list allies a second Kabal.
+ * The "different type" condition on the Drukhari ally is checked from each detachment's Obsession
+ * (overrides/aoo-allies.json differentType; test/roster-gaps.test.ts allies a second Kabal).
  */
 import type { CatalogueCorpus, DetachmentSpec, UnitSpec } from '../spec';
 
