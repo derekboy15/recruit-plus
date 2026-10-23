@@ -1,0 +1,155 @@
+/**
+ * Accessibility on the production build, at phone and desktop sizes: no serious or critical axe violations (WCAG 2.1
+ * A and AA) on every main route and the states people reach from them; a skip link; visible focus; no sideways scroll
+ * at 320px. The canvas board is left to axe-free tests of its labels (BoardCanvas and BoardSummary unit tests).
+ */
+import AxeBuilder from '@axe-core/playwright';
+import type { Page } from '@playwright/test';
+import { crowdedGame, necronsListNamed } from './data';
+import { expect, test } from './fixtures';
+import { seedDoc } from './helpers';
+import { tableGame } from './seeds';
+
+async function audit(page: Page): Promise<string[]> {
+  const { violations } = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).exclude('canvas').analyze();
+  return violations
+    .filter((v) => v.impact === 'serious' || v.impact === 'critical')
+    .flatMap((v) => v.nodes.map((n) => `${v.impact} ${v.id}: ${n.target.join(' ')} (${v.help})`));
+}
+
+interface Ids { listId: string; tableId: string; playId: string }
+interface State { name: string; path: (ids: Ids) => string; ready?: (page: Page) => Promise<void>; act?: (page: Page) => Promise<void> }
+
+const heading = (page: Page) => expect(page.locator('h1, h2, [role=application], .scoreboard__pos').filter({ visible: true }).first()).toBeVisible({ timeout: 20_000 });
+const click = (name: string | RegExp) => async (page: Page) => page.getByRole('button', { name }).first().click();
+const tab = (name: string) => async (page: Page) => page.getByRole('tab', { name }).click();
+
+const STATES: State[] = [
+  { name: 'home', path: () => '/' },
+  { name: 'legal', path: () => '/legal' },
+  { name: 'privacy', path: () => '/privacy' },
+  { name: 'terms', path: () => '/terms' },
+  { name: 'share', path: (i) => `/share/${i.listId}` },
+  { name: 'learn', path: () => '/learn' },
+  { name: 'lesson', path: () => '/learn/what-is-40k' },
+  { name: 'drill', path: () => '/learn/what-is-40k/drill', ready: async (p) => expect(p.getByRole('region', { name: 'Drill' })).toBeVisible({ timeout: 20_000 }) },
+  { name: 'first game locked', path: () => '/learn/first-game' },
+  { name: 'lists', path: () => '/build' },
+  { name: 'new list', path: () => '/build/new' },
+  { name: 'new list: battle size', path: () => '/build/new', act: async (p) => { await click(/^Necrons/)(p); await click('Next')(p); } },
+  { name: 'list editor', path: (i) => `/build/${i.listId}`, ready: async (p) => expect(p.getByRole('meter', { name: 'Points' })).toBeVisible({ timeout: 20_000 }) },
+  {
+    name: 'list editor: add unit and wargear',
+    path: (i) => `/build/${i.listId}`,
+    act: async (p) => {
+      await click('+ Add unit')(p);
+      await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('searchbox', { name: 'Search units' }).fill('warriors');
+      await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('button', { name: /^Necron Warriors/ }).click();
+      await expect(p.getByRole('dialog', { name: 'Necron Warriors' })).toBeVisible();
+    },
+  },
+  { name: 'list editor: problems', path: (i) => `/build/${i.listId}`, act: async (p) => { await click(/problems?$/)(p); await expect(p.getByRole('dialog', { name: 'Problems' })).toBeVisible(); } },
+  { name: 'list editor: export', path: (i) => `/build/${i.listId}`, act: click('Export') },
+  { name: 'rules', path: () => '/rules' },
+  { name: 'rules article', path: () => '/rules/basics' },
+  { name: 'glossary filtered', path: () => '/rules/glossary', act: async (p) => p.getByRole('searchbox').first().fill('cover') },
+  { name: 'core stratagems', path: () => '/rules/stratagems' },
+  { name: 'faction guides', path: () => '/rules/factions' },
+  { name: 'rules reports', path: () => '/rules/reports' },
+  { name: 'report dialog', path: () => '/rules/basics', act: click('Report a rules error') },
+  { name: 'factions', path: () => '/factions' },
+  { name: 'faction', path: () => '/factions/necrons' },
+  { name: 'datasheet', path: () => '/factions/necrons/units/necron-warriors' },
+  { name: 'datasheet official', path: () => '/factions/necrons/units/necron-warriors', act: click('Official wording') },
+  { name: 'faction guide', path: () => '/factions/necrons/guide' },
+  { name: 'faction stratagems', path: () => '/factions/necrons/stratagems' },
+  { name: 'games', path: () => '/play' },
+  { name: 'new sandbox game', path: () => '/play/new' },
+  { name: 'sandbox game', path: (i) => `/play/${i.playId}`, ready: async (p) => expect(p.getByRole('application')).toBeVisible({ timeout: 20_000 }) },
+  { name: 'sandbox menu', path: (i) => `/play/${i.playId}`, act: click('Menu') },
+  { name: 'sandbox log', path: (i) => `/play/${i.playId}`, act: click('Log') },
+  { name: 'sandbox score', path: (i) => `/play/${i.playId}`, act: async (p) => p.locator('.game__army--A').click() },
+  { name: 'table home', path: () => '/table' },
+  { name: 'new table game', path: () => '/table/new' },
+  { name: 'new table game: mission', path: () => '/table/new', act: async (p) => { await click(/^Incursion/)(p); await click('Next')(p); } },
+  { name: 'table game: turn', path: (i) => `/table/${i.tableId}` },
+  { name: 'table game: score', path: (i) => `/table/${i.tableId}`, act: tab('Score') },
+  { name: 'table game: stratagems', path: (i) => `/table/${i.tableId}`, act: tab('Stratagems') },
+  { name: 'table game: tools', path: (i) => `/table/${i.tableId}`, act: tab('Tools') },
+  { name: 'table game: odds', path: (i) => `/table/${i.tableId}`, act: async (p) => { await tab('Tools')(p); await tab('Attack odds')(p); } },
+  { name: 'table game: log', path: (i) => `/table/${i.tableId}`, act: tab('Log') },
+];
+
+function seed(remote: Parameters<typeof seedDoc>[0]): Ids {
+  const listId = seedDoc(remote, 'list', necronsListNamed('A11y list'), { isPublic: true });
+  return { listId, tableId: seedDoc(remote, 'game', tableGame(listId)), playId: seedDoc(remote, 'game', crowdedGame()) };
+}
+
+test.describe('axe', () => {
+  for (const state of STATES) {
+    test(`no serious or critical axe violations: ${state.name}`, async ({ page, remote, signedIn }) => {
+      void signedIn;
+      const ids = seed(remote);
+      await page.goto(state.path(ids));
+      await (state.ready ?? heading)(page);
+      if (state.act) await state.act(page);
+      await page.waitForTimeout(300);
+      expect(await audit(page)).toEqual([]);
+    });
+  }
+
+  test('no serious or critical axe violations: sign-in', async ({ page }) => {
+    await page.goto('/sign-in');
+    await heading(page);
+    expect(await audit(page)).toEqual([]);
+  });
+});
+
+test('skip link moves focus to main', async ({ page, signedIn }) => {
+  void signedIn;
+  await page.goto('/build');
+  await heading(page);
+  await page.keyboard.press('Tab');
+  const skip = page.getByRole('link', { name: 'Skip to main content' });
+  await expect(skip).toBeFocused();
+  await expect(skip).toBeVisible();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#main')).toBeFocused();
+});
+
+test('every focusable element shows a focus ring', async ({ page, signedIn }) => {
+  void signedIn;
+  for (const path of ['/', '/build', '/rules']) {
+    await page.goto(path);
+    await heading(page);
+    const unringed: string[] = [];
+    for (let i = 0; i < 40; i++) {
+      await page.keyboard.press('Tab');
+      const r = await page.evaluate(() => {
+        const el = document.activeElement as HTMLElement | null;
+        if (!el || el === document.body) return null;
+        const cs = getComputedStyle(el);
+        const ring = (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || cs.boxShadow !== 'none';
+        return { ring, what: `${el.tagName.toLowerCase()} "${(el.textContent ?? el.getAttribute('aria-label') ?? '').trim().slice(0, 30)}"` };
+      });
+      if (!r) break;
+      if (!r.ring) unringed.push(`${path}: ${r.what}`);
+    }
+    expect(unringed).toEqual([]);
+  }
+});
+
+test('no horizontal scroll at 320px', async ({ page, remote, signedIn }) => {
+  void signedIn;
+  await page.setViewportSize({ width: 320, height: 640 });
+  const ids = seed(remote);
+  const wide: string[] = [];
+  for (const path of ['/', '/build', `/build/${ids.listId}`, '/rules/glossary', '/factions/necrons/units/necron-warriors', `/table/${ids.tableId}`, `/play/${ids.playId}`]) {
+    await page.goto(path);
+    await heading(page);
+    await page.waitForTimeout(300);
+    const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    if (over > 0) wide.push(`${path}: ${over}px`);
+  }
+  expect(wide).toEqual([]);
+});

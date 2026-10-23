@@ -1,6 +1,7 @@
 import type { Block, Inline } from '@recruit/data/model';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { TableScroll } from '../layout/TableScroll';
 
 export function InlineText({ c }: { c: Inline[] }) {
   return (
@@ -39,7 +40,7 @@ function BlockView({ b }: { b: Block }) {
     }
     case 'table':
       return (
-        <div className="table-scroll" style={{ marginBottom: '1rem' }}>
+        <TableScroll label="Table" style={{ marginBottom: '1rem' }}>
           <table className="stats blocks__table">
             <thead>
               <tr>{b.head.map((c, i) => <th key={i} scope="col"><InlineText c={c} /></th>)}</tr>
@@ -50,7 +51,7 @@ function BlockView({ b }: { b: Block }) {
               ))}
             </tbody>
           </table>
-        </div>
+        </TableScroll>
       );
     case 'note':
       return (

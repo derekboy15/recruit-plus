@@ -5,6 +5,7 @@ import { deriveState, other, type PlayerTotals, type TableGameData } from './gam
 import { getMissions, missionById } from './missionData';
 import { primaryByRound } from './ScoreSheet';
 import { useTableGame } from './tableStore';
+import { TableScroll } from '../layout/TableScroll';
 
 /** "You win" / "Opponent wins": the app calls one player "You" by default. */
 const verb = (name: string, you: string, they: string) => `${name} ${name === 'You' ? you : they}`;
@@ -56,7 +57,7 @@ export function SummaryPage() {
       <p className="muted">Summary</p>
       <h1>{s.headline}</h1>
       <p>{mission.name} · {pack.name}</p>
-      <div className="table-scroll">
+      <TableScroll label="Primary VP by battle round">
         <table className="summary__rounds">
           <caption>Primary VP by battle round</caption>
           <thead><tr><th scope="col">Player</th>{[1, 2, 3, 4, 5].map((r) => <th key={r} scope="col">{r}</th>)}</tr></thead>
@@ -66,7 +67,7 @@ export function SummaryPage() {
             ))}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
       {order.map((p) => {
         const t = s.players[p];
         return (

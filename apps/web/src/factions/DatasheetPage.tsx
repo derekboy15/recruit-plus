@@ -6,6 +6,7 @@ import { useWording, WordingToggle } from '../rules/wording';
 import { getCatalogue } from './dataClient';
 import { useAsync } from './useAsync';
 import { LoadError } from '../layout/OfflineNotice';
+import { TableScroll } from '../layout/TableScroll';
 
 const TEXT_COLUMNS: readonly string[] = TEXT_CHARS;
 
@@ -25,7 +26,7 @@ function ProfileTable({ caption, profiles, preferred }: { caption: string; profi
   // Rules text columns show the plain English when it is chosen and exists.
   const cell = (p: ProfileOut, c: string) => (wording === 'plain' && TEXT_COLUMNS.includes(c) && p.plain?.[c]) || (p.chars[c] ?? '');
   return (
-    <div className="table-scroll" style={{ marginBottom: '1rem' }}>
+    <TableScroll label={caption} style={{ marginBottom: '1rem' }}>
       <table className="stats">
         <caption className="muted" style={{ textAlign: 'left', padding: '0.4rem 0.6rem' }}>
           {caption}
@@ -53,7 +54,7 @@ function ProfileTable({ caption, profiles, preferred }: { caption: string; profi
           ))}
         </tbody>
       </table>
-    </div>
+    </TableScroll>
   );
 }
 

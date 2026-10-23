@@ -15,7 +15,6 @@ export function TopBar({ state, onUndo, onLog, onMenu, onScore }: { state: GameS
             data-player={p}
             data-active={state.phase !== 'pre-battle' && state.active === p ? 'true' : 'false'}
             onClick={onScore}
-            aria-label={`${armyName(state, p)}: ${state.cp[p]} CP, ${totalVp(state, p)} VP`}
           >
             <span className="game__army-name">{armyName(state, p)}</span>
             <span className="game__army-nums">
