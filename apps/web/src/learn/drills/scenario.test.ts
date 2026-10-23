@@ -27,6 +27,12 @@ describe('scenario', () => {
     expect(gapBetween(stateOf(g), 'A:int', 'B:war')).toBeCloseTo(6, 5);
   });
 
+  test('a two-row unit inside the enemy half is placed there after deploying', () => {
+    const g = scenario({ units: [marines({ x: 22, y: 6 }), necrons({ x: 32, y: 13 })] }, diskCtx());
+    const s = stateOf(g);
+    expect(s.units['B:war'].modelIds.map((id) => s.models[id].pos!.y)).toEqual([13, 13, 13, 13, 13, 14.5, 14.5, 14.5, 14.5, 14.5]);
+  });
+
   test('a unit inside the enemy half is placed there after deploying', () => {
     const g = scenario({ units: [marines({ x: 22, y: 20 }), necrons({ x: 22, y: 27 })] }, diskCtx());
     const s = stateOf(g);

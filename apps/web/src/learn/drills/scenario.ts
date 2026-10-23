@@ -171,7 +171,9 @@ export function scenario(spec: ScenarioSpec, ctx: DrillCtx): GameRecord {
     if (direct.ok) g = direct.game;
     else {
       const k = spec.units.filter((x) => x.player === p).indexOf(u);
-      const y = p === 'A' ? 1 : board.h - 1;
+      // The front row sits far enough in for the rows behind it (which go towards the player's own edge).
+      const depth = (Math.ceil(ids.length / 5) - 1) * SPACING;
+      const y = p === 'A' ? 1 + depth : board.h - 1 - depth;
       const staging = spots({ ...u, at: { x: 4 + k * 9, y }, perRow: 5 }, ids.length);
       g = must(g, { type: 'deploy', by: p, unitId: u.id, positions: Object.fromEntries(ids.map((id, i) => [id, staging[i]])) } as Command);
       moveLater.push(u);
