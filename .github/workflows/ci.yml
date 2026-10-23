@@ -18,8 +18,12 @@ jobs:
       - run: npm run data:build
       - run: npm run typecheck
       - run: npm test
+      # The production build (and its env check), then the size budgets on what it produced.
+      - run: npm run build
+      - run: npm run budgets -w apps/web
       - run: npx playwright install --with-deps chromium
         working-directory: apps/web
+      # Both suites: the dev-server flows, then the production build with its service worker (offline, a11y, perf, PWA).
       - run: npm run e2e
         env:
           CI: 'true'

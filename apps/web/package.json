@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/copy-data.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/copy-data.mjs",
+    "prebuild": "node scripts/copy-data.mjs && node scripts/check-env.mjs",
     "build": "tsc --noEmit && tsc --noEmit -p tsconfig.sw.json && vite build",
     "preview": "vite preview",
     "test": "vitest run",
