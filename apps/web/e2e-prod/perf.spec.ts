@@ -3,9 +3,7 @@
  * 1.6 Mbps down. The limits sit well above the measured baseline so they catch regressions, not noise.
  */
 import type { Page } from '@playwright/test';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { crowdedGame } from './data';
 import { expect, test } from './fixtures';
 import { seedDoc, waitForServiceWorker } from './helpers';
 
@@ -59,8 +57,7 @@ test('Space Wolves faction page cold data ≤ 4.0s', async ({ page, signedIn }) 
 test('crowded Strike Force board p95 frame ≤ 50ms', async ({ page, remote, signedIn }) => {
   void signedIn;
   // 100 models on a Strike Force board (scripts/make-crowded-game.ts).
-  const game = JSON.parse(readFileSync(join(fileURLToPath(new URL('.', import.meta.url)), 'data', 'crowded-game.json'), 'utf8'));
-  const id = seedDoc(remote, 'game', game);
+  const id = seedDoc(remote, 'game', crowdedGame());
   await page.goto(`/play/${id}`);
   const board = page.getByRole('application', { name: /Battlefield/ });
   await expect(board).toBeVisible({ timeout: 20_000 });

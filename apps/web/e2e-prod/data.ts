@@ -13,3 +13,6 @@ export function necronsListNamed(name: string): Record<string, unknown> {
   const list = necronsList() as { roster: Record<string, unknown> };
   return { ...list, roster: { ...list.roster, name } };
 }
+
+/** A saved sandbox game: 100 models deployed on a Strike Force board (scripts/make-crowded-game.ts). */
+export const crowdedGame = () => load('crowded-game.json');
