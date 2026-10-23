@@ -62,3 +62,8 @@ test('openGameDoc reports a missing or deleted game as missing', async () => {
   await repo.deleteDoc(id);
   expect(await openGameDoc(repo, id)).toEqual({ ok: false, reason: 'missing' });
 });
+
+test('openGameDoc treats a table companion game as missing', async () => {
+  await repo.saveDoc({ id: 't1', kind: 'game', ownerId: 'u1', data: { mode: 'table', schema: 1, setup: {}, events: [] } as never });
+  expect(await openGameDoc(repo, 't1')).toEqual({ ok: false, reason: 'missing' });
+});

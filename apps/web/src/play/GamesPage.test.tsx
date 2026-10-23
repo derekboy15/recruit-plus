@@ -90,3 +90,12 @@ test('deleting a game asks first', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Delete game' }));
   expect(await screen.findByText('No games yet.')).toBeInTheDocument();
 });
+
+test('table companion games are not listed and do not break the page', async () => {
+  const repo = createRepository(db);
+  await repo.saveDoc({ id: 'g1', kind: 'game', ownerId: user.id, data: game('Necrons vs Ultramarines', {}), updatedAt: 1 });
+  await repo.saveDoc({ id: 't1', kind: 'game', ownerId: user.id, data: { mode: 'table', schema: 1, setup: {}, events: [] }, updatedAt: 2 });
+  page();
+  expect(await screen.findByRole('link', { name: /Necrons vs Ultramarines/ })).toHaveAttribute('href', '/play/g1');
+  expect(screen.getAllByRole('link').filter((l) => /^\/play\/t1/.test(l.getAttribute('href') ?? ''))).toHaveLength(0);
+});

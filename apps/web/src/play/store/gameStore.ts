@@ -42,10 +42,13 @@ export type Opened =
   | { ok: false; reason: 'missing' }
   | { ok: false; reason: 'unreadable'; message: string };
 
+/** Table companion games share the 'game' kind (data.mode 'table'); the sandbox never lists or opens them. */
+export const isSandboxGame = (doc: Doc<unknown>): doc is Doc<GameData> => (doc.data as { mode?: string } | null)?.mode !== 'table';
+
 /** Opens a saved game; a record this engine can't replay comes back as unreadable with the engine's reason. */
 export async function openGameDoc(repo: Repository, id: string): Promise<Opened> {
   const doc = await repo.getDoc<GameData>(id);
-  if (!doc || doc.deleted || doc.kind !== 'game') return { ok: false, reason: 'missing' };
+  if (!doc || doc.deleted || doc.kind !== 'game' || !isSandboxGame(doc)) return { ok: false, reason: 'missing' };
   try {
     return { ok: true, doc, record: loadGame(JSON.stringify(doc.data.record)) };
   } catch (e) {
@@ -62,7 +65,7 @@ export function useGames(): { games: Doc<GameData>[]; loading: boolean; error: E
   useEffect(() => {
     if (!ownerId) return;
     const sub = liveQuery(() => repo.listDocs<GameData>('game', ownerId)).subscribe({
-      next: (games) => setState({ ownerId, games, error: null }),
+      next: (games) => setState({ ownerId, games: games.filter(isSandboxGame), error: null }),
       error: (e: unknown) => setState({ ownerId, games: [], error: e instanceof Error ? e : new Error(String(e)) }),
     });
     return () => sub.unsubscribe();
