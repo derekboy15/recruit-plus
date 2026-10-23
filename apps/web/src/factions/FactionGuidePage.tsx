@@ -86,7 +86,7 @@ export function FactionGuidePage() {
           ))}
         </section>
       )}
-      {guide && <ReportButton target={{ kind: 'guide', name: `${name} guide` }} text={guide.title} />}
+      {guide && guide !== 'offline' && <ReportButton target={{ kind: 'guide', name: `${name} guide` }} text={guide.title} />}
     </article>
   );
 }

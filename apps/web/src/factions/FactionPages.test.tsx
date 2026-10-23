@@ -145,9 +145,10 @@ test('the units page has the tabs too', async () => {
 
 test('guide page offline shows the offline notice', async () => {
   vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
-  const online = fetch as unknown as ReturnType<typeof vi.fn>;
+  const online = vi.mocked(fetch);
   const base = online.getMockImplementation()!;
-  online.mockImplementation(async (url: string) => {
+  online.mockImplementation(async (input) => {
+    const url = String(input);
     if (url.endsWith('/guides/necrons.json')) throw new TypeError('Failed to fetch');
     return base(url);
   });
@@ -159,7 +160,7 @@ test('guide page offline shows the offline notice', async () => {
 
 test('faction page offline shows the offline notice', async () => {
   vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
-  (fetch as unknown as ReturnType<typeof vi.fn>).mockImplementation(async () => {
+  vi.mocked(fetch).mockImplementation(async () => {
     throw new TypeError('Failed to fetch');
   });
   renderAt('/factions/necrons');
