@@ -7,7 +7,8 @@ import { crowdedGame } from './data';
 import { expect, test } from './fixtures';
 import { seedDoc, waitForServiceWorker } from './helpers';
 
-test.skip(({ isMobile }) => !isMobile, 'Phone budgets run in the mobile project only.');
+// The "perf" project runs this file alone, after the other suites, at 375×812 (playwright.prod.config.ts).
+test.describe.configure({ mode: 'serial' });
 
 async function throttle(page: Page): Promise<void> {
   const cdp = await page.context().newCDPSession(page);

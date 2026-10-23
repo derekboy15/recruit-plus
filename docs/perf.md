@@ -4,7 +4,7 @@ Recruit+ is built for phones first. This page records what was measured, the bud
 
 ## How it's measured
 - **Sizes:** run `npm run build && npm run budgets -w apps/web`. This measures `apps/web/dist` (gzip level 9) against `apps/web/scripts/budgets.mjs`. CI runs it on every push.
-- **Timings and frame rate:** run `npm run e2e:prod -w apps/web -- perf`. It uses the production build and its service worker in Chromium at 375×812, with:
+- **Timings and frame rate:** run `npm run e2e:prod -w apps/web -- --project=perf`. The perf project runs after the other suites, one test at a time. It uses the production build and its service worker in Chromium at 375×812, with:
   - the CPU slowed 4× (CDP `Emulation.setCPUThrottlingRate`);
   - 150 ms round trips, 1.6 Mbps down and 0.75 Mbps up.
 

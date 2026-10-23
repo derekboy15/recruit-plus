@@ -24,10 +24,13 @@ Milestone 3 shows every official rules text in plain English. Each text was chec
 - On a datasheet, a weapon or psychic text with no plain English would show its official wording without the "not ready yet" label. Coverage is 100% today.
 - "Send report" can be pressed twice while saving, which saves two reports.
 - A malformed link hash (`#%E0%A4%A`) on a rules page shows the error screen instead of the page.
-- With no connection, a faction guide page says "No guide for this faction yet" instead of "couldn't load".
 - The glossary filter treats T'au and T’au as different spellings.
 - A very long unbroken note in "Your rules reports" overflows the card on a phone.
 
+## Fixed in Milestone 8
+
+- **Offline faction guide.** With no connection, a guide page used to say "No guide for this faction yet". It now shows the offline notice.
+
 ## Before deploy
 
-- **Apply migration `0002_rules_reports.sql` to the real Supabase project,** then send one report end to end. Until then, reports stay on the device that made them.
+- **Apply migration `0002_rules_reports.sql` to the real Supabase project,** then send one report end to end (`DEPLOY.md` steps 1.2 and 4.5). Until then, reports stay on the device that made them.
