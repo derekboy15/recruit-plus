@@ -26,7 +26,8 @@ export function diskCtx(o: { seed?: number; dice?: number[] } = {}): DrillCtx {
   };
 }
 
-export type Step = Command | { answer: string } | ((run: DrillRun) => Command | { answer: string } | null);
+/** A step: a command, an answer, a command the drill or engine must refuse (the run keeps the attempt), or a function of the run. */
+export type Step = Command | { answer: string } | { refused: Command } | ((run: DrillRun) => Command | { answer: string } | { refused: Command } | null);
 
 /** Plays a script: commands, answers (`'answer'` picks the stage's computed answer) or functions of the run. Throws on any refusal. */
 export function play(drill: Drill, script: Step[], ctx: DrillCtx = diskCtx()): DrillRun {
@@ -34,6 +35,12 @@ export function play(drill: Drill, script: Step[], ctx: DrillCtx = diskCtx()): D
   for (const s of script) {
     const step = typeof s === 'function' ? s(run) : s;
     if (!step) continue;
+    if ('refused' in step) {
+      const r = actRun(run, step.refused);
+      if (!r.problems) throw new Error(`${step.refused.type} was accepted, but should have been refused`);
+      run = r.run;
+      continue;
+    }
     if ('answer' in step) {
       const stage = currentStage(run);
       if (stage?.kind !== 'ask') throw new Error(`expected a question, at ${stage?.id ?? run.status}`);

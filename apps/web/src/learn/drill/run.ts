@@ -107,7 +107,8 @@ export function actRun(run: DrillRun, cmd: Command): { run: DrillRun; problems: 
   const refusal = stage?.kind === 'do' ? stage.guard?.(cmd, watchOf(run)) : null;
   if (refusal) return { run: { ...run, attempts: [...run.attempts, { cmd, problems: null, drill: refusal }] }, problems: drillProblem(refusal) };
   const r = dispatch(run.record, cmd);
-  if (!r.ok) return { run: { ...run, attempts: [...run.attempts, { cmd, problems: r.problems }] }, problems: r.problems };
+  // A refusal can be the lesson (e.g. why a character can't be shot), so the stage is checked after one too.
+  if (!r.ok) return { run: settle({ ...run, attempts: [...run.attempts, { cmd, problems: r.problems }] }), problems: r.problems };
   const next = autopilot({ ...run, record: r.game, attempts: [...run.attempts, { cmd, problems: null }] });
   return { run: settle(next), problems: null };
 }

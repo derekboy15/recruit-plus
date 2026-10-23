@@ -86,6 +86,18 @@ describe('drill controller', () => {
     expect(actRun(run, end('A')).problems?.[0].code).toBe('drill');
   });
 
+  test('a do stage can pass on what the engine refused (e.g. learning why a target is protected)', () => {
+    const learnRefusal: Drill = {
+      ...tiny,
+      stages: [{ kind: 'do', id: 'try', prompt: () => 'Try to end the phase as the wrong player.', check: (w) => (w.attempts.some((a) => a.problems) ? { pass: true, explain: 'Refused, as it should be.' } : null) }],
+    };
+    const run = startRun(learnRefusal, diskCtx());
+    const r = actRun(run, end('B'));
+    expect(r.problems?.length).toBeGreaterThan(0);
+    expect(r.run.status).toBe('done');
+    expect(r.run.results[0].explain).toBe('Refused, as it should be.');
+  });
+
   test('skipped stages are passed over', () => {
     const skipping: Drill = { ...tiny, stages: [{ ...tiny.stages[0], skip: () => true }, tiny.stages[1]] };
     expect(currentStage(startRun(skipping, diskCtx()))?.id).toBe('end');
