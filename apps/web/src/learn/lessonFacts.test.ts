@@ -3,7 +3,7 @@
  * leans on, and it is what the engine (or the real data) does.
  */
 import type { LessonsData, RulesData } from '@recruit/data/model';
-import { BOARD_SIZES, inRangeOfObjective, MARKER_RADIUS, missionRulesFor, stateOf, type GameState } from '@recruit/engine';
+import { bestSave, BOARD_SIZES, capMod, hitSucceeds, inRangeOfObjective, MARKER_RADIUS, missionRulesFor, saveSucceeds, stateOf, woundNeeded, type GameState } from '@recruit/engine';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
@@ -102,6 +102,44 @@ export const FACTS: Fact[] = [
     says: 'Rapid Fire 1 means 1 shot, doubled when the target is within half range (15" for a bolt rifle)',
     article: ['shooting-phase#weapon-types', "Rapid Fire If the target is within half the weapon's range, the weapon makes double its normal number of attacks."],
   },
+
+  // ---------- 3. The attack sequence and wound table ----------
+  {
+    lesson: 'attacks',
+    says: 'S is double T or more 2+ S is higher than T 3+ S equals T 4+ S is lower than T 5+ S is half T or less 6+',
+    article: ['shooting-phase#making-attacks', 'S is double T or more 2+ S is higher than T 3+ S equals T 4+ S is lower than T 5+ S is half T or less 6+'],
+    engine: () => expect([woundNeeded(8, 4), woundNeeded(5, 4), woundNeeded(4, 4), woundNeeded(3, 4), woundNeeded(2, 4)]).toEqual([2, 3, 4, 5, 6]),
+  },
+  {
+    lesson: 'attacks',
+    says: 'An unmodified 6 always hits and always wounds. An unmodified 1 always fails, for hits, wounds and saves alike.',
+    article: ['basics#re-rolls-and-modifiers', 'An unmodified hit roll or wound roll of 6 always succeeds, and an unmodified 1 always fails. An unmodified saving throw of 1 always fails.'],
+    engine: () => {
+      expect(hitSucceeds(6, 7, -1)).toBe(true);
+      expect(hitSucceeds(1, 2, 1)).toBe(false);
+      expect(saveSucceeds(1, 2, 3)).toBe(false);
+    },
+  },
+  {
+    lesson: 'attacks',
+    says: 'A hit roll or wound roll can never be changed by more than +1 or -1 in total',
+    article: ['basics#re-rolls-and-modifiers', 'A hit roll or a wound roll can never be modified by more than +1 or -1 in total'],
+    engine: () => expect([capMod(3), capMod(-2), capMod(0)]).toEqual([1, -1, 0]),
+  },
+  {
+    lesson: 'attacks',
+    says: 'a bolt rifle (S 4) against a Necron Warrior (T 4) wounds on 4+',
+    engine: () => expect(woundNeeded(4, M('necrons', 'Necron Warriors', 'Necron Warrior').T)).toBe(4),
+  },
+  {
+    lesson: 'attacks',
+    says: "Against the Warriors' 4+ save, AP -1 means they need 5+",
+    engine: () => {
+      const save = bestSave(M('necrons', 'Necron Warriors', 'Necron Warrior'), null, -1, 0, 0, false)!;
+      expect(save.needed - save.mod).toBe(5);
+    },
+  },
+  { lesson: 'attacks', says: 'so Rapid Fire doubles their bolt rifles: 10 shots', article: ['shooting-phase#weapon-types', 'the weapon makes double its normal number of attacks'] },
 ];
 
 /** Is a Necron Warrior (32mm base) whose base edge is `gap` inches from a marker's edge in range of it? */
