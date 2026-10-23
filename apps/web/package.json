@@ -15,7 +15,8 @@
     "build:e2e": "node scripts/copy-data.mjs && vite build --mode e2e --outDir dist-e2e",
     "e2e:dev": "playwright test",
     "e2e:prod": "playwright test -c playwright.prod.config.ts",
-    "budgets": "node scripts/check-budgets.mjs"
+    "budgets": "node scripts/check-budgets.mjs",
+    "icons": "node scripts/make-icons.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",
