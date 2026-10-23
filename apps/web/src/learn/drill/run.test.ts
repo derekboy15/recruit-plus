@@ -1,38 +1,12 @@
 import { currentStep, stateOf, type Command } from '@recruit/engine';
 import { describe, expect, test } from 'vitest';
 import { chargePhase, deployedGame, must } from '../../play/__fixtures__/game';
-import { diskCtx, play } from '../__fixtures__/drills';
+import { diskCtx, play, tiny } from '../__fixtures__/drills';
 import { actRun, answerRun, currentStage, startRun, watchOf } from './run';
 import type { Drill } from './types';
 
 const end = (by: 'A' | 'B') => ({ type: 'endPhase', by }) as Command;
 
-/** A's Command phase: say how many CP you have, then end the phase. */
-const tiny: Drill = {
-  id: 'tiny',
-  title: 'End the Command phase',
-  intro: 'A test drill.',
-  catalogues: ['necrons'],
-  learner: 'A',
-  build: (ctx) => deployedGame({ scriptedDice: ctx.dice }),
-  stages: [
-    {
-      kind: 'ask',
-      id: 'cp',
-      question: () => 'How many CP do you have?',
-      choices: () => ['3', '4', '5'].map((v) => ({ id: v, label: `${v} CP` })),
-      answer: (w) => String(w.state.cp.A),
-      explain: (w) => `You have ${w.state.cp.A} CP.`,
-    },
-    {
-      kind: 'do',
-      id: 'end',
-      prompt: () => 'End your Command phase.',
-      guard: (cmd) => (cmd.type === 'endPhase' ? null : 'In this drill, just end the phase.'),
-      check: (w) => (w.state.phase === 'movement' ? { pass: true, explain: 'On to the Movement phase.' } : null),
-    },
-  ],
-};
 
 describe('drill controller', () => {
   test("the autopilot confirms the other side's rolls and declines its reactions", () => {

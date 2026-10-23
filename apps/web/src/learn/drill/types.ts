@@ -53,6 +53,8 @@ export type Stage =
       answer(w: Watch): string;
       explain(w: Watch): string;
       skip?(w: Watch): boolean;
+      /** A unit whose datasheet the card shows with the question. */
+      datasheet?(w: Watch): string;
     };
 
 export interface Drill {

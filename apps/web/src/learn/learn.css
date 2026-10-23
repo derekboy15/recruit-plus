@@ -1,0 +1,14 @@
+/* Learn styles (loaded with the /learn routes). */
+.drill-card { margin: 0.25rem 0 0.75rem; }
+.drill-card h2 { color: var(--brass-strong); }
+.drill-card__intro { color: var(--text-muted); margin: 0.25rem 0 0.5rem; }
+.drill-card__task { margin: 0.25rem 0 0.5rem; padding: 0.5rem 0.65rem; border-left: 3px solid var(--brass); background: var(--surface-2); font-weight: 600; }
+.drill-card__results { margin: 0.25rem 0 0.5rem; padding-left: 1.2rem; font-size: 0.9rem; }
+.drill-card__results li { margin: 0.2rem 0; }
+.drill-card__question { margin: 0.25rem 0 0.5rem; }
+.drill-card__choice { min-height: var(--touch); }
+.drill-card__wrong { margin: 0.25rem 0; padding: 0.4rem 0.6rem; border: 1px solid var(--red-strong); background: var(--bad-bg); border-radius: var(--radius); }
+.drill-card__failed p { margin: 0.25rem 0; padding: 0.4rem 0.6rem; border: 1px solid var(--red-strong); background: var(--bad-bg); border-radius: var(--radius); }
+.drill-card__sheet h1 { font-size: 1.1rem; }
+.drill__top { grid-template-areas: 'where tools'; }
+.drill__top .btn { white-space: nowrap; }
