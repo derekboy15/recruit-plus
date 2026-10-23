@@ -185,3 +185,27 @@ test('the board describes the armies by name', async () => {
   const described = document.getElementById(board.getAttribute('aria-describedby')!)!;
   expect(described.textContent).toMatch(/Necron Warriors \(Necrons\): 10 models/);
 });
+
+test('Tab from the last control in the game menu stays in the menu', async () => {
+  await seed(deployedGame());
+  page();
+  await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
+  const dialog = screen.getByRole('dialog', { name: 'Game menu' });
+  const focusables = [...dialog.querySelectorAll<HTMLElement>('button, a[href], input, select, textarea')];
+  focusables.at(-1)!.focus();
+  await userEvent.tab();
+  expect(dialog.contains(document.activeElement)).toBe(true);
+  focusables[0].focus();
+  await userEvent.tab({ shift: true });
+  expect(dialog.contains(document.activeElement)).toBe(true);
+});
+
+test('Escape closes the game log even when focus has left the dialog', async () => {
+  await seed(deployedGame());
+  page();
+  await userEvent.click(await screen.findByRole('button', { name: 'Log' }));
+  expect(screen.getByRole('dialog', { name: 'Game log' })).toBeInTheDocument();
+  (document.activeElement as HTMLElement | null)?.blur();
+  await userEvent.keyboard('{Escape}');
+  expect(screen.queryByRole('dialog', { name: 'Game log' })).toBeNull();
+});

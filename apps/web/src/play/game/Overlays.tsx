@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom';
 import { WordingToggle } from '../../rules/wording';
 import { PHASE_NAMES } from './names';
 
+const FOCUSABLE = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 /**
- * A modal over the game. Focus moves into it when it opens (unless a child takes it with autoFocus) and goes back to
- * whatever had it before when it closes; Escape closes it when it can be closed.
+ * A modal over the game. Focus moves into it when it opens (unless a child takes it with autoFocus), Tab and Shift+Tab
+ * stay inside it, and focus goes back to whatever had it before when it closes. Escape closes it when it can be closed,
+ * wherever focus is.
  */
 export function Dialog({ label, onClose, children, className = '' }: { label: string; onClose?(): void; children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,7 +19,30 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
   useEffect(() => {
     const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     if (!ref.current?.contains(document.activeElement)) ref.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      const dialog = ref.current;
+      if (!dialog) return;
+      if (e.key === 'Escape' && close.current) {
+        e.stopPropagation();
+        close.current();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const items = [...dialog.querySelectorAll<HTMLElement>(FOCUSABLE)];
+      if (!items.length) return;
+      const [first, last] = [items[0], items[items.length - 1]];
+      const inside = dialog.contains(document.activeElement);
+      if (e.shiftKey && (!inside || document.activeElement === first || document.activeElement === dialog)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
     return () => {
+      document.removeEventListener('keydown', onKey);
       if (opener?.isConnected) opener.focus();
     };
   }, []);
@@ -29,12 +55,6 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
         aria-label={label}
         tabIndex={-1}
         className={`game__dialog ${className}`}
-        onKeyDown={(e) => {
-          if (e.key === 'Escape' && close.current) {
-            e.stopPropagation();
-            close.current();
-          }
-        }}
       >
         {onClose && (
           <button type="button" className="btn btn--small game__close" onClick={onClose}>
