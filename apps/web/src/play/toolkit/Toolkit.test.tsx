@@ -8,7 +8,8 @@ import type { PanelProps } from '../panels/types';
 import { Toolkit } from './Toolkit';
 
 const Kit = (p: PanelProps) => <Toolkit {...p} onClose={() => {}} />;
-const tool = (name: string) => userEvent.click(screen.getByRole('button', { name }));
+/** A toolkit button: named by its tool name followed by its description. */
+const tool = (name: string) => userEvent.click(screen.getByRole('button', { name: (accessible) => accessible.startsWith(name) }));
 
 test('moving a model by hand logs "was moved by hand" and undo puts it back', async () => {
   const h = renderPanel(Kit, deployedGame());

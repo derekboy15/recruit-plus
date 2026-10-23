@@ -69,6 +69,57 @@ const STATES: State[] = [
   { name: 'sandbox menu', path: (i) => `/play/${i.playId}`, act: click('Menu') },
   { name: 'sandbox log', path: (i) => `/play/${i.playId}`, act: click('Log') },
   { name: 'sandbox score', path: (i) => `/play/${i.playId}`, act: async (p) => p.locator('.game__army--A').click() },
+  { name: 'sandbox toolkit', path: (i) => `/play/${i.playId}`, act: async (p) => { await click('Menu')(p); await click('Toolkit')(p); } },
+  {
+    name: 'new sandbox game with both armies chosen',
+    path: () => '/play/new',
+    act: async (p) => {
+      for (const player of ['Player 1', 'Player 2']) await p.getByRole('group', { name: player }).getByRole('radio').first().check();
+    },
+  },
+  {
+    name: 'new list: detachment and army options',
+    path: () => '/build/new',
+    act: async (p) => {
+      await click(/^Necrons/)(p);
+      await click('Next')(p);
+      await click(/Strike Force/)(p);
+      await click('Next')(p);
+      await click(/Arks of Omen Detachment/)(p);
+      await click('Next')(p);
+      await expect(p.getByRole('radio', { name: 'Dynasty: Szarekhan' })).toBeVisible();
+    },
+  },
+  {
+    name: 'drill after answering (wrong, then on to the next stage)',
+    path: () => '/learn/datasheets/drill',
+    ready: async (p) => expect(p.getByRole('region', { name: 'Drill' })).toBeVisible({ timeout: 20_000 }),
+    act: async (p) => {
+      // Try each choice of the first question in turn: the wrong ones show feedback, the right one moves on.
+      const card = p.getByRole('region', { name: 'Drill' });
+      const n = await card.getByRole('radio').count();
+      for (let i = 0; i < n && (await card.getByRole('radio').count()) === n; i++) {
+        await card.getByRole('radio').nth(i).check();
+        await card.getByRole('button', { name: 'Check answer' }).click();
+      }
+    },
+  },
+  {
+    name: 'new table game: armies, then attacker and defender',
+    path: () => '/table/new',
+    act: async (p) => {
+      await click(/^Incursion/)(p);
+      await click('Next')(p);
+      await click(/11 Cleanse the Land/)(p);
+      await click('Next')(p);
+      const yours = p.getByRole('group', { name: 'Your army' });
+      await yours.getByRole('radio', { name: 'Just pick a faction' }).check();
+      await yours.getByRole('combobox', { name: 'Faction' }).selectOption('necrons');
+      const theirs = p.getByRole('group', { name: "Your opponent's army" });
+      await theirs.getByRole('radio', { name: 'Just pick a faction' }).check();
+      await theirs.getByRole('combobox', { name: 'Faction' }).selectOption('orks');
+    },
+  },
   { name: 'table home', path: () => '/table' },
   { name: 'new table game', path: () => '/table/new' },
   { name: 'new table game: mission', path: () => '/table/new', act: async (p) => { await click(/^Incursion/)(p); await click('Next')(p); } },
@@ -82,6 +133,8 @@ const STATES: State[] = [
 
 function seed(remote: Parameters<typeof seedDoc>[0]): Ids {
   const listId = seedDoc(remote, 'list', necronsListNamed('A11y list'), { isPublic: true });
+  // Lesson 1 done, so lesson 2's drill is open.
+  seedDoc(remote, 'progress', { schema: 1, lessons: { 'what-is-40k': { completedAt: 1, mistakes: 0 } } });
   return { listId, tableId: seedDoc(remote, 'game', tableGame(listId)), playId: seedDoc(remote, 'game', crowdedGame()) };
 }
 

@@ -357,12 +357,11 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
       {!tool ? (
         <div className="play-tools">
           {TOOLS.map(([id, name, blurb]) => (
-            <button key={id} type="button" className="list__link play-unit" aria-label={name} aria-describedby={`tool-${id}`} onClick={() => (reset(), setTool(id))}>
+            // Named by its visible text, the tool and its one-line description (WCAG 2.5.3).
+            <button key={id} type="button" className="list__link play-unit" onClick={() => (reset(), setTool(id))}>
               <span className="list__main">
-                <strong>{name}</strong>
-                <span className="muted" id={`tool-${id}`}>
-                  {blurb}
-                </span>
+                <strong>{name}</strong>{' '}
+                <span className="muted">{blurb}</span>
               </span>
             </button>
           ))}
