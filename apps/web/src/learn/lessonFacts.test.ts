@@ -427,6 +427,54 @@ export const FACTS: Fact[] = [
     says: 'INFANTRY, BEAST and SWARM models on or within an Area Terrain feature (ruins, woods, craters) get its cover.',
     article: ['terrain#terrain-categories', 'Area Terrain Ruins, woods, craters, industrial structures INFANTRY, BEAST and SWARM models within its footprint'],
   },
+
+  // ---------- 14. Building an army ----------
+  {
+    lesson: 'army-building',
+    says: 'up to the battle size’s points limit: 500 points for a Combat Patrol',
+    article: ['matched-play#battle-sizes', 'Combat Patrol 500'],
+  },
+  {
+    lesson: 'army-building',
+    says: 'In matched play your army must be Battle-forged: every unit belongs to a detachment',
+    article: ['army-building#battle-forged-armies', 'In matched play your army must be Battle-forged. That means every unit in it belongs to a detachment'],
+  },
+  {
+    lesson: 'army-building',
+    says: 'HQ 1–2 and Troops 1–3, plus 0–2 Elites, 0–2 Fast Attack, 0–2 Heavy Support and 0–2 Flyers. It costs 2 CP, and you get 2 CP back if it contains your Warlord.',
+    article: ['army-building#core-book-detachments', 'Patrol 2 CP +2 CP if it contains your Warlord HQ 1–2, Troops 1–3, Elites 0–2, Fast Attack 0–2, Heavy Support 0–2, Flyers 0–2'],
+  },
+  {
+    lesson: 'army-building',
+    says: 'You can include the same datasheet at most 3 times (the Rule of Two allows only 2 at Incursion). Troops units and Dedicated Transports don’t count.',
+    article: ['army-building#rule-of-two-and-rule-of-three', "Combat Patrol 3 Incursion 2 (the Rule of Two) Strike Force 3 (the Rule of Three) Onslaught 3 These units don't count towards the limit: Troops units; Dedicated Transports"],
+  },
+  // ---------- 15. Mission setup ----------
+  {
+    lesson: 'mission-setup',
+    says: 'Roll off: the winner chooses who is the Attacker and who is the Defender. The Defender chooses a deployment zone.',
+    article: ['matched-play#the-mission-sequence', 'Determine Attacker and Defender. Roll off; the winner chooses. Choose deployment zone. The Defender chooses.'],
+  },
+  {
+    lesson: 'mission-setup',
+    says: 'The players take turns setting up one unit at a time, starting with the Defender.',
+    article: ['matched-play#the-mission-sequence', 'Take turns setting up one unit at a time, starting with the Defender.'],
+  },
+  {
+    lesson: 'mission-setup',
+    says: 'no more than half your units, and less than half your points',
+    article: ['matched-play#reserve-limits', 'No more than half of your units, and less than half of your points, can start off the table.'],
+  },
+  {
+    lesson: 'mission-setup',
+    says: 'In a Core Book mission the winner chooses who goes first; in an Arks of Omen mission the winner goes first.',
+    article: ['matched-play#the-mission-sequence', 'In step 12 you roll off, and the winner takes the first turn. In the Core Book version, the winner chooses who goes first.'],
+    engine: () => {
+      expect(missionRulesFor('combat-patrol').firstTurn).toBe('winner-chooses');
+      expect(missionRulesFor('strike-force').firstTurn).toBe('winner-first');
+    },
+  },
+  { lesson: 'mission-setup', says: 'lasts 5 battle rounds', engine: () => expect(missionRulesFor('combat-patrol').battleRounds).toBe(5) },
 ];
 
 /** Is a Necron Warrior (32mm base) whose base edge is `gap` inches from a marker's edge in range of it? */
@@ -463,6 +511,10 @@ const engaged = (gap: number) => inEngagementRange({ id: 'a', base: base32, pos:
 const coherentLine = (gap: number, n: number) => inCoherency(Array.from({ length: n }, (_, i) => ({ id: `m${i}`, base: base32, pos: at(i * (base32.d + gap)) })));
 
 describe('lesson facts', () => {
+  test('every lesson has at least one fact row', () => {
+    expect(lessons.filter((l) => !FACTS.some((f) => f.lesson === l.id)).map((l) => l.id)).toEqual([]);
+  });
+
   for (const f of FACTS) {
     test(`${f.lesson}: "${f.says}"`, () => {
       expect(f.article || f.engine, 'a fact needs an article or an engine check').toBeTruthy();

@@ -1,5 +1,5 @@
 /** Every lesson's drill, by lesson id. */
-import type { Drill } from '../drill/types';
+import type { AnyDrill } from '../drill/types';
 import { whatIs40k } from './l01-what-is-40k';
 import { datasheets } from './l02-datasheets';
 import { attacks } from './l03-attacks';
@@ -13,8 +13,10 @@ import { morale } from './l10-morale';
 import { objectives } from './l11-objectives';
 import { stratagems } from './l12-stratagems';
 import { terrain } from './l13-terrain';
+import { armyBuilding } from './l14-army-building';
+import { missionSetup } from './l15-mission-setup';
 
-export const DRILLS: Record<string, Drill> = {
+export const DRILLS: Record<string, AnyDrill> = {
   [whatIs40k.id]: whatIs40k,
   [datasheets.id]: datasheets,
   [attacks.id]: attacks,
@@ -28,4 +30,6 @@ export const DRILLS: Record<string, Drill> = {
   [objectives.id]: objectives,
   [stratagems.id]: stratagems,
   [terrain.id]: terrain,
+  [armyBuilding.id]: armyBuilding,
+  [missionSetup.id]: missionSetup,
 };
