@@ -161,3 +161,24 @@ Anything that still doesn't match is reported to the player and never guessed. T
 - Replaying a saved game reproduces it exactly, dice included.
 
 **Why:** spec §3.3 (manual toolkit, undo within a phase, saved games) and §5 (event-sourced engine).
+
+## R-28 Objective Secured for Troops
+**Decision:** a Troops unit has Objective Secured when its faction's codex detachment rules give it to Troops. That covers Troops with any of these faction keywords:
+- ADEPTUS ASTARTES, ADEPTUS CUSTODES, ANATHEMA PSYKANA, ASTRA MILITARUM, ADEPTA SORORITAS, ADEPTUS MECHANICUS;
+- TRAITORIS ASTARTES (Chaos Space Marines, Cultists included), RENEGADES AND HERETICS;
+- LEGIONES DAEMONICA, except SWARM units (Nurglings);
+- THOUSAND SONS, except Thousand Sons Cultists;
+- NECRONS, ORKS (except GRETCHIN), HIVE TENDRIL (Tyranids), GENESTEALER CULTS, ASURYANI (Corsair Voidreavers included), T'AU EMPIRE, VOTANN.
+
+A datasheet's own Objective Secured ability still counts as before. That is how Death Guard, World Eaters, Drukhari and Grey Knights Troops get it, and why Death Guard Cultists don't. Exceptions:
+- A unit whose datasheet says it "can never gain" Objective Secured (Blue Horrors) doesn't get it.
+- Units in an Auxiliary Support, Super-Heavy Auxiliary or Fortification Network Detachment keep only their datasheet's own ability.
+- Agents of the Imperium Troops (Imperial Navy Breachers, Voidsmen-at-Arms and others) don't get it from the army they join.
+- The engine doesn't check that every unit in a detachment shares the faction keyword. Removal effects, conditional texts (Exploding Horrors, drone-only T'au units) and grants to other units (Scarab Occult Terminators, Hernkyn Pioneers, Deathwing, Armies of Renown) are left to the toolkit's Objective Secured switch, which still overrides.
+
+**Why:** Objective Secured isn't a core rule. TS §9 and GL §4–5 say most Troops get it from codex detachment rules. The library's army-building file (`01_Core_Rules/Army_Building_Detachments_and_CP.md`) says detachment abilities need every unit to share the faction, and never apply to Auxiliary Support, Super-heavy Auxiliary or Fortification Network Detachments. It is a faction rule, so it lives in the data adapter and the muster (`src/data`), not in objective control. Sources, by precedence:
+- BSData v9.8.0 rule text: Space Marines ("all Troops units in ADEPTUS ASTARTES Detachments gain this ability"), Astra Militarum, Orks ("excluding GRETCHIN"), Tyranids (HIVE TENDRIL), Adeptus Custodes, and Renegades and Heretics' Minions of Chaos. Blue Horrors' Capering Horrors.
+- Wahapedia's 9th Edition export carries no detachment rules.
+- The research library for the rest: Necrons, Adepta Sororitas, Adeptus Mechanicus, Genestealer Cults, Aeldari (Asuryani Troops; Corsair Voidreavers), T'au Empire, Votann (Hearthkyn Warriors), Chaos Space Marines ("Troops (Cultists included)"), Daemons ("except Swarms"), Thousand Sons (Rubric Marines, Scarab Occult Terminators, Tzaangors) and Death Guard (Plague Marines, Poxwalkers, Blightlords and Deathshroud, all by datasheet).
+
+Known data gaps: BSData gives the Harlequins Troupe no HARLEQUINS keyword, and the Deathwatch Fortis and Spectrus Kill Teams no faction keywords, so they don't get it yet (the library says they should).

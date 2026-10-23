@@ -238,9 +238,47 @@ function ocPerModel(u: UnitOut, catalogueName: string, keywords: string[]): numb
   return 1;
 }
 
+/** The datasheet's own Objective Secured ability (some codexes print it there rather than in their detachment rules). */
+export function datasheetObjectiveSecured(u: UnitOut): boolean {
+  return u.abilities.some((a) => /^objective secured$/i.test(a.name.trim()));
+}
+
+/**
+ * R-28: the codex detachment rules that give Troops units Objective Secured, as the faction keyword the unit needs and
+ * the keywords that leave it out.
+ */
+const TROOPS_OBJECTIVE_SECURED: { faction: string; except?: string[] }[] = [
+  { faction: 'ADEPTUS ASTARTES' },
+  { faction: 'ADEPTUS CUSTODES' },
+  { faction: 'ANATHEMA PSYKANA' },
+  { faction: 'ASTRA MILITARUM' },
+  { faction: 'ADEPTA SORORITAS' },
+  { faction: 'ADEPTUS MECHANICUS' },
+  { faction: 'TRAITORIS ASTARTES' },
+  { faction: 'LEGIONES DAEMONICA', except: ['SWARM'] },
+  { faction: 'THOUSAND SONS', except: ['THOUSAND SONS CULTISTS'] },
+  { faction: 'RENEGADES AND HERETICS' },
+  { faction: 'NECRONS' },
+  { faction: 'ORKS', except: ['GRETCHIN'] },
+  { faction: 'HIVE TENDRIL' },
+  { faction: 'GENESTEALER CULTS' },
+  { faction: 'ASURYANI' },
+  { faction: "T'AU EMPIRE" },
+  { faction: 'VOTANN' },
+];
+
+/** R-28: Objective Secured from the unit's codex detachment rules: Troops of a listed faction, unless its datasheet forbids it. */
+function detachmentObjectiveSecured(u: UnitOut, keywords: string[], factionKeywords: string[]): boolean {
+  if (u.role !== 'Troops') return false;
+  // "This unit can never gain the Objective Secured ability" (Blue Horrors); conditional ("While…", "If…") texts are left to the toolkit.
+  if (u.abilities.some((a) => /never gain the Objective Secured/i.test(a.text ?? '') && !/^\s*(while|if)\b/i.test(a.text ?? ''))) return false;
+  return TROOPS_OBJECTIVE_SECURED.some((g) => factionKeywords.includes(g.faction) && !g.except?.some((k) => keywords.includes(k)));
+}
+
 export function toDatasheet(u: UnitOut, catalogueName: string): { datasheet: Datasheet; issues: AdapterIssue[] } {
   const issues: AdapterIssue[] = [];
   const keywords = u.keywords.map((k) => k.toUpperCase());
+  const factionKeywords = u.factionKeywords.map((k) => k.toUpperCase());
   if (!keywords.length) issues.push({ kind: 'no-keywords', detail: 'the data has no keywords for this unit' });
   const list = models(u, issues);
   applyWoundTrack(u, list, issues);
@@ -262,14 +300,14 @@ export function toDatasheet(u: UnitOut, catalogueName: string): { datasheet: Dat
       name: u.name,
       role: u.role,
       keywords,
-      factionKeywords: u.factionKeywords.map((k) => k.toUpperCase()),
+      factionKeywords,
       models: list,
       weapons: weapons(u, issues),
       base,
       baseEstimated: estimated,
       transportCapacity,
       psyker: psyker(u),
-      objectiveSecured: u.abilities.some((a) => /^objective secured$/i.test(a.name.trim())),
+      objectiveSecured: datasheetObjectiveSecured(u) || detachmentObjectiveSecured(u, keywords, factionKeywords),
       ocPerModel: ocPerModel(u, catalogueName, keywords),
       powerRating: u.powerLevel ?? 0,
       points: u.points ?? 0,

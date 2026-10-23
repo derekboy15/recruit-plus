@@ -23,6 +23,41 @@ describe('toDatasheet on real units', () => {
     expect(ds.role).toBe('Troops');
   });
 
+  test.each([
+    ['Imperium - Adeptus Astartes - Ultramarines', 'Intercessor Squad'],
+    ['Necrons', 'Necron Warriors'],
+    ['Orks', 'Boyz'],
+    ['Imperium - Astra Militarum', 'Infantry Squad'],
+    ['Imperium - Adepta Sororitas', 'Battle Sister Squad'],
+    ['Imperium - Adeptus Mechanicus', 'Skitarii Rangers'],
+    ['Chaos - Chaos Space Marines', 'Legionaries'],
+    ['Chaos - Chaos Space Marines', 'Cultists Mob'],
+    ['Chaos - Daemons', 'Bloodletters'],
+    ['Chaos - Thousand Sons', 'Rubric Marines'],
+    ['Chaos - Thousand Sons', 'Tzaangors'],
+    ['Tyranids', 'Termagants'],
+    ['Tyranids - Genestealer Cults', 'Neophyte Hybrids'],
+    ['Aeldari - Craftworlds', 'Guardian Defenders'],
+    ['Aeldari - Craftworlds', 'Corsair Voidreavers'],
+    ["T'au Empire", 'Strike Team'],
+    ['Leagues of Votann', 'Hearthkyn Warriors w/ bolters'],
+    ['Chaos - Renegades & Heretics [LEGENDS]', 'Renegade Militia Squad'],
+  ])('[R-28] %s Troops: %s has Objective Secured', (cat, name) => {
+    expect(sheetOf(cat, name).datasheet.objectiveSecured).toBe(true);
+  });
+
+  test.each([
+    ['Orks', 'Gretchin', 'Ork Troops except GRETCHIN'],
+    ['Chaos - Daemons', 'Nurglings', 'Daemon Troops except Swarms'],
+    ['Chaos - Daemons', 'Blue Horrors', 'Capering Horrors: can never gain it'],
+    ['Chaos - Thousand Sons', 'Thousand Sons Cultists', 'not on the Thousand Sons list'],
+    ['Chaos - Death Guard', 'Death Guard Cultists', 'Death Guard give it by datasheet only'],
+    ['Imperium - Adeptus Astartes - Ultramarines', 'Imperial Navy Breacher', 'not ADEPTUS ASTARTES'],
+    ['Imperium - Adeptus Astartes - Ultramarines', 'Eliminator Squad', 'not Troops'],
+  ])('[R-28] %s: %s has no Objective Secured (%s)', (cat, name) => {
+    expect(sheetOf(cat, name).datasheet.objectiveSecured).toBe(false);
+  });
+
   test('Monolith: degrading profile from its bracket profiles', () => {
     const { datasheet: ds } = sheetOf('Necrons', 'Monolith');
     expect(ds.models).toHaveLength(1);

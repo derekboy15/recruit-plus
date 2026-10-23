@@ -1,7 +1,14 @@
 import { describe, expect, test } from 'vitest';
 import { objectiveControl, stateOf } from '../../src';
 import { flyer, guardsmen, knight, marines } from '../fixtures/units';
+import { toDatasheet } from '../../src/data/adapter';
 import { at, FULL_ZONES, line, newTestGame, placeAll, unitInput } from '../helpers/game';
+import { realUnit } from '../helpers/realData';
+
+const realSheet = (catalogue: string, name: string) => {
+  const { unit, catalogueName } = realUnit(catalogue, name);
+  return toDatasheet(unit, catalogueName).datasheet;
+};
 
 const objectives = [{ id: 'o1', pos: { x: 20, y: 30 } }, { id: 'o2', pos: { x: 30, y: 30 } }];
 const marker = 20 / 25.4;
@@ -62,6 +69,18 @@ describe('objective control', () => {
     expect(objectiveControl(stateOf(g)).o1).toBe('A'); // the guardsmen have Objective Secured
     const g2 = game([['a1', { ...guardsmen(), objectiveSecured: false }, 5]], [['k', knight(), 1]], { a1: line(17, 31.5, 'a1', 5), k: { 'k.m1': at(20, 25.5) } });
     expect(objectiveControl(stateOf(g2)).o1).toBe('B');
+  });
+
+  test('[R-28] an Intercessor Squad (Troops, ADEPTUS ASTARTES) holds a marker against more models without Objective Secured', () => {
+    const intercessors = realSheet('Imperium - Adeptus Astartes - Ultramarines', 'Intercessor Squad');
+    const g = game([['a1', intercessors, 3]], [['b1', { ...guardsmen(), objectiveSecured: false }, 6]], { a1: line(19, 31.5, 'a1', 3), b1: line(17, 28, 'b1', 6) });
+    expect(objectiveControl(stateOf(g)).o1).toBe('A');
+  });
+
+  test('[R-28] Necron Warriors (Troops, NECRONS) hold a marker against more models without Objective Secured', () => {
+    const warriors = realSheet('Necrons', 'Necron Warriors');
+    const g = game([['a1', { ...guardsmen(), objectiveSecured: false }, 6]], [['b1', warriors, 2]], { a1: line(17, 31.5, 'a1', 6), b1: line(19, 28.5, 'b1', 2) });
+    expect(objectiveControl(stateOf(g)).o1).toBe('B');
   });
 
   test('[R-13] a model counts toward only its nearest marker', () => {

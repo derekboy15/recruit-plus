@@ -8,7 +8,7 @@ import type { RosterView, SelView } from '@recruit/data/roster';
 import type { ArmyInput, UnitInput } from '../core/state';
 import type { PlayerId } from '../core/types';
 import type { Datasheet } from '../datasheet/types';
-import { toDatasheet } from './adapter';
+import { datasheetObjectiveSecured, toDatasheet } from './adapter';
 
 export type MusterProblem = { kind: 'unknown-unit' | 'unmatched-model' | 'unmatched-weapon'; unit: string; detail: string };
 export type UnitLookup = Map<string, { unit: UnitOut; catalogueName: string }>;
@@ -105,7 +105,9 @@ export function musterFromRoster(view: RosterView, units: UnitLookup, player: Pl
   const problems: MusterProblem[] = [];
   const out: UnitInput[] = [];
   const sheets = new Map<string, Datasheet>();
-  for (const force of view.forces)
+  for (const force of view.forces) {
+    // R-28: these detachments never gain detachment abilities, so only a datasheet's own Objective Secured counts.
+    const auxiliary = /auxiliary|fortification network/i.test(force.name);
     for (const v of force.selections) {
       if (v.type === 'upgrade' || v.sel.count <= 0) continue;
       const targetId = v.merged?.target.id ?? v.sel.entryId;
@@ -114,15 +116,18 @@ export function musterFromRoster(view: RosterView, units: UnitLookup, player: Pl
         problems.push({ kind: 'unknown-unit', unit: v.name, detail: `no datasheet for entry ${targetId}` });
         continue;
       }
-      let ds = sheets.get(targetId);
+      const key = auxiliary ? `${targetId}|auxiliary` : targetId;
+      let ds = sheets.get(key);
       if (!ds) {
         ds = toDatasheet(found.unit, found.catalogueName).datasheet;
-        sheets.set(targetId, ds);
+        if (auxiliary) ds = { ...ds, objectiveSecured: datasheetObjectiveSecured(found.unit) };
+        sheets.set(key, ds);
       }
       for (let copy = 0; copy < v.sel.count; copy++) {
         const u = musterUnit(v, ds, v.sel.count > 1 ? `${v.sel.id}#${copy + 1}` : v.sel.id, problems);
         if (u) out.push(u);
       }
     }
+  }
   return { army: { player, name: view.roster.name, units: out, cpSpentPreBattle: 0 }, problems };
 }

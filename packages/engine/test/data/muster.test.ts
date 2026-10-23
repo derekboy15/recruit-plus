@@ -35,6 +35,28 @@ describe('musterFromRoster', () => {
     expect(warriors.models.every((m) => m.weapons.includes('Gauss Flayer'))).toBe(true);
   });
 
+  test.each([
+    ['a Patrol Detachment', true, FORCE.patrol],
+    ['an Auxiliary Support Detachment', false, FORCE.auxiliarySupport],
+  ])('[R-28] an Intercessor Squad in %s: Objective Secured %s', (_, obsec, forceId) => {
+    const scope = realScope('imperium-adeptus-astartes-ultramarines');
+    const catalogueId = realCatalogueId('imperium-adeptus-astartes-ultramarines');
+    let roster = createRoster(scope, { name: 'Test', catalogueId, battleSize: 'strike-force', forceId });
+    const entry = availableUnits(scope, roster, roster.forces[0].id).find((u) => u.name === 'Intercessor Squad')!;
+    roster = addUnit(scope, roster, roster.forces[0].id, entry.entryId).roster;
+    const { army } = musterFromRoster(evaluate(scope, roster), units, 'A');
+    expect(army.units.find((u) => u.datasheet.name === 'Intercessor Squad')!.datasheet.objectiveSecured).toBe(obsec);
+  });
+
+  test('[R-28] an Auxiliary Support Detachment keeps a datasheet\'s own Objective Secured', () => {
+    const scope = realScope('necrons');
+    let roster = createRoster(scope, { name: 'Test', catalogueId: realCatalogueId('necrons'), battleSize: 'strike-force', forceId: FORCE.auxiliarySupport });
+    const entry = availableUnits(scope, roster, roster.forces[0].id).find((u) => u.name === 'Necron Warriors')!;
+    roster = addUnit(scope, roster, roster.forces[0].id, entry.entryId).roster;
+    const { army } = musterFromRoster(evaluate(scope, roster), units, 'A');
+    expect(army.units.find((u) => u.datasheet.name === 'Necron Warriors')!.datasheet.objectiveSecured).toBe(true);
+  });
+
   test('every legal list in the army-builder corpus musters into a valid engine army', async () => {
     const dir = join(import.meta.dirname, '../../../data/test/corpus');
     const files = readdirSync(dir, { recursive: true, encoding: 'utf8' }).filter((f) => f.endsWith('.ts') && f !== 'spec.ts').sort();
