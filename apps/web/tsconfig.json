@@ -2,9 +2,28 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom", "vite-plugin-pwa/client"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "vite-plugin-pwa/client"
+    ],
     "noEmit": true
   },
-  "include": ["src", "e2e", "e2e-prod", "vite.config.ts", "playwright.config.ts", "playwright.prod.config.ts"]
+  "include": [
+    "src",
+    "e2e",
+    "e2e-prod",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "playwright.prod.config.ts"
+  ],
+  "exclude": [
+    "src/sw.ts"
+  ]
 }

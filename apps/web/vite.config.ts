@@ -7,7 +7,12 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      // A hand-written service worker (src/sw.ts): precache, offline fallback page, faction data kept as it is used.
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       registerType: 'autoUpdate',
+      injectRegister: false,
       includeAssets: ['icon.svg'],
       manifest: {
         name: 'Recruit+ 40k 9th',
@@ -19,17 +24,10 @@ export default defineConfig({
         start_url: '/',
         icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' }],
       },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,svg}'],
-        navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/data\//],
-        runtimeCaching: [
-          {
-            urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
-            handler: 'StaleWhileRevalidate',
-            options: { cacheName: 'recruit-data' },
-          },
-        ],
+      injectManifest: {
+        // The app's code and the shell data every visitor needs offline; faction data is cached as it is used (sw.ts).
+        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}', 'data/{index,rules,lessons,missions,core-stratagems}.json'],
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       },
     }),
   ],
