@@ -7,6 +7,7 @@ import {
   placedModel,
   sheetOf,
   type Command,
+  type GameEvent,
   type GameState,
   type ModelChars,
   type RollRecord,
@@ -76,3 +77,7 @@ export function only(types: Command['type'][], unitId: string | null, message: s
     return unitId && u && u !== unitId ? message : null;
   };
 }
+
+/** Events the engine recorded between two records of the same game. */
+export const eventsSince = (from: { batches: unknown[] }, to: { batches: { events: GameEvent[] }[] }): GameEvent[] =>
+  to.batches.slice(from.batches.length).flatMap((b) => b.events);
