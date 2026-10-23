@@ -192,20 +192,25 @@ test('every focusable element shows a focus ring', async ({ page, signedIn }) =>
   }
 });
 
-test('no horizontal scroll at 320px', async ({ page, remote, signedIn }) => {
-  void signedIn;
-  await page.setViewportSize({ width: 320, height: 640 });
-  const ids = seed(remote);
-  const wide: string[] = [];
-  for (const path of ['/', '/build', `/build/${ids.listId}`, '/rules/glossary', '/factions/necrons/units/necron-warriors', `/table/${ids.tableId}`, `/play/${ids.playId}`]) {
-    await page.goto(path);
-    await heading(page);
-    await page.waitForTimeout(300);
-    const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-    if (over > 0) wide.push(`${path}: ${over}px`);
-  }
-  expect(wide).toEqual([]);
-});
+// Checked with the platform font and with a wide one: Linux (DejaVu Sans) and many Android fonts set text wider than
+// Windows' Segoe UI, so a row that fits here can still push the page sideways on a phone.
+for (const font of [null, 'Verdana, "DejaVu Sans", sans-serif']) {
+  test(`no horizontal scroll at 320px${font ? ' with a wide font' : ''}`, async ({ page, remote, signedIn }) => {
+    void signedIn;
+    await page.setViewportSize({ width: 320, height: 640 });
+    const ids = seed(remote);
+    const wide: string[] = [];
+    for (const path of ['/', '/build', `/build/${ids.listId}`, '/rules/glossary', '/factions/necrons/units/necron-warriors', `/table/${ids.tableId}`, `/play/${ids.playId}`]) {
+      await page.goto(path);
+      if (font) await page.addStyleTag({ content: `*{font-family:${font} !important}` });
+      await heading(page);
+      await page.waitForTimeout(300);
+      const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      if (over > 0) wide.push(`${path}: ${over}px`);
+    }
+    expect(wide).toEqual([]);
+  });
+}
 
 test('the board shows a focus ring when it has keyboard focus', async ({ page, remote, signedIn }) => {
   void signedIn;

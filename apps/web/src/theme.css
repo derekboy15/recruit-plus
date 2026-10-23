@@ -183,7 +183,7 @@ button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointe
 }
 .editor-head__name { font-weight: 700; font-size: 1.1rem; background: transparent; border-color: transparent; padding: 0 0.4rem; }
 .editor-head__name:hover, .editor-head__name:focus { border-color: var(--border); background: var(--surface-2); }
-.editor-head__row { display: flex; align-items: center; gap: 0.6rem; }
+.editor-head__row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; }
 .editor-head__pl { font-size: 0.85rem; white-space: nowrap; }
 .points { flex: 1; min-width: 0; display: grid; gap: 0.25rem; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
 .points__bar { display: block; height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; }
