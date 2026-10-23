@@ -34,3 +34,11 @@ test('push and pull throw SyncAuthError for auth failures and a plain Error othe
   expect(err).not.toBeInstanceOf(SyncAuthError);
   expect((err as Error).message).toBe('Sync push failed: invalid input syntax for type uuid');
 });
+
+test('a deleted doc is pushed without its contents', async () => {
+  const pushed: unknown[] = [];
+  const client = async () =>
+    ({ from: () => ({ upsert: (rows: unknown[]) => (pushed.push(...rows), Promise.resolve({ error: null, status: 201 })) }) }) as unknown as SupabaseClient;
+  await createSupabaseRemote(client).pushDocs([{ ...doc, deleted: true, data: { name: 'Secret list', units: ['Warriors'] } }, { ...doc, id: '00000000-0000-4000-8000-000000000002', data: { name: 'Kept' } }]);
+  expect((pushed as { deleted: boolean; data: unknown }[]).map((r) => [r.deleted, r.data])).toEqual([[true, {}], [false, { name: 'Kept' }]]);
+});

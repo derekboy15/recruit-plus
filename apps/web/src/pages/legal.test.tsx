@@ -21,6 +21,25 @@ describe('Privacy', () => {
     expect(screen.getByRole('link', { name: 'ops@example.org' })).toHaveAttribute('href', 'mailto:ops@example.org');
   });
 
+  test('privacy says a deleted item keeps only a deletion record', () => {
+    inRouter(<Privacy contact="ops@example.org" region="EU (Frankfurt)" />);
+    expect(document.body.textContent).toContain('only a record that it was deleted is kept');
+  });
+
+  test('privacy says Supabase keeps the Google name and picture, which the app does not use', () => {
+    inRouter(<Privacy contact="ops@example.org" region="EU (Frankfurt)" />);
+    expect(document.body.textContent).toContain('your name and profile picture');
+    expect(document.body.textContent).not.toContain('we keep only the email');
+  });
+
+  test('privacy names the hosting region when set, and says it is added at publish when not', () => {
+    const { unmount } = inRouter(<Privacy contact="ops@example.org" region="EU (Frankfurt)" />);
+    expect(document.body.textContent).toContain('hosted in EU (Frankfurt)');
+    unmount();
+    inRouter(<Privacy contact="ops@example.org" region="" />);
+    expect(document.body.textContent).toContain('The hosting region is added when the site is published.');
+  });
+
   test('privacy without contact says it is added at publish', () => {
     inRouter(<Privacy contact="" />);
     expect(screen.getByText('The contact address is added when the site is published.')).toBeInTheDocument();

@@ -10,7 +10,7 @@ You need three accounts: **Supabase**, **GitHub** and **Vercel**. Creating them,
 
 1. **Create the project.** At <https://supabase.com/dashboard>, choose **New project**.
    - Pick a name (for example `recruit-plus`), a strong database password (keep it in your password manager) and a region near your players.
-   - Note the region: the privacy page tells players their data is stored with Supabase.
+   - Note the region: the privacy page tells players where their data is stored. You set it as `VITE_DATA_REGION` in step 3.
    - *Check:* the project dashboard opens.
 2. **Create the tables.** Open **SQL Editor → New query**. Paste the whole of `apps/web/supabase/migrations/0001_documents.sql`, then **Run**. Then do the same with `0002_rules_reports.sql`, in that order.
    - *Check:* **Table Editor** shows `documents`.
@@ -48,7 +48,7 @@ You need three accounts: **Supabase**, **GitHub** and **Vercel**. Creating them,
 
 1. At <https://vercel.com/new>, **import** the GitHub repository. Leave the framework preset as **Other**. `vercel.json` sets the install command, build command (data fetch, data build, app build) and output folder (`apps/web/dist`).
 2. **Before the first deploy**, open **Settings → Environment Variables** and add the variables in step 6's table:
-   - **Production:** all three required ones.
+   - **Production:** all four required ones.
    - **Preview:** at least the Supabase pair, or sign-in won't work on previews.
 
    A production build stops with a clear error if one is missing (`apps/web/scripts/check-env.mjs`).
@@ -59,7 +59,7 @@ You need three accounts: **Supabase**, **GitHub** and **Vercel**. Creating them,
 
 Do these on a phone where you can. Check each one:
 
-1. **Signed out:** the home page, `/legal`, `/privacy` and `/terms` load. The footer disclaimer is on every page. The privacy page shows your contact email.
+1. **Signed out:** the home page, `/legal`, `/privacy` and `/terms` load. The footer disclaimer is on every page. The privacy page shows your contact email and the database region.
 2. **Sign-in:** sign in with an email magic link, then sign out and sign in with Google.
 3. **Sync:** build a list on the phone, then sign in on a second device. The list appears within a minute.
 4. **Sharing:** share a list (Export → Share) and open the link in a private window, signed out. It opens read-only.
@@ -82,6 +82,7 @@ If a deploy breaks something, go to Vercel **Deployments**, pick the last good o
 | `VITE_SUPABASE_URL` | Sign-in and sync (`apps/web/src/auth/backend.ts`). Must be `https://`. | Yes | `https://abcd1234.supabase.co` |
 | `VITE_SUPABASE_ANON_KEY` | Sign-in and sync, with the URL. Public by design (RLS protects the data). | Yes | `eyJhbGciOi…` |
 | `VITE_CONTACT_EMAIL` | The privacy page's contact for account and data deletion requests. | Yes | `recruitplus@example.org` |
+| `VITE_DATA_REGION` | The privacy page's "The database is hosted in …": the Supabase region from step 1.1, in words. | Yes | `the EU (Frankfurt)` |
 | `VITE_AUTH_MODE` | Local development only: `dev` gives the "Continue (dev)" sign-in without Supabase. Production builds ignore it, and the env check refuses it for a production deploy. | No, and must not be `dev` | `dev` |
 
 Local development reads `apps/web/.env.local`, starting from `apps/web/.env.example`. The production-build e2e tests read `apps/web/.env.e2e`. It points at a fake Supabase host that the tests answer, so it holds no secrets.

@@ -2,8 +2,17 @@ import { Link } from 'react-router-dom';
 
 export const PRIVACY_UPDATED = '23 October 2026';
 
-/** Plain description of what Recruit+ stores. The contact comes from VITE_CONTACT_EMAIL, set when the site is published. */
-export function Privacy({ contact = import.meta.env.VITE_CONTACT_EMAIL ?? '' }: { contact?: string }) {
+/**
+ * Plain description of what Recruit+ stores. The contact and the database's region come from VITE_CONTACT_EMAIL and
+ * VITE_DATA_REGION, set when the site is published (DEPLOY.md).
+ */
+export function Privacy({
+  contact = import.meta.env.VITE_CONTACT_EMAIL ?? '',
+  region = import.meta.env.VITE_DATA_REGION ?? '',
+}: {
+  contact?: string;
+  region?: string;
+}) {
   const contactLine = contact ? (
     <>
       To delete your account and everything stored with it, email <a href={`mailto:${contact}`}>{contact}</a> from the
@@ -25,7 +34,8 @@ export function Privacy({ contact = import.meta.env.VITE_CONTACT_EMAIL ?? '' }: 
       <ul>
         <li>
           Your email address, so you can sign in. Supabase, our database and sign-in provider, keeps it. If you sign in
-          with Google, Google tells us your email address and name; we keep only the email.
+          with Google, Google also sends your name and profile picture, which Supabase stores with your sign-in account;
+          Recruit+ doesn't show or use them.
         </li>
         <li>Your army lists, saved games (sandbox and table companion) and lesson progress.</li>
         <li>Any rules-error reports you send, with the text you wrote.</li>
@@ -34,7 +44,8 @@ export function Privacy({ contact = import.meta.env.VITE_CONTACT_EMAIL ?? '' }: 
       <h2>Where it is kept</h2>
       <p>
         On your device, in your browser's storage (IndexedDB and localStorage), so the app works without a connection.
-        And in our Supabase database, so your lists and games follow you to your other devices.
+        And in our Supabase database, so your lists and games follow you to your other devices.{' '}
+        {region ? `The database is hosted in ${region}.` : 'The hosting region is added when the site is published.'}
       </p>
 
       <h2>Who can see it</h2>
@@ -51,7 +62,11 @@ export function Privacy({ contact = import.meta.env.VITE_CONTACT_EMAIL ?? '' }: 
       </ul>
 
       <h2>Deleting your data</h2>
-      <p>Deleting a list or a game in the app removes it from your lists on every device once they sync.</p>
+      <p>
+        Deleting a list or a game in the app removes it from your lists on every device once they sync. Its contents
+        are erased from this device and from our database; only a record that it was deleted is kept, so your other
+        devices know to remove it too.
+      </p>
       <p>{contactLine}</p>
       <p>
         Signing out on a shared device ends your session. Lists and games already downloaded stay in that browser until

@@ -37,7 +37,8 @@ export function createSupabaseRemote(load: SupabaseLoader): RemoteStore {
         id: d.id,
         owner_id: d.ownerId,
         kind: d.kind,
-        data: d.data,
+        // A deletion record never carries the contents (docs deleted before this rule may still hold them locally).
+        data: d.deleted ? {} : d.data,
         updated_at: d.updatedAt,
         deleted: d.deleted,
         is_public: d.isPublic,

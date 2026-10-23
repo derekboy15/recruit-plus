@@ -36,7 +36,8 @@ export function createRepository(db: RecruitDb, now: () => number = Date.now): R
       return docs.filter((d) => !d.deleted).sort((a, b) => b.updatedAt - a.updatedAt) as Doc<T>[];
     },
     async deleteDoc(id: string) {
-      await db.docs.update(id, { deleted: true, dirty: true, updatedAt: now() });
+      // Only a deletion record is kept: the contents go, here and (once synced) on the server.
+      await db.docs.update(id, { deleted: true, data: {}, dirty: true, updatedAt: now() });
     },
   };
 }

@@ -70,6 +70,13 @@ describe('repository', () => {
     expect(await repo.getDoc(L1)).toMatchObject({ deleted: true, dirty: true, updatedAt: 2_000 });
     expect(await repo.listDocs('list', OWNER)).toEqual([]);
   });
+
+  test('deleting a doc clears its contents: only the deletion record is kept', async () => {
+    const { repo } = device('a');
+    await repo.saveDoc({ id: L1, kind: 'list', ownerId: OWNER, data: { name: 'Necrons 2k', units: ['Warriors'] } });
+    await repo.deleteDoc(L1);
+    expect((await repo.getDoc(L1))?.data).toEqual({});
+  });
 });
 
 describe('syncOnce', () => {
