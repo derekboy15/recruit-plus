@@ -2,6 +2,7 @@
 import { objectiveControl, type GameEvent, type GameState, type PlayerId } from '@recruit/engine';
 import type { Drill } from '../drill/types';
 import { numberChoices, only } from './helpers';
+import { PRACTICE } from '../../play/setup/missions';
 import { advanceTo, intercessors, NECRONS, scenario, ULTRA, warriors } from './scenario';
 
 /** CP the Battle-forged bonus gave `p` in these events. */
@@ -24,6 +25,7 @@ export const commandPhase: Drill = {
             { id: 'A:int2', player: 'A', sheet: [ULTRA, 'Intercessor Squad'], models: intercessors(5), at: { x: 11, y: 15 } },
             { id: 'B:war', player: 'B', sheet: [NECRONS, 'Necron Warriors'], models: warriors(10), at: { x: 22, y: 25.5 } },
           ],
+          objectives: PRACTICE.layout({ w: 44, h: 30 }, 'combat-patrol').objectives,
         },
         ctx,
       ),

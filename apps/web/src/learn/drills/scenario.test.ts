@@ -61,6 +61,10 @@ describe('scenario', () => {
     expect(stateOf(a).dice.s).not.toEqual(stateOf(b).dice.s);
   });
 
+  test('a scenario has no objective markers unless it asks for them', () => {
+    expect(stateOf(scenario({ units: [marines({ x: 22, y: 6 }), necrons({ x: 22, y: 24 })] }, diskCtx())).setup.objectives).toEqual([]);
+  });
+
   test('starting CP can be set', () => {
     const g = scenario({ units: [marines({ x: 22, y: 6 }), necrons({ x: 22, y: 24 })], cp: { A: 1 } }, diskCtx());
     // Starting CP plus the Battle-forged bonus at the start of A's first Command phase.

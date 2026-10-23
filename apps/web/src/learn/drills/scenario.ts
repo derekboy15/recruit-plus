@@ -24,7 +24,7 @@ import {
   type TerrainPreset,
   type UnitInput,
 } from '@recruit/engine';
-import { PRACTICE, type MissionLayout } from '../../play/setup/missions';
+import type { MissionLayout } from '../../play/setup/missions';
 import type { DrillCtx } from '../drill/types';
 
 export const ULTRA = 'imperium-adeptus-astartes-ultramarines';
@@ -45,7 +45,7 @@ export interface UnitSpec {
 export interface ScenarioSpec {
   units: UnitSpec[];
   terrain?: TerrainFeature[];
-  /** Default: the Practice layout's objectives. */
+  /** Default: none (a drill about something else shows no markers). */
   objectives?: { id: string; pos: Pt }[];
   /** Zones, edges and objectives (a real mission map). Default: each player's half of the board. */
   layout?: MissionLayout;
@@ -124,7 +124,7 @@ export function scenario(spec: ScenarioSpec, ctx: DrillCtx): GameRecord {
   const layout: MissionLayout = spec.layout ?? {
     zones: { A: rect(0, 0, board.w, half), B: rect(0, half, board.w, board.h) },
     edges: { A: 'south', B: 'north' },
-    objectives: spec.objectives ?? PRACTICE.layout(board, 'combat-patrol').objectives,
+    objectives: spec.objectives ?? [],
   };
   const units = (p: PlayerId) =>
     spec.units.filter((u) => u.player === p).map((u): UnitInput => ({ id: u.id, datasheet: ctx.sheet(...u.sheet), models: u.models, ...(u.warlord ? { warlord: true } : {}) }));
