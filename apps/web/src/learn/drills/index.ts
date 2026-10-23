@@ -9,6 +9,10 @@ import { psychic } from './l06-psychic';
 import { shooting } from './l07-shooting';
 import { charge } from './l08-charge';
 import { fight } from './l09-fight';
+import { morale } from './l10-morale';
+import { objectives } from './l11-objectives';
+import { stratagems } from './l12-stratagems';
+import { terrain } from './l13-terrain';
 
 export const DRILLS: Record<string, Drill> = {
   [whatIs40k.id]: whatIs40k,
@@ -20,4 +24,8 @@ export const DRILLS: Record<string, Drill> = {
   [shooting.id]: shooting,
   [charge.id]: charge,
   [fight.id]: fight,
+  [morale.id]: morale,
+  [objectives.id]: objectives,
+  [stratagems.id]: stratagems,
+  [terrain.id]: terrain,
 };

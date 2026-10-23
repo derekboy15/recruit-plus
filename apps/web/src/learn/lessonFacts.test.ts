@@ -3,7 +3,7 @@
  * leans on, and it is what the engine (or the real data) does.
  */
 import type { LessonsData, RulesData } from '@recruit/data/model';
-import { bestSave, blastShots, BOARD_SIZES, capMod, CLOSE_COMBAT_WEAPON, dispatch, hitSucceeds, inCoherency, inEngagementRange, inRangeOfObjective, livingModels, modelView, parseDice, unitView, unitVisibleTo, type Command, MARKER_RADIUS, missionRulesFor, saveSucceeds, stateOf, woundNeeded, type GameState } from '@recruit/engine';
+import { TERRAIN_PRESETS, bestSave, blastShots, BOARD_SIZES, capMod, CLOSE_COMBAT_WEAPON, dispatch, hitSucceeds, inCoherency, inEngagementRange, inRangeOfObjective, livingModels, modelView, parseDice, unitView, unitVisibleTo, type Command, MARKER_RADIUS, missionRulesFor, saveSucceeds, stateOf, woundNeeded, type GameState } from '@recruit/engine';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
@@ -327,6 +327,105 @@ export const FACTS: Fact[] = [
     says: 'A model with no melee weapon fights with a close combat weapon: its own Strength, AP 0, Damage 1.',
     article: ['fight-phase#making-close-combat-attacks', "A model that has no melee weapon fights with a close combat weapon: its Strength is the model's own Strength, AP 0, Damage 1."],
     engine: () => expect([CLOSE_COMBAT_WEAPON.s, CLOSE_COMBAT_WEAPON.ap, CLOSE_COMBAT_WEAPON.d.plus]).toEqual([{ kind: 'user' }, 0, 1]),
+  },
+
+  // ---------- 10. Morale and Combat Attrition ----------
+  {
+    lesson: 'morale',
+    says: 'A unit takes a Morale test if one or more of its models were destroyed this turn.',
+    article: ['morale-phase#which-units-test', 'A unit must take a Morale test if one or more of its models were destroyed this turn.'],
+  },
+  {
+    lesson: 'morale',
+    says: 'Roll a D6 and add the number of the unit’s models destroyed this turn. Compare the total with the highest Leadership (Ld) in the unit',
+    article: ['morale-phase#morale-tests', 'Roll a D6. Add the number of models from the unit that were destroyed this turn. Compare the total with the highest Leadership (Ld) characteristic among the models in the unit.'],
+  },
+  { lesson: 'morale', says: 'An unmodified roll of 1 always passes.', article: ['morale-phase#morale-tests', 'An unmodified roll of 1 always passes'] },
+  {
+    lesson: 'morale',
+    says: 'After a failed test, roll a D6 for each model still in the unit. Each 1 means one more model flees. If the unit is below Half-strength (fewer than half the models it started with), subtract 1 from each roll',
+    article: ['morale-phase#combat-attrition', 'After the first model flees, roll one D6 for each model still in the unit. If the unit is below Half-strength, subtract 1 from each of those rolls. For each result of 1, one more model flees.'],
+  },
+  {
+    lesson: 'morale',
+    says: 'The Insane Bravery Stratagem (2 CP, once per battle) passes a Morale test automatically.',
+    article: ['core-stratagems#the-core-stratagems', 'Insane Bravery 2 Before one of your units takes a Morale test (once per battle)'],
+  },
+  // ---------- 11. Objectives and scoring ----------
+  {
+    lesson: 'objectives',
+    says: 'A model is in range of a marker if it is within 3" horizontally and 5" vertically of it.',
+    article: ['matched-play#objective-markers', 'A model is in range of a marker if it is within 3" horizontally and 5" vertically of it.'],
+    engine: () => {
+      expect(engineInRange(3.0)).toBe(true);
+      expect(engineInRange(3.1)).toBe(false);
+    },
+  },
+  {
+    lesson: 'objectives',
+    says: 'You control a marker if you have more models in range of it than your opponent.',
+    article: ['matched-play#objective-markers', 'You control a marker if you have more models in range of it than your opponent.'],
+  },
+  {
+    lesson: 'objectives',
+    says: 'You control a marker if any of your Objective Secured models are in range of it, even if your opponent has more models there. If both players have Objective Secured models in range, the normal model count decides.',
+    article: ['matched-play#objective-markers', 'You control a marker if any of your Objective Secured models are in range of it, even if your opponent has more models there. If both players have Objective Secured models in range, the normal model count decides.'],
+  },
+  {
+    lesson: 'objectives',
+    says: 'Take and Hold gives 5 VP for each of these, up to 15 VP a turn',
+    article: ['matched-play#primary-objectives', 'Each condition you meet is worth 5 VP, up to 15 VP per turn.'],
+    engine: () => expect(missionRulesFor('combat-patrol').primary).toMatchObject({ kind: 'take-and-hold', vpPerCondition: 5, maxPerTurn: 15 }),
+  },
+  // ---------- 12. Stratagems ----------
+  {
+    lesson: 'stratagems',
+    says: 'You can use each Stratagem only once per phase.',
+    article: ['core-stratagems#once-per-phase', 'not more than once in the same phase'],
+  },
+  {
+    lesson: 'stratagems',
+    says: 'Command Re-roll 1 After a roll such as a hit, wound, save or charge roll Counter-offensive 2 After an enemy unit has fought Insane Bravery 2 Before a Morale test (once per battle) Fire Overwatch 1',
+    article: ['core-stratagems#the-core-stratagems', 'Command Re-roll 1 After you make certain rolls, such as a hit, wound, save or charge roll Counter-offensive 2 After an enemy unit has fought in the Fight phase Insane Bravery 2 Before one of your units takes a Morale test (once per battle) Fire Overwatch 1'],
+  },
+  {
+    lesson: 'stratagems',
+    says: 'Cut Them Down 1 When an enemy unit Falls Back Desperate Breakout 2',
+    article: ['core-stratagems#the-core-stratagems', 'Cut Them Down 1 When an enemy unit Falls Back, before it moves Desperate Breakout 2'],
+  },
+  { lesson: 'stratagems', says: 'Emergency Disembarkation 1', article: ['core-stratagems#the-core-stratagems', 'Emergency Disembarkation 1'] },
+  {
+    lesson: 'stratagems',
+    says: 'A charge roll is 2D6 rolled together, so you must re-roll both dice',
+    article: ['charge-phase#charging', 'The Command Re-roll stratagem can re-roll a charge roll, but you must re-roll both dice.'],
+  },
+  // ---------- 13. Terrain ----------
+  {
+    lesson: 'terrain',
+    says: 'Light Cover: +1 to armour saves against ranged attacks.',
+    article: ['terrain#cover-traits', 'Against ranged attacks, a model getting cover from this feature adds +1 to its armour saving throws.'],
+    engine: () => expect(TERRAIN_PRESETS.craters.traits).toContain('light-cover'),
+  },
+  {
+    lesson: 'terrain',
+    says: 'Heavy Cover: +1 to armour saves against melee attacks, but not for a model that made a charge move this turn.',
+    article: ['terrain#cover-traits', "Against melee attacks, a model getting cover from this feature adds +1 to its armour saving throws. This doesn't apply if the model the attack is allocated to made a charge move this turn."],
+  },
+  {
+    lesson: 'terrain',
+    says: 'Dense Cover: if the feature is at least 3" tall, ranged attacks through it take -1 to hit.',
+    article: ['terrain#cover-traits', 'Dense Cover only works if the feature is at least 3" tall. When a model makes a ranged attack, subtract 1 from the hit roll (-1 to hit)'],
+    engine: () => expect(TERRAIN_PRESETS.woods.traits).toContain('dense-cover'),
+  },
+  {
+    lesson: 'terrain',
+    says: 'a unit that makes a Normal Move, Advance or Fall Back over it subtracts 2" from its models’ Move, and charging over it gives -2 to the charge roll',
+    article: ['terrain#movement-traits', 'When a unit makes a Normal Move, Advance or Fall Back, and any of its models will move over any part of this feature, subtract 2" from the Move characteristic of every model in the unit.'],
+  },
+  {
+    lesson: 'terrain',
+    says: 'INFANTRY, BEAST and SWARM models on or within an Area Terrain feature (ruins, woods, craters) get its cover.',
+    article: ['terrain#terrain-categories', 'Area Terrain Ruins, woods, craters, industrial structures INFANTRY, BEAST and SWARM models within its footprint'],
   },
 ];
 
