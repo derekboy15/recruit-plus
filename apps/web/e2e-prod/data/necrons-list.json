@@ -1,0 +1,83 @@
+{
+ "roster": {
+  "schema": 1,
+  "name": "Necrons Strike Force",
+  "catalogueId": "61c6-c8c5-a304-ff5f",
+  "battleSize": "strike-force",
+  "forces": [
+   {
+    "id": "f8730b95-55ae-4b8b-a78a-170c8014e54b",
+    "forceId": "fa51-993c-2f8b-9be4",
+    "catalogueId": "61c6-c8c5-a304-ff5f",
+    "selections": [
+     {
+      "id": "fe7cbdeb-ac4d-4785-9453-ae9e5ba5c865",
+      "entryId": "fb30-1514-c892-86b5",
+      "count": 1,
+      "children": [
+       {
+        "id": "05f075df-c84c-4c16-9424-ea6bb494a7a6",
+        "entryId": "50c2-b873-8275-3ac6",
+        "count": 1,
+        "children": []
+       }
+      ]
+     },
+     {
+      "id": "c7e4d993-c7d2-43f8-a2b6-c506674290da",
+      "entryId": "4bcc-b0f4-b425-f38e",
+      "count": 1,
+      "children": [
+       {
+        "id": "b96917ca-75e1-42f2-b52b-0076ef8c1c3c",
+        "entryId": "76d2-6e71-243f-ad3d",
+        "count": 1,
+        "children": []
+       }
+      ]
+     },
+     {
+      "id": "f678d5a4-85da-4632-968a-931c403a7014",
+      "entryId": "ec87-f19e-eee2-1ba8",
+      "count": 1,
+      "children": []
+     },
+     {
+      "id": "1b006520-4f86-4353-ac5a-c25df413ee0a",
+      "entryId": "44e3-c224-ba82-1b55",
+      "count": 1,
+      "children": [
+       {
+        "id": "29a4a871-7bd6-4b38-98f0-f7b27933e586",
+        "entryId": "09f9-b586-8d63-7635",
+        "count": 1,
+        "children": []
+       }
+      ]
+     },
+     {
+      "id": "41f5abe8-5304-4844-9f99-286621a317ad",
+      "entryId": "3c7c-a442-53e3-e868",
+      "count": 1,
+      "children": [
+       {
+        "id": "a8581a68-a4c2-46f8-a712-c9b672e91008",
+        "entryId": "8fe4-6466-fb24-5a1e",
+        "count": 1,
+        "children": []
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "catalogueSlug": "necrons",
+  "faction": "Necrons",
+  "battleSize": "strike-force",
+  "points": 0,
+  "pointsLimit": 2000,
+  "issueCount": 2
+ }
+}

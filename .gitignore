@@ -9,3 +9,5 @@ apps/web/playwright-report/
 .env.local
 *.log
 packages/content/todo/
+apps/web/dist-e2e/
+apps/web/test-results-prod/
