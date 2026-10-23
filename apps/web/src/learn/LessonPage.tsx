@@ -1,17 +1,16 @@
 /** A lesson: its short explanation, the key words (from the glossary), links into the Rules Reference, and its drill. */
 import type { Lesson } from '@recruit/data/model';
-import { useCallback } from 'react';
+import { lazy, Suspense, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import type { RendererFactory } from '../play/board/BoardCanvas';
 import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
-import { DrillScreen } from './drill/DrillScreen';
-import { ListDrillScreen } from './drill/ListDrillScreen';
-import { isListDrill } from './drill/types';
-import { DRILLS } from './drills';
 import { completeLesson } from './progress';
 import { lockOf, useLearnData } from './useLessons';
+
+// The drills bring the engine and the board: they load only when a drill opens.
+const DrillHost = lazy(() => import('./drill/DrillHost'));
 
 function useLesson() {
   const { lessonId = '' } = useParams();
@@ -141,9 +140,16 @@ export function DrillRoute({ renderer }: { renderer?: RendererFactory }) {
   );
   const gate = Gate(l);
   if (gate || l.data.status !== 'ready' || !l.lesson) return gate;
-  const drill = DRILLS[l.lesson.drill];
-  if (!drill) return <p role="alert">This drill isn&apos;t ready yet.</p>;
   const next = nextOf(l.data.lessons, l.lesson);
-  const props = { onDone, exitTo: `/learn/${l.lesson.id}`, next: next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null };
-  return isListDrill(drill) ? <ListDrillScreen drill={drill} {...props} /> : <DrillScreen drill={drill} renderer={renderer} {...props} />;
+  return (
+    <Suspense fallback={<p className="muted">Setting up the drill…</p>}>
+      <DrillHost
+        drillId={l.lesson.drill}
+        renderer={renderer}
+        onDone={onDone}
+        exitTo={`/learn/${l.lesson.id}`}
+        next={next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null}
+      />
+    </Suspense>
+  );
 }

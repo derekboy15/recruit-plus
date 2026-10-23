@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import type { GameData } from '../play/store/gameStore';
 import { useStorage } from '../storage/StorageContext';
-import { createFirstGame } from './firstGame';
 import { allDone, updateProgress } from './progress';
 import { useLearnData } from './useLessons';
 
@@ -26,6 +25,8 @@ export function FirstGamePage() {
       try {
         const existing = firstGameId ? await repo.getDoc<GameData>(firstGameId) : undefined;
         if (existing && !existing.deleted) return navigate(`/play/${existing.id}`, { replace: true });
+        // The starter lists and the engine load only now.
+        const { createFirstGame } = await import('./firstGame');
         const id = await createFirstGame(repo, user.id, crypto.getRandomValues(new Uint32Array(1))[0]);
         await updateProgress(repo, user.id, (p) => ({ ...p, firstGameId: id }));
         navigate(`/play/${id}`, { replace: true });
