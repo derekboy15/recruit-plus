@@ -1,5 +1,5 @@
 /** Lesson 13: terrain in play: Difficult Ground slows a move, and Dense Cover makes shots harder. */
-import type { GameState } from '@recruit/engine';
+import { difficultGroundOnPath, sheetOf, stateOf, type GameState } from '@recruit/engine';
 import type { Drill } from '../drill/types';
 import { accepted, charsIn, inches, moveOf, openRoll, rollChoices } from './helpers';
 import { advanceTo, intercessors, NECRONS, scenario, terrainBox, ULTRA, warriors } from './scenario';
@@ -58,7 +58,20 @@ export const terrain: Drill = {
       prompt: () => 'Make a Normal Move with the left-hand squad straight across the crater (up to 4"), then confirm it.',
       guard: (cmd) =>
         (cmd.type === 'beginMove' || cmd.type === 'completeMove' || cmd.type === 'cancelMove') && cmd.unitId === LEFT ? null : 'In this drill, move the left-hand squad across the crater.',
-      check: (w) => (accepted(w, 'completeMove').length ? { pass: true, explain: 'Your squad crossed the crater.' } : null),
+      check: (w) => {
+        if (!accepted(w, 'completeMove').length) return null;
+        // The engine's own test: did any model's straight path go over the crater (Difficult Ground)?
+        const before = stateOf(w.stageStart);
+        const base = sheetOf(w.state, LEFT).base;
+        const crossed = w.state.units[LEFT].modelIds.some((id) => {
+          const from = before.models[id].pos;
+          const to = w.state.models[id].pos;
+          return from && to && difficultGroundOnPath([from, to], base, w.state.setup.terrain).length > 0;
+        });
+        return crossed
+          ? { pass: true, explain: 'Your squad crossed the crater.' }
+          : { pass: false, explain: 'Your squad didn’t move over the crater, so it never met the Difficult Ground. Try again, and move straight across it.' };
+      },
     },
     {
       kind: 'do',

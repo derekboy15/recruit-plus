@@ -49,6 +49,17 @@ describe('Lesson 13 drill: terrain', () => {
     expect(ask.kind === 'ask' && ask.answer({ state: stateOf((r as { game: GameRecord }).game) } as never)).toBe('3+');
   });
 
+  test('a move that misses the crater does not pass: the learner is told and can try again', () => {
+    const sideways = (run: DrillRun) => {
+      const s = stateOf(run.record);
+      const moves = Object.fromEntries(s.units['A:int2'].modelIds.map((id) => [id, { to: { ...s.models[id].pos!, x: s.models[id].pos!.x + 1 } }]));
+      return { type: 'completeMove', by: 'A', unitId: 'A:int2', moves } as Command;
+    };
+    const run = play(terrain, [{ answer: '4"' }, begin('A:int2'), sideways]);
+    expect(run.status).toBe('failed');
+    expect(run.failure).toBe('Your squad didn’t move over the crater, so it never met the Difficult Ground. Try again, and move straight across it.');
+  });
+
   test('wrong answers are refused', () => {
     expect(() => play(terrain, [{ answer: '6"' }])).toThrow(/wrong answer at difficult/);
   });
