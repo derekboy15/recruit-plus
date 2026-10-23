@@ -153,3 +153,20 @@ test('no horizontal scroll at 320px', async ({ page, remote, signedIn }) => {
   }
   expect(wide).toEqual([]);
 });
+
+test('the board shows a focus ring when it has keyboard focus', async ({ page, remote, signedIn }) => {
+  void signedIn;
+  const { playId } = seed(remote);
+  await page.goto(`/play/${playId}`);
+  const board = page.getByRole('application', { name: /Battlefield/ });
+  await expect(board).toBeVisible({ timeout: 20_000 });
+  await board.focus();
+  await page.keyboard.press('ArrowUp');
+  // The app's own focus ring (3px solid --focus), not the browser's thin default, which is invisible on the dark board.
+  const ring = await board.evaluate((el) => {
+    const cs = getComputedStyle(el);
+    return { style: cs.outlineStyle, width: parseFloat(cs.outlineWidth) };
+  });
+  expect(ring.style).toBe('solid');
+  expect(ring.width).toBeGreaterThanOrEqual(3);
+});

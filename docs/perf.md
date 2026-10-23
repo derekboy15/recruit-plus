@@ -46,19 +46,26 @@ Changing a budget needs a line in the change log below saying why.
 - **The service worker registers after the page's `load` event.** Before, its install (now 2.35 MB with the precached shell data) downloaded at the same time as the first page.
 - **Shell data is precached:** rules, lessons, missions, core stratagems and the faction index, so they work offline. This raised the precache from 1.63 MB to 2.35 MB. The 2.6 MB budget leaves room for one more lesson or rules file, not a catalogue: catalogues stay "cached when used".
 
-## After Milestone 8 (Task 3 measurement)
+## After Milestone 8
 
-| Measure | Value |
-|---|---|
-| Cold `/` FCP | 1.37 s |
-| Warm `/rules`, `/build`, `/learn`, `/table` | 0.38, 0.19, 0.30, 0.21 s |
-| Space Wolves faction page, cold data | 2.24 s |
-| Crowded board (100 models) | 59 fps, p95 frame 17 ms |
-| Main entry | 74.3 kB gzip |
-| Largest chunk | 83.3 kB gzip |
-| Precache | 70 entries, 2.35 MB |
+| Measure | Quiet machine (Task 3) | Full e2e run (Task 14) |
+|---|---|---|
+| Cold `/` FCP | 1.37 s | 1.73 s |
+| Warm `/rules` | 0.38 s | 0.36 s |
+| Warm `/build` | 0.19 s | 0.30 s |
+| Warm `/learn` | 0.30 s | 0.53 s |
+| Warm `/table` | 0.21 s | 0.32 s |
+| Space Wolves faction page, cold data | 2.24 s | 3.66 s |
+| Crowded board (100 models) | p95 frame 17 ms | p95 frame 33 ms |
 
-Nothing broke a budget, so no rendering or parsing fix was needed. The board redraw and the catalogue parse stay within the limits on the throttled phone profile.
+**Sizes after Milestone 8:**
+- main entry 75.9 kB gzip;
+- largest chunk 83.3 kB gzip;
+- precache 2.53 MB (78 entries, including the icons and the shell data).
+
+**Nothing broke a budget,** so no rendering or parsing fix was needed.
+
+**Space Wolves is the closest to its limit** (3.66 s of 4.0 s on a busy machine). Its time is mostly the 4× slowed CPU parsing and rendering a 2 MB catalogue, since the data itself arrives gzipped. If this budget starts failing in CI, split the catalogue: load datasheet details on demand instead of with the faction page.
 
 ## Change log
 - 2026-10-23: budgets set (Milestone 8).
