@@ -2,7 +2,7 @@ import { currentStep, stateOf, type Command } from '@recruit/engine';
 import { describe, expect, test } from 'vitest';
 import { chargePhase, deployedGame, must } from '../../play/__fixtures__/game';
 import { diskCtx, play, tiny } from '../__fixtures__/drills';
-import { actRun, answerRun, currentStage, startRun, watchOf } from './run';
+import { actRun, answerRun, cardView, currentStage, startRun, watchOf } from './run';
 import type { Drill } from './types';
 
 const end = (by: 'A' | 'B') => ({ type: 'endPhase', by }) as Command;
@@ -96,6 +96,26 @@ describe('drill controller', () => {
     expect(r.problems?.length).toBeGreaterThan(0);
     expect(r.run.status).toBe('done');
     expect(r.run.results[0].explain).toBe('Refused, as it should be.');
+  });
+
+  test("the card shows the open roll's dice with a question asked during it", () => {
+    const asking: Drill = {
+      ...tiny,
+      build: (ctx) => {
+        let g = deployedGame({ scriptedDice: ctx.dice });
+        for (let i = 0; i < 3; i++) g = must(g, end('A'));
+        return g;
+      },
+      stages: [
+        { kind: 'do', id: 'shoot', prompt: () => 'Shoot.', check: (w) => (w.state.pending ? { pass: true, explain: 'Rolled.' } : null) },
+        { kind: 'ask', id: 'q', question: () => 'How many hit?', choices: () => [{ id: '0', label: '0' }], answer: () => '0', explain: () => '' },
+      ],
+    };
+    let run = startRun(asking, diskCtx({ dice: [6, 5, 4, 3, 2, 1, 6, 5, 4, 3] }));
+    expect(cardView(run).dice).toBeUndefined();
+    const s = stateOf(run.record);
+    run = actRun(run, { type: 'shoot', by: 'A', unitId: 'A:war', assignments: s.units['A:war'].modelIds.map((modelId) => ({ modelId, weapon: 'Gauss Flayer', targetUnitId: 'B:int' })) } as Command).run;
+    expect(cardView(run).dice?.dice.map((d) => d.value)).toEqual([6, 5, 4, 3, 2, 1, 6, 5, 4, 3]);
   });
 
   test('skipped stages are passed over', () => {

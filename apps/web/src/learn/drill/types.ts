@@ -5,7 +5,7 @@
  */
 import type { MissionsOut } from '@recruit/data/missions';
 import type { PolicyData, Roster, Scope } from '@recruit/data/roster';
-import type { Command, Datasheet, GameRecord, GameState, PlayerId, Problem } from '@recruit/engine';
+import type { Command, Datasheet, Die, GameRecord, GameState, PlayerId, Problem } from '@recruit/engine';
 
 export interface DrillCtx {
   /** A real datasheet from a loaded catalogue. */
@@ -84,6 +84,8 @@ export interface CardView {
   failure: string | null;
   wrong: string | null;
   stage: { kind: 'do'; id: string; prompt: string } | { kind: 'ask'; id: string; question: string; choices: Choice[] } | null;
+  /** The open roll's dice, shown with a question asked during it (the phase panel, which shows them, is hidden). */
+  dice?: { key: string; dice: Die[] };
 }
 
 // ---------- List drills (lesson 14): the world is an army roster, judged by the army builder's own checks ----------

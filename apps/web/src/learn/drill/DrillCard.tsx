@@ -3,6 +3,7 @@ import type { UnitOut } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Datasheet } from '../../factions/DatasheetPage';
+import { DiceTray } from '../../play/panels/DiceTray';
 import type { CardView } from './types';
 
 export interface DrillCardProps {
@@ -43,6 +44,7 @@ export function DrillCard({ view, onAnswer, onRestart, sheet, next }: DrillCardP
         >
           <fieldset className="choices drill-card__question">
             <legend>{stage.question}</legend>
+            {view.dice && <DiceTray dice={view.dice.dice} rollKey={view.dice.key} />}
             {stage.choices.map((c) => (
               <label key={c.id} className="choices__option drill-card__choice">
                 <input type="radio" name={`drill-${stage.id}`} value={c.id} checked={choice === c.id} onChange={() => setChoice(c.id)} />

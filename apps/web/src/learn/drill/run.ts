@@ -126,6 +126,7 @@ export function answerRun(run: DrillRun, choiceId: string): DrillRun {
 export function cardView(run: DrillRun): CardView {
   const stage = currentStage(run);
   const w = watchOf(run);
+  const roll = w.state.pending?.kind === 'roll' ? w.state.rolls[w.state.pending.rollId] : undefined;
   return {
     intro: run.drill.intro,
     results: run.results,
@@ -137,5 +138,6 @@ export function cardView(run: DrillRun): CardView {
       : stage.kind === 'do'
         ? { kind: 'do', id: stage.id, prompt: stage.prompt(w) }
         : { kind: 'ask', id: stage.id, question: stage.question(w), choices: stage.choices(w) },
+    ...(stage?.kind === 'ask' && roll ? { dice: { key: `${roll.id}:${roll.dice.map((d) => d.value).join(',')}`, dice: roll.dice } } : {}),
   };
 }
