@@ -6,6 +6,9 @@ import { attacks } from './l03-attacks';
 import { commandPhase } from './l04-command-phase';
 import { movement } from './l05-movement';
 import { psychic } from './l06-psychic';
+import { shooting } from './l07-shooting';
+import { charge } from './l08-charge';
+import { fight } from './l09-fight';
 
 export const DRILLS: Record<string, Drill> = {
   [whatIs40k.id]: whatIs40k,
@@ -14,4 +17,7 @@ export const DRILLS: Record<string, Drill> = {
   [commandPhase.id]: commandPhase,
   [movement.id]: movement,
   [psychic.id]: psychic,
+  [shooting.id]: shooting,
+  [charge.id]: charge,
+  [fight.id]: fight,
 };

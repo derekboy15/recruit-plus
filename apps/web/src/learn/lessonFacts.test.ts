@@ -3,11 +3,13 @@
  * leans on, and it is what the engine (or the real data) does.
  */
 import type { LessonsData, RulesData } from '@recruit/data/model';
-import { bestSave, BOARD_SIZES, capMod, hitSucceeds, inCoherency, inEngagementRange, inRangeOfObjective, MARKER_RADIUS, missionRulesFor, saveSucceeds, stateOf, woundNeeded, type GameState } from '@recruit/engine';
+import { bestSave, blastShots, BOARD_SIZES, capMod, CLOSE_COMBAT_WEAPON, dispatch, hitSucceeds, inCoherency, inEngagementRange, inRangeOfObjective, livingModels, modelView, parseDice, unitView, unitVisibleTo, type Command, MARKER_RADIUS, missionRulesFor, saveSucceeds, stateOf, woundNeeded, type GameState } from '@recruit/engine';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
 import { deployedGame, realSheet, ULTRAMARINES } from '../play/__fixtures__/game';
+import { diskCtx } from './__fixtures__/drills';
+import { advanceTo, intercessors, NECRONS, scenario, terrainBox, ULTRA, warriors, type UnitSpec } from './drills/scenario';
 
 const GENERATED = join(__dirname, '..', '..', '..', '..', 'packages', 'data', 'generated');
 const lessons = (JSON.parse(readFileSync(join(GENERATED, 'lessons.json'), 'utf8')) as LessonsData).lessons;
@@ -229,6 +231,103 @@ export const FACTS: Fact[] = [
     says: 'If your Psychic test shows a double 1 or a double 6, your psyker suffers Perils of the Warp: D3 mortal wounds on itself.',
     article: ['psychic-phase#perils-of-the-warp', 'shows a double 1 or a double 6, the psyker unit suffers Perils of the Warp. The psyker unit suffers D3 mortal wounds.'],
   },
+
+  // ---------- 7. Shooting ----------
+  {
+    lesson: 'shooting',
+    says: 'models can’t see through or over the feature if it is at least 5" tall',
+    article: ['basics#visibility', "a model can't see through or over an Obscuring feature that is at least 5\" tall"],
+    engine: () => {
+      expect(seesPastRuin(5)).toBe(false);
+      expect(seesPastRuin(4.9)).toBe(true);
+    },
+  },
+  {
+    lesson: 'shooting',
+    says: 'Light Cover adds +1 to their armour saves against ranged attacks. It never improves an invulnerable save.',
+    article: ['terrain#cover-traits', 'Against ranged attacks, a model getting cover from this feature adds +1 to its armour saving throws. Light Cover never improves an invulnerable save.'],
+  },
+  {
+    lesson: 'shooting',
+    says: 'Against a unit of 6 to 10 models, a Blast weapon always makes at least 3 attacks. Against 11 or more models, it makes the most it can: 6 for a D6.',
+    article: ['shooting-phase#blast', 'Target has between 6 and 10 models: the weapon always makes at least 3 attacks.'],
+    engine: () => {
+      const d6 = parseDice('D6')!;
+      expect([blastShots(d6, 1, 6), blastShots(d6, 1, 10), blastShots(d6, 1, 11), blastShots(d6, 2, 5)]).toEqual([3, 3, 6, 2]);
+    },
+  },
+  {
+    lesson: 'shooting',
+    says: 'A CHARACTER with 9 or fewer wounds can’t be shot while it is within 3" of a friendly unit of 3 or more models that has no CHARACTERS',
+    article: ['shooting-phase#look-out-sir', 'contains a CHARACTER with 9 or fewer wounds (a Wounds characteristic of 9 or less) and it is within 3" of any of these friendly units'],
+  },
+  {
+    lesson: 'shooting',
+    says: 'It can still be shot if it is the closest visible enemy unit to the firing model.',
+    article: ['shooting-phase#look-out-sir', "The character's unit can still be targeted if it is both visible to the firing model and the closest enemy unit to it."],
+  },
+  // ---------- 8. Charge ----------
+  {
+    lesson: 'charge',
+    says: 'A unit can charge if it is within 12" of an enemy unit, didn’t Advance or Fall Back this turn',
+    article: ['charge-phase#charging', 'It is within 12" of at least 1 enemy unit. It did not Advance or Fall Back this turn.'],
+    engine: () => {
+      expect(declareAt(11.9)).toBe(true);
+      expect(declareAt(12.1)).toBe(false);
+    },
+  },
+  {
+    lesson: 'charge',
+    says: 'each of its attacks only hits on an unmodified 6',
+    article: ['charge-phase#overwatch', 'Each of its attacks only hits on an unmodified 6'],
+  },
+  {
+    lesson: 'charge',
+    says: 'Roll 2D6: that is how far, in inches, each model can move.',
+    article: ['charge-phase#charging', 'Roll 2D6. The total, in inches, is the charge roll: the furthest each model in the unit can move.'],
+  },
+  {
+    lesson: 'charge',
+    says: 'ends within Engagement Range (1") of every unit it declared as a target, in unit coherency, and not within Engagement Range of any other enemy unit',
+    article: ['charge-phase#charging', "the unit ends within Engagement Range of every target you declared; the unit ends in unit coherency; no model moves within Engagement Range of an enemy unit you didn't declare as a target."],
+  },
+  {
+    lesson: 'charge',
+    says: 'A CHARACTER within 3" of an enemy unit (and not in Engagement Range) moves up to 3", ending closer to the closest enemy model.',
+    article: ['charge-phase#heroic-interventions', 'Each model in the intervening unit can move up to 3". It must end closer to the closest enemy model'],
+  },
+  // ---------- 9. Fight ----------
+  {
+    lesson: 'fight',
+    says: 'Units that charged this turn fight first.',
+    article: ['fight-phase#fight-order', 'Every unit that made a charge move this turn fights before any other unit.'],
+  },
+  {
+    lesson: 'fight',
+    says: 'Then the players take turns picking one unit each, starting with the player whose turn it isn’t',
+    article: ['fight-phase#fight-order', 'The player whose turn it is not picks first.'],
+  },
+  {
+    lesson: 'fight',
+    says: 'each model may move up to 3". A model that moves must end closer to the closest enemy model.',
+    article: ['fight-phase#pile-in', 'Each model can move up to 3". Moving is optional: you can move some, all or none of the models. Each model that moves must end closer to the closest enemy model.'],
+  },
+  {
+    lesson: 'fight',
+    says: 'within ½" of a friendly model that is within ½" of an enemy model',
+    article: ['fight-phase#which-models-fight', 'it is within ½" of another model from its own unit, and that model is within ½" of an enemy model'],
+  },
+  {
+    lesson: 'fight',
+    says: 'Consolidate: each model may move up to 3", again ending closer to the closest enemy model.',
+    article: ['fight-phase#consolidate', 'Each model can move up to 3". Like piling in, this is optional. Each model that moves must end closer to the closest enemy model'],
+  },
+  {
+    lesson: 'fight',
+    says: 'A model with no melee weapon fights with a close combat weapon: its own Strength, AP 0, Damage 1.',
+    article: ['fight-phase#making-close-combat-attacks', "A model that has no melee weapon fights with a close combat weapon: its Strength is the model's own Strength, AP 0, Damage 1."],
+    engine: () => expect([CLOSE_COMBAT_WEAPON.s, CLOSE_COMBAT_WEAPON.ap, CLOSE_COMBAT_WEAPON.d.plus]).toEqual([{ kind: 'user' }, 0, 1]),
+  },
 ];
 
 /** Is a Necron Warrior (32mm base) whose base edge is `gap` inches from a marker's edge in range of it? */
@@ -236,6 +335,25 @@ function engineInRange(gap: number): boolean {
   const s: GameState = stateOf(deployedGame());
   const m = s.models[s.units['A:war'].modelIds[0]];
   return inRangeOfObjective(s, m, { x: m.pos!.x + gap + MARKER_RADIUS + 32 / 25.4 / 2, y: m.pos!.y });
+}
+
+/** Can an Intercessor see a Necron Warrior straight across a ruin (Obscuring) of this height? */
+function seesPastRuin(height: number): boolean {
+  const units: UnitSpec[] = [
+    { id: 'A:int', player: 'A', sheet: [ULTRA, 'Intercessor Squad'], models: intercessors(5), at: { x: 22, y: 6 } },
+    { id: 'B:war', player: 'B', sheet: [NECRONS, 'Necron Warriors'], models: warriors(10), at: { x: 22, y: 24 } },
+  ];
+  const s = stateOf(scenario({ units, terrain: [terrainBox('ruins', 0, 12, 44, 14, height, 'Ruins')] }, diskCtx()));
+  return livingModels(s, 'A:int').some((m) => unitVisibleTo(modelView(s, m), unitView(s, 'B:war'), s.setup.terrain));
+}
+/** Does the engine let Intercessors declare a charge at Warriors this far away (base to base)? */
+function declareAt(gap: number): boolean {
+  const units: UnitSpec[] = [
+    { id: 'A:int', player: 'A', sheet: [ULTRA, 'Intercessor Squad'], models: intercessors(5), at: { x: 22, y: 4 } },
+    { id: 'B:war', player: 'B', sheet: [NECRONS, 'Necron Warriors'], models: warriors(10), at: { x: 22, y: 4 + gap + 32 / 25.4 } },
+  ];
+  const g = advanceTo(scenario({ units }, diskCtx()), { phase: 'charge' });
+  return dispatch(g, { type: 'declareCharge', by: 'A', unitId: 'A:int', targetIds: ['B:war'] } as Command).ok;
 }
 
 const at = (x: number) => ({ x, y: 0, z: 0, rot: 0 });
