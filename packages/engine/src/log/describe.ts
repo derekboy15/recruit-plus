@@ -1,7 +1,7 @@
 /** The game log: one plain-English line per event that a player cares about (null for bookkeeping). */
 import { apply } from '../core/apply';
 import type { GameRecord } from '../core/record';
-import { initialState, type GameState, type Phase } from '../core/state';
+import { initialState, objectiveName, type GameState, type Phase } from '../core/state';
 import type { EventMap, EventType, GameEvent, PlayerId } from '../core/types';
 import { moveInches } from '../move/moves';
 
@@ -35,7 +35,7 @@ const describers: { [T in EventType]: Describer<EventMap[T]> } = {
   },
   roundCpReset: bookkeeping,
   vpScored: (e, s) => `${army(s, e.player)} scored ${plural(e.amount, 'VP')} (${e.category === 'secondary' ? e.name : e.category === 'painted' ? 'painted army' : e.reason}).`,
-  objectiveSet: (e, s) => `Objective ${e.objectiveId} is now ${e.owner ? `held by ${army(s, e.owner)}${e.sticky ? ' until the opponent takes it' : ''}` : 'nobody\'s'}.`,
+  objectiveSet: (e, s) => `Objective ${objectiveName(s.setup.objectives.find((o) => o.id === e.objectiveId) ?? { id: e.objectiveId })} is now ${e.owner ? `held by ${army(s, e.owner)}${e.sticky ? ' until the opponent takes it' : ''}` : 'nobody\'s'}.`,
   modelsRemoved: (e, s) => `${unitOfModel(s, e.modelIds[0])} lost ${plural(e.modelIds.length, 'model')} (${e.reason}).`,
   reservesDeclared: (e, s) => `${army(s, e.player)} put ${e.unitIds.map((id) => unit(s, id)).join(', ')} in ${e.kind === 'strategic' ? 'Strategic Reserves' : 'reserve to arrive later'}${e.cp ? ` (${e.cp} CP)` : ''}.`,
   unitDeployed: (e, s) => `${army(s, s.units[e.unitId].player)} set up ${unit(s, e.unitId)}${e.embarked.length ? ` with ${e.embarked.map((id) => unit(s, id)).join(', ')} aboard` : ''}.`,

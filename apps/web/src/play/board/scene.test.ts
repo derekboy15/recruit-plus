@@ -84,3 +84,19 @@ describe('buildScene', () => {
   });
 });
 
+
+describe('objective names', () => {
+  const ui: BoardUi = { selectedUnitId: null, plan: null, invalidModelIds: [], rings: [], targetUnitIds: [] };
+  const withObjectives = (objectives: { id: string; label?: string }[]) => {
+    const s = stateOf(deployedGame());
+    return { ...s, setup: { ...s.setup, objectives: objectives.map((o, i) => ({ ...o, pos: { x: 5 + i, y: 5 } })) } };
+  };
+
+  test('objectives without a label show their id', () => {
+    expect(buildScene(withObjectives([{ id: 'nw' }]), ui).objectives.map((o) => o.name)).toEqual(['nw']);
+  });
+
+  test('a labelled objective shows its label', () => {
+    expect(buildScene(withObjectives([{ id: 'nw', label: 'ne' }]), ui).objectives.map((o) => o.name)).toEqual(['ne']);
+  });
+});

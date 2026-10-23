@@ -82,6 +82,24 @@ export function areaToPolygon(area: Area): XY[] {
   return poly;
 }
 
+const COMPASS_TURN: Record<string, string> = { n: 'e', e: 's', s: 'w', w: 'n' };
+
+/**
+ * A compass-named objective ("nw", "se1") renamed for a map turned a quarter turn clockwise, so the name still says
+ * where it is on the board: nw → ne, n → e and so on. Any other name is unchanged.
+ */
+export function turnCompassLabel(name: string): string {
+  const m = /^(nw|ne|sw|se|n|e|s|w)(\d*)$/i.exec(name);
+  if (!m) return name;
+  const turned = [...m[1]].map((ch) => {
+    const t = COMPASS_TURN[ch.toLowerCase()];
+    return ch === ch.toUpperCase() ? t.toUpperCase() : t;
+  });
+  // Keep the usual order: north/south first (ne, not en).
+  const ordered = turned.length === 2 && /[ew]/i.test(turned[0]) ? [turned[1], turned[0]] : turned;
+  return ordered.join('') + m[2];
+}
+
 /**
  * Map coordinates → engine coordinates. A map the same shape as the board is flipped so y points up; a landscape map
  * on a portrait board is turned a quarter turn (as you'd turn the printed map), not mirrored.
@@ -107,6 +125,7 @@ const MAP_EDGE_MIDPOINT = {
 
 export function missionLayout(map: MissionMap, board: { w: number; h: number }): MissionLayout {
   const f = toEngine(map, board);
+  const turned = map.board.width !== board.w;
   const edge = (k: 'A' | 'B'): Edge => {
     const [x, y] = MAP_EDGE_MIDPOINT[map.edges[k]](map.board.width, map.board.height);
     return edgeAt(f(x, y), board);
@@ -115,7 +134,10 @@ export function missionLayout(map: MissionMap, board: { w: number; h: number }):
   return {
     zones: { A: zone('A'), B: zone('B') },
     edges: { A: edge('A'), B: edge('B') },
-    objectives: map.objectives.map((o) => ({ id: o.id, pos: f(o.x, o.y) })),
+    objectives: map.objectives.map((o) => {
+      const label = turned ? turnCompassLabel(o.label ?? o.id) : o.label;
+      return { id: o.id, pos: f(o.x, o.y), ...(label && label !== o.id ? { label } : {}) };
+    }),
   };
 }
 

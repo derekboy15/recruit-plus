@@ -35,7 +35,8 @@ export interface GameSetup {
   board: { w: number; h: number };
   armies: [ArmyInput, ArmyInput];
   terrain: TerrainFeature[];
-  objectives: { id: string; pos: Pt }[];
+  /** `label` is what the board shows when it differs from the id (e.g. compass names on a turned mission map). */
+  objectives: { id: string; pos: Pt; label?: string }[];
   zones: Record<PlayerId, Pt[]>;
   /** Each player's own battlefield edge. North is y = board.h, south is y = 0. */
   edges: Record<PlayerId, Edge>;
@@ -85,3 +86,6 @@ export function initialState(setup: GameSetup): GameState {
   for (const f of initialisers) f(s, setup);
   return s;
 }
+
+/** What players call an objective: its label, or its id when it has none (games saved before labels existed). */
+export const objectiveName = (o: { id: string; label?: string }): string => o.label ?? o.id;

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { currentStep, describedEventTypes, eligibleUnits, EngineLoadError, gameLog, loadGame, registeredEventTypes, saveGame, stateOf, type Command } from '../../src';
+import { currentStep, describedEventTypes, describeEvent, eligibleUnits, EngineLoadError, gameLog, loadGame, registeredEventTypes, saveGame, stateOf, type Command } from '../../src';
 import { guardsmen, marines } from '../fixtures/units';
 import { deploy, FULL_ZONES, line, newTestGame, placeAll, play, setTurnFlag, shift, unitInput } from '../helpers/game';
 
@@ -115,3 +115,17 @@ describe('loading saved games safely', () => {
 });
 
 export { guardsmen };
+
+describe('objective names in the log', () => {
+  const base = stateOf(newTestGame({}));
+  const withObjective = (o: { id: string; label?: string }) => ({ ...base, setup: { ...base.setup, objectives: [{ ...o, pos: { x: 1, y: 1 } }] } });
+  const event = { type: 'objectiveSet', objectiveId: 'nw', owner: null, sticky: false } as never;
+
+  test('an objective with a label is named by its label', () => {
+    expect(describeEvent(event, withObjective({ id: 'nw', label: 'ne' }))).toBe("Objective ne is now nobody's.");
+  });
+
+  test('an objective without a label is named by its id', () => {
+    expect(describeEvent(event, withObjective({ id: 'nw' }))).toBe("Objective nw is now nobody's.");
+  });
+});

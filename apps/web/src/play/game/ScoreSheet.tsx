@@ -1,5 +1,5 @@
 /** The score: each army's VP by category, who controls each objective now, and secondary or painted VP added by hand. */
-import { objectiveControl, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
+import { objectiveControl, objectiveName, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
 import { useState } from 'react';
 import { Problems } from '../panels/Problems';
 import { armyName } from './names';
@@ -64,7 +64,7 @@ export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd:
       </p>
       <ul className="play-small">
         {state.setup.objectives.map((o) => (
-          <li key={o.id}>{`Objective ${o.id}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
+          <li key={o.id}>{`Objective ${objectiveName(o)}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
         ))}
       </ul>
       {(['A', 'B'] as PlayerId[]).map((p) => (

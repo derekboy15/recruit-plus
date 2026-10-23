@@ -4,7 +4,7 @@
  */
 import type { BattleSizeId, Edge, PlayerId, Pt } from '@recruit/engine';
 
-export interface MissionLayout { zones: Record<PlayerId, Pt[]>; edges: Record<PlayerId, Edge>; objectives: { id: string; pos: Pt }[] }
+export interface MissionLayout { zones: Record<PlayerId, Pt[]>; edges: Record<PlayerId, Edge>; objectives: { id: string; pos: Pt; label?: string }[] }
 
 export interface SandboxMission {
   id: string;

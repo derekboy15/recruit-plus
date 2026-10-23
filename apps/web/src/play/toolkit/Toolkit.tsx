@@ -3,7 +3,7 @@
  * Miracle dice…) without per-faction code. Every tool is one engine command: logged, and undoable within the phase (R-19).
  * It replaces the phase panel while open, so the board stays free for picking models and places.
  */
-import { charsOf, livingModels, profileOf, sheetOf, type ActivationKind, type Command, type PlayerId, type Pos, type Problem } from '@recruit/engine';
+import { charsOf, livingModels, objectiveName, profileOf, sheetOf, type ActivationKind, type Command, type PlayerId, type Pos, type Problem } from '@recruit/engine';
 import { useEffect, useRef, useState } from 'react';
 import { armyName } from '../game/names';
 import type { PanelProps } from '../panels/types';
@@ -275,9 +275,9 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
         return (
           <div key={o.id} className="play-row">
             <label className="play-field play-grow">
-              <span>Objective {o.id}</span>
+              <span>Objective {objectiveName(o)}</span>
               <select
-                aria-label={`Objective ${o.id} held by`}
+                aria-label={`Objective ${objectiveName(o)} held by`}
                 value={cur?.owner ?? ''}
                 onChange={(e) => run({ type: 'setObjective', by: s.active, objectiveId: o.id, owner: (e.target.value || null) as PlayerId | null, sticky: cur?.sticky ?? false })}
               >

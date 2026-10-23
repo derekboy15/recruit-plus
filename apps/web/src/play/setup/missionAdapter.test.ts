@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { BOARD_SIZES, pointInPolygon, type Edge, type Pt } from '@recruit/engine';
 import { areaContains, onAreaEdge, type Area, type MissionsOut } from '@recruit/data/missions';
 import { describe, expect, test } from 'vitest';
-import { areaToPolygon, missionDataProvider, toSandboxMission } from './missionAdapter';
+import { areaToPolygon, missionDataProvider, toSandboxMission, turnCompassLabel } from './missionAdapter';
 
 // The generated mission data from Milestone 7 (built by `npm run data:build`).
 const data: MissionsOut = JSON.parse(readFileSync(join(__dirname, '..', '..', '..', '..', '..', 'packages', 'data', 'generated', 'missions.json'), 'utf8'));
@@ -82,5 +82,54 @@ describe('every mission from the table companion data', () => {
     expect(incursion.every((m) => m.sizes.includes('incursion') && m.source === 'arks-of-omen')).toBe(true);
     expect(provider.missions('combat-patrol').every((m) => m.source === 'core-book')).toBe(true);
     expect(incursion.map((m) => m.name)).toContain('Cleanse the Land');
+  });
+});
+
+describe('objective labels on turned maps', () => {
+  test('turnCompassLabel turns compass names a quarter turn clockwise', () => {
+    const cases: [string, string][] = [['nw', 'ne'], ['ne', 'se'], ['se', 'sw'], ['sw', 'nw'], ['n', 'e'], ['e', 's'], ['s', 'w'], ['w', 'n'], ['nw1', 'ne1'], ['centre', 'centre'], ['a', 'a'], ['A1', 'A1']];
+    for (const [from, to] of cases) expect(turnCompassLabel(from), from).toBe(to);
+  });
+
+  const layoutOf = (id: string) => {
+    const m = data.missions.find((x) => x.id === id)!;
+    const board = BOARD_SIZES[m.battleSize];
+    return { board, layout: toSandboxMission(m).layout(board, m.battleSize) };
+  };
+
+  test('turned Strike Force map relabels by position', () => {
+    const { board, layout } = layoutOf('aoo-recover-the-relics');
+    const at = (label: string) => layout.objectives.find((o) => o.label === label)!.pos;
+    expect(at('ne').x).toBeGreaterThan(board.w / 2);
+    expect(at('ne').y).toBeGreaterThan(board.h / 2);
+    expect(at('nw').x).toBeLessThan(board.w / 2);
+    expect(at('nw').y).toBeGreaterThan(board.h / 2);
+    expect(at('se').x).toBeGreaterThan(board.w / 2);
+    expect(at('se').y).toBeLessThan(board.h / 2);
+    expect(at('sw').x).toBeLessThan(board.w / 2);
+    expect(at('sw').y).toBeLessThan(board.h / 2);
+  });
+
+  test("every turned mission's compass labels match their quadrant", () => {
+    let checked = 0;
+    for (const m of data.missions.filter((x) => x.battleSize === 'strike-force' || x.battleSize === 'onslaught')) {
+      const board = BOARD_SIZES[m.battleSize];
+      for (const o of toSandboxMission(m).layout(board, m.battleSize).objectives) {
+        const label = /^(nw|ne|sw|se|n|e|s|w)\d*$/.exec(o.label ?? '')?.[1];
+        if (!label) continue;
+        checked++;
+        const where = `${m.id} ${o.id}→${o.label}`;
+        if (label.includes('n')) expect(o.pos.y, where).toBeGreaterThan(board.h / 2);
+        if (label.includes('s')) expect(o.pos.y, where).toBeLessThan(board.h / 2);
+        if (label.includes('e')) expect(o.pos.x, where).toBeGreaterThan(board.w / 2);
+        if (label.includes('w')) expect(o.pos.x, where).toBeLessThan(board.w / 2);
+      }
+    }
+    expect(checked).toBeGreaterThan(20);
+  });
+
+  test('unturned Incursion map keeps its labels', () => {
+    const { layout } = layoutOf('aoo-cleanse-the-land');
+    expect(layout.objectives.map((o) => o.label ?? o.id).sort()).toEqual(['a', 'b', 'centre', 'nw', 'se']);
   });
 });

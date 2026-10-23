@@ -84,7 +84,7 @@ export const createPixiRenderer: RendererFactory = async (host, view) => {
     for (const r of scene.rulers) if (r.text) add(r.text, { x: (r.from.x + r.to.x) / 2, y: (r.from.y + r.to.y) / 2 }, c.focus);
     for (const r of scene.rings) if (r.label) add(r.label, { x: r.center.x, y: r.center.y + r.r }, c.text);
     for (const m of scene.models) if (m.W > 1 && m.woundsLeft < m.W) add(`${m.woundsLeft}/${m.W}`, m.center, c.text);
-    for (const o of scene.objectives) add(o.id, { x: o.pos.x, y: o.pos.y - o.r - 0.6 }, c.text);
+    for (const o of scene.objectives) add(o.name, { x: o.pos.x, y: o.pos.y - o.r - 0.6 }, c.text);
   }
 
   return {
