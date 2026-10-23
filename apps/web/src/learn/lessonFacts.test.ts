@@ -69,6 +69,39 @@ export const FACTS: Fact[] = [
       expect(engineInRange(3.1)).toBe(false);
     },
   },
+
+  // ---------- 2. Reading a datasheet ----------
+  {
+    lesson: 'datasheets',
+    says: 'Sv 6" 3+ 3+ 4 4 2 2 7 3+',
+    engine: () => {
+      const c = M(ULTRAMARINES, 'Intercessor Squad', 'Intercessor');
+      expect([moveInches(c), c.WS, c.BS, c.S, c.T, c.W, c.A.plus, c.Ld, c.Sv]).toEqual([6, 3, 3, 4, 4, 2, 2, 7, 3]);
+    },
+  },
+  { lesson: 'datasheets', says: 'an Intercessor has a Move of 6"', engine: () => expect(moveInches(M(ULTRAMARINES, 'Intercessor Squad', 'Intercessor'))).toBe(6) },
+  { lesson: 'datasheets', says: 'an Intercessor has 2 Wounds', engine: () => expect(M(ULTRAMARINES, 'Intercessor Squad', 'Intercessor').W).toBe(2) },
+  {
+    lesson: 'datasheets',
+    says: 'An Intercessor saves on 3+; a Necron Warrior saves on 4+',
+    engine: () => {
+      expect(M(ULTRAMARINES, 'Intercessor Squad', 'Intercessor').Sv).toBe(3);
+      expect(M('necrons', 'Necron Warriors', 'Necron Warrior').Sv).toBe(4);
+    },
+  },
+  {
+    lesson: 'datasheets',
+    says: 'D 30" Rapid Fire 1 4 -1 1',
+    engine: () => {
+      const w = realSheet(ULTRAMARINES, 'Intercessor Squad').weapons.find((x) => x.name === 'Bolt rifle')!;
+      expect([w.range, w.type, w.shots.plus, w.s, w.ap, w.d.plus]).toEqual([30, 'Rapid Fire', 1, { kind: 'fixed', v: 4 }, -1, 1]);
+    },
+  },
+  {
+    lesson: 'datasheets',
+    says: 'Rapid Fire 1 means 1 shot, doubled when the target is within half range (15" for a bolt rifle)',
+    article: ['shooting-phase#weapon-types', "Rapid Fire If the target is within half the weapon's range, the weapon makes double its normal number of attacks."],
+  },
 ];
 
 /** Is a Necron Warrior (32mm base) whose base edge is `gap` inches from a marker's edge in range of it? */
