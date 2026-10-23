@@ -3,6 +3,7 @@ import type { Lesson } from '@recruit/data/model';
 import { useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
+import type { RendererFactory } from '../play/board/BoardCanvas';
 import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
 import { DrillScreen } from './drill/DrillScreen';
@@ -125,7 +126,7 @@ export function LessonPage() {
   );
 }
 
-export function DrillRoute() {
+export function DrillRoute({ renderer }: { renderer?: RendererFactory }) {
   const l = useLesson();
   const { user } = useAuth();
   const { repo } = useStorage();
@@ -141,5 +142,5 @@ export function DrillRoute() {
   const drill = DRILLS[l.lesson.drill];
   if (!drill) return <p role="alert">This drill isn&apos;t ready yet.</p>;
   const next = nextOf(l.data.lessons, l.lesson);
-  return <DrillScreen drill={drill} onDone={onDone} exitTo={`/learn/${l.lesson.id}`} next={next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null} />;
+  return <DrillScreen drill={drill} renderer={renderer} onDone={onDone} exitTo={`/learn/${l.lesson.id}`} next={next ? { to: `/learn/${next.id}`, label: 'Next lesson' } : null} />;
 }

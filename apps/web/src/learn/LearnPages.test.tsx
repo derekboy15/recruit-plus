@@ -10,7 +10,13 @@ import { TestProviders } from '../rules/__fixtures__/TestProviders';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
 import { LearnRoutes } from './LearnRoutes';
-import { completeLesson } from './progress';
+import { completeLesson, type ProgressData } from './progress';
+import { DRILLS } from './drills';
+import { tiny } from './__fixtures__/drills';
+import userEvent from '@testing-library/user-event';
+import type { RendererFactory } from '../play/board/BoardCanvas';
+
+const fakeRenderer: RendererFactory = async () => ({ draw: () => {}, resize: () => {}, destroy: () => {} });
 import { Route, Routes } from 'react-router-dom';
 
 const GENERATED = join(__dirname, '..', '..', '..', '..', 'packages', 'data', 'generated');
@@ -128,7 +134,29 @@ describe('Lesson page', () => {
     expect(await screen.findByText("That lesson doesn't exist.")).toBeInTheDocument();
   });
 
-  test.todo('finishing the drill saves the lesson as done');
+  test('finishing the drill saves the lesson as done', async () => {
+    // The board drag is covered end to end; here a quick stand-in drill checks the route saves the lesson when done.
+    const real = DRILLS['what-is-40k'];
+    DRILLS['what-is-40k'] = { ...tiny, id: 'what-is-40k' };
+    try {
+      const user = userEvent.setup();
+      render(
+        <TestProviders db={db} path="/learn/what-is-40k/drill">
+          <Routes>
+            <Route path="/learn/*" element={<LearnRoutes renderer={fakeRenderer} />} />
+          </Routes>
+        </TestProviders>,
+      );
+      await user.click(await screen.findByRole('radio', { name: '4 CP' }));
+      await user.click(screen.getByRole('button', { name: 'Check answer' }));
+      await user.click(screen.getByRole('button', { name: 'End Command phase' }));
+      expect(screen.getByRole('heading', { name: 'Drill complete' })).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: 'Next lesson' })).toHaveAttribute('href', '/learn/datasheets');
+      await waitFor(async () => expect(Object.keys((await createRepository(db).listDocs<ProgressData>('progress', 'user-1'))[0]?.data.lessons ?? {})).toEqual(['what-is-40k']));
+    } finally {
+      DRILLS['what-is-40k'] = real;
+    }
+  });
 
   test('every Learn button and link is at least 44px', () => {
     for (const cls of ['learn-path__link', 'learn-path__start']) expect(css).toMatch(new RegExp(`\\.${cls}[^}]*min-height: var\\(--touch\\)`));
