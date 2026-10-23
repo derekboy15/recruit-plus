@@ -15,7 +15,7 @@ In your Movement phase you pick your units one at a time. Each one does exactly 
 
 - **Normal Move:** each model moves up to its Move (M). It can't move within Engagement Range of an enemy model.
 - **Advance:** roll a D6 and add it to M for this move. For the rest of the turn the unit can't charge, and it can only shoot Assault weapons, at -1 to hit. See [Advance](/rules/movement-phase#advance).
-- **Fall Back:** only for a unit that starts the phase in combat. Each model moves up to M and must end out of Engagement Range. For the rest of the turn the unit can’t shoot or charge, unless it is TITANIC. See [Fall Back](/rules/movement-phase#fall-back).
+- **Fall Back:** only for a unit that starts the phase in combat. Each model moves up to M and must end out of Engagement Range. For the rest of the turn the unit can’t charge, and it can’t shoot either (unless it is TITANIC). See [Fall Back](/rules/movement-phase#fall-back).
 - **Remain Stationary:** don't move. Any unit you don't pick stays where it is.
 
 A unit within Engagement Range of an enemy unit can only Fall Back or Remain Stationary.

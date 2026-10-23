@@ -210,6 +210,11 @@ export const FACTS: Fact[] = [
       expect(coherentLine(2, 6)).toBe(false); // 6 in a line: the end models have only one neighbour
     },
   },
+  {
+    lesson: 'movement',
+    says: 'For the rest of the turn the unit can’t charge, and it can’t shoot either (unless it is TITANIC).',
+    article: ['movement-phase#fall-back', "can't declare a charge; can't shoot, unless it is TITANIC"],
+  },
   // ---------- 6. Psychic ----------
   {
     lesson: 'psychic',
@@ -416,6 +421,11 @@ export const FACTS: Fact[] = [
     says: 'Dense Cover: if the feature is at least 3" tall, ranged attacks through it take -1 to hit.',
     article: ['terrain#cover-traits', 'Dense Cover only works if the feature is at least 3" tall. When a model makes a ranged attack, subtract 1 from the hit roll (-1 to hit)'],
     engine: () => expect(TERRAIN_PRESETS.woods.traits).toContain('dense-cover'),
+  },
+  {
+    lesson: 'terrain',
+    says: 'vehicles and monsters too (but not against AIRCRAFT, or a unit with a model of 18 or more wounds)',
+    article: ['terrain#cover-traits', 'There is no penalty when attacking an AIRCRAFT unit, or a unit containing a model with a Wounds characteristic of 18 or more.'],
   },
   {
     lesson: 'terrain',

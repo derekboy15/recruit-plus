@@ -19,7 +19,7 @@ INFANTRY, BEAST and SWARM models on or within an **Area Terrain** feature (ruins
 
 - **Light Cover:** +1 to armour saves against ranged attacks.
 - **Heavy Cover:** +1 to armour saves against melee attacks, but not for a model that made a charge move this turn.
-- **Dense Cover:** if the feature is at least 3" tall, ranged attacks through it take -1 to hit. This works for any target behind it, vehicles and monsters too.
+- **Dense Cover:** if the feature is at least 3" tall, ranged attacks through it take -1 to hit. This works for any target behind it, vehicles and monsters too (but not against AIRCRAFT, or a unit with a model of 18 or more wounds).
 
 See [cover traits](/rules/terrain#cover-traits).
 
