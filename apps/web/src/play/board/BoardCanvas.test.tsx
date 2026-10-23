@@ -1,5 +1,6 @@
 import { stateOf } from '@recruit/engine';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { deployedGame } from '../__fixtures__/game';
 import { BoardCanvas, type RendererFactory, type SceneRenderer } from './BoardCanvas';
@@ -118,4 +119,73 @@ test('the renderer is destroyed on unmount', async () => {
   await waitFor(() => expect(draws.length).toBeGreaterThan(0));
   unmount();
   expect(renderer.destroy).toHaveBeenCalled();
+});
+
+test('board is focusable and described', async () => {
+  const { host, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  expect(host).toHaveAttribute('tabindex', '0');
+  const described = document.getElementById(host.getAttribute('aria-describedby') ?? '');
+  expect(described).not.toBeNull();
+  expect(described!.textContent).toContain('44 by 30 inches');
+});
+
+test('keyboard nudge drives onDrag start/move/end', async () => {
+  const { host, onDrag, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  host.focus();
+  fireEvent.keyDown(host, { key: ']' });
+  // Only Player A's models are draggable here, so focus goes to the first of them.
+  const first = scene().models.find((m) => m.id.startsWith('A:'))!;
+  await waitFor(() => expect(draws.at(-1)!.scene.models.find((m) => m.id === first.id)?.focused).toBe(true));
+  fireEvent.keyDown(host, { key: ' ' });
+  fireEvent.keyDown(host, { key: 'ArrowRight' });
+  fireEvent.keyDown(host, { key: 'ArrowRight' });
+  fireEvent.keyDown(host, { key: ' ' });
+  const at = (dx: number) => ({ x: first.center.x + dx, y: first.center.y });
+  expect(onDrag.mock.calls).toEqual([
+    [first.id, at(0), 'start'],
+    [first.id, at(0.5), 'move'],
+    [first.id, at(1), 'move'],
+    [first.id, at(1), 'end'],
+  ]);
+});
+
+test('Escape cancels a keyboard drag', async () => {
+  const { host, onDrag, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  host.focus();
+  fireEvent.keyDown(host, { key: ']' });
+  fireEvent.keyDown(host, { key: ' ' });
+  fireEvent.keyDown(host, { key: 'ArrowUp' });
+  fireEvent.keyDown(host, { key: 'Escape' });
+  expect(onDrag.mock.calls.at(-1)![2]).toBe('cancel');
+});
+
+test('Enter on the focused model taps it', async () => {
+  const { host, onTap, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  host.focus();
+  fireEvent.keyDown(host, { key: ']' });
+  fireEvent.keyDown(host, { key: 'Enter' });
+  const first = scene().models.find((m) => m.id.startsWith('A:'))!;
+  expect(onTap).toHaveBeenCalledWith(first.center, first.id);
+});
+
+test('arrow keys pan the view', async () => {
+  const { host, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Zoom in' })));
+  const before = draws.at(-1)!.cam;
+  fireEvent.keyDown(host, { key: 'ArrowLeft' });
+  expect(draws.at(-1)!.cam).not.toEqual(before);
+});
+
+test('Tab leaves the board', async () => {
+  const { host, draws } = setup();
+  await waitFor(() => expect(draws.length).toBeGreaterThan(0));
+  host.focus();
+  await userEvent.tab();
+  expect(host).not.toHaveFocus();
+  expect(screen.getByRole('button', { name: 'Zoom in' })).toHaveFocus();
 });

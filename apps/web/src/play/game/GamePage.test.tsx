@@ -165,3 +165,23 @@ test('opening and closing the toolkit in the middle of a move keeps the move rea
   await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
   await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
 });
+
+test('Escape closes the game menu and focus returns to Menu', async () => {
+  await seed(deployedGame());
+  page();
+  const menu = await screen.findByRole('button', { name: 'Menu' });
+  await userEvent.click(menu);
+  const dialog = screen.getByRole('dialog', { name: 'Game menu' });
+  expect(dialog.contains(document.activeElement)).toBe(true);
+  await userEvent.keyboard('{Escape}');
+  expect(screen.queryByRole('dialog', { name: 'Game menu' })).toBeNull();
+  expect(menu).toHaveFocus();
+});
+
+test('the board describes the armies by name', async () => {
+  await seed(deployedGame());
+  page();
+  const board = await screen.findByRole('application');
+  const described = document.getElementById(board.getAttribute('aria-describedby')!)!;
+  expect(described.textContent).toMatch(/Necron Warriors \(Necrons\): 10 models/);
+});

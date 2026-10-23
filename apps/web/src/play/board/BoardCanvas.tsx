@@ -1,9 +1,22 @@
 /**
  * The battlefield: pointer input goes through the gesture machine (tap, drag a model, pan, pinch-zoom), and the scene is
- * drawn by a renderer (PixiJS in the app, loaded on first use; a fake one in tests).
+ * drawn by a renderer (PixiJS in the app, loaded on first use; a fake one in tests). The keyboard does the same through
+ * boardKeys (a keyboard move reports start/move/end exactly like a drag, so the engine's limits apply), and
+ * BoardSummary describes the board for screen readers.
  */
 import type { Pt } from '@recruit/engine';
-import { useCallback, useEffect, useRef, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type PointerEvent as ReactPointerEvent,
+  type WheelEvent as ReactWheelEvent,
+} from 'react';
+import { boardKey, ZOOM_STEP } from './boardKeys';
+import { BoardSummary, DEFAULT_NAMES, describeModel, inches, type BoardNames } from './BoardSummary';
 import { clampCamera, fitCamera, screenToWorld, worldToScreen, zoomAt, zoomLimits, panBy, type Camera, type Size } from './camera';
 import { reduceGesture, type GestureOut, type GestureState } from './gestures';
 import { hitTest } from './hitTest';
@@ -21,11 +34,12 @@ export interface BoardCanvasProps {
   renderer?: RendererFactory;
   /** e.g. "Battlefield, 44 by 60 inches". */
   label: string;
+  /** Unit, army and objective names for the screen-reader description. */
+  names?: BoardNames;
 }
 
 /** Touch slop around bases, so small bases on a phone can still be picked (spec: 44 px touch targets). */
 const HIT_SLOP_PX = 22;
-const ZOOM_STEP = 1.4;
 
 const pixi: RendererFactory = async (host, view) => (await import('./pixiRenderer')).createPixiRenderer(host, view);
 
@@ -36,7 +50,7 @@ declare global {
   }
 }
 
-export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, label }: BoardCanvasProps) {
+export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, label, names = DEFAULT_NAMES }: BoardCanvasProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<SceneRenderer | null>(null);
   const camRef = useRef<Camera | null>(null);
@@ -47,11 +61,21 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
   sceneRef.current = scene;
   const handlers = useRef({ canDrag, onTap, onDrag });
   handlers.current = { canDrag, onTap, onDrag };
+  const summaryId = useId();
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+  const focusedRef = useRef<string | null>(null);
+  focusedRef.current = focusedId;
+  const [live, setLive] = useState('');
+  /** The model picked up with the keyboard, and where it has been nudged to (world inches). */
+  const grabbed = useRef<{ id: string; at: Pt } | null>(null);
 
   const draw = useCallback(() => {
     const r = rendererRef.current;
     const cam = camRef.current;
-    if (r && cam) r.draw(sceneRef.current, cam);
+    if (!r || !cam) return;
+    const s = sceneRef.current;
+    const f = focusedRef.current;
+    r.draw(f ? { ...s, models: s.models.map((m) => (m.id === f ? { ...m, focused: true } : m)) } : s, cam);
   }, []);
 
   const measure = useCallback(() => {
@@ -90,7 +114,7 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
   useEffect(() => {
     measure();
     draw();
-  }, [scene, measure, draw]);
+  }, [scene, focusedId, measure, draw]);
 
   useEffect(() => {
     if (!import.meta.env.DEV) return;
@@ -160,6 +184,63 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
   const onWheel = (e: ReactWheelEvent<HTMLDivElement>) => zoom(1.1 ** (-e.deltaY / 100), local(e));
   const centre = () => ({ x: viewRef.current.w / 2, y: viewRef.current.h / 2 });
 
+  const onKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    const action = boardKey(e, grabbed.current ? 'grabbed' : 'browse');
+    if (!action) return;
+    e.preventDefault();
+    const s = sceneRef.current;
+    const focused = s.models.find((m) => m.id === focusedRef.current) ?? null;
+    const h = handlers.current;
+    switch (action.kind) {
+      case 'pan':
+        // Moving the view north shifts the board down the screen.
+        if (camRef.current) setCam(panBy(camRef.current, -action.dx * camRef.current.scale, action.dy * camRef.current.scale));
+        break;
+      case 'zoom':
+        zoom(action.factor, centre());
+        break;
+      case 'fit':
+        setCam(fitNow());
+        break;
+      case 'cycle': {
+        // Step through the models that can move now, or every model when none can.
+        const movable = s.models.filter((m) => h.canDrag(m.id));
+        const list = movable.length ? movable : s.models;
+        if (!list.length) break;
+        const i = list.findIndex((m) => m.id === focused?.id);
+        const next = list[(i + action.step + list.length) % list.length] ?? list[0];
+        setFocusedId(next.id);
+        setLive(describeModel(s, next.id, names));
+        break;
+      }
+      case 'select':
+        if (focused) h.onTap(focused.center, focused.id);
+        break;
+      case 'grab':
+        if (focused && h.canDrag(focused.id)) {
+          grabbed.current = { id: focused.id, at: focused.center };
+          h.onDrag(focused.id, focused.center, 'start');
+          setLive(describeModel(s, focused.id, names, { grabbed: true }));
+        }
+        break;
+      case 'nudge': {
+        const g = grabbed.current!;
+        g.at = { x: g.at.x + action.dx, y: g.at.y + action.dy };
+        h.onDrag(g.id, g.at, 'move');
+        setLive(`${inches(g.at.x)} inches from the left, ${inches(g.at.y)} inches from the bottom`);
+        break;
+      }
+      case 'drop':
+      case 'cancel': {
+        const g = grabbed.current!;
+        grabbed.current = null;
+        h.onDrag(g.id, g.at, action.kind === 'drop' ? 'end' : 'cancel');
+        setLive(action.kind === 'drop' ? 'Put down.' : 'Move cancelled.');
+        break;
+      }
+    }
+  };
+
   return (
     <div className="board">
       <div
@@ -167,12 +248,16 @@ export function BoardCanvas({ scene, canDrag, onTap, onDrag, renderer = pixi, la
         className="board__canvas"
         role="application"
         aria-label={label}
+        aria-describedby={summaryId}
+        tabIndex={0}
+        onKeyDown={onKeyDown}
         onPointerDown={onPointer('down')}
         onPointerMove={onPointer('move')}
         onPointerUp={onPointer('up')}
         onPointerCancel={onPointer('cancel')}
         onWheel={onWheel}
       />
+      <BoardSummary id={summaryId} scene={scene} names={names} live={live} />
       <div className="board__zoom">
         <button type="button" className="btn btn--small" aria-label="Zoom in" onClick={() => zoom(ZOOM_STEP, centre())}>
           +

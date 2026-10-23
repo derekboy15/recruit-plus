@@ -1,14 +1,41 @@
 /** The game screen's overlays: the pass-the-device screen, the game log and the menu. */
 import type { LogLine, PlayerId } from '@recruit/engine';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { WordingToggle } from '../../rules/wording';
 import { PHASE_NAMES } from './names';
 
+/**
+ * A modal over the game. Focus moves into it when it opens (unless a child takes it with autoFocus) and goes back to
+ * whatever had it before when it closes; Escape closes it when it can be closed.
+ */
 export function Dialog({ label, onClose, children, className = '' }: { label: string; onClose?(): void; children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const close = useRef(onClose);
+  close.current = onClose;
+  useEffect(() => {
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    if (!ref.current?.contains(document.activeElement)) ref.current?.focus();
+    return () => {
+      if (opener?.isConnected) opener.focus();
+    };
+  }, []);
   return (
     <div className="game__overlay" onClick={onClose && ((e) => e.target === e.currentTarget && onClose())}>
-      <div role="dialog" aria-modal="true" aria-label={label} className={`game__dialog ${className}`}>
+      <div
+        ref={ref}
+        role="dialog"
+        aria-modal="true"
+        aria-label={label}
+        tabIndex={-1}
+        className={`game__dialog ${className}`}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape' && close.current) {
+            e.stopPropagation();
+            close.current();
+          }
+        }}
+      >
         {onClose && (
           <button type="button" className="btn btn--small game__close" onClick={onClose}>
             Close

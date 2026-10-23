@@ -10,7 +10,7 @@ import { PhasePanel } from '../panels/PhasePanel';
 import { Problems } from '../panels/Problems';
 import type { ReadySandbox } from '../panels/types';
 import { hintFor } from './hints';
-import { armyName } from './names';
+import { armyName, boardNames } from './names';
 import { GameLog, GameMenu, HandOver } from './Overlays';
 import { ScoreSheet } from './ScoreSheet';
 import { TopBar } from './TopBar';
@@ -86,6 +86,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
           onDrag={onDrag}
           renderer={renderer}
           label={`Battlefield, ${state.setup.board.w} by ${state.setup.board.h} inches`}
+          names={boardNames(state)}
         />
       </div>
       <div className="game__panel">

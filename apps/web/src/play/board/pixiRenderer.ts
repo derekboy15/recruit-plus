@@ -65,6 +65,8 @@ export const createPixiRenderer: RendererFactory = async (host, view) => {
       g.poly(flat(m.poly))
         .fill({ color: c[m.player], alpha: m.planned ? 0.75 : 0.95 })
         .stroke({ width: line(m.invalid || m.selected || m.target ? 2.5 : 1), color: outline, alpha: m.invalid || m.selected || m.target ? 1 : 0.5 });
+      // Keyboard focus: a second ring just outside the base.
+      if (m.focused) g.circle(m.center.x, m.center.y, Math.max(...m.poly.map((p) => Math.hypot(p.x - m.center.x, p.y - m.center.y))) + 0.35).stroke({ width: line(2), color: c.focus });
     }
     drawnScene = scene;
     drawnScale = scale;

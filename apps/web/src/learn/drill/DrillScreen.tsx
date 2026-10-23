@@ -16,6 +16,7 @@ import type { Drill, DrillCtx } from './types';
 import { DrillCard } from './DrillCard';
 import '../../play/play.css';
 import '../learn.css';
+import { boardNames } from '../../play/game/names';
 
 export interface DrillScreenProps {
   drill: Drill;
@@ -158,7 +159,8 @@ function Running({ drill, onDone, exitTo, next = null, renderer, seed, dice, loa
           onTap={onTap}
           onDrag={onDrag}
           renderer={renderer}
-          label={`Battlefield, ${sb.state.setup.board.w} by ${sb.state.setup.board.h} inches`}
+          label={`Drill board, ${sb.state.setup.board.w} by ${sb.state.setup.board.h} inches`}
+          names={boardNames(sb.state)}
         />
       </div>
       <div className="game__panel">

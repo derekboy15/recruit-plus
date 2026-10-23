@@ -28,6 +28,8 @@ export interface SceneModel {
   planned: boolean;
   invalid: boolean;
   target: boolean;
+  /** In keyboard focus on the board (set by BoardCanvas, not by buildScene). */
+  focused?: boolean;
   woundsLeft: number;
   W: number;
 }
