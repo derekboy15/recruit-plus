@@ -58,14 +58,18 @@ export const armyBuilding: ListDrill = {
       kind: 'do',
       id: 'add',
       prompt: () => 'Add a unit from the list below so that the Patrol has what it needs.',
-      check: (w) =>
-        w.attempts.length && !slotMin(w.world)
-          ? {
-              pass: true,
-              explain:
-                'Your Patrol now has its HQ and Troops, so every unit is in a legal detachment: the army is Battle-forged. (It still needs a Warlord: in the list builder, open a CHARACTER and turn on Warlord.)',
-            }
-          : null,
+      check: (w) => {
+        if (!w.attempts.length || slotMin(w.world)) return null;
+        // Only call the list legal when the builder agrees (a Warlord is still to choose, which the drill leaves to the builder).
+        const others = issues(w.world).filter((i) => i.rule !== 'warlord-missing');
+        if (others.length)
+          return { pass: true, explain: `Your Patrol now has its HQ and Troops, but the list builder still finds a problem: ${others.map((i) => words(w.world, i)).join(' ')}` };
+        return {
+          pass: true,
+          explain:
+            'Your Patrol now has its HQ and Troops, so every unit is in a legal detachment: the army is Battle-forged. (It still needs a Warlord: in the list builder, open a CHARACTER and turn on Warlord.)',
+        };
+      },
     },
     {
       kind: 'ask',

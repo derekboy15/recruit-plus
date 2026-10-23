@@ -42,6 +42,15 @@ describe('Lesson 14 drill: building an army', () => {
     ]);
   });
 
+  test('with too many Heavy Support units the Patrol is not called legal: the builder’s own problem is quoted', async () => {
+    let run = startListRun(armyBuilding, await listCtx(ULTRA));
+    run = answerListRun(run, 'troops');
+    for (let i = 0; i < 3; i++) run = addUnitRun(run, pick(run, 'Hellblaster Squad')).run;
+    run = addUnitRun(run, pick(run, 'Intercessor Squad')).run;
+    expect(run.results[1].explain).toMatch(/^Your Patrol now has its HQ and Troops, but the list builder still finds a problem: .*Heavy Support/);
+    expect(run.results[1].explain).not.toMatch(/legal detachment/);
+  });
+
   test('wrong answers are refused and explained', async () => {
     let run = startListRun(armyBuilding, await listCtx(ULTRA));
     run = answerListRun(run, 'elites');
