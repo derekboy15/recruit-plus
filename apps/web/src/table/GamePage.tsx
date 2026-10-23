@@ -12,6 +12,7 @@ import { StratagemPanel } from './StratagemPanel';
 import { ToolsPanel } from './ToolsPanel';
 import { useTableGame } from './tableStore';
 import { TurnPanel } from './TurnPanel';
+import { LoadError } from '../layout/OfflineNotice';
 
 const TABS = ['Turn', 'Score', 'Stratagems', 'Tools', 'Log'] as const;
 type Tab = (typeof TABS)[number];
@@ -27,7 +28,7 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
   const asked = params.get('tab');
   const [tab, setTab] = useState<Tab>(TABS.includes(asked as Tab) ? (asked as Tab) : 'Turn');
   if (loading || missions.status === 'loading') return <p className="muted">Loading the game…</p>;
-  if (missions.status === 'error') return <p role="alert">Couldn’t load the missions: {missions.error.message}</p>;
+  if (missions.status === 'error') return <LoadError error={missions.error} what="the missions" />;
   if (!game) return <p role="alert">This game doesn’t exist on this device. <Link to="/table">Back to games</Link></p>;
   const pack = missions.data.packs.find((p) => p.id === game.data.setup.pack);
   const mission = missionById(missions.data, game.data.setup.missionId);

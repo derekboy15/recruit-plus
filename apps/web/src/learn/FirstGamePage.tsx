@@ -6,6 +6,7 @@ import type { GameData } from '../play/store/gameStore';
 import { useStorage } from '../storage/StorageContext';
 import { allDone, updateProgress } from './progress';
 import { useLearnData } from './useLessons';
+import { LoadError } from '../layout/OfflineNotice';
 
 export function FirstGamePage() {
   const data = useLearnData();
@@ -37,7 +38,7 @@ export function FirstGamePage() {
   }, [ready, user, repo, firstGameId, navigate, attempt]);
 
   if (data.status === 'loading') return <p className="muted">Loading…</p>;
-  if (data.status === 'error') return <p role="alert">Couldn’t load the lessons: {data.error.message}</p>;
+  if (data.status === 'error') return <LoadError error={data.error} what="the lessons" />;
   if (!ready)
     return (
       <section className="learn">

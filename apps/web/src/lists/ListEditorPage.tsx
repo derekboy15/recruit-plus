@@ -13,6 +13,7 @@ import { loadUnitIndex } from './unitIndex';
 import { UnitEditor } from './UnitEditor';
 import { UnitPicker } from './UnitPicker';
 import { useRosterEditor, type ReadyEditor } from './useRosterEditor';
+import { LoadError } from '../layout/OfflineNotice';
 
 const WIDE = '(min-width: 768px)';
 
@@ -81,7 +82,7 @@ export function ListEditorPage() {
       </section>
     );
   }
-  if (editor.status === 'error') return <p role="alert">Couldn’t open this list: {editor.error.message}</p>;
+  if (editor.status === 'error') return <LoadError error={editor.error} what="this list" />;
   return <Editor listId={id} editor={editor} params={params} open={open} close={close} openUnit={ui.openUnit} />;
 }
 

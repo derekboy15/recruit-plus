@@ -9,6 +9,7 @@ import { useAsync } from '../factions/useAsync';
 import { useStorage } from '../storage/StorageContext';
 import { createList } from './listStore';
 import { applyPicks, armyChoices, defaultListName, detachmentCards, listData, sizeCards, startingRoster } from './newListSetup';
+import { LoadError } from '../layout/OfflineNotice';
 
 const STEPS = ['Faction', 'Battle size', 'Detachment', 'Army options'] as const;
 
@@ -109,7 +110,7 @@ export function NewListPage() {
       {step === 2 && (
         <>
           {setup.status === 'loading' && <p className="muted">Loading detachments…</p>}
-          {setup.status === 'error' && <p role="alert">Couldn’t load this faction’s army rules: {setup.error.message}</p>}
+          {setup.status === 'error' && <LoadError error={setup.error} what="this faction’s army rules" />}
           {ready && detachments.length === 0 && <p className="muted">This faction has no detachments to start from.</p>}
           {ready && detachments.length > 0 && (
             <>

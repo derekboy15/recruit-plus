@@ -6,6 +6,7 @@ import { FactionTabs } from './FactionTabs';
 import { factionDisplayName } from './names';
 import { StratagemCard } from './StratagemCard';
 import { useAsync } from './useAsync';
+import { LoadError } from '../layout/OfflineNotice';
 
 const ALL = 'All phases';
 
@@ -15,7 +16,7 @@ export function StratagemsPage() {
   const [query, setQuery] = useState('');
   const [phase, setPhase] = useState(ALL);
   if (state.status === 'loading') return <p className="muted">Loading stratagems…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load this faction: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
 
   const cat = state.data;
   const name = factionDisplayName(cat.name);

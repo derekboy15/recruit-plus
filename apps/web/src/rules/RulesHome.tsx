@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCoreStratagems, getRules } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
 import { search, searchDocs, type SearchDoc } from './search';
+import { LoadError } from '../layout/OfflineNotice';
 
 const KIND_LABELS: Record<SearchDoc['kind'], string> = { section: 'Rules', term: 'Glossary', stratagem: 'Core stratagem' };
 
@@ -21,7 +22,7 @@ export function RulesHome() {
   const hits = useMemo(() => search(docs, query), [docs, query]);
 
   if (state.status === 'loading') return <p className="muted">Loading the rules…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load the rules: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="the rules" />;
   const [rules] = state.data;
   const q = query.trim();
 

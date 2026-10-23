@@ -8,6 +8,7 @@ import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
 import { completeLesson } from './progress';
 import { lockOf, useLearnData } from './useLessons';
+import { LoadError } from '../layout/OfflineNotice';
 
 // The drills bring the engine and the board: they load only when a drill opens.
 const DrillHost = lazy(() => import('./drill/DrillHost'));
@@ -24,7 +25,7 @@ const nextOf = (lessons: Lesson[], lesson: Lesson) => lessons[lessons.indexOf(le
 /** Shown for missing lessons, data errors and locked lessons; null when the lesson can be shown. */
 function Gate({ data, lesson }: ReturnType<typeof useLesson>) {
   if (data.status === 'loading') return <p className="muted">Loading the lesson…</p>;
-  if (data.status === 'error') return <p role="alert">Couldn’t load the lesson: {data.error.message}</p>;
+  if (data.status === 'error') return <LoadError error={data.error} what="the lesson" />;
   const back = (
     <p>
       <Link to="/learn">← Learn</Link>

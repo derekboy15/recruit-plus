@@ -5,13 +5,14 @@ import { useAsync } from '../factions/useAsync';
 import { Blocks } from './Blocks';
 import { ReportButton } from './ReportButton';
 import { useScrollToHash } from './RulesArticlePage';
+import { LoadError } from '../layout/OfflineNotice';
 
 export function GlossaryPage() {
   const state = useAsync(getRules, 'rules');
   const [filter, setFilter] = useState('');
   useScrollToHash(state.status === 'ready');
   if (state.status === 'loading') return <p className="muted">Loading the glossary…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load the glossary: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="the glossary" />;
   const f = filter.trim().toLowerCase();
   const terms = [...state.data.glossary]
     .sort((a, b) => a.term.localeCompare(b.term))

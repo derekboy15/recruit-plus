@@ -5,6 +5,7 @@ import { RulesText } from '../rules/RulesText';
 import { useWording, WordingToggle } from '../rules/wording';
 import { getCatalogue } from './dataClient';
 import { useAsync } from './useAsync';
+import { LoadError } from '../layout/OfflineNotice';
 
 const TEXT_COLUMNS: readonly string[] = TEXT_CHARS;
 
@@ -114,7 +115,7 @@ export function DatasheetPage() {
   const { slug = '', unitSlug = '' } = useParams();
   const state = useAsync(() => getCatalogue(slug), slug);
   if (state.status === 'loading') return <p className="muted">Loading datasheet…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load this faction: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
   const unit = state.data.units.find((u) => u.slug === unitSlug);
   if (!unit) return <p role="alert">Unit not found.</p>;
   return (

@@ -56,6 +56,7 @@ beforeEach(() => {
 afterEach(() => {
   db.close();
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
   resetDataCache();
   localStorage.clear();
 });
@@ -140,4 +141,27 @@ test('the units page has the tabs too', async () => {
   const tabs = await screen.findByRole('navigation', { name: 'Faction pages' });
   expect(within(tabs).getByRole('link', { name: 'Units' })).toHaveAttribute('aria-current', 'page');
   expect(screen.getByRole('link', { name: /Necron Warriors/ })).toHaveAttribute('href', `/factions/necrons/units/${necronWarriors.slug}`);
+});
+
+test('guide page offline shows the offline notice', async () => {
+  vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
+  const online = fetch as unknown as ReturnType<typeof vi.fn>;
+  const base = online.getMockImplementation()!;
+  online.mockImplementation(async (url: string) => {
+    if (url.endsWith('/guides/necrons.json')) throw new TypeError('Failed to fetch');
+    return base(url);
+  });
+  renderAt('/factions/necrons/guide');
+  expect(await screen.findByRole('heading', { name: 'Necrons', level: 1 })).toBeInTheDocument();
+  expect(screen.getByRole('status')).toHaveTextContent("You're offline, and this hasn't been saved on this device yet.");
+  expect(screen.queryByText('No guide for this faction yet.')).toBeNull();
+});
+
+test('faction page offline shows the offline notice', async () => {
+  vi.spyOn(navigator, 'onLine', 'get').mockReturnValue(false);
+  (fetch as unknown as ReturnType<typeof vi.fn>).mockImplementation(async () => {
+    throw new TypeError('Failed to fetch');
+  });
+  renderAt('/factions/necrons');
+  expect(await screen.findByRole('status')).toHaveTextContent("You're offline, and this hasn't been saved on this device yet.");
 });

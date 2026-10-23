@@ -5,6 +5,7 @@ import { useAuth } from '../auth/AuthContext';
 import { useStorage } from '../storage/StorageContext';
 import { allDone, nextLesson, updateProgress } from './progress';
 import { useLearnData } from './useLessons';
+import { LoadError } from '../layout/OfflineNotice';
 
 declare global {
   interface Window {
@@ -29,7 +30,7 @@ export function LearnHome() {
   }, [order, repo, user]);
 
   if (data.status === 'loading') return <p className="muted">Loading the lessons…</p>;
-  if (data.status === 'error') return <p role="alert">Couldn’t load the lessons: {data.error.message}</p>;
+  if (data.status === 'error') return <LoadError error={data.error} what="the lessons" />;
   const { lessons, progress } = data;
   const doneCount = lessons.filter((l) => progress.lessons[l.id]).length;
   const next = nextLesson(data.order, progress);

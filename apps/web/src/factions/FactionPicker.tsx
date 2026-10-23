@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getIndex } from './dataClient';
 import { factionDisplayName } from './names';
 import { useAsync } from './useAsync';
+import { LoadError } from '../layout/OfflineNotice';
 
 const GROUPS: FactionGroup[] = ['Imperium', 'Chaos', 'Xenos', 'Unaligned'];
 
@@ -20,7 +21,7 @@ export function FactionPicker({ to, onPick, selected }: Props) {
   const state = useAsync(getIndex, 'index');
   const [query, setQuery] = useState('');
   if (state.status === 'loading') return <p className="muted">Loading factions…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load factions: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="factions" />;
 
   const q = query.trim().toLowerCase();
   const playable = state.data.catalogues

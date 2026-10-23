@@ -4,6 +4,7 @@ import { getRules } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
 import { Blocks } from './Blocks';
 import { ReportButton } from './ReportButton';
+import { LoadError } from '../layout/OfflineNotice';
 
 /** Scrolls to the element named by the URL hash once the page's content is on screen. */
 export function useScrollToHash(ready: boolean) {
@@ -20,7 +21,7 @@ export function RulesArticlePage() {
   useScrollToHash(!!article);
 
   if (state.status === 'loading') return <p className="muted">Loading the rules…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load the rules: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="the rules" />;
   const back = (
     <p>
       <Link to="/rules">← Rules</Link>

@@ -8,6 +8,7 @@ import { getCatalogue, getGuide, getIndex } from './dataClient';
 import { FactionTabs } from './FactionTabs';
 import { factionDisplayName } from './names';
 import { useAsync } from './useAsync';
+import { isOfflineError, LoadError, OfflineNotice } from '../layout/OfflineNotice';
 
 const SYSTEM = 'system';
 
@@ -16,7 +17,8 @@ async function loadGuidePage(slug: string) {
   const [index, cat] = await Promise.all([getIndex(), getCatalogue(slug)]);
   const scope = (index.catalogues.find((c) => c.slug === slug)?.rosterScope ?? [slug]).filter((s) => s !== SYSTEM);
   const scopeCats = await Promise.all(scope.map((s) => (s === slug ? cat : getCatalogue(s).catch(() => null))));
-  const guide = await getGuide(slug).catch(() => null);
+  // A missing guide file means no guide yet; a failed fetch while offline must not be read as that.
+  const guide = await getGuide(slug).catch((e: unknown) => (isOfflineError(e) ? ('offline' as const) : null));
   return { cat, ruleCats: scopeCats.filter((c): c is CatalogueOut => !!c && c.rules.length > 0), guide };
 }
 
@@ -35,7 +37,7 @@ export function FactionGuidePage() {
   const { slug = '' } = useParams();
   const state = useAsync(() => loadGuidePage(slug), slug);
   if (state.status === 'loading') return <p className="muted">Loading the guide…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load this faction: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
   const { cat, ruleCats, guide } = state.data;
   const name = factionDisplayName(cat.name);
   return (
@@ -45,7 +47,9 @@ export function FactionGuidePage() {
       </p>
       <h1>{name}</h1>
       <FactionTabs slug={cat.slug} library={cat.library} />
-      {guide ? (
+      {guide === 'offline' ? (
+        <OfflineNotice />
+      ) : guide ? (
         <>
           <h2>How this army plays</h2>
           <Blocks blocks={guide.plays} />

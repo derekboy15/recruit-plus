@@ -5,6 +5,7 @@ import { getCatalogue } from './dataClient';
 import { FactionTabs } from './FactionTabs';
 import { factionDisplayName } from './names';
 import { useAsync } from './useAsync';
+import { LoadError } from '../layout/OfflineNotice';
 
 export function FactionPage() {
   const { slug = '' } = useParams();
@@ -12,7 +13,7 @@ export function FactionPage() {
   const [showLegends, setShowLegends] = useState(true);
   const [query, setQuery] = useState('');
   if (state.status === 'loading') return <p className="muted">Loading units…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load this faction: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
 
   const cat = state.data;
   const q = query.trim().toLowerCase();

@@ -4,12 +4,13 @@ import { StratagemCard } from '../factions/StratagemCard';
 import { useAsync } from '../factions/useAsync';
 import { useScrollToHash } from './RulesArticlePage';
 import { WordingToggle } from './wording';
+import { LoadError } from '../layout/OfflineNotice';
 
 export function CoreStratagemsPage() {
   const state = useAsync(getCoreStratagems, 'core-stratagems');
   useScrollToHash(state.status === 'ready');
   if (state.status === 'loading') return <p className="muted">Loading stratagems…</p>;
-  if (state.status === 'error') return <p role="alert">Couldn’t load the stratagems: {state.error.message}</p>;
+  if (state.status === 'error') return <LoadError error={state.error} what="the stratagems" />;
   const groups = [...new Set(state.data.map((s) => s.group))];
   return (
     <section>
