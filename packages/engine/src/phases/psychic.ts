@@ -11,7 +11,7 @@ import { horizontalGap, distance3d, within } from '../geometry/measure';
 import { inflictMortalWounds } from '../attack/allocate';
 import { noActivation } from '../interact/activation';
 import { effectsFor } from '../interact/effects';
-import { noPending, offerReaction, registerContinuation, rollWindowed } from '../interact/windows';
+import { choiceParts, noPending, offerReaction, registerContinuation, rollWindowed } from '../interact/windows';
 import { modelView, onBoard, placedModel, sheetOf, unitHas, unitsOf, unitView, type ModelState } from '../setup/units';
 import { unitVisibleTo } from '../terrain/visibility';
 import { inBattle, PHASE_ORDER, registerLeave, registerRoundEnd } from '../turn/phases';
@@ -174,7 +174,7 @@ registerContinuation('psychic', 'tested', (ctx, d: Attempt & { rollId: string })
 });
 
 registerContinuation('psychic', 'denyChosen', (ctx, d: Attempt & { result: number; deniers: string[]; choice: string }) => {
-  const denier = d.choice.startsWith('deny') ? (d.choice.split(':')[1] ?? d.deniers[0]) : null;
+  const denier = d.choice.startsWith('deny') ? (choiceParts(d.choice).unitId ?? d.deniers[0]) : null;
   if (!denier) return resolve(ctx, d);
   if (!d.deniers.includes(denier)) ctx.reject('bad-denier', 'That psyker can\'t deny this power.', '[PP §4]');
   ctx.emit({ type: 'denyUsed', unitId: denier });

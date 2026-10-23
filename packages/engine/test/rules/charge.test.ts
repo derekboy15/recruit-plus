@@ -61,6 +61,15 @@ describe('Overwatch and Defensible terrain', () => {
     expect(s.activation).toMatchObject({ kind: 'charge', roll: 12 });
   });
 
+  test('[CS §2] Fire Overwatch works for a unit whose id has a colon in it (the sandbox prefixes ids with the player)', () => {
+    const at17 = { a1: line(14, 20, 'a1'), 'B:b1': { 'B:b1.m1': at(17, 28) } };
+    let g = play(game({ reactions: true, b: [unitInput('B:b1', marines(), 1)], at: at17, dice: [5, 6, 3, 1, 6, 6] }), declare('a1', ['B:b1']));
+    const cp = stateOf(g).cp.B;
+    g = play(g, respond('overwatch:B:b1'));
+    expect(stateOf(g).cp.B).toBe(cp - 1);
+    expect(stateOf(g).activation).toMatchObject({ kind: 'charge', roll: 12 });
+  });
+
   test('[CS §2] auto-hitting weapons hit in Overwatch', () => {
     const g = play(play(game({ reactions: true, b: [unitInput('b1', flamers(), 1)], dice: [3, 1, 6, 6] }), declare('a1', ['b1'])), respond('overwatch:b1'));
     const s = stateOf(g);
