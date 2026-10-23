@@ -1,4 +1,4 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, report.json}. */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -156,8 +156,11 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
   const missions = writeMissions(opts, w);
   // Rules Reference and faction guides (none without a content directory).
-  const content = opts.contentDir ? buildContent(opts.contentDir, outs) : { rules: { articles: [], glossary: [] }, guides: [] };
+  const content = opts.contentDir
+    ? buildContent(opts.contentDir, outs, new Set(core.map((c) => `strat-${c.id}`)))
+    : { rules: { articles: [], glossary: [] }, guides: [], lessons: { lessons: [] } };
   writeFileSync(join(opts.outDir, 'rules.json'), JSON.stringify(content.rules));
+  writeFileSync(join(opts.outDir, 'lessons.json'), JSON.stringify(content.lessons));
   rmSync(join(opts.outDir, 'guides'), { recursive: true, force: true });
   mkdirSync(join(opts.outDir, 'guides'), { recursive: true });
   for (const g of content.guides) writeFileSync(join(opts.outDir, 'guides', `${g.slug}.json`), JSON.stringify(g));

@@ -1,8 +1,9 @@
 /** packages/content Markdown -> RulesData (articles + glossary) and one FactionGuide per playable catalogue. */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
-import type { Block, CatalogueOut, FactionGuide, GlossaryTerm, Inline, KeyUnit, RulesArticle, RulesData } from '../model/types';
+import type { Block, CatalogueOut, FactionGuide, GlossaryTerm, Inline, KeyUnit, LessonsData, RulesArticle, RulesData } from '../model/types';
 import { blocksText, compileMarkdown, parseFrontmatter, type Frontmatter } from './markdown';
+import { buildLessons } from './lessons';
 
 // A library file (optionally with a section), or "catalogue data" when a guide rests on the faction's own rules and units.
 const SOURCE = /^(0[1-5]_[^/]+\/.+\.md( §[\d.]+)?|catalogue data)$/;
@@ -12,11 +13,11 @@ const FORBIDDEN: [RegExp, string][] = [
   [/tabletopbattles/i, 'tabletopbattles'],
 ];
 
-interface Source extends Frontmatter {
+export interface Source extends Frontmatter {
   file: string;
 }
 
-function readSource(path: string): Source {
+export function readSource(path: string): Source {
   const file = basename(path);
   const src = readFileSync(path, 'utf8');
   src.split(/\r?\n/).forEach((line, i) => {
@@ -25,21 +26,21 @@ function readSource(path: string): Source {
   return { ...parseFrontmatter(src, file), file };
 }
 
-function field(s: Source, key: string): string {
+export function field(s: Source, key: string): string {
   const v = s.meta[key];
   if (typeof v !== 'string' || !v) throw new Error(`${s.file}: missing "${key}"`);
   return v;
 }
 
-function checkSources(s: Source): void {
+export function checkSources(s: Source): void {
   const sources = s.meta.sources;
   if (!Array.isArray(sources) || !sources.length) throw new Error(`${s.file}: missing "sources"`);
   for (const src of sources) if (!SOURCE.test(src)) throw new Error(`${s.file}: source "${src}" is not a library file`);
 }
 
-const mdFiles = (dir: string) => (existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.md')).sort().map((f) => join(dir, f)) : []);
+export const mdFiles = (dir: string) => (existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.md')).sort().map((f) => join(dir, f)) : []);
 
-function buildRules(dir: string): RulesData {
+export function buildRules(dir: string): RulesData {
   const articles: RulesArticle[] = [];
   let glossary: GlossaryTerm[] = [];
   for (const path of mdFiles(dir)) {
@@ -109,9 +110,15 @@ function buildGuide(path: string, cats: CatalogueOut[]): FactionGuide {
   };
 }
 
-export function buildContent(contentDir: string, cats: CatalogueOut[]): { rules: RulesData; guides: FactionGuide[] } {
+/** `stratagemAnchors`: the core stratagems page's `strat-<id>` anchors, which lesson links may point to. */
+export function buildContent(
+  contentDir: string,
+  cats: CatalogueOut[],
+  stratagemAnchors: Set<string> = new Set(),
+): { rules: RulesData; guides: FactionGuide[]; lessons: LessonsData } {
   const rules = buildRules(join(contentDir, 'rules'));
   const guides = mdFiles(join(contentDir, 'guides')).map((p) => buildGuide(p, cats));
-  return { rules, guides };
+  const lessons = buildLessons(join(contentDir, 'lessons'), rules, stratagemAnchors);
+  return { rules, guides, lessons };
 }
 
