@@ -34,12 +34,20 @@ test('the move ring follows the model being dragged', async () => {
   await waitFor(() => expect(h.rings().filter((r) => r.kind === 'move')).toEqual([{ center: { x: 17, y: 4 }, r: 5, kind: 'move', label: '5"' }]));
 });
 
-test('a 7" drag of 5" infantry keeps Confirm disabled and shows "can\'t move that far"', async () => {
+test('a 7" drag of 5" infantry stops on the 5" ring, and the move is allowed', async () => {
   const h = await startMove('Normal Move');
   h.drag('A:war.m1', { x: 14, y: 11 });
-  expect(await screen.findByText(/can't move that far/)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: 'Confirm move' })).toBeDisabled();
-  expect(h.invalid()).toContain('A:war.m1');
+  expect(h.plan()!.positions['A:war.m1'].y).toBeCloseTo(9, 10);
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Confirm move' })).toBeEnabled());
+  expect(h.invalid()).toEqual([]);
+});
+
+test('after an Advance roll of 4, a drag stops on the 9" ring', async () => {
+  const h = await startMove('Advance', inMovement({ rollWindows: true, scriptedDice: [4] }));
+  h.act({ type: 'confirmRoll', by: 'A' } as Command);
+  await waitFor(() => expect(h.rings().find((r) => r.kind === 'move')).toMatchObject({ r: 9 }));
+  h.drag('A:war.m1', { x: 14, y: 15 });
+  expect(h.plan()!.positions['A:war.m1'].y).toBeCloseTo(13, 10);
 });
 
 test('Advance opens the roll; after accepting, the rings grow by the roll', async () => {

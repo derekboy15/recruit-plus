@@ -36,7 +36,11 @@ export function MovementPanel(props: PanelProps) {
   const moving = a?.rolled ? a.unitId : null;
   useEffect(() => {
     if (!moving || !a) return;
-    if (ui.plan?.unitId !== moving) ui.planDispatch({ type: 'start', unitId: moving, origin: originOf(s, moving) });
+    if (ui.plan?.unitId !== moving) {
+      // A drag past the ring stops on it: each model's Move (plus the Advance roll).
+      const limits = Object.fromEntries(livingModels(s, moving).map((m) => [m.id, moveInches(s, m) + (a.bonus ?? 0)]));
+      ui.planDispatch({ type: 'start', unitId: moving, origin: originOf(s, moving), limits });
+    }
     ui.setTapHandler((_at, id) => id && s.models[id]?.unitId === moving && setFocus(id));
     // Restarted whenever the plan goes missing (e.g. a toolkit opened and closed mid-move), not only for a new move.
     // eslint-disable-next-line react-hooks/exhaustive-deps

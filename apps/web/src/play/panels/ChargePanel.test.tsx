@@ -55,3 +55,12 @@ test('a charging model can be turned', async () => {
   await userEvent.click(confirm);
   expect(stateOf(h.record()).models['A:war.m1'].pos!.rot).toBeCloseTo(Math.PI / 12);
 });
+
+test('a drag past the charge roll stops on the ring, so a charge that needs the whole roll can be made', async () => {
+  const h = await declare([2, 2]);
+  await screen.findByRole('heading', { name: 'Necron Warriors charges: 4"' });
+  h.drag('A:war.m1', { x: 14, y: 8.6 });
+  expect(h.plan()!.positions['A:war.m1'].y).toBeCloseTo(8, 10);
+  const confirm = screen.getByRole('button', { name: 'Confirm charge move' });
+  await waitFor(() => expect(confirm).toBeEnabled());
+});

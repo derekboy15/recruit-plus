@@ -25,7 +25,10 @@ export function PlanMove(props: PlanMoveProps) {
   const s = sb.state;
   const plan = ui.plan?.unitId === unitId ? ui.plan : null;
   useEffect(() => {
-    if (!plan) ui.planDispatch({ type: 'start', unitId, origin: originOf(s, unitId) });
+    if (plan) return;
+    // A drag past the ring stops on it, so a move that needs every inch of the roll can still be made.
+    const origin = originOf(s, unitId);
+    ui.planDispatch({ type: 'start', unitId, origin, limits: Object.fromEntries(Object.keys(origin).map((id) => [id, radius])) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [unitId, !plan]);
   useEffect(() => {
