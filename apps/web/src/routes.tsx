@@ -3,7 +3,6 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from './layout/ErrorBoundary';
 import { Home } from './pages/Home';
 import { Legal } from './pages/Legal';
-import { Placeholder } from './pages/Placeholder';
 import { DatasheetPage } from './factions/DatasheetPage';
 import { FactionPage } from './factions/FactionPage';
 import { FactionsPage } from './factions/FactionsPage';
@@ -23,6 +22,7 @@ const FactionGuidePage = lazy(() => import('./factions/FactionGuidePage').then((
 const StratagemsPage = lazy(() => import('./factions/StratagemsPage').then((m) => ({ default: m.StratagemsPage })));
 const ReportsPage = lazy(() => import('./rules/ReportsPage').then((m) => ({ default: m.ReportsPage })));
 const PlayRoutes = lazy(() => import('./play/PlayRoutes').then((m) => ({ default: m.PlayRoutes })));
+const LearnRoutes = lazy(() => import('./learn/LearnRoutes').then((m) => ({ default: m.LearnRoutes })));
 
 const loadingPage = <p className="muted">Loading…</p>;
 
@@ -47,10 +47,7 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/legal" element={<Legal />} />
-      <Route
-        path="/learn"
-        element={guard(<Placeholder title="Learn" milestone={6} blurb="Short lessons that teach each phase with real dice on a small board." />)}
-      />
+      <Route path="/learn/*" element={guard(lazyPage(<LearnRoutes />))} />
       <Route path="/build" element={guard(lazyPage(<ListsPage />))} />
       <Route path="/build/new" element={guard(lazyPage(<NewListPage />))} />
       <Route path="/build/:id" element={guard(lazyPage(<ListEditorPage />))} />

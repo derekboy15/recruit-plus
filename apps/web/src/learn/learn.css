@@ -12,3 +12,25 @@
 .drill-card__sheet h1 { font-size: 1.1rem; }
 .drill__top { grid-template-areas: 'where tools'; }
 .drill__top .btn { white-space: nowrap; }
+
+/* ---------- The lesson path and lesson pages ---------- */
+.learn-meter { position: relative; height: var(--touch); border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; margin: 0.75rem 0 1rem; }
+.learn-meter__bar { position: absolute; inset: 0 auto 0 0; background: var(--brass); opacity: 0.35; }
+.learn-meter span { position: relative; display: flex; align-items: center; height: 100%; padding: 0 0.75rem; font-weight: 600; }
+.learn-path { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.5rem; }
+.learn-path__item { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.learn-path__item--next { border-color: var(--brass); }
+.learn-path__item--locked { opacity: 0.7; }
+.learn-path__link { display: grid; gap: 0.2rem; min-height: var(--touch); padding: 0.6rem 0.9rem; color: inherit; text-decoration: none; align-content: center; }
+.learn-path__body { display: grid; gap: 0.3rem; padding: 0.6rem 0.9rem; }
+.learn-path__title { font-size: 1rem; margin: 0; }
+.learn-path__summary { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+.learn-path__meta { display: flex; gap: 0.5rem; align-items: center; color: var(--text-muted); font-size: 0.85rem; }
+.learn-path__start { min-height: var(--touch); }
+.learn-first { margin-top: 1rem; }
+.learn-words dl { margin: 0; }
+.learn-words dt { font-weight: 700; margin-top: 0.5rem; }
+.learn-words dd { margin: 0.15rem 0 0; }
+.learn-refs ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
+.learn-refs .learn-path__link { border: 1px solid var(--border); border-radius: var(--radius); color: var(--brass-strong); }
+.learn-done { display: inline-block; margin: 0.5rem 0; }
