@@ -79,7 +79,7 @@ export function LearnHome() {
                     </Link>
                   )}
                   {done && (
-                    <Link to={`/learn/${l.id}/drill`} className="btn learn-path__start" aria-label={`Replay the ${l.title} drill`}>
+                    <Link to={`/learn/${l.id}/drill`} className="btn learn-path__start" aria-label={`Replay drill: ${l.title}`}>
                       Replay drill
                     </Link>
                   )}

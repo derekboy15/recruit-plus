@@ -96,7 +96,7 @@ test('learn: lessons 1 and 2 with their drills, then Your first game', async ({ 
   // Back on the path: lesson 1 done (with Replay drill), lesson 2 recommended.
   await card(page).getByRole('link', { name: 'Back to Learn' }).click();
   await expect(path.getByRole('listitem').nth(0)).toContainText('Done');
-  await expect(path.getByRole('listitem').nth(0).getByRole('link', { name: 'Replay the What 40k is drill' })).toBeVisible();
+  await expect(path.getByRole('listitem').nth(0).getByRole('link', { name: 'Replay drill: What 40k is' })).toBeVisible();
   await expect(path.getByRole('listitem').nth(1)).toContainText('Recommended next');
 
   // Lesson 2: read the datasheets, then fire the bolt rifles.

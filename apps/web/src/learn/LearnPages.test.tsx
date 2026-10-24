@@ -87,7 +87,7 @@ describe('Learn home', () => {
     expect(within(items[1]).getByText('Recommended next')).toBeInTheDocument();
     expect(within(items[1]).getByRole('link', { name: 'Start' })).toHaveAttribute('href', '/learn/datasheets');
     expect(within(items[0]).getByText('Done')).toBeInTheDocument();
-    const replay = within(items[0]).getByRole('link', { name: 'Replay the What 40k is drill' });
+    const replay = within(items[0]).getByRole('link', { name: 'Replay drill: What 40k is' });
     expect(replay).toHaveAttribute('href', `/learn/${first.id}/drill`);
     expect(replay).toHaveTextContent(/^Replay drill$/);
     expect(within(items[0]).queryByText('Recommended next')).toBeNull();
