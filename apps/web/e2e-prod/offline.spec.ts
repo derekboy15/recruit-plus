@@ -16,6 +16,22 @@ test('shell data is precached', async ({ page }) => {
   }
 });
 
+test('the self-hosted fonts are precached, so the app looks the same offline', async ({ page }) => {
+  await page.goto('/');
+  await waitForServiceWorker(page);
+  const fonts = await page.evaluate(async () => {
+    const out: string[] = [];
+    for (const name of await caches.keys()) {
+      if (!name.includes('precache')) continue;
+      for (const req of await (await caches.open(name)).keys()) if (/\.woff2(\?|$)/.test(req.url)) out.push(new URL(req.url).pathname);
+    }
+    return out;
+  });
+  for (const face of ['barlow-condensed-latin-500', 'barlow-condensed-latin-600', 'barlow-condensed-latin-700', 'inter-latin-wght']) {
+    expect(fonts.some((p) => p.includes(face)), face).toBe(true);
+  }
+});
+
 test("offline fallback page when the shell isn't cached", async ({ page, context }) => {
   await page.goto('/');
   await waitForServiceWorker(page);

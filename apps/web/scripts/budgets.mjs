@@ -7,7 +7,8 @@ export const BUDGETS = {
   entryGzip: 110 * kB,
   chunkGzip: 120 * kB,
   cssGzip: 25 * kB,
-  precacheBytes: 2.6 * 1024 * 1024,
+  // 2.6 MB of app and shell data plus the self-hosted fonts (~114 kB woff2), precached so the app looks right offline.
+  precacheBytes: 2.75 * 1024 * 1024,
   catalogueGzip: 300 * kB,
   rosterGzip: 250 * kB,
   rulesGzip: 100 * kB,
