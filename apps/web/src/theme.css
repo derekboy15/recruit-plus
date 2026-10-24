@@ -1,27 +1,36 @@
 :root {
-  --bg: #121212;
-  --surface: #1c1b1a;
-  --surface-2: #262422;
-  --border: #3a3631;
+  --bg: #121110;
+  --surface: #1b1a18;
+  --surface-2: #24221f;
+  --border: #2c2925;
+  /* Chips, secondary buttons and selected outlines: a step up from the card dividers. */
+  --border-strong: #4a4135;
   /* Form controls need a 3:1 outline against their fill (WCAG 1.4.11); card dividers keep the quieter --border. */
   --input-border: #7a7064;
-  --text: #ece6dc;
-  --text-muted: #a89f92;
+  --text: #ede7dd;
+  /* Secondary prose such as rule summaries; --text-muted is for labels and metadata. */
+  --text-soft: #b9b0a3;
+  --text-muted: #a69d90;
   --brass: #b08d57;
   --brass-strong: #d1ab6c;
-  --red: #9b2226;
+  /* Red is for the one primary action per screen and for destructive items. --red-strong is a border, never text. */
+  --red: #a3262b;
   --red-strong: #c1373c;
+  --danger-text: #f08a8d;
   --focus: #e9c46a;
-  --ok: #7bd09a;
-  --ok-bg: #16301f;
+  --ok: #8fd19c;
+  --ok-bg: #1d2a1f;
+  --warn: #f0b45a;
   --bad: #ff9b9b;
   --bad-bg: #3a1618;
+  --font-display: 'Barlow Condensed', system-ui, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
   --radius: 10px;
   --touch: 44px;
   --nav-h: 64px;
   --rail-w: 92px;
   color-scheme: dark;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -29,6 +38,7 @@
 * { box-sizing: border-box; }
 
 html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font-size: 0.9375rem; }
 
 a { color: var(--brass-strong); }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
@@ -36,21 +46,39 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline-offset: 2px;
 }
 
-h1, h2, h3 { line-height: 1.25; letter-spacing: 0.01em; }
-h1 { font-size: 1.6rem; margin: 0 0 0.75rem; }
-h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: var(--brass-strong); }
-h3 { font-size: 1.05rem; margin: 1rem 0 0.4rem; }
+/* Headings and numbers are in the condensed display face; body copy is Inter. */
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: 2rem; margin: 0 0 0.75rem; }
+h2 { font-size: 1.45rem; margin: 1.5rem 0 0.5rem; color: var(--brass-strong); }
+h3 { font-size: 1.2rem; margin: 1rem 0 0.4rem; }
+/* Section labels: HQ, WEAPONS, ABILITIES. */
+.label-caps {
+  font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--brass-strong);
+}
 
+/* Buttons: .btn is the secondary outline; one .btn--primary per screen. */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   min-height: var(--touch); padding: 0 1.1rem; border-radius: var(--radius);
-  border: 1px solid var(--brass); background: transparent; color: var(--text);
+  border: 1px solid var(--border-strong); background: transparent; color: var(--text);
   font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
 }
-.btn--primary { background: var(--red); border-color: var(--red-strong); }
-.btn--primary:hover { background: var(--red-strong); }
-.btn:hover { border-color: var(--brass-strong); }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:hover:not(:disabled) { border-color: var(--brass); }
+.btn--primary { background: var(--red); border-color: var(--red); color: #ffffff; }
+.btn--primary:hover:not(:disabled) { background: var(--red-strong); border-color: var(--red-strong); }
+.btn--tertiary { border-color: transparent; color: var(--brass-strong); padding: 0 0.6rem; }
+.btn--tertiary:hover:not(:disabled) { border-color: transparent; text-decoration: underline; }
+.btn--danger { border-color: var(--red-strong); color: var(--danger-text); }
+.btn--danger:hover:not(:disabled) { border-color: var(--danger-text); }
+.btn--icon {
+  width: var(--touch); height: var(--touch); min-height: var(--touch); padding: 0; flex: none;
+  border-color: transparent; color: var(--text);
+}
+.btn--icon:hover:not(:disabled) { border-color: transparent; background: var(--surface-2); }
+.btn--icon svg { flex: none; }
+/* Disabled buttons fade on their own colours rather than turning a muddy maroon. */
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .input {
   min-height: var(--touch); width: 100%; padding: 0 0.8rem; border-radius: var(--radius);
@@ -169,7 +197,6 @@ button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointe
 
 /* ---------- List editor ---------- */
 .btn--small { min-height: var(--touch); padding: 0 0.8rem; font-size: 0.9rem; }
-.btn--danger { border-color: var(--red-strong); color: var(--bad); }
 .hint { margin: 0 0 0.5rem; color: var(--bad); font-weight: 600; font-size: 0.9rem; }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--red-strong); vertical-align: middle; margin-left: 0.35rem; }
 
@@ -363,7 +390,7 @@ main h2[id], main h3[id], main article[id] { scroll-margin-top: 4.5rem; }
 .auth-form { display: grid; gap: 0.5rem; }
 .auth-form__hint { margin: -0.2rem 0 0; font-size: 0.85rem; }
 .auth-form__forgot { justify-self: end; }
-.auth-form__error { margin: 0.25rem 0; color: var(--red-strong); font-weight: 600; }
+.auth-form__error { margin: 0.25rem 0; color: var(--danger-text); font-weight: 600; }
 .auth-form__notice { margin: 0.25rem 0; padding: 0.6rem 0.8rem; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--border); }
 .password-field { display: flex; gap: 0.4rem; }
 .password-field .input { flex: 1; min-width: 0; }

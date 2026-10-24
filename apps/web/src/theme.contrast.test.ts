@@ -33,10 +33,10 @@ describe('contrast', () => {
   test('known pair', () => expect(contrast('#ffffff', '#000000')).toBeCloseTo(21, 0));
 
   const text: [string, () => string, () => string][] = [];
-  for (const fg of ['text', 'text-muted']) for (const bg of ['bg', 'surface', 'surface-2']) text.push([`--${fg} on --${bg}`, () => token(fg), () => token(bg)]);
+  for (const fg of ['text', 'text-soft', 'text-muted', 'brass-strong', 'danger-text', 'ok', 'warn'])
+    for (const bg of ['bg', 'surface', 'surface-2']) text.push([`--${fg} on --${bg}`, () => token(fg), () => token(bg)]);
+  text.push(['#ffffff on --red', () => '#ffffff', () => token('red')]);
   text.push(
-    ['--brass-strong on --bg', () => token('brass-strong'), () => token('bg')],
-    ['--brass-strong on --surface', () => token('brass-strong'), () => token('surface')],
     ['--bad on --bad-bg', () => token('bad'), () => token('bad-bg')],
     ['--ok on --ok-bg', () => token('ok'), () => token('ok-bg')],
     ['.badge--legends on --surface', () => rule('.badge--legends', 'color'), () => token('surface')],
@@ -44,6 +44,7 @@ describe('contrast', () => {
     ['button text on .btn--primary', () => token('text'), () => rule('.btn--primary', 'background')],
   );
   test.each(text)('%s ≥ 4.5', (_, fg, bg) => expect(contrast(fg(), bg())).toBeGreaterThanOrEqual(4.5));
+  test('auth errors are not red-strong text', () => expect(rule('.auth-form__error', 'color')).toBe(token('danger-text')));
 
   test.each([
     ['--focus on --bg', () => token('focus'), () => token('bg')],
