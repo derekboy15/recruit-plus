@@ -13,6 +13,7 @@ import { openDb } from './storage/db';
 import { StorageProvider } from './storage/StorageContext';
 import { createSupabaseRemote } from './storage/supabaseRemote';
 import { startAutoSync } from './storage/sync';
+import { ToastProvider } from './ui/toast';
 
 const setup = createAuthSetup();
 export const db = openDb();
@@ -58,14 +59,16 @@ export function App() {
           <SyncWhileSignedIn />
           <WordingProvider>
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-              <AppShell account={<AccountMenu />}>
-                <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={
-                    <>
-                      <Route path="/sign-in" element={<SignIn />} />
-                      <Route path="/reset-password" element={<ResetPassword />} />
-                    </>
-                  } />
-              </AppShell>
+              <ToastProvider>
+                <AppShell account={<AccountMenu />}>
+                  <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={
+                      <>
+                        <Route path="/sign-in" element={<SignIn />} />
+                        <Route path="/reset-password" element={<ResetPassword />} />
+                      </>
+                    } />
+                </AppShell>
+              </ToastProvider>
             </BrowserRouter>
           </WordingProvider>
         </PublicSourceContext.Provider>

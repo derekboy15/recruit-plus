@@ -412,6 +412,24 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .menu__item--danger .menu__icon { color: inherit; }
 .menu__divider { height: 1px; margin: 4px 6px; background: var(--border-strong); }
 
+/* ---------- Toasts (ui/toast.tsx): above the phone tab bar, bottom-centre from 768px ---------- */
+.toast-region {
+  position: fixed; z-index: 50; left: 12px; right: 12px;
+  bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom, 0px));
+  display: flex; justify-content: center; pointer-events: none;
+}
+.toast {
+  pointer-events: auto; display: flex; align-items: center; gap: 4px; width: 100%; max-width: 480px;
+  padding: 4px 4px 4px 16px; background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--border-strong); border-radius: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+.toast__message { flex: 1; min-width: 0; margin: 0; padding: 8px 0; overflow-wrap: anywhere; }
+.toast__action { flex: none; }
+.toast__close { color: var(--text-muted); }
+@media (min-width: 768px) {
+  .toast-region { left: var(--rail-w); right: 0; bottom: 24px; padding: 0 16px; }
+}
+
 /* ---------- Export and share ---------- */
 .editor-actions, .sheet-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .sheet-actions { margin: 0.75rem 0; }
