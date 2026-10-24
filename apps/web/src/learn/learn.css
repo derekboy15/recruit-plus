@@ -18,14 +18,16 @@
 .learn-meter__bar { position: absolute; inset: 0 auto 0 0; background: var(--brass); opacity: 0.35; }
 .learn-meter span { position: relative; display: flex; align-items: center; height: 100%; padding: 0 0.75rem; font-weight: 600; }
 .learn-path { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.5rem; }
-.learn-path__item { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-.learn-path__item--next { border-color: var(--brass); }
-.learn-path__item--locked { opacity: 0.7; }
-.learn-path__link { display: grid; gap: 0.2rem; min-height: var(--touch); padding: 0.6rem 0.9rem; color: inherit; text-decoration: none; align-content: center; }
-.learn-path__body { display: grid; gap: 0.3rem; padding: 0.6rem 0.9rem; }
-.learn-path__title { font-size: 1rem; margin: 0; }
-.learn-path__summary { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
-.learn-path__meta { display: flex; gap: 0.5rem; align-items: center; color: var(--text-muted); font-size: 0.85rem; }
+.learn-intro { color: var(--text-soft); max-width: 70ch; }
+.learn-path__item { display: grid; gap: 0.3rem; padding: 0.4rem 0.9rem 0.75rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.learn-path__item--recommended { border-color: var(--brass); box-shadow: inset 3px 0 0 var(--brass); }
+.learn-path__link { display: flex; align-items: center; min-height: var(--touch); color: var(--text); text-decoration: none; }
+.learn-path__link:hover { color: var(--brass-strong); text-decoration: underline; }
+.learn-path__title { font-size: 1.15rem; margin: 0; color: var(--text); }
+.learn-path__summary { margin: 0; color: var(--text-soft); font-size: 0.9rem; max-width: 70ch; }
+.learn-path__meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; color: var(--text-muted); font-size: 0.85rem; }
+.learn-path__badge { color: var(--brass-strong); border-color: var(--brass); background: var(--surface-2); }
+.learn-path__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.35rem; }
 .learn-path__start { min-height: var(--touch); }
 .learn-first { margin-top: 1rem; }
 .learn-words dl { margin: 0; }

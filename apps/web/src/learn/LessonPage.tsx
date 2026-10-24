@@ -7,7 +7,7 @@ import type { RendererFactory } from '../play/board/BoardCanvas';
 import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
 import { completeLesson } from './progress';
-import { lockOf, useLearnData } from './useLessons';
+import { useLearnData } from './useLessons';
 import { LoadError } from '../layout/OfflineNotice';
 
 // The drills bring the engine and the board: they load only when a drill opens.
@@ -22,7 +22,7 @@ function useLesson() {
 
 const nextOf = (lessons: Lesson[], lesson: Lesson) => lessons[lessons.indexOf(lesson) + 1] ?? null;
 
-/** Shown for missing lessons, data errors and locked lessons; null when the lesson can be shown. */
+/** Shown while loading, for data errors and for missing lessons; null when the lesson can be shown. Every lesson is open. */
 function Gate({ data, lesson }: ReturnType<typeof useLesson>) {
   if (data.status === 'loading') return <p className="muted">Loading the lesson…</p>;
   if (data.status === 'error') return <LoadError error={data.error} what="the lesson" />;
@@ -38,20 +38,7 @@ function Gate({ data, lesson }: ReturnType<typeof useLesson>) {
         <p role="alert">That lesson doesn&apos;t exist.</p>
       </section>
     );
-  const lock = lockOf(data.lessons, data.progress, lesson);
-  if (lock.open) return null;
-  return (
-    <section>
-      {back}
-      <h1>{lesson.title}</h1>
-      <p>Finish {lock.before.title} first.</p>
-      {lock.next && (
-        <Link to={`/learn/${lock.next.id}`} className="btn btn--primary learn-path__start">
-          Go to {lock.next.title}
-        </Link>
-      )}
-    </section>
-  );
+  return null;
 }
 
 export function LessonPage() {

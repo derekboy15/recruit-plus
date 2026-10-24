@@ -28,11 +28,7 @@ export function mergeProgress(...all: ProgressData[]): ProgressData {
   return { schema: 1, lessons, ...(firstGameId ? { firstGameId } : {}) };
 }
 
-/** Lesson `order` (1-based) is open when it is the first or the one before it is done. */
-export function isUnlocked(order: number, lessonsInOrder: string[], p: ProgressData): boolean {
-  return order === 1 || (order > 1 && order <= lessonsInOrder.length && !!p.lessons[lessonsInOrder[order - 2]]);
-}
-
+/** The recommended lesson: the first one not done. Every lesson is open; this is only the suggestion. */
 export const nextLesson = (lessonsInOrder: string[], p: ProgressData): string | null => lessonsInOrder.find((id) => !p.lessons[id]) ?? null;
 
 export const allDone = (lessonsInOrder: string[], p: ProgressData): boolean => lessonsInOrder.length > 0 && nextLesson(lessonsInOrder, p) === null;

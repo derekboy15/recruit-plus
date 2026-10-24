@@ -59,29 +59,39 @@ const done = async (...ids: string[]) => {
 };
 
 describe('Learn home', () => {
-  test('the path lists every lesson in order with Next on lesson 1 and the rest locked', async () => {
+  test('every lesson is open: each title links to its lesson', async () => {
     renderAt('/learn');
     expect(await screen.findByRole('heading', { name: 'Learn to play', level: 1 })).toBeInTheDocument();
     const items = within(screen.getByRole('list', { name: 'Lessons' })).getAllByRole('listitem');
-    expect(items.map((i) => within(i).getByRole('heading').textContent)).toEqual(['1. What 40k is', '2. Reading a datasheet', '3. The attack sequence']);
-    expect(within(items[0]).getByText('Next')).toBeInTheDocument();
-    expect(within(items[0]).getByRole('link', { name: 'Start' })).toHaveAttribute('href', '/learn/what-is-40k');
-    expect(within(items[1]).getByText('Locked')).toBeInTheDocument();
-    expect(within(items[1]).getByText('Finish lesson 1 first')).toBeInTheDocument();
-    expect(within(items[1]).queryByRole('link')).toBeNull();
+    expect(items).toHaveLength(3);
+    for (const [i, [name, id]] of [
+      ['1. What 40k is', first.id],
+      ['2. Reading a datasheet', 'datasheets'],
+      ['3. The attack sequence', 'attacks'],
+    ].entries()) {
+      expect(within(items[i]).getByRole('link', { name })).toHaveAttribute('href', `/learn/${id}`);
+      expect(items[i]).toHaveTextContent(first.summary);
+    }
+    expect(screen.queryByText(/Locked/)).toBeNull();
+    expect(within(items[0]).getByText('Recommended next')).toBeInTheDocument();
+    expect(within(items[0]).getByRole('link', { name: 'Start' })).toHaveAttribute('href', `/learn/${first.id}`);
     expect(screen.getByRole('meter', { name: 'Lessons done' })).toHaveTextContent('0 of 3 lessons done');
   });
 
-  test('a finished lesson shows Done and unlocks the next', async () => {
-    await done('what-is-40k');
+  test('the first lesson not done is the recommended one', async () => {
+    await done(first.id);
     renderAt('/learn');
     const list = await screen.findByRole('list', { name: 'Lessons' });
     await waitFor(() => expect(screen.getByRole('meter', { name: 'Lessons done' })).toHaveTextContent('1 of 3 lessons done'));
     const items = within(list).getAllByRole('listitem');
+    expect(within(items[1]).getByText('Recommended next')).toBeInTheDocument();
+    expect(within(items[1]).getByRole('link', { name: 'Start' })).toHaveAttribute('href', '/learn/datasheets');
     expect(within(items[0]).getByText('Done')).toBeInTheDocument();
-    expect(within(items[0]).getByRole('link', { name: /What 40k is/ })).toHaveAttribute('href', '/learn/what-is-40k');
-    expect(within(items[1]).getByText('Next')).toBeInTheDocument();
-    expect(within(items[2]).getByText('Locked')).toBeInTheDocument();
+    const replay = within(items[0]).getByRole('link', { name: 'Replay the What 40k is drill' });
+    expect(replay).toHaveAttribute('href', `/learn/${first.id}/drill`);
+    expect(replay).toHaveTextContent(/^Replay drill$/);
+    expect(within(items[0]).queryByText('Recommended next')).toBeNull();
+    expect(within(items[2]).queryByRole('link', { name: 'Start' })).toBeNull();
   });
 
   test('Your first game stays locked until every lesson is done', async () => {
@@ -89,6 +99,18 @@ describe('Learn home', () => {
     const card = await screen.findByRole('region', { name: 'Your first game' });
     expect(card).toHaveTextContent('Finish all 3 lessons to unlock a 500-point game against the Necrons, with hints on.');
     expect(within(card).queryByRole('link')).toBeNull();
+  });
+
+  test('Your first game says exactly which lessons are left', async () => {
+    await done(first.id);
+    const { unmount } = renderAt('/learn');
+    const card = await screen.findByRole('region', { name: 'Your first game' });
+    await waitFor(() => expect(card).toHaveTextContent('Finish the 2 lessons left to unlock a 500-point game against the Necrons, with hints on.'));
+    unmount();
+    await done('datasheets');
+    renderAt('/learn');
+    const again = await screen.findByRole('region', { name: 'Your first game' });
+    await waitFor(() => expect(again).toHaveTextContent('Finish The attack sequence to unlock a 500-point game against the Necrons, with hints on.'));
   });
 
   test('with every lesson done, Your first game can be played', async () => {
@@ -115,18 +137,28 @@ describe('Lesson page', () => {
     expect(screen.getByRole('link', { name: 'Start the drill' })).toHaveAttribute('href', '/learn/what-is-40k/drill');
   });
 
-  test('a locked lesson by URL says what to finish first and starts no drill', async () => {
+  test('a lesson opened by URL before the one before it is done shows the lesson', async () => {
     renderAt('/learn/attacks');
-    expect(await screen.findByText('Finish Reading a datasheet first.')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Go to What 40k is' })).toHaveAttribute('href', '/learn/what-is-40k');
-    expect(screen.queryByRole('link', { name: 'Start the drill' })).toBeNull();
+    expect(await screen.findByRole('heading', { name: 'The attack sequence', level: 1 })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Start the drill/ })).toHaveAttribute('href', '/learn/attacks/drill');
+    expect(screen.queryByText(/^Finish .* first\.$/)).toBeNull();
   });
 
-  test('a locked drill by URL says what to finish first and starts no drill', async () => {
-    await done('what-is-40k');
-    renderAt('/learn/attacks/drill');
-    expect(await screen.findByText('Finish Reading a datasheet first.')).toBeInTheDocument();
-    expect(screen.queryByRole('region', { name: 'Drill' })).toBeNull();
+  test("a drill opened by URL starts even if earlier lessons aren't done", async () => {
+    const real = DRILLS.attacks;
+    DRILLS.attacks = { ...tiny, id: 'attacks' };
+    try {
+      render(
+        <TestProviders db={db} path="/learn/attacks/drill">
+          <Routes>
+            <Route path="/learn/*" element={<LearnRoutes renderer={fakeRenderer} />} />
+          </Routes>
+        </TestProviders>,
+      );
+      expect(await screen.findByRole('region', { name: 'Drill' })).toBeInTheDocument();
+    } finally {
+      DRILLS.attacks = real;
+    }
   });
 
   test('an unknown lesson says so', async () => {

@@ -2,7 +2,7 @@
 import type { GlossaryTerm, Lesson } from '@recruit/data/model';
 import { getLessons, getRules } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
-import { isUnlocked, useProgress, type ProgressData } from './progress';
+import { useProgress, type ProgressData } from './progress';
 
 export type LearnData =
   | { status: 'loading' }
@@ -19,11 +19,3 @@ export function useLearnData(): LearnData {
   return { status: 'ready', lessons, order: lessons.map((l) => l.id), glossary: rules.glossary, progress };
 }
 
-/** Whether a lesson is open, and if not, the lesson to finish first. */
-export function lockOf(lessons: Lesson[], progress: ProgressData, lesson: Lesson): { open: true } | { open: false; before: Lesson; next: Lesson | null } {
-  const order = lessons.map((l) => l.id);
-  const i = order.indexOf(lesson.id);
-  if (isUnlocked(i + 1, order, progress)) return { open: true };
-  const next = lessons.find((l) => !progress.lessons[l.id]) ?? null;
-  return { open: false, before: lessons[i - 1], next };
-}
