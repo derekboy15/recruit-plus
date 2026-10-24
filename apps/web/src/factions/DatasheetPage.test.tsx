@@ -78,10 +78,13 @@ test('the official wording switch shows the official texts', async () => {
   expect(screen.queryByText('Destroyed models can come back.')).not.toBeInTheDocument();
 });
 
-test('the page has one report button, for the whole datasheet', async () => {
+test('a datasheet has one report button for the page', async () => {
   renderDatasheet(withPlain);
   await screen.findByText('Destroyed models can come back.');
-  expect(await screen.findAllByRole('button', { name: 'Report a rules error' })).toHaveLength(1);
+  expect(await screen.findAllByRole('button', { name: 'Report a problem' })).toHaveLength(1);
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }));
+  const which = screen.getByRole('combobox', { name: 'Which part?' });
+  expect(within(which).getAllByRole('option').map((o) => o.textContent)).toEqual(['Necron Warriors', 'Reanimation Protocols', 'Their Number Is Legion']);
 });
 
 test('an ability without plain English shows the official wording with a label', async () => {

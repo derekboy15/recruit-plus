@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../factions/dataClient';
 import { openDb, type RecruitDb } from '../storage/db';
-import { Blocks } from './Blocks';
+import { Blocks, InlineText } from './Blocks';
 import { CoreStratagemsPage } from './CoreStratagemsPage';
 import { GlossaryPage } from './GlossaryPage';
 import { RulesArticlePage } from './RulesArticlePage';
@@ -46,7 +46,13 @@ test('the rules home lists the articles and the other sections', async () => {
   renderAt('/rules');
   expect(await screen.findByRole('heading', { name: 'Rules', level: 1 })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Shooting phase/ })).toHaveAttribute('href', '/rules/shooting-phase');
+  const more = screen.getByRole('heading', { name: 'More', level: 2 }).nextElementSibling as HTMLElement;
+  const first = within(more).getAllByRole('link')[0];
+  expect(first).toHaveAccessibleName(/^Factions and datasheets/);
+  expect(first).toHaveAttribute('href', '/factions');
+  expect(first).toHaveTextContent('Every army’s units, datasheets and stratagems.');
   for (const [name, href] of [
+    ['Factions and datasheets', '/factions'],
     ['Glossary', '/rules/glossary'],
     ['Core stratagems', '/rules/stratagems'],
     ['Faction guides', '/rules/factions'],
@@ -72,12 +78,53 @@ test('a search with no hits says so', async () => {
   expect(screen.getByText('Nothing matches "zzzz". Try fewer words.')).toBeInTheDocument();
 });
 
-test('an article shows its sections with anchors and a report button each', async () => {
+test('an article has Back, contents and one report button', async () => {
   renderAt('/rules/shooting-phase');
   expect(await screen.findByRole('heading', { name: 'Shooting phase', level: 1 })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Rules' })).toHaveAttribute('href', '/rules');
   expect(screen.getByRole('heading', { name: 'Look Out, Sir', level: 2 })).toHaveAttribute('id', 'look-out-sir');
   expect(screen.getByText('Your units shoot one at a time.')).toBeInTheDocument();
-  expect(await screen.findAllByRole('button', { name: 'Report a rules error' })).toHaveLength(2);
+  const contents = screen.getByRole('navigation', { name: 'On this page' });
+  const sections = rulesData.articles[0].sections;
+  // The list is hidden until opened on a phone; its links are there either way.
+  const links = [...contents.querySelectorAll('ol a')];
+  expect(links.map((a) => [a.textContent, a.getAttribute('href')])).toEqual(sections.map((s) => [s.title, `#${s.id}`]));
+  expect(await screen.findAllByRole('button', { name: 'Report a problem' })).toHaveLength(1);
+});
+
+test('an article with fewer than three sections has no contents', async () => {
+  renderAt('/rules/charge-phase');
+  expect(await screen.findByRole('heading', { name: 'Charge phase', level: 1 })).toBeInTheDocument();
+  expect(screen.queryByRole('navigation', { name: 'On this page' })).toBeNull();
+});
+
+test('the contents toggle opens and closes the list', async () => {
+  renderAt('/rules/shooting-phase');
+  const toggle = await screen.findByRole('button', { name: 'On this page' });
+  const list = screen.getByRole('navigation', { name: 'On this page' }).querySelector('ol')!;
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  expect(list).toHaveAttribute('hidden');
+  await userEvent.click(toggle);
+  expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  expect(list).not.toHaveAttribute('hidden');
+  await userEvent.click(toggle);
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  expect(list).toHaveAttribute('hidden');
+});
+
+test('the article report asks which section', async () => {
+  renderAt('/rules/shooting-phase');
+  await userEvent.click(await screen.findByRole('button', { name: 'Report a problem' }));
+  const which = screen.getByRole('combobox', { name: 'Which part?' });
+  expect(within(which).getAllByRole('option').map((o) => o.textContent)).toEqual(['Shooting phase: Look Out, Sir', 'Shooting phase: Blast', 'Shooting phase: Fast dice']);
+});
+
+test('core stratagems have Back and one report button', async () => {
+  renderAt('/rules/stratagems');
+  expect(await screen.findByRole('link', { name: 'Back to Rules' })).toHaveAttribute('href', '/rules');
+  await screen.findByText(/one of the charged units can shoot at it first/);
+  expect(await screen.findAllByRole('button', { name: 'Report a problem' })).toHaveLength(1);
+  expect(screen.queryByRole('button', { name: 'Report a rules error' })).toBeNull();
 });
 
 test('an unknown article says so', async () => {
@@ -106,6 +153,34 @@ test('core stratagems show plain English, then the official wording after the sw
   expect(document.getElementById('strat-000002134006')).not.toBeNull();
   await userEvent.click(screen.getByRole('button', { name: 'Official wording' }));
   expect(screen.getByText(/declares a charge against one or more units from your army/)).toBeInTheDocument();
+});
+
+test('Blocks labels each table cell with its column', () => {
+  const t = (v: string) => [{ t: 'text' as const, v }];
+  const { container } = render(
+    <TestProviders db={db}>
+      <Blocks blocks={[{ t: 'table', head: [t('Trait'), t('Effect')], rows: [[t('Dense'), t('-1 to hit')], [t('Obscuring'), t('Blocks sight')]] }]} />
+    </TestProviders>,
+  );
+  const cells = [...container.querySelectorAll('tbody td')];
+  expect(cells.map((c) => [c.getAttribute('data-label'), c.textContent])).toEqual([
+    ['Trait', 'Dense'],
+    ['Effect', '-1 to hit'],
+    ['Trait', 'Obscuring'],
+    ['Effect', 'Blocks sight'],
+  ]);
+});
+
+test('InlineText without links keeps a link as plain text', () => {
+  render(
+    <TestProviders db={db}>
+      <p>
+        <InlineText links={false} c={[{ t: 'text', v: 'Each turn, ' }, { t: 'a', href: '/rules/glossary#core', c: [{ t: 'text', v: 'CORE' }] }]} />
+      </p>
+    </TestProviders>,
+  );
+  expect(screen.getByText(/Each turn,/)).toHaveTextContent('Each turn, CORE');
+  expect(screen.queryByRole('link')).toBeNull();
 });
 
 test('Blocks renders tables in a scroll box and unconfirmed notes with a title', () => {

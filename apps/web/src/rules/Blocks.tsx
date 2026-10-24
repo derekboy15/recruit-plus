@@ -2,8 +2,13 @@ import type { Block, Inline } from '@recruit/data/model';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { TableScroll } from '../layout/TableScroll';
+import './rules.css';
 
-export function InlineText({ c }: { c: Inline[] }) {
+/** Inline content as plain text: a table header's words for its cells' labels. */
+const plainText = (c: Inline[]): string => c.map((x) => (x.t === 'text' ? x.v : plainText(x.c))).join('');
+
+/** Rich inline text. `links={false}` keeps links as their words, for text inside something that is itself a link. */
+export function InlineText({ c, links = true }: { c: Inline[]; links?: boolean }) {
   return (
     <>
       {c.map((x, i) => {
@@ -11,10 +16,11 @@ export function InlineText({ c }: { c: Inline[] }) {
           case 'text':
             return <Fragment key={i}>{x.v}</Fragment>;
           case 'b':
-            return <strong key={i}><InlineText c={x.c} /></strong>;
+            return <strong key={i}><InlineText c={x.c} links={links} /></strong>;
           case 'i':
-            return <em key={i}><InlineText c={x.c} /></em>;
+            return <em key={i}><InlineText c={x.c} links={links} /></em>;
           case 'a':
+            if (!links) return <InlineText key={i} c={x.c} links={false} />;
             // In-page anchors stay plain links; app paths go through the router.
             return x.href.startsWith('#') ? (
               <a key={i} href={x.href}><InlineText c={x.c} /></a>
@@ -38,7 +44,9 @@ function BlockView({ b }: { b: Block }) {
       const items = b.items.map((item, i) => <li key={i}><Blocks blocks={item} /></li>);
       return b.t === 'ul' ? <ul className="blocks__list">{items}</ul> : <ol className="blocks__list">{items}</ol>;
     }
-    case 'table':
+    case 'table': {
+      // Each cell carries its column's name: below 600px rules.css stacks the rows into cards that show it.
+      const labels = b.head.map(plainText);
       return (
         <TableScroll label="Table" style={{ marginBottom: '1rem' }}>
           <table className="stats blocks__table">
@@ -47,12 +55,13 @@ function BlockView({ b }: { b: Block }) {
             </thead>
             <tbody>
               {b.rows.map((row, r) => (
-                <tr key={r}>{row.map((c, i) => <td key={i}><InlineText c={c} /></td>)}</tr>
+                <tr key={r}>{row.map((c, i) => <td key={i} data-label={labels[i] ?? ''}><InlineText c={c} /></td>)}</tr>
               ))}
             </tbody>
           </table>
         </TableScroll>
       );
+    }
     case 'note':
       return (
         <div className={`note note--${b.kind}`}>
