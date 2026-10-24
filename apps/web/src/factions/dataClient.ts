@@ -1,4 +1,4 @@
-import type { CatalogueOut, DataIndex, FactionGuide, LessonsData, RulesData, StratagemOut } from '@recruit/data/model';
+import type { CatalogueOut, DataIndex, FactionGuide, InfoFile, LessonsData, RulesData, StratagemOut } from '@recruit/data/model';
 import type { PolicyData, RosterFile, Scope } from '@recruit/data/roster';
 
 const cache = new Map<string, Promise<unknown>>();
@@ -25,6 +25,7 @@ export const getGuide = (slug: string) => getJson<FactionGuide>(`/data/guides/${
 
 export const getRosterFile = (slug: string) => getJson<RosterFile>(`/data/roster/${slug}.json`);
 export const getPolicy = () => getJson<PolicyData>('/data/roster/policy.json');
+export const getInfoFile = (slug: string) => getJson<InfoFile>(`/data/info/${slug}.json`);
 
 const SYSTEM = 'system';
 const scopes = new Map<string, Promise<Scope>>();

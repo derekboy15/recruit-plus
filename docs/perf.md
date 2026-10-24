@@ -35,6 +35,7 @@ Recruit+ is built for phones first. This page records what was measured, the bud
 | Any catalogue | ≤ 300 kB gzip |
 | Any roster | ≤ 250 kB gzip |
 | `rules.json` | ≤ 100 kB gzip |
+| Any option info file (`data/info/`) | ≤ 150 kB gzip |
 | Cold `/` first contentful paint | ≤ 3.0 s |
 | Warm route ready | ≤ 1.0 s |
 | Space Wolves faction page, cold data | ≤ 4.0 s |
@@ -69,3 +70,4 @@ Changing a budget needs a line in the change log below saying why.
 
 ## Change log
 - 2026-10-23: budgets set (Milestone 8).
+- 2026-10-24: `infoGzip` (150 kB per option info file) added with the info files (UI overhaul Plan D). The largest, the Aeldari Library, is 43 kB gzip; info files are cached when used, like catalogues.

@@ -47,6 +47,13 @@ describe('evaluateBudgets', () => {
     expect(failed(r)).toHaveLength(2);
   });
 
+  test('flags an info file over 150 kB gzip', () => {
+    const at = (gzip: number) => evaluateBudgets([...baseline, { path: 'data/info/necrons.json', bytes: 900 * kB, gzip }], ENTRY, 0);
+    expect(failed(at(151 * kB)).join()).toContain('data/info/necrons.json');
+    expect(failed(at(149 * kB))).toEqual([]);
+    expect(at(149 * kB).lines.join('\n')).toContain('largest info (data/info/necrons.json)');
+  });
+
   test('flags CSS over 25 kB gzip', () => {
     const r = evaluateBudgets([...baseline, { path: 'assets/more-abc.css', bytes: 200 * kB, gzip: 26 * kB }], ENTRY, 0);
     expect(failed(r).join()).toContain('CSS');
