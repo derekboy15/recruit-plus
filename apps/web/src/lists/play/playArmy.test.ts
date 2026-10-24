@@ -35,6 +35,11 @@ test('taken weapons match profiles by name, by "name (mode)", ignoring case and 
   expect(takenWeapons(fake(['staff of light']), overlordSheet)).toEqual(['Staff of Light (Shooting)', 'Staff of Light (Melee)']);
   expect(takenWeapons(fake(['  Staff  of   Light ']), overlordSheet)).toEqual(['Staff of Light (Shooting)', 'Staff of Light (Melee)']);
   expect(takenWeapons(fake(['Nothing That Matches']), overlordSheet)).toBeUndefined();
+  // A relic is chosen as "Relic (Novokh): Blood Scythe" but its datasheet profile is just "Blood Scythe".
+  expect(takenWeapons(fake(['Relic (Novokh): Blood Scythe', 'Staff of Light']), overlordSheet)).toEqual(
+    expect.arrayContaining(['Blood Scythe', 'Staff of Light (Shooting)']),
+  );
+  expect(takenWeapons(fake(['Relic (Novokh): Blood Scythe']), overlordSheet)).toEqual(['Blood Scythe']);
 });
 
 test('the army: totals, choices, roles in rulebook order, and a flat order for Previous and Next', async () => {

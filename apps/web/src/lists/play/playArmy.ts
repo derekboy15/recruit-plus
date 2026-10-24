@@ -56,7 +56,8 @@ const norm = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'").replace(/\
 function counted(children: SelView[], copies = 1): { name: string; qty: number }[] {
   return children.flatMap((c) => {
     const qty = copies * c.sel.count;
-    return qty > 0 ? [{ name: norm(c.name), qty }, ...counted(c.children, qty)] : [];
+    // By its display name: a relic chosen as "Relic (Novokh): Blood Scythe" has the profile "Blood Scythe".
+    return qty > 0 ? [{ name: norm(optionDisplay(c.name).name), qty }, ...counted(c.children, qty)] : [];
   });
 }
 
