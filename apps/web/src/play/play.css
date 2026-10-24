@@ -151,7 +151,9 @@
 .dice { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
 .dice .die { position: relative; min-width: var(--touch); height: var(--touch); margin: 0; border: 2px solid transparent; cursor: default; font: inherit; font-weight: 700; font-size: 1.2rem; }
 .dice button.die { cursor: pointer; }
-.die small { position: absolute; top: 1px; right: 3px; font-size: 0.65rem; }
+.die small { position: absolute; top: 1px; right: 3px; display: flex; align-items: center; gap: 1px; font-size: 0.65rem; line-height: 1; }
+.play-tally { margin: 0.25rem 0 0; }
+.play-tally strong { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.01em; }
 .die--pass { background: var(--ok); }
 .die--fail { background: #8a8580; color: #2a2724; }
 .die--picked { border-color: var(--focus); box-shadow: 0 0 0 2px var(--focus); }
