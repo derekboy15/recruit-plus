@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 5179;
+/** E2E_PORT lets parallel worktrees run this suite at once without sharing (or reusing) one dev server. */
+const PORT = Number(process.env.E2E_PORT ?? 5179);
 
 export default defineConfig({
   testDir: './e2e',

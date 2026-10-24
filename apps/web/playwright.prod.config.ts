@@ -5,7 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
  * service worker. Only the env differs from production: Supabase points at a fake host the tests answer
  * (e2e-prod/fake-supabase.ts). The build is always fresh: a stale dist-e2e must never be tested.
  */
-const PORT = 5189;
+/** E2E_PROD_PORT lets parallel worktrees run this suite at once. */
+const PORT = Number(process.env.E2E_PROD_PORT ?? 5189);
 const phone = { ...devices['Desktop Chrome'], viewport: { width: 375, height: 812 }, hasTouch: true, isMobile: true };
 
 export default defineConfig({
