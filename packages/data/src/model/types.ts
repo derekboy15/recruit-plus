@@ -112,6 +112,35 @@ export interface CatalogueOut {
   stratagems: StratagemOut[];
 }
 
+/** A BattleScribe profile on an army-building option: `type` is its profile type ("Weapon", "Abilities", "Warlord Trait"…). */
+export interface InfoProfile {
+  name: string;
+  type: string;
+  /** Characteristics with text, in file order. */
+  chars: Record<string, string>;
+  /** Plain-English versions of its text characteristics (only those that passed the checks). */
+  plain?: Record<string, string>;
+}
+export interface InfoRule {
+  name: string;
+  text: string;
+  plain?: string;
+}
+/** What an option carries: its own profiles and rules, and those its infoLinks and infoGroups reach. */
+export interface EntryInfo {
+  profiles?: InfoProfile[];
+  rules?: InfoRule[];
+}
+/**
+ * generated/info/<slug>.json, one per roster file: the info of every `upgrade` entry, selection entry group and entry
+ * link in the file that carries any (never units or models: datasheets cover those), keyed by BSData entry id.
+ */
+export interface InfoFile {
+  schema: 1;
+  slug: string;
+  entries: Record<string, EntryInfo>;
+}
+
 export interface CatalogueSummary {
   id: string;
   slug: string;

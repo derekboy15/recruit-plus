@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue id="cat-info" name="Info Faction" library="false" gameSystemId="sys-i" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <catalogueLinks>
+    <catalogueLink id="cl-i" name="Info Library" targetId="cat-ilib" type="catalogue" importRootEntries="false"/>
+  </catalogueLinks>
+  <entryLinks>
+    <entryLink id="el-unit" name="Lords" hidden="false" targetId="se-unit" type="selectionEntry">
+      <infoLinks>
+        <infoLink id="il-el-unit" name="Combi Weapon" hidden="false" targetId="rule-sys" type="rule"/>
+      </infoLinks>
+    </entryLink>
+  </entryLinks>
+  <sharedSelectionEntries>
+    <selectionEntry id="se-unit" name="Lords" hidden="false" type="unit">
+      <profiles>
+        <profile id="p-lord" name="Lord" hidden="false" typeId="pt-unit" typeName="Unit">
+          <characteristics>
+            <characteristic name="M" typeId="c-m">5&quot;</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="il-unit" name="Combi Weapon" hidden="false" targetId="rule-sys" type="rule"/>
+      </infoLinks>
+      <selectionEntries>
+        <selectionEntry id="se-model" name="Lord" hidden="false" type="model">
+          <rules>
+            <rule id="r-model" name="Model Rule" hidden="false">
+              <description>Only for the model.</description>
+            </rule>
+          </rules>
+          <selectionEntries>
+            <selectionEntry id="se-gun" name="Gauss Blaster" hidden="false" type="upgrade">
+              <profiles>
+                <profile id="p-gun" name="Gauss blaster" hidden="false" typeId="pt-weapon" typeName="Weapon">
+                  <characteristics>
+                    <characteristic name="Range" typeId="c-r">24&quot;</characteristic>
+                    <characteristic name="S" typeId="c-s">5</characteristic>
+                    <characteristic name="Abilities" typeId="c-ab"></characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+            </selectionEntry>
+            <selectionEntry id="se-nothing" name="Nothing" hidden="false" type="upgrade"/>
+          </selectionEntries>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups>
+        <selectionEntryGroup id="sg-traits" name="Warlord Traits" hidden="false">
+          <rules>
+            <rule id="r-group" name="Traits" hidden="false">
+              <description>Pick one.</description>
+            </rule>
+          </rules>
+          <entryLinks>
+            <entryLink id="el-relic" name="Relic: The Shield" hidden="false" targetId="se-lib-relic" type="selectionEntry"/>
+            <entryLink id="el-own" name="Gauss Blaster" hidden="false" targetId="se-gun" type="selectionEntry">
+              <infoLinks>
+                <infoLink id="il-own" name="Combi Weapon" hidden="false" targetId="rule-sys" type="rule"/>
+              </infoLinks>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry id="se-trait" name="Warlord Trait (Novokh): Blood-Fuelled Fury" hidden="true" type="upgrade">
+      <infoLinks>
+        <infoLink id="il-trait" name="Blood-Fuelled Fury" hidden="true" targetId="rule-lib" type="rule"/>
+        <infoLink id="il-trait-2" name="Indomitable" hidden="false" targetId="p-lib-ability" type="profile"/>
+        <infoLink id="il-empty" name="Empty" hidden="false" targetId="rule-empty" type="rule"/>
+      </infoLinks>
+    </selectionEntry>
+    <selectionEntry id="se-dyn" name="Dynasty: Novokh" hidden="false" type="upgrade">
+      <infoLinks>
+        <infoLink id="il-dyn" name="Novokh" hidden="false" targetId="ig-dyn" type="infoGroup"/>
+      </infoLinks>
+    </selectionEntry>
+  </sharedSelectionEntries>
+  <sharedSelectionEntryGroups>
+    <selectionEntryGroup id="sg-honours" name="Battle Honours" hidden="false">
+      <selectionEntries>
+        <selectionEntry id="se-honour" name="1. Dark Champion" hidden="false" type="upgrade">
+          <rules>
+            <rule id="r-honour" name="Dark Champion" hidden="false">
+              <description>A Crusade upgrade.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
+      </selectionEntries>
+    </selectionEntryGroup>
+    <selectionEntryGroup id="sg-shared" name="Dynasties" hidden="false">
+      <entryLinks>
+        <entryLink id="el-dyn" name="Dynasty: Novokh" hidden="false" targetId="se-dyn" type="selectionEntry"/>
+      </entryLinks>
+    </selectionEntryGroup>
+  </sharedSelectionEntryGroups>
+</catalogue>

@@ -107,8 +107,8 @@ export interface EmitOverrides {
   scopeCategories: Map<string, string>;
 }
 
-/** List-building extras the builder doesn't offer. */
-const DROPPED_NAME = /^(battle honours|battle scars|crusade)\b/i;
+/** List-building extras the builder doesn't offer (their info isn't emitted either: src/info/extract.ts). */
+export const DROPPED_NAME =/^(battle honours|battle scars|crusade)\b/i;
 const DROPPED_FIELDS = new Set(['page', 'description']);
 
 const kids = (n: RawNode, tag: string) => n.children.find((c) => c.tag === tag)?.children ?? [];

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue id="cat-ilib" name="Info Library" library="true" gameSystemId="sys-i" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <sharedRules>
+    <rule id="rule-lib" name="Blood-Fuelled Fury" hidden="true">
+      <description>Add 1 to the Attacks characteristic of this model.</description>
+    </rule>
+    <rule id="rule-empty" name="Empty" hidden="false">
+      <description></description>
+    </rule>
+  </sharedRules>
+  <sharedProfiles>
+    <profile id="p-lib-ability" name="Indomitable" hidden="false" typeId="pt-abilities" typeName="Abilities">
+      <characteristics>
+        <characteristic name="Description" typeId="c-desc">Each time an attack is allocated to a model in this unit, worsen the AP by 1.</characteristic>
+      </characteristics>
+    </profile>
+  </sharedProfiles>
+  <sharedInfoGroups>
+    <infoGroup id="ig-dyn" name="Novokh" hidden="false">
+      <profiles>
+        <profile id="p-ig-1" name="Awakened By Murder" hidden="false" typeId="pt-abilities" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="c-desc">Add 1 to charge rolls made for this unit.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="il-ig-rule" name="Blood-Fuelled Fury" hidden="false" targetId="rule-lib" type="rule"/>
+      </infoLinks>
+      <infoGroups>
+        <infoGroup id="ig-nested" name="Nested" hidden="false">
+          <profiles>
+            <profile id="p-ig-2" name="Blood Rites" hidden="false" typeId="pt-abilities" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="c-desc">Re-roll charge rolls.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </infoGroup>
+      </infoGroups>
+    </infoGroup>
+  </sharedInfoGroups>
+  <sharedSelectionEntries>
+    <selectionEntry id="se-lib-relic" name="Relic: The Shield" hidden="false" type="upgrade">
+      <profiles>
+        <profile id="p-shield" name="The Shield" hidden="false" typeId="pt-abilities" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="c-desc">Each time the bearer would lose a wound, roll one D6: on a 5+, that wound is not lost.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+  </sharedSelectionEntries>
+</catalogue>
