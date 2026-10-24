@@ -28,7 +28,7 @@ export function CoreStratagemsPage() {
       {groups.map((g) => (
         <section key={g}>
           <h2>{g}</h2>
-          <div className="stack">
+          <div className="stratagem-list">
             {state.data.filter((s) => s.group === g).map((s) => (
               <StratagemCard key={s.id} s={s} />
             ))}

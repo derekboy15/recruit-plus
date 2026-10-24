@@ -61,3 +61,24 @@ a.chip { display: inline-flex; align-items: center; justify-content: center; min
 .faction-row__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
 .faction-row__name { font-weight: 600; overflow-wrap: anywhere; }
 .faction-row__meta { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---------- A faction's unit rows: name and badges, size and key stats, points on the right ---------- */
+.faction-unit__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
+.faction-unit__name { font-weight: 600; overflow-wrap: anywhere; }
+.faction-unit__meta { font-size: 0.82rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.faction-unit__pts { flex: none; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- Faction guide: key units as whole-card links; the full army rules folded away, as plain sections ---------- */
+.list__link.key-unit { display: grid; gap: 0.2rem; justify-content: stretch; }
+.key-unit__name { font-weight: 600; color: var(--brass-strong); }
+.key-unit__why { color: var(--text-soft); font-size: 0.9rem; }
+.faction-guide__full { margin: 1.5rem 0 0; border-top: 1px solid var(--border); }
+.faction-guide__full > summary {
+  display: flex; align-items: center; min-height: var(--touch); cursor: pointer;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; color: var(--brass-strong);
+}
+.faction-guide__full[open] > summary { margin-bottom: 0.5rem; }
+.faction-guide__full .rules-section h3, .faction-guide__full .rules-section h4 { margin: 1rem 0 0.3rem; }
+
+/* Stratagem cards, one under another (theme's .stack is the list editor's indented tree). */
+.stratagem-list { display: grid; gap: 0.75rem; margin-bottom: 1rem; }

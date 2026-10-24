@@ -5,7 +5,7 @@ import { useWording } from '../rules/wording';
 import { DatasheetView } from '../ui/datasheet';
 import { PageHeader } from '../ui/PageHeader';
 import { getCatalogue } from './dataClient';
-import { factionDisplayName } from './names';
+import { factionLabel } from './factionSearch';
 import { useAsync } from './useAsync';
 
 export function DatasheetPage() {
@@ -14,7 +14,7 @@ export function DatasheetPage() {
   const { wording } = useWording();
   if (state.status === 'loading') return <p className="muted">Loading datasheet…</p>;
   if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
-  const back = { to: `/factions/${slug}`, label: factionDisplayName(state.data.name) };
+  const back = { to: `/factions/${slug}`, label: factionLabel(state.data).name };
   const unit = state.data.units.find((u) => u.slug === unitSlug);
   if (!unit)
     return (

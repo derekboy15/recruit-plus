@@ -26,6 +26,9 @@ const catalogue: CatalogueOut = {
     strat('s1', 'Swift Dismemberment', 'Annihilation Legion', ['Fight phase'], 'Official: re-roll wound rolls.'),
     strat('s2', 'Quantum Deflection', 'Necrons', ['Enemy Shooting phase'], 'Official: 4+ invulnerable save.', 'This vehicle gets a 4+ invulnerable save.'),
     strat('s3', 'Protocol of the Undying Legions', 'Necrons', ['Fight phase', 'Shooting phase'], 'Official: reanimate on a 5+.'),
+    strat('s4', 'Dynastic Heirlooms', 'Necrons', ['Before battle'], 'Official: one extra relic.'),
+    strat('s5', 'Dimensional Corridor', 'Necrons', ['Command phase'], 'Official: a unit moves through a Monolith.'),
+    strat('s6', 'Methodical Destruction', 'Necrons', ['Enemy Fight phase'], 'Official: re-roll hit rolls of 1 in melee.'),
   ],
 };
 
@@ -34,7 +37,16 @@ const guide: FactionGuide = {
   title: 'Necrons',
   plays: [{ t: 'p', c: [{ t: 'text', v: 'Tough robots that get back up.' }] }],
   armyRules: [{ t: 'p', c: [{ t: 'text', v: 'Everything has Reanimation Protocols.' }] }],
-  keyUnits: [{ name: 'Necron Warriors', unitSlug: 'necron-warriors', why: [{ t: 'text', v: 'Cheap, tough Troops.' }] }],
+  keyUnits: [
+    {
+      name: 'Necron Warriors',
+      unitSlug: 'necron-warriors',
+      why: [
+        { t: 'text', v: 'each Command phase, ' },
+        { t: 'a', href: '/rules/glossary#core', c: [{ t: 'text', v: 'CORE' }] },
+      ],
+    },
+  ],
 };
 
 let db: RecruitDb;
@@ -76,18 +88,76 @@ function renderAt(path: string) {
 test('the guide page shows the three guide sections and links key units to their datasheets', async () => {
   renderAt('/factions/necrons/guide');
   expect(await screen.findByRole('heading', { name: 'Necrons', level: 1 })).toBeInTheDocument();
-  for (const h of ['How this army plays', 'Army rules', 'Key units', 'Army rules in full']) {
+  expect(screen.getByRole('link', { name: 'Back to Factions' })).toHaveAttribute('href', '/factions');
+  for (const h of ['How this army plays', 'Army rules', 'Key units']) {
     expect(screen.getByRole('heading', { name: h, level: 2 })).toBeInTheDocument();
   }
   expect(screen.getByText('Tough robots that get back up.')).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'Necron Warriors' })).toHaveAttribute('href', '/factions/necrons/units/necron-warriors');
-  expect(screen.getByText('Cheap, tough Troops.')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /^Necron Warriors/ })).toHaveAttribute('href', '/factions/necrons/units/necron-warriors');
+});
+
+test('the guide shows the short army rules, then the full ones folded away', async () => {
+  const { container } = render(
+    <TestProviders db={db} path="/factions/necrons/guide">
+      <Routes>
+        <Route path="/factions/:slug/guide" element={<FactionGuidePage />} />
+      </Routes>
+    </TestProviders>,
+  );
+  expect(await screen.findByRole('heading', { name: 'Army rules', level: 2 })).toBeInTheDocument();
+  expect(screen.getByText('Everything has Reanimation Protocols.')).toBeInTheDocument();
+  const summary = screen.getByText('Army rules in full');
+  expect(summary.tagName).toBe('SUMMARY');
+  const details = summary.closest('details')!;
+  expect(details).not.toHaveAttribute('open');
+  expect(within(details).getByRole('heading', { name: 'Reanimation Protocols', level: 3, hidden: true })).toBeInTheDocument();
+  expect(container.querySelector('.card .card')).toBeNull();
+});
+
+test('each key unit card is one link with a capitalised blurb', async () => {
+  renderAt('/factions/necrons/guide');
+  const link = await screen.findByRole('link', { name: /^Necron Warriors/ });
+  expect(link).toHaveAttribute('href', '/factions/necrons/units/necron-warriors');
+  expect(link).toHaveTextContent('Each Command phase, CORE');
+  expect(link.querySelector('a')).toBeNull();
+});
+
+test('the guide has one report button, for the guide and each army rule', async () => {
+  renderAt('/factions/necrons/guide');
+  expect(await screen.findAllByRole('button', { name: 'Report a problem' })).toHaveLength(1);
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }));
+  const which = screen.getByRole('combobox', { name: 'Which part?' });
+  expect(within(which).getAllByRole('option').map((o) => o.textContent)).toEqual(['Necrons guide', 'Reanimation Protocols', 'Command Protocols']);
+});
+
+test('the units page has Back to Factions and key stats on each unit', async () => {
+  renderAt('/factions/necrons');
+  expect(await screen.findByRole('link', { name: 'Back to Factions' })).toHaveAttribute('href', '/factions');
+  expect(screen.getByRole('heading', { name: 'Necrons', level: 1 })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /Necron Warriors/ })).toHaveTextContent('10–20 models · M5" T4 W1 Sv4+');
+  expect(screen.getByRole('link', { name: /Necron Warriors/ })).toHaveTextContent('110 pts');
+});
+
+test("phase chips follow the game's order in one row", async () => {
+  renderAt('/factions/necrons/stratagems');
+  const chips = await screen.findByRole('group', { name: 'Phase' });
+  expect(chips).toHaveClass('rules-chips');
+  const names = within(chips).getAllByRole('button').map((b) => b.textContent);
+  expect(names).toEqual(['All phases', 'Before battle', 'Command phase', 'Shooting phase', 'Fight phase', 'Enemy Shooting phase', 'Enemy Fight phase']);
+});
+
+test('the stratagems page has Back to Factions and one report button', async () => {
+  renderAt('/factions/necrons/stratagems');
+  expect(await screen.findByRole('link', { name: 'Back to Factions' })).toHaveAttribute('href', '/factions');
+  await screen.findByText('Quantum Deflection');
+  expect(await screen.findAllByRole('button', { name: 'Report a problem' })).toHaveLength(1);
 });
 
 test('army rules in full show plain English, then the official wording after the switch', async () => {
   renderAt('/factions/necrons/guide');
   expect(await screen.findByText('Destroyed models can come back.')).toBeInTheDocument();
   expect(screen.getByText('Official: protocols apply each battle round.')).toBeInTheDocument(); // no plain yet
+  await userEvent.click(screen.getByText('Army rules in full'));
   await userEvent.click(screen.getByRole('button', { name: 'Official wording' }));
   expect(screen.getByText('Official: destroyed models may reassemble.')).toBeInTheDocument();
 });

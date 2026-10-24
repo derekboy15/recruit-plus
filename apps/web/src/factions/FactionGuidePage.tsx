@@ -1,14 +1,17 @@
 import type { CatalogueOut } from '@recruit/data/model';
 import { Link, useParams } from 'react-router-dom';
+import { isOfflineError, LoadError, OfflineNotice } from '../layout/OfflineNotice';
 import { Blocks, InlineText } from '../rules/Blocks';
 import { ReportButton } from '../rules/ReportButton';
 import { RulesText } from '../rules/RulesText';
 import { useWording, WordingToggle } from '../rules/wording';
+import { PageHeader } from '../ui/PageHeader';
 import { getCatalogue, getGuide, getIndex } from './dataClient';
-import { FactionTabs } from './FactionTabs';
+import { factionLabel } from './factionSearch';
+import { FACTIONS_BACK, FactionTabs } from './FactionTabs';
 import { factionDisplayName } from './names';
+import { capitalised } from './guideText';
 import { useAsync } from './useAsync';
-import { isOfflineError, LoadError, OfflineNotice } from '../layout/OfflineNotice';
 
 const SYSTEM = 'system';
 
@@ -22,30 +25,22 @@ async function loadGuidePage(slug: string) {
   return { cat, ruleCats: scopeCats.filter((c): c is CatalogueOut => !!c && c.rules.length > 0), guide };
 }
 
-function ArmyRule({ rule }: { rule: CatalogueOut['rules'][number] }) {
-  const { wording } = useWording();
-  return (
-    <div className="card">
-      <h4 style={{ margin: 0 }}>{rule.name}</h4>
-      <RulesText official={rule.text} plain={rule.plain} amended={rule.amended} />
-      <ReportButton target={{ kind: 'army-rule', name: rule.name }} text={wording === 'plain' && rule.plain ? rule.plain : rule.text} />
-    </div>
-  );
-}
-
 export function FactionGuidePage() {
   const { slug = '' } = useParams();
   const state = useAsync(() => loadGuidePage(slug), slug);
+  const { wording } = useWording();
   if (state.status === 'loading') return <p className="muted">Loading the guide…</p>;
   if (state.status === 'error') return <LoadError error={state.error} what="this faction" />;
   const { cat, ruleCats, guide } = state.data;
-  const name = factionDisplayName(cat.name);
+  const name = factionLabel(cat).name;
+  const hasGuide = !!guide && guide !== 'offline';
+  const shown = (r: CatalogueOut['rules'][number]) => (wording === 'plain' && r.plain ? r.plain : r.text);
+  const parts = [...(hasGuide ? [{ name: `${name} guide`, text: guide.title }] : []), ...ruleCats.flatMap((c) => c.rules.map((r) => ({ name: r.name, text: shown(r) })))];
+  // Several catalogues: each one's rules under its name, one heading level down.
+  const RuleHeading = ruleCats.length > 1 ? 'h4' : 'h3';
   return (
-    <article>
-      <p>
-        <Link to="/factions">← All factions</Link>
-      </p>
-      <h1>{name}</h1>
+    <article className="faction-guide">
+      <PageHeader title={name} back={FACTIONS_BACK} />
       <FactionTabs slug={cat.slug} library={cat.library} />
       {guide === 'offline' ? (
         <OfflineNotice />
@@ -58,11 +53,13 @@ export function FactionGuidePage() {
           <h2>Key units</h2>
           <ul className="list">
             {guide.keyUnits.map((k) => (
-              <li key={k.unitSlug} className="card">
-                <Link to={`/factions/${cat.slug}/units/${k.unitSlug}`}>{k.name}</Link>
-                <p className="muted" style={{ margin: '0.25rem 0 0' }}>
-                  <InlineText c={k.why} />
-                </p>
+              <li key={k.unitSlug}>
+                <Link className="list__link key-unit" to={`/factions/${cat.slug}/units/${k.unitSlug}`}>
+                  <span className="key-unit__name">{k.name}</span>
+                  <span className="key-unit__why">
+                    <InlineText c={capitalised(k.why)} links={false} />
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -71,22 +68,23 @@ export function FactionGuidePage() {
         <p className="muted">No guide for this faction yet.</p>
       )}
       {ruleCats.length > 0 && (
-        <section>
-          <h2>Army rules in full</h2>
+        <details className="faction-guide__full">
+          <summary>Army rules in full</summary>
           <WordingToggle />
           {ruleCats.map((c) => (
             <section key={c.slug}>
               {ruleCats.length > 1 && <h3>{factionDisplayName(c.name)}</h3>}
-              <div className="stack">
-                {c.rules.map((r) => (
-                  <ArmyRule key={r.id} rule={r} />
-                ))}
-              </div>
+              {c.rules.map((r) => (
+                <section key={r.id} className="rules-section">
+                  <RuleHeading>{r.name}</RuleHeading>
+                  <RulesText official={r.text} plain={r.plain} amended={r.amended} />
+                </section>
+              ))}
             </section>
           ))}
-        </section>
+        </details>
       )}
-      {guide && guide !== 'offline' && <ReportButton target={{ kind: 'guide', name: `${name} guide` }} text={guide.title} />}
+      <ReportButton target={{ kind: hasGuide ? 'guide' : 'army-rule', name: hasGuide ? `${name} guide` : `${name} army rules` }} text={name} parts={parts} />
     </article>
   );
 }
