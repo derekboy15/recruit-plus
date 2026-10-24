@@ -105,6 +105,35 @@
 .game__menu-actions { display: grid; gap: 0.5rem; margin-top: 1rem; }
 .game__menu-actions [role='group'] { display: grid; gap: 0.5rem; }
 
+/* ---------- Practice game (game--fit): the pinned action bar and a board sized to the map ---------- */
+/* The bar is the panel's last child and sticks to its bottom: the next step is on screen however far the panel scrolls.
+   Sticky positions keep clear of the scroller's padding, so the bar and the Toolkit title carry it instead. */
+.game--fit .game__panel { padding-top: 0; padding-bottom: 0; }
+.game--fit .game__disclaimer { margin-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); }
+.game__actions {
+  position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin: 0.5rem -0.75rem 0; padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  background: var(--surface); border-top: 1px solid var(--border);
+}
+.game__actions:not(:has(button, a)) { display: none; }
+.game__actions-main, .game__actions-end { flex: 1 1 9rem; min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.game__actions-main:empty, .game__actions-end:empty { display: none; }
+.game__actions .btn { width: 100%; margin: 0; }
+/* With something to commit, moving on is the quieter choice. */
+.game__actions-main:not(:empty) ~ .game__actions-end .btn--primary { background: transparent; border-color: var(--border-strong); color: var(--text); }
+.game__actions-main:not(:empty) ~ .game__actions-end .btn--primary:hover:not(:disabled) { background: var(--surface-2); border-color: var(--brass); }
+.play-toolkit__head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.25rem 0; background: var(--surface); }
+.game__panel .play-toolkit__head h2 { margin: 0; }
+@media (max-width: 767px) {
+  .game--fit, .game--fit.game--tall { grid-template-rows: auto auto minmax(0, 1fr); }
+  .game__board--fit {
+    aspect-ratio: var(--board-w) / var(--board-h); height: min(50dvh, calc(100vw * var(--board-h) / var(--board-w)));
+    max-width: 100%; justify-self: center;
+  }
+  .game--tall .game__board--fit { height: min(25dvh, calc(100vw * var(--board-h) / var(--board-w))); }
+  .game--fit .game__panel, .game--fit.game--tall .game__panel { max-height: none; min-height: 0; }
+}
+
 @media (min-width: 768px) {
   .game, .game--tall { grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: auto minmax(0, 1fr); }
   .game__top { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'where armies tools'; }
@@ -117,8 +146,8 @@
 .play-row > .btn { flex: 1 1 8rem; }
 .play-small { font-size: 0.8rem; }
 .play-actions { margin-top: 0.5rem; }
-.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; }
-.play-field select, .play-field input { min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
+.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; min-width: 0; }
+.play-field select, .play-field input { max-width: 100%; min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
 .dice { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
 .dice .die { position: relative; min-width: var(--touch); height: var(--touch); margin: 0; border: 2px solid transparent; cursor: default; font: inherit; font-weight: 700; font-size: 1.2rem; }
 .dice button.die { cursor: pointer; }

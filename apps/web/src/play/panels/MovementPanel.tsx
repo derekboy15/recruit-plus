@@ -9,6 +9,7 @@ import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
+import { PinAction } from '../game/actionBar';
 
 export function MovementPanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -95,9 +96,11 @@ export function MovementPanel(props: PanelProps) {
               </label>
             )}
             {dry && <Problems problems={dry} />}
-            <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => moveCmd && run(sb.act(moveCmd)) && finish()}>
-              Confirm move
-            </button>
+            <PinAction slot="main">
+              <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => moveCmd && run(sb.act(moveCmd)) && finish()}>
+                Confirm move
+              </button>
+            </PinAction>
             <div className="play-row">
               <button type="button" className="btn" onClick={() => ui.planDispatch({ type: 'reset' })}>
                 Reset
@@ -120,9 +123,11 @@ export function MovementPanel(props: PanelProps) {
         <p className="muted">Tap where to set it up: wholly within 3" of its transport, then drag to adjust.</p>
         <TurnButtons ui={ui} />
         {dry && <Problems problems={dry} />}
-        <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => outCmd && run(sb.act(outCmd)) && finish()}>
-          Set up {name}
-        </button>
+        <PinAction slot="main">
+          <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => outCmd && run(sb.act(outCmd)) && finish()}>
+            Set up {name}
+          </button>
+        </PinAction>
         <button type="button" className="btn" onClick={finish}>
           Cancel
         </button>
@@ -188,9 +193,11 @@ export function MovementPanel(props: PanelProps) {
           )}
         </div>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player })) && finish()}>
-        End Movement
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player })) && finish()}>
+          End Movement
+        </button>
+      </PinAction>
     </section>
   );
 }

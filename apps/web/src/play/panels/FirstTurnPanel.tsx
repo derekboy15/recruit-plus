@@ -2,6 +2,7 @@
 import type { PlayerId } from '@recruit/engine';
 import { armyName } from '../game/names';
 import type { PanelProps } from './types';
+import { PinAction } from '../game/actionBar';
 
 export function FirstTurnPanel({ sb, ui }: PanelProps) {
   const s = sb.state;
@@ -10,9 +11,11 @@ export function FirstTurnPanel({ sb, ui }: PanelProps) {
     return (
       <section>
         <h2>{armyName(s, s.firstPlayer)} goes first</h2>
-        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'beginBattle', by: s.active }))}>
-          Start the battle
-        </button>
+        <PinAction slot="end">
+          <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'beginBattle', by: s.active }))}>
+            Start the battle
+          </button>
+        </PinAction>
       </section>
     );
   if (s.rollOffWinner)
@@ -31,9 +34,11 @@ export function FirstTurnPanel({ sb, ui }: PanelProps) {
     <section>
       <h2>Who goes first?</h2>
       <p>Both players roll a D6; the higher roll wins (ties roll again).</p>
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'rollOffFirstTurn', by: s.active }))}>
-        Roll off
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'rollOffFirstTurn', by: s.active }))}>
+          Roll off
+        </button>
+      </PinAction>
     </section>
   );
 }

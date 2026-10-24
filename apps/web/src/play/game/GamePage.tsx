@@ -1,6 +1,6 @@
 /** The game screen: the top bar, the battlefield, and the panel for whatever the game is waiting for. */
 import type { PlayerId } from '@recruit/engine';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { DISCLAIMER } from '../../layout/Footer';
 import { useStorage } from '../../storage/StorageContext';
@@ -10,6 +10,7 @@ import { BoardCanvas, type RendererFactory } from '../board/BoardCanvas';
 import { PhasePanel } from '../panels/PhasePanel';
 import { Problems } from '../panels/Problems';
 import type { ReadySandbox } from '../panels/types';
+import { ActionSlotProvider } from './actionBar';
 import { hintFor } from './hints';
 import { armyName, boardNames } from './names';
 import { MapKey } from './MapKey';
@@ -76,9 +77,10 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   const names = boardNames(state);
 
   return (
-    <div className={`game${tall ? ' game--tall' : ''}`}>
+    <div className={`game game--fit${tall ? ' game--tall' : ''}`}>
       <TopBar state={state} onUndo={undo} onLog={() => setOverlay('log')} onMenu={() => setOverlay('menu')} onScore={() => setOverlay('score')} />
-      <div className="game__board">
+      {/* Sized to the map's shape on a phone, so the board has no black bands (play.css). */}
+      <div className="game__board game__board--fit" style={{ '--board-w': state.setup.board.w, '--board-h': state.setup.board.h } as CSSProperties}>
         <BoardCanvas
           scene={scene}
           canDrag={canDrag}
@@ -91,29 +93,31 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
         <MapKey scene={scene} names={names} />
       </div>
       <div className="game__panel">
-        <button type="button" className="game__handle" aria-expanded={tall} onClick={() => setTall((t) => !t)}>
-          {tall ? 'Show less' : 'Show more'}
-        </button>
-        {hint && (
-          <p role="note" aria-label="Hint" className="game__hint">
-            {hint}
-          </p>
-        )}
-        <Problems problems={problems} />
-        {toolkit ? (
-          <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
-        ) : (
-          <>
-            {selectedUnitId && !state.ended && state.phase !== 'pre-battle' && (
-              <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
-                Adjust {state.units[selectedUnitId]?.name}…
-              </button>
-            )}
-            <PhasePanel sb={sb} ui={ui} />
-            {!state.ended && <AssistPanel sb={sb} ui={ui} />}
-          </>
-        )}
-        <p className="game__disclaimer muted">{DISCLAIMER}</p>
+        <ActionSlotProvider>
+          <button type="button" className="game__handle" aria-expanded={tall} onClick={() => setTall((t) => !t)}>
+            {tall ? 'Bigger board' : 'Bigger panel'}
+          </button>
+          {hint && (
+            <p role="note" aria-label="Hint" className="game__hint">
+              {hint}
+            </p>
+          )}
+          <Problems problems={problems} />
+          {toolkit ? (
+            <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
+          ) : (
+            <>
+              {selectedUnitId && !state.ended && state.phase !== 'pre-battle' && (
+                <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
+                  Adjust {state.units[selectedUnitId]?.name}…
+                </button>
+              )}
+              <PhasePanel sb={sb} ui={ui} />
+              {!state.ended && <AssistPanel sb={sb} ui={ui} />}
+            </>
+          )}
+          <p className="game__disclaimer muted">{DISCLAIMER}</p>
+        </ActionSlotProvider>
       </div>
       {overlay === 'log' && <GameLog lines={sb.log} onClose={() => setOverlay(null)} />}
       {overlay === 'score' && <ScoreSheet state={state} act={sb.act} onClose={() => setOverlay(null)} />}

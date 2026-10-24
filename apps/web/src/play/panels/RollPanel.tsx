@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { armyName } from '../game/names';
 import { DiceTray } from './DiceTray';
 import type { PanelProps } from './types';
+import { PinAction } from '../game/actionBar';
 
 /** "Bolt rifle vs Necron Warriors: 10 attacks · 6 hits · 3 wounds", from the attack in progress. */
 export function attackSummary(s: GameState): string | null {
@@ -65,9 +66,11 @@ export function RollPanel({ sb, ui }: PanelProps) {
       {judge && <p className="muted">{judge.label}</p>}
       <DiceTray dice={roll.dice} rollKey={rollKey} judge={judge?.passes} selected={picked} onToggle={toggle} />
       <p className="muted play-small">Tap dice to pick them for a re-roll or a change.</p>
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'confirmRoll', by: p.player }))}>
-        Accept
-      </button>
+      <PinAction slot="main">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'confirmRoll', by: p.player }))}>
+          Accept
+        </button>
+      </PinAction>
       <div className="play-row">
         <button
           type="button"

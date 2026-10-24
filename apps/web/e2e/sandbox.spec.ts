@@ -141,6 +141,18 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
   await press(page, 'Start the battle');
   await expect(page.getByRole('banner', { name: 'Game status' })).toContainText('Round 1 · Command');
 
+  // The next step is on screen without scrolling (the pinned Actions bar), and on a phone the board has the map's shape.
+  await handOver(page);
+  const endCommand = page.getByRole('group', { name: 'Actions' }).getByRole('button', { name: 'End Command phase' });
+  const endBox = (await endCommand.boundingBox())!;
+  expect(endBox.y + endBox.height).toBeLessThanOrEqual(page.viewportSize()!.height);
+  if (project === 'mobile') {
+    const { board } = ((await state(page)) as SandboxState & { setup: { board: { w: number; h: number } } }).setup;
+    const boardBox = (await page.locator('.game__board').boundingBox())!;
+    expect(Math.abs(boardBox.width / boardBox.height / (board.w / board.h) - 1)).toBeLessThan(0.02);
+  }
+  await noSidewaysScroll(page);
+
   // The first player's turn: move the Warriors 4" towards the enemy and shoot.
   const first = (await state(page)).active;
   await press(page, 'End Command phase');

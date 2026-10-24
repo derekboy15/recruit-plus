@@ -84,6 +84,33 @@ test('a missing game offers the way back', async () => {
   expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
 });
 
+test('the current primary action is in the Actions bar', async () => {
+  await seed(deployedGame());
+  page();
+  const bar = await screen.findByRole('group', { name: 'Actions' });
+  expect(within(bar).getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();
+  expect(bar.closest('.game__panel')).not.toBeNull();
+});
+
+test('the panel toggle says what it does', async () => {
+  await seed(deployedGame());
+  page();
+  const toggle = await screen.findByRole('button', { name: 'Bigger panel' });
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await userEvent.click(toggle);
+  expect(screen.getByRole('button', { name: 'Bigger board' })).toHaveAttribute('aria-expanded', 'true');
+});
+
+test('the board is sized to the map', async () => {
+  await seed(deployedGame());
+  page();
+  const board = (await screen.findByRole('application')).closest('.game__board') as HTMLElement;
+  expect(board).toHaveClass('game__board--fit');
+  const { w, h } = stateOf(deployedGame()).setup.board;
+  expect(board.style.getPropertyValue('--board-w')).toBe(String(w));
+  expect(board.style.getPropertyValue('--board-h')).toBe(String(h));
+});
+
 test("Undo shows the engine's refusal at the start of a phase", async () => {
   await seed(deployedGame());
   page();
@@ -156,6 +183,7 @@ test('the toolkit opens from the menu in place of the phase panel, and closes ag
   await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
   await userEvent.click(screen.getByRole('button', { name: 'Toolkit' }));
   expect(screen.getByRole('heading', { name: 'Toolkit' })).toBeInTheDocument();
+  await waitFor(() => expect(screen.getByRole('heading', { name: 'Toolkit' })).toHaveFocus());
   expect(screen.queryByRole('button', { name: 'End Command phase' })).toBeNull();
   await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
   expect(screen.getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();

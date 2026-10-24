@@ -45,6 +45,16 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
   const [wounds, setWounds] = useState(1);
   const [profile, setProfile] = useState('');
   const [order, setOrder] = useState<string[]>([]);
+  const heading = useRef<HTMLHeadingElement>(null);
+
+  // It opens inside the scrolling panel: bring its title into view and put focus on it.
+  useEffect(() => {
+    const h = heading.current;
+    if (!h) return;
+    const panel = h.closest('.game__panel');
+    if (panel) panel.scrollTop = 0;
+    h.focus({ preventScroll: true });
+  }, []);
 
   const reset = () => {
     setModelId(null);
@@ -355,7 +365,14 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
 
   return (
     <section className="play-toolkit">
-      <h2>Toolkit</h2>
+      <div className="play-toolkit__head">
+        <h2 ref={heading} tabIndex={-1}>
+          Toolkit
+        </h2>
+        <button type="button" className="btn btn--small" onClick={onClose}>
+          Close the toolkit
+        </button>
+      </div>
       <p className="muted play-small">For rules the app doesn't run itself. Every change is logged and can be undone.</p>
       {!tool ? (
         <div className="play-tools">
@@ -378,9 +395,6 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
           </button>
         </>
       )}
-      <button type="button" className="btn" onClick={onClose}>
-        Close the toolkit
-      </button>
     </section>
   );
 }
