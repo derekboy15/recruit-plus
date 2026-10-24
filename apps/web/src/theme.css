@@ -107,8 +107,28 @@ h3 { font-size: 1.2rem; margin: 1rem 0 0.4rem; }
 .topbar {
   display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
   padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); background: var(--surface);
-  position: sticky; top: 0; z-index: 5;
 }
+
+/* The page header sticks instead of the top bar: Back, the title and the page's actions stay in reach. */
+.page-head {
+  position: sticky; top: 0; z-index: 6; display: flex; align-items: center; gap: 4px;
+  margin: -1rem -1rem 1rem; padding: 6px 10px 6px 4px; background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.page-head__back { color: var(--text); }
+.page-head__titles { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.page-head__titles:first-child { padding-left: 12px; }
+.page-head__title {
+  margin: 0; font-size: 23px; line-height: 1.1; color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.page-head__sub {
+  margin: 0; font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.page-head__actions { display: flex; align-items: center; gap: 4px; flex: none; }
+.page-head--top { padding: 18px 16px 10px; background: var(--bg); border-bottom: 0; }
+.page-head--top .page-head__titles:first-child { padding-left: 0; }
+.page-head--top .page-head__title { font-size: 32px; line-height: 1; }
+.page-head--top .page-head__sub { margin-top: 4px; }
 .topbar__brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
 .topbar__brand span { color: var(--brass); }
 
@@ -204,7 +224,7 @@ button.list__link { width: 100%; font: inherit; text-align: left; cursor: pointe
 .editor { display: grid; gap: 1rem; }
 .editor__main { display: grid; gap: 1rem; min-width: 0; align-content: start; }
 
-/* The header sticks over the top bar while the list scrolls, so the totals stay in view. */
+/* The header sticks to the top while the list scrolls, so the totals stay in view. */
 .editor-head {
   position: sticky; top: 0; z-index: 6; display: grid; gap: 0.4rem;
   margin: -1rem -1rem 0; padding: 0.5rem 1rem 0.6rem; background: var(--surface); border-bottom: 1px solid var(--border);
@@ -318,10 +338,10 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 
 @media (min-width: 768px) {
   .editor { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; }
-  /* Below the top bar (44px button + padding + border), which stays visible beside the main column. */
-  .editor-head { top: calc(var(--touch) + 1rem + 1px); margin: 0; border: 1px solid var(--border); border-radius: var(--radius); }
+  /* The top bar scrolls away, so the header and the side column stick to the top of the window. */
+  .editor-head { top: 0; margin: 0; border: 1px solid var(--border); border-radius: var(--radius); }
   .editor__aside {
-    position: sticky; top: calc(var(--touch) + 2rem + 1px); max-height: calc(100vh - var(--touch) - 3rem); overflow-y: auto;
+    position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto;
   }
   .panel--full, .panel--sheet {
     position: static; max-height: none; overflow: visible; background: var(--surface);
@@ -383,7 +403,7 @@ label.opt { justify-content: flex-start; cursor: pointer; }
   color: var(--text-muted); font: inherit; font-size: 0.9rem; cursor: pointer;
 }
 .chip[aria-pressed='true'] { border-color: var(--brass-strong); color: var(--text); background: var(--surface-2); }
-/* Anchored headings land below the sticky top bar. */
+/* Anchored headings land below the sticky page header. */
 main h2[id], main h3[id], main article[id] { scroll-margin-top: 4.5rem; }
 
 /* ---------- Sign-in ---------- */
