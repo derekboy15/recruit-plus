@@ -18,13 +18,15 @@ export function SizeSheet({ editor, onClose }: { editor: ReadyEditor; onClose: (
       <fieldset className="choice-list">
         <legend className="sr-only">Battle size</legend>
         {Object.values(BATTLE_SIZES).map((s) => (
-          <label key={s.id} className="choice-row">
-            <input type="radio" name="battle-size" checked={roster.battleSize === s.id} onChange={() => pick(s.id)} />
-            <span className="choice-row__text">
-              <span className="choice-row__name">{s.name}</span>
-              <span className="choice-row__summary">{`${fmt(s.points)} pts · ${s.mode === 'aoo' ? 'Arks of Omen rules' : 'Core Book rules'}`}</span>
-            </span>
-          </label>
+          <div key={s.id} className={roster.battleSize === s.id ? 'choice-row choice-row--on' : 'choice-row'}>
+            <label className="choice-row__label">
+              <input type="radio" name="battle-size" checked={roster.battleSize === s.id} onChange={() => pick(s.id)} />
+              <span className="choice-row__text">
+                <span className="choice-row__name">{s.name}</span>
+                <span className="choice-row__summary">{`${fmt(s.points)} pts · ${s.mode === 'aoo' ? 'Arks of Omen rules' : 'Core Book rules'}`}</span>
+              </span>
+            </label>
+          </div>
         ))}
       </fieldset>
     </Sheet>

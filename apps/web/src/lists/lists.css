@@ -72,15 +72,24 @@
 
 /* ---------- Choices: radio or checkbox rows with what each does ---------- */
 .choice-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
-.choice-row {
-  display: flex; align-items: center; gap: 12px; min-height: var(--touch); padding: 10px 12px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px; cursor: pointer;
-}
-.choice-row:has(input:checked) { border-color: var(--brass); background: var(--surface-2); }
-.choice-row input { width: 22px; height: 22px; flex: none; accent-color: var(--brass-strong); }
-.choice-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.choice-row { display: flex; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.choice-row--on { border-color: var(--brass); background: var(--surface-2); }
+.choice-row__label { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 12px; min-height: var(--touch); padding: 12px 4px 12px 12px; cursor: pointer; }
+.choice-row__label input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--brass-strong); }
+.choice-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .choice-row__name { font-weight: 600; overflow-wrap: anywhere; }
-.choice-row__summary { font-size: 0.8125rem; color: var(--text-soft); }
+.choice-row .info-btn { margin: 2px 2px 0 0; }
+.choice-row__summary { font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); }
+.choice-row__official { display: block; font-size: 0.75rem; }
+.choice-row input:disabled + .choice-row__text { opacity: 0.55; }
+
+/* An option's full text (the ⓘ sheet). */
+.option-info { display: flex; flex-direction: column; gap: 16px; }
+.option-info__block { display: flex; flex-direction: column; gap: 4px; }
+.option-info__name { margin: 0; font-size: 1.15rem; color: var(--text); }
+.option-info__kind { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+.option-info__char { margin: 0; }
+.option-info .rules-text { margin: 0; }
 
 /* ---------- Detachments sheet ---------- */
 .detachment-list { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -91,3 +100,4 @@
 .detachment-list__name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
 .detachment-list__confirm { display: flex; flex-wrap: wrap; gap: 8px; }
 .detachment-list__add { margin-bottom: 12px; }
+.choice-intro { margin: 0 0 12px; font-size: 0.875rem; line-height: 1.5; color: var(--text-soft); }

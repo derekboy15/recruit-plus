@@ -2,7 +2,8 @@ import { findSelView } from '@recruit/data/roster';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useAsync } from '../factions/useAsync';
-import { ArmyOptions } from './ArmyOptions';
+import { ArmyChoiceSheet } from './ArmyChoiceSheet';
+import { MoreOptionsSheet } from './ArmyOptions';
 import { DetachmentSection } from './Detachments';
 import { EditorHeader } from './EditorHeader';
 import { ExportSheet, ShareSheet } from './ExportSheet';
@@ -13,6 +14,7 @@ import { DetachmentSheet, SizeSheet } from './SummarySheets';
 import { loadUnitIndex } from './unitIndex';
 import { UnitEditor } from './UnitEditor';
 import { UnitPicker } from './UnitPicker';
+import { useEntryInfo } from './useEntryInfo';
 import { useRosterEditor, type ReadyEditor } from './useRosterEditor';
 import { LoadError } from '../layout/OfflineNotice';
 import { PageHeader } from '../ui/PageHeader';
@@ -104,6 +106,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const wide = useWideScreen();
   const unitIndex = useAsync(() => loadUnitIndex(slugs), slugs.join('+'));
   const units = unitIndex.status === 'ready' ? unitIndex.data : null;
+  const info = useEntryInfo(slugs);
   const flagged = useMemo(() => unitsWithIssues(view, issues), [view, issues]);
 
   const unitParam = params.get('unit');
@@ -112,6 +115,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const exportOpen = params.get('export') === '1';
   const shareOpen = params.get('share') === '1';
   const sheetParam = params.get('sheet');
+  const choiceParam = params.get('choice');
   const openSel = unitParam ? findSelView(view, unitParam) : undefined;
   const pickerForce = addParam ? view.forces.find((f) => f.force.id === addParam) : undefined;
 
@@ -137,6 +141,10 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
     sheet = <ExportSheet view={view} scope={scope} onClose={close} />;
   } else if (shareOpen) {
     sheet = <ShareSheet listId={listId} flush={flush} onClose={close} />;
+  } else if (choiceParam) {
+    sheet = <ArmyChoiceSheet editor={editor} info={info} choiceKey={choiceParam} onClose={close} />;
+  } else if (sheetParam === 'options') {
+    sheet = <MoreOptionsSheet editor={editor} info={info} onClose={close} />;
   } else if (sheetParam === 'size') {
     sheet = <SizeSheet editor={editor} onClose={close} />;
   } else if (sheetParam === 'detachments') {
@@ -152,7 +160,6 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
         <EditorHeader editor={editor} listId={listId} onOpen={open} />
         {saveError && <p role="alert">{`Couldn’t save your last change: ${saveError.message}. It will be saved with your next edit.`}</p>}
         {allyError && <p role="alert">{`Couldn’t add that detachment: ${allyError.message}`}</p>}
-        {view.forces[0] && <ArmyOptions scope={scope} roster={roster} view={view} army={view.forces[0]} issues={issues} dispatch={dispatch} />}
         {view.forces.map((fv, i) => (
           <DetachmentSection
             key={fv.force.id}

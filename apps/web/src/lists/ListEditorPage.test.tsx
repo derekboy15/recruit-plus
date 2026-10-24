@@ -247,7 +247,7 @@ test('an over-limit list shows the points bar as invalid', async () => {
   expect(points()).toHaveAttribute('aria-invalid', 'true');
 });
 
-test('a missing army choice is added straight from its fix, then picked in Army options', async () => {
+test('a missing army choice is added straight from its fix, then picked from its chip', async () => {
   const u = user();
   const id = await necronsList('strike-force', (r) => {
     const dynasty = r.forces[0].selections.find((s) => s.entryId === 'fb30-1514-c892-86b5')!;
@@ -255,25 +255,98 @@ test('a missing army choice is added straight from its fix, then picked in Army 
   });
   renderEditor(id);
   await opened();
-  expect(within(screen.getByRole('group', { name: 'Dynasty Choice' })).getByText(/Pick one/)).toBeInTheDocument();
+  const chip = screen.getByRole('button', { name: 'Dynasty: choose' });
+  expect(chip).toHaveClass('chip--warn');
   await u.click(screen.getByRole('button', { name: /to fix$/ }));
   await u.click(await screen.findByRole('button', { name: 'Choose Dynasty Choice' }));
-  const dynasty = await screen.findByRole('group', { name: 'Dynasty Choice' });
-  expect(within(dynasty).getByText(/Pick one/)).toBeInTheDocument();
-  await u.click(within(dynasty).getByRole('radio', { name: 'Dynasty: Szarekhan' }));
-  expect(within(dynasty).getByRole('radio', { name: 'Dynasty: Szarekhan' })).toBeChecked();
-  expect(within(dynasty).queryByText(/Pick one/)).not.toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Dynasty: choose' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Dynasty' });
+  expect(within(sheet).getByText('Pick one: your army needs this choice.')).toBeInTheDocument();
+  await u.click(within(sheet).getByRole('radio', { name: 'Szarekhan' }));
+  expect(within(sheet).getByRole('radio', { name: 'Szarekhan' })).toBeChecked();
+  expect(within(sheet).queryByText(/Pick one/)).not.toBeInTheDocument();
+  await u.click(within(sheet).getByRole('button', { name: 'Done' }));
+  expect(await screen.findByRole('button', { name: 'Dynasty: Szarekhan' })).not.toHaveClass('chip--warn');
 });
 
-test('Army options leave out BattleScribe helpers such as "Use Beta Rules"', async () => {
+/** The default Necrons list with the dynasty picked. */
+async function withDynasty(name: string) {
+  const scope = await getRosterScope(['necrons']);
+  return necronsList('strike-force', (r) => {
+    const dynasty = armyChoices(scope, r).find((c) => c.title === 'Dynasty Choice')!;
+    return applyPicks(scope, r, [dynasty], { [dynasty.key]: dynasty.options.find((o) => o.name === `Dynasty: ${name}`)!.id });
+  });
+}
+
+test('each dynasty says what its code does; Novokh’s code has no plain English yet, so it is labelled Official wording', async () => {
+  const u = user();
+  renderEditor(await withDynasty('Novokh'));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Dynasty: Novokh' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Dynasty' });
+  const novokh = within(sheet).getByRole('radio', { name: 'Novokh' });
+  expect(novokh).toBeChecked();
+  await waitFor(() => expect(novokh).toHaveAccessibleDescription('Official wording Add 1 to the charge rolls made for units with this code.'));
+  expect(within(sheet).getByRole('radio', { name: 'Custom dynasty' })).not.toHaveAttribute('aria-describedby');
+  expect(within(sheet).queryByRole('button', { name: 'About Custom dynasty' })).not.toBeInTheDocument();
+  expect(within(sheet).queryByText(/Dynasty:|<Custom>|undefined/)).not.toBeInTheDocument();
+
+  await u.click(within(sheet).getByRole('button', { name: 'About Novokh' }));
+  const about = screen.getByRole('dialog', { name: 'Novokh' });
+  expect(within(about).getByText('Awakened By Murder')).toBeInTheDocument();
+  await u.click(within(about).getByRole('button', { name: 'Close' }));
+
+  await u.click(within(sheet).getByRole('radio', { name: 'Szarekhan' }));
+  expect(screen.getByRole('button', { name: 'Dynasty: Szarekhan' })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Undo' }));
+  expect(screen.getByRole('button', { name: 'Dynasty: Novokh' })).toBeInTheDocument();
+});
+
+test('with plain English for a code, the dynasty row shows it', async () => {
+  const fetchMock = stubGeneratedData();
+  const real = fetchMock.getMockImplementation()!;
+  fetchMock.mockImplementation(async (url: string) => {
+    const res = await real(url);
+    if (url !== '/data/info/necrons.json') return res;
+    const file = (await res.json()) as { entries: Record<string, { profiles?: { name: string; plain?: Record<string, string> }[] }> };
+    for (const e of Object.values(file.entries)) for (const p of e.profiles ?? []) if (p.name === 'Awakened By Murder') p.plain = { Description: '+1 to charge rolls. More after charging.' };
+    return new Response(JSON.stringify(file));
+  });
+  const u = user();
+  renderEditor(await withDynasty('Novokh'));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Dynasty: Novokh' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Dynasty' });
+  await waitFor(() => expect(within(sheet).getByRole('radio', { name: 'Novokh' })).toHaveAccessibleDescription('+1 to charge rolls.'));
+});
+
+test('an optional army choice (Army of Renown) can be None', async () => {
+  const u = user();
   renderEditor(await necronsList());
   await opened();
-  const options = screen.getByRole('region', { name: 'Army options' });
-  expect(within(options).getByRole('checkbox', { name: 'Stratagem: Heroic Support' })).toBeInTheDocument();
-  expect(within(options).queryByText('Use Beta Rules')).not.toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Army of Renown: None' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Army of Renown' });
+  expect(within(sheet).getByRole('radio', { name: 'None' })).toBeChecked();
+  await u.click(within(sheet).getByRole('radio', { name: 'Annihilation Legion' }));
+  expect(screen.getByRole('button', { name: 'Army of Renown: Annihilation Legion' })).toBeInTheDocument();
+  await u.click(within(sheet).getByRole('radio', { name: 'None' }));
+  expect(screen.getByRole('button', { name: 'Army of Renown: None' })).toBeInTheDocument();
 });
 
-test('a helper the list already has on stays in Army options, so it can be turned off', async () => {
+test('More options holds the other army options, without BattleScribe helpers such as "Use Beta Rules"', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'More options' }));
+  const sheet = await screen.findByRole('dialog', { name: 'More options' });
+  expect(within(sheet).getByRole('checkbox', { name: 'Heroic Support' })).not.toBeChecked();
+  expect(within(sheet).queryByText('Use Beta Rules')).not.toBeInTheDocument();
+  expect(within(sheet).queryByText(/Stratagem:/)).not.toBeInTheDocument();
+  await u.click(within(sheet).getByRole('checkbox', { name: 'Heroic Support' }));
+  expect(within(sheet).getByRole('checkbox', { name: 'Heroic Support' })).toBeChecked();
+});
+
+test('a helper the list already has on stays in More options, so it can be turned off', async () => {
   const u = user();
   const scope = await getRosterScope(['necrons']);
   const id = await necronsList('strike-force', (r) => {
@@ -282,7 +355,9 @@ test('a helper the list already has on stays in Army options, so it can be turne
   });
   renderEditor(id);
   await opened();
-  const beta = within(screen.getByRole('region', { name: 'Army options' })).getByRole('checkbox', { name: 'Use Beta Rules' });
+  await u.click(screen.getByRole('button', { name: 'More options' }));
+  const sheet = await screen.findByRole('dialog', { name: 'More options' });
+  const beta = within(sheet).getByRole('checkbox', { name: 'Use Beta Rules' });
   expect(beta).toBeChecked();
   await u.click(beta);
   await waitFor(() => expect(screen.queryByRole('checkbox', { name: 'Use Beta Rules' })).not.toBeInTheDocument());
@@ -310,18 +385,20 @@ test('an army choice that takes two (Chivalric Oath) is a set of checkboxes, clo
   const u = user();
   renderEditor(await knightsList());
   await opened();
-  const oaths = screen.getByRole('group', { name: 'Chivalric Oath' });
+  await u.click(screen.getByRole('button', { name: 'Chivalric Oath: choose' }));
+  const oaths = await screen.findByRole('dialog', { name: 'Choose: Chivalric Oath' });
   expect(within(oaths).queryAllByRole('radio')).toHaveLength(0);
   expect(within(oaths).getByText('Pick 2: your army needs this choice.')).toBeInTheDocument();
-  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' }));
-  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Lay Low The Tyrants' }));
-  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' })).toBeChecked();
-  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Lay Low The Tyrants' })).toBeChecked();
-  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Refuse No Challenge' })).toBeDisabled();
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Defend the Realm' }));
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Lay Low The Tyrants' }));
+  expect(within(oaths).getByRole('checkbox', { name: 'Defend the Realm' })).toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Lay Low The Tyrants' })).toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Refuse No Challenge' })).toBeDisabled();
   expect(within(oaths).queryByText(/Pick 2/)).not.toBeInTheDocument();
-  await u.click(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' }));
-  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Defend the Realm' })).not.toBeChecked();
-  expect(within(oaths).getByRole('checkbox', { name: 'Oath: Refuse No Challenge' })).toBeEnabled();
+  expect(screen.getByRole('button', { name: 'Chivalric Oath: Defend the Realm, Lay Low The Tyrants' })).toBeInTheDocument();
+  await u.click(within(oaths).getByRole('checkbox', { name: 'Defend the Realm' }));
+  expect(within(oaths).getByRole('checkbox', { name: 'Defend the Realm' })).not.toBeChecked();
+  expect(within(oaths).getByRole('checkbox', { name: 'Refuse No Challenge' })).toBeEnabled();
 });
 
 test('only the army choice that is still missing asks for a pick, not the other choices of the same option', async () => {
@@ -329,11 +406,15 @@ test('only the army choice that is still missing asks for a pick, not the other 
   renderEditor(await knightsList());
   await opened();
   // Picking an allegiance reveals a second choice in the same army option: its households.
-  await u.click(within(screen.getByRole('group', { name: 'Questor Allegiance' })).getByRole('radio', { name: 'Questor Imperialis' }));
-  const allegiance = await screen.findByRole('group', { name: 'Questor Allegiance: Questor Allegiance Oath' });
-  expect(within(allegiance).getByRole('radio', { name: 'Questor Imperialis' })).toBeChecked();
-  expect(within(allegiance).queryByText(/Pick one/)).not.toBeInTheDocument();
-  expect(within(screen.getByRole('group', { name: 'Questor Allegiance: Noble Households' })).getByText(/Pick one/)).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Questor Allegiance: choose' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Questor Allegiance' });
+  await u.click(within(sheet).getByRole('radio', { name: 'Questor Imperialis' }));
+  await u.click(within(screen.getByRole('dialog', { name: /^Choose: Questor Allegiance/ })).getByRole('button', { name: 'Done' }));
+  expect(await screen.findByRole('button', { name: 'Questor Allegiance Oath: Questor Imperialis' })).not.toHaveClass('chip--warn');
+  expect(screen.getByRole('button', { name: 'Noble Households: choose' })).toHaveClass('chip--warn');
+  await u.click(screen.getByRole('button', { name: 'Noble Households: choose' }));
+  const households = await screen.findByRole('dialog', { name: 'Choose: Noble Households' });
+  expect(within(households).getByText(/Pick one/)).toBeInTheDocument();
 });
 
 test('an item the rules data no longer has is shown with a Remove button', async () => {

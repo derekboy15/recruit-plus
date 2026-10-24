@@ -1,5 +1,5 @@
 import { BATTLE_SIZES, COST_CP, COST_PTS, stripCpSuffix, UNTITLED_LIST } from '@recruit/data/roster';
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { factionDisplayName } from '../factions/names';
 import { useStorage } from '../storage/StorageContext';
@@ -7,6 +7,7 @@ import { IconCheck, IconCopy, IconDelete, IconEdit, IconPlay, IconRedo, IconShar
 import { Menu } from '../ui/Menu';
 import { PageHeader } from '../ui/PageHeader';
 import { useToast } from '../ui/toast';
+import { ArmyChoiceChips } from './ArmyOptions';
 import { fmt, plural } from './editorView';
 import { deleteList, duplicateList, restoreList, type ListData } from './listStore';
 import { RenameSheet } from './RenameSheet';
@@ -17,8 +18,6 @@ interface Props {
   listId: string;
   /** Opens a sheet by its URL params (`{ issues: '1' }`, `{ sheet: 'size' }`…). */
   onOpen: (p: Record<string, string>) => void;
-  /** Army-choice chips (Dynasty: Novokh…), shown first in the chip row. */
-  choiceChips?: ReactNode;
 }
 
 const ICON = 18;
@@ -27,7 +26,7 @@ const ICON = 18;
  * The editor's header: Back, the list's name, undo and redo, the list's ⋯ menu and Play. Under it the summary: the
  * points meter, what is left, and chips for the army's choices, battle size, detachments and problems.
  */
-export function EditorHeader({ editor, listId, onOpen, choiceChips }: Props) {
+export function EditorHeader({ editor, listId, onOpen }: Props) {
   const { roster, view, issues, catalogues, dispatch, flush, undo, redo, canUndo, canRedo } = editor;
   const { repo } = useStorage();
   const navigate = useNavigate();
@@ -128,7 +127,7 @@ export function EditorHeader({ editor, listId, onOpen, choiceChips }: Props) {
           <span className="summary__fill" style={{ width: `${limit ? Math.min(100, (pts / limit) * 100) : 0}%` }} />
         </span>
         <div className="chip-row summary__chips">
-          {choiceChips}
+          <ArmyChoiceChips editor={editor} onOpen={onOpen} />
           <button type="button" className="chip" onClick={() => onOpen({ sheet: 'size' })}>
             {`${size?.name ?? roster.battleSize} · ${fmt(limit)} pts`}
           </button>
