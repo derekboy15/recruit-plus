@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { CatalogueOut } from '@recruit/data/model';
 import { Route, Routes } from 'react-router-dom';
@@ -54,10 +54,9 @@ const withPlain: CatalogueOut = {
 
 test('renders the Necron Warriors datasheet', async () => {
   renderDatasheet(necrons);
-  expect(await screen.findByRole('heading', { name: 'Necron Warriors' })).toBeInTheDocument();
-  const statRow = screen.getByRole('row', { name: /Necron Warrior 5"/ });
-  expect(statRow).toHaveTextContent('4+');
-  expect(screen.getByRole('columnheader', { name: 'T' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'Necron Warriors' })).toBeInTheDocument();
+  expect(within(screen.getByRole('group', { name: 'Necron Warrior characteristics' })).getByText('4+')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Necrons' })).toHaveAttribute('href', '/factions/necrons');
   expect(screen.getByText('Gauss Flayer')).toBeInTheDocument();
   expect(screen.getByText(/110 pts/)).toBeInTheDocument();
   expect(screen.queryByText(/arrive in Milestone 3/)).not.toBeInTheDocument();
@@ -79,10 +78,10 @@ test('the official wording switch shows the official texts', async () => {
   expect(screen.queryByText('Destroyed models can come back.')).not.toBeInTheDocument();
 });
 
-test('every ability and the datasheet itself can be reported', async () => {
+test('the page has one report button, for the whole datasheet', async () => {
   renderDatasheet(withPlain);
   await screen.findByText('Destroyed models can come back.');
-  expect(await screen.findAllByRole('button', { name: 'Report a rules error' })).toHaveLength(3);
+  expect(await screen.findAllByRole('button', { name: 'Report a rules error' })).toHaveLength(1);
 });
 
 test('an ability without plain English shows the official wording with a label', async () => {

@@ -2,7 +2,7 @@
 import type { UnitOut } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Datasheet } from '../../factions/DatasheetPage';
+import { DatasheetView } from '../../ui/datasheet';
 import { DiceTray } from '../../play/panels/DiceTray';
 import type { CardView } from './types';
 
@@ -85,7 +85,7 @@ export function DrillCard({ view, onAnswer, onRestart, sheet, next }: DrillCardP
       {sheet && view.status === 'playing' && (
         <details className="play-details drill-card__sheet" open={sheet.open}>
           <summary>See datasheet: {sheet.unit.name}</summary>
-          <Datasheet unit={sheet.unit} />
+          <DatasheetView unit={sheet.unit} headingLevel={2} />
         </details>
       )}
     </section>

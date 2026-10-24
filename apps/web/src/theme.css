@@ -444,6 +444,71 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .faction-badge--sm { width: 32px; height: 32px; border-radius: 8px; font-size: 12px; }
 .info-btn { color: var(--text-muted); }
 
+/* ---------- Datasheet (ui/datasheet): stat boxes and weapon cards that fit a phone ---------- */
+.ds { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.ds__head { display: flex; flex-direction: column; gap: 6px; }
+.ds__head .seg { margin: 4px 0 0; }
+.ds__name { margin: 0; }
+.ds__badges { margin: 0; }
+.ds__badges .badge:first-child { margin-left: 0; }
+.ds__meta { margin: 0; font-size: 0.8125rem; color: var(--text-muted); }
+.ds__section { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ds__section-title { margin: 0; }
+.ds__keywords { margin: 0; font-size: 0.8125rem; line-height: 1.6; color: var(--text-soft); overflow-wrap: anywhere; }
+.ds__more { display: flex; flex-direction: column; gap: 6px; }
+.ds__more > summary {
+  display: flex; align-items: center; gap: 6px; min-height: var(--touch); cursor: pointer; list-style: none;
+  font-weight: 600; font-size: 0.875rem; color: var(--brass-strong);
+}
+.ds__more > summary::-webkit-details-marker { display: none; }
+.ds__more > summary::before { content: '▸'; color: var(--text-muted); }
+.ds__more[open] > summary::before { content: '▾'; }
+.ds__more[open] > :not(summary) + :not(summary) { margin-top: 6px; }
+
+.stat-grid { margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.stat-grid__box {
+  min-width: 0; padding: 6px 0; text-align: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+}
+.stat-grid dt { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-muted); }
+.stat-grid dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.2; overflow-wrap: anywhere; }
+.sheet .stat-grid__box { background: var(--surface-2); border-color: transparent; }
+
+.weapon-card, .profile-card {
+  display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 12px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+}
+.sheet .weapon-card, .sheet .profile-card, .sheet .ability-list { background: var(--surface-2); border-color: transparent; }
+.weapon-card__head { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.weapon-card__name, .profile-card__name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.profile-card__name { margin: 0; }
+.weapon-card__count { flex: none; font-size: 0.8125rem; color: var(--text-muted); }
+/* TYPE ("Rapid Fire 1") gets two shares of the width; the numbers one each. */
+.weapon-card__stats {
+  margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 4px; text-align: center;
+}
+.weapon-card__stats dt, .profile-card__chars dt, .wound-track__stats dt { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.weapon-card__stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.2; overflow-wrap: anywhere; }
+.weapon-card__text, .profile-card__text { margin: 0; font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); white-space: pre-line; overflow-wrap: anywhere; }
+.profile-card__chars { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.profile-card__chars dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 17px; }
+
+.ability-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.ability { display: flex; flex-direction: column; gap: 4px; padding: 12px; min-width: 0; }
+.ability + .ability { border-top: 1px solid var(--border); }
+.ability__name { margin: 0; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; letter-spacing: 0; line-height: 1.4; color: var(--text); }
+.ability .rules-text { font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); }
+.ability .rules-text__label { margin: 0; }
+.ability .note { margin: 4px 0 0; font-size: 0.8125rem; }
+
+.wound-track { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.wound-track__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 8px 12px; }
+.wound-track__row + .wound-track__row { border-top: 1px solid var(--border); }
+.wound-track__label { min-width: 8.5rem; font-weight: 600; font-size: 0.875rem; }
+.wound-track__stats { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.wound-track__stats div { display: flex; align-items: baseline; gap: 4px; }
+.wound-track__stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 17px; }
+
 /* ---------- Export and share ---------- */
 .editor-actions, .sheet-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .sheet-actions { margin: 0.75rem 0; }
