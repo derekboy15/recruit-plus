@@ -87,7 +87,7 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await page.getByRole('button', { name: 'Next' }).click();
   const yours = page.getByRole('group', { name: 'Your army' });
   await yours.getByRole('radio', { name: 'Use one of my lists' }).check();
-  await yours.getByRole('combobox', { name: 'List' }).selectOption({ index: 1 });
+  await yours.getByRole('radio', { name: /Necrons Strike Force/ }).check();
   const theirs = page.getByRole('group', { name: "Your opponent's army" });
   await theirs.getByRole('radio', { name: 'Just pick a faction' }).check();
   await theirs.getByRole('combobox', { name: 'Faction' }).selectOption('orks');

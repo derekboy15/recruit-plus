@@ -8,6 +8,9 @@ import { useAsync } from '../factions/useAsync';
 import { useLists } from '../lists/listStore';
 import { RulesText } from '../rules/RulesText';
 import { useStorage } from '../storage/StorageContext';
+import { FactionBadge } from '../ui/FactionBadge';
+import { PageHeader } from '../ui/PageHeader';
+import { relativeTime } from '../ui/relativeTime';
 import { chosenNames } from './armyGroups';
 import { rollDice } from './dice';
 import type { PlayerSetup, TableSetup } from './game';
@@ -161,10 +164,11 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
   };
 
   const board = (id: BattleSizeId) => missions.missions.find((m) => m.battleSize === id)?.map.board;
+  // Once the Defender has picked a zone, the map's key can say whose zone is whose.
+  const zoneNames = defender && zone ? ({ [zone]: armies[defender].name, [otherZone(zone)]: armies[otherSide(defender)].name } as Record<PlayerKey, string>) : undefined;
   return (
     <section className="new-game">
-      <h1>New game</h1>
-      <p className="muted" style={{ margin: '0 0 0.5rem' }}>{`Step ${step + 1} of ${STEPS.length}: ${STEPS[step]}`}</p>
+      <PageHeader back={{ to: '/table', label: 'Table games' }} title="New game" subtitle={`Step ${step + 1} of ${STEPS.length}: ${STEPS[step]}`} />
       <div className="steps steps--6" aria-hidden="true">
         {STEPS.map((s, i) => <span key={s} className={i <= step ? 'steps__bar steps__bar--done' : 'steps__bar'} />)}
       </div>
@@ -193,6 +197,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
               <li key={m.id}>
                 <button type="button" className="choice" aria-pressed={missionId === m.id} onClick={() => { setMissionId(m.id); setRolled(null); }}>
                   <span><strong>{m.roll}</strong> {m.name}</span>
+                  <span className="muted">Primary: {m.primary.name}</span>
                 </button>
               </li>
             ))}
@@ -216,13 +221,29 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
               ))}
               {armies[s].source === 'list' &&
                 (lists.length ? (
-                  <label className="choices__option">
-                    List
-                    <select className="input" aria-label="List" value={armies[s].listId} onChange={(e) => setArmies({ ...armies, [s]: { ...armies[s], listId: e.target.value } })}>
-                      <option value="">Choose a list</option>
-                      {lists.map((l) => <option key={l.id} value={l.id}>{`${l.data.roster.name} (${l.data.summary.faction})`}</option>)}
-                    </select>
-                  </label>
+                  <div role="radiogroup" aria-label="List" className="list-picks">
+                    {lists.map((l) => {
+                      const sum = l.data.summary;
+                      const sizeName = SIZES.find((z) => z.id === sum.battleSize)?.name ?? sum.battleSize;
+                      return (
+                        <label key={l.id} className="list-pick">
+                          <input
+                            type="radio" name={`list-${s}`} value={l.id} checked={armies[s].listId === l.id}
+                            onChange={() => setArmies({ ...armies, [s]: { ...armies[s], listId: l.id } })}
+                          />
+                          <FactionBadge slug={sum.catalogueSlug} name={sum.faction} size="sm" />
+                          <span className="list-pick__main">
+                            <strong className="list-pick__name">{l.data.roster.name}</strong>
+                            <span className="muted">{`${sum.faction} · ${sizeName} · ${sum.points.toLocaleString('en-GB')} / ${sum.pointsLimit.toLocaleString('en-GB')} pts`}</span>
+                            <span className="list-pick__meta">
+                              <span className={`status ${sum.issueCount ? 'status--warn' : 'status--ok'}`}>{sum.issueCount ? `${sum.issueCount} to fix` : 'Ready'}</span>
+                              <span className="muted">Edited {relativeTime(l.updatedAt)}</span>
+                            </span>
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
                 ) : (
                   <p className="muted">You have no saved lists yet. <Link to="/build">Build one</Link>, or pick a faction.</p>
                 ))}
@@ -248,7 +269,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
           {rollOff && <p role="status">{rollOff}</p>}
           <ChoiceGroup label="Who is the Defender?" options={SIDES.map((s) => ({ id: s, label: armies[s].name }))} value={defender} onPick={(v) => setDefender(v as Side)} />
           <ChoiceGroup label="Which deployment zone does the Defender pick?" options={[{ id: 'A', label: 'Player A' }, { id: 'B', label: 'Player B' }]} value={zone} onPick={(v) => setZone(v as PlayerKey)} />
-          <MissionMap map={mission.map} highlight={zone ?? undefined} />
+          <MissionMap map={mission.map} highlight={zone ?? undefined} players={zoneNames} />
           <p className="muted">
             {pack.firstTurn === 'winner-takes-first' ? 'Roll off for the first turn: the winner takes the first turn.' : 'Roll off for the first turn: the winner chooses who goes first.'}
           </p>

@@ -87,7 +87,7 @@ test('start creates a game and navigates', async () => {
   await toArmies(u);
   const [yours, theirs] = screen.getAllByRole('group', { name: /army/ });
   await u.click(within(yours).getByRole('radio', { name: 'Use one of my lists' }));
-  await u.selectOptions(within(yours).getByRole('combobox', { name: 'List' }), listId);
+  await u.click(within(yours).getByRole('radio', { name: /Necrons Strike Force/ }));
   await u.click(within(theirs).getByRole('radio', { name: 'Just pick a faction' }));
   await u.selectOptions(within(theirs).getByRole('combobox', { name: 'Faction' }), 'orks');
   await u.click(next());
@@ -126,7 +126,7 @@ test('two secondaries from one category are refused', async () => {
   await toArmies(u);
   const [yours, theirs] = screen.getAllByRole('group', { name: /army/ });
   await u.click(within(yours).getByRole('radio', { name: 'Use one of my lists' }));
-  await u.selectOptions(within(yours).getByRole('combobox', { name: 'List' }), listId);
+  await u.click(within(yours).getByRole('radio', { name: /Necrons Strike Force/ }));
   await u.click(within(theirs).getByRole('radio', { name: 'Just pick a faction' }));
   await u.selectOptions(within(theirs).getByRole('combobox', { name: 'Faction' }), 'orks');
   await u.click(next());
@@ -139,4 +139,40 @@ test('two secondaries from one category are refused', async () => {
   expect(within(mine).getByText('Pick exactly 3 secondary objectives.')).toBeInTheDocument();
   expect(within(mine).getByText('You can only pick one from Purge the Enemy.')).toBeInTheDocument();
   expect(next()).toBeDisabled();
+});
+
+test('the armies step shows your lists as cards with faction, points and when they were edited', async () => {
+  await createList(createRepository(db), 'user-1', await necronsListData());
+  const u = userEvent.setup();
+  renderPage();
+  await toArmies(u);
+  const yours = screen.getByRole('group', { name: 'Your army' });
+  await u.click(within(yours).getByRole('radio', { name: 'Use one of my lists' }));
+  expect(within(yours).getByRole('radiogroup', { name: 'List' })).toBeVisible();
+  const card = within(yours).getByRole('radio', { name: /Necrons Strike Force/ });
+  expect(card.closest('label')).toHaveTextContent(/Necrons · Strike Force · [\d,]+ \/ 2,000 pts/);
+  expect(card.closest('label')).toHaveTextContent(/Edited just now/);
+  expect(card.closest('label')).toHaveTextContent(/Ready|\d+ to fix/);
+  const theirs = screen.getByRole('group', { name: "Your opponent's army" });
+  await u.click(within(theirs).getByRole('radio', { name: 'Just pick a faction' }));
+  await u.selectOptions(within(theirs).getByRole('combobox', { name: 'Faction' }), 'orks');
+  expect(next()).toBeDisabled();
+  await u.click(card);
+  expect(card).toBeChecked();
+  expect(next()).toBeEnabled();
+});
+
+test('mission rows name the primary objective', async () => {
+  const u = userEvent.setup();
+  renderPage();
+  await u.click(await screen.findByRole('button', { name: /^Incursion/ }));
+  await u.click(next());
+  expect(await screen.findByRole('button', { name: /11 Cleanse the Land/ })).toHaveTextContent(/Primary: \S/);
+});
+
+test('the wizard has Back to Table games and the step in its header', async () => {
+  renderPage();
+  expect(await screen.findByRole('heading', { level: 1, name: 'New game' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+  expect(screen.getByText('Step 1 of 6: Battle size')).toBeVisible();
 });
