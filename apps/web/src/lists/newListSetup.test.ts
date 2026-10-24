@@ -2,7 +2,8 @@ import { FORCE } from '@recruit/data/roster';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getRosterScope, resetDataCache } from '../factions/dataClient';
 import { stubGeneratedData } from './__fixtures__/generatedData';
-import { armyChoices, startingRoster } from './newListSetup';
+import type { CatalogueSummary } from '@recruit/data/model';
+import { armyChoices, defaultListName, startingRoster } from './newListSetup';
 
 beforeEach(() => {
   stubGeneratedData();
@@ -32,4 +33,10 @@ test('army option choices read without BattleScribe decoration ("*Far-Flung Craf
   const names = armyChoices(scope, roster).flatMap((c) => c.options.map((o) => o.name));
   expect(names).toContain('Far-Flung Craftworld');
   for (const n of names) expect(n).not.toMatch(/^[-*\s]|[-*\s]$|\*/);
+});
+
+test('the default list name is the faction and size, numbered when the player already has one by that name', () => {
+  const necrons = { name: 'Necrons' } as CatalogueSummary;
+  expect(defaultListName(necrons, 'combat-patrol')).toBe('Necrons Combat Patrol');
+  expect(defaultListName(necrons, 'combat-patrol', ['Necrons Combat Patrol'])).toBe('Necrons Combat Patrol 2');
 });

@@ -24,8 +24,10 @@ import {
   type Scope,
 } from '@recruit/data/roster';
 import { offeredAtSize } from './editorView';
-import { cleanLabel } from './labels';
+import { cleanLabel, uniqueListName } from './labels';
 import type { ListData } from './listStore';
+
+export { uniqueListName };
 
 // ---------- step 2: battle sizes ----------
 
@@ -207,4 +209,6 @@ export function listData(scope: Scope, policy: PolicyData, roster: Roster, catal
   };
 }
 
-export const defaultListName = (catalogue: CatalogueSummary, size: BattleSizeId) => `${factionDisplayName(catalogue.name)} ${BATTLE_SIZES[size].name}`;
+/** "Necrons Combat Patrol", numbered ("… 2") when one of `taken` (the player's list names) already has that name. */
+export const defaultListName = (catalogue: CatalogueSummary, size: BattleSizeId, taken: string[] = []) =>
+  uniqueListName(`${factionDisplayName(catalogue.name)} ${BATTLE_SIZES[size].name}`, taken);
