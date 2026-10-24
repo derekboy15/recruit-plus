@@ -1,9 +1,15 @@
-import type { Phase } from '@recruit/engine';
-import { useEffect, useState } from 'react';
+import type { Phase, PlayerId } from '@recruit/engine';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { useStorage } from '../storage/StorageContext';
 import type { Doc } from '../storage/types';
+import { FactionBadge } from '../ui/FactionBadge';
+import { IconDelete, IconPlay, IconPlus } from '../ui/icons';
+import { Menu } from '../ui/Menu';
+import { PageHeader } from '../ui/PageHeader';
+import { relativeTime } from '../ui/relativeTime';
+import { useToast } from '../ui/toast';
 import { useGames, type GameData } from './store/gameStore';
 
 export const PHASE_NAMES: Record<Phase, string> = {
@@ -18,7 +24,8 @@ export const PHASE_NAMES: Record<Phase, string> = {
   ended: 'Finished',
 };
 
-function status(g: GameData): string {
+/** "Round 2 · Shooting", "Setting up", "Finished: Necrons won". */
+export function statusLine(g: GameData): string {
   const { summary, meta } = g;
   if (summary.ended) {
     const winner = meta.armies.find((a) => a.player === summary.winner);
@@ -27,39 +34,54 @@ function status(g: GameData): string {
   return summary.phase === 'pre-battle' ? 'Setting up' : `Round ${summary.round} · ${PHASE_NAMES[summary.phase]}`;
 }
 
+/**
+ * "Necrons 10 – 5 Ultramarines": the Table's game-card score ("You 13 – 0 Opponent"), with the army names in place of
+ * You and Opponent, since both players sit at this device.
+ */
+export function scoreLine(g: GameData): string {
+  const name = (p: PlayerId) => g.meta.armies.find((a) => a.player === p)?.name ?? `Player ${p === 'A' ? 1 : 2}`;
+  return `${name('A')} ${g.summary.vp.A} – ${g.summary.vp.B} ${name('B')}`;
+}
+
 function GameCard({ doc }: { doc: Doc<GameData> }) {
   const { repo } = useStorage();
-  const [confirming, setConfirming] = useState(false);
-  const { summary } = doc.data;
+  const toast = useToast();
+  const { meta, summary } = doc.data;
+  const first = meta.armies.find((a) => a.player === 'A') ?? meta.armies[0];
+
+  // Deleted at once, with Undo. The restore is saved as a newer edit than the deletion, so it wins when both sync.
+  const remove = async () => {
+    const { id, ownerId, data } = doc;
+    await repo.deleteDoc(id);
+    const deletedAt = (await repo.getDoc(id))?.updatedAt ?? Date.now();
+    toast.show({
+      message: 'Game deleted',
+      action: { label: 'Undo', onAction: () => void repo.saveDoc<GameData>({ id, kind: 'game', ownerId, data, updatedAt: Math.max(Date.now(), deletedAt + 1) }) },
+    });
+  };
+
   return (
     <li className="play-game">
-      <Link to={`/play/${doc.id}`} className="list__link list__link--card">
-        <span className="list__main">
-          <strong>{doc.data.meta.title}</strong>
-          <span className="muted">{status(doc.data)}</span>
+      <Link to={`/play/${doc.id}`} className="play-game__link">
+        {first && <FactionBadge slug={first.catalogueSlugs[0] ?? ''} name={first.faction} />}
+        <span className="play-game__main">
+          <span className="play-game__title">{meta.title}</span>
+          <span className="play-game__meta">{statusLine(doc.data)}</span>
+          <span className="play-game__meta">{`${scoreLine(doc.data)} · ${relativeTime(doc.updatedAt)}`}</span>
         </span>
-        <span className="list__side">{`VP ${summary.vp.A}–${summary.vp.B}`}</span>
       </Link>
-      {confirming ? (
-        <div className="play-game__confirm" role="group" aria-label="Confirm delete">
-          <p>Delete this game? This can't be undone.</p>
-          <button type="button" className="btn btn--danger" onClick={() => void repo.deleteDoc(doc.id)}>
-            Delete game
-          </button>
-          <button type="button" className="btn" onClick={() => setConfirming(false)}>
-            Keep it
-          </button>
-        </div>
-      ) : (
-        <button type="button" className="btn btn--small" onClick={() => setConfirming(true)}>
-          Delete
-        </button>
-      )}
+      <Menu
+        label={`Actions for ${meta.title}`}
+        items={[
+          { label: summary.ended ? 'View' : 'Resume', icon: <IconPlay size={18} />, to: `/play/${doc.id}` },
+          { label: 'Delete', icon: <IconDelete size={18} />, danger: true, onSelect: () => void remove() },
+        ]}
+      />
     </li>
   );
 }
 
-/** The saved sandbox games: resume one, delete one, or start a new one. */
+/** The Practice tab: the saved sandbox games (resume one, delete one) and a new game. */
 export function GamesPage() {
   const { games, loading, error } = useGames();
   const { user } = useAuth();
@@ -73,12 +95,18 @@ export function GamesPage() {
     };
   }, [repo, user]);
   return (
-    <section>
-      <h1>Play</h1>
-      <p className="muted">Two players, one device: the app runs the core rules for you.</p>
-      <Link to="/play/new" className="btn btn--primary" style={{ marginBottom: '1rem' }}>
-        New game
-      </Link>
+    <section className="play-games">
+      <PageHeader
+        variant="top"
+        title="Practice"
+        subtitle="Two players, one device: the app runs the core rules for you."
+        actions={
+          <Link to="/play/new" className="btn btn--primary">
+            <IconPlus size={18} aria-hidden="true" />
+            New game
+          </Link>
+        }
+      />
       {loading && <p className="muted">Loading your games…</p>}
       {error && <p role="alert">Couldn’t read your saved games on this device: {error.message}</p>}
       {!loading && !error && games.length === 0 && <p className="muted">No games yet.</p>}
