@@ -1,0 +1,2382 @@
+{
+  "options": 17550,
+  "prefixes": [
+    {
+      "key": "Stratagem",
+      "count": 974,
+      "examples": [
+        "Stratagem: Heroic Support",
+        "Stratagem: Champion of the Aeldari",
+        "Stratagem: Warlord Trait"
+      ]
+    },
+    {
+      "key": "Relic",
+      "count": 120,
+      "examples": [
+        "Relic: Book of St. Lucius",
+        "Relic: Brazier of Eternal Flame",
+        "Relic: Iron Surplice of Saint Istaela"
+      ]
+    },
+    {
+      "key": "Warlord Trait",
+      "count": 56,
+      "examples": [
+        "Warlord Trait: 6. Pure of Will",
+        "Warlord Trait: 5. Indomitable Belief (Aura)",
+        "Warlord Trait: 4. Beacon of Faith"
+      ]
+    },
+    {
+      "key": "Strategem",
+      "count": 42,
+      "examples": [
+        "Strategem: Lucifer-Pattern Engines"
+      ]
+    },
+    {
+      "key": "Chapter Command",
+      "count": 41,
+      "examples": [
+        "Chapter Command:  Chief Librarian",
+        "Chapter Command:  Chief Apothecary",
+        "Chapter Command: Chapter Ancient"
+      ]
+    },
+    {
+      "key": "Arkana",
+      "count": 36,
+      "examples": [
+        "Arkana: Atavindicator",
+        "Arkana: Cryptogeometric Adjuster",
+        "Arkana: Photonic Transubjector"
+      ]
+    },
+    {
+      "key": "Martial Tradition",
+      "count": 33,
+      "examples": [
+        "Martial Tradition: Mythic Hero",
+        "Martial Tradition: Mysterious Guardian",
+        "Martial Tradition: Steel-sinewed Aim"
+      ]
+    },
+    {
+      "key": "Heirloom",
+      "count": 30,
+      "examples": [
+        "Heirloom: The Helm Dominatus",
+        "Heirloom: Mark of the Omnissiah",
+        "Heirloom: Cawl's Wrath"
+      ]
+    },
+    {
+      "key": "Custom Household",
+      "count": 24,
+      "examples": [
+        "Custom Household: Front-Line Fighters",
+        "Custom Household: Glorified History",
+        "Custom Household: Hunter of Beasts"
+      ]
+    },
+    {
+      "key": "Dynastic Tradition",
+      "count": 22,
+      "examples": [
+        "Dynastic Tradition: Eternal Conquerors",
+        "Dynastic Tradition: Pitiless Hunters",
+        "Dynastic Tradition: Superior Artisans"
+      ]
+    },
+    {
+      "key": "Exalted Court",
+      "count": 20,
+      "examples": [
+        "Exalted Court: Master of Justice",
+        "Exalted Court: High Monarch",
+        "Exalted Court: Monarchsward"
+      ]
+    },
+    {
+      "key": "Order",
+      "count": 18,
+      "examples": [
+        "Order: Sacred Rose",
+        "Order: Bloody Rose",
+        "Order: Argent Shroud"
+      ]
+    },
+    {
+      "key": "Power of the C'tan",
+      "count": 18,
+      "examples": [
+        "Power of the C'tan: Gaze of Death",
+        "Power of the C'tan: Cosmic Insanity",
+        "Power of the C'tan: Antimatter Meteor"
+      ]
+    },
+    {
+      "key": "Dynasty",
+      "count": 16,
+      "examples": [
+        "Dynasty: Szarekhan",
+        "Dynasty: Nephrekh",
+        "Dynasty: Sautekh"
+      ]
+    },
+    {
+      "key": "Leviathan",
+      "count": 16,
+      "examples": [
+        "Leviathan: Gestalt Commander",
+        "Leviathan: Strategic Adaptation",
+        "Leviathan: Swarm Leader"
+      ]
+    },
+    {
+      "key": "WT",
+      "count": 16,
+      "examples": [
+        "WT: Old Grudges",
+        "WT: Lead By Example",
+        "WT: Superior Tactical Training"
+      ]
+    },
+    {
+      "key": "Forge World",
+      "count": 15,
+      "examples": [
+        "Forge World: Lucius",
+        "Forge World: Stygies VIII",
+        "Forge World: Ryza"
+      ]
+    },
+    {
+      "key": "Circumstance of Awakening",
+      "count": 14,
+      "examples": [
+        "Circumstance of Awakening: The Ancients Stir",
+        "Circumstance of Awakening: Arise Against the Interlopers",
+        "Circumstance of Awakening: Healthy Paranoia"
+      ]
+    },
+    {
+      "key": "Knightly Teaching",
+      "count": 14,
+      "examples": [
+        "Knightly Teaching: The Virtue of Courage",
+        "Knightly Teaching: The Oath of Justice",
+        "Knightly Teaching: The Folly of Mercy"
+      ]
+    },
+    {
+      "key": "Fractured Personality",
+      "count": 12,
+      "examples": [
+        "Fractured Personality: Entropic Touch",
+        "Fractured Personality: Immune to Natural Law",
+        "Fractured Personality: Writhing Worldscape"
+      ]
+    },
+    {
+      "key": "Oath",
+      "count": 12,
+      "examples": [
+        "Oath: Refuse No Challenge",
+        "Oath: Defend the Realm",
+        "Oath: Lay Low The Tyrants"
+      ]
+    },
+    {
+      "key": "Vassal Kingdom",
+      "count": 12,
+      "examples": [
+        "Vassal Kingdom: Nephrekh",
+        "Vassal Kingdom: Novokh",
+        "Vassal Kingdom: Sautekh"
+      ]
+    },
+    {
+      "key": "Custom",
+      "count": 10,
+      "examples": [
+        "Custom: Rad-saturated Forge World",
+        "Custom: Expansionist Forge World",
+        "Custom: Data-Hoard Forge World"
+      ]
+    },
+    {
+      "key": "Relic (Metalica)",
+      "count": 10,
+      "examples": [
+        "Relic (Metalica): Bionics of Veneration",
+        "Relic (Metalica): Omni-Steriliser",
+        "Relic (Metalica): Delta Pistol"
+      ]
+    },
+    {
+      "key": "Power",
+      "count": 9,
+      "examples": [
+        "Power: Smite"
+      ]
+    },
+    {
+      "key": "2",
+      "count": 8,
+      "examples": [
+        "2: Walker of Many Paths",
+        "2: Fractal Storm",
+        "2: Hammer of Righteousness"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 1)",
+      "count": 8,
+      "examples": [
+        "Warlord Trait (Codex 1): Emotionless Clarity",
+        "Warlord Trait (Codex 1): Multitasking Cortex",
+        "Warlord Trait (Codex 1): Enduring Will"
+      ]
+    },
+    {
+      "key": "1",
+      "count": 7,
+      "examples": [
+        "1: Ambush of Blades",
+        "1: Favour of Cegorach",
+        "1: Daemon Slayer"
+      ]
+    },
+    {
+      "key": "3",
+      "count": 7,
+      "examples": [
+        "3: Falcon's Swiftness",
+        "3: A Foot in the Future",
+        "3: Unyielding Anvil"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 2)",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 2): Masterwork Bionics",
+        "Warlord Trait (Codex 2): Battle-Sphere Uplink",
+        "Warlord Trait (Codex 2): Eternal Madness"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 3)",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 3): First-Hand Field Testing",
+        "Warlord Trait (Codex 3): Programmed Retreat",
+        "Warlord Trait (Codex 3): Immortal Pride"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 5)",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 5): Cartogrammatist",
+        "Warlord Trait (Codex 5): Firepoint Telemetry Cache",
+        "Warlord Trait (Codex 5): Implacable Conqueror (Aura)"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 6)",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 6): Supervisory Radiance",
+        "Warlord Trait (Codex 6): Eyes of the Omnissiah",
+        "Warlord Trait (Codex 6): Honourable Combatant"
+      ]
+    },
+    {
+      "key": "5",
+      "count": 6,
+      "examples": [
+        "5: Mark of the Incomparable Hunter",
+        "5: Nemesis Lord",
+        "5: Armoured Resilience"
+      ]
+    },
+    {
+      "key": "Relic (Annihilation)",
+      "count": 6,
+      "examples": [
+        "Relic (Annihilation): Nightcull Scythe",
+        "Relic (Annihilation): Chariot of the Hierarchs",
+        "Relic (Annihilation): Mask of Obliteration"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Codex 4)",
+      "count": 6,
+      "examples": [
+        "Warlord Trait (Codex 4): Necromechanic",
+        "Warlord Trait (Codex 4): Archived Engagements",
+        "Warlord Trait (Codex 4): Thrall of the Silent King"
+      ]
+    },
+    {
+      "key": "WT (Militarum Tempestus)",
+      "count": 6,
+      "examples": [
+        "WT (Militarum Tempestus): Drill Commander (Aura)",
+        "WT (Militarum Tempestus): Precision Targeting (Aura)",
+        "WT (Militarum Tempestus): Uncompromising Prosecution (Aura)"
+      ]
+    },
+    {
+      "key": "(Vior'la)",
+      "count": 5,
+      "examples": [
+        "(Vior'la): Automated Armour Defences",
+        "(Vior'la): Academy Luminary"
+      ]
+    },
+    {
+      "key": "4",
+      "count": 5,
+      "examples": [
+        "4: Fate's Messenger",
+        "4: First to the Fray",
+        "4: Purifying Flame"
+      ]
+    },
+    {
+      "key": "6",
+      "count": 5,
+      "examples": [
+        "6: Seer of the Shifting Vector",
+        "6: Psychic Epitome",
+        "6: Etheral Castigation"
+      ]
+    },
+    {
+      "key": "(Bork'an)",
+      "count": 4,
+      "examples": [
+        "(Bork'an): Overdrive Power Systems",
+        "(Bork'an): Seeker of Perfection"
+      ]
+    },
+    {
+      "key": "(Dal'yth)",
+      "count": 4,
+      "examples": [
+        "(Dal'yth): Dynamic Mirror Field",
+        "(Dal'yth): Unifying Influence"
+      ]
+    },
+    {
+      "key": "(Farsight Enclaves)",
+      "count": 4,
+      "examples": [
+        "(Farsight Enclaves): Talisman of Arthas Moloch",
+        "(Farsight Enclaves): Master of the Killing Blow"
+      ]
+    },
+    {
+      "key": "(T'au)",
+      "count": 4,
+      "examples": [
+        "(T'au): Vectored Manoeuvring Thrusters",
+        "(T'au): Strength of Conviction",
+        "(T'au): Vectored manoeuvring thrusters"
+      ]
+    },
+    {
+      "key": "[Reference] Discipline",
+      "count": 4,
+      "examples": [
+        "[Reference] Discipline: Broodmind",
+        "[Reference] Discipline: Hive Mind"
+      ]
+    },
+    {
+      "key": "Iyanden",
+      "count": 4,
+      "examples": [
+        "Iyanden: Enduring Resolve",
+        "Iyanden: Stoic Endurance"
+      ]
+    },
+    {
+      "key": "Specialist Detachment",
+      "count": 4,
+      "examples": [
+        "Specialist Detachment: Anointed Throng",
+        "Specialist Detachment: Deliverance Broodsurge"
+      ]
+    },
+    {
+      "key": "Ulthwe",
+      "count": 4,
+      "examples": [
+        "Ulthwe: Fate Reader",
+        "Ulthwe: Foresight of the Damned"
+      ]
+    },
+    {
+      "key": "Ynnari",
+      "count": 4,
+      "examples": [
+        "Ynnari: Warden of Souls",
+        "Ynnari: Strength From Death"
+      ]
+    },
+    {
+      "key": "!Warlord Trait",
+      "count": 3,
+      "examples": [
+        "!Warlord Trait: Knight Seneschal",
+        "!Warlord Trait: Ion Bulwark",
+        "!Warlord Trait: Blessed by the Sacristans"
+      ]
+    },
+    {
+      "key": "(Sa'cea)",
+      "count": 3,
+      "examples": [
+        "(Sa'cea): Grav-Inhibitor Field",
+        "(Sa'cea): Strategic Conqueror"
+      ]
+    },
+    {
+      "key": "Alaitoc",
+      "count": 3,
+      "examples": [
+        "Alaitoc: Master of Ambush",
+        "Alaitoc: Fieldcraft"
+      ]
+    },
+    {
+      "key": "Behemoth",
+      "count": 3,
+      "examples": [
+        "Behemoth: Monstrous Musculature",
+        "Behemoth: Monstrous Hunger",
+        "Behemoth: Unstoppable Onslaught"
+      ]
+    },
+    {
+      "key": "Biel-Tan",
+      "count": 3,
+      "examples": [
+        "Biel-Tan: Natural Leader",
+        "Biel-Tan: Swordwind"
+      ]
+    },
+    {
+      "key": "Bladed Cog",
+      "count": 3,
+      "examples": [
+        "Bladed Cog: Mark of the Clawed Omnissiah",
+        "Bladed Cog: Single-minded Obsession",
+        "Bladed Cog: Broodvolt Surge"
+      ]
+    },
+    {
+      "key": "Four-armed Emperor",
+      "count": 3,
+      "examples": [
+        "Four-armed Emperor: Sword of the Four-armed Emperor",
+        "Four-armed Emperor: Inscrutable Cunning",
+        "Four-armed Emperor: Undermine"
+      ]
+    },
+    {
+      "key": "Gorgon",
+      "count": 3,
+      "examples": [
+        "Gorgon: Hypermorphic Biology",
+        "Gorgon: Lethal Miasma",
+        "Gorgon: Poisonous Influence"
+      ]
+    },
+    {
+      "key": "Hivecult",
+      "count": 3,
+      "examples": [
+        "Hivecult: Vockor's Talisman",
+        "Hivecult: Hivelord",
+        "Hivecult: Synaptic Blast"
+      ]
+    },
+    {
+      "key": "Hydra",
+      "count": 3,
+      "examples": [
+        "Hydra: Barbworm Infestation",
+        "Hydra: Endless Regeneration",
+        "Hydra: Psychic Shriek"
+      ]
+    },
+    {
+      "key": "Jormungandr",
+      "count": 3,
+      "examples": [
+        "Jormungandr: Infrasonic Roar",
+        "Jormungandr: Insidious Threat",
+        "Jormungandr: Lurking Maws"
+      ]
+    },
+    {
+      "key": "Kraken",
+      "count": 3,
+      "examples": [
+        "Kraken: Chameleonic Mutation",
+        "Kraken: One Step Ahead",
+        "Kraken: Synaptic Lure"
+      ]
+    },
+    {
+      "key": "Kronos",
+      "count": 3,
+      "examples": [
+        "Kronos: Nullnode",
+        "Kronos: Soul Hunger",
+        "Kronos: Symbiostorm"
+      ]
+    },
+    {
+      "key": "Pauper Princes",
+      "count": 3,
+      "examples": [
+        "Pauper Princes: Reliquary of Saint Tenndarc",
+        "Pauper Princes: Xenoprophet",
+        "Pauper Princes: Last Gasp"
+      ]
+    },
+    {
+      "key": "Rusted Claw",
+      "count": 3,
+      "examples": [
+        "Rusted Claw: The Nomad's Mantle",
+        "Rusted Claw: Entropic Touch",
+        "Rusted Claw: Inescapable Decay"
+      ]
+    },
+    {
+      "key": "Saim-Hann",
+      "count": 3,
+      "examples": [
+        "Saim-Hann: Wild Rider Chieftain",
+        "Saim-Hann: Wild Host"
+      ]
+    },
+    {
+      "key": "Twisted Helix",
+      "count": 3,
+      "examples": [
+        "Twisted Helix: Elixir of the Prime Specimen",
+        "Twisted Helix: Bio-alchemist",
+        "Twisted Helix: Mutagenic Deviation"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Sautekh)",
+      "count": 3,
+      "examples": [
+        "Warlord Trait (Sautekh): Hyperlogical Strategist"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Szarekhan)",
+      "count": 3,
+      "examples": [
+        "Warlord Trait (Szarekhan): The Triarch's Will"
+      ]
+    },
+    {
+      "key": "(Aquilan Shield)",
+      "count": 2,
+      "examples": [
+        "(Aquilan Shield): Revered Companion",
+        "(Aquilan Shield): Praesidius"
+      ]
+    },
+    {
+      "key": "(Dread Host)",
+      "count": 2,
+      "examples": [
+        "(Dread Host): All-Seeing Annihilator",
+        "(Dread Host): Admonimortis"
+      ]
+    },
+    {
+      "key": "(Emissaries Imperatus)",
+      "count": 2,
+      "examples": [
+        "(Emissaries Imperatus): Voice of the Emperor",
+        "(Emissaries Imperatus): Halo of the Torchbearer"
+      ]
+    },
+    {
+      "key": "(Emperor's Chosen)",
+      "count": 2,
+      "examples": [
+        "(Emperor's Chosen): Auric Exemplar",
+        "(Emperor's Chosen): Paragon Spear"
+      ]
+    },
+    {
+      "key": "(Shadowkeepers)",
+      "count": 2,
+      "examples": [
+        "(Shadowkeepers): Lockwarden",
+        "(Shadowkeepers): Statis Oubliette"
+      ]
+    },
+    {
+      "key": "(Solar Watch)",
+      "count": 2,
+      "examples": [
+        "(Solar Watch): Sally Forth",
+        "(Solar Watch): Swiftsilver Talon"
+      ]
+    },
+    {
+      "key": "[Reference] Power",
+      "count": 2,
+      "examples": [
+        "[Reference] Power: Smite"
+      ]
+    },
+    {
+      "key": "Chapter Selection",
+      "count": 2,
+      "examples": [
+        "Chapter Selection: Black Templars",
+        "Chapter Selection: Deathwatch"
+      ]
+    },
+    {
+      "key": "Cult of Strife",
+      "count": 2,
+      "examples": [
+        "Cult of Strife: The Spectacle of Murder",
+        "Cult of Strife: The Spectacle of Murder (Restricted)"
+      ]
+    },
+    {
+      "key": "Heirloom (Cadmus)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Cadmus): The Hunter's Eye"
+      ]
+    },
+    {
+      "key": "Heirloom (Freeblade)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Freeblade): Bringer of Justice"
+      ]
+    },
+    {
+      "key": "Heirloom (Griffith)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Griffith): Mark of the Lance"
+      ]
+    },
+    {
+      "key": "Heirloom (Hawkshroud)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Hawkshroud): Angel's Grace"
+      ]
+    },
+    {
+      "key": "Heirloom (Krast)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Krast): The Headsman's Mark"
+      ]
+    },
+    {
+      "key": "Heirloom (Mortan)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Mortan): Honour's Bite"
+      ]
+    },
+    {
+      "key": "Heirloom (Taranis)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Taranis): Fury of Mars"
+      ]
+    },
+    {
+      "key": "Heirloom (Terryn)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Terryn): Thunder of Voltoris"
+      ]
+    },
+    {
+      "key": "Heirloom (Vulker)",
+      "count": 2,
+      "examples": [
+        "Heirloom (Vulker): The Auric Mask"
+      ]
+    },
+    {
+      "key": "Relic (Agripinaa)",
+      "count": 2,
+      "examples": [
+        "Relic (Agripinaa): The Eye of Xi-Lexum"
+      ]
+    },
+    {
+      "key": "Relic (Graia)",
+      "count": 2,
+      "examples": [
+        "Relic (Graia): The Cerebral Techno-Mitre"
+      ]
+    },
+    {
+      "key": "Relic (Lucius)",
+      "count": 2,
+      "examples": [
+        "Relic (Lucius): The Solar Flare"
+      ]
+    },
+    {
+      "key": "Relic (Mars)",
+      "count": 2,
+      "examples": [
+        "Relic (Mars): The Red Axe"
+      ]
+    },
+    {
+      "key": "Relic (Mechanicus Defence Cohort)",
+      "count": 2,
+      "examples": [
+        "Relic (Mechanicus Defence Cohort): Forgefire"
+      ]
+    },
+    {
+      "key": "Relic (Mephrit)",
+      "count": 2,
+      "examples": [
+        "Relic (Mephrit): Conduit of Stars"
+      ]
+    },
+    {
+      "key": "Relic (Nephrekh)",
+      "count": 2,
+      "examples": [
+        "Relic (Nephrekh): Solar Staff"
+      ]
+    },
+    {
+      "key": "Relic (Nihilakh)",
+      "count": 2,
+      "examples": [
+        "Relic (Nihilakh): Infinity Mantle"
+      ]
+    },
+    {
+      "key": "Relic (Novokh)",
+      "count": 2,
+      "examples": [
+        "Relic (Novokh): Blood Scythe"
+      ]
+    },
+    {
+      "key": "Relic (Ryza)",
+      "count": 2,
+      "examples": [
+        "Relic (Ryza): Weapon XCIX"
+      ]
+    },
+    {
+      "key": "Relic (Sautekh)",
+      "count": 2,
+      "examples": [
+        "Relic (Sautekh): The Vanquisher's Mask"
+      ]
+    },
+    {
+      "key": "Relic (Skitarii Veteran Cohort)",
+      "count": 2,
+      "examples": [
+        "Relic (Skitarii Veteran Cohort): Cantic Thrallnet"
+      ]
+    },
+    {
+      "key": "Relic (Stygies VIII)",
+      "count": 2,
+      "examples": [
+        "Relic (Stygies VIII): The Omnissiah's Hand"
+      ]
+    },
+    {
+      "key": "Relic (Szarekhan)",
+      "count": 2,
+      "examples": [
+        "Relic (Szarekhan): The Sovereign Coronal"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Agripinaa)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Agripinaa): Verse of Vengeance"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Annihilation)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Annihilation): Furious Destructor"
+      ]
+    },
+    {
+      "key": "Warlord Trait (BRB)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (BRB): Inspiring Leader (Aura)"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Cadmus)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Cadmus): Veteran of Gryphonne IV"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Freeblade)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Freeblade): Echoes from the Past"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Graia)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Graia): Mantra of Discipline"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Griffith)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Griffith): Master of the Joust"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Hawkshroud)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Hawkshroud): Duty of the Forsworn"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Krast)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Krast): First Knight"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Lucius)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Lucius): Luminescent Blessings"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Mars)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Mars): Panegyric Procession"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Mechanicus Defence Cohort)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Mechanicus Defence Cohort): Cacophonous Leadership"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Mephrit)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Mephrit): Merciless Tyrant"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Metalica 1)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 1): Master Annihilator"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Metalica 2)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 2): Ashrunner"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Metalica 3)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 3): Radioactive Emanation"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Metalica)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica): Tribute of Emphatic Veneration"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Mortan)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Mortan): Legacy of the Black Pall"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Nephrekh)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Nephrekh): Skin of Living Gold"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Nihilakh)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Nihilakh): Precognitive Strike"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Novokh)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Novokh): Blood-Fuelled Fury"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Raven)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Raven): Master of the Trial"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Ryza)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Ryza): Citation In Savagery"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Skitarii Veteran Cohort)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Skitarii Veteran Cohort):  Calculate Without Diversion"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Stygies VIII)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Stygies VIII): Veiled Hunter"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Taranis)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Taranis): Knight of Mars"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Terryn)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Terryn): Champion of the Household"
+      ]
+    },
+    {
+      "key": "Warlord Trait (Vulker)",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Vulker): Adamantine Knight"
+      ]
+    },
+    {
+      "key": "!Heirloom",
+      "count": 1,
+      "examples": [
+        "!Heirloom: Endless Fury"
+      ]
+    },
+    {
+      "key": "!Heirloom (Raven)",
+      "count": 1,
+      "examples": [
+        "!Heirloom (Raven): The Banner Inviolate"
+      ]
+    },
+    {
+      "key": "3. Chapter Approved",
+      "count": 1,
+      "examples": [
+        "3. Chapter Approved: War Zone Nachmund"
+      ]
+    },
+    {
+      "key": "4. Chapter Approved",
+      "count": 1,
+      "examples": [
+        "4. Chapter Approved: War Zone Nephilim"
+      ]
+    },
+    {
+      "key": "5. Chapter Approved",
+      "count": 1,
+      "examples": [
+        "5. Chapter Approved: Arks of Omen"
+      ]
+    },
+    {
+      "key": "Altansar",
+      "count": 1,
+      "examples": [
+        "Altansar: Grim Survivors"
+      ]
+    },
+    {
+      "key": "Army of Renown",
+      "count": 1,
+      "examples": [
+        "Army of Renown: Kill Team Strike Force"
+      ]
+    },
+    {
+      "key": "Black Templars",
+      "count": 1,
+      "examples": [
+        "Black Templars: Oathkeeper"
+      ]
+    },
+    {
+      "key": "Blood Angels",
+      "count": 1,
+      "examples": [
+        "Blood Angels: Speed of the Primarch"
+      ]
+    },
+    {
+      "key": "Crimson Fists",
+      "count": 1,
+      "examples": [
+        "Crimson Fists: Refuse to Die"
+      ]
+    },
+    {
+      "key": "Cult of the Cursed Blade",
+      "count": 1,
+      "examples": [
+        "Cult of the Cursed Blade: Only The Strong Will Survive"
+      ]
+    },
+    {
+      "key": "Cult of the Red Grief",
+      "count": 1,
+      "examples": [
+        "Cult of the Red Grief: The Speed of The Kill"
+      ]
+    },
+    {
+      "key": "Dark",
+      "count": 1,
+      "examples": [
+        "Dark: Dark Deeds"
+      ]
+    },
+    {
+      "key": "Dark Angels",
+      "count": 1,
+      "examples": [
+        "Dark Angels: Brilliant Strategist"
+      ]
+    },
+    {
+      "key": "Flesh Tearers",
+      "count": 1,
+      "examples": [
+        "Flesh Tearers: Merciless Butcher"
+      ]
+    },
+    {
+      "key": "Heirloom (Raven)",
+      "count": 1,
+      "examples": [
+        "Heirloom (Raven): The Banner Inviolate"
+      ]
+    },
+    {
+      "key": "Imperial Fists",
+      "count": 1,
+      "examples": [
+        "Imperial Fists: Architect of War (Aura)"
+      ]
+    },
+    {
+      "key": "Iron Hands",
+      "count": 1,
+      "examples": [
+        "Iron Hands: Adept of the Omnissiah"
+      ]
+    },
+    {
+      "key": "Kabal of the Black Heart",
+      "count": 1,
+      "examples": [
+        "Kabal of the Black Heart: Thirst for Power"
+      ]
+    },
+    {
+      "key": "Kabal of the Flayed Skull",
+      "count": 1,
+      "examples": [
+        "Kabal of the Flayed Skull: Slay From The Skies"
+      ]
+    },
+    {
+      "key": "Kabal of the Obsidian Rose",
+      "count": 1,
+      "examples": [
+        "Kabal of the Obsidian Rose: Flawless Workmanship"
+      ]
+    },
+    {
+      "key": "Kabal of the Poisoned Tongue",
+      "count": 1,
+      "examples": [
+        "Kabal of the Poisoned Tongue: The Serpent's Kiss"
+      ]
+    },
+    {
+      "key": "Light",
+      "count": 1,
+      "examples": [
+        "Light: Blaze of Light"
+      ]
+    },
+    {
+      "key": "Raven Guard",
+      "count": 1,
+      "examples": [
+        "Raven Guard: Echo of the Ravenspire"
+      ]
+    },
+    {
+      "key": "Salamanders",
+      "count": 1,
+      "examples": [
+        "Salamanders: Anvil of Strength"
+      ]
+    },
+    {
+      "key": "Space Wolves",
+      "count": 1,
+      "examples": [
+        "Space Wolves: Beastslayer"
+      ]
+    },
+    {
+      "key": "The Coven of Twelve",
+      "count": 1,
+      "examples": [
+        "The Coven of Twelve: Butchers of Flesh"
+      ]
+    },
+    {
+      "key": "The Dark Creed",
+      "count": 1,
+      "examples": [
+        "The Dark Creed: Distillers of Fear"
+      ]
+    },
+    {
+      "key": "The Prophets of Flesh",
+      "count": 1,
+      "examples": [
+        "The Prophets of Flesh: Connoisseurs of Pain"
+      ]
+    },
+    {
+      "key": "Twilight",
+      "count": 1,
+      "examples": [
+        "Twilight: Twilight Falls"
+      ]
+    },
+    {
+      "key": "Ultramarines",
+      "count": 1,
+      "examples": [
+        "Ultramarines: Adept of the Codex"
+      ]
+    },
+    {
+      "key": "Warlord Trait (BRB 1)",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 1): Legendary Fighter"
+      ]
+    },
+    {
+      "key": "Warlord Trait (BRB 2)",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 2): Inspiring Leader"
+      ]
+    },
+    {
+      "key": "Warlord Trait (BRB 3)",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 3): Tenacious Survivor"
+      ]
+    },
+    {
+      "key": "White Scars",
+      "count": 1,
+      "examples": [
+        "White Scars: Deadly Hunter"
+      ]
+    }
+  ],
+  "qualifiers": [
+    {
+      "key": "Aura",
+      "count": 62,
+      "examples": [
+        "1. Calculating Gaze (Aura)",
+        "6. Webway Dance (Aura) (Blessing)",
+        "Mirror Architect (Aura)"
+      ]
+    },
+    {
+      "key": "Chapter Approved 2018",
+      "count": 29,
+      "examples": [
+        "Has Battle Honours (Chapter Approved 2018)"
+      ]
+    },
+    {
+      "key": "Pair",
+      "count": 21,
+      "examples": [
+        "Lightning Claw (Pair)",
+        "Lightning Claw (Pair)  [Legends]",
+        "Cyclone Missile Launcher, Lightning Claws (Pair)"
+      ]
+    },
+    {
+      "key": "Tyrannical Court",
+      "count": 20,
+      "examples": [
+        "Character (Tyrannical Court)"
+      ]
+    },
+    {
+      "key": "All",
+      "count": 14,
+      "examples": [
+        "[Reference] Warlord Traits (All)",
+        "[Reference] Powers of the C'tan (All)",
+        "[Reference] Annihilation Protocols (All)"
+      ]
+    },
+    {
+      "key": "Knight Lance",
+      "count": 14,
+      "examples": [
+        "Character (Knight Lance)"
+      ]
+    },
+    {
+      "key": "Traitoris Lance",
+      "count": 14,
+      "examples": [
+        "Character (Traitoris Lance)"
+      ]
+    },
+    {
+      "key": "Blood Axes",
+      "count": 13,
+      "examples": [
+        "I've Got A Plan, Ladz! (Blood Axes)",
+        "Morgog's Finkin' Cap (Blood Axes)",
+        "1. Extra Kunnin' (Blood Axes)"
+      ]
+    },
+    {
+      "key": "Terminator",
+      "count": 13,
+      "examples": [
+        "Incinerator (Terminator)",
+        "Psycannon (Terminator)",
+        "Psilencer (Terminator)"
+      ]
+    },
+    {
+      "key": "Blessing",
+      "count": 12,
+      "examples": [
+        "3. Word of the Phoenix (Blessing)",
+        "5. Shield of Ynnead (Blessing)",
+        "6. Ancestors' Grace (Blessing)"
+      ]
+    },
+    {
+      "key": "Metalica",
+      "count": 12,
+      "examples": [
+        "Relic (Metalica): Bionics of Veneration",
+        "Warlord Trait (Metalica): Tribute of Emphatic Veneration",
+        "Relic (Metalica): Omni-Steriliser"
+      ]
+    },
+    {
+      "key": "Shrine Relic",
+      "count": 9,
+      "examples": [
+        "Shimmershield & The Avenging Blade (Shrine Relic)",
+        "Shuriken Pistol & The Avenging Blade (Shrine Relic)",
+        "Cronescream (Shrine Relic)"
+      ]
+    },
+    {
+      "key": "World Eaters",
+      "count": 9,
+      "examples": [
+        "Battle Lust (World Eaters)",
+        "Burning Plate (World Eaters)",
+        "Mutable Form (World Eaters)"
+      ]
+    },
+    {
+      "key": "Annihilation",
+      "count": 8,
+      "examples": [
+        "Warlord Trait (Annihilation): Furious Destructor",
+        "Relic (Annihilation): Nightcull Scythe",
+        "Relic (Annihilation): Chariot of the Hierarchs"
+      ]
+    },
+    {
+      "key": "Beast Snagga",
+      "count": 8,
+      "examples": [
+        "1. Big Killa Boss (Beast Snagga)",
+        "2. BeastGob (Beast Snagga)",
+        "3. Half-Chewed (Beast Snagga)"
+      ]
+    },
+    {
+      "key": "Codex 1",
+      "count": 8,
+      "examples": [
+        "Warlord Trait (Codex 1): Emotionless Clarity",
+        "Warlord Trait (Codex 1): Multitasking Cortex",
+        "Warlord Trait (Codex 1): Enduring Will"
+      ]
+    },
+    {
+      "key": "Codex 2",
+      "count": 8,
+      "examples": [
+        "Warlord Trait (Codex 2): Masterwork Bionics",
+        "Warlord Trait (Codex 2): Battle-Sphere Uplink",
+        "Warlord Trait (Codex 2):Masterwork Bionics"
+      ]
+    },
+    {
+      "key": "Fortification",
+      "count": 8,
+      "examples": [
+        "Heavy bolter (Fortification)"
+      ]
+    },
+    {
+      "key": "Witchfire",
+      "count": 8,
+      "examples": [
+        "1. Gaze of Ynnead (Witchfire)",
+        "2. Storm of Whispers (Witchfire)",
+        "3. Mirror of Minds (Witchfire)"
+      ]
+    },
+    {
+      "key": "Baneblade",
+      "count": 7,
+      "examples": [
+        "Stat Damage (Baneblade)"
+      ]
+    },
+    {
+      "key": "Codex 3",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 3): First-Hand Field Testing",
+        "Warlord Trait (Codex 3): Programmed Retreat",
+        "Warlord Trait (Codex 3): Immortal Pride"
+      ]
+    },
+    {
+      "key": "Codex 5",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 5): Cartogrammatist",
+        "Warlord Trait (Codex 5): Firepoint Telemetry Cache",
+        "Warlord Trait (Codex 5): Implacable Conqueror (Aura)"
+      ]
+    },
+    {
+      "key": "Codex 6",
+      "count": 7,
+      "examples": [
+        "Warlord Trait (Codex 6): Supervisory Radiance",
+        "Warlord Trait (Codex 6): Eyes of the Omnissiah",
+        "Warlord Trait (Codex 6): Honourable Combatant"
+      ]
+    },
+    {
+      "key": "Combat Drug",
+      "count": 7,
+      "examples": [
+        "4 - Painbringer (Combat Drug)",
+        "3 - Hypex (Combat Drug)",
+        "2 - Grave Lotus (Combat Drug)"
+      ]
+    },
+    {
+      "key": "Legends",
+      "count": 7,
+      "examples": [
+        "Conversion Beamer (Legends)",
+        "Twin Autocannon (Legends)",
+        "Twin Heavy Flamer (Legends)"
+      ]
+    },
+    {
+      "key": "1",
+      "count": 6,
+      "examples": [
+        "Accustomed to Toil (1)",
+        "Industrial Affinity (1)",
+        "Alien Fury (1)"
+      ]
+    },
+    {
+      "key": "Alchemist Supreme",
+      "count": 6,
+      "examples": [
+        "Genomic Enhancement (Alchemist Supreme)"
+      ]
+    },
+    {
+      "key": "All-Consuming",
+      "count": 6,
+      "examples": [
+        "Artists of the Flesh (All-Consuming)",
+        "Dark Technomancers (All-Consuming)",
+        "Deadly Deceivers (All-Consuming)"
+      ]
+    },
+    {
+      "key": "Codex 4",
+      "count": 6,
+      "examples": [
+        "Warlord Trait (Codex 4): Necromechanic",
+        "Warlord Trait (Codex 4): Archived Engagements",
+        "Warlord Trait (Codex 4): Thrall of the Silent King"
+      ]
+    },
+    {
+      "key": "HS",
+      "count": 6,
+      "examples": [
+        "Stat Damage (HS)"
+      ]
+    },
+    {
+      "key": "Militarum Tempestus",
+      "count": 6,
+      "examples": [
+        "WT (Militarum Tempestus): Drill Commander (Aura)",
+        "WT (Militarum Tempestus): Precision Targeting (Aura)",
+        "WT (Militarum Tempestus): Uncompromising Prosecution (Aura)"
+      ]
+    },
+    {
+      "key": "Speed Freeks",
+      "count": 6,
+      "examples": [
+        "1. Roadkilla (Speed Freeks)",
+        "2. Get Up in Their Faces (Speed Freeks)",
+        "3. Junkboss (Speed Freeks)"
+      ]
+    },
+    {
+      "key": "2",
+      "count": 5,
+      "examples": [
+        "Deep Supplies (2)",
+        "Agile Guerrillas (2)",
+        "Martial (2)"
+      ]
+    },
+    {
+      "key": "Freebooterz",
+      "count": 5,
+      "examples": [
+        "Killa Reputation (Freebooterz)",
+        "Da Badskull Banner (Freebooterz)"
+      ]
+    },
+    {
+      "key": "Goffs",
+      "count": 5,
+      "examples": [
+        "Proper Killy (Goffs)",
+        "Da IronGob (Goffs)"
+      ]
+    },
+    {
+      "key": "pair",
+      "count": 5,
+      "examples": [
+        "Furioso fist (pair)",
+        "Blood talons (pair)"
+      ]
+    },
+    {
+      "key": "Sautekh",
+      "count": 5,
+      "examples": [
+        "Warlord Trait (Sautekh): Hyperlogical Strategist",
+        "Relic (Sautekh): The Vanquisher's Mask"
+      ]
+    },
+    {
+      "key": "Szarekhan",
+      "count": 5,
+      "examples": [
+        "Warlord Trait (Szarekhan): The Triarch's Will",
+        "Relic (Szarekhan): The Sovereign Coronal"
+      ]
+    },
+    {
+      "key": "Vior'la",
+      "count": 5,
+      "examples": [
+        "(Vior'la): Automated Armour Defences",
+        "(Vior'la): Academy Luminary"
+      ]
+    },
+    {
+      "key": "Agripinaa",
+      "count": 4,
+      "examples": [
+        "Relic (Agripinaa): The Eye of Xi-Lexum",
+        "Warlord Trait (Agripinaa): Verse of Vengeance"
+      ]
+    },
+    {
+      "key": "Bad Moons",
+      "count": 4,
+      "examples": [
+        "Da Gobshot Blunderbuss (Bad Moons)",
+        "Da Best Armour Teef Can Buy (Bad Moons)"
+      ]
+    },
+    {
+      "key": "Bork'an",
+      "count": 4,
+      "examples": [
+        "(Bork'an): Overdrive Power Systems",
+        "(Bork'an): Seeker of Perfection"
+      ]
+    },
+    {
+      "key": "Cadmus",
+      "count": 4,
+      "examples": [
+        "Heirloom (Cadmus): The Hunter's Eye",
+        "Warlord Trait (Cadmus): Veteran of Gryphonne IV"
+      ]
+    },
+    {
+      "key": "Dal'yth",
+      "count": 4,
+      "examples": [
+        "(Dal'yth): Dynamic Mirror Field",
+        "(Dal'yth): Unifying Influence"
+      ]
+    },
+    {
+      "key": "Evil Sunz",
+      "count": 4,
+      "examples": [
+        "Fasta Than Yooz (Evil Sunz)",
+        "Rezmekka's Redder Paint (Evil Sunz)"
+      ]
+    },
+    {
+      "key": "Farseer",
+      "count": 4,
+      "examples": [
+        "Seer Council (Farseer)"
+      ]
+    },
+    {
+      "key": "Farsight Enclaves",
+      "count": 4,
+      "examples": [
+        "(Farsight Enclaves): Talisman of Arthas Moloch",
+        "(Farsight Enclaves): Master of the Killing Blow"
+      ]
+    },
+    {
+      "key": "Freeblade",
+      "count": 4,
+      "examples": [
+        "Heirloom (Freeblade): Bringer of Justice",
+        "Warlord Trait (Freeblade): Echoes from the Past"
+      ]
+    },
+    {
+      "key": "FW",
+      "count": 4,
+      "examples": [
+        "Big Shoota (FW)"
+      ]
+    },
+    {
+      "key": "Graia",
+      "count": 4,
+      "examples": [
+        "Relic (Graia): The Cerebral Techno-Mitre",
+        "Warlord Trait (Graia): Mantra of Discipline"
+      ]
+    },
+    {
+      "key": "Griffith",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Griffith): Master of the Joust",
+        "Heirloom (Griffith): Mark of the Lance"
+      ]
+    },
+    {
+      "key": "Hawkshroud",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Hawkshroud): Duty of the Forsworn",
+        "Heirloom (Hawkshroud): Angel's Grace"
+      ]
+    },
+    {
+      "key": "Krast",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Krast): First Knight",
+        "Heirloom (Krast): The Headsman's Mark"
+      ]
+    },
+    {
+      "key": "Lucius",
+      "count": 4,
+      "examples": [
+        "Relic (Lucius): The Solar Flare",
+        "Warlord Trait (Lucius): Luminescent Blessings"
+      ]
+    },
+    {
+      "key": "Malediction",
+      "count": 4,
+      "examples": [
+        "4. Unbind Souls (Malediction)",
+        "4. Veil of Tears (Malediction)"
+      ]
+    },
+    {
+      "key": "Mars",
+      "count": 4,
+      "examples": [
+        "Relic (Mars): The Red Axe",
+        "Warlord Trait (Mars): Panegyric Procession"
+      ]
+    },
+    {
+      "key": "Mechanicus Defence Cohort",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Mechanicus Defence Cohort): Cacophonous Leadership",
+        "Relic (Mechanicus Defence Cohort): Forgefire"
+      ]
+    },
+    {
+      "key": "Mephrit",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Mephrit): Merciless Tyrant",
+        "Relic (Mephrit): Conduit of Stars"
+      ]
+    },
+    {
+      "key": "Mortan",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Mortan): Legacy of the Black Pall",
+        "Heirloom (Mortan): Honour's Bite"
+      ]
+    },
+    {
+      "key": "Nephrekh",
+      "count": 4,
+      "examples": [
+        "Relic (Nephrekh): Solar Staff",
+        "Warlord Trait (Nephrekh): Skin of Living Gold"
+      ]
+    },
+    {
+      "key": "Nihilakh",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Nihilakh): Precognitive Strike",
+        "Relic (Nihilakh): Infinity Mantle"
+      ]
+    },
+    {
+      "key": "Novokh",
+      "count": 4,
+      "examples": [
+        "Relic (Novokh): Blood Scythe",
+        "Warlord Trait (Novokh): Blood-Fuelled Fury"
+      ]
+    },
+    {
+      "key": "Raven",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Raven): Master of the Trial",
+        "Heirloom (Raven): The Banner Inviolate",
+        "!Heirloom (Raven): The Banner Inviolate"
+      ]
+    },
+    {
+      "key": "Ryza",
+      "count": 4,
+      "examples": [
+        "Relic (Ryza): Weapon XCIX",
+        "Warlord Trait (Ryza): Citation In Savagery"
+      ]
+    },
+    {
+      "key": "Skitarii Veteran Cohort",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Skitarii Veteran Cohort):  Calculate Without Diversion",
+        "Relic (Skitarii Veteran Cohort): Cantic Thrallnet"
+      ]
+    },
+    {
+      "key": "Snakebites",
+      "count": 4,
+      "examples": [
+        "Surly as a Squiggoth (Snakebites)",
+        "Brogs Buzzbomb (Snakebites)"
+      ]
+    },
+    {
+      "key": "Speed Mob",
+      "count": 4,
+      "examples": [
+        "Speed King (Speed Mob)",
+        "Drag Chains (Speed Mob)",
+        "Raised Suspenshun (Speed Mob)"
+      ]
+    },
+    {
+      "key": "Stygies VIII",
+      "count": 4,
+      "examples": [
+        "Relic (Stygies VIII): The Omnissiah's Hand",
+        "Warlord Trait (Stygies VIII): Veiled Hunter"
+      ]
+    },
+    {
+      "key": "T'au",
+      "count": 4,
+      "examples": [
+        "(T'au): Vectored Manoeuvring Thrusters",
+        "(T'au): Strength of Conviction",
+        "(T'au): Vectored manoeuvring thrusters"
+      ]
+    },
+    {
+      "key": "Taranis",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Taranis): Knight of Mars",
+        "Heirloom (Taranis): Fury of Mars"
+      ]
+    },
+    {
+      "key": "Terryn",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Terryn): Champion of the Household",
+        "Heirloom (Terryn): Thunder of Voltoris"
+      ]
+    },
+    {
+      "key": "Vulker",
+      "count": 4,
+      "examples": [
+        "Warlord Trait (Vulker): Adamantine Knight",
+        "Heirloom (Vulker): The Auric Mask"
+      ]
+    },
+    {
+      "key": "2 models",
+      "count": 3,
+      "examples": [
+        "Renegade Militia Weapon Team (2 models)",
+        "Disciple Weapon Team (2 models)"
+      ]
+    },
+    {
+      "key": "3",
+      "count": 3,
+      "examples": [
+        "Hunter's Instincts (3)",
+        "Impassioned (3)",
+        "Symbiotic Broodmind (3)"
+      ]
+    },
+    {
+      "key": "Baneblade Transport",
+      "count": 3,
+      "examples": [
+        "Stat Damage (Baneblade Transport)"
+      ]
+    },
+    {
+      "key": "Custom",
+      "count": 3,
+      "examples": [
+        "Show Stealer (Custom)",
+        "Splintered Genius (Custom)",
+        "Alchemical Maestro (Custom)"
+      ]
+    },
+    {
+      "key": "Deathskullz",
+      "count": 3,
+      "examples": [
+        "Opportunist (Deathskullz)",
+        "Da Fixer Upperz (Deathskullz)"
+      ]
+    },
+    {
+      "key": "Or possibly Mork",
+      "count": 3,
+      "examples": [
+        "Klaw of Gork (Or possibly Mork)"
+      ]
+    },
+    {
+      "key": "Sa'cea",
+      "count": 3,
+      "examples": [
+        "(Sa'cea): Grav-Inhibitor Field",
+        "(Sa'cea): Strategic Conqueror"
+      ]
+    },
+    {
+      "key": "Warlocks Unit",
+      "count": 3,
+      "examples": [
+        "Seer Council (Warlocks Unit)"
+      ]
+    },
+    {
+      "key": "Aquilan Shield",
+      "count": 2,
+      "examples": [
+        "(Aquilan Shield): Revered Companion",
+        "(Aquilan Shield): Praesidius"
+      ]
+    },
+    {
+      "key": "BRB",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (BRB): Inspiring Leader (Aura)"
+      ]
+    },
+    {
+      "key": "Chimera",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Chimera)"
+      ]
+    },
+    {
+      "key": "Coven",
+      "count": 2,
+      "examples": [
+        "As Detachment (Coven)"
+      ]
+    },
+    {
+      "key": "Dread Host",
+      "count": 2,
+      "examples": [
+        "(Dread Host): All-Seeing Annihilator",
+        "(Dread Host): Admonimortis"
+      ]
+    },
+    {
+      "key": "Emissaries Imperatus",
+      "count": 2,
+      "examples": [
+        "(Emissaries Imperatus): Voice of the Emperor",
+        "(Emissaries Imperatus): Halo of the Torchbearer"
+      ]
+    },
+    {
+      "key": "Emperor's Chosen",
+      "count": 2,
+      "examples": [
+        "(Emperor's Chosen): Auric Exemplar",
+        "(Emperor's Chosen): Paragon Spear"
+      ]
+    },
+    {
+      "key": "Gunships",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Gunships)"
+      ]
+    },
+    {
+      "key": "Hellhound",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Hellhound)"
+      ]
+    },
+    {
+      "key": "Herpetrax",
+      "count": 2,
+      "examples": [
+        "Bow to None (Herpetrax)",
+        "Infamous Heredity (Herpetrax)"
+      ]
+    },
+    {
+      "key": "Index",
+      "count": 2,
+      "examples": [
+        "Lascannon and Twin Plasma Gun (Index)",
+        "Twin Heavy Flamer (Index)"
+      ]
+    },
+    {
+      "key": "Indomitus",
+      "count": 2,
+      "examples": [
+        "Heavy Bolt Pistol (Indomitus)"
+      ]
+    },
+    {
+      "key": "Kabal",
+      "count": 2,
+      "examples": [
+        "As Detachment (Kabal)"
+      ]
+    },
+    {
+      "key": "Khomentis",
+      "count": 2,
+      "examples": [
+        "Dread Hunter (Khomentis)",
+        "Bound Vassals (Khomentis)"
+      ]
+    },
+    {
+      "key": "Khymere",
+      "count": 2,
+      "examples": [
+        "Maddened Cries (Khymere)",
+        "Infamous Heredity (Khymere)"
+      ]
+    },
+    {
+      "key": "Korvax",
+      "count": 2,
+      "examples": [
+        "Lord of Dread (Korvax)",
+        "Bound Vassals (Korvax)"
+      ]
+    },
+    {
+      "key": "Leman Russ",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Leman Russ)"
+      ]
+    },
+    {
+      "key": "Leman Russ Commander",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Leman Russ Commander)"
+      ]
+    },
+    {
+      "key": "Lucaris",
+      "count": 2,
+      "examples": [
+        "Strike First, Strike Often (Lucaris)",
+        "Infamous Heredity (Lucaris)"
+      ]
+    },
+    {
+      "key": "Metalica 1",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 1): Master Annihilator"
+      ]
+    },
+    {
+      "key": "Metalica 2",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 2): Ashrunner"
+      ]
+    },
+    {
+      "key": "Metalica 3",
+      "count": 2,
+      "examples": [
+        "Warlord Trait (Metalica 3): Radioactive Emanation"
+      ]
+    },
+    {
+      "key": "Rogal Dorn",
+      "count": 2,
+      "examples": [
+        "Stat Damage (Rogal Dorn)"
+      ]
+    },
+    {
+      "key": "Shadowkeepers",
+      "count": 2,
+      "examples": [
+        "(Shadowkeepers): Lockwarden",
+        "(Shadowkeepers): Statis Oubliette"
+      ]
+    },
+    {
+      "key": "Solar Watch",
+      "count": 2,
+      "examples": [
+        "(Solar Watch): Sally Forth",
+        "(Solar Watch): Swiftsilver Talon"
+      ]
+    },
+    {
+      "key": "Tomb Citadel",
+      "count": 2,
+      "examples": [
+        "Gauss Exterminator (Tomb Citadel)"
+      ]
+    },
+    {
+      "key": "Vextrix",
+      "count": 2,
+      "examples": [
+        "Favour of the Dark Mechanicum (Vextrix)",
+        "Bound Vassals (Vextrix)"
+      ]
+    },
+    {
+      "key": "Wych Cult",
+      "count": 2,
+      "examples": [
+        "As Detachment (Wych Cult)"
+      ]
+    },
+    {
+      "key": "0-50 Total PL / 0-500 Points",
+      "count": 1,
+      "examples": [
+        "1. Combat Patrol (0-50 Total PL / 0-500 Points)"
+      ]
+    },
+    {
+      "key": "1 Relic",
+      "count": 1,
+      "examples": [
+        "Gifts of Chaos (1 Relic)"
+      ]
+    },
+    {
+      "key": "101-200 Total PL / 1001-2000 Points",
+      "count": 1,
+      "examples": [
+        "3. Strike Force (101-200 Total PL / 1001-2000 Points)"
+      ]
+    },
+    {
+      "key": "2 Relics",
+      "count": 1,
+      "examples": [
+        "Gifts of Chaos (2 Relics)"
+      ]
+    },
+    {
+      "key": "201-300 Total PL / 2001-3000 Points",
+      "count": 1,
+      "examples": [
+        "4. Onslaught (201-300 Total PL / 2001-3000 Points)"
+      ]
+    },
+    {
+      "key": "301+ Total PL / 3001+ Points",
+      "count": 1,
+      "examples": [
+        "5. Onslaught++ (301+ Total PL / 3001+ Points)"
+      ]
+    },
+    {
+      "key": "51-100 Total PL / 501-1000 Points",
+      "count": 1,
+      "examples": [
+        "2. Incursion (51-100 Total PL / 501-1000 Points)"
+      ]
+    },
+    {
+      "key": "Attendants",
+      "count": 1,
+      "examples": [
+        "Nurglings (Attendants)"
+      ]
+    },
+    {
+      "key": "Battle Honours",
+      "count": 1,
+      "examples": [
+        "Grot Tank (Battle Honours)"
+      ]
+    },
+    {
+      "key": "Black Heart",
+      "count": 1,
+      "examples": [
+        "Splintered Genius (Black Heart)"
+      ]
+    },
+    {
+      "key": "BRB 1",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 1): Legendary Fighter"
+      ]
+    },
+    {
+      "key": "BRB 2",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 2): Inspiring Leader"
+      ]
+    },
+    {
+      "key": "BRB 3",
+      "count": 1,
+      "examples": [
+        "Warlord Trait (BRB 3): Tenacious Survivor"
+      ]
+    },
+    {
+      "key": "Crusade",
+      "count": 1,
+      "examples": [
+        "Narrative (Crusade)"
+      ]
+    },
+    {
+      "key": "Cursed Blade",
+      "count": 1,
+      "examples": [
+        "Show Stealer (Cursed Blade)"
+      ]
+    },
+    {
+      "key": "Dark Creed",
+      "count": 1,
+      "examples": [
+        "Alchemical Maestro (Dark Creed)"
+      ]
+    },
+    {
+      "key": "Doomglaive",
+      "count": 1,
+      "examples": [
+        "Heavy Psycannon (Doomglaive)"
+      ]
+    },
+    {
+      "key": "Flayed Skull",
+      "count": 1,
+      "examples": [
+        "Splintered Genius (Flayed Skull)"
+      ]
+    },
+    {
+      "key": "Forgeworld",
+      "count": 1,
+      "examples": [
+        "Flamestorm Cannon (Forgeworld)"
+      ]
+    },
+    {
+      "key": "Light Mach",
+      "count": 1,
+      "examples": [
+        "Stat Damage (Light Mach)"
+      ]
+    },
+    {
+      "key": "Mixed Detachment",
+      "count": 1,
+      "examples": [
+        "None (Mixed Detachment)"
+      ]
+    },
+    {
+      "key": "Non Crusade",
+      "count": 1,
+      "examples": [
+        "Narrative (Non Crusade)"
+      ]
+    },
+    {
+      "key": "Obsidian Rose",
+      "count": 1,
+      "examples": [
+        "Splintered Genius (Obsidian Rose)"
+      ]
+    },
+    {
+      "key": "Poisoned Tongue",
+      "count": 1,
+      "examples": [
+        "Splintered Genius (Poisoned Tongue)"
+      ]
+    },
+    {
+      "key": "Prophets",
+      "count": 1,
+      "examples": [
+        "Alchemical Maestro (Prophets)"
+      ]
+    },
+    {
+      "key": "Red Grief",
+      "count": 1,
+      "examples": [
+        "Show Stealer (Red Grief)"
+      ]
+    },
+    {
+      "key": "Reference",
+      "count": 1,
+      "examples": [
+        "Warlord Traits (Reference)"
+      ]
+    },
+    {
+      "key": "replaces force stave",
+      "count": 1,
+      "examples": [
+        "Gallian's Staff (replaces force stave)"
+      ]
+    },
+    {
+      "key": "replaces thunder hammer",
+      "count": 1,
+      "examples": [
+        "Hammer of Baal (replaces thunder hammer)"
+      ]
+    },
+    {
+      "key": "Restricted",
+      "count": 1,
+      "examples": [
+        "Cult of Strife: The Spectacle of Murder (Restricted)"
+      ]
+    },
+    {
+      "key": "Strife",
+      "count": 1,
+      "examples": [
+        "Show Stealer (Strife)"
+      ]
+    },
+    {
+      "key": "Strike Force",
+      "count": 1,
+      "examples": [
+        "Inquisitorial Cipher (Strike Force)"
+      ]
+    },
+    {
+      "key": "Taurox",
+      "count": 1,
+      "examples": [
+        "Stat Damage (Taurox)"
+      ]
+    },
+    {
+      "key": "Taurox Prime",
+      "count": 1,
+      "examples": [
+        "Stat Damage (Taurox Prime)"
+      ]
+    },
+    {
+      "key": "Twelve",
+      "count": 1,
+      "examples": [
+        "Alchemical Maestro (Twelve)"
+      ]
+    }
+  ]
+}
