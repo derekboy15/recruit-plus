@@ -113,6 +113,10 @@ test('start creates a game and navigates', async () => {
     },
   });
   expect(doc.data.events.map((e) => e.t)).toEqual(['start']);
+  // The list side carries its choices' display names, for the stratagem filter; the faction-only side has none.
+  expect(doc.data.setup.players.B.armyChoices).toEqual(expect.arrayContaining([expect.any(String)]));
+  expect(doc.data.setup.players.B.armyChoices!.length).toBeGreaterThan(0);
+  expect(doc.data.setup.players.A.armyChoices).toBeUndefined();
 });
 
 test('two secondaries from one category are refused', async () => {

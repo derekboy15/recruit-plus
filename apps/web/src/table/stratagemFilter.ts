@@ -23,9 +23,12 @@ export function phaseFilter(phase: TablePhase, side: 'active' | 'reacting', ctx:
   return { main, reactions: REACTIONS };
 }
 
-/** Main stratagems for now, then reactions (a stratagem shows once, under main if it fits both). */
-export function stratagemsFor(all: StratagemOut[], filter: { main: string[]; reactions: string[] }, group?: string): { main: StratagemOut[]; reactions: StratagemOut[] } {
-  const pool = group ? all.filter((s) => s.group === group || s.group === CORE_GROUP) : all;
+/**
+ * Main stratagems for now, then reactions (a stratagem shows once, under main if it fits both). `groups`, when given,
+ * keeps only stratagems from those groups.
+ */
+export function stratagemsFor(all: StratagemOut[], filter: { main: string[]; reactions: string[] }, groups?: Set<string>): { main: StratagemOut[]; reactions: StratagemOut[] } {
+  const pool = groups ? all.filter((s) => groups.has(s.group)) : all;
   const main = pool.filter((s) => s.phases.some((p) => filter.main.includes(p)));
   const reactions = pool.filter((s) => !main.includes(s) && s.phases.some((p) => filter.reactions.includes(p)));
   return { main, reactions };

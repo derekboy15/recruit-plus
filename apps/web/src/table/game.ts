@@ -20,6 +20,11 @@ export interface PlayerSetup {
   startingCp: number;
   /** A stratagem group (subfaction) the player chose to filter by. */
   group?: string;
+  /**
+   * Display names of every selection in the player's list when the game started (sub-faction, Army of Renown,
+   * detachment, units), for the stratagem filter. Absent for a faction-only player and for games saved before it.
+   */
+  armyChoices?: string[];
 }
 export interface TableSetup {
   battleSize: BattleSizeId;

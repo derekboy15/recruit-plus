@@ -8,6 +8,7 @@ import { useAsync } from '../factions/useAsync';
 import { useLists } from '../lists/listStore';
 import { RulesText } from '../rules/RulesText';
 import { useStorage } from '../storage/StorageContext';
+import { chosenNames } from './armyGroups';
 import { rollDice } from './dice';
 import type { PlayerSetup, TableSetup } from './game';
 import { getMissions, missionById } from './missionData';
@@ -126,6 +127,18 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
     if (!size || !pack || !mission || !defender || !zone || !first || !user) return;
     setSaving(true);
     const zoneOf: Record<Side, PlayerKey> = { [defender]: zone, [otherSide(defender)]: otherZone(zone) } as Record<Side, PlayerKey>;
+    // What each list chose, worked out once now so the stratagem filter needn't run the roster engine every phase.
+    const choicesOf = async (s: Side): Promise<string[] | undefined> => {
+      const list = armies[s].source === 'list' ? lists.find((l) => l.id === armies[s].listId) : undefined;
+      if (!list) return undefined;
+      try {
+        return await chosenNames(list.data.roster, list.data.summary.catalogueSlug);
+      } catch (e) {
+        console.warn('Could not read the list’s choices', e);
+        return undefined;
+      }
+    };
+    const armyChoices: Record<Side, string[] | undefined> = { you: await choicesOf('you'), opp: await choicesOf('opp') };
     const player = (s: Side): PlayerSetup => ({
       name: armies[s].name.trim(),
       ...(armies[s].source === 'list' ? { listId: armies[s].listId } : {}),
@@ -133,6 +146,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
       secondaries: secondaries[s],
       battleReady: battleReady[s],
       startingCp: cp[s],
+      ...(armyChoices[s] ? { armyChoices: armyChoices[s] } : {}),
     });
     const setup: TableSetup = {
       battleSize: size,
