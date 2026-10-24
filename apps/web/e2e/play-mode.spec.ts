@@ -67,6 +67,8 @@ test('Play mode: a stale unit link opens nothing, and a list that isn’t here s
 
   await page.goto('/build/00000000-0000-4000-8000-0000000000ee/play');
   await expect(page.getByRole('heading', { level: 1, name: 'List not found' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Back to your lists', exact: true })).toHaveAttribute('href', '/build');
+  const back = page.getByRole('link', { name: 'Back to your lists', exact: true });
+  await expect(back).toHaveAttribute('href', '/build');
+  expect((await back.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await noSidewaysScroll(page);
 });

@@ -30,7 +30,9 @@ export function PlayPage() {
       <>
         <PageHeader title="List not found" back={BACK} />
         <p>We couldn’t find this list on this device. It may have been deleted.</p>
-        <Link to="/build">Back to your lists</Link>
+        <Link to="/build" className="btn">
+          Back to your lists
+        </Link>
       </>
     );
   }
