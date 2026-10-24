@@ -9,6 +9,7 @@ import { TestProviders } from '../rules/__fixtures__/TestProviders';
 import { openDb, type RecruitDb } from '../storage/db';
 import { makeEvent, type Pos, type TableEvent } from './game';
 import { ToolsPanel } from './ToolsPanel';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let n = 0;

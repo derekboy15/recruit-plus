@@ -14,6 +14,7 @@ import { makeEvent, type EventBody, type Pos, type TableGameData, type TableSetu
 import { GamePage } from './GamePage';
 import { resetMissionCache } from './missionData';
 import { summarise, SummaryPage } from './SummaryPage';
+import './__fixtures__/patience';
 
 const packs = generatedMissions().packs;
 const pack = (id: 'arks-of-omen' | 'core-book') => packs.find((p) => p.id === id)!;

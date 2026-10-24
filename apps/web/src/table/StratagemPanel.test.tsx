@@ -11,6 +11,7 @@ import { generatedMissions } from './__fixtures__/missions';
 import { testSetup } from './__fixtures__/setup';
 import { deriveState, makeEvent, type Pos, type TableEvent, type TableGameData } from './game';
 import { StratagemPanel } from './StratagemPanel';
+import './__fixtures__/patience';
 
 const pack = generatedMissions().packs.find((p) => p.id === 'arks-of-omen')!;
 let db: RecruitDb;

@@ -13,6 +13,7 @@ import { makeEvent, type TableGameData } from './game';
 import { resetMissionCache } from './missionData';
 import { TableHome } from './TableHome';
 import { createTableGame } from './tableStore';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let repo: Repository;

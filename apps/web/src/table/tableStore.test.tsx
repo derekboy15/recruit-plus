@@ -11,6 +11,7 @@ import { testSetup } from './__fixtures__/setup';
 import { makeEvent, type TableGameData } from './game';
 import { resetMissionCache } from './missionData';
 import { createTableGame, deleteTableGame, useTableGame, useTableGames } from './tableStore';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let repo: Repository;

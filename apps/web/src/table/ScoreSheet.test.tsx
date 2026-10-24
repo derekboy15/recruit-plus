@@ -10,6 +10,7 @@ import { testSetup } from './__fixtures__/setup';
 import { deriveState, makeEvent, type EventBody, type Pos, type TableEvent, type TableGameData } from './game';
 import { describeEvent, LogPanel } from './LogPanel';
 import { ScoreSheet } from './ScoreSheet';
+import './__fixtures__/patience';
 
 const all = generatedMissions();
 const pack = all.packs.find((p) => p.id === 'arks-of-omen')!;

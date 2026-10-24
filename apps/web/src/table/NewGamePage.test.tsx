@@ -13,6 +13,7 @@ import { createRepository } from '../storage/repository';
 import type { TableGameData } from './game';
 import { resetMissionCache } from './missionData';
 import { NewGamePage } from './NewGamePage';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let n = 0;

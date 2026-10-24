@@ -9,6 +9,7 @@ import { AuthProvider } from '../auth/AuthContext';
 import { signedIn } from '../rules/__fixtures__/TestProviders';
 import { ToastProvider } from '../ui/toast';
 import { getMissions, missionById, resetMissionCache } from './missionData';
+import './__fixtures__/patience';
 
 const missions = { generatedAt: 'x', packs: [], secondaryFactions: {}, missions: [{ id: 'aoo-cleanse-the-land', name: 'Cleanse the Land' }] };
 let db: RecruitDb;
