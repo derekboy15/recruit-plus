@@ -1,18 +1,33 @@
 import { Link } from 'react-router-dom';
 import { useAsync } from '../factions/useAsync';
+import { useStorage } from '../storage/StorageContext';
+import { Menu } from '../ui/Menu';
+import { PageHeader } from '../ui/PageHeader';
+import { relativeTime } from '../ui/relativeTime';
+import { useToast } from '../ui/toast';
 import { deriveState } from './game';
+import { gameStatus, scoreLine } from './gameRow';
 import { getMissions, missionById } from './missionData';
-import { useTableGames } from './tableStore';
+import { deleteTableGame, useTableGames } from './tableStore';
 
 /** The table companion's start page: saved games, newest first, and a way to start a new one. */
 export function TableHome() {
   const { games, loading } = useTableGames();
   const missions = useAsync(getMissions, 'missions');
+  const { repo } = useStorage();
+  const { show } = useToast();
+  const remove = async (id: string) => {
+    const restore = await deleteTableGame(repo, id);
+    show({ message: 'Game deleted', action: { label: 'Undo', onAction: () => void restore() } });
+  };
   return (
     <section>
-      <h1>Table companion</h1>
-      <p className="muted">Run a real game from one phone: phases, CP, VP, the mission and stratagems.</p>
-      <Link className="btn btn--primary" to="/table/new">New game</Link>
+      <PageHeader
+        variant="top"
+        title="Table companion"
+        subtitle="Run a real game from one phone: phases, CP, VP, the mission and stratagems."
+        actions={<Link className="btn btn--primary" to="/table/new">New game</Link>}
+      />
       {loading || missions.status === 'loading' ? (
         <p className="muted">Loading your games…</p>
       ) : missions.status === 'error' ? (
@@ -24,20 +39,23 @@ export function TableHome() {
           {games.map((g) => {
             const { setup } = g.data;
             const pack = missions.data.packs.find((p) => p.id === setup.pack);
-            const mission = missionById(missions.data, setup.missionId);
+            const missionName = missionById(missions.data, setup.missionId)?.name ?? setup.missionId;
             const s = pack ? deriveState(g.data, pack) : null;
-            const status = !s ? '' : s.ended || !s.pos ? 'Finished' : `Round ${s.pos.round}`;
+            const totals = s?.players ?? { A: { total: 0 }, B: { total: 0 } };
             return (
-              <li key={g.id}>
-                <Link className="list__link" to={`/table/${g.id}`}>
-                  <strong>{mission?.name ?? setup.missionId}</strong>
-                  <span className="muted"> · {status}</span>
-                  <br />
-                  <span>
-                    {setup.players.A.name} {s?.players.A.total ?? 0} – {s?.players.B.total ?? 0} {setup.players.B.name}
-                  </span>
-                  <span className="badge">{s?.ended ? 'View' : 'Resume'}</span>
+              <li key={g.id} className="game-row">
+                <Link className="game-row__main" to={`/table/${g.id}`}>
+                  <strong className="game-row__title">{missionName}</strong>
+                  <span className="game-row__score">{scoreLine(setup, totals)}</span>
+                  <span className="muted game-row__meta">{[gameStatus(s), relativeTime(g.updatedAt)].filter(Boolean).join(' · ')}</span>
                 </Link>
+                <Menu
+                  label={`Actions for ${missionName}`}
+                  items={[
+                    { label: s?.ended ? 'View' : 'Resume', to: `/table/${g.id}` },
+                    { label: 'Delete', danger: true, onSelect: () => void remove(g.id) },
+                  ]}
+                />
               </li>
             );
           })}

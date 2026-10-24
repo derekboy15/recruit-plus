@@ -75,3 +75,16 @@
 .summary__row { display: flex; justify-content: space-between; gap: 1rem; }
 .summary__row dd { margin: 0; font-weight: 600; text-align: right; }
 .prompt__actions--stack { flex-direction: column; align-items: stretch; }
+/* Saved games list */
+.game-row {
+  display: flex; align-items: center; gap: 4px; padding-right: 4px;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface);
+}
+.game-row:hover { border-color: var(--border-strong); }
+.game-row__main {
+  flex: 1; min-width: 0; display: grid; gap: 2px; min-height: 56px; padding: 0.6rem 0.4rem 0.6rem 0.9rem;
+  color: var(--text); text-decoration: none;
+}
+.game-row__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.game-row__score { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.game-row__meta { font-size: 0.85rem; }
