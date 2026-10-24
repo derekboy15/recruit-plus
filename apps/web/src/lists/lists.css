@@ -150,3 +150,29 @@
 }
 .add-bar__add { flex: 1; min-height: 48px; gap: 8px; background: var(--surface-2); border-radius: 12px; }
 .add-bar__export { width: 48px; height: 48px; border: 1px solid var(--border-strong); border-radius: 12px; }
+
+/* ---------- Add a unit (UnitPicker artboard) ---------- */
+.picker-search {
+  display: flex; align-items: center; gap: 8px; min-height: var(--touch); padding: 0 12px;
+  background: var(--surface); border: 1px solid var(--input-border); border-radius: var(--radius); color: var(--text-muted);
+}
+.picker-search:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.picker-search__input { flex: 1; min-width: 0; min-height: var(--touch); background: none; border: 0; outline: none; color: var(--text); font: inherit; }
+.picker-chips { margin: 10px -16px 4px; padding: 0 16px; }
+.chip[aria-pressed='false'] .picker-chips__count, .chip:not([aria-pressed]) .picker-chips__count { color: var(--text-muted); }
+.picker-rows { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; }
+.picker-row { display: flex; align-items: center; border-bottom: 1px solid var(--border); }
+.picker-row__open {
+  flex: 1; min-width: 0; min-height: 58px; display: flex; align-items: center; gap: 10px; padding: 10px 4px;
+  background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.picker-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.picker-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.picker-row__stats { font-size: 0.8125rem; color: var(--text-muted); }
+.picker-row__pts { flex: none; font-size: 0.8125rem; color: var(--text-muted); white-space: nowrap; }
+.picker-row__num { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--text); }
+.picker-row__add { color: var(--brass-strong); }
+.picker-hidden { margin-top: 20px; }
+.picker-hidden__title { margin: 0; color: var(--text-muted); }
+.picker-hidden__note { margin: 4px 0 0; font-size: 0.8125rem; }
+.picker-hidden__hint { color: var(--warn); }

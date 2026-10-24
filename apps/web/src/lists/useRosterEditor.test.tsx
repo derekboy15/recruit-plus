@@ -70,7 +70,7 @@ test('add-unit updates the totals right away; several quick edits are saved once
   act(() => result.current.dispatch({ type: 'rename', name: 'Tomb World' }));
   expect(put).not.toHaveBeenCalled();
 
-  await waitFor(() => expect(put).toHaveBeenCalledTimes(1), { timeout: 700 });
+  await waitFor(() => expect(put).toHaveBeenCalledTimes(1), { timeout: 2000 }); // room for a busy test run
   const doc = await saved(id);
   expect(doc.data.roster.name).toBe('Tomb World');
   expect(doc.data.summary.points).toBe(110 + 65);

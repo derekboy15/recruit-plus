@@ -87,7 +87,7 @@ test('adding Necron Warriors from the picker updates the header and opens the un
   await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'warr');
-  await u.click(within(picker).getByRole('button', { name: /^Necron Warriors/ }));
+  await u.click(within(picker).getByRole('button', { name: 'Add Necron Warriors' }));
 
   expect(points()).toHaveTextContent('110 / 2,000 pts');
   const editor = await screen.findByRole('dialog', { name: 'Necron Warriors' });
@@ -118,9 +118,9 @@ test('the issues button shows the count; the HQ fix lets the player pick an HQ a
   await u.click(within(hq).getByRole('button', { name: 'Add an HQ unit' }));
 
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
-  const rows = within(picker).getAllByRole('button', { name: / pts$/ });
+  const rows = within(picker).getAllByRole('button', { name: / points$/ });
   expect(rows.map((r) => r.textContent)).toEqual([expect.stringMatching(/^Lord/), expect.stringMatching(/^Plasmancer/), expect.stringMatching(/^Psychomancer/)]);
-  await u.click(within(picker).getByRole('button', { name: /^Lord/ }));
+  await u.click(within(picker).getByRole('button', { name: 'Add Lord' }));
 
   const lord = await screen.findByRole('dialog', { name: 'Lord' });
   expect(points()).toHaveTextContent('65 / 2,000 pts');
@@ -523,7 +523,7 @@ test('Undo is off until something changes; then it takes the change back, and Re
   await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'warr');
-  await u.click(within(picker).getByRole('button', { name: /^Necron Warriors/ }));
+  await u.click(within(picker).getByRole('button', { name: 'Add Necron Warriors' }));
   await u.click(within(await screen.findByRole('dialog', { name: 'Necron Warriors' })).getByRole('button', { name: 'Done' }));
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   expect(points()).toHaveTextContent('110 / 2,000 pts');
