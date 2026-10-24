@@ -14,6 +14,7 @@ import { ListEditorPage } from './ListEditorPage';
 import { createList, type ListData } from './listStore';
 import { applyPicks, armyChoices, listData, startingRoster } from './newListSetup';
 import { stubGeneratedData } from './__fixtures__/generatedData';
+import { novokhPatrol, twoPatrols } from './__fixtures__/patrolList';
 
 const NECRONS = '61c6-c8c5-a304-ff5f';
 
@@ -83,7 +84,7 @@ test('adding Necron Warriors from the picker updates the header and opens the un
   await opened();
   expect(points()).toHaveTextContent('0 / 2,000 pts');
   expect(points()).toHaveAttribute('aria-invalid', 'false');
-  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'warr');
   await u.click(within(picker).getByRole('button', { name: /^Necron Warriors/ }));
@@ -98,7 +99,7 @@ test('the picker shows Legends and Forge World badges', async () => {
   const u = user();
   renderEditor(await necronsList());
   await opened();
-  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   expect(within(picker).getByRole('button', { name: /^Canoptek Tomb Sentinel/ })).toHaveTextContent('Forge World');
   const walls = within(picker).getByRole('button', { name: /^Tomb Citadel Walls/ });
@@ -482,7 +483,7 @@ test('sheets close with their own button: the picker with Close, the unit editor
   const u = user();
   renderEditor(await necronsList('strike-force', (r, add) => add(r, 'Necron Warriors')));
   await opened();
-  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   await u.click(within(picker).getByRole('button', { name: 'Close' }));
   await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Add a unit' })).not.toBeInTheDocument());
@@ -519,7 +520,7 @@ test('Undo is off until something changes; then it takes the change back, and Re
   const redo = screen.getByRole('button', { name: 'Redo' });
   expect(undo).toBeDisabled();
   expect(redo).toBeDisabled();
-  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
   await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'warr');
   await u.click(within(picker).getByRole('button', { name: /^Necron Warriors/ }));
@@ -635,4 +636,124 @@ test('the status chip says All checks pass for a legal list and how many to fix 
   await opened();
   await u.click(screen.getByRole('button', { name: '3 to fix' }));
   expect(await screen.findByRole('dialog', { name: 'Problems' })).toBeInTheDocument();
+});
+
+/** Saves a roster built by one of the __fixtures__/patrolList builders and returns its id. */
+async function savedList(build: (scope: Awaited<ReturnType<typeof getRosterScope>>) => Roster) {
+  const [scope, policy, index] = await Promise.all([getRosterScope(['necrons']), getPolicy(), getIndex()]);
+  return createList(createRepository(db), 'user-1', listData(scope, policy, build(scope), index.catalogues.find((c) => c.id === NECRONS)!));
+}
+
+test('unit rows show the Warlord and its trait, and a squad’s weapons', async () => {
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  expect(screen.getByRole('button', { name: /^Overlord/ })).toHaveTextContent('Warlord · Blood-Fuelled Fury');
+  expect(screen.getByRole('button', { name: /^Immortals/ })).toHaveTextContent('5x Gauss Blaster');
+});
+
+test('a role section collapses to its count, and stays collapsed when the list is opened again', async () => {
+  const u = user();
+  const id = await savedList(novokhPatrol);
+  const first = renderEditor(id);
+  await opened();
+  const hq = screen.getByRole('button', { name: 'HQ 2 units · 160 pts' });
+  expect(hq).toHaveAttribute('aria-expanded', 'true');
+  await u.click(hq);
+  expect(screen.getByRole('button', { name: 'HQ 2 units · 160 pts' })).toHaveAttribute('aria-expanded', 'false');
+  expect(screen.queryByRole('button', { name: /^Overlord/ })).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /^Immortals/ })).toBeInTheDocument();
+  first.unmount();
+  renderEditor(id);
+  await opened();
+  expect(screen.getByRole('button', { name: 'HQ 2 units · 160 pts' })).toHaveAttribute('aria-expanded', 'false');
+});
+
+test('a role’s + opens the picker on that role', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Add an HQ unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  expect(within(picker).getByRole('button', { name: /^Overlord/ })).toBeInTheDocument();
+  expect(within(picker).queryByRole('button', { name: /^Necron Warriors/ })).not.toBeInTheDocument();
+});
+
+test('Remove from a unit’s menu takes it out at once; Undo in the toast puts it back', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  const before = points().textContent;
+  await u.click(screen.getByRole('button', { name: 'Options for Royal Warden' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Remove' }));
+  expect(screen.queryByRole('button', { name: /^Royal Warden/ })).not.toBeInTheDocument();
+  const toast = screen.getByRole('status');
+  expect(toast).toHaveTextContent('Removed Royal Warden');
+  await u.click(within(toast).getByRole('button', { name: 'Undo' }));
+  expect(screen.getByRole('button', { name: /^Royal Warden/ })).toBeInTheDocument();
+  expect(points().textContent).toBe(before);
+});
+
+test('Duplicate from a unit’s menu adds a copy; Undo in the toast takes the copy away', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Options for Immortals' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Duplicate' }));
+  expect(screen.getAllByRole('button', { name: /^Immortals/ })).toHaveLength(2);
+  expect(screen.getByRole('status')).toHaveTextContent('Duplicated Immortals');
+  await u.click(within(screen.getByRole('status')).getByRole('button', { name: 'Undo' }));
+  expect(screen.getAllByRole('button', { name: /^Immortals/ })).toHaveLength(1);
+});
+
+test('a toast’s Undo after a later edit (made where the toast stays) does not undo that later edit', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Options for Royal Warden' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Remove' }));
+  const toast = screen.getByRole('status');
+  // A battle size change shows no toast of its own.
+  await u.click(screen.getByRole('button', { name: 'Combat Patrol · 500 pts' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'Battle size' })).getByRole('radio', { name: /Incursion/ }));
+  expect(points()).toHaveTextContent('/ 1,000 pts');
+  await u.click(within(toast).getByRole('button', { name: 'Undo' }));
+  expect(screen.getByRole('status')).toHaveTextContent('Can’t undo that now: the list has changed since. Use Undo at the top.');
+  expect(points()).toHaveTextContent('/ 1,000 pts');
+  expect(screen.queryByRole('button', { name: /^Royal Warden/ })).not.toBeInTheDocument();
+});
+
+test('with two detachments each has its own heading and sections; Add unit asks which one', async () => {
+  const u = user();
+  renderEditor(await savedList(twoPatrols));
+  await opened();
+  const [first, second] = screen.getAllByRole('region', { name: 'Patrol Detachment' });
+  expect(within(first).getByRole('heading', { name: 'Patrol Detachment' })).toBeInTheDocument();
+  expect(within(first).getByRole('button', { name: /^HQ/ })).toBeInTheDocument();
+  expect(within(first).queryByRole('button', { name: /^Troops/ })).not.toBeInTheDocument();
+  expect(within(second).getByRole('button', { name: /^Troops/ })).toBeInTheDocument();
+  expect(within(second).getByRole('button', { name: /^Necron Warriors/ })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  const which = screen.getByRole('dialog', { name: 'Add to which detachment?' });
+  const options = within(which).getAllByRole('button', { name: /Patrol Detachment/ });
+  expect(options).toHaveLength(2);
+  await u.click(options[1]);
+  expect(await screen.findByRole('dialog', { name: 'Add a unit' })).toBeInTheDocument();
+});
+
+test('with one detachment there is no detachment heading, and Add unit opens the picker', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  expect(screen.queryByRole('heading', { name: 'Patrol Detachment' })).not.toBeInTheDocument();
+  expect(screen.queryByText('+ Add unit')).not.toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  expect(await screen.findByRole('dialog', { name: 'Add a unit' })).toBeInTheDocument();
+});
+
+test('the bar beside Add unit opens Export', async () => {
+  const u = user();
+  renderEditor(await savedList(novokhPatrol));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Export or share this list' }));
+  expect(await screen.findByRole('dialog', { name: 'Export list' })).toBeInTheDocument();
 });

@@ -10,13 +10,15 @@ interface Props {
   forceSelId: string;
   /** Only these units (a fix's suggestions), until the player asks for all. */
   only?: string[];
+  /** Show only this battlefield role's units at first (a role section's +). */
+  role?: string;
   units: UnitIndex | null;
   onAdd: (entryId: string) => void;
   onClose: () => void;
 }
 
 /** Search, then units by role: tapping one adds it. */
-export function UnitPicker({ scope, roster, forceSelId, only, units, onAdd, onClose }: Props) {
+export function UnitPicker({ scope, roster, forceSelId, only, role, units, onAdd, onClose }: Props) {
   // Prices are worked out when the picker opens, not on every render.
   const [options] = useState(() => availableUnits(scope, roster, forceSelId));
   const [query, setQuery] = useState('');
@@ -25,11 +27,13 @@ export function UnitPicker({ scope, roster, forceSelId, only, units, onAdd, onCl
 
   const groups = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const shown = options.filter((o) => (!filtered || only!.includes(o.entryId)) && (!q || unitName(o.name).toLowerCase().includes(q)));
+    const shown = options.filter(
+      (o) => (!filtered || only!.includes(o.entryId)) && (!role || (o.role ?? 'Other') === role) && (!q || unitName(o.name).toLowerCase().includes(q)),
+    );
     const byRole = new Map<string, UnitOption[]>();
     for (const o of shown) byRole.set(o.role ?? 'Other', [...(byRole.get(o.role ?? 'Other') ?? []), o]);
     return [...byRole];
-  }, [options, only, filtered, query]);
+  }, [options, only, filtered, role, query]);
 
   return (
     <Sheet title="Add a unit" kind="full" onClose={onClose}>

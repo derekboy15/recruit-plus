@@ -3,7 +3,7 @@ import { BATTLE_SIZES, detachmentChoices, stripCpSuffix, type BattleSizeId } fro
 import { useMemo, useState } from 'react';
 import { factionDisplayName } from '../factions/names';
 import { Sheet } from '../ui/Sheet';
-import { fmt } from './editorView';
+import { fmt, plural } from './editorView';
 import type { ReadyEditor } from './useRosterEditor';
 
 /** The battle sizes as a pick-one list with their points; picking one changes the list's size and closes. */
@@ -116,6 +116,33 @@ export function DetachmentSheet({ editor, onClose }: { editor: ReadyEditor; onCl
           ))}
         </div>
       )}
+    </Sheet>
+  );
+}
+
+/** "Add to which detachment?": with several detachments, Add unit asks first. */
+export function AddToSheet({ editor, onPick, onClose }: { editor: ReadyEditor; onPick: (forceSelId: string) => void; onClose: () => void }) {
+  const { scope, roster, view } = editor;
+  return (
+    <Sheet title="Add to which detachment?" onClose={onClose}>
+      <ul className="list">
+        {view.forces.map((fv) => {
+          const catalogue = scope.catalogue(fv.force.catalogueId)?.name;
+          const allied = catalogue && fv.force.catalogueId !== roster.catalogueId ? factionDisplayName(catalogue) : null;
+          const units = fv.selections.filter((v) => v.merged && v.models > 0).length;
+          return (
+            <li key={fv.force.id}>
+              <button type="button" className="row" onClick={() => onPick(fv.force.id)}>
+                <span className="row__name">
+                  {stripCpSuffix(fv.name)}
+                  {allied && <span className="muted">{` · ${allied}`}</span>}
+                </span>
+                <span className="muted">{plural(units, 'unit', 'units')}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </Sheet>
   );
 }

@@ -4,19 +4,20 @@ import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'reac
 import { useAsync } from '../factions/useAsync';
 import { ArmyChoiceSheet } from './ArmyChoiceSheet';
 import { MoreOptionsSheet } from './ArmyOptions';
-import { DetachmentSection } from './Detachments';
+import { DatasheetSheet } from './DatasheetSheet';
+import { DetachmentSection, useCollapsed } from './Detachments';
 import { EditorHeader } from './EditorHeader';
 import { ExportSheet, ShareSheet } from './ExportSheet';
-import { unitsWithIssues } from './editorView';
 import { useEditorShortcuts } from './history';
 import { IssuesPanel } from './IssuesPanel';
-import { DetachmentSheet, SizeSheet } from './SummarySheets';
-import { loadUnitIndex } from './unitIndex';
+import { AddToSheet, DetachmentSheet, SizeSheet } from './SummarySheets';
+import { loadUnitIndex, unitInfo } from './unitIndex';
 import { UnitEditor } from './UnitEditor';
 import { UnitPicker } from './UnitPicker';
 import { useEntryInfo } from './useEntryInfo';
 import { useRosterEditor, type ReadyEditor } from './useRosterEditor';
 import { LoadError } from '../layout/OfflineNotice';
+import { IconPlus, IconShare } from '../ui/icons';
 import { PageHeader } from '../ui/PageHeader';
 import './lists.css';
 
@@ -107,7 +108,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const unitIndex = useAsync(() => loadUnitIndex(slugs), slugs.join('+'));
   const units = unitIndex.status === 'ready' ? unitIndex.data : null;
   const info = useEntryInfo(slugs);
-  const flagged = useMemo(() => unitsWithIssues(view, issues), [view, issues]);
+  const [collapsed, toggleCollapsed] = useCollapsed(listId);
 
   const unitParam = params.get('unit');
   const addParam = params.get('add');
@@ -116,11 +117,13 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const shareOpen = params.get('share') === '1';
   const sheetParam = params.get('sheet');
   const choiceParam = params.get('choice');
+  const datasheetParam = params.get('datasheet');
   const openSel = unitParam ? findSelView(view, unitParam) : undefined;
+  const datasheetSel = datasheetParam ? findSelView(view, datasheetParam) : undefined;
   const pickerForce = addParam ? view.forces.find((f) => f.force.id === addParam) : undefined;
 
   // A panel whose unit or detachment has gone (removed, or a stale link) closes itself.
-  const stale = (unitParam !== null && !openSel) || (addParam !== null && !pickerForce);
+  const stale = (unitParam !== null && !openSel) || (addParam !== null && !pickerForce) || (datasheetParam !== null && !datasheetSel);
   useEffect(() => {
     if (stale) close();
   }, [stale, close]);
@@ -136,7 +139,21 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
       const selId = dispatch({ type: 'add-unit', forceSelId: pickerForce.force.id, entryId });
       if (selId) openUnit(selId);
     };
-    sheet = <UnitPicker key={params.toString()} scope={scope} roster={roster} forceSelId={pickerForce.force.id} only={only} units={units} onAdd={onAdd} onClose={close} />;
+    sheet = (
+      <UnitPicker
+        key={params.toString()}
+        scope={scope}
+        roster={roster}
+        forceSelId={pickerForce.force.id}
+        only={only}
+        role={params.get('role') ?? undefined}
+        units={units}
+        onAdd={onAdd}
+        onClose={close}
+      />
+    );
+  } else if (datasheetSel) {
+    sheet = <DatasheetSheet v={datasheetSel} info={unitInfo(scope, units, datasheetSel.sel.entryId)} onClose={close} />;
   } else if (exportOpen) {
     sheet = <ExportSheet view={view} scope={scope} onClose={close} />;
   } else if (shareOpen) {
@@ -149,6 +166,8 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
     sheet = <SizeSheet editor={editor} onClose={close} />;
   } else if (sheetParam === 'detachments') {
     sheet = <DetachmentSheet editor={editor} onClose={close} />;
+  } else if (sheetParam === 'add-to') {
+    sheet = <AddToSheet editor={editor} onPick={(forceSelId) => open({ add: forceSelId })} onClose={close} />;
   } else if (issuesOpen) {
     sheet = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} onClose={close} />;
   }
@@ -163,16 +182,33 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
         {view.forces.map((fv, i) => (
           <DetachmentSection
             key={fv.force.id}
-            scope={scope}
+            editor={editor}
             fv={fv}
             first={i === 0}
-            armyCatalogueId={roster.catalogueId}
-            flagged={flagged}
-            dispatch={dispatch}
+            showHeading={view.forces.length > 1}
+            addButton={wide}
+            collapsed={collapsed}
+            onToggle={toggleCollapsed}
             onOpenUnit={openUnit}
-            onAddUnit={(forceSelId) => open({ add: forceSelId })}
+            onAddUnit={(forceSelId, role) => open(role ? { add: forceSelId, role } : { add: forceSelId })}
+            onDatasheet={(selId) => open({ datasheet: selId })}
           />
         ))}
+        {!wide && view.forces.length > 0 && (
+          <div className="add-bar">
+            <button
+              type="button"
+              className="btn add-bar__add"
+              onClick={() => (view.forces.length === 1 ? open({ add: view.forces[0].force.id }) : open({ sheet: 'add-to' }))}
+            >
+              <IconPlus size={20} aria-hidden="true" />
+              Add unit
+            </button>
+            <button type="button" className="btn btn--icon add-bar__export" aria-label="Export or share this list" onClick={() => open({ export: '1' })}>
+              <IconShare size={20} aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </div>
       {aside && <div className="editor__aside">{aside}</div>}
       {sheet}
