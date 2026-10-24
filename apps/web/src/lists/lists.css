@@ -189,3 +189,14 @@
 .opt__note { margin: 4px 0 8px; }
 .opt-kind { margin: 8px 0 0; padding: 0; border: 0; min-width: 0; }
 .opt-kind > legend { padding: 0; margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---------- New list wizard ---------- */
+.wizard__tag { justify-self: start; padding: 1px 8px; border: 1px solid var(--brass); border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: var(--brass-strong); }
+.wizard__summary { font-size: 0.875rem; color: var(--text-soft); }
+.wizard__choices { display: flex; flex-direction: column; gap: 20px; }
+.choice-list__legend { padding: 0; margin-bottom: 8px; }
+.choice-row__tag { font-weight: 600; color: var(--text-muted); }
+
+/* The army's chips wrap under the sticky points strip (Main artboard). */
+.summary-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 4px; }
+.editor-top__play { min-height: var(--touch); height: var(--touch); }

@@ -36,7 +36,7 @@ test('build a Necrons Strike Force list with the wizard and find it on the lists
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: /Arks of Omen Detachment/ }).click();
   await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('radio', { name: 'Dynasty: Szarekhan' }).check();
+  await page.getByRole('radio', { name: 'Szarekhan' }).check();
 
   // Touch targets and no sideways scroll on the last step.
   for (const name of ['Back', 'Decide later', 'Create list']) {

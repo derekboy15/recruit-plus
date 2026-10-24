@@ -14,13 +14,16 @@ export interface ChoiceOption {
   info: EntryInfo | undefined;
   /** The summary is the official wording (no plain English yet): labelled so while plain English is chosen. */
   official?: boolean;
+  /** A short note before the summary, such as "(set by your choices)". */
+  tag?: string;
 }
 
 export interface ChoiceListProps {
   /** The radio group's name. */
   name: string;
-  /** The fieldset's legend (visually hidden: the sheet's title says it). */
+  /** The fieldset's legend (visually hidden unless `showLegend`: a sheet's title already says it). */
   legend: string;
+  showLegend?: boolean;
   /** Checkboxes (a group that takes several) instead of radios. */
   multi: boolean;
   options: ChoiceOption[];
@@ -80,14 +83,14 @@ export function OptionInfoButton({ label, info }: { label: string; info: EntryIn
   );
 }
 
-export function ChoiceList({ name, legend, multi, options, selected, noneOption = false, onPick, disabledIds = [] }: ChoiceListProps) {
+export function ChoiceList({ name, legend, showLegend = false, multi, options, selected, noneOption = false, onPick, disabledIds = [] }: ChoiceListProps) {
   const id = useId();
   const { wording } = useWording();
   const type = multi ? 'checkbox' : 'radio';
   const none = noneOption && !multi;
   return (
     <fieldset className="choice-list">
-      <legend className="sr-only">{legend}</legend>
+      <legend className={showLegend ? 'label-caps choice-list__legend' : 'sr-only'}>{legend}</legend>
       {none && (
         <div className={selected.length === 0 ? 'choice-row choice-row--on' : 'choice-row'}>
           <label className="choice-row__label">
@@ -111,15 +114,21 @@ export function ChoiceList({ name, legend, multi, options, selected, noneOption 
                 checked={on}
                 disabled={!on && disabledIds.includes(o.id)}
                 aria-labelledby={nameId}
-                aria-describedby={o.summary ? summaryId : undefined}
+                aria-describedby={o.summary || o.tag ? summaryId : undefined}
                 onChange={() => onPick(o.id)}
               />
               <span className="choice-row__text">
                 <span id={nameId} className="choice-row__name">
                   {o.label}
                 </span>
-                {o.summary && (
+                {(o.summary || o.tag) && (
                   <span id={summaryId} className="choice-row__summary">
+                    {o.tag && (
+                      <>
+                        <span className="choice-row__tag">{o.tag}</span>
+                        {o.summary && ' '}
+                      </>
+                    )}
                     {o.official && wording === 'plain' && (
                       <>
                         <span className="rules-text__label choice-row__official">Official wording</span>{' '}

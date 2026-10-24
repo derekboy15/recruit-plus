@@ -3,7 +3,7 @@
  * each opening a sheet that says what every option does; and on/off army options (stratagems bought before the
  * battle) under a "More options" chip. They live in the first detachment.
  */
-import { armyOptions, childConstraints, optionDisplay, type Issue, type Scope } from '@recruit/data/roster';
+import { armyOptions, optionDisplay, type Issue } from '@recruit/data/roster';
 import { useMemo } from 'react';
 import type { EntryInfoIndex } from '../data/entryInfo';
 import { useWording } from '../rules/wording';
@@ -11,7 +11,7 @@ import { IconWarning } from '../ui/icons';
 import { Sheet } from '../ui/Sheet';
 import { ChoiceList } from './ChoiceList';
 import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
-import { armyChoices, type ArmyChoice } from './newListSetup';
+import { armyChoices, isOptionalChoice, type ArmyChoice } from './newListSetup';
 import { describeOption } from './optionText';
 import type { ReadyEditor } from './useRosterEditor';
 
@@ -60,13 +60,7 @@ export function useArmyChoices(editor: ReadyEditor): ArmyChoiceState | null {
       const groups = new Set(choices.filter((x) => x.entryId === c.entryId).map((x) => x.groupId));
       return own.some((i) => i.subject.id === c.groupId || !groups.has(i.subject.id));
     };
-    const optional = (c: ArmyChoice) => {
-      const node = scope.node(c.entryId);
-      if (!node) return false;
-      return !childConstraints(scope, view, army, node).some(
-        (k) => k.type === 'min' && k.field === 'selections' && k.value >= 1 && ['parent', 'force', 'roster'].includes(k.scope),
-      );
-    };
+    const optional = (c: ArmyChoice) => isOptionalChoice(scope, roster, c, view);
     return { choices, toggles, selOf, needsPick, optional };
   }, [scope, roster, view, issues]);
 }

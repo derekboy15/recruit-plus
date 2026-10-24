@@ -45,11 +45,17 @@ async function nextIsOnScreen(page: Page) {
 }
 
 async function addWarriors(page: Page) {
-  await page.getByRole('button', { name: '+ Add unit' }).click();
+  await page.getByRole('button', { name: 'Add unit', exact: true }).click();
   const picker = page.getByRole('dialog', { name: 'Add a unit' });
   await picker.getByRole('searchbox', { name: 'Search units' }).fill('warriors');
-  await picker.getByRole('button', { name: /^Necron Warriors/ }).click();
+  await picker.getByRole('button', { name: 'Add Necron Warriors' }).click();
   await page.getByRole('dialog', { name: 'Necron Warriors' }).getByRole('button', { name: 'Done' }).click();
+}
+
+/** Opens Export, Share link… from the editor's List actions menu. */
+async function listAction(page: Page, item: string) {
+  await page.getByRole('button', { name: 'List actions' }).click();
+  await page.getByRole('menuitem', { name: item }).click();
 }
 
 test('build a legal Necrons list from scratch, export it and open its share link signed out', async ({ page }, testInfo) => {
@@ -67,12 +73,15 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await page.getByRole('button', { name: /Arks of Omen Detachment/ }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await expect(page.getByRole('radio', { name: 'Troops' })).toBeChecked();
-  await page.getByRole('radio', { name: 'Dynasty: Szarekhan' }).check();
+  await page.getByRole('radio', { name: 'Szarekhan' }).check();
   await page.getByRole('button', { name: 'Create list' }).click();
   await expect(page).toHaveURL(/\/build\/[0-9a-f-]{36}$/);
 
-  // 2. The list has problems; the missing HQ is one of them.
-  const issuesButton = page.getByRole('button', { name: /problems?$/ });
+  // 2. The editor opens with its header, and the list has problems; the missing HQ is one of them.
+  await expect(page.getByRole('link', { name: 'Back to Your lists' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Necrons Strike Force' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Play' })).toHaveAttribute('href', /\/build\/[0-9a-f-]{36}\/play$/);
+  const issuesButton = page.getByRole('button', { name: /to fix$/ });
   await expect(issuesButton).toBeVisible();
   await issuesButton.click();
   const problems = page.getByRole('dialog', { name: 'Problems' });
@@ -83,7 +92,7 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await problems.getByRole('button', { name: 'Add an HQ unit' }).click();
   const picker = page.getByRole('dialog', { name: 'Add a unit' });
   await picker.getByRole('button', { name: 'Show all units' }).click();
-  await picker.getByRole('button', { name: /^Overlord/ }).click();
+  await picker.getByRole('button', { name: 'Add Overlord' }).click();
   const overlord = page.getByRole('dialog', { name: 'Overlord' });
   await overlord.getByRole('checkbox', { name: 'Warlord', exact: true }).check();
   await expect(overlord.getByRole('checkbox', { name: 'Warlord', exact: true })).toBeChecked();
@@ -91,7 +100,7 @@ test('build a legal Necrons list from scratch, export it and open its share link
 
   // 4. Three Necron Warriors fill the compulsory Troops: the list is legal.
   for (let i = 0; i < 3; i++) await addWarriors(page);
-  await expect(page.getByRole('button', { name: '✓ Legal' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'All checks pass' })).toBeVisible();
 
   // 5. The header shows the BSData total.
   const total = necronsPoints(['Overlord', 'Necron Warriors', 'Necron Warriors', 'Necron Warriors']);
@@ -110,13 +119,13 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await noSidewaysScroll(page);
 
   // 6. Export.
-  await page.getByRole('button', { name: 'Export' }).click();
+  await listAction(page, 'Export');
   const exportSheet = page.getByRole('dialog', { name: 'Export list' });
   await expect(exportSheet.getByRole('textbox', { name: 'List text' })).toHaveValue(/Necron Warriors \(10 models\)/);
   await exportSheet.getByRole('button', { name: 'Done' }).click();
 
   // 7. Share, sign out, open the link: read-only, no sign-in.
-  await page.getByRole('button', { name: 'Share' }).click();
+  await listAction(page, 'Share link');
   const shareSheet = page.getByRole('dialog', { name: 'Share list' });
   await shareSheet.getByRole('checkbox', { name: 'Anyone with the link can view' }).check();
   const link = shareSheet.getByRole('textbox', { name: 'Share link' });
@@ -133,7 +142,7 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await expect(page.getByText(`${total.toLocaleString('en-US')} / 2,000 pts`)).toBeVisible();
   await expect(page.getByRole('textbox')).toHaveCount(0);
   await expect(page.getByRole('checkbox')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: '+ Add unit' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Add unit', exact: true })).toHaveCount(0);
   await noSidewaysScroll(page);
   await shot(page, 'builder-shared', project);
 });
