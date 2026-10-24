@@ -1,6 +1,10 @@
 import type { AuthBackend, AuthEvent, User } from './types';
 
 const KEY = 'recruit.devUser';
+
+const needsSupabase = async (): Promise<never> => {
+  throw new Error('Password sign-in needs Supabase. Use "Continue (dev)" locally.');
+};
 export const DEV_USER: User = { id: '00000000-0000-4000-8000-000000000001', email: 'dev@local' };
 
 /** Local-only sign-in for development and end-to-end tests. Never used in production builds. */
@@ -14,9 +18,11 @@ export function createDevAuth(): AuthBackend {
       listeners.add(cb);
       return () => listeners.delete(cb);
     },
-    signInWithEmail: async () => {
-      throw new Error('Email sign-in needs Supabase. Use "Continue (dev)" locally.');
-    },
+    signInWithPassword: needsSupabase,
+    signUp: needsSupabase,
+    sendPasswordReset: needsSupabase,
+    updatePassword: needsSupabase,
+    resendConfirmation: needsSupabase,
     signInWithGoogle: async () => {
       throw new Error('Google sign-in needs Supabase. Use "Continue (dev)" locally.');
     },

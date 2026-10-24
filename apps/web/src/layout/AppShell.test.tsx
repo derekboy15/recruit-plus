@@ -9,7 +9,11 @@ import { AppShell } from './AppShell';
 const backend: AuthBackend = {
   getUser: async () => null,
   onChange: () => () => {},
-  signInWithEmail: async () => {},
+  signInWithPassword: async () => {},
+  signUp: async () => ({ confirmEmail: true }),
+  sendPasswordReset: async () => {},
+  updatePassword: async () => {},
+  resendConfirmation: async () => {},
   signInWithGoogle: async () => {},
   signOut: async () => {},
 };

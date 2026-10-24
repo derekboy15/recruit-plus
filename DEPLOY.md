@@ -16,7 +16,11 @@ You need three accounts: **Supabase**, **GitHub** and **Vercel**. Creating them,
    - *Check:* **Table Editor** shows `documents`.
    - *Check:* **Authentication → Policies** shows five policies on `documents`: four "owners …" and "anyone reads public documents".
    - *Check:* **Database → Views** lists `rules_reports`.
-3. **Turn on email sign-in.** Open **Authentication → Sign In / Providers → Email**. Enable it and keep **magic link** (passwordless) on.
+3. **Turn on email and password sign-in.** Open **Authentication → Sign In / Providers**.
+   - Keep **Allow new users to sign up** on.
+   - Open **Email**: enable it and keep **Confirm email** on, so a new account opens the emailed link once before signing in.
+   - Set **Minimum password length** to **8** (the app asks for at least 8 too).
+   - Players sign in with their password, or with Google. The app never sends sign-in links. Emails are only sent to confirm a new account and to reset a forgotten password; both links return to the site, so the redirect URLs in step 5 must include it.
    - The free tier's built-in email sender is rate-limited. For real use, set up custom SMTP under **Authentication → Emails → SMTP Settings**.
 4. **Turn on Google sign-in.**
    1. In Google Cloud Console (<https://console.cloud.google.com>), go to **APIs & Services**. Set up the **OAuth consent screen** as External, with your app name and support email.
@@ -60,7 +64,7 @@ You need three accounts: **Supabase**, **GitHub** and **Vercel**. Creating them,
 Do these on a phone where you can. Check each one:
 
 1. **Signed out:** the home page, `/legal`, `/privacy` and `/terms` load. The footer disclaimer is on every page. The privacy page shows your contact email and the database region.
-2. **Sign-in:** sign in with an email magic link, then sign out and sign in with Google.
+2. **Sign-in:** create an account with a password and open the confirmation email; sign in; use **Forgot password?** and set a new one from the emailed link; then sign out and sign in with Google.
 3. **Sync:** build a list on the phone, then sign in on a second device. The list appears within a minute.
 4. **Sharing:** share a list (Export → Share) and open the link in a private window, signed out. It opens read-only.
 5. **Reports:** send one "Report a rules error". *Check:* it appears in Supabase under **Table Editor → rules_reports**, or by running `select * from rules_reports` in the SQL editor.

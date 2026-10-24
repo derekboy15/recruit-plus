@@ -10,7 +10,11 @@ import { WordingProvider, type Wording } from '../wording';
 export const signedIn = (id = 'user-1'): AuthBackend => ({
   getUser: async () => ({ id, email: `${id}@example.com` }),
   onChange: () => () => {},
-  signInWithEmail: async () => {},
+  signInWithPassword: async () => {},
+  signUp: async () => ({ confirmEmail: true }),
+  sendPasswordReset: async () => {},
+  updatePassword: async () => {},
+  resendConfirmation: async () => {},
   signInWithGoogle: async () => {},
   signOut: async () => {},
 });

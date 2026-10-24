@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
 
 export function Home() {
+  const { user } = useAuth();
   return (
     <section>
       <h1>Learn, build and play Warhammer 40,000 — 9th Edition</h1>
@@ -9,12 +11,25 @@ export function Home() {
         that explains itself, an on-screen practice board, and a turn-by-turn companion for the tabletop.
       </p>
       <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', margin: '1rem 0' }}>
-        <Link className="btn btn--primary" to="/sign-in">
-          Sign in to start
-        </Link>
-        <Link className="btn" to="/factions">
-          Browse factions
-        </Link>
+        {user ? (
+          <>
+            <Link className="btn btn--primary" to="/learn">
+              Continue learning
+            </Link>
+            <Link className="btn" to="/build">
+              Your lists
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link className="btn btn--primary" to="/sign-in">
+              Sign in to start
+            </Link>
+            <Link className="btn" to="/factions">
+              Browse factions
+            </Link>
+          </>
+        )}
       </div>
       <ul className="list">
         <li className="card"><strong>Learn</strong> — the core rules, one phase at a time.</li>

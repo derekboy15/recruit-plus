@@ -15,7 +15,11 @@ function backend() {
       listeners.add(cb);
       return () => listeners.delete(cb);
     },
-    signInWithEmail: async () => {},
+    signInWithPassword: async () => {},
+    signUp: async () => ({ confirmEmail: true }),
+    sendPasswordReset: async () => {},
+    updatePassword: async () => {},
+    resendConfirmation: async () => {},
     signInWithGoogle: async () => {},
     signOut: async () => {},
   };

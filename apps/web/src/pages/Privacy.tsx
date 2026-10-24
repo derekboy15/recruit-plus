@@ -35,7 +35,8 @@ export function Privacy({
         <li>
           Your email address, so you can sign in. Supabase, our database and sign-in provider, keeps it. If you sign in
           with Google, Google also sends your name and profile picture, which Supabase stores with your sign-in account;
-          Recruit+ doesn't show or use them.
+          Recruit+ doesn't show or use them. If you use a password, Supabase stores only a one-way scrambled (hashed)
+          form of it, which nobody, including us, can read back.
         </li>
         <li>Your army lists, saved games (sandbox and table companion) and lesson progress.</li>
         <li>Any rules-error reports you send, with the text you wrote.</li>

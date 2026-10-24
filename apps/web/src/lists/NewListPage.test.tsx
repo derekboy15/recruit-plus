@@ -23,7 +23,11 @@ const user = { id: 'user-1', email: 'a@b.c' };
 const backend: AuthBackend = {
   getUser: async () => user,
   onChange: () => () => {},
-  signInWithEmail: async () => {},
+  signInWithPassword: async () => {},
+  signUp: async () => ({ confirmEmail: true }),
+  sendPasswordReset: async () => {},
+  updatePassword: async () => {},
+  resendConfirmation: async () => {},
   signInWithGoogle: async () => {},
   signOut: async () => {},
 };

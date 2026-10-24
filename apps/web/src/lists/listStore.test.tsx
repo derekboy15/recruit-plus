@@ -60,7 +60,11 @@ describe('useLists', () => {
   const backend = (id: string): AuthBackend => ({
     getUser: async () => ({ id, email: null }),
     onChange: () => () => {},
-    signInWithEmail: async () => {},
+    signInWithPassword: async () => {},
+    signUp: async () => ({ confirmEmail: true }),
+    sendPasswordReset: async () => {},
+    updatePassword: async () => {},
+    resendConfirmation: async () => {},
     signInWithGoogle: async () => {},
     signOut: async () => {},
   });

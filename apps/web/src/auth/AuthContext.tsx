@@ -74,7 +74,11 @@ export function AuthProvider({ backend, children }: { backend: AuthBackend | nul
       canDevSignIn: Boolean(backend?.signInDev),
       needsReauth,
       markSessionExpired,
-      signInWithEmail: (email) => need().signInWithEmail(email),
+      signInWithPassword: (email, password) => need().signInWithPassword(email, password),
+      signUp: (email, password) => need().signUp(email, password),
+      sendPasswordReset: (email) => need().sendPasswordReset(email),
+      updatePassword: (password) => need().updatePassword(password),
+      resendConfirmation: (email) => need().resendConfirmation(email),
       signInWithGoogle: () => need().signInWithGoogle(),
       signInDev: async () => {
         const b = need();

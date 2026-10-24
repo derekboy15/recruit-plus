@@ -11,7 +11,11 @@ const fakeBackend = (user: User | null, opts: { failGetUser?: boolean } = {}): A
     return user;
   },
   onChange: () => () => {},
-  signInWithEmail: async () => {},
+  signInWithPassword: async () => {},
+  signUp: async () => ({ confirmEmail: true }),
+  sendPasswordReset: async () => {},
+  updatePassword: async () => {},
+  resendConfirmation: async () => {},
   signInWithGoogle: async () => {},
   signOut: async () => {},
 });
@@ -71,7 +75,11 @@ const eventBackend = (opts: { getUser: () => Promise<User | null> }) => {
       emit = cb;
       return () => {};
     },
-    signInWithEmail: async () => {},
+    signInWithPassword: async () => {},
+    signUp: async () => ({ confirmEmail: true }),
+    sendPasswordReset: async () => {},
+    updatePassword: async () => {},
+    resendConfirmation: async () => {},
     signInWithGoogle: async () => {},
     signOut: async () => {},
   };

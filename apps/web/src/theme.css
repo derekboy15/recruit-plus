@@ -357,3 +357,21 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .chip[aria-pressed='true'] { border-color: var(--brass-strong); color: var(--text); background: var(--surface-2); }
 /* Anchored headings land below the sticky top bar. */
 main h2[id], main h3[id], main article[id] { scroll-margin-top: 4.5rem; }
+
+/* ---------- Sign-in ---------- */
+.auth-page { max-width: 420px; }
+.auth-form { display: grid; gap: 0.5rem; }
+.auth-form__hint { margin: -0.2rem 0 0; font-size: 0.85rem; }
+.auth-form__forgot { justify-self: end; }
+.auth-form__error { margin: 0.25rem 0; color: var(--red-strong); font-weight: 600; }
+.auth-form__notice { margin: 0.25rem 0; padding: 0.6rem 0.8rem; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--border); }
+.password-field { display: flex; gap: 0.4rem; }
+.password-field .input { flex: 1; min-width: 0; }
+.btn--ghost { border-color: var(--border); }
+.link-btn {
+  min-height: var(--touch); padding: 0 0.25rem; border: none; background: none;
+  color: var(--brass-strong); font: inherit; text-decoration: underline; cursor: pointer;
+}
+.auth-divider { text-align: center; margin: 1rem 0 0.5rem; }
+.auth-google { width: 100%; }
+.auth-switch { margin-top: 1rem; text-align: center; }

@@ -5,6 +5,7 @@ import { createAuthSetup } from './auth/backend';
 import { RequireAuth } from './auth/RequireAuth';
 import { AppShell } from './layout/AppShell';
 import { createLocalPublicSource, createSupabasePublicSource, PublicSourceContext, type PublicSourceValue } from './lists/publicSource';
+import { ResetPassword } from './pages/ResetPassword';
 import { SignIn } from './pages/SignIn';
 import { AppRoutes } from './routes';
 import { WordingProvider } from './rules/wording';
@@ -58,7 +59,12 @@ export function App() {
           <WordingProvider>
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
               <AppShell account={<AccountMenu />}>
-                <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={<Route path="/sign-in" element={<SignIn />} />} />
+                <AppRoutes guard={(c) => <RequireAuth>{c}</RequireAuth>} extra={
+                    <>
+                      <Route path="/sign-in" element={<SignIn />} />
+                      <Route path="/reset-password" element={<ResetPassword />} />
+                    </>
+                  } />
               </AppShell>
             </BrowserRouter>
           </WordingProvider>

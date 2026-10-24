@@ -9,6 +9,8 @@ export const SUPABASE_ORIGIN = 'http://supabase.e2e.test';
 /** supabase-js keeps the session under sb-<first host label>-auth-token. */
 export const SESSION_KEY = 'sb-supabase-auth-token';
 export const E2E_USER = { id: '00000000-0000-4000-8000-0000000000e2', email: 'e2e@test' };
+/** The only password the fake accepts for E2E_USER. */
+export const E2E_PASSWORD = 'correct-horse-9';
 
 const b64 = (o: unknown) => Buffer.from(JSON.stringify(o)).toString('base64url');
 
@@ -97,7 +99,17 @@ export class FakeRemote {
       }
     }
     if (url.pathname === '/auth/v1/user') return json(200, JSON.parse(sessionJson()).user);
-    if (url.pathname === '/auth/v1/token') return json(200, JSON.parse(sessionJson()));
+    if (url.pathname === '/auth/v1/token') {
+      if (url.searchParams.get('grant_type') === 'password') {
+        const body = req.postDataJSON() as { email?: string; password?: string };
+        if (body.email !== E2E_USER.email || body.password !== E2E_PASSWORD)
+          return json(400, { code: 'invalid_credentials', error_code: 'invalid_credentials', msg: 'Invalid login credentials', message: 'Invalid login credentials' });
+      }
+      return json(200, JSON.parse(sessionJson()));
+    }
+    // Sign-up needs the emailed confirmation (no session yet); reset and resend just say they sent an email.
+    if (url.pathname === '/auth/v1/signup') return json(200, { ...JSON.parse(sessionJson()).user, email: (req.postDataJSON() as { email: string }).email });
+    if (url.pathname === '/auth/v1/recover' || url.pathname === '/auth/v1/resend') return json(200, {});
     if (url.pathname === '/auth/v1/logout') return route.fulfill({ status: 204 });
     return json(404, { message: `fake supabase: no route for ${req.method()} ${url.pathname}` });
   }
