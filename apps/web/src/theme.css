@@ -430,6 +430,15 @@ label.opt { justify-content: flex-start; cursor: pointer; }
   .toast-region { left: var(--rail-w); right: 0; bottom: 24px; padding: 0 16px; }
 }
 
+/* ---------- Faction badge (ui/FactionBadge.tsx): initials on the faction group's tint ---------- */
+.faction-badge {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: 0.04em; line-height: 1;
+}
+.faction-badge--md { width: 44px; height: 44px; border-radius: 10px; font-size: 15px; }
+.faction-badge--sm { width: 32px; height: 32px; border-radius: 8px; font-size: 12px; }
+.info-btn { color: var(--text-muted); }
+
 /* ---------- Export and share ---------- */
 .editor-actions, .sheet-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .sheet-actions { margin: 0.75rem 0; }
