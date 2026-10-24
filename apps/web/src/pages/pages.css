@@ -46,3 +46,8 @@
 .home-row__warn { color: var(--warn); }
 .home-row__ok svg, .home-row__warn svg { vertical-align: -2px; }
 .home-row__action { position: relative; z-index: 1; flex: none; padding: 0 0.8rem; }
+
+/* Sign-in: Google first, then a ruled "or use your email" before the form. */
+.auth-google svg { flex: none; }
+.auth-divider--lines { display: flex; align-items: center; gap: 0.75rem; margin: 1rem 0; font-size: 0.875rem; }
+.auth-divider--lines::before, .auth-divider--lines::after { content: ''; flex: 1; border-top: 1px solid var(--border); }

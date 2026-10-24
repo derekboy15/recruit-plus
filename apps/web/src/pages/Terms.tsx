@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { DISCLAIMER } from '../layout/Footer';
+import { PageHeader } from '../ui/PageHeader';
 
 export const TERMS_UPDATED = '23 October 2026';
 
 export function Terms() {
   return (
     <article>
-      <h1>Terms of use</h1>
+      <PageHeader title="Terms of use" back={{ to: '/', label: 'Home' }} />
       <p className="muted">Last updated {TERMS_UPDATED}.</p>
 
       <h2>What Recruit+ is</h2>

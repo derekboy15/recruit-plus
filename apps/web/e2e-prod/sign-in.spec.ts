@@ -7,6 +7,10 @@ test('password sign-in: a wrong password is explained, the right one opens the a
   await page.goto('/sign-in');
   await expect(page.getByRole('heading', { name: 'Sign in' })).toBeVisible();
   await expect(page.getByText(/sign-in link/i)).toHaveCount(0);
+  // Google comes first: on a phone most people tap it.
+  const googleBox = (await page.getByRole('button', { name: 'Continue with Google' }).boundingBox())!;
+  const emailBox = (await page.getByLabel('Email').boundingBox())!;
+  expect(googleBox.y).toBeLessThan(emailBox.y);
   await page.getByLabel('Email').fill(E2E_USER.email);
   await page.getByLabel('Password', { exact: true }).fill('not-the-password');
   await page.getByRole('button', { name: 'Sign in' }).click();
@@ -18,7 +22,8 @@ test('password sign-in: a wrong password is explained, the right one opens the a
   expect(remote.requests.filter((r) => r.startsWith('POST /auth/v1/token?grant_type=password'))).toHaveLength(2);
 
   await page.goto('/');
-  await expect(page.getByRole('link', { name: 'Continue learning' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Welcome back', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Continue learning' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Sign in to start' })).toHaveCount(0);
 });
 

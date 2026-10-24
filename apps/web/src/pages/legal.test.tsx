@@ -73,3 +73,12 @@ test.each([
   expect(screen.getByRole('heading', { name: title, level: 1 })).toBeInTheDocument();
   expect(screen.queryByText('Sign in first')).toBeNull();
 });
+
+test.each(['/legal', '/privacy', '/terms'])('%s has a Back link to Home', (path) => {
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <AppRoutes guard={() => <p>Sign in first</p>} />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole('link', { name: 'Back to Home' })).toHaveAttribute('href', '/');
+});
