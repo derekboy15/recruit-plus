@@ -62,3 +62,7 @@
 .play-nav__text { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .play-nav__label { font-size: 0.6875rem; font-weight: 400; color: var(--text-muted); }
 .play-nav__name { font-size: 0.875rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* The Play page header's subtitle: a small filled play mark, then "Play mode · read only · 885 pts". */
+.play-mode-sub { display: inline-flex; align-items: center; gap: 6px; }
+.play-mode-sub svg { flex: none; color: var(--brass-strong); fill: currentColor; }

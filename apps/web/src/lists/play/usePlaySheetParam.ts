@@ -1,0 +1,37 @@
+import { useCallback, useMemo } from 'react';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import type { PlaySheet } from './PlayArmyView';
+
+const opened = (state: unknown) => (state as { playSheet?: boolean } | null)?.playSheet === true;
+
+const toParams = (s: PlaySheet): Record<string, string> => (s.kind === 'unit' ? { unit: s.selId } : { sheet: s.kind });
+
+/**
+ * The open Play mode sheet, kept in the URL (`?sheet=rules`, `?sheet=stratagems`, `?unit=<selId>`) so a phone's Back
+ * button closes it. Opening a sheet adds one history entry; moving to another (Next, Previous) replaces it; closing goes
+ * back past it. A sheet the page was opened with (a shared link) closes by clearing the URL instead.
+ */
+export function usePlaySheetParam(): [PlaySheet | null, (next: PlaySheet | null) => void] {
+  const [params, setParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const unit = params.get('unit');
+  const sheet = params.get('sheet');
+  const open = useMemo<PlaySheet | null>(
+    () => (unit ? { kind: 'unit', selId: unit } : sheet === 'rules' || sheet === 'stratagems' ? { kind: sheet } : null),
+    [unit, sheet],
+  );
+  const inApp = opened(location.state);
+  const set = useCallback(
+    (next: PlaySheet | null) => {
+      if (next === null) {
+        if (!open) return;
+        if (inApp) navigate(-1);
+        else setParams({}, { replace: true });
+      } else if (open) setParams(toParams(next), { replace: true, state: location.state });
+      else setParams(toParams(next), { state: { playSheet: true } });
+    },
+    [open, inApp, navigate, setParams, location.state],
+  );
+  return [open, set];
+}
