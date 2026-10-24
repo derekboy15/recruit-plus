@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { cpSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildContent } from '../src/content/build';
@@ -197,4 +197,15 @@ test('a guide may cite the catalogue data itself as a source', () => {
 test('an article needs every frontmatter field', () => {
   const dir = withFile('rules/01-basics.md', fixtureFile('rules/01-basics.md').replace('summary: Datasheets, dice and measuring.\n', ''));
   expect(() => buildContent(dir, cats)).toThrow(/01-basics\.md: missing "summary"/);
+});
+
+test('a code span is plain text, without its backticks', () => {
+  const md = compileMarkdown('Set up more than `9"` away, within `3"` horizontally, on a **`3+`**.', 'x.md');
+  expect(md.intro).toEqual([{ t: 'p', c: [{ t: 'text', v: 'Set up more than 9" away, within 3" horizontally, on a ' }, { t: 'b', c: [{ t: 'text', v: '3+' }] }, { t: 'text', v: '.' }] }]);
+});
+
+test('the built rules, glossary, lessons and guides have no backticks (npm run data:build)', () => {
+  const gen = join(__dirname, '..', 'generated');
+  const files = ['rules.json', 'lessons.json', ...readdirSync(join(gen, 'guides')).map((f) => join('guides', f))];
+  for (const f of files) expect(readFileSync(join(gen, f), 'utf8'), f).not.toContain('`');
 });

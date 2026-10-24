@@ -1,8 +1,8 @@
 /**
  * The Markdown subset our content is written in, compiled to JSON blocks the app renders without HTML:
  * `##` sections, `###` sub-headings, paragraphs, `- ` / `1. ` lists (one nested level, two-space indent),
- * **bold**, *italic*, [links](/rules/…), pipe tables, and `> **Tip:**` / `> **Not confirmed:**` notes.
- * Anything else throws with the file and line.
+ * **bold**, *italic*, `code` (kept as plain text), [links](/rules/…), pipe tables, and `> **Tip:**` /
+ * `> **Not confirmed:**` notes. Anything else throws with the file and line.
  */
 import type { Block, Inline } from '../model/types';
 import { slugify } from '../text';
@@ -76,6 +76,14 @@ export function compileMarkdown(body: string, file: string, firstLine = 1): Comp
         if (end > k + 1) {
           flush();
           out.push({ t: 'i', c: inline(s.slice(k + 1, end), i) });
+          k = end + 1;
+          continue;
+        }
+      } else if (s[k] === '`') {
+        // A code span (`3+`, `9"`) is plain text: its content as written, without the backticks.
+        const end = s.indexOf('`', k + 1);
+        if (end > k + 1) {
+          buf += s.slice(k + 1, end);
           k = end + 1;
           continue;
         }
