@@ -1,8 +1,9 @@
 import { lazy, Suspense, type ReactNode } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from './layout/ErrorBoundary';
 import { Home } from './pages/Home';
 import { Legal } from './pages/Legal';
+import { NotFound } from './pages/NotFound';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 import { DatasheetPage } from './factions/DatasheetPage';
@@ -77,7 +78,7 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
       <Route path="/factions/:slug/stratagems" element={guard(lazyPage(<StratagemsPage />))} />
       <Route path="/factions/:slug/units/:unitSlug" element={guard(<DatasheetPage />)} />
       {extra}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

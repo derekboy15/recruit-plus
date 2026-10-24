@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from 'react';
-import { BrowserRouter, Route, useMatch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { AuthProvider, useAuth } from './auth/AuthContext';
 import { createAuthSetup } from './auth/backend';
 import { RequireAuth } from './auth/RequireAuth';
+import { AccountMenu } from './layout/AccountMenu';
 import { AppShell } from './layout/AppShell';
 import { createLocalPublicSource, createSupabasePublicSource, PublicSourceContext, type PublicSourceValue } from './lists/publicSource';
 import { ResetPassword } from './pages/ResetPassword';
@@ -22,23 +23,6 @@ export const db = openDb();
 const publicSource: PublicSourceValue = setup.supabase
   ? { source: createSupabasePublicSource(setup.supabase), linksWorkAnywhere: true }
   : { source: createLocalPublicSource(db), linksWorkAnywhere: false };
-
-function AccountMenu() {
-  const { user, signOut } = useAuth();
-  // A shared list is a read-only page for anyone: it has no account menu.
-  const onSharePage = useMatch('/share/:id') !== null;
-  if (!user || onSharePage) return null;
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-      <span className="muted" style={{ maxWidth: '40vw', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-        {user.email}
-      </span>
-      <button className="btn" style={{ padding: '0 0.8rem' }} onClick={() => void signOut()}>
-        Sign out
-      </button>
-    </div>
-  );
-}
 
 function SyncWhileSignedIn() {
   const { user, needsReauth, markSessionExpired } = useAuth();

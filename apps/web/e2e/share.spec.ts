@@ -66,7 +66,7 @@ test('export a list as text, share it, and open the link read-only without signi
   await expect(page.getByText('110 / 2,000 pts')).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Troops' })).toBeVisible();
   await expect(page.getByText(/Necron Warriors/)).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Sign out' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Account' })).toHaveCount(0);
   await expect(page.getByRole('textbox')).toHaveCount(0);
   for (const name of ['Copy list']) {
     const box = (await page.getByRole('button', { name }).boundingBox())!;
