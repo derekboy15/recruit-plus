@@ -14,7 +14,7 @@ const token = (name: string): string => {
   return m[1];
 };
 const rule = (selector: string, prop: string): string => {
-  const block = new RegExp(`${selector.replace(/[.]/g, '\\.')}\\s*\\{([^}]*)\\}`).exec(css)?.[1] ?? '';
+  const block = new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`).exec(css)?.[1] ?? '';
   const m = new RegExp(`(?:^|[;\\s])${prop}:[^;]*?(#[0-9a-fA-F]{6}|var\\(--[a-z-]+\\))`).exec(block);
   if (!m) throw new Error(`${selector} has no ${prop}`);
   return m[1].startsWith('var(') ? token(m[1].slice(6, -1)) : m[1];
@@ -36,6 +36,7 @@ describe('contrast', () => {
   for (const fg of ['text', 'text-soft', 'text-muted', 'brass-strong', 'danger-text', 'ok', 'warn'])
     for (const bg of ['bg', 'surface', 'surface-2']) text.push([`--${fg} on --${bg}`, () => token(fg), () => token(bg)]);
   text.push(['#ffffff on --red', () => '#ffffff', () => token('red')]);
+  text.push(["selected .chip text on --brass-strong", () => rule(".chip[aria-pressed='true']", 'color'), () => token('brass-strong')]);
   text.push(
     ['--bad on --bad-bg', () => token('bad'), () => token('bad-bg')],
     ['--ok on --ok-bg', () => token('ok'), () => token('ok-bg')],

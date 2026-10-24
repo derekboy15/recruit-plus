@@ -22,6 +22,15 @@ test('the stat grid shows each characteristic in its own box', () => {
   expect(within(box(grid, 'Sv')).getByText('4+')).toBeInTheDocument();
 });
 
+test('the characteristics group wraps a plain <dl>, so every dt and dd sits in a list (axe dlitem)', () => {
+  show(<DatasheetView unit={warriors} />);
+  const group = screen.getByRole('group', { name: 'Necron Warrior characteristics' });
+  const dl = group.tagName === 'DL' ? group : group.querySelector('dl')!;
+  expect(dl).not.toBeNull();
+  expect(dl).not.toHaveAttribute('role');
+  for (const item of dl.querySelectorAll('dt, dd')) expect(item.closest('dl')).toBe(dl);
+});
+
 test('it has no wide stats table', () => {
   const { container } = show(<DatasheetView unit={warriors} />);
   expect(container.querySelector('table.stats')).toBeNull();

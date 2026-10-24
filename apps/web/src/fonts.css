@@ -1,6 +1,6 @@
 /*
  * Inter, self-hosted. @fontsource-variable/inter names its face "Inter Variable" and ships every script subset; this
- * declares only the latin variable file, under the plain "Inter" name --font-body uses, so the precache stays small.
+ * declares only the latin variable file, under the plain "Inter" name --font-body uses, so only one small file loads.
  */
 @font-face {
   font-family: Inter;

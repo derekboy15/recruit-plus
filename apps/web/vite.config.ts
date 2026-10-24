@@ -37,7 +37,7 @@ export default defineConfig({
       },
       injectManifest: {
         // The app's code and the shell data every visitor needs offline; faction data is cached as it is used (sw.ts).
-        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest,woff2}', 'data/{index,rules,lessons,missions,core-stratagems}.json'],
+        globPatterns: ['**/*.{js,css,html,svg,png,webmanifest}', 'data/{index,rules,lessons,missions,core-stratagems}.json'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
       },
     }),

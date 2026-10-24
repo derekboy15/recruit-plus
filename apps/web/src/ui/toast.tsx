@@ -55,7 +55,9 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={value}>
       {children}
-      <div role="status" aria-live="polite" className="toast-region">
+      {/* Always in the page so screen readers hear new toasts; a status only while one shows, so an empty region is
+          never a second "status" beside the page's own messages. */}
+      <div role={toast ? 'status' : undefined} aria-live="polite" aria-atomic="true" className="toast-region">
         {toast && (
           <div
             key={toast.id}

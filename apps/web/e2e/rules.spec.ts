@@ -62,19 +62,20 @@ test('Rules Reference, plain-English stratagems and datasheets, guides and repor
   await keyUnits.getByRole('link').first().click();
   await expect(page).toHaveURL(/\/factions\/necrons\/units\//);
 
-  // 4. A datasheet in plain English, and a report on one of its abilities.
+  // 4. A datasheet in plain English, and a report from its one report button.
   await page.goto('/factions/necrons/units/necron-warriors');
-  const card = page.locator('.card', { has: page.getByRole('heading', { name: 'Reanimation Protocols' }) });
-  await expect(card.getByText(reanimation.plain!, { exact: true })).toBeVisible();
+  const ability = page.locator('.ability', { has: page.getByRole('heading', { name: 'Reanimation Protocols' }) });
+  await expect(ability.getByText(reanimation.plain!, { exact: true })).toBeVisible();
   await shot(page, 'datasheet', project);
   await noSidewaysScroll(page);
   await touchTargets(page);
-  await card.getByRole('button', { name: 'Report a rules error' }).click();
+  await expect(page.getByRole('button', { name: 'Report a rules error' })).toHaveCount(1);
+  await page.getByRole('button', { name: 'Report a rules error' }).click();
   await page.getByRole('radio', { name: "It's unclear" }).check();
   await page.getByRole('button', { name: 'Send report' }).click();
-  await expect(card.getByText("Thanks. We've saved your report.")).toBeVisible();
+  await expect(page.getByText("Thanks. We've saved your report.")).toBeVisible();
   await page.goto('/rules/reports');
-  await expect(page.getByText('Reanimation Protocols')).toBeVisible();
+  await expect(page.getByText('Necron Warriors')).toBeVisible();
 
   // 5. Faction stratagems: grouped, and filtered by phase.
   await page.goto('/factions/necrons/stratagems');

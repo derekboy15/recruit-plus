@@ -71,11 +71,15 @@ test('Dismiss closes it without the action', () => {
   expect(onAction).not.toHaveBeenCalled();
 });
 
-test('the region is a polite live region that is always there', () => {
+test('the region is a polite live region that is always there, and a status only while a toast shows', () => {
   setup();
-  const region = screen.getByRole('status');
+  const region = document.querySelector('.toast-region')!;
   expect(region).toHaveAttribute('aria-live', 'polite');
-  expect(region).toHaveClass('toast-region');
+  // Empty, it is not a second "status" beside the page's own status messages.
+  expect(screen.queryByRole('status')).toBeNull();
+  act(() => show({ message: 'Deleted “A”' }));
+  expect(screen.getByRole('status')).toBe(region);
+  expect(region).toHaveTextContent('Deleted “A”');
 });
 
 test('it stays while focus is inside it, then gets a fresh 6 seconds', () => {

@@ -123,9 +123,9 @@ test('build a legal Necrons list from scratch, export it and open its share link
   await expect(link).toHaveValue(/\/share\/[0-9a-f-]{36}$/);
   const shareUrl = await link.inputValue();
   await shareSheet.getByRole('button', { name: 'Done' }).click();
-  await page.getByRole('button', { name: 'Account' }).click();
+  await page.getByRole('button', { name: 'Account', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Sign out' }).click();
-  await expect(page.getByRole('button', { name: 'Account' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Account', exact: true })).toHaveCount(0);
 
   await page.goto(shareUrl);
   await expect(page).toHaveURL(shareUrl);

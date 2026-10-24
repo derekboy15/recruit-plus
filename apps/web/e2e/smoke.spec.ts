@@ -28,7 +28,7 @@ test('sign in (dev), browse to Necron Warriors, see the datasheet', async ({ pag
     expect(box.width).toBeLessThan(120);
   }
 
-  for (const target of [...(await nav.getByRole('link').all()), page.getByRole('button', { name: 'Account' })]) {
+  for (const target of [...(await nav.getByRole('link').all()), page.getByRole('button', { name: 'Account', exact: true })]) {
     const b = (await target.boundingBox())!;
     expect(b.height, 'touch target height').toBeGreaterThanOrEqual(44);
   }

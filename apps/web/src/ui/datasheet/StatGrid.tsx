@@ -16,13 +16,16 @@ export const STAT_KEYS: [label: string, key: string][] = [
 /** A model's characteristics as a grid that fits a phone: M WS BS S T, then W A Ld Sv. */
 export function StatGrid({ profile }: { profile: ProfileOut }) {
   return (
-    <dl className="stat-grid" role="group" aria-label={`${profile.name} characteristics`}>
-      {STAT_KEYS.map(([name, key]) => (
-        <div key={name} className="stat-grid__box">
-          <dt>{name}</dt>
-          <dd>{profile.chars[key]?.trim() || '-'}</dd>
-        </div>
-      ))}
-    </dl>
+    // The group wraps the list: a role on the <dl> itself would leave its dt and dd outside any list (axe dlitem).
+    <div role="group" aria-label={`${profile.name} characteristics`}>
+      <dl className="stat-grid">
+        {STAT_KEYS.map(([name, key]) => (
+          <div key={name} className="stat-grid__box">
+            <dt>{name}</dt>
+            <dd>{profile.chars[key]?.trim() || '-'}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
   );
 }

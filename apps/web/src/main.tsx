@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { registerSW } from 'virtual:pwa-register';
 import { App } from './App';
 import { registerAfterLoad } from './pwa';
-// Self-hosted faces (precached by the service worker, so they work offline); the theme comes after them.
+// Self-hosted faces (hashed assets, cached for a year, so they keep working offline); the theme comes after them.
 import '@fontsource/barlow-condensed/latin-500.css';
 import '@fontsource/barlow-condensed/latin-600.css';
 import '@fontsource/barlow-condensed/latin-700.css';
