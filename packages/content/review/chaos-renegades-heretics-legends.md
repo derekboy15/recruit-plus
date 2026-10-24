@@ -23,5 +23,9 @@ Sample: 20 texts (seed chaos-renegades-heretics-legends) + 0 army rules + guide
 | ba8fc5b8d06d | Strafing Assault | ability | PASS | |
 | 25bbf97672b3 | Banner of Hate (Aura) | ability | PASS | |
 | 17ab49667f81 | Captain on Deck | ability | PASS | |
+| 9e5d643810a2 | Smite | psychic | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 84c90f328eea | Blind Grenades | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 75a3c31d11b4 | Steel Behemoth | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 2328cd4aa435 | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

@@ -33,5 +33,7 @@ Sample: 20 texts (seed tau-empire) + 4 army rules + guide
 | 56b9121a6aaa | Artificial Helpers | rule | PASS | |
 | 296b843f6d89 | Limited Parameters | rule | PASS | |
 | 8040d0256f30 | Docked Drones | rule | PASS | |
+| cc84fea2de4a | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 98aa2a699d21 | Avalanche of Rage | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

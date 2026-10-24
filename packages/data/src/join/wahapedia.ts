@@ -179,6 +179,7 @@ export function joinWahapedia(
       // BSData sometimes sets the role only through conditional modifiers; Wahapedia always has it.
       role: u.role ?? WAHAPEDIA_ROLES[ds.role] ?? null,
       wahapediaId: ds.id,
+      // Wahapedia's cost: the build replaces it with the builder's price wherever the roster engine can price the unit (join/points.ts).
       points: ds.cost_per_unit === 'true' && ds.Cost !== '' ? Number(ds.Cost) : minimumPoints(models, u.minModels),
       baseSize: models.find((m) => m.base_size)?.base_size ?? null,
     };

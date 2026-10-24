@@ -23,5 +23,6 @@ Sample: 20 texts (seed imperium-adeptus-astartes-ultramarines) + 0 army rules + 
 | 02605c2a94d7 | Psyker | psychic | PASS | |
 | d370289ccf2f | Watcher's in the Dark | ability | PASS | |
 | c63a93f6d8f4 | Barbarisater | weapon | PASS | |
+| 12a3641850cb | Tactical Precision | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

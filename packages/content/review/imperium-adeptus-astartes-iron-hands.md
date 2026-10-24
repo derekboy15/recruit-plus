@@ -23,5 +23,7 @@ Sample: 20 texts (seed imperium-adeptus-astartes-iron-hands) + 0 army rules + gu
 | 69f973ece936 | Dispersal Protocols | stratagem | PASS | |
 | 0f766b02b97a | Inconceivable Customisation | ability | PASS | |
 | bc38bf1d5af5 | Machine Empathy | stratagem | PASS | |
+| fb38ba6b48d0 | Hellforged plasma blaster - Supercharge | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 3949707a015b | Uncompromising Fire | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

@@ -23,6 +23,7 @@ Sample: 20 texts (seed imperium-adeptus-astartes-salamanders) + 0 army rules + g
 | db9599a64d6a | Inquisitor | psychic | PASS | |
 | db04978fd414 | Explodes (2D6"/D6) | ability | PASS | |
 | cfb5e5d06548 | Agents of the Imperium | ability | PASS | |
+| 4cbab179fcb6 | Contemptor plasma blaster, Supercharge | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: FIXED
 - Key units, Adrax Agatone: FIXED. Aura now limited to nearby SALAMANDERS CORE units, +1 to wound with melee attacks in a turn they charged or made a Heroic Intervention.

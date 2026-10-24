@@ -375,11 +375,6 @@
     "kind": "ability",
     "plain": "Units inside this transport can disembark even if the transport made a Normal Move this phase, but a unit that disembarks after it made a Normal Move can't charge this turn."
   },
-  "2fbbbd8cfee7": {
-    "name": "Relic shield",
-    "kind": "ability",
-    "plain": "Add 1 to the bearer's armour saves. Also, each time the bearer would lose a wound because of a mortal wound, roll one D6: on a 4+, the wound is not lost."
-  },
   "2fd7a8fb28a4": {
     "name": "2. Psalm of the Remorseless Persecution",
     "kind": "ability",
@@ -594,6 +589,11 @@
     "name": "Liberators",
     "kind": "stratagem",
     "plain": "Use when the Fight phase starts. Pick one of your INDOMITUS CRUSADER units. Until your next turn starts, whenever a model in this unit rolls an unmodified 6 to hit, that attack scores 2 hits on the target rather than 1."
+  },
+  "4cbab179fcb6": {
+    "name": "Contemptor plasma blaster, Supercharge",
+    "kind": "weapon",
+    "plain": "For every unmodified hit roll of 1 made for this profile's attacks, the bearer suffers 1 mortal wound once it has finished shooting."
   },
   "4d375afd8b93": {
     "name": "Defensive Array",
@@ -1408,6 +1408,11 @@
     "kind": "ability",
     "plain": "Aura: if a model in a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit would lose a wound while its unit is within 3\" of this model, roll one D6. On a 6, it doesn't lose that wound."
   },
+  "b7c54db50848": {
+    "name": "Relic Shield",
+    "kind": "ability",
+    "plain": "Add 1 to the bearer's armour saves. Whenever the bearer suffers a mortal wound, roll one D6: on a 4+ that mortal wound has no effect."
+  },
   "b857bed40adc": {
     "name": "Bodyguard",
     "kind": "ability",
@@ -1526,6 +1531,11 @@
     "name": "Gene-wrought Might",
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your PRIMARIS units is chosen to fight. For the rest of the phase, each unmodified hit roll of 6 for a melee attack by a model in that unit automatically wounds the target."
+  },
+  "c895bbe12852": {
+    "name": "Dreadnought chainfist",
+    "kind": "weapon",
+    "plain": "An attack from this weapon that is allocated to a Vehicle model has a Damage of 6."
   },
   "c8a14db57b74": {
     "name": "Omni-scrambler",

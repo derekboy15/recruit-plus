@@ -30,6 +30,8 @@ export interface ProfileOut {
   chars: Record<string, string>;
   /** Plain-English versions of the TEXT_CHARS values, by characteristic name (only those that passed the checks). */
   plain?: Record<string, string>;
+  /** From a list-building extra (a relic, Warlord trait, stratagem, chapter or Army of Renown option), not the unit's own wargear. */
+  extra?: true;
 }
 
 /** Profile characteristics that hold rules text (weapon abilities, psychic power details, psyker notes). */
@@ -43,6 +45,8 @@ export interface AbilityOut {
   amended?: string;
   /** Our plain-English version (only when it passed the checks). */
   plain?: string;
+  /** From a list-building extra (a relic, Warlord trait, stratagem, chapter or Army of Renown option), not the unit's own. */
+  extra?: true;
 }
 
 export interface UnitOut {
@@ -68,6 +72,7 @@ export interface UnitOut {
   minModels: number | null;
   maxModels: number | null;
   powerLevel: number | null;
+  /** What the builder charges for the unit as added (the roster engine's price), else Wahapedia's cost; null if neither has one. */
   points: number | null;
   baseSize: string | null;
   wahapediaId: string | null;
@@ -110,6 +115,35 @@ export interface CatalogueOut {
   rules: { id: string; name: string; text: string; amended?: string; plain?: string }[];
   /** Matched-play stratagems; [] for library catalogues. */
   stratagems: StratagemOut[];
+}
+
+/** A BattleScribe profile on an army-building option: `type` is its profile type ("Weapon", "Abilities", "Warlord Trait"…). */
+export interface InfoProfile {
+  name: string;
+  type: string;
+  /** Characteristics with text, in file order. */
+  chars: Record<string, string>;
+  /** Plain-English versions of its text characteristics (only those that passed the checks). */
+  plain?: Record<string, string>;
+}
+export interface InfoRule {
+  name: string;
+  text: string;
+  plain?: string;
+}
+/** What an option carries: its own profiles and rules, and those its infoLinks and infoGroups reach. */
+export interface EntryInfo {
+  profiles?: InfoProfile[];
+  rules?: InfoRule[];
+}
+/**
+ * generated/info/<slug>.json, one per roster file: the info of every `upgrade` entry, selection entry group and entry
+ * link in the file that carries any (never units or models: datasheets cover those), keyed by BSData entry id.
+ */
+export interface InfoFile {
+  schema: 1;
+  slug: string;
+  entries: Record<string, EntryInfo>;
 }
 
 export interface CatalogueSummary {

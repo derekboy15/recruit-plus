@@ -23,5 +23,7 @@ Sample: 20 texts (seed imperium-adeptus-astartes-raven-guard) + 0 army rules + g
 | 92bb9a54348b | Brutalis Talon - Sweep | weapon | PASS | |
 | 12506b8b627b | Shadowmaster | ability | PASS | |
 | a008e3cbb966 | Omni-scramblers | ability | PASS | |
+| 19d34a74b3f9 | A Deadly Prize | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 3d3dafb4c356 | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

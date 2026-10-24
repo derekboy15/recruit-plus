@@ -27,5 +27,9 @@ Sample: 20 texts (seed tyranids-genestealer-cults) + 1 army rules + guide
 | bb16bec9ba0f | Conceal | rule | PASS | |
 | 2d0f6ba021b3 | Unquestioning Loyalty | rule | PASS | |
 | adc56266b463 | Crossfire | rule | PASS | Data oddity: official first sentence is missing "If". |
+| b2417928a45d | Swirling Soul Energy | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| c521a09926b5 | Living Idol (Aura) | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 0d46dad6a825 | A Trap Sprung | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| ca91d7ce75a5 | A Perfect Ambush | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

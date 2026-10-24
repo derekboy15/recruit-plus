@@ -36,6 +36,8 @@ Sample: 20 texts (seed imperium-adeptus-astartes-dark-angels) + 11 army rules + 
 | f4b3a2f61f70 | 2nd Company | rule | PASS | |
 | 636fcb14f06f | Inner Circle | rule | PASS | |
 | 5ae571134259 | Jink | rule | PASS | |
+| eec25b78dd67 | Shock and Awe | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 98c60bc2c6bf | Reign of Confusion | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: FIXED
 - Army rules, Implacable bullet: FIXED. Now names DEATHWING INFANTRY and DEATHWING DREADNOUGHT models (was: DREADNOUGHTS).

@@ -1,7 +1,8 @@
 /**
  * Node-side: turns one parsed BattleScribe file (.cat or .gst) into compact roster JSON.
  * Keeps what the roster engine evaluates (links, costs, categories, constraints, modifiers,
- * conditions, repeats) and drops display data (profiles, rules, infoLinks, publications, comments).
+ * conditions, repeats) and drops display data (profiles, rules, infoLinks, publications, comments), keeping only
+ * whether an entry carries a weapon (`gear`, `perModel`) so the export can count wargear.
  */
 import type { RawCatalogue, RawNode } from '../bsdata/types';
 import type {
@@ -105,10 +106,75 @@ export interface EmitOverrides {
    * overrides' entryName guard on category links whose category the file doesn't define.
    */
   scopeCategories: Map<string, string>;
+  /**
+   * Ids, across every file, of the Weapon and Wargear profiles, the infoGroups holding one and the selection entries
+   * carrying one (gearIds): an entry's weapon profile is often in a library or the .gst. Without it, this file's own.
+   */
+  gearIds: Set<string>;
 }
 
-/** List-building extras the builder doesn't offer. */
-const DROPPED_NAME = /^(battle honours|battle scars|crusade)\b/i;
+const GEAR_PROFILE_TYPES = new Set(['Weapon', 'Wargear']);
+
+/**
+ * The ids of every Weapon or Wargear profile in `files`, of every infoGroup holding one (nested groups and infoLinks
+ * included) and of every selection entry carrying one (its own profiles, infoLinks or infoGroups; not its children).
+ */
+export function gearIds(files: RawCatalogue[]): Set<string> {
+  const index = new Map<string, RawNode>();
+  const visit = (n: RawNode) => {
+    if (n.attrs.id && !index.has(n.attrs.id)) index.set(n.attrs.id, n);
+    n.children.forEach(visit);
+  };
+  files.forEach((f) => visit(f.root));
+  const memo = new Map<RawNode, boolean>();
+  const carries = (n: RawNode): boolean => {
+    const known = memo.get(n);
+    if (known !== undefined) return known;
+    memo.set(n, false); // a cycle of infoLinks carries nothing more
+    const v =
+      n.tag === 'profile'
+        ? GEAR_PROFILE_TYPES.has(n.attrs.typeName ?? '')
+        : kids(n, 'profiles').some(carries) ||
+          kids(n, 'infoGroups').some(carries) ||
+          kids(n, 'infoLinks').some((l) => {
+            const t = index.get(l.attrs.targetId);
+            return !!t && carries(t);
+          });
+    memo.set(n, v);
+    return v;
+  };
+  const out = new Set<string>();
+  for (const [id, n] of index) if ((n.tag === 'profile' || n.tag === 'infoGroup' || n.tag === 'selectionEntry') && carries(n)) out.add(id);
+  return out;
+}
+
+/**
+ * A unit-wide wargear choice: a group of exactly one choice (min = max = 1) whose options all carry a weapon, their own
+ * or a child's, unless its name says the choice is for some of the models ("Weapons (Neophytes)"; "(per entire unit)"
+ * is fine). Survey (2026-10-24): "Unit Weapon Choice" (Immortals, Lychguard), "Unit Weapon Options" (Hellblasters,
+ * Aggressors), "Ranged Weapons (per entire unit)" (Wraithguard), "Weapons" (Termagants); the weapon test leaves out
+ * Mark of Chaos and Extra Regimental Doctrine. The export counts such a choice once per model of a unit (exportText.ts).
+ */
+function isUnitWideChoice(group: RNode): boolean {
+  const pinned = (type: 'min' | 'max') => group.constraints?.some((c) => c.type === type && c.field === 'selections' && c.scope === 'parent' && c.value === 1);
+  if (!pinned('min') || !pinned('max') || !group.children?.length) return false;
+  if (/\(/.test(group.name) && !/\(per (entire )?unit\)/i.test(group.name)) return false;
+  // A group that picks a model ("Boss", "Plasma or Vox") is not a unit-wide choice, however its model is armed.
+  const isModel = (n: RNode) => n.kind === 'entry' && n.type === 'model';
+  const carries = (n: RNode): boolean => !isModel(n) && (!!n.gear || (n.children ?? []).some(carries));
+  return group.children.every(carries);
+}
+
+/**
+ * Groups of Warlord traits and of relics, by name ("Warlord Traits (Codex)", "Codex Traits", "Chapter Relics", "Artefacts
+ * of the Aeons", "Heirlooms of Conquest", "Treasures of the Aeldari"…; the survey is above EXTRA_GROUP in
+ * extract/units.ts): their options are marked extraKind, so a relic named without a "Relic:" prefix is still one.
+ */
+const TRAIT_GROUP = /\btraits?\b/i;
+const RELIC_GROUP = /\b(relics?|artefacts?|heirlooms?|treasures?|trophies)\b/i;
+
+/** List-building extras the builder doesn't offer (their info isn't emitted either: src/info/extract.ts). */
+export const DROPPED_NAME = /^(battle honours|battle scars|crusade)\b/i;
 const DROPPED_FIELDS = new Set(['page', 'description']);
 
 const kids = (n: RawNode, tag: string) => n.children.find((c) => c.tag === tag)?.children ?? [];
@@ -176,7 +242,7 @@ function costs(n: RawNode, keepZero: boolean): CostMap | undefined {
 }
 
 /** Per-file emitter; `charIds` are the characteristic type ids declared in the file. */
-function emitter(charIds: Set<string>) {
+function emitter(charIds: Set<string>, gear: Set<string>) {
   /**
    * Kept: hidden, name, category, cost type ids and constraint ids. Dropped: page, description, characteristic ids.
    * Constraint ids may live in another file, so anything not known to be dropped is kept; the vocabulary test
@@ -230,7 +296,13 @@ function emitter(charIds: Set<string>) {
       head = { kind: 'link', targetId: a.targetId, targetKind: a.type === 'selectionEntryGroup' ? 'group' : 'entry' };
     else return null;
     const nodeCosts = costs(n, head.kind === 'link'); // a link's costs override its target's, zeros included
-    return {
+    const carriesGear =
+      head.kind !== 'group' &&
+      (gear.has(a.id) ||
+        (head.kind === 'link' && gear.has(a.targetId)) ||
+        kids(n, 'profiles').some((p) => GEAR_PROFILE_TYPES.has(p.attrs.typeName ?? '')) ||
+        kids(n, 'infoLinks').some((l) => gear.has(l.attrs.targetId)));
+    const out: RNode = {
       id: a.id,
       name: a.name,
       ...head,
@@ -240,7 +312,14 @@ function emitter(charIds: Set<string>) {
       ...nonEmpty('cats', kids(n, 'categoryLinks').map(catLink)),
       ...holder(n),
       ...nonEmpty('children', nodes(contained(n, ['selectionEntries', 'selectionEntryGroups', 'entryLinks']))),
+      ...(carriesGear && { gear: true as const }),
     };
+    if (out.kind === 'group') {
+      if (isUnitWideChoice(out)) for (const c of out.children!) c.perModel = true;
+      const extraKind = TRAIT_GROUP.test(out.name) ? 'trait' : RELIC_GROUP.test(out.name) ? 'relic' : undefined;
+      if (extraKind) for (const c of out.children ?? []) c.extraKind ??= extraKind;
+    }
+    return out;
   }
 
   const nodes = (ns: RawNode[]) => ns.map(node).filter((x): x is RNode => x !== null);
@@ -375,7 +454,7 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
     n.children.forEach(collectChars);
   };
   kids(cat.root, 'profileTypes').forEach(collectChars);
-  const e = emitter(charIds);
+  const e = emitter(charIds, overrides.gearIds ?? gearIds([cat]));
   const file: RosterFile = {
     schema: 1,
     id: cat.id,

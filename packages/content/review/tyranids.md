@@ -26,5 +26,7 @@ Sample: 20 texts (seed tyranids) + 3 army rules + guide
 | 20aedc77c317 | Synapse | rule | PASS | Plain matches the official text (8"), but this army-rule entry is the old 8th-edition wording; the datasheet Synapse (Aura) is 6". Data issue, not a plain-English error. |
 | 107ce1916ea6 | Instinctive Behaviour | rule | PASS | Old 8th-edition rule kept in the catalogue; plain matches it. |
 | 653ab0c90704 | Shadow in the Warp | rule | PASS | Plain matches the official text (8"), but this army-rule entry is the old 8th-edition wording; the datasheet Shadow in the Warp (Aura) is 18" with +1 Perils mortal wound. Data issue, not a plain-English error. |
+| dc982e06d3bf | Pheromone Trail | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 78a6927a761a | Massive Grasping Tendrils | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

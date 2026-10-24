@@ -23,5 +23,7 @@ Sample: 20 texts (seed imperium-adeptus-astartes-white-scars) + 0 army rules + g
 | 5549b0dde918 | Astartes Banner (Red Scorpions) | ability | PASS | |
 | f6951c6b22c2 | Master of Battle (Aura) | ability | PASS | |
 | 02605c2a94d7 | Psyker | psychic | PASS | |
+| 997903911c52 | Camo cloak | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 73d635a2346b | Tactical Aggression (Aura) | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

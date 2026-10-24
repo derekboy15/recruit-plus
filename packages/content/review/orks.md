@@ -27,6 +27,8 @@ Sample: 20 texts (seed orks) + 4 army rules + guide
 | 7aec93eb5bc5 | Waaagh! | rule | PASS | |
 | 85d054a0bf0a | 'Ere We Go! | rule | PASS | |
 | 3b5ca179de88 | Mob Rule | rule | PASS | |
+| 264c416bf2f5 | Hit ’Em Harder | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| fc0502c122f3 | Shokk Tunnel | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: FIXED
 - Clan Kulturs, Deathskulls: FIXED. Now says they can re-roll one hit roll and one wound roll each time they shoot or fight.

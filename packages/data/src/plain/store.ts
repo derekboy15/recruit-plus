@@ -46,13 +46,22 @@ export interface PlainReport {
 /**
  * Attaches each text's plain English to the output (in place), but only where an entry exists for the text's current
  * key and passes the checks. Reports, per owning shard, what is written, flagged or copied, and the entries whose
- * official text no longer occurs.
+ * official text no longer occurs. A list-building extra's text gets its plain English the same way but isn't reported:
+ * it isn't a text the pages must cover, though its entry isn't an orphan either. Nor is an entry whose text is one of
+ * `optionTexts` (the info files' texts, by key: infoTextKeys), which get their plain English there.
  */
-export function applyPlain(cats: CatalogueOut[], core: StratagemOut[], store: PlainStore): PlainReport {
+export function applyPlain(cats: CatalogueOut[], core: StratagemOut[], store: PlainStore, optionTexts: Set<string> = new Set()): PlainReport {
   const shards: Record<string, ShardReport> = {};
   const verdicts = new Map<string, PlainVerdict | null>();
+  const extraKeys = new Set<string>();
   for (const item of allItems(cats, core)) {
     const key = textKey(item.official);
+    if (item.extra) {
+      extraKeys.add(key);
+      const entry = store.get(key);
+      if (entry && checkPlain(item.official, entry.plain, entry.waive).ok) item.setPlain(entry.plain);
+      continue;
+    }
     if (!verdicts.has(key)) {
       const entry = store.get(key);
       const verdict = entry ? checkPlain(item.official, entry.plain, entry.waive) : null;
@@ -69,7 +78,7 @@ export function applyPlain(cats: CatalogueOut[], core: StratagemOut[], store: Pl
     if (entry && verdicts.get(key)?.ok) item.setPlain(entry.plain);
   }
   const orphans = [...store]
-    .filter(([key]) => !verdicts.has(key))
+    .filter(([key]) => !verdicts.has(key) && !extraKeys.has(key) && !optionTexts.has(key))
     .map(([key, e]) => ({ shard: e.shard, key, name: e.name }));
   return { shards, orphans };
 }

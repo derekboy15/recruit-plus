@@ -3,13 +3,17 @@ import {
   addChild,
   addForce,
   addUnit,
+  availableUnits,
   buildScope,
   chooseInGroup,
   createRoster,
+  displayName,
   evaluate,
   exportText,
+  findSelView,
   FORCE,
   unitExport,
+  unitSummary,
   UNTITLED_LIST,
   setCount,
   splitSelection,
@@ -19,7 +23,9 @@ import {
   type Roster,
   type RosterView,
   type Scope,
+  type SelView,
 } from '../src/roster';
+import { buildFromSpec, type UnitSpec } from './corpus/spec';
 import * as M from './fixtures/roster/mini';
 import { realCatalogueId, realScope } from './helpers/realScope';
 
@@ -105,6 +111,135 @@ describe('exportText (real Necrons)', () => {
     const view = evaluate(scope, r);
     expect(view.forces[0].name).toMatch(/ -?\d+CP$/);
     expect(exportText(view, scope)).toContain('\n== Battalion Detachment (Necrons) ==\n');
+  });
+});
+
+// ---------- unit-wide weapon choices and unitSummary (real data) ----------
+
+describe('unit-wide weapon choices and unitSummary (real data)', () => {
+  /** The unit as added to a new Strike Force list (Arks of Omen Detachment), defaults filled in. */
+  function added(slug: string, unit: string, spec?: Partial<UnitSpec>): SelView {
+    const scope = realScope(slug);
+    const r = buildFromSpec(scope, realCatalogueId(slug), {
+      title: unit,
+      battleSize: 'strike-force',
+      detachments: [{ detachment: 'Arks of Omen Detachment', ...(slug === 'necrons' && { army: { 'Dynasty Choice': 'Dynasty: Novokh' } }), units: [{ name: unit, ...spec }] }],
+      expect: { points: 0, powerLevel: 0 },
+    });
+    return evaluate(scope, r).forces[0].selections.find((v) => v.name === unit)!;
+  }
+
+  test('Immortals (5 models) with their unit weapon choice export 5x Gauss Blaster', () => {
+    const immortals5 = added('necrons', 'Immortals');
+    expect(immortals5.models).toBe(5);
+    expect(unitExport(immortals5).details).toContain('5x Gauss Blaster');
+  });
+
+  test('Lychguard (5) with warscythes export 5x Warscythe', () => {
+    expect(unitExport(added('necrons', 'Lychguard')).details).toContain('5x Warscythe');
+  });
+
+  test('the same choice made by a bigger squad counts every model', () => {
+    const ten = added('necrons', 'Immortals', { models: { Immortal: 10 } });
+    expect(ten.models).toBe(10);
+    expect(unitExport(ten).details).toContain('10x Gauss Blaster');
+  });
+
+  test('a sergeant-only weapon in a squad stays 1x', () => {
+    const squad = added('imperium-adeptus-astartes-ultramarines', 'Intercessor Squad', { options: ['Intercessor Sergeant > Power fist'] });
+    const lines = unitExport(squad).details;
+    expect(lines.some((l) => /^Intercessor Sergeant \(1\): .*Power fist/.test(l))).toBe(true);
+    expect(lines.join('\n')).not.toMatch(/\dx Power fist/);
+  });
+
+  test('a choice for some of the models (Weapons (Neophytes)) is not counted per model', () => {
+    const squad = added('imperium-adeptus-astartes-black-templars', 'Primaris Crusader Squad');
+    expect(unitExport(squad).details).toContain('1x Bolt Pistol and Astartes Chainsword');
+  });
+
+  test('a one-model character keeps 1x', () => {
+    const overlord = added('necrons', 'Overlord', { options: ['Staff of Light'] });
+    expect(unitExport(overlord).details).toContain('1x Staff of Light');
+  });
+
+  test('unitSummary: a Novokh Overlord Warlord with Blood-Fuelled Fury and the Blood Scythe', () => {
+    const overlordWarlord = added('necrons', 'Overlord', {
+      warlord: true,
+      // The Blood Scythe replaces a warscythe, so the Overlord takes one first.
+      options: ['Warscythe', 'Stratagem: Warlord Trait', 'Warlord Trait (Novokh): Blood-Fuelled Fury', 'Stratagem: Relic', 'Relic (Novokh): Blood Scythe'],
+    });
+    const s = unitSummary(overlordWarlord);
+    expect(s).toMatchObject({ warlord: true, traits: ['Blood-Fuelled Fury'], relics: ['Blood Scythe'], other: [] });
+    expect(s.gear.join(' ')).not.toMatch(/Blood Scythe|Warlord Trait|Stratagem/); // relics aren't repeated as gear; requisitions aren't shown
+  });
+
+  test('unitSummary: Immortals gear is per model', () => expect(unitSummary(added('necrons', 'Immortals')).gear).toEqual(['5x Gauss Blaster']));
+
+  test('unitSummary: a one-of group that holds a model (Meganobz "Boss") is not counted per model', () => {
+    const meganobz = added('orks', 'Meganobz');
+    expect(meganobz.models).toBe(3);
+    expect(unitSummary(meganobz).gear.sort()).toEqual(['3x Kustom Shoota', '3x Power Klaw', '3x Stikkbombs']);
+  });
+
+  /** Weapon counts the export prints: unit-level "Nx Name" lines plus each model stack's "Stack (n): a, 2x b" upgrades. */
+  function exportCounts(v: SelView): Map<string, number> {
+    const out = new Map<string, number>();
+    const add = (name: string, n: number) => out.set(name, (out.get(name) ?? 0) + n);
+    for (const line of unitExport(v).details) {
+      const stack = /^(.*) \((\d+)\)(?:: (.*))?$/.exec(line);
+      if (stack) {
+        for (const item of (stack[3] ?? '').split(', ').filter(Boolean)) {
+          const m = /^(\d+)x (.*)$/.exec(item);
+          add(m ? m[2] : item, Number(stack[2]) * (m ? Number(m[1]) : 1));
+        }
+        continue;
+      }
+      const m = /^(\d+)x (.*)$/.exec(line);
+      if (m) add(m[2], Number(m[1]));
+    }
+    return out;
+  }
+
+  test.each(['necrons', 'orks', 'imperium-imperial-navy', 'imperium-death-korps-of-krieg', 'imperium-adeptus-astartes-ultramarines'])(
+    "unitSummary counts each weapon as the export does, for every unit %s's picker offers",
+    { timeout: 60_000 },
+    (slug) => {
+      const scope = realScope(slug);
+      const r = createRoster(scope, { name: 'All', catalogueId: realCatalogueId(slug), battleSize: 'strike-force', forceId: FORCE.arksOfOmen });
+      const wrong: string[] = [];
+      for (const o of availableUnits(scope, r, r.forces[0].id)) {
+        const a = addUnit(scope, r, r.forces[0].id, o.entryId);
+        const v = findSelView(evaluate(scope, a.roster), a.selId);
+        if (!v) continue;
+        const counts = exportCounts(v);
+        for (const g of unitSummary(v).gear) {
+          const m = /^(\d+)x (.*)$/.exec(g);
+          const [n, name] = m ? [Number(m[1]), m[2]] : [1, g];
+          const printed = counts.get(name) ?? counts.get(displayName(name));
+          if (printed !== undefined && printed !== n) wrong.push(`${o.name}: summary ${n}x ${name}, export ${printed}x`);
+        }
+      }
+      expect(wrong).toEqual([]);
+    },
+  );
+
+  test('unitSummary: a relic or trait without a "Relic:" prefix is known by its group (Space Marines Codex Relics)', () => {
+    const captain = added('imperium-adeptus-astartes-ultramarines', 'Captain', { warlord: true, options: ['Stratagem: Relic', 'The Armour Indomitus'] });
+    expect(unitSummary(captain)).toMatchObject({ warlord: true, relics: ['The Armour Indomitus'] });
+    expect(unitSummary(captain).other).not.toContain('The Armour Indomitus');
+  });
+
+  test('a unit-level single choice that is not a weapon (Mark of Chaos) is not counted per model', () => {
+    const legionaries = added('chaos-chaos-space-marines', 'Legionaries', { options: ['Mark of Khorne'] });
+    expect(legionaries.models).toBeGreaterThan(1);
+    expect(unitExport(legionaries).details.join('\n')).not.toMatch(/[2-9]\d*x Mark of Khorne/);
+  });
+
+  test('unitSummary: a single item reads just its name, and a non-weapon upgrade is "other"', () => {
+    const overlord = unitSummary(added('necrons', 'Overlord', { options: ['Staff of Light', 'Resurrection Orb'] }));
+    expect(overlord.gear).toEqual(['Staff of Light']);
+    expect(overlord.other).toEqual(['Resurrection Orb']);
+    expect(overlord).toMatchObject({ warlord: false, traits: [], relics: [] });
   });
 });
 

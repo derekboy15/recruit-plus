@@ -11,6 +11,7 @@ export const BUDGETS = {
   catalogueGzip: 300 * kB,
   rosterGzip: 250 * kB,
   rulesGzip: 100 * kB,
+  infoGzip: 150 * kB,
 };
 
 const size = (n) => (n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(2)} MB` : `${(n / kB).toFixed(1)} kB`);
@@ -42,5 +43,6 @@ export function evaluateBudgets(files, entry, precacheBytes) {
   each('catalogue', /^data\/catalogues\//, BUDGETS.catalogueGzip);
   each('roster', /^data\/roster\//, BUDGETS.rosterGzip);
   each('rules', /^data\/rules\.json$/, BUDGETS.rulesGzip);
+  each('info', /^data\/info\//, BUDGETS.infoGzip);
   return { ok: !lines.some((l) => l.startsWith('FAIL')), lines };
 }

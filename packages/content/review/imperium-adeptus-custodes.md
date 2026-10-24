@@ -32,5 +32,8 @@ Sample: 20 texts (seed imperium-adeptus-custodes) + 5 army rules + guide
 | 2382893fbb60 | Martial K'atah | rule | PASS | Data oddity: official text is an author aside with no rules; plain correctly says no rules text is given. |
 | 3849d498f3fa | From Golden Light | rule | PASS | |
 | 19bc309e3819 | Martial K'atah | ability | PASS | |
+| cf81440b5bca | Motive Force Evocation | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 89cfb517d7ca | Wisdom of the Moritoi | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 3046891eb0e4 | Incinerator | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

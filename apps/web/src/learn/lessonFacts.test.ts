@@ -15,8 +15,8 @@ const GENERATED = join(__dirname, '..', '..', '..', '..', 'packages', 'data', 'g
 const lessons = (JSON.parse(readFileSync(join(GENERATED, 'lessons.json'), 'utf8')) as LessonsData).lessons;
 const rules = JSON.parse(readFileSync(join(GENERATED, 'rules.json'), 'utf8')) as RulesData;
 
-/** Backticks around numbers, curly apostrophes and doubled spaces don’t matter. */
-const norm = (t: string) => t.replace(/`/g, '').replace(/[‘’]/g, "'").replace(/\s+/g, ' ');
+/** Curly apostrophes and doubled spaces don’t matter. */
+const norm = (t: string) => t.replace(/[‘’]/g, "'").replace(/\s+/g, ' ');
 export const lessonText = (id: string) => {
   const l = lessons.find((x) => x.id === id);
   if (!l) throw new Error(`no lesson ${id}`);
