@@ -55,3 +55,9 @@
 a.chip { display: inline-flex; align-items: center; justify-content: center; min-width: var(--touch); text-decoration: none; }
 .glossary__letter > h2 { margin: 1.5rem 0 0.25rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
 .glossary__letter .rules-section h3 { margin-top: 0.75rem; }
+
+/* ---------- Faction rows: crest, name (and Legends), chapter and unit count ---------- */
+.list__link.faction-row { justify-content: flex-start; gap: 12px; }
+.faction-row__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
+.faction-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.faction-row__meta { font-size: 0.85rem; color: var(--text-muted); }
