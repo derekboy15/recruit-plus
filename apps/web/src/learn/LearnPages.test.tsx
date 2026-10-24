@@ -125,16 +125,49 @@ describe('Lesson page', () => {
   test('the lesson page shows the text, key words from the glossary and rules links', async () => {
     renderAt('/learn/what-is-40k');
     expect(await screen.findByRole('heading', { name: 'What 40k is', level: 1 })).toBeInTheDocument();
-    expect(screen.getByText(`Lesson 1 of 3 · ${first.minutes} minutes`)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: first.sections[0].title, level: 2 })).toBeInTheDocument();
     const words = screen.getByRole('region', { name: 'Key words' });
     // The definition comes from the glossary data, not from the lesson.
     const rules = JSON.parse(readFileSync(join(GENERATED, 'rules.json'), 'utf8')) as { glossary: { id: string; term: string; text: string }[] };
     const term = rules.glossary.find((g) => g.id === first.glossary[0])!;
-    expect(within(words).getByRole('link', { name: term.term })).toHaveAttribute('href', `/rules/glossary#${term.id}`);
+    expect(within(words).getByText(term.term)).toBeInTheDocument();
     const refs = screen.getByRole('region', { name: 'In the Rules Reference' });
     expect(within(refs).getByRole('link', { name: first.rules[0].title })).toHaveAttribute('href', `/rules/${first.rules[0].article}#${first.rules[0].section}`);
-    expect(screen.getByRole('link', { name: 'Start the drill' })).toHaveAttribute('href', '/learn/what-is-40k/drill');
+    expect(screen.getByRole('link', { name: `Start the drill · ${first.minutes} min` })).toHaveAttribute('href', '/learn/what-is-40k/drill');
+  });
+
+  test('the lesson page has a Back link to Learn and the lesson number', async () => {
+    renderAt('/learn/what-is-40k');
+    expect(await screen.findByRole('link', { name: 'Back to Learn' })).toHaveAttribute('href', '/learn');
+    expect(screen.getByText(`Lesson 1 of 3 · ${first.minutes} min`)).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: '← Learn' })).toBeNull();
+  });
+
+  test('the drill button sits in the start bar', async () => {
+    const { container, unmount } = renderAt('/learn/what-is-40k');
+    const start = await screen.findByRole('link', { name: `Start the drill · ${first.minutes} min` });
+    expect(start.closest('.learn-start-bar')).not.toBeNull();
+    unmount();
+    container.remove();
+    await done(first.id);
+    renderAt('/learn/what-is-40k');
+    const again = await screen.findByRole('link', { name: 'Do the drill again' });
+    const bar = again.closest('.learn-start-bar') as HTMLElement;
+    expect(bar).not.toBeNull();
+    expect(within(bar).getByRole('link', { name: 'Next lesson' })).toHaveAttribute('href', '/learn/datasheets');
+  });
+
+  test('key words are plain text with one glossary link', async () => {
+    renderAt('/learn/what-is-40k');
+    const words = await screen.findByRole('region', { name: 'Key words' });
+    const rules = JSON.parse(readFileSync(join(GENERATED, 'rules.json'), 'utf8')) as { glossary: { id: string; term: string }[] };
+    for (const id of first.glossary) {
+      const term = rules.glossary.find((g) => g.id === id)!;
+      expect(within(words).queryByRole('link', { name: term.term })).toBeNull();
+    }
+    const all = within(words).getAllByRole('link', { name: 'All key words in the glossary' });
+    expect(all).toHaveLength(1);
+    expect(all[0]).toHaveAttribute('href', '/rules/glossary');
   });
 
   test('a lesson opened by URL before the one before it is done shows the lesson', async () => {
@@ -192,5 +225,6 @@ describe('Lesson page', () => {
 
   test('every Learn button and link is at least 44px', () => {
     for (const cls of ['learn-path__link', 'learn-path__start']) expect(css).toMatch(new RegExp(`\\.${cls}[^}]*min-height: var\\(--touch\\)`));
+    expect(css).toMatch(/\.learn-start-bar a[^}]*min-height: var\(--touch\)/);
   });
 });

@@ -30,7 +30,20 @@
 .learn-path__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.35rem; }
 .learn-path__start { min-height: var(--touch); }
 .learn-first { margin-top: 1rem; }
+/* Lessons read at a comfortable measure; the start bar stays above the tab bar (at the bottom from 768px). */
+.learn-lesson { max-width: 70ch; }
+.learn-start-bar {
+  position: sticky; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px)); z-index: 4;
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; padding: 0.75rem 0;
+  background: var(--bg); border-top: 1px solid var(--border);
+}
+.learn-start-bar a { min-height: var(--touch); flex: 1 1 auto; }
+@media (min-width: 768px) {
+  .learn-start-bar { bottom: 0; }
+  .learn-start-bar a { flex: 0 1 auto; }
+}
 .learn-words dl { margin: 0; }
+.learn-words__all { margin: 0.5rem 0 0 -0.6rem; }
 .learn-words dt { font-weight: 700; margin-top: 0.5rem; }
 .learn-words dd { margin: 0.15rem 0 0; }
 .learn-refs ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
