@@ -92,8 +92,9 @@ describe('objective names', () => {
     return { ...s, setup: { ...s.setup, objectives: objectives.map((o, i) => ({ ...o, pos: { x: 5 + i, y: 5 } })) } };
   };
 
-  test('objectives without a label show their id', () => {
-    expect(buildScene(withObjectives([{ id: 'nw' }]), ui).objectives.map((o) => o.name)).toEqual(['nw']);
+  test('objectives with only an id are numbered 1–n in setup order (LE9)', () => {
+    expect(buildScene(withObjectives([{ id: 'a' }, { id: 'b' }]), ui).objectives.map((o) => o.name)).toEqual(['1', '2']);
+    expect(buildScene(withObjectives([{ id: 'n1', label: 'North' }, { id: 'n2' }]), ui).objectives.map((o) => o.name)).toEqual(['North', '2']);
   });
 
   test('a labelled objective shows its label', () => {

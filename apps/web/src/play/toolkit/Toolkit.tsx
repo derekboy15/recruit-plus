@@ -3,9 +3,10 @@
  * Miracle dice…) without per-faction code. Every tool is one engine command: logged, and undoable within the phase (R-19).
  * It replaces the phase panel while open, so the board stays free for picking models and places.
  */
-import { charsOf, livingModels, objectiveName, profileOf, sheetOf, type ActivationKind, type Command, type PlayerId, type Pos, type Problem } from '@recruit/engine';
+import { charsOf, livingModels, profileOf, sheetOf, type ActivationKind, type Command, type PlayerId, type Pos, type Problem } from '@recruit/engine';
 import { useEffect, useRef, useState } from 'react';
 import { armyName } from '../game/names';
+import { objectiveLabels } from '../game/objectives';
 import type { PanelProps } from '../panels/types';
 import { TurnButtons } from '../panels/TurnButtons';
 import { UnitPicker } from '../panels/UnitPicker';
@@ -269,15 +270,16 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
         </div>
       ));
       break;
-    case 'objectives':
+    case 'objectives': {
+      const labels = objectiveLabels(s.setup.objectives);
       body = s.setup.objectives.map((o) => {
         const cur = s.objectives[o.id];
         return (
           <div key={o.id} className="play-row">
             <label className="play-field play-grow">
-              <span>Objective {objectiveName(o)}</span>
+              <span>Objective {labels.get(o.id)}</span>
               <select
-                aria-label={`Objective ${objectiveName(o)} held by`}
+                aria-label={`Objective ${labels.get(o.id)} held by`}
                 value={cur?.owner ?? ''}
                 onChange={(e) => run({ type: 'setObjective', by: s.active, objectiveId: o.id, owner: (e.target.value || null) as PlayerId | null, sticky: cur?.sticky ?? false })}
               >
@@ -294,6 +296,7 @@ export function Toolkit(props: PanelProps & { onClose(): void }) {
         );
       });
       break;
+    }
     case 'order':
       body = (
         <>

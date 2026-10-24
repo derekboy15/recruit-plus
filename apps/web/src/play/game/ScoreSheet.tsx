@@ -1,8 +1,9 @@
 /** The score: each army's VP by category, who controls each objective now, and secondary or painted VP added by hand. */
-import { objectiveControl, objectiveName, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
+import { objectiveControl, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
 import { useState } from 'react';
 import { Problems } from '../panels/Problems';
 import { armyName } from './names';
+import { objectiveLabels } from './objectives';
 import { Dialog } from './Overlays';
 
 function ArmyScore({ state, player, act }: { state: GameState; player: PlayerId; act(cmd: Command): Problem[] | null }) {
@@ -54,6 +55,7 @@ function ArmyScore({ state, player, act }: { state: GameState; player: PlayerId;
 
 export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd: Command): Problem[] | null; onClose(): void }) {
   const control = objectiveControl(state);
+  const labels = objectiveLabels(state.setup.objectives);
   return (
     <Dialog label="Score" onClose={onClose}>
       <h2>Score</h2>
@@ -64,7 +66,7 @@ export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd:
       </p>
       <ul className="play-small">
         {state.setup.objectives.map((o) => (
-          <li key={o.id}>{`Objective ${objectiveName(o)}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
+          <li key={o.id}>{`Objective ${labels.get(o.id)}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
         ))}
       </ul>
       {(['A', 'B'] as PlayerId[]).map((p) => (

@@ -77,6 +77,15 @@ test('setting wounds left changes the model', async () => {
   expect(stateOf(h.record()).models['B:int.m1'].woundsLeft).toBe(1);
 });
 
+test('objectives with only an id are numbered in the toolkit', async () => {
+  const g = deployedGame();
+  const ids = ['a', 'b', 'n1', 'n2'];
+  renderPanel(Kit, { ...g, setup: { ...g.setup, objectives: g.setup.objectives.map((o, i) => ({ ...o, id: ids[i] })) } });
+  await tool('Objectives');
+  expect(screen.getByRole('combobox', { name: 'Objective 3 held by' })).toBeInTheDocument();
+  expect(screen.queryByRole('combobox', { name: 'Objective n1 held by' })).toBeNull();
+});
+
 test('objectives can be given to a player', async () => {
   const h = renderPanel(Kit, deployedGame());
   await tool('Objectives');

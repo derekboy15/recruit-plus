@@ -5,7 +5,6 @@ import {
   horizontalGap,
   MARKER_RADIUS,
   objectiveControl,
-  objectiveName,
   polygonOf,
   profileOf,
   sheetOf,
@@ -14,6 +13,7 @@ import {
   type Pos,
   type Pt,
 } from '@recruit/engine';
+import { objectiveLabels } from '../game/objectives';
 import type { Plan } from '../game/plan';
 
 export type Ring = { center: Pt; r: number; kind: 'move' | 'charge' | 'weapon' | 'engagement'; label?: string };
@@ -38,7 +38,7 @@ export interface BoardScene {
   board: { w: number; h: number };
   zones: { player: PlayerId; poly: Pt[] }[];
   terrain: { id: string; poly: Pt[]; look: 'ruin' | 'woods' | 'crater' | 'other'; name: string }[];
-  /** `name` is what the board shows: the objective's label, or its id. */
+  /** `name` is what the board shows: the objective's label, or its number when it has only an id. */
   objectives: { id: string; name: string; pos: Pt; r: number; owner: PlayerId | null }[];
   models: SceneModel[];
   ghosts: { id: string; poly: Pt[] }[];
@@ -112,6 +112,7 @@ export function buildScene(s: GameState, ui: BoardUi): BoardScene {
 
   const showZones = s.phase === 'pre-battle' || s.step === 'reinforcements';
   const control = objectiveControl(s);
+  const labels = objectiveLabels(s.setup.objectives);
   return {
     board: { ...s.setup.board },
     zones: showZones ? (['A', 'B'] as PlayerId[]).map((player) => ({ player, poly: s.setup.zones[player] })) : [],
@@ -121,7 +122,7 @@ export function buildScene(s: GameState, ui: BoardUi): BoardScene {
       name: f.name,
       look: hasTrait(f, 'obscuring') ? 'ruin' : hasTrait(f, 'dense-cover') ? 'woods' : hasTrait(f, 'difficult-ground') ? 'crater' : 'other',
     })),
-    objectives: s.setup.objectives.map((o) => ({ id: o.id, name: objectiveName(o), pos: o.pos, r: OBJECTIVE_RANGE, owner: control[o.id] ?? null })),
+    objectives: s.setup.objectives.map((o) => ({ id: o.id, name: labels.get(o.id) ?? o.id, pos: o.pos, r: OBJECTIVE_RANGE, owner: control[o.id] ?? null })),
     models,
     ghosts,
     rulers,

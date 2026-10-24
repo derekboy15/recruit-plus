@@ -39,6 +39,15 @@ test('the score sheet shows each army\'s VP and objective control, and adds seco
   expect(within(necrons).getByText(/Primary 0 · Secondary 3 · Painted 10/)).toBeInTheDocument();
 });
 
+test('objectives with only an id are numbered on the score sheet', () => {
+  const s = stateOf(deployedGame());
+  const ids = ['a', 'b', 'n1', 'n2'];
+  const state = { ...s, setup: { ...s.setup, objectives: s.setup.objectives.map((o, i) => ({ ...o, id: ids[i] })) } };
+  render(<ScoreSheet state={state} act={() => null} onClose={() => {}} />);
+  expect(screen.getByText('Objective 3: nobody')).toBeInTheDocument();
+  expect(screen.queryByText(/Objective n1/)).toBeNull();
+});
+
 test('the score sheet says when primary VP are scored, by mission pack', () => {
   const core = render(<ScoreSheet state={stateOf(deployedGame())} act={() => null} onClose={() => {}} />);
   expect(screen.getByText(/at the end of each player's Command phase from battle round 2\.$/)).toBeInTheDocument();
