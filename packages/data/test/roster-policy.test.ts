@@ -1216,3 +1216,47 @@ function addNamedUnit(scope: Scope, r: Roster, forceSelId: string, name: string)
   expect(added.selId).not.toBe('');
   return added.roster;
 }
+
+/**
+ * L15: Arks of Omen sizes give a Warlord trait and a relic only through the 1 CP Requisition Stratagems; the Core Book
+ * sizes (Combat Patrol, Onslaught) give a CHARACTER Warlord one Warlord trait, and the army one relic, without one
+ * (research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §5, §6).
+ */
+describe('Warlord trait and relic by battle size (L15)', () => {
+  const TRAIT = 'Warlord Trait (Codex 1): Enduring Will';
+  const RELIC = 'Relic: Veil of Darkness';
+  const REQUISITIONS = ['Stratagem: Warlord Trait', 'Stratagem: Relic'];
+  const build = (battleSize: ListSpec['battleSize'], detachment: string, options: string[] = []): Roster =>
+    buildFromSpec(necronsScope, necrons, {
+      title: 'L15',
+      battleSize,
+      detachments: [{ detachment, army: { 'Dynasty Choice': 'Dynasty: Novokh' }, units: [{ name: 'Overlord', warlord: true, options }, { name: 'Necron Warriors' }] }],
+      expect: { points: 0, powerLevel: 0 },
+    });
+  const flatten = (ns: OptionNode[]): OptionNode[] => ns.flatMap((n) => [n, ...flatten(n.children)]);
+  /** The option names the editor offers under the Overlord. */
+  const offered = (r: Roster) => {
+    const overlord = evaluate(necronsScope, r).forces[0].selections.find((v) => v.name === 'Overlord')!;
+    return flatten(childOptions(necronsScope, r, overlord.sel.id)).map((o) => o.name);
+  };
+  const issueKeys = (r: Roster) => validate(necronsScope, r, policy).issues.map((i) => `${i.rule} ${i.subject.name}`).sort();
+
+  for (const [size, detachment] of [['combat-patrol', 'Patrol Detachment -2CP'], ['onslaught', 'Battalion Detachment -3CP']] as const) {
+    test(`${size}: a CHARACTER Warlord is offered a Warlord trait and a relic without the Requisitions`, () => {
+      const names = offered(build(size, detachment));
+      expect(names).toEqual(expect.arrayContaining([TRAIT, RELIC]));
+      for (const req of REQUISITIONS) expect(names).not.toContain(req);
+    });
+
+    test(`${size}: taking the trait and the relic raises no issue`, () => {
+      expect(issueKeys(build(size, detachment, [TRAIT, RELIC]))).toEqual(issueKeys(build(size, detachment)));
+    });
+  }
+
+  test('strike-force: the trait and the relic are offered only once their Requisitions are taken', () => {
+    const names = offered(build('strike-force', 'Arks of Omen Detachment'));
+    expect(names).not.toContain(TRAIT);
+    expect(names).not.toContain(RELIC);
+    expect(offered(build('strike-force', 'Arks of Omen Detachment', REQUISITIONS))).toEqual(expect.arrayContaining([TRAIT, RELIC]));
+  });
+});
