@@ -65,7 +65,7 @@ test('Delete removes the game and Undo brings it back', async () => {
   await u.click(screen.getByRole('button', { name: 'Actions for Cleanse the Land' }));
   await u.click(screen.getByRole('menuitem', { name: 'Delete' }));
   await waitFor(() => expect(screen.queryByRole('link', { name: /Cleanse the Land/ })).toBeNull());
-  expect(screen.getByRole('status')).toHaveTextContent('Game deleted');
+  expect(await screen.findByRole('status')).toHaveTextContent('Game deleted');
   await u.click(screen.getByRole('button', { name: 'Undo' }));
   expect(await screen.findByRole('link', { name: /Cleanse the Land/ })).toHaveTextContent('You 0 – 0 Opponent');
   const back = (await repo.getDoc<TableGameData>(id))!;
@@ -82,7 +82,7 @@ test('a game deleted without Undo stays gone after a reload', async () => {
   await u.click(screen.getByRole('button', { name: 'Actions for Cleanse the Land' }));
   await u.click(screen.getByRole('menuitem', { name: 'Delete' }));
   // The toast goes (as when its 6 seconds run out): its Undo can no longer run.
-  await u.click(within(screen.getByRole('status')).getByRole('button', { name: 'Dismiss' }));
+  await u.click(within(await screen.findByRole('status')).getByRole('button', { name: 'Dismiss' }));
   unmount();
   renderHome();
   expect(await screen.findByText('No games yet. Start one when you sit down to play.')).toBeVisible();
