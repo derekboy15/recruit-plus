@@ -1,0 +1,64 @@
+/* Play mode (lists/play): the read-only army, its sheets, and the share page built on them. Tokens from theme.css only. */
+
+.play { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+/* Army rules and Stratagems: two tiles side by side. */
+.play__tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.play-tile {
+  min-height: 64px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px;
+  padding: 10px 12px; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 12px;
+  color: inherit; font: inherit; text-align: left; cursor: pointer; min-width: 0;
+}
+.play-tile:hover { border-color: var(--brass); }
+.play-tile__title { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.play-tile__title svg { color: var(--brass-strong); flex: none; }
+.play-tile__sub { font-size: 0.75rem; line-height: 1.35; color: var(--text-muted); overflow-wrap: anywhere; }
+
+/* A role: its label, then its units in one card. */
+.play-role { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.play-role__title { margin: 0 4px; }
+.play-units {
+  list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.play-units > li + li { border-top: 1px solid var(--border); }
+.play-unit {
+  width: 100%; min-height: var(--touch); display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px;
+  background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.play-unit:hover { background: var(--surface-2); }
+.play-unit:focus-visible { outline-offset: -3px; }
+.play-unit__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.play-unit__name { display: flex; flex-wrap: wrap; align-items: center; column-gap: 6px; font-weight: 600; overflow-wrap: anywhere; }
+.play-unit__models { font-weight: 500; color: var(--text-muted); }
+.play-unit__warlord { display: inline-flex; align-items: center; gap: 3px; font-size: 0.75rem; font-weight: 600; color: var(--brass-strong); }
+.play-unit__stats { display: flex; flex-wrap: wrap; column-gap: 12px; row-gap: 2px; margin: 0; font-size: 0.8125rem; color: var(--text-muted); }
+.play-unit__stats > div { display: flex; align-items: baseline; gap: 4px; }
+.play-unit__stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; color: var(--text); }
+.play-unit__gear { font-size: 0.8125rem; color: var(--text-muted); overflow-wrap: anywhere; }
+.play-unit__pts { flex: none; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--text-soft); white-space: nowrap; }
+.play-unit__go { flex: none; color: var(--text-muted); }
+
+/* Inside a sheet. */
+.play-sheet { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.play-sheet > .seg { margin: 0; }
+.play-sheet__sub, .play-sheet__note { margin: 0; font-size: 0.8125rem; color: var(--text-muted); }
+.play-sheet__gear { margin: 0; font-size: 0.8125rem; color: var(--text-soft); overflow-wrap: anywhere; }
+.play-sheet__section { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.play-sheet__section > h3 { margin: 0; }
+.play-sheet .ability__name { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.play-tag {
+  padding: 1px 6px; border: 1px solid var(--border-strong); border-radius: 4px;
+  font-size: 0.6875rem; font-weight: 600; color: var(--brass-strong); white-space: nowrap;
+}
+.play-strat__meta { margin: 0; font-size: 0.8125rem; color: var(--text-muted); }
+.play-check { display: flex; align-items: center; gap: 10px; min-height: var(--touch); cursor: pointer; }
+.play-check input { width: 20px; height: 20px; margin: 0; accent-color: var(--brass); flex: none; }
+
+/* Previous and Next under a unit's datasheet. */
+.play-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.sheet__footer .play-nav__btn { min-height: 52px; justify-content: flex-start; gap: 6px; padding: 0 10px; text-align: left; min-width: 0; }
+.sheet__footer .play-nav__btn--next { grid-column: 2; justify-content: flex-end; text-align: right; }
+.play-nav__text { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.play-nav__label { font-size: 0.6875rem; font-weight: 400; color: var(--text-muted); }
+.play-nav__name { font-size: 0.875rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
