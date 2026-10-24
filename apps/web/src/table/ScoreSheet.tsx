@@ -1,7 +1,7 @@
 import type { MissionOut, PackOut, PlayerKey, SecondaryOut } from '@recruit/data/missions';
-import { RulesText } from '../rules/RulesText';
+import { InfoButton } from '../ui/InfoButton';
 import { makeEvent, type EventBody, type TableEvent, type TableGameData, type TableState } from './game';
-import { SECONDARY_TYPE } from './SecondaryText';
+import { SECONDARY_TYPE, SecondaryText } from './SecondaryText';
 
 /** Primary VP per battle round (raw events, before the 45 cap). */
 export function primaryByRound(data: TableGameData, player: PlayerKey): number[] {
@@ -39,21 +39,16 @@ export function ScoreSheet({ data, pack, mission, state, append }: {
               const label = s?.name ?? id;
               return (
                 <div key={id} className="score-sheet__secondary">
-                  <div className="stepper">
-                    <span className="stepper__label">
-                      <strong>{label}</strong>
-                      {s && <span className="muted"> · {s.category} · {SECONDARY_TYPE[s.type]}</span>}
-                    </span>
+                  <div className="score-sheet__name">
+                    <strong>{label}</strong>
+                    {s && <span className="muted"> · {s.category} · {SECONDARY_TYPE[s.type]}</span>}
+                  </div>
+                  <div className="stepper score-sheet__controls">
                     <button type="button" className="btn btn--small" aria-label={`Fewer VP: ${label}`} disabled={shown <= 0} onClick={() => void write({ t: 'vp', player: p, category: 'secondary', sourceId: id, vp: -1, detail: 'adjusted' })}>−</button>
                     <strong>{shown} / {pack.caps.secondaryEach}</strong>
                     <button type="button" className="btn btn--small" aria-label={`More VP: ${label}`} disabled={shown >= pack.caps.secondaryEach} onClick={() => void write({ t: 'vp', player: p, category: 'secondary', sourceId: id, vp: 1, detail: 'adjusted' })}>+</button>
+                    {s && <InfoButton label={`How ${label} scores`} title={label}><SecondaryText s={s} /></InfoButton>}
                   </div>
-                  {s && (
-                    <details>
-                      <summary>How it scores</summary>
-                      <RulesText official={s.text} plain={s.plain} amended={s.amended} />
-                    </details>
-                  )}
                 </div>
               );
             })}

@@ -111,3 +111,18 @@ test('note is saved', async () => {
   await waitFor(() => expect(events().at(-1)).toMatchObject({ t: 'note', text: 'Deep strike next turn' }));
   expect(screen.getByRole('textbox', { name: 'Add a note' })).toHaveValue('');
 });
+
+test('a secondary is a name line over a controls line, with its scoring a tap away', async () => {
+  const u = userEvent.setup();
+  render(<Harness Panel="score" />);
+  const you = screen.getByRole('region', { name: 'You' });
+  const row = within(you).getByText('Grind Them Down').closest('.score-sheet__secondary') as HTMLElement;
+  expect(row.querySelector('.score-sheet__name')).toHaveTextContent('Grind Them Down');
+  expect(row.querySelector('.score-sheet__name')).toHaveTextContent('No Mercy, No Respite · Progressive');
+  const controls = row.querySelector('.score-sheet__controls') as HTMLElement;
+  expect(within(controls).getByRole('button', { name: 'More VP: Grind Them Down' })).toBeVisible();
+  expect(within(controls).getByText('0 / 15')).toBeVisible();
+  await u.click(within(controls).getByRole('button', { name: 'How Grind Them Down scores' }));
+  expect(screen.getByRole('dialog', { name: 'Grind Them Down' })).toBeVisible();
+  expect(screen.queryByText('How it scores')).toBeNull();
+});

@@ -70,3 +70,23 @@ test('search finds "overwatch"', async () => {
   await u.type(await screen.findByRole('searchbox', { name: 'Search the rules' }), 'overwatch');
   await waitFor(() => expect(screen.getAllByRole('link', { name: /Fire Overwatch/ }).length).toBeGreaterThan(0));
 });
+
+test('every attack-odds control sits in the second column of a two-column grid', async () => {
+  const u = userEvent.setup();
+  render(<Harness roll={() => 1} />);
+  await u.click(screen.getByRole('tab', { name: 'Attack odds' }));
+  const grids = document.querySelectorAll('.odds__grid');
+  expect(grids).toHaveLength(2);
+  for (const grid of grids) {
+    const cells = [...grid.children];
+    expect(cells.length % 2).toBe(0);
+    for (const control of cells.filter((_, i) => i % 2 === 1)) {
+      expect(control.matches('select, input') || control.querySelector('button, input, select'), control.outerHTML).toBeTruthy();
+    }
+  }
+  // The controls keep their names.
+  expect(screen.getByRole('button', { name: 'More: Strength' })).toBeVisible();
+  expect(screen.getByRole('textbox', { name: 'Attacks each' })).toBeVisible();
+  expect(screen.getByRole('checkbox', { name: 'Blast' })).toBeVisible();
+  expect(screen.getByRole('combobox', { name: 'Save' })).toBeVisible();
+});
