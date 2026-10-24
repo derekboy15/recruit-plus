@@ -1,4 +1,5 @@
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
+import { necronsList } from '../e2e-prod/data';
 
 /** No sideways scroll, every visible button at least 44px tall, and a screenshot when SHOT_DIR is set. */
 async function checkScreen(page: Page, testInfo: TestInfo, name: string) {
@@ -13,18 +14,42 @@ async function checkScreen(page: Page, testInfo: TestInfo, name: string) {
   if (process.env.SHOT_DIR) await page.screenshot({ path: `${process.env.SHOT_DIR}/table-${name}-${testInfo.project.name}.png`, fullPage: true });
 }
 
-async function createList(page: Page) {
+/**
+ * Signs in and saves a Necrons list straight into the local database, as the builder would: other plans own the
+ * builder screens, so this flow doesn't drive them. Returns the list's id.
+ */
+async function seedList(page: Page): Promise<string> {
   await page.goto('/build');
   await page.getByRole('button', { name: 'Continue (dev)' }).click();
-  await page.getByRole('link', { name: 'New list' }).click();
-  await page.getByRole('button', { name: /^Necrons/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: /Incursion/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: /Arks of Omen Detachment/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: 'Create list' }).click();
-  await expect(page).toHaveURL(/\/build\/[0-9a-f-]{36}$/);
+  await expect(page).toHaveURL(/\/build$/);
+  return page.evaluate(async (data) => {
+    // Wait for the app to create its database (Dexie's version 1 is IndexedDB version 10): opening it first here
+    // would create an empty one and block the app's upgrade.
+    for (let i = 0; !(await indexedDB.databases()).some((d) => d.name === 'recruitplus' && (d.version ?? 0) >= 10); i++) {
+      if (i > 100) throw new Error('The app never opened its database.');
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    return new Promise<string>((resolve, reject) => {
+      const id = crypto.randomUUID();
+      const open = indexedDB.open('recruitplus');
+      open.onerror = () => reject(open.error);
+      open.onsuccess = () => {
+        try {
+          const tx = open.result.transaction('docs', 'readwrite');
+          const ownerId = '00000000-0000-4000-8000-000000000001'; // the dev sign-in's user
+          tx.objectStore('docs').put({ id, kind: 'list', ownerId, data, isPublic: false, deleted: false, updatedAt: Date.now(), dirty: true });
+          tx.oncomplete = () => {
+            open.result.close();
+            resolve(id);
+          };
+          tx.onerror = () => reject(tx.error);
+        } catch (e) {
+          open.result.close();
+          reject(e);
+        }
+      };
+    });
+  }, necronsList());
 }
 
 const nextPhase = (page: Page) => page.getByRole('button', { name: 'Next phase' }).click();
@@ -43,7 +68,7 @@ async function finishTurn(page: Page) {
 
 test('short tracked game', async ({ page, context }, testInfo) => {
   test.setTimeout(120_000);
-  await createList(page);
+  await seedList(page);
 
   // Setup.
   await page.goto('/table');
@@ -79,10 +104,20 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await expect(cpOf(page, 'You')).toHaveText('7 CP');
   await expect(cpOf(page, 'Opponent')).toHaveText('7 CP');
   await checkScreen(page, testInfo, 'turn');
-  // The scoreboard stays in view below the top bar when the page scrolls.
+  // The scoreboard stays in view under the sticky page header when the page scrolls. The open mission card makes the
+  // page long enough to scroll at both sizes.
+  await page.getByText('Mission: Cleanse the Land').click();
   await page.evaluate(() => window.scrollBy(0, 400));
-  const overlap = await page.evaluate(() => document.querySelector('.topbar')!.getBoundingClientRect().bottom - document.querySelector('.scoreboard')!.getBoundingClientRect().top);
-  expect(overlap, 'scoreboard hidden under the top bar').toBeLessThanOrEqual(1);
+  const top = await page.evaluate(() => ({
+    scrolled: window.scrollY,
+    head: document.querySelector('.game__top .page-head')!.getBoundingClientRect().toJSON() as DOMRect,
+    board: document.querySelector('.scoreboard')!.getBoundingClientRect().toJSON() as DOMRect,
+  }));
+  expect(top.scrolled, 'the page scrolled').toBeGreaterThanOrEqual(400);
+  expect(top.head.top, 'page header stuck to the top').toBe(0);
+  expect(Math.abs(top.board.top - top.head.bottom), 'scoreboard right under the header').toBeLessThanOrEqual(1);
+  expect(top.board.bottom, 'scoreboard pushed down the screen').toBeLessThanOrEqual(220);
+  await page.getByText('Mission: Cleanse the Land').click();
   await page.evaluate(() => window.scrollTo(0, 0));
 
   // Shooting: use Command Re-roll.
@@ -175,11 +210,12 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await expect(vpOf(page, 'You')).toHaveText('13 VP');
 
   // End early: the summary shows You ahead.
-  await page.getByRole('button', { name: 'End the game' }).click();
-  await page.getByRole('button', { name: 'We agreed to stop early' }).click();
+  await page.getByRole('button', { name: 'Game actions' }).click();
+  await page.getByRole('menuitem', { name: 'End the game…' }).click();
+  await page.getByRole('dialog', { name: 'End the game' }).getByRole('button', { name: 'We agreed to stop early' }).click();
   await expect(page).toHaveURL(/\/summary$/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('You win, 13 to 0.');
   await checkScreen(page, testInfo, 'summary');
-  await page.getByRole('link', { name: 'Back to games' }).click();
+  await page.getByRole('link', { name: 'Back to Table games' }).click();
   await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toContainText('You 13 – 0 Opponent');
 });

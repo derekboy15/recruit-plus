@@ -13,10 +13,24 @@ import { ToolsPanel } from './ToolsPanel';
 import { useTableGame } from './tableStore';
 import { TurnPanel } from './TurnPanel';
 import { LoadError } from '../layout/OfflineNotice';
+import { Menu, type MenuItem } from '../ui/Menu';
+import { PageHeader } from '../ui/PageHeader';
+import { Sheet } from '../ui/Sheet';
 
 const TABS = ['Turn', 'Score', 'Stratagems', 'Tools', 'Log'] as const;
 type Tab = (typeof TABS)[number];
 const defaultRoll = (sides: 3 | 6) => rollDice(1, sides)[0];
+const BACK = { to: '/table', label: 'Table games' };
+
+/** A game that can't be shown: the page still has its header, so there is a way back. */
+function NotFound({ children }: { children: string }) {
+  return (
+    <section className="game">
+      <PageHeader back={BACK} title="Game not found" />
+      <p role="alert">{children}</p>
+    </section>
+  );
+}
 
 /** One game at the table: the scoreboard, then the current phase and the other tabs. */
 export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => number }) {
@@ -27,17 +41,24 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
   const [params] = useSearchParams();
   const asked = params.get('tab');
   const [tab, setTab] = useState<Tab>(TABS.includes(asked as Tab) ? (asked as Tab) : 'Turn');
+  const [ending, setEnding] = useState(false);
   if (loading || missions.status === 'loading') return <p className="muted">Loading the game…</p>;
   if (missions.status === 'error') return <LoadError error={missions.error} what="the missions" />;
-  if (!game) return <p role="alert">This game doesn’t exist on this device. <Link to="/table">Back to games</Link></p>;
+  if (!game) return <NotFound>This game doesn’t exist on this device.</NotFound>;
   const pack = missions.data.packs.find((p) => p.id === game.data.setup.pack);
   const mission = missionById(missions.data, game.data.setup.missionId);
-  if (!pack || !mission) return <p role="alert">This game’s mission isn’t in the app’s data.</p>;
+  if (!pack || !mission) return <NotFound>This game’s mission isn’t in the app’s data.</NotFound>;
   const state = deriveState(game.data, pack);
   const toSummary = () => navigate(`/table/${id}/summary`);
+  const actions: MenuItem[] = state.ended
+    ? [{ label: 'See the summary', to: `/table/${id}/summary` }, { label: 'Undo the end', onSelect: () => void update(undo) }]
+    : [{ label: 'End the game…', danger: true, onSelect: () => setEnding(true) }];
   return (
     <section className="game">
-      <Scoreboard setup={game.data.setup} state={state} />
+      <div className="game__top">
+        <PageHeader back={BACK} title={mission.name} subtitle={pack.name} actions={<Menu label="Game actions" items={actions} />} />
+        <Scoreboard setup={game.data.setup} state={state} />
+      </div>
       <div className="seg game__tabs" role="tablist" aria-label="Game">
         {TABS.map((t) => (
           <button key={t} type="button" role="tab" className="seg__btn" aria-selected={tab === t} onClick={() => setTab(t)}>{t}</button>
@@ -45,8 +66,7 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
       </div>
       {state.ended ? (
         <p>
-          This game is over. <Link to={`/table/${id}/summary`}>See the summary</Link>{' '}
-          <button type="button" className="btn btn--small" onClick={() => void update(undo)}>Undo the end</button>
+          This game is over. <Link to={`/table/${id}/summary`}>See the summary</Link>
         </p>
       ) : (
         tab === 'Turn' && state.pos && (
@@ -57,37 +77,40 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
       {tab === 'Log' && <LogPanel data={game.data} missions={missions.data} append={append} />}
       {tab === 'Stratagems' && !state.ended && <StratagemPanel data={game.data} state={state} append={append} />}
       {tab === 'Tools' && <ToolsPanel pos={state.pos} roll={roll} append={append} />}
-      {!state.ended && <EndGame setup={game.data.setup} pos={state.pos} append={append} onEnded={toSummary} />}
+      {ending && !state.ended && <EndGameSheet setup={game.data.setup} pos={state.pos} append={append} onEnded={toSummary} onClose={() => setEnding(false)} />}
     </section>
   );
 }
 
-/** End the game early or after round 5: finished, agreed to stop, or one player concedes. */
-function EndGame({ setup, pos, append, onEnded }: { setup: TableSetup; pos: TableEvent['pos']; append: (e: TableEvent[]) => Promise<void>; onEnded: () => void }) {
-  const [open, setOpen] = useState<'closed' | 'choose' | 'concede'>('closed');
+/** End the game after round 5, by agreement, or by one player conceding. Asked once: only Undo the end brings it back. */
+function EndGameSheet({ setup, pos, append, onEnded, onClose }: {
+  setup: TableSetup; pos: TableEvent['pos']; append: (e: TableEvent[]) => Promise<void>; onEnded: () => void; onClose: () => void;
+}) {
+  const [step, setStep] = useState<'choose' | 'concede'>('choose');
   const end = async (reason: 'complete' | 'agreed' | 'concede', concededBy?: PlayerKey) => {
     await append([makeEvent({ t: 'end', reason, ...(concededBy ? { concededBy } : {}) }, pos)]);
+    onClose();
     onEnded();
   };
-  if (open === 'closed') return <button type="button" className="btn btn--danger" onClick={() => setOpen('choose')}>End the game</button>;
   return (
-    <section className="card prompt" aria-label="End the game">
-      <h2>End the game</h2>
-      {open === 'choose' ? (
+    <Sheet kind="sheet" title="End the game" onClose={onClose}>
+      {step === 'choose' ? (
         <div className="prompt__actions prompt__actions--stack">
-          <button type="button" className="btn" onClick={() => void end('complete')}>We've finished all 5 rounds</button>
+          <button type="button" className="btn" onClick={() => void end('complete')}>We’ve finished all 5 rounds</button>
           <button type="button" className="btn" onClick={() => void end('agreed')}>We agreed to stop early</button>
-          <button type="button" className="btn" onClick={() => setOpen('concede')}>A player concedes</button>
-          <button type="button" className="btn" onClick={() => setOpen('closed')}>Cancel</button>
+          <button type="button" className="btn" onClick={() => setStep('concede')}>A player concedes</button>
         </div>
       ) : (
-        <div className="prompt__actions prompt__actions--stack">
-          {(['A', 'B'] as const).map((p) => (
-            <button key={p} type="button" className="btn" onClick={() => void end('concede', p)}>{setup.players[p].name} concedes</button>
-          ))}
-          <button type="button" className="btn" onClick={() => setOpen('choose')}>Back</button>
-        </div>
+        <>
+          <p className="muted">Who concedes?</p>
+          <div className="prompt__actions prompt__actions--stack">
+            {(['A', 'B'] as const).map((p) => (
+              <button key={p} type="button" className="btn" onClick={() => void end('concede', p)}>{setup.players[p].name} concedes</button>
+            ))}
+            <button type="button" className="btn" onClick={() => setStep('choose')}>Back</button>
+          </div>
+        </>
       )}
-    </section>
+    </Sheet>
   );
 }

@@ -216,3 +216,69 @@ test('quick taps never act on a stale phase: Next phase and Undo stay disabled u
   const advances = (await doc(id)).data.events.filter((e) => e.t === 'advance');
   expect(advances.map((e) => (e as { to: Pos }).to.phase)).toEqual(['movement', 'psychic', 'shooting']);
 });
+
+test('the game has a header with Back to Table games and the mission name', async () => {
+  renderGame(await seed(testSetup()));
+  expect(await screen.findByRole('heading', { level: 1, name: 'Cleanse the Land' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+});
+
+test('a game that is not on this device says so under a header with Back', async () => {
+  renderGame(crypto.randomUUID());
+  expect(await screen.findByRole('heading', { level: 1, name: 'Game not found' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+  expect(screen.getByRole('alert')).toHaveTextContent('This game doesn’t exist on this device.');
+});
+
+test('End the game lives in the menu and asks once', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup());
+  renderGame(id);
+  await screen.findByRole('heading', { level: 1, name: 'Cleanse the Land' });
+  expect(screen.queryByRole('button', { name: 'End the game' })).toBeNull();
+  await u.click(screen.getByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const sheet = screen.getByRole('dialog', { name: 'End the game' });
+  expect(within(sheet).getByRole('button', { name: 'We’ve finished all 5 rounds' })).toBeVisible();
+  await u.click(within(sheet).getByRole('button', { name: 'We agreed to stop early' }));
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  expect((await doc(id)).data.events.at(-1)).toMatchObject({ t: 'end', reason: 'agreed' });
+});
+
+test('closing the End the game sheet ends nothing', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup());
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'End the game' })).getByRole('button', { name: 'Close' }));
+  expect(screen.queryByRole('dialog')).toBeNull();
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
+
+test('a player concedes from the sheet', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'movement' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const sheet = screen.getByRole('dialog', { name: 'End the game' });
+  await u.click(within(sheet).getByRole('button', { name: 'A player concedes' }));
+  await u.click(within(sheet).getByRole('button', { name: 'Opponent concedes' }));
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  expect((await doc(id)).data.events.at(-1)).toMatchObject({ t: 'end', reason: 'concede', concededBy: 'B' });
+});
+
+test('an ended game offers the summary and Undo the end from the menu', async () => {
+  const u = userEvent.setup();
+  const pos: Pos = { round: 2, turn: 1, phase: 'movement' };
+  const id = await seed(testSetup(), pos, [[{ t: 'end', reason: 'agreed' }, pos]]);
+  renderGame(id);
+  expect(await screen.findByText(/This game is over\./)).toBeVisible();
+  await u.click(screen.getByRole('button', { name: 'Game actions' }));
+  expect(screen.queryByRole('menuitem', { name: 'End the game…' })).toBeNull();
+  expect(screen.getByRole('menuitem', { name: 'See the summary' })).toHaveAttribute('href', `/table/${id}/summary`);
+  await u.click(screen.getByRole('menuitem', { name: 'Undo the end' }));
+  await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
