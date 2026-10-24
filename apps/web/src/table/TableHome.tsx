@@ -21,7 +21,7 @@ export function TableHome() {
     show({ message: 'Game deleted', action: { label: 'Undo', onAction: () => void restore() } });
   };
   return (
-    <section>
+    <section className="table-home">
       <PageHeader
         variant="top"
         title="Table companion"

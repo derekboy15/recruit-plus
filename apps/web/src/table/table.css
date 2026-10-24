@@ -97,6 +97,8 @@ details.card summary { min-height: var(--touch); display: flex; align-items: cen
 .summary__row { display: flex; justify-content: space-between; gap: 1rem; }
 .summary__row dd { margin: 0; font-weight: 600; text-align: right; }
 .prompt__actions--stack { flex-direction: column; align-items: stretch; }
+/* The Table's home header: its title and one-line explanation wrap on small phones instead of being cut off. */
+.table-home .page-head__title, .table-home .page-head__sub { white-space: normal; }
 /* Saved games list */
 .game-row {
   display: flex; align-items: center; gap: 4px; padding-right: 4px;

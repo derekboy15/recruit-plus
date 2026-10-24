@@ -57,6 +57,9 @@ async function seedList(page: Page): Promise<string> {
   }, necronsList());
 }
 
+/** 43 characters: long enough to push a row, the game header or the scoreboard sideways if anything doesn't truncate. */
+const OPPONENT = 'Warboss Gutrippa of the Blood Axe Kommandos';
+
 /** Next phase stays tappable while a question is open but does nothing then, so wait for any question to be answered. */
 async function nextPhase(page: Page) {
   await expect(page.getByText('Answer the question above first.')).toHaveCount(0);
@@ -94,6 +97,7 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await yours.getByRole('radio', { name: 'Use one of my lists' }).check();
   await yours.getByRole('radio', { name: /Necrons Strike Force/ }).check();
   const theirs = page.getByRole('group', { name: "Your opponent's army" });
+  await theirs.getByRole('textbox', { name: 'Name' }).fill(OPPONENT);
   await theirs.getByRole('radio', { name: 'Just pick a faction' }).check();
   await theirs.getByRole('combobox', { name: 'Faction' }).selectOption('orks');
   await checkScreen(page, testInfo, 'armies');
@@ -111,8 +115,8 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   // Round 1, your Command phase: both players gain the Battle-forged CP bonus.
   await expect(position(page)).toHaveText("Round 1 · Your turn · Command phase");
   await expect(cpOf(page, 'You')).toHaveText('7 CP');
-  await expect(cpOf(page, 'Opponent')).toHaveText('7 CP');
-  await checkScreen(page, testInfo, 'turn');
+  await expect(cpOf(page, OPPONENT)).toHaveText('7 CP');
+  await checkScreen(page, testInfo, 'turn-long-name');
   // The scoreboard stays in view under the sticky page header when the page scrolls. The open mission card makes the
   // page long enough to scroll at both sizes.
   await page.getByText('Mission: Cleanse the Land').click();
@@ -128,6 +132,12 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   expect(top.board.bottom, 'scoreboard pushed down the screen').toBeLessThanOrEqual(220);
   await page.getByText('Mission: Cleanse the Land').click();
   await page.evaluate(() => window.scrollTo(0, 0));
+
+  // The smallest phone: the long name must truncate, not push the header or the scoreboard sideways.
+  const size = page.viewportSize()!;
+  await page.setViewportSize({ width: 320, height: 700 });
+  await checkScreen(page, testInfo, 'turn-320');
+  await page.setViewportSize(size);
 
   // Shooting: use Command Re-roll.
   for (let i = 0; i < 3; i++) await nextPhase(page);
@@ -149,6 +159,9 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await expect(page.getByRole('region', { name: 'Expected result' })).toContainText('Unsaved wounds');
   await expect(page.getByRole('region', { name: 'Expected result' })).toContainText('1.11');
   await checkScreen(page, testInfo, 'odds');
+  const lefts = await page.locator('.odds__grid > :nth-child(2n)').evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().left)));
+  expect(lefts.length, 'odds controls found').toBeGreaterThan(10);
+  expect(new Set(lefts).size, 'odds controls share one left edge').toBe(1);
   await page.getByRole('tab', { name: 'Log' }).click();
   await expect(page.getByRole('list', { name: 'Game log' })).toContainText('Rolled 3D6');
   await expect(page.getByRole('list', { name: 'Game log' })).toContainText('You used Command Re-roll (1 CP)');
@@ -158,7 +171,7 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   for (let i = 0; i < 3; i++) await nextPhase(page);
   await page.getByRole('button', { name: 'End turn' }).click();
   await page.getByRole('region', { name: /^Score: You/ }).getByRole('button', { name: 'Skip' }).click();
-  await expect(position(page)).toHaveText("Round 1 · Opponent's turn · Command phase");
+  await expect(position(page)).toHaveText(`Round 1 · ${OPPONENT}'s turn · Command phase`);
   await finishTurn(page);
 
   // Round 2, your Command phase: score the primary, 2 objectives against 1.
@@ -226,5 +239,21 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('You win, 13 to 0.');
   await checkScreen(page, testInfo, 'summary');
   await page.getByRole('link', { name: 'Back to Table games' }).click();
-  await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toContainText('You 13 – 0 Opponent');
+  await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toContainText(`You 13 – 0 ${OPPONENT}`);
+
+  // The games list at 320px, then delete the game and bring it back.
+  await page.setViewportSize({ width: 320, height: 700 });
+  await checkScreen(page, testInfo, 'home-320');
+  // The page's one-line explanation wraps rather than being cut off.
+  for (const el of ['.page-head__title', '.page-head__sub']) {
+    expect(await page.locator(el).evaluate((e) => e.scrollWidth <= e.clientWidth), `${el} cut off at 320px`).toBe(true);
+  }
+  await page.getByRole('button', { name: 'Actions for Cleanse the Land' }).click();
+  await page.getByRole('menuitem', { name: 'Delete' }).click();
+  await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toHaveCount(0);
+  await expect(page.getByRole('status')).toContainText('Game deleted');
+  await page.getByRole('status').getByRole('button', { name: 'Undo' }).click();
+  await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toContainText(/You 13 – 0/);
+  await page.reload();
+  await expect(page.getByRole('link', { name: /Cleanse the Land/ })).toContainText(/You 13 – 0/);
 });
