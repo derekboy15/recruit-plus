@@ -1,5 +1,5 @@
 import type { SelView } from '@recruit/data/roster';
-import { unitSummary } from '@recruit/data/roster';
+import { COST_CP, COST_PL, unitSummary } from '@recruit/data/roster';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../../factions/dataClient';
 import { stubGeneratedData } from '../__fixtures__/generatedData';
@@ -42,6 +42,7 @@ test('the army: totals, choices, roles in rulebook order, and a flat order for P
   const { view, scope, units } = await viewOf(data);
   const army = playArmy(view, scope, units);
   expect(army).toMatchObject({ name: 'Novokh Incursion', faction: 'Necrons', sizeName: 'Incursion', pointsLimit: 1000, points: data.summary.points });
+  expect(army).toMatchObject({ powerLevel: view.total[COST_PL] ?? 0, commandPoints: view.total[COST_CP] ?? 0 });
   expect(army.choices).toContainEqual(expect.objectContaining({ heading: 'Dynasty', name: 'Novokh' }));
   expect(army.roles.map((r) => r.role)).toEqual(['HQ', 'Troops', 'Elites']);
   expect(army.units.map((u) => u.name)).toEqual(['Overlord', 'Royal Warden', 'Necron Warriors', 'Immortals', 'Skorpekh Destroyers']);

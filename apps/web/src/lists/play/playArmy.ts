@@ -2,6 +2,8 @@
 import { BATTLEFIELD_ROLES, type UnitOut } from '@recruit/data/model';
 import {
   BATTLE_SIZES,
+  COST_CP,
+  COST_PL,
   COST_PTS,
   displayName,
   factionDisplayName,
@@ -38,6 +40,8 @@ export interface PlayArmy {
   sizeName: string;
   points: number;
   pointsLimit: number;
+  powerLevel: number;
+  commandPoints: number;
   choices: PlayChoice[];
   /** Rulebook order, every detachment's units together under their role. */
   roles: { role: string; units: PlayUnit[] }[];
@@ -140,6 +144,8 @@ export function playArmy(view: RosterView, scope: Scope, units: UnitIndex | null
     sizeName: size?.name ?? roster.battleSize,
     points: view.total[COST_PTS] ?? 0,
     pointsLimit: size?.points ?? 0,
+    powerLevel: view.total[COST_PL] ?? 0,
+    commandPoints: view.total[COST_CP] ?? 0,
     choices: playChoices(scope, view),
     roles,
     units: roles.flatMap((r) => r.units),

@@ -66,3 +66,9 @@
 /* The Play page header's subtitle: a small filled play mark, then "Play mode · read only · 885 pts". */
 .play-mode-sub { display: inline-flex; align-items: center; gap: 6px; }
 .play-mode-sub svg { flex: none; color: var(--brass-strong); fill: currentColor; }
+
+/* The share page (lists/SharePage.tsx): totals, the read-only note and its actions above the army. */
+.share-intro { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+.share-intro > p { margin: 0; }
+.share-intro .sheet-actions { margin: 8px 0 0; }
+.play-error { color: var(--danger-text); }

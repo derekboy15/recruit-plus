@@ -1,5 +1,4 @@
 /** Play mode (/build/:id/play): a list on this device, read only, for the table. Edit goes to the editor. */
-import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LoadError } from '../../layout/OfflineNotice';
 import { IconEdit, IconPlay } from '../../ui/icons';
@@ -15,13 +14,8 @@ const BACK = { to: '/build', label: 'Your lists' };
 export function PlayPage() {
   const { id = '' } = useParams();
   const state = usePlayList(id);
-  const [open, setOpen] = usePlaySheetParam();
-
   // A link to a unit this list no longer has opens nothing, and the URL stops saying it does.
-  const stale = state.status === 'ready' && open?.kind === 'unit' && !state.data.army.units.some((u) => u.selId === open.selId);
-  useEffect(() => {
-    if (stale) setOpen(null);
-  }, [stale, setOpen]);
+  const [open, setOpen] = usePlaySheetParam(state.status === 'ready' ? state.data.army.units : undefined);
 
   if (state.status === 'loading') {
     return (
@@ -69,7 +63,7 @@ export function PlayPage() {
         }
       />
       <PlayArmyView data={data} onOpen={setOpen} />
-      {open && !stale && <PlaySheets data={data} open={open} onOpen={setOpen} />}
+      {open && <PlaySheets data={data} open={open} onOpen={setOpen} />}
     </>
   );
 }

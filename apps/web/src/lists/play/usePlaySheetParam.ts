@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import type { PlaySheet } from './PlayArmyView';
 
@@ -10,8 +10,9 @@ const toParams = (s: PlaySheet): Record<string, string> => (s.kind === 'unit' ? 
  * The open Play mode sheet, kept in the URL (`?sheet=rules`, `?sheet=stratagems`, `?unit=<selId>`) so a phone's Back
  * button closes it. Opening a sheet adds one history entry; moving to another (Next, Previous) replaces it; closing goes
  * back past it. A sheet the page was opened with (a shared link) closes by clearing the URL instead.
+ * Given the army's units (once loaded), a link to a unit it doesn't have opens nothing and is cleared from the URL.
  */
-export function usePlaySheetParam(): [PlaySheet | null, (next: PlaySheet | null) => void] {
+export function usePlaySheetParam(units?: { selId: string }[]): [PlaySheet | null, (next: PlaySheet | null) => void] {
   const [params, setParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,5 +34,9 @@ export function usePlaySheetParam(): [PlaySheet | null, (next: PlaySheet | null)
     },
     [open, inApp, navigate, setParams, location.state],
   );
-  return [open, set];
+  const stale = open?.kind === 'unit' && units !== undefined && !units.some((u) => u.selId === open.selId);
+  useEffect(() => {
+    if (stale) set(null);
+  }, [stale, set]);
+  return [stale ? null : open, set];
 }
