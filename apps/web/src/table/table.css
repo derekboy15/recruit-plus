@@ -29,7 +29,7 @@
 .new-game .card { margin-bottom: 0.75rem; }
 .new-game .mission-map__figure { margin-top: 0.75rem; }
 /* Game screen */
-.game { display: grid; gap: 0.75rem; }
+.game { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
 /* The page header and the scoreboard stick together, so the score stays in view under Back and the menu. The wrapper
    bleeds to the edges of .shell__main the way a lone page header does. */
 .game__top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--bg); }
@@ -79,7 +79,8 @@
 .odds__field .input { width: auto; min-width: 8rem; max-width: 60%; }
 .odds__result dl { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; margin: 0; }
 .odds__result dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
-.summary { display: grid; gap: 0.75rem; }
+/* minmax(0, 1fr): a page header's nowrap subtitle must truncate, not widen the page. */
+.summary { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
 .summary h1 { margin: 0; }
 /* The result is the page's title: it wraps rather than being cut short. */
 .summary .page-head__title { white-space: normal; }
