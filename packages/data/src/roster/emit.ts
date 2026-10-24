@@ -159,7 +159,9 @@ function isUnitWideChoice(group: RNode): boolean {
   const pinned = (type: 'min' | 'max') => group.constraints?.some((c) => c.type === type && c.field === 'selections' && c.scope === 'parent' && c.value === 1);
   if (!pinned('min') || !pinned('max') || !group.children?.length) return false;
   if (/\(/.test(group.name) && !/\(per (entire )?unit\)/i.test(group.name)) return false;
-  const carries = (n: RNode): boolean => !!n.gear || (n.children ?? []).some(carries);
+  // A group that picks a model ("Boss", "Plasma or Vox") is not a unit-wide choice, however its model is armed.
+  const isModel = (n: RNode) => n.kind === 'entry' && n.type === 'model';
+  const carries = (n: RNode): boolean => !isModel(n) && (!!n.gear || (n.children ?? []).some(carries));
   return group.children.every(carries);
 }
 

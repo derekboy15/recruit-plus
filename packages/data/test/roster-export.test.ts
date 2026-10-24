@@ -3,11 +3,14 @@ import {
   addChild,
   addForce,
   addUnit,
+  availableUnits,
   buildScope,
   chooseInGroup,
   createRoster,
+  displayName,
   evaluate,
   exportText,
+  findSelView,
   FORCE,
   unitExport,
   unitSummary,
@@ -171,6 +174,54 @@ describe('unit-wide weapon choices and unitSummary (real data)', () => {
   });
 
   test('unitSummary: Immortals gear is per model', () => expect(unitSummary(added('necrons', 'Immortals')).gear).toEqual(['5x Gauss Blaster']));
+
+  test('unitSummary: a one-of group that holds a model (Meganobz "Boss") is not counted per model', () => {
+    const meganobz = added('orks', 'Meganobz');
+    expect(meganobz.models).toBe(3);
+    expect(unitSummary(meganobz).gear.sort()).toEqual(['3x Kustom Shoota', '3x Power Klaw', '3x Stikkbombs']);
+  });
+
+  /** Weapon counts the export prints: unit-level "Nx Name" lines plus each model stack's "Stack (n): a, 2x b" upgrades. */
+  function exportCounts(v: SelView): Map<string, number> {
+    const out = new Map<string, number>();
+    const add = (name: string, n: number) => out.set(name, (out.get(name) ?? 0) + n);
+    for (const line of unitExport(v).details) {
+      const stack = /^(.*) \((\d+)\)(?:: (.*))?$/.exec(line);
+      if (stack) {
+        for (const item of (stack[3] ?? '').split(', ').filter(Boolean)) {
+          const m = /^(\d+)x (.*)$/.exec(item);
+          add(m ? m[2] : item, Number(stack[2]) * (m ? Number(m[1]) : 1));
+        }
+        continue;
+      }
+      const m = /^(\d+)x (.*)$/.exec(line);
+      if (m) add(m[2], Number(m[1]));
+    }
+    return out;
+  }
+
+  test.each(['necrons', 'orks', 'imperium-imperial-navy', 'imperium-death-korps-of-krieg', 'imperium-adeptus-astartes-ultramarines'])(
+    "unitSummary counts each weapon as the export does, for every unit %s's picker offers",
+    { timeout: 60_000 },
+    (slug) => {
+      const scope = realScope(slug);
+      const r = createRoster(scope, { name: 'All', catalogueId: realCatalogueId(slug), battleSize: 'strike-force', forceId: FORCE.arksOfOmen });
+      const wrong: string[] = [];
+      for (const o of availableUnits(scope, r, r.forces[0].id)) {
+        const a = addUnit(scope, r, r.forces[0].id, o.entryId);
+        const v = findSelView(evaluate(scope, a.roster), a.selId);
+        if (!v) continue;
+        const counts = exportCounts(v);
+        for (const g of unitSummary(v).gear) {
+          const m = /^(\d+)x (.*)$/.exec(g);
+          const [n, name] = m ? [Number(m[1]), m[2]] : [1, g];
+          const printed = counts.get(name) ?? counts.get(displayName(name));
+          if (printed !== undefined && printed !== n) wrong.push(`${o.name}: summary ${n}x ${name}, export ${printed}x`);
+        }
+      }
+      expect(wrong).toEqual([]);
+    },
+  );
 
   test('unitSummary: a relic or trait without a "Relic:" prefix is known by its group (Space Marines Codex Relics)', () => {
     const captain = added('imperium-adeptus-astartes-ultramarines', 'Captain', { warlord: true, options: ['Stratagem: Relic', 'The Armour Indomitus'] });

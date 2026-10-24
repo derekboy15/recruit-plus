@@ -80,8 +80,8 @@ function* descendants(children: SelView[], copies: number): Generator<{ v: SelVi
  * choice (perModel, emit.ts) is one selection under the unit that every model carries, so it is counted once per model.
  */
 const modelsPerCopy = (unit: SelView) => (unit.type === 'unit' && unit.models > 1 ? unit.models / Math.max(1, unit.sel.count) : 1);
-/** Copies of a direct child of the unit: per model for a unit-wide choice. */
-const childCopies = (v: SelView, perModel: number) => v.sel.count * (v.merged?.node.perModel ? perModel : 1);
+/** Copies of a direct child of the unit: per model for a unit-wide choice (never for a model chosen in a one-of group). */
+const childCopies = (v: SelView, perModel: number) => v.sel.count * (v.type !== 'model' && v.merged?.node.perModel ? perModel : 1);
 
 /**
  * Leaf upgrades (not models, not the Warlord, nothing selected under them, not zero) aggregated by name, first seen

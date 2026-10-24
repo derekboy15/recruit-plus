@@ -183,6 +183,9 @@ export interface InfoFile { schema: 1; slug: string; entries: Record<string, Ent
 // ProfileOut and AbilityOut gain one optional flag (R2): set on weapons and abilities that come from relics, chapter or
 // Army-of-Renown options rather than the unit's own wargear. DatasheetView lists them under a collapsed "Also available".
 //   ProfileOut.extra?: true   AbilityOut.extra?: true
+// As built (Plan D): only weapons carry it. A relic's other texts, and every Warlord trait or stratagem option's, are in
+// the info files, not on datasheets (repeated on every character they doubled the Space Marine catalogues past their
+// budget), so AbilityOut.extra stays in the type but is never set.
 
 // packages/data/src/roster/names.ts (exported from '@recruit/data/roster')
 export interface OptionDisplay { name: string; heading: string | null; legends: boolean }

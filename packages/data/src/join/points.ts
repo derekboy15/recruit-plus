@@ -23,7 +23,8 @@ export interface PointsDisagreement {
 /**
  * Sets each unit's points (in place) to what the builder charges for it on a new Strike Force list for the catalogue
  * (Arks of Omen Detachment): the picker's price (availableUnits), or for a unit the picker doesn't offer there, the
- * price addUnit gives it on that list, when that is above 0. A unit the engine can't price keeps its Wahapedia cost.
+ * price addUnit gives it on that list. A price of 0 is no price (BSData has no cost there: Corsair bands, the Open Play
+ * Land Raider variants), so a unit the engine can't price keeps its Wahapedia cost, never "0 pts".
  * `files` is the catalogue's roster scope. Library catalogues are left as they are (their units are priced in the
  * catalogues that import them). Returns how many units the engine priced, and those whose engine price and Wahapedia
  * cost differ.
@@ -55,7 +56,8 @@ export function applyEnginePoints(out: CatalogueOut, files: RosterFile[]): { pri
   for (const u of out.units) {
     const wahapedia = u.points;
     const offered = picker.has(u.id);
-    const engine = offered ? picker.get(u.id)! : direct(u.id);
+    const listed = offered ? picker.get(u.id)! : direct(u.id);
+    const engine = listed ? listed : null;
     if (engine !== null) {
       u.points = engine;
       priced++;
