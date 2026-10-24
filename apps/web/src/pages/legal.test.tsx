@@ -54,8 +54,8 @@ describe('Terms', () => {
   });
 });
 
-test('footer links Legal & credits, Privacy and Terms', () => {
-  inRouter(<Footer />);
+test('the full footer links Legal & credits, Privacy and Terms', () => {
+  inRouter(<Footer full />);
   expect(screen.getByRole('link', { name: 'Legal & credits' })).toHaveAttribute('href', '/legal');
   expect(screen.getByRole('link', { name: 'Privacy' })).toHaveAttribute('href', '/privacy');
   expect(screen.getByRole('link', { name: 'Terms' })).toHaveAttribute('href', '/terms');
