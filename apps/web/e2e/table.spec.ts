@@ -52,7 +52,11 @@ async function seedList(page: Page): Promise<string> {
   }, necronsList());
 }
 
-const nextPhase = (page: Page) => page.getByRole('button', { name: 'Next phase' }).click();
+/** Next phase stays tappable while a question is open but does nothing then, so wait for any question to be answered. */
+async function nextPhase(page: Page) {
+  await expect(page.getByText('Answer the question above first.')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Next phase' }).click();
+}
 const position = (page: Page) => page.locator('.scoreboard__pos');
 const vpOf = (page: Page, name: string) => page.getByRole('group', { name }).locator('.scoreboard__vp');
 const cpOf = (page: Page, name: string) => page.getByRole('group', { name }).locator('.scoreboard__cp');

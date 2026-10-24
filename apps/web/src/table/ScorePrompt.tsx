@@ -32,7 +32,7 @@ export function ScorePrompt({ item, mission, name, round, onResolve }: {
   };
   return (
     <section className="card prompt" aria-label={`Score: ${name} · ${title}`}>
-      <h2>Score: {name}</h2>
+      <h2 tabIndex={-1}>Score: {name}</h2>
       <p><strong>{title}</strong> <span className="muted">· {WHEN[item.at]}</span></p>
       {c.kind === 'hold' ? (
         <>

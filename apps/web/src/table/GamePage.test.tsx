@@ -282,3 +282,40 @@ test('an ended game offers the summary and Undo the end from the menu', async ()
   await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
   expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
 });
+
+test('Next phase stays enabled during the Warlord question, explains itself and focuses the question', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup({ missionId: 'aoo-ascension' }));
+  renderGame(id, () => 2);
+  const q = await screen.findByRole('region', { name: 'Command phase CP: You' });
+  const next = screen.getByRole('button', { name: 'Next phase' });
+  expect(next).toBeEnabled();
+  expect(next).toHaveAccessibleDescription('Answer the question above first.');
+  expect(screen.getByText('Answer the question above first.')).toBeVisible();
+  await u.click(next);
+  await u.click(next);
+  expect(within(q).getByRole('heading', { level: 2 })).toHaveFocus();
+  expect(screen.getByText('Round 1 · Your turn · Command phase')).toBeVisible();
+  expect((await doc(id)).data.events.filter((e) => e.t === 'advance')).toHaveLength(0);
+});
+
+test('End turn with a score prompt open focuses the prompt and writes nothing', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'command' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Next phase' }));
+  const prompt = await screen.findByRole('region', { name: /Score: You/ });
+  const before = (await doc(id)).data.events.length;
+  const next = screen.getByRole('button', { name: 'Next phase' });
+  await waitFor(() => expect(next).toBeEnabled());
+  expect(next).toHaveAccessibleDescription('Answer the question above first.');
+  await u.click(next);
+  expect(within(prompt).getByRole('heading', { level: 2 })).toHaveFocus();
+  expect((await doc(id)).data.events).toHaveLength(before);
+});
+
+test('with nothing to answer there is no hint', async () => {
+  renderGame(await seed(testSetup(), { round: 1, turn: 1, phase: 'movement' }));
+  expect(await screen.findByRole('button', { name: 'Next phase' })).not.toHaveAccessibleDescription();
+  expect(screen.queryByText('Answer the question above first.')).toBeNull();
+});
