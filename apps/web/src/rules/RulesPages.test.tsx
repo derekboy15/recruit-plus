@@ -7,7 +7,7 @@ import { resetDataCache } from '../factions/dataClient';
 import { openDb, type RecruitDb } from '../storage/db';
 import { Blocks, InlineText } from './Blocks';
 import { CoreStratagemsPage } from './CoreStratagemsPage';
-import { GlossaryPage } from './GlossaryPage';
+import { GlossaryPage, letterOf } from './GlossaryPage';
 import { RulesArticlePage } from './RulesArticlePage';
 import { RulesHome } from './RulesHome';
 import { TestProviders } from './__fixtures__/TestProviders';
@@ -135,13 +135,54 @@ test('an unknown article says so', async () => {
 
 test('the glossary lists terms A to Z and filters them', async () => {
   renderAt('/rules/glossary');
-  const headings = await screen.findAllByRole('heading', { level: 2 });
+  const headings = await screen.findAllByRole('heading', { level: 3 });
   expect(headings.map((h) => [h.textContent, h.id])).toEqual([
     ['CORE', 'core'],
     ["T'au", 'tau'],
   ]);
   await userEvent.type(screen.getByRole('searchbox', { name: 'Filter terms' }), 'xenos');
-  expect(screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent)).toEqual(["T'au"]);
+  expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual(["T'au"]);
+});
+
+test('the A–Z jump lists only letters with matching terms', async () => {
+  renderAt('/rules/glossary');
+  const jump = await screen.findByRole('navigation', { name: 'Jump to letter' });
+  expect(within(jump).getAllByRole('link').map((a) => [a.textContent, a.getAttribute('href')])).toEqual([
+    ['C', '#letter-C'],
+    ['T', '#letter-T'],
+  ]);
+  await userEvent.type(screen.getByRole('searchbox', { name: 'Filter terms' }), 'xenos');
+  expect(within(screen.getByRole('navigation', { name: 'Jump to letter' })).getAllByRole('link').map((a) => a.textContent)).toEqual(['T']);
+});
+
+test('terms sit under their letter and keep their ids', async () => {
+  renderAt('/rules/glossary');
+  expect(await screen.findByRole('heading', { name: 'C', level: 2 })).toHaveAttribute('id', 'letter-C');
+  expect(screen.getByRole('heading', { name: 'T', level: 2 })).toHaveAttribute('id', 'letter-T');
+  for (const g of rulesData.glossary) expect(screen.getByRole('heading', { name: g.term, level: 3 })).toHaveAttribute('id', g.id);
+});
+
+test('no terms, no report button', async () => {
+  renderAt('/rules/glossary');
+  await userEvent.type(await screen.findByRole('searchbox', { name: 'Filter terms' }), 'zzzz');
+  expect(screen.getByText('No terms match.')).toBeInTheDocument();
+  expect(screen.queryByRole('navigation', { name: 'Jump to letter' })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Report a problem' })).toBeNull();
+});
+
+test('the glossary has Back and one report button for its terms', async () => {
+  renderAt('/rules/glossary');
+  expect(await screen.findByRole('link', { name: 'Back to Rules' })).toHaveAttribute('href', '/rules');
+  await userEvent.click(await screen.findByRole('button', { name: 'Report a problem' }));
+  const which = screen.getByRole('combobox', { name: 'Which part?' });
+  expect(within(which).getAllByRole('option').map((o) => o.textContent)).toEqual(['CORE', "T'au"]);
+});
+
+test('letterOf files a term under its first letter, or # when it starts with anything else', () => {
+  expect(letterOf('core')).toBe('C');
+  expect(letterOf("T'au")).toBe('T');
+  expect(letterOf('3" rule')).toBe('#');
+  expect(letterOf("'Ere We Go")).toBe('#');
 });
 
 test('core stratagems show plain English, then the official wording after the switch', async () => {

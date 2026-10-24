@@ -45,3 +45,13 @@
 /* ---------- Report a problem ---------- */
 .report { margin-top: 1.5rem; }
 .report__part { display: grid; gap: 0.25rem; margin-bottom: 1rem; }
+
+/* ---------- One scrolling row of 44px chips: the glossary's A–Z jump, the stratagem phases ---------- */
+.rules-chips {
+  display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; margin: 0.75rem 0 1rem; padding-bottom: 2px; scrollbar-width: none;
+}
+.rules-chips::-webkit-scrollbar { display: none; }
+.rules-chips .chip { flex: none; }
+a.chip { display: inline-flex; align-items: center; justify-content: center; min-width: var(--touch); text-decoration: none; }
+.glossary__letter > h2 { margin: 1.5rem 0 0.25rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+.glossary__letter .rules-section h3 { margin-top: 0.75rem; }
