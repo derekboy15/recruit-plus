@@ -2,7 +2,7 @@ import { TEXT_CHARS, type AbilityOut, type ProfileOut, type UnitOut } from '@rec
 import { useId, type ReactNode } from 'react';
 import { RulesText } from '../../rules/RulesText';
 import { useWording, WordingToggle } from '../../rules/wording';
-import { sizeLabel } from './format';
+import { sizeLabel, woundBracket, woundTracks } from './format';
 import { STAT_KEYS, StatGrid } from './StatGrid';
 import { WeaponCard } from './WeaponCard';
 
@@ -24,30 +24,18 @@ const isExtra = (x: ProfileOut | AbilityOut) => (x as { extra?: true }).extra ==
 
 const TEXT_KEYS: readonly string[] = TEXT_CHARS;
 
-/** "Doomsday Ark [2] (4-7 Wounds Remaining)" → base "Doomsday Ark", label "4–7 wounds left". */
-const BRACKET = /^(.*?)\s*\[\d+\]\s*\((\d+)\s*(\+|-\s*(\d+))?\s*wounds?\s+remaining\)\s*$/i;
-function bracketOf(name: string): { base: string; label: string } | null {
-  const m = BRACKET.exec(name);
-  if (!m) return null;
-  const [, base, from, sign, to] = m;
-  const label = to ? `${from}–${to} wounds left` : sign === '+' ? `${from}+ wounds left` : `${from} ${from === '1' ? 'wound' : 'wounds'} left`;
-  return { base, label };
-}
+type Bracket = { label: string; from: number; profile: ProfileOut };
+type StatBlock = { kind: 'model'; profile: ProfileOut } | { kind: 'track'; base: string; brackets: Bracket[] };
 
-type StatBlock = { kind: 'model'; profile: ProfileOut } | { kind: 'track'; base: string; brackets: { label: string; profile: ProfileOut }[] };
-
-/** Model profiles, with a degrading model's brackets folded into one stat grid plus a wound track. */
+/** Model profiles, with a degrading model's brackets folded, top bracket first, into one stat grid plus a wound track. */
 function statBlocks(models: ProfileOut[]): StatBlock[] {
+  const tracks = woundTracks(models);
   const blocks: StatBlock[] = [];
   for (const profile of models) {
-    const b = bracketOf(profile.name);
-    if (!b) {
-      blocks.push({ kind: 'model', profile });
-      continue;
-    }
-    const track = blocks.find((x): x is Extract<StatBlock, { kind: 'track' }> => x.kind === 'track' && x.base === b.base);
-    if (track) track.brackets.push({ label: b.label, profile });
-    else blocks.push({ kind: 'track', base: b.base, brackets: [{ label: b.label, profile }] });
+    const base = woundBracket(profile.name)?.base;
+    const brackets = base === undefined ? undefined : tracks.get(base);
+    if (!brackets) blocks.push({ kind: 'model', profile });
+    else if (!blocks.some((b) => b.kind === 'track' && b.base === base)) blocks.push({ kind: 'track', base: base!, brackets });
   }
   return blocks;
 }
@@ -75,7 +63,7 @@ function Section({ title, level, children }: { title: string; level: number; chi
   );
 }
 
-function WoundTrack({ base, brackets, level }: { base: string; brackets: { label: string; profile: ProfileOut }[]; level: number }) {
+function WoundTrack({ base, brackets, level }: { base: string; brackets: Bracket[]; level: number }) {
   // Only what changes between brackets; W reads N/A below the top one, so it is never listed.
   const changes = STAT_KEYS.filter(([, key]) => key !== 'W' && new Set(brackets.map((b) => b.profile.chars[key])).size > 1);
   return (

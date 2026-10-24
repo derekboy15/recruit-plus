@@ -28,6 +28,18 @@ test('keyStats finds an invulnerable save in an ability', () => {
   ).toBe('5+');
 });
 
+test('keyStats on a degrading vehicle reads the top bracket, whatever order the data lists them in', () => {
+  const rhino = {
+    ...necronWarriors,
+    models: [
+      { name: 'Rhino [2] (3-5 wounds remaining)', chars: { M: '6"', T: '7', W: 'N/A', Save: '3+' } },
+      { name: 'Rhino [1] (6+ wounds remaining)', chars: { M: '12"', T: '7', W: '10', Save: '3+' } },
+      { name: 'Rhino [3] (1-2 wounds remaining)', chars: { M: '3"', T: '7', W: 'N/A', Save: '3+' } },
+    ],
+  };
+  expect(keyStats(rhino)).toEqual({ M: '12"', T: '7', Sv: '3+', W: '10', inv: null });
+});
+
 test('keyStats: no models, or a missing stat, is a dash', () => {
   expect(keyStats({ ...necronWarriors, models: [] })).toEqual({ M: '-', T: '-', Sv: '-', W: '-', inv: null });
   expect(keyStats({ ...necronWarriors, models: [{ name: 'Odd', chars: { M: '6"' } }] })).toEqual({ M: '6"', T: '-', Sv: '-', W: '-', inv: null });

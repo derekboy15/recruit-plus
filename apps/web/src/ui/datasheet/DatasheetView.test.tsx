@@ -151,6 +151,66 @@ test('a degrading profile becomes one stat grid and a wound track', () => {
   expect(rows[1]).not.toHaveTextContent('Ld');
 });
 
+test.each([
+  [
+    'the BSData typo "remaning" and a missing space',
+    ['Gladiator Lancer [1] (7+ wounds remaning)', 'Gladiator Lancer [2] (4-6 wounds remaning)', 'Gladiator Lancer [3] (1-3wounds remaning)'],
+    ['7+ wounds left', '4–6 wounds left', '1–3 wounds left'],
+  ],
+  [
+    'an open-ended top range',
+    ['Macharius [1] (12-22+ wounds remaining)', 'Macharius [2] (6-11 wounds remaining)', 'Macharius [3] (1-5 wounds remaining)'],
+    ['12+ wounds left', '6–11 wounds left', '1–5 wounds left'],
+  ],
+  [
+    'no "remaining" at all',
+    ['Tank [1] (8-14 wounds)', 'Tank [2] (4-7 wounds)', 'Tank [3] (1-3 wounds)'],
+    ['8–14 wounds left', '4–7 wounds left', '1–3 wounds left'],
+  ],
+  [
+    'brackets listed out of order',
+    ['Rhino [2] (3-5 wounds remaining)', 'Rhino [1] (6+ wounds remaining)', 'Rhino [3] (1-2 wounds remaining)'],
+    ['6+ wounds left', '3–5 wounds left', '1–2 wounds left'],
+  ],
+  [
+    'a numbered list in front of the name',
+    ['3. Crimson Hunter (1-3 wounds remaining)', '1. Crimson Hunter (7+ wounds remaining)', '2. Crimson Hunter (4-6 wounds remaining)'],
+    ['7+ wounds left', '4–6 wounds left', '1–3 wounds left'],
+  ],
+  [
+    'a bare number after the name',
+    ['Chaos Land Raider 3 (1-4 wounds remaining)', 'Chaos Land Raider 1 (9+ wounds remaining)', 'Chaos Land Raider 2 (5-8 wounds remaining)'],
+    ['9+ wounds left', '5–8 wounds left', '1–4 wounds left'],
+  ],
+  [
+    'square brackets round the range',
+    ['Knight 1 [7+ wounds remaining]', 'Knight 2 [ 4-6 wounds remaining]', 'Knight 3 [1-3 wounds remaining]'],
+    ['7+ wounds left', '4–6 wounds left', '1–3 wounds left'],
+  ],
+])('a wound track from %s: one stat grid with the full W, and the brackets in order', (_, names, labels) => {
+  const chars = (W: string, M: string) => ({ M, WS: '6+', BS: '3+', S: '6', T: '7', W, A: '3', Ld: '8', Save: '3+' });
+  // The top bracket is the one that starts at the most wounds.
+  const from = (n: string) => Number(/[([]\s*(\d+)/.exec(n.replace(/^\d+\.\s*|\[\d+\]/g, ''))![1]);
+  const top = names.indexOf([...names].sort((a, b) => from(b) - from(a))[0]);
+  const unit: UnitOut = { ...warriors, models: names.map((name, i) => ({ name, chars: chars(i === top ? '12' : 'N/A', `${10 - i}"`) })) };
+  show(<DatasheetView unit={unit} />);
+  const grids = screen.getAllByRole('group', { name: /characteristics$/ });
+  expect(grids).toHaveLength(1);
+  const base = names[0].replace(/^\d+\.\s*/, '').replace(/\s*(\[\d+\]|\d+)?\s*[([].*$/, '');
+  expect(grids[0]).toHaveAccessibleName(`${base} characteristics`);
+  expect(within(box(grids[0], 'W')).getByText('12')).toBeInTheDocument();
+  const rows = within(screen.getByRole('region', { name: 'Wound track' })).getAllByRole('listitem');
+  expect(rows.map((li) => li.querySelector('.wound-track__label')!.textContent)).toEqual(labels);
+  expect(document.body.textContent).not.toMatch(/remain|\[\d\]/i);
+});
+
+test('a single profile that merely mentions wounds stays an ordinary profile', () => {
+  const unit: UnitOut = { ...warriors, models: [{ name: 'Spawn (2 wounds)', chars: { M: '8"', W: '2' } }] };
+  show(<DatasheetView unit={unit} />);
+  expect(screen.getByRole('group', { name: 'Spawn (2 wounds) characteristics' })).toBeInTheDocument();
+  expect(screen.queryByRole('region', { name: 'Wound track' })).toBeNull();
+});
+
 test('weapon abilities follow the wording switch', async () => {
   const withText: ProfileOut = { ...flayer, chars: { ...flayer.chars, Abilities: 'Official weapon text.' }, plain: { Abilities: 'Plain weapon text.' } };
   show(<DatasheetView unit={{ ...warriors, weapons: [withText] }} />);
