@@ -176,3 +176,44 @@ test('the wizard has Back to Table games and the step in its header', async () =
   expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
   expect(screen.getByText('Step 1 of 6: Battle size')).toBeVisible();
 });
+
+async function toSecondaries(u: ReturnType<typeof userEvent.setup>) {
+  await createList(createRepository(db), 'user-1', await necronsListData());
+  renderPage();
+  await toArmies(u);
+  const [yours, theirs] = screen.getAllByRole('group', { name: /army/ });
+  await u.click(within(yours).getByRole('radio', { name: 'Use one of my lists' }));
+  await u.click(within(yours).getByRole('radio', { name: /Necrons Strike Force/ }));
+  await u.click(within(theirs).getByRole('radio', { name: 'Just pick a faction' }));
+  await u.selectOptions(within(theirs).getByRole('combobox', { name: 'Faction' }), 'orks');
+  await u.click(next());
+  await u.click(within(screen.getByRole('group', { name: 'Who is the Defender?' })).getByRole('button', { name: 'You' }));
+  await u.click(within(screen.getByRole('group', { name: 'Which deployment zone does the Defender pick?' })).getByRole('button', { name: 'Player A' }));
+  await u.click(within(screen.getByRole('group', { name: 'Who takes the first turn?' })).getByRole('button', { name: 'You' }));
+  await u.click(next());
+}
+
+test('each secondary has an info button with how it scores', async () => {
+  const u = userEvent.setup();
+  await toSecondaries(u);
+  const mine = screen.getByRole('region', { name: 'Secondary objectives: You' });
+  await u.click(within(mine).getAllByRole('button', { name: 'About Grind Them Down' })[0]);
+  const sheet = screen.getByRole('dialog', { name: 'Grind Them Down' });
+  expect(within(sheet).getByText('No Mercy, No Respite · Progressive')).toBeVisible();
+  // Every choice has one, chosen or not.
+  expect(within(mine).getByRole('button', { name: 'About Bring It Down' })).toBeVisible();
+});
+
+test('chosen secondaries show as cards', async () => {
+  const u = userEvent.setup();
+  await toSecondaries(u);
+  const picks = screen.getByRole('list', { name: 'Your secondaries' });
+  expect(within(picks).getAllByRole('listitem')).toHaveLength(3);
+  const card = within(picks).getByText('Grind Them Down').closest('li')!;
+  expect(card).toHaveTextContent('No Mercy, No Respite · Progressive');
+  expect(within(card).getByRole('button', { name: 'About Grind Them Down' })).toBeVisible();
+  expect(screen.getByRole('list', { name: 'Opponent’s secondaries' })).toBeVisible();
+  // Unpicking one takes its card away.
+  await u.click(within(screen.getByRole('region', { name: 'Secondary objectives: You' })).getByRole('button', { name: 'Grind Them Down', pressed: true }));
+  expect(within(picks).getAllByRole('listitem')).toHaveLength(2);
+});

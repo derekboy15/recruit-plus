@@ -23,8 +23,7 @@
 .stepper { display: flex; align-items: center; gap: 0.6rem; margin: 0.5rem 0; }
 .stepper strong { min-width: 2.5ch; text-align: center; font-variant-numeric: tabular-nums; font-size: 1.15rem; }
 .stepper .btn { min-width: var(--touch); }
-.secondary-text { margin: 0.5rem 0; }
-.secondary-text summary, details.card summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
+details.card summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
 .setup-steps { padding-left: 1.25rem; display: grid; gap: 0.4rem; }
 .new-game .card { margin-bottom: 0.75rem; }
 .new-game .mission-map__figure { margin-top: 0.75rem; }
@@ -118,3 +117,13 @@
 .list-pick__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .list-pick__main > .muted { overflow-wrap: anywhere; }
 .list-pick__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; font-size: 0.85rem; }
+/* New game: secondaries, each with its rules a tap away */
+.secondary-picks { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+.secondary-pick { display: inline-flex; align-items: center; gap: 2px; max-width: 100%; }
+.secondary-pick .chip { min-width: 0; }
+.secondary-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.secondary-card {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2);
+}
+.secondary-card__main { flex: 1; min-width: 0; display: grid; gap: 2px; overflow-wrap: anywhere; }

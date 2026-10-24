@@ -1,8 +1,7 @@
 import type { MissionOut, PackOut, PlayerKey, SecondaryOut } from '@recruit/data/missions';
 import { RulesText } from '../rules/RulesText';
 import { makeEvent, type EventBody, type TableEvent, type TableGameData, type TableState } from './game';
-
-const TYPE: Record<SecondaryOut['type'], string> = { progressive: 'Progressive', 'end-game': 'End game', 'progressive-and-end-game': 'Progressive and end game' };
+import { SECONDARY_TYPE } from './SecondaryText';
 
 /** Primary VP per battle round (raw events, before the 45 cap). */
 export function primaryByRound(data: TableGameData, player: PlayerKey): number[] {
@@ -43,7 +42,7 @@ export function ScoreSheet({ data, pack, mission, state, append }: {
                   <div className="stepper">
                     <span className="stepper__label">
                       <strong>{label}</strong>
-                      {s && <span className="muted"> · {s.category} · {TYPE[s.type]}</span>}
+                      {s && <span className="muted"> · {s.category} · {SECONDARY_TYPE[s.type]}</span>}
                     </span>
                     <button type="button" className="btn btn--small" aria-label={`Fewer VP: ${label}`} disabled={shown <= 0} onClick={() => void write({ t: 'vp', player: p, category: 'secondary', sourceId: id, vp: -1, detail: 'adjusted' })}>−</button>
                     <strong>{shown} / {pack.caps.secondaryEach}</strong>

@@ -6,9 +6,9 @@ import { useAuth } from '../auth/AuthContext';
 import { getIndex } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
 import { useLists } from '../lists/listStore';
-import { RulesText } from '../rules/RulesText';
 import { useStorage } from '../storage/StorageContext';
 import { FactionBadge } from '../ui/FactionBadge';
+import { InfoButton } from '../ui/InfoButton';
 import { PageHeader } from '../ui/PageHeader';
 import { relativeTime } from '../ui/relativeTime';
 import { chosenNames } from './armyGroups';
@@ -16,6 +16,7 @@ import { rollDice } from './dice';
 import type { PlayerSetup, TableSetup } from './game';
 import { getMissions, missionById } from './missionData';
 import { MissionMap } from './MissionMap';
+import { SECONDARY_TYPE, SecondaryText } from './SecondaryText';
 import { defaultSetup, missionForRoll, missionsFor, packFor, secondaryChoices, secondaryProblems } from './setupModel';
 import { createTableGame } from './tableStore';
 
@@ -76,11 +77,11 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
   const armyReady = (s: Side) => Boolean(armies[s].name.trim()) && Boolean(slugOf(s));
   const hasList = SIDES.some((s) => armies[s].source === 'list');
   const choices = (s: Side) => (pack && mission ? secondaryChoices(missions, pack.id, slugOf(s), mission.id) : null);
-  const allSecondaries = (s: Side): SecondaryOut[] => {
+  const allSecondaries = (s: Side): (SecondaryOut & { note?: string })[] => {
     const c = choices(s);
     return c ? [...c.universal, ...c.faction, ...(c.mission ? [c.mission] : [])] : [];
   };
-  const chosen = (s: Side) => secondaries[s].map((id) => allSecondaries(s).find((x) => x.id === id)).filter((x): x is SecondaryOut => Boolean(x));
+  const chosen = (s: Side) => secondaries[s].map((id) => allSecondaries(s).find((x) => x.id === id)).filter((x) => x !== undefined);
   const problems = (s: Side) => (pack ? secondaryProblems(pack, chosen(s)) : []);
 
   const pickSize = (id: BattleSizeId) => {
@@ -292,22 +293,34 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
                 {[...groups].map(([category, list]) => (
                   <fieldset key={category} className="choices">
                     <legend>{category === 'Mission' ? 'This mission' : category}</legend>
-                    <div className="chips">
+                    <div className="secondary-picks">
                       {list.map((x) => (
-                        <button key={x.id} type="button" className="chip" aria-pressed={secondaries[s].includes(x.id)} onClick={() => toggleSecondary(s, x.id)} title={x.note}>
-                          {x.name}
-                        </button>
+                        <span key={x.id} className="secondary-pick">
+                          <button type="button" className="chip" aria-pressed={secondaries[s].includes(x.id)} onClick={() => toggleSecondary(s, x.id)} title={x.note}>
+                            {x.name}
+                          </button>
+                          <InfoButton label={`About ${x.name}`} title={x.name}><SecondaryText s={x} /></InfoButton>
+                        </span>
                       ))}
                     </div>
                   </fieldset>
                 ))}
-                {chosen(s).map((x) => (
-                  <details key={x.id} className="secondary-text">
-                    <summary>{x.name}</summary>
-                    {'note' in x && x.note ? <p className="note">{String(x.note)}</p> : null}
-                    <RulesText official={x.text} plain={x.plain} amended={x.amended} />
-                  </details>
-                ))}
+                {chosen(s).length > 0 && (
+                  <>
+                    <h3 className="label-caps">Chosen</h3>
+                    <ul className="secondary-cards" aria-label={armies[s].name === 'You' ? 'Your secondaries' : `${armies[s].name}’s secondaries`}>
+                      {chosen(s).map((x) => (
+                        <li key={x.id} className="secondary-card">
+                          <span className="secondary-card__main">
+                            <strong>{x.name}</strong>
+                            <span className="muted">{x.category} · {SECONDARY_TYPE[x.type]}</span>
+                          </span>
+                          <InfoButton label={`About ${x.name}`} title={x.name}><SecondaryText s={x} /></InfoButton>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </section>
             );
           })}
