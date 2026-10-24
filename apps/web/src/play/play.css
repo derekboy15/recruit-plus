@@ -46,6 +46,26 @@
 .game__army--A { box-shadow: inset 4px 0 0 var(--brass); }
 .game__army--B { box-shadow: inset 4px 0 0 var(--red-strong); }
 .game__army[data-active='true'] { border-color: var(--focus); }
+/* The Practice game's header (TopBar): Back, where the game is and the tools; the armies; the phase strip. Drills keep
+   the plain .game__top grid above. */
+.game__top--nav { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'back where tools' 'armies armies armies' 'phases phases phases'; column-gap: 0.25rem; padding: 0 0.5rem 0 0.25rem; }
+.game__back { grid-area: back; }
+.game__top--nav .game__where { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
+.game__top--nav .game__tools { align-items: center; gap: 0; }
+.game__top--nav .game__tools .btn--icon { padding: 0; }
+.game__log-btn { gap: 0.3rem; border-color: transparent; }
+/* On the narrowest phones the round and phase need the room: Log keeps its name for screen readers. */
+@media (max-width: 359px) {
+  .game__tools .game__log-btn { width: var(--touch); padding: 0; }
+  .game__log-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.phase-strip {
+  grid-area: phases; list-style: none; margin: 0; padding: 0 0.25rem 0.25rem; display: flex; justify-content: space-between; gap: 0.25rem;
+  font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden;
+}
+.phase-strip__item { color: var(--text); padding: 2px 0; border-bottom: 2px solid transparent; }
+.phase-strip__item[data-done='true'] { color: var(--text-muted); }
+.phase-strip__item[aria-current='step'] { color: var(--brass-strong); border-bottom-color: var(--brass-strong); font-weight: 700; }
 .game__board { position: relative; min-height: 0; }
 .game__panel { overflow-y: auto; max-height: 40vh; padding: 0.25rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--border); }
 .game--tall .game__panel { max-height: 85vh; }
@@ -74,6 +94,8 @@
 @media (min-width: 768px) {
   .game, .game--tall { grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: auto minmax(0, 1fr); }
   .game__top { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'where armies tools'; }
+  .game__top--nav { grid-template-columns: auto auto minmax(0, 1fr) auto; grid-template-areas: 'back where armies tools' 'phases phases phases phases'; column-gap: 0.5rem; }
+  .phase-strip { justify-content: flex-start; gap: 1.25rem; padding-left: 52px; }
   .game__panel, .game--tall .game__panel { max-height: none; border-top: 0; border-left: 1px solid var(--border); }
   .game__handle { display: none; }
 }

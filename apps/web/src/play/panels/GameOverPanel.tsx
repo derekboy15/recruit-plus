@@ -27,7 +27,7 @@ export function GameOverPanel({ sb }: PanelProps) {
         );
       })}
       <Link to="/play" className="btn btn--primary">
-        Back to games
+        Back to Practice games
       </Link>
     </section>
   );

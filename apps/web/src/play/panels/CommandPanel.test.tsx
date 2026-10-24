@@ -27,7 +27,7 @@ test('after a concession the other army wins', () => {
   renderPanel(Routed, must(deployedGame(), { type: 'concede', by: 'A' } as Command));
   expect(screen.getByRole('heading', { name: 'Ultramarines wins' })).toBeInTheDocument();
   expect(screen.getByText('Necrons conceded.')).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'Back to games' })).toHaveAttribute('href', '/play');
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
 });
 
 test('a game that ends level is a draw', () => {

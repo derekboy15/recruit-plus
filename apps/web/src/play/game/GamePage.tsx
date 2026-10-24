@@ -1,9 +1,10 @@
 /** The game screen: the top bar, the battlefield, and the panel for whatever the game is waiting for. */
 import type { PlayerId } from '@recruit/engine';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { DISCLAIMER } from '../../layout/Footer';
 import { useStorage } from '../../storage/StorageContext';
+import { PageHeader } from '../../ui/PageHeader';
 import { AssistPanel } from '../assist/AssistPanel';
 import { BoardCanvas, type RendererFactory } from '../board/BoardCanvas';
 import { PhasePanel } from '../panels/PhasePanel';
@@ -18,6 +19,8 @@ import { Toolkit } from '../toolkit/Toolkit';
 import { useBoardUi } from './useBoardUi';
 import { useSandbox } from './useSandbox';
 
+const BACK = { to: '/play', label: 'Practice games' };
+
 export function GamePage({ renderer }: { renderer?: RendererFactory }) {
   const { id = '' } = useParams();
   const sb = useSandbox(id);
@@ -27,23 +30,18 @@ export function GamePage({ renderer }: { renderer?: RendererFactory }) {
   if (sb.status === 'missing')
     return (
       <section>
+        <PageHeader title="Game not found" back={BACK} />
         <p>This game no longer exists.</p>
-        <Link to="/play" className="btn">
-          Back to games
-        </Link>
       </section>
     );
   if (sb.status === 'unreadable')
     return (
       <section>
-        <h1>This game can't be opened</h1>
+        <PageHeader title="This game can’t be opened" back={BACK} />
         <p>{sb.message}</p>
         <button type="button" className="btn btn--danger" onClick={() => void repo.deleteDoc(id).then(() => navigate('/play'))}>
           Delete this game
-        </button>{' '}
-        <Link to="/play" className="btn">
-          Back to games
-        </Link>
+        </button>
       </section>
     );
   return <GameScreen sb={sb} renderer={renderer} />;

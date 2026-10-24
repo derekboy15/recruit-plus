@@ -70,6 +70,20 @@ test('shows the round, phase, CP and VP for both armies', async () => {
   expect(bar).toHaveTextContent('VP 0');
 });
 
+test('the game header links back to the Practice games and shows where the turn is', async () => {
+  await seed(deployedGame());
+  page();
+  const bar = await screen.findByRole('banner', { name: 'Game status' });
+  expect(within(bar).getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+  expect(within(within(bar).getByRole('list', { name: 'Phases' })).getByText('Command')).toHaveAttribute('aria-current', 'step');
+});
+
+test('a missing game offers the way back', async () => {
+  page('nope');
+  expect(await screen.findByText('This game no longer exists.')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+});
+
 test("Undo shows the engine's refusal at the start of a phase", async () => {
   await seed(deployedGame());
   page();
@@ -120,6 +134,8 @@ test('an unreadable game shows why and offers to delete it', async () => {
   await repo.saveDoc({ id: 'bad', kind: 'game', ownerId: 'u', data: { record: { schema: 2 }, meta: meta(), summary: summarise(deployedGame()) } });
   page('bad');
   expect(await screen.findByText('This saved game was made by a newer version of the app.')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: 'This game can’t be opened' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
   await userEvent.click(screen.getByRole('button', { name: 'Delete this game' }));
   expect(await screen.findByText('Games list')).toBeInTheDocument();
   expect((await repo.getDoc('bad'))?.deleted).toBe(true);
