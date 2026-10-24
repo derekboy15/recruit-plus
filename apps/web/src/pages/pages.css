@@ -46,6 +46,11 @@
 .home-row__warn { color: var(--warn); }
 .home-row__ok svg, .home-row__warn svg { vertical-align: -2px; }
 .home-row__action { position: relative; z-index: 1; flex: none; padding: 0 0.8rem; }
+/* On narrow phones Play is the icon alone (its name stays on the link), leaving room for the list's name. */
+@media (max-width: 399px) {
+  .home-row__action { width: var(--touch); padding: 0; }
+  .home-row__action-label { display: none; }
+}
 
 /* Sign-in: Google first, then a ruled "or use your email" before the form. */
 .auth-google svg { flex: none; }

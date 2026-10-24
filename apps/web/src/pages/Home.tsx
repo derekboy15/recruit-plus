@@ -112,7 +112,7 @@ function ListRow({ list }: { list: HomeList }) {
       </div>
       <Link className="btn home-row__action" to={`/build/${list.id}/play`} aria-label={`Play ${list.name}`}>
         <IconPlay size={18} aria-hidden="true" />
-        Play
+        <span className="home-row__action-label">Play</span>
       </Link>
     </li>
   );
