@@ -1,4 +1,4 @@
-import type { CatalogueOut } from '@recruit/data/model';
+import type { CatalogueOut, EntryInfo } from '@recruit/data/model';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { loadEntryInfo } from '../../data/entryInfo';
 import { getCatalogue, resetDataCache } from '../../factions/dataClient';
@@ -17,7 +17,7 @@ afterEach(() => {
 });
 
 test('info texts: rules as they are; ability profiles by their text column; weapon profiles left out', () => {
-  const info = {
+  const info: EntryInfo = {
     rules: [{ name: 'Rule', text: 'Do X.', plain: 'You do X.' }],
     profiles: [
       { name: 'Awakened By Murder', type: 'Abilities', chars: { Description: 'Add 1 to charge rolls.' } },
