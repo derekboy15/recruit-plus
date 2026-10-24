@@ -83,6 +83,12 @@ export async function restoreList(repo: Repository, doc: Doc<ListData>): Promise
   await repo.saveDoc<ListData>({ id: doc.id, kind: 'list', ownerId: doc.ownerId, isPublic: doc.isPublic, data: doc.data, updatedAt });
 }
 
+/** Gives a saved list a new name (as an edit: newest first on the lists page). */
+export async function renameList(repo: Repository, id: string, name: string): Promise<void> {
+  const doc = await existing(repo, id);
+  await repo.saveDoc<ListData>({ id, kind: 'list', ownerId: doc.ownerId, data: { ...doc.data, roster: { ...doc.data.roster, name } } });
+}
+
 /** Turns link sharing on or off for a list. */
 export async function setListPublic(repo: Repository, id: string, isPublic: boolean): Promise<void> {
   const doc = await repo.getDoc<ListData>(id);

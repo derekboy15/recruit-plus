@@ -1,0 +1,36 @@
+/* The army builder (Plan B): Your lists, the list editor and the new-list wizard. Tokens only from theme.css. */
+
+/* ---------- Your lists ---------- */
+.lists-page__new { gap: 6px; padding-left: 10px; }
+.lists-search {
+  display: flex; align-items: center; gap: 8px; min-height: var(--touch); padding: 0 12px; margin-bottom: 8px;
+  background: var(--surface); border: 1px solid var(--input-border); border-radius: var(--radius); color: var(--text-muted);
+}
+.lists-search:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.lists-search__input {
+  flex: 1; min-width: 0; min-height: var(--touch); background: none; border: 0; outline: none; color: var(--text); font: inherit;
+}
+.lists-page__count { margin: 0 0 8px; font-size: 0.8125rem; color: var(--text-muted); }
+.list-cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.list-card { display: flex; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.list-card:hover, .list-card:focus-within { border-color: var(--border-strong); }
+.list-card__link {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 12px 4px 12px 12px; border-radius: 12px 0 0 12px;
+  color: inherit; text-decoration: none;
+}
+.list-card__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.list-card__name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list-card__meta { font-size: 0.8125rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.list-card__status { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; font-size: 0.75rem; color: var(--text-muted); }
+.list-card__ok, .list-card__fix { display: inline-flex; align-items: center; gap: 3px; font-weight: 600; }
+.list-card__ok { color: var(--ok); }
+.list-card__fix { color: var(--warn); }
+.list-card .menu { align-self: stretch; }
+.list-card .menu__trigger { height: auto; min-height: var(--touch); border: 0; border-radius: 0 11px 11px 0; color: var(--text-muted); }
+.list-card .menu__trigger[aria-expanded='true'] { color: var(--text); }
+/* Lines a menu item with no icon of its own up with the rest. */
+.menu-spacer { display: inline-block; width: 18px; height: 18px; }
+
+/* ---------- Sheets ---------- */
+.rename { display: grid; gap: 6px; }
+.field-error { margin: 0; color: var(--danger-text); font-size: 0.875rem; font-weight: 600; }
