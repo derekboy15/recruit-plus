@@ -1,4 +1,5 @@
-/* Home: the signed-out landing and the signed-in dashboard. */
+/* Home: the signed-out landing and the signed-in dashboard. This file loads before theme.css (it comes with the app's
+   first page), so a rule that changes a theme class (.btn, .auth-divider) needs a more specific selector to win. */
 .home-hero h1 { font-size: 2.1rem; margin-top: 0.5rem; }
 .home-hero__lead { color: var(--text-soft); max-width: 62ch; }
 .home-hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0 1.5rem; }
@@ -23,7 +24,7 @@
 .home-section__more { margin-top: 0.75rem; }
 .home-learn p { margin: 0 0 0.75rem; }
 .home-learn { display: grid; justify-items: start; }
-.home-learn__next { max-width: 100%; justify-content: flex-start; text-align: left; padding: 0.5rem 1rem; }
+.home-learn .home-learn__next { max-width: 100%; justify-content: flex-start; text-align: left; padding: 0.5rem 1rem; }
 .home-learn__all { margin-top: 0.25rem; margin-left: -0.6rem; }
 .home-empty p { margin: 0 0 0.75rem; }
 
@@ -45,14 +46,14 @@
 .home-row__ok { color: var(--ok); }
 .home-row__warn { color: var(--warn); }
 .home-row__ok svg, .home-row__warn svg { vertical-align: -2px; }
-.home-row__action { position: relative; z-index: 1; flex: none; padding: 0 0.8rem; }
+.home-row .home-row__action { position: relative; z-index: 1; flex: none; padding: 0 0.8rem; }
 /* On narrow phones Play is the icon alone (its name stays on the link), leaving room for the list's name. */
 @media (max-width: 399px) {
-  .home-row__action { width: var(--touch); padding: 0; }
+  .home-row .home-row__action { width: var(--touch); padding: 0; }
   .home-row__action-label { display: none; }
 }
 
 /* Sign-in: Google first, then a ruled "or use your email" before the form. */
 .auth-google svg { flex: none; }
-.auth-divider--lines { display: flex; align-items: center; gap: 0.75rem; margin: 1rem 0; font-size: 0.875rem; }
+.auth-divider.auth-divider--lines { display: flex; align-items: center; gap: 0.75rem; margin: 1rem 0; font-size: 0.875rem; }
 .auth-divider--lines::before, .auth-divider--lines::after { content: ''; flex: 1; border-top: 1px solid var(--border); }
