@@ -9,6 +9,7 @@ import { createRepository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
 import { createList, type ListData } from './listStore';
 import { listData, startingRoster } from './newListSetup';
+import { useEditorShortcuts } from './history';
 import { useRosterEditor, type EditorUi } from './useRosterEditor';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 
@@ -233,4 +234,78 @@ test('Arks of Omen → Combat Patrol: the detachment is the problem, and the Gam
   expect(issues.filter((i) => i.selId === gameType.sel.id || (i.fix?.kind === 'open' && i.fix.selId === gameType.sel.id))).toEqual([]);
   act(() => result.current.dispatch({ type: 'apply-fix', fix: { kind: 'open', selId: gameType.sel.id } }));
   expect(ui.openUnit).not.toHaveBeenCalled();
+});
+
+test('undo takes back the last edit and is saved after the debounce; redo puts it back', async () => {
+  const id = await necronsList();
+  const { result } = await openEditor(id);
+  const original = ready(result.current).roster;
+  expect(ready(result.current).canUndo).toBe(false);
+  expect(ready(result.current).canRedo).toBe(false);
+  const warriors = await unitId('Necron Warriors', result.current);
+  const forceSelId = original.forces[0].id;
+  act(() => result.current.dispatch({ type: 'add-unit', forceSelId, entryId: warriors }));
+  expect(ready(result.current).canUndo).toBe(true);
+  await act(() => result.current.flush());
+  expect((await saved(id)).data.summary.points).toBe(110);
+
+  const put = vi.spyOn(db.docs, 'put');
+  act(() => ready(result.current).undo());
+  expect(ready(result.current).roster).toEqual(original);
+  expect(ready(result.current).canUndo).toBe(false);
+  expect(ready(result.current).canRedo).toBe(true);
+  expect(put).not.toHaveBeenCalled();
+  await waitFor(() => expect(put).toHaveBeenCalledTimes(1), { timeout: 700 });
+  expect((await saved(id)).data.roster).toEqual(original);
+  expect((await saved(id)).data.summary.points).toBe(0);
+
+  act(() => ready(result.current).redo());
+  expect(ready(result.current).view.total[COST_PTS]).toBe(110);
+  expect(ready(result.current).canRedo).toBe(false);
+});
+
+test('version goes up by one on every committed edit, undo and redo; an edit that changes nothing leaves it', async () => {
+  const id = await necronsList();
+  const { result } = await openEditor(id);
+  const v0 = ready(result.current).version;
+  act(() => result.current.dispatch({ type: 'rename', name: 'One' }));
+  expect(ready(result.current).version).toBe(v0 + 1);
+  act(() => result.current.dispatch({ type: 'rename', name: 'One' }));
+  expect(ready(result.current).version).toBe(v0 + 1);
+  act(() => ready(result.current).undo());
+  expect(ready(result.current).version).toBe(v0 + 2);
+  act(() => ready(result.current).redo());
+  expect(ready(result.current).version).toBe(v0 + 3);
+  act(() => ready(result.current).redo()); // nothing to redo
+  expect(ready(result.current).version).toBe(v0 + 3);
+});
+
+test('Ctrl+Z undoes and Ctrl+Shift+Z or Ctrl+Y redoes, except while typing in a text box', async () => {
+  const id = await necronsList();
+  const { result } = renderHook(
+    () => {
+      const editor = useRosterEditor(id);
+      useEditorShortcuts(editor.status === 'ready' ? editor : null);
+      return editor;
+    },
+    { wrapper },
+  );
+  await waitFor(() => expect(result.current.status).toBe('ready'), { timeout: 5000 });
+  act(() => result.current.dispatch({ type: 'rename', name: 'Renamed' }));
+  const key = (init: KeyboardEventInit, target: EventTarget = document.body) =>
+    act(() => void target.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, cancelable: true, ...init })));
+
+  const input = document.body.appendChild(document.createElement('input'));
+  key({ key: 'z', ctrlKey: true }, input);
+  expect(ready(result.current).roster.name).toBe('Renamed');
+  input.remove();
+
+  key({ key: 'z', ctrlKey: true });
+  expect(ready(result.current).roster.name).toBe('Necrons Strike Force');
+  key({ key: 'Z', ctrlKey: true, shiftKey: true });
+  expect(ready(result.current).roster.name).toBe('Renamed');
+  key({ key: 'z', metaKey: true });
+  expect(ready(result.current).roster.name).toBe('Necrons Strike Force');
+  key({ key: 'y', ctrlKey: true });
+  expect(ready(result.current).roster.name).toBe('Renamed');
 });
