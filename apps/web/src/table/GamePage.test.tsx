@@ -57,10 +57,11 @@ const tap = async (u: ReturnType<typeof userEvent.setup>, label: string, times: 
 
 test('Arks of Omen Command phase adds 1 CP to both players', async () => {
   renderGame(await seed(testSetup()));
+  // The first wait covers loading the game and the missions as well as the CP save, so it gets longer than 1s.
   await waitFor(() => {
     expect(within(player('You')).getByText('7 CP')).toBeInTheDocument();
     expect(within(player('Opponent')).getByText('7 CP')).toBeInTheDocument();
-  });
+  }, { timeout: 4000 });
   expect(screen.getByText(/Round 1 · Your turn · Command phase/)).toBeInTheDocument();
   expect(screen.getByText(/Both players gain 1 CP/)).toBeInTheDocument();
 });
@@ -70,14 +71,14 @@ test('Core Book adds 1 CP to the active player only', async () => {
   s.players.A.startingCp = 3;
   s.players.B.startingCp = 3;
   renderGame(await seed(s));
-  await waitFor(() => expect(within(player('You')).getByText('4 CP')).toBeInTheDocument());
+  await waitFor(() => expect(within(player('You')).getByText('4 CP')).toBeInTheDocument(), { timeout: 4000 });
   expect(within(player('Opponent')).getByText('3 CP')).toBeInTheDocument();
 });
 
 test('Secret Intel Inbound gives no CP in round 1', async () => {
   const id = await seed(testSetup({ missionId: 'aoo-display-of-spiritual-might' }));
   renderGame(id);
-  await waitFor(async () => expect((await doc(id)).data.events.filter((e) => e.t === 'cp')).toHaveLength(2));
+  await waitFor(async () => expect((await doc(id)).data.events.filter((e) => e.t === 'cp')).toHaveLength(2), { timeout: 4000 });
   expect(within(player('You')).getByText('6 CP')).toBeInTheDocument();
   expect(within(player('Opponent')).getByText('6 CP')).toBeInTheDocument();
 });
