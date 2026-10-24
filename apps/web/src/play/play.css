@@ -97,8 +97,10 @@
 .game__dialog { position: relative; width: min(100%, 520px); max-height: 85vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
 .game__close { position: absolute; top: 0.5rem; right: 0.5rem; }
 .game__dialog h2 { margin-top: 0; }
-.game__log ol { padding-left: 1.2rem; font-size: 0.9rem; }
-.game__log h3 { font-size: 0.95rem; color: var(--brass-strong); }
+/* The game log sheet: one section per phase, newest first, so its lines aren't numbered. */
+.game__log section + section { margin-top: 1rem; }
+.game__log h3 { margin: 0 0 0.35rem; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.01em; color: var(--brass-strong); }
+.game__log ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.9rem; color: var(--text-soft); }
 .game__handover { text-align: center; }
 .game__handover-text { color: var(--text-muted); margin: 0; }
 .game__handover-name { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; overflow-wrap: anywhere; }

@@ -1,9 +1,10 @@
-/** The game screen's overlays: the pass-the-device screen, the game log and the menu. */
+/** The game screen's overlays: the pass-the-device screen, and the game log and menu (sheets over the game). */
 import type { LogLine, PlayerId } from '@recruit/engine';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { WordingToggle } from '../../rules/wording';
-import { PHASE_NAMES } from './names';
+import { Sheet } from '../../ui/Sheet';
+import { logGroups } from './logGroups';
 
 const FOCUSABLE = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -79,27 +80,25 @@ export function HandOver({ name, onDone }: { name: string; onDone(): void }) {
   );
 }
 
+/** The log, newest phase first, each phase's lines newest first. */
 export function GameLog({ lines, onClose }: { lines: LogLine[]; onClose(): void }) {
-  const rounds = [...new Set(lines.map((l) => l.round))];
   return (
-    <Dialog label="Game log" onClose={onClose} className="game__log">
-      <h2>Game log</h2>
-      {rounds.map((r) => (
-        <section key={r}>
-          <h3>{r === 0 ? 'Before the battle' : `Battle round ${r}`}</h3>
-          <ol>
-            {lines
-              .filter((l) => l.round === r)
-              .map((l, i) => (
-                <li key={`${l.seq}-${i}`}>
-                  {r > 0 && <span className="muted">{PHASE_NAMES[l.phase]}: </span>}
-                  {l.text}
-                </li>
-              ))}
-          </ol>
-        </section>
-      ))}
-    </Dialog>
+    <Sheet title="Game log" onClose={onClose}>
+      <div className="game__log">
+        {logGroups(lines).map((g) => (
+          <section key={g.key}>
+            <h3>{g.title}</h3>
+            {g.lines.length > 0 && (
+              <ol>
+                {g.lines.map((l) => (
+                  <li key={l.key}>{l.text}</li>
+                ))}
+              </ol>
+            )}
+          </section>
+        ))}
+      </div>
+    </Sheet>
   );
 }
 
@@ -118,8 +117,7 @@ export interface MenuProps {
 export function GameMenu({ hints, handOver, setHints, setHandOver, armies, ended, onConcede, onToolkit, onClose }: MenuProps) {
   const [conceding, setConceding] = useState(false);
   return (
-    <Dialog label="Game menu" onClose={onClose}>
-      <h2>Menu</h2>
+    <Sheet title="Menu" onClose={onClose}>
       <label className="choices__option">
         <input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} />
         <span>Hints for new players</span>
@@ -154,9 +152,9 @@ export function GameMenu({ hints, handOver, setHints, setHandOver, armies, ended
             </button>
           ))}
         <Link to="/play" className="btn">
-          Back to games
+          Back to Practice games
         </Link>
       </div>
-    </Dialog>
+    </Sheet>
   );
 }
