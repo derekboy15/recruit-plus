@@ -128,11 +128,9 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
     if (stale) close();
   }, [stale, close]);
 
-  const panelProps = { scope, roster, view, issues, units, dispatch };
-
   // One sheet at a time over the list (a drawer from 768px); on wide screens Problems also rests beside the list.
   let sheet: ReactNode = null;
-  if (openSel) sheet = <UnitEditor key={openSel.sel.id} selId={openSel.sel.id} {...panelProps} onClose={close} />;
+  if (openSel) sheet = <UnitEditor key={openSel.sel.id} editor={editor} selId={openSel.sel.id} units={units} info={info} onClose={close} />;
   else if (pickerForce) {
     const only = params.get('only')?.split(',').filter(Boolean);
     const onAdd = (entryId: string) => {

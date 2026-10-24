@@ -91,7 +91,10 @@ test('adding Necron Warriors from the picker updates the header and opens the un
 
   expect(points()).toHaveTextContent('110 / 2,000 pts');
   const editor = await screen.findByRole('dialog', { name: 'Necron Warriors' });
-  expect(within(editor).getByRole('link', { name: 'View datasheet' })).toHaveAttribute('href', '/factions/necrons/units/necron-warriors');
+  await u.click(await within(editor).findByRole('button', { name: 'View datasheet' }));
+  const datasheet = (await screen.findAllByRole('dialog', { name: 'Necron Warriors' }))[1];
+  expect(within(datasheet).getByRole('group', { name: 'Necron Warrior characteristics' })).toBeInTheDocument();
+  await u.click(within(datasheet).getByRole('button', { name: 'Close' }));
   expect(screen.queryByRole('dialog', { name: 'Add a unit' })).not.toBeInTheDocument();
 });
 
