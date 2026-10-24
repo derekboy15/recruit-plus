@@ -65,6 +65,12 @@ function counted(children: SelView[], copies = 1): { name: string; qty: number }
 export function takenWeapons(v: SelView, unit: UnitOut): string[] | undefined {
   const held = new Map<string, number>();
   for (const { name, qty } of counted(v.children)) held.set(name, (held.get(name) ?? 0) + qty);
+  // The summary counts a unit-wide choice once per model ("5x Gauss Blaster"), which the plain walk above can't know.
+  for (const g of unitSummary(v).gear) {
+    const m = /^([\d,]+)x (.+)$/.exec(g);
+    const name = norm(m ? m[2] : g);
+    if (held.has(name)) held.set(name, m ? Number(m[1].replace(/,/g, '')) : 1);
+  }
   const out: string[] = [];
   for (const p of unit.weapons) {
     const name = norm(p.name);

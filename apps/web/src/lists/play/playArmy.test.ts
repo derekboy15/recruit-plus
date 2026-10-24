@@ -25,6 +25,8 @@ test('taken weapons match profiles by name, by "name (mode)", ignoring case and 
   const warriors = unitNamed(view, 'Necron Warriors');
   // The count the unit carries comes along, so the weapon card reads ×10 (DatasheetView parses "10x ").
   expect(takenWeapons(warriors, datasheet(units, 'Necron Warriors'))).toEqual(['10x Gauss Flayer']);
+  // A unit-wide choice is one selection every model carries: counted per model, as the export counts it.
+  expect(takenWeapons(unitNamed(view, 'Immortals'), datasheet(units, 'Immortals'))).toEqual(['5x Gauss Blaster']);
   const fake = (names: string[]): SelView => ({
     ...warriors,
     children: names.map((name) => ({ ...warriors.children[0], name, children: [], sel: { ...warriors.children[0].sel, count: 1 } })),
