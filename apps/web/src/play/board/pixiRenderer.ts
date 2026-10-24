@@ -7,6 +7,7 @@ import { MARKER_RADIUS, type Pt } from '@recruit/engine';
 import { Application, Container, Graphics, Text } from 'pixi.js';
 import { worldToScreen, type Camera, type Size } from './camera';
 import type { RendererFactory } from './BoardCanvas';
+import { TERRAIN_COLOURS } from './colours';
 import type { BoardScene } from './scene';
 
 function cssColours() {
@@ -24,7 +25,8 @@ function cssColours() {
   };
 }
 
-const TERRAIN = { ruin: 0x77736b, woods: 0x3e6b3a, crater: 0x6b4f35, other: 0x5b5b5b } as const;
+const hex = (css: string) => parseInt(css.slice(1), 16);
+const TERRAIN = { ruin: hex(TERRAIN_COLOURS.ruin), woods: hex(TERRAIN_COLOURS.woods), crater: hex(TERRAIN_COLOURS.crater), other: hex(TERRAIN_COLOURS.other) } as const;
 const flat = (pts: Pt[]) => pts.flatMap((p) => [p.x, p.y]);
 
 export const createPixiRenderer: RendererFactory = async (host, view) => {

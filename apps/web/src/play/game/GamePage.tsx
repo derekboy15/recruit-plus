@@ -12,6 +12,7 @@ import { Problems } from '../panels/Problems';
 import type { ReadySandbox } from '../panels/types';
 import { hintFor } from './hints';
 import { armyName, boardNames } from './names';
+import { MapKey } from './MapKey';
 import { GameLog, GameMenu, HandOver } from './Overlays';
 import { ScoreSheet } from './ScoreSheet';
 import { TopBar } from './TopBar';
@@ -72,6 +73,7 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
   };
   const hint = meta.hints ? hintFor(state, step, selectedUnitId) : null;
   const armies = (['A', 'B'] as PlayerId[]).map((p) => ({ player: p, name: armyName(state, p) }));
+  const names = boardNames(state);
 
   return (
     <div className={`game${tall ? ' game--tall' : ''}`}>
@@ -84,8 +86,9 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
           onDrag={onDrag}
           renderer={renderer}
           label={`Battlefield, ${state.setup.board.w} by ${state.setup.board.h} inches`}
-          names={boardNames(state)}
+          names={names}
         />
+        <MapKey scene={scene} names={names} />
       </div>
       <div className="game__panel">
         <button type="button" className="game__handle" aria-expanded={tall} onClick={() => setTall((t) => !t)}>
