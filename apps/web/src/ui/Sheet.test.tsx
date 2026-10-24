@@ -56,6 +56,57 @@ test('focus goes back to the opener when it closes', async () => {
   expect(screen.getByRole('button', { name: 'Open' })).toHaveFocus();
 });
 
+test('Tab and Shift+Tab stay inside the sheet', async () => {
+  render(
+    <>
+      <button>Behind the sheet</button>
+      <Sheet title="Preview" onClose={() => {}} footer={<button>Add to list</button>}>
+        <a href="#rules">Read the rule</a>
+      </Sheet>
+    </>,
+  );
+  const close = screen.getAllByRole('button', { name: 'Close' }).find((b) => !b.classList.contains('sheet-backdrop'))!;
+  const add = screen.getByRole('button', { name: 'Add to list' });
+  await userEvent.tab();
+  expect(close).toHaveFocus();
+  await userEvent.tab();
+  expect(screen.getByRole('link', { name: 'Read the rule' })).toHaveFocus();
+  await userEvent.tab();
+  expect(add).toHaveFocus();
+  await userEvent.tab();
+  expect(close).toHaveFocus();
+  await userEvent.tab({ shift: true });
+  expect(add).toHaveFocus();
+});
+
+test('Shift+Tab from the heading it opened on goes to the last control, not the page behind', async () => {
+  render(
+    <>
+      <button>Behind the sheet</button>
+      <Sheet title="Preview" onClose={() => {}} footer={<button>Add to list</button>}>
+        Body
+      </Sheet>
+    </>,
+  );
+  expect(screen.getByRole('heading', { name: 'Preview' })).toHaveFocus();
+  await userEvent.tab({ shift: true });
+  expect(screen.getByRole('button', { name: 'Add to list' })).toHaveFocus();
+});
+
+test('an inline sheet does not hold focus', async () => {
+  render(
+    <>
+      <Sheet title="Army rules" inline onClose={() => {}}>
+        <button>Inside</button>
+      </Sheet>
+      <button>After</button>
+    </>,
+  );
+  screen.getByRole('button', { name: 'Inside' }).focus();
+  await userEvent.tab();
+  expect(screen.getByRole('button', { name: 'After' })).toHaveFocus();
+});
+
 test('footer is rendered after the content', () => {
   render(
     <Sheet title="Preview" onClose={() => {}} footer={<button>Add to list · 90 pts</button>}>

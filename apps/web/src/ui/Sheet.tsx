@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { IconClose } from './icons';
 
@@ -23,6 +23,18 @@ export interface SheetProps {
 const openSheets = new Set<number>();
 let rendered = 0;
 const isTop = (order: number) => Math.max(...openSheets) === order;
+
+const TABBABLE =
+  'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]';
+
+/** What Tab can reach inside `root`, in order: not tabindex -1, not hidden, not inside a closed <details>. */
+function tabbables(root: HTMLElement): HTMLElement[] {
+  return [...root.querySelectorAll<HTMLElement>(TABBABLE)].filter((el) => {
+    if (el.tabIndex < 0 || el.closest('[hidden], [inert]')) return false;
+    const closed = el.closest('details:not([open])');
+    return !closed || (el.tagName === 'SUMMARY' && el.parentElement === closed);
+  });
+}
 
 /**
  * A sheet over the page. It is a dialog named by its title, takes focus on its heading, closes on Escape and on the
@@ -58,6 +70,20 @@ export function Sheet({ title, onClose, kind = 'sheet', inline = false, closeLab
     if (!inline && isTop(order)) heading.current?.focus();
   }, [inline, order, title]);
 
+  // A modal keeps Tab inside it: past the last control back to the first, and Shift+Tab the other way round. The
+  // heading it opened on counts as the start. (Not `inert` on the page: the Undo toast must stay reachable.)
+  const onKeyDown = (e: ReactKeyboardEvent<HTMLElement>) => {
+    if (inline || e.key !== 'Tab' || e.defaultPrevented) return;
+    const all = tabbables(e.currentTarget);
+    if (!all.length) return;
+    const active = document.activeElement;
+    const [first, last] = [all[0], all[all.length - 1]];
+    const wrapTo = e.shiftKey ? (active === first || active === heading.current ? last : null) : active === last ? first : null;
+    if (!wrapTo) return;
+    e.preventDefault();
+    wrapTo.focus();
+  };
+
   const sheet = (
     <>
       {!inline && <button type="button" className="sheet-backdrop" aria-label={closeLabel} tabIndex={-1} onClick={onClose} />}
@@ -66,6 +92,7 @@ export function Sheet({ title, onClose, kind = 'sheet', inline = false, closeLab
         aria-modal={inline ? undefined : true}
         aria-labelledby={id}
         className={`sheet sheet--${kind}${inline ? ' sheet--inline' : ''}`}
+        onKeyDown={onKeyDown}
       >
         <div className="sheet__head">
           <h2 id={id} ref={heading} tabIndex={-1} className="sheet__title">
