@@ -1,4 +1,4 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, info-plain-report.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, info-plain-report.json, points-report.json, report.json}. */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -10,6 +10,7 @@ import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
 import { attachInfoPlain, emitInfoFile, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
+import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile } from './roster/emit';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
@@ -84,13 +85,19 @@ export const SYSTEM_ROSTER_SLUG = 'system';
 
 const roleOrder = (u: UnitOut) => (u.role ? BATTLEFIELD_ROLES.indexOf(u.role) : BATTLEFIELD_ROLES.length);
 
+/** Units whose points the roster engine set, and how many of those differ from Wahapedia's. */
+export interface PointsSummary {
+  priced: number;
+  differ: number;
+}
+
 export interface InfoSummary {
   files: number;
   entries: number;
   plain: InfoPlainReport;
 }
 
-export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport; missions: MissionsReport; info: InfoSummary } {
+export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport; missions: MissionsReport; info: InfoSummary; points: PointsSummary } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
@@ -159,7 +166,6 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   // Plain English is attached after amendments: a text's key covers its amendment.
   const plainStore = loadPlainStore(opts.contentDir ? join(opts.contentDir, 'plain') : '');
   const plain = applyPlain(outs, core, plainStore);
-  for (const out of outs) writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
   writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
   const missions = writeMissions(opts, w);
@@ -203,9 +209,22 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const info: InfoSummary = { files: infoFiles.length, entries: infoFiles.reduce((n, f) => n + Object.keys(f.entries).length, 0), plain: infoPlain };
   for (const summary of index.catalogues) summary.factions = catalogueFactions(rosterFiles, summary.rosterScope, summary.id);
 
+  // Faction pages show the builder's points, so catalogues are written once the roster files can price their units.
+  const pointsReport: PointsDisagreement[] = [];
+  let priced = 0;
+  for (const out of outs) {
+    const scopeSlugs = index.catalogues.find((c) => c.id === out.id)!.rosterScope;
+    const p = applyEnginePoints(out, scopeSlugs.map((slug) => rosterFiles.find((f) => f.slug === slug)!));
+    priced += p.priced;
+    pointsReport.push(...p.disagreements);
+    writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
+  }
+  writeFileSync(join(opts.outDir, 'points-report.json'), JSON.stringify(pointsReport, null, 2));
+  const points: PointsSummary = { priced, differ: pointsReport.filter((r) => r.engine !== null).length };
+
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
-  return { index, report, plain, missions, info };
+  return { index, report, plain, missions, info, points };
 }
 
 /**
@@ -467,7 +486,7 @@ export function loadPolicy(overridesDir: string, files: RosterFile[]): PolicyDat
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const root = join(import.meta.dirname, '..');
   const started = Date.now();
-  const { index, report, plain, missions, info } = buildAll({
+  const { index, report, plain, missions, info, points } = buildAll({
     rawDir: join(root, 'raw'),
     overridesDir: join(root, 'overrides'),
     outDir: join(root, 'generated'),
@@ -481,4 +500,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   console.log(`Plain English: ${p.w} of ${p.t} texts written, ${p.f} flagged, ${plain.orphans.length} orphaned (see generated/plain-report.json)`);
   console.log(`Missions: plain English ${missions.written} of ${missions.total} written, ${missions.flagged.length} flagged, ${missions.orphans.length} orphaned; faction secondaries ${missions.faction.written} of ${missions.faction.total} (see generated/missions-report.json)`);
   console.log(`Info: ${info.files} files, ${info.entries} entries, ${info.plain.written} of ${info.plain.total} texts in plain English (see generated/info-plain-report.json)`);
+  console.log(`Points: ${points.priced} units priced by the engine, ${points.differ} differ from Wahapedia (see generated/points-report.json)`);
 }

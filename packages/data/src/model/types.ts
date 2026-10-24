@@ -72,6 +72,7 @@ export interface UnitOut {
   minModels: number | null;
   maxModels: number | null;
   powerLevel: number | null;
+  /** What the builder charges for the unit as added (the roster engine's price), else Wahapedia's cost; null if neither has one. */
   points: number | null;
   baseSize: string | null;
   wahapediaId: string | null;
