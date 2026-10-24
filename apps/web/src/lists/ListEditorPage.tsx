@@ -1,19 +1,21 @@
-import { BATTLE_SIZES, findSelView } from '@recruit/data/roster';
+import { findSelView } from '@recruit/data/roster';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { factionDisplayName } from '../factions/names';
 import { useAsync } from '../factions/useAsync';
 import { ArmyOptions } from './ArmyOptions';
-import { ArmySetup, DetachmentSection } from './Detachments';
+import { DetachmentSection } from './Detachments';
 import { EditorHeader } from './EditorHeader';
 import { ExportSheet, ShareSheet } from './ExportSheet';
 import { unitsWithIssues } from './editorView';
+import { useEditorShortcuts } from './history';
 import { IssuesPanel } from './IssuesPanel';
+import { DetachmentSheet, SizeSheet } from './SummarySheets';
 import { loadUnitIndex } from './unitIndex';
 import { UnitEditor } from './UnitEditor';
 import { UnitPicker } from './UnitPicker';
 import { useRosterEditor, type ReadyEditor } from './useRosterEditor';
 import { LoadError } from '../layout/OfflineNotice';
+import { PageHeader } from '../ui/PageHeader';
 import './lists.css';
 
 const WIDE = '(min-width: 768px)';
@@ -75,7 +77,7 @@ export function ListEditorPage() {
   if (editor.status === 'missing') {
     return (
       <section>
-        <h1>List not found</h1>
+        <PageHeader title="List not found" back={{ to: '/build', label: 'Your lists' }} />
         <p>We couldn’t find this list on this device. It may have been deleted.</p>
         <Link to="/build" className="btn">
           Back to your lists
@@ -97,7 +99,8 @@ interface EditorProps {
 }
 
 function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) {
-  const { roster, view, issues, scope, policy, catalogues, slugs, dispatch, flush, saveError, allyError } = editor;
+  const { roster, view, issues, scope, slugs, dispatch, flush, saveError, allyError } = editor;
+  useEditorShortcuts(editor);
   const wide = useWideScreen();
   const unitIndex = useAsync(() => loadUnitIndex(slugs), slugs.join('+'));
   const units = unitIndex.status === 'ready' ? unitIndex.data : null;
@@ -108,6 +111,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const issuesOpen = params.get('issues') === '1';
   const exportOpen = params.get('export') === '1';
   const shareOpen = params.get('share') === '1';
+  const sheetParam = params.get('sheet');
   const openSel = unitParam ? findSelView(view, unitParam) : undefined;
   const pickerForce = addParam ? view.forces.find((f) => f.force.id === addParam) : undefined;
 
@@ -117,8 +121,6 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
     if (stale) close();
   }, [stale, close]);
 
-  const catalogue = catalogues.find((c) => c.id === roster.catalogueId);
-  const defaultName = `${catalogue ? factionDisplayName(catalogue.name) : 'My'} ${BATTLE_SIZES[roster.battleSize]?.name ?? 'list'}`;
   const panelProps = { scope, roster, view, issues, units, dispatch };
 
   // One sheet at a time over the list (a drawer from 768px); on wide screens Problems also rests beside the list.
@@ -135,6 +137,10 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
     sheet = <ExportSheet view={view} scope={scope} onClose={close} />;
   } else if (shareOpen) {
     sheet = <ShareSheet listId={listId} flush={flush} onClose={close} />;
+  } else if (sheetParam === 'size') {
+    sheet = <SizeSheet editor={editor} onClose={close} />;
+  } else if (sheetParam === 'detachments') {
+    sheet = <DetachmentSheet editor={editor} onClose={close} />;
   } else if (issuesOpen) {
     sheet = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} onClose={close} />;
   }
@@ -143,22 +149,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   return (
     <div className="editor">
       <div className="editor__main">
-        <EditorHeader
-          view={view}
-          issueCount={issues.length}
-          issuesOpen={issuesOpen}
-          defaultName={defaultName}
-          dispatch={dispatch}
-          onIssues={() => (issuesOpen ? close() : open({ issues: '1' }))}
-        />
-        <div className="editor-actions">
-          <button type="button" className="btn" onClick={() => open({ export: '1' })}>
-            Export
-          </button>
-          <button type="button" className="btn" onClick={() => open({ share: '1' })}>
-            Share
-          </button>
-        </div>
+        <EditorHeader editor={editor} listId={listId} onOpen={open} />
         {saveError && <p role="alert">{`Couldn’t save your last change: ${saveError.message}. It will be saved with your next edit.`}</p>}
         {allyError && <p role="alert">{`Couldn’t add that detachment: ${allyError.message}`}</p>}
         {view.forces[0] && <ArmyOptions scope={scope} roster={roster} view={view} army={view.forces[0]} issues={issues} dispatch={dispatch} />}
@@ -169,15 +160,12 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
             fv={fv}
             first={i === 0}
             armyCatalogueId={roster.catalogueId}
-            // The army's own detachment stays while an ally needs it: the first one goes only if another of its own follows.
-            canRemove={i > 0 || view.forces[1]?.force.catalogueId === roster.catalogueId}
             flagged={flagged}
             dispatch={dispatch}
             onOpenUnit={openUnit}
             onAddUnit={(forceSelId) => open({ add: forceSelId })}
           />
         ))}
-        <ArmySetup scope={scope} roster={roster} policy={policy} catalogues={catalogues} dispatch={dispatch} />
       </div>
       {aside && <div className="editor__aside">{aside}</div>}
       {sheet}

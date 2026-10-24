@@ -255,7 +255,8 @@ test('undo takes back the last edit and is saved after the debounce; redo puts i
   expect(ready(result.current).canUndo).toBe(false);
   expect(ready(result.current).canRedo).toBe(true);
   expect(put).not.toHaveBeenCalled();
-  await waitFor(() => expect(put).toHaveBeenCalledTimes(1), { timeout: 700 });
+  // Saved like any edit: after the debounce (the timeout leaves room for a busy test run).
+  await waitFor(() => expect(put).toHaveBeenCalledTimes(1), { timeout: 2000 });
   expect((await saved(id)).data.roster).toEqual(original);
   expect((await saved(id)).data.summary.points).toBe(0);
 

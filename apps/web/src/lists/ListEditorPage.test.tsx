@@ -1,16 +1,18 @@
 import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { addUnit, armyOptions, availableUnits, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster } from '@recruit/data/roster';
+import { addChild, addUnit, armyOptions, availableUnits, childOptions, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster } from '@recruit/data/roster';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
+import { WordingProvider } from '../rules/wording';
+import { ToastProvider } from '../ui/toast';
 import { ListEditorPage } from './ListEditorPage';
 import { createList, type ListData } from './listStore';
-import { listData, startingRoster } from './newListSetup';
+import { applyPicks, armyChoices, listData, startingRoster } from './newListSetup';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 
 const NECRONS = '61c6-c8c5-a304-ff5f';
@@ -38,21 +40,41 @@ async function necronsList(size: BattleSizeId = 'strike-force', edit: (r: Roster
   return createList(createRepository(db), 'user-1', listData(scope, policy, roster, index.catalogues.find((c) => c.id === NECRONS)!));
 }
 
+/** A legal Necrons Strike Force: an Overlord as Warlord, three Necron Warriors and the Szarekhan dynasty. Returns its id. */
+async function legalList() {
+  const scope = await getRosterScope(['necrons']);
+  return necronsList('strike-force', (r, add) => {
+    let out = add(r, 'Overlord');
+    const overlord = out.forces[0].selections.at(-1)!.id;
+    const warlord = childOptions(scope, out, overlord).find((o) => o.name === 'Warlord')!;
+    out = addChild(scope, out, overlord, warlord.id);
+    for (let i = 0; i < 3; i++) out = add(out, 'Necron Warriors');
+    const dynasty = armyChoices(scope, out).find((c) => c.title === 'Dynasty Choice')!;
+    return applyPicks(scope, out, [dynasty], { [dynasty.key]: dynasty.options.find((o) => o.name === 'Dynasty: Szarekhan')!.id });
+  });
+}
+
 function renderEditor(id: string, search = '') {
   return render(
     <StorageProvider db={db}>
-      <MemoryRouter initialEntries={[`/build/${id}${search}`]}>
-        <Routes>
-          <Route path="/build/:id" element={<ListEditorPage />} />
-          <Route path="/factions/:slug/units/:unitSlug" element={<p>Datasheet page</p>} />
-        </Routes>
-      </MemoryRouter>
+      <WordingProvider initial="plain">
+        <MemoryRouter initialEntries={[`/build/${id}${search}`]}>
+          <ToastProvider>
+            <Routes>
+              <Route path="/build" element={<p>Your lists page</p>} />
+              <Route path="/build/:id" element={<ListEditorPage />} />
+              <Route path="/build/:id/play" element={<p>Play page</p>} />
+              <Route path="/factions/:slug/units/:unitSlug" element={<p>Datasheet page</p>} />
+            </Routes>
+          </ToastProvider>
+        </MemoryRouter>
+      </WordingProvider>
     </StorageProvider>,
   );
 }
 
 const user = () => userEvent.setup();
-const opened = () => screen.findByRole('textbox', { name: 'List name' }, { timeout: 5000 });
+const opened = () => screen.findByRole('meter', { name: 'Points' }, { timeout: 5000 });
 const points = () => screen.getByRole('meter', { name: 'Points' });
 
 test('adding Necron Warriors from the picker updates the header and opens the unit', async () => {
@@ -89,7 +111,7 @@ test('the issues button shows the count; the HQ fix lets the player pick an HQ a
   const u = user();
   renderEditor(await necronsList());
   await opened();
-  await u.click(screen.getByRole('button', { name: '3 problems' }));
+  await u.click(screen.getByRole('button', { name: '3 to fix' }));
   const panel = await screen.findByRole('dialog', { name: 'Problems' });
   const hq = within(panel).getByText(/needs 1 more HQ unit/).closest('li')!;
   await u.click(within(hq).getByRole('button', { name: 'Add an HQ unit' }));
@@ -103,7 +125,7 @@ test('the issues button shows the count; the HQ fix lets the player pick an HQ a
   expect(points()).toHaveTextContent('65 / 2,000 pts');
   // The HQ slot is filled; the Lord now has to be made the Warlord.
   await u.click(within(lord).getByRole('button', { name: 'Done' }));
-  await u.click(screen.getByRole('button', { name: '3 problems' }));
+  await u.click(screen.getByRole('button', { name: '3 to fix' }));
   const after = await screen.findByRole('dialog', { name: 'Problems' });
   expect(within(after).queryByText(/needs 1 more HQ unit/)).not.toBeInTheDocument();
   expect(within(after).getByRole('button', { name: 'Open Lord' })).toBeInTheDocument();
@@ -176,39 +198,42 @@ test('the army keeps its own detachment while an ally remains', async () => {
   const roster = startingRoster(scope, { name: 'Craftworlds Onslaught', catalogueId: craftworlds.id, sizeId: 'onslaught', forceId: FORCE.patrol });
   renderEditor(await createList(createRepository(db), 'user-1', listData(scope, policy, roster, craftworlds)));
   await opened();
-  expect(screen.queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
-  await u.click(screen.getByRole('button', { name: '+ Add detachment' }));
-  await u.click(screen.getByText('Harlequins'));
-  const harlequins = screen.getByText('Harlequins').closest('details')!;
+  await u.click(screen.getByRole('button', { name: 'Patrol Detachment' }));
+  let sheet = screen.getByRole('dialog', { name: 'Detachments' });
+  expect(within(sheet).queryByRole('button', { name: /^Remove/ })).not.toBeInTheDocument();
+  await u.click(within(sheet).getByRole('button', { name: 'Add detachment' }));
+  await u.click(within(sheet).getByText('Harlequins'));
+  const harlequins = within(sheet).getByText('Harlequins').closest('details')!;
   await u.click(within(harlequins).getByRole('button', { name: 'Patrol Detachment' }));
   await waitFor(() => expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })).toHaveLength(2), { timeout: 15_000 });
-  const [own, ally] = screen.getAllByRole('region', { name: 'Patrol Detachment' });
+  expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })[1]).toHaveTextContent('Harlequins');
+  sheet = screen.getByRole('dialog', { name: 'Detachments' });
+  const [own, ally] = within(sheet).getAllByRole('listitem');
   expect(ally).toHaveTextContent('Harlequins');
-  expect(within(ally).getByRole('button', { name: 'Remove detachment' })).toBeInTheDocument();
-  expect(within(own).queryByRole('button', { name: 'Remove detachment' })).not.toBeInTheDocument();
+  expect(within(ally).getByRole('button', { name: 'Remove Patrol Detachment' })).toBeInTheDocument();
+  expect(within(own).queryByRole('button', { name: /^Remove/ })).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: '2 detachments' })).toBeInTheDocument();
+  // Removing it is asked twice, and takes the ally's units with it.
+  await u.click(within(ally).getByRole('button', { name: 'Remove Patrol Detachment' }));
+  await u.click(within(ally).getByRole('button', { name: 'Remove it and its units' }));
+  await waitFor(() => expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })).toHaveLength(1));
 }, 20_000); // loads and builds the Harlequins rules too
 
 test('a Necrons army is offered no allies at Onslaught: no other Xenos faction shares a faction keyword with it', async () => {
   const u = user();
   renderEditor(await necronsList('onslaught'));
   await opened();
-  await u.click(screen.getByRole('button', { name: '+ Add detachment' }));
-  expect(screen.queryByRole('heading', { name: 'Allies' })).not.toBeInTheDocument();
-  expect(screen.queryByText('Orks')).not.toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Patrol Detachment' }));
+  const sheet = screen.getByRole('dialog', { name: 'Detachments' });
+  await u.click(within(sheet).getByRole('button', { name: 'Add detachment' }));
+  expect(within(sheet).queryByRole('heading', { name: 'Allies' })).not.toBeInTheDocument();
+  expect(within(sheet).queryByText('Orks')).not.toBeInTheDocument();
 });
 
 test('a fix whose suggested units can no longer be added says so', async () => {
   const id = await necronsList();
   const doc = await createRepository(db).getDoc<ListData>(id);
-  render(
-    <StorageProvider db={db}>
-      <MemoryRouter initialEntries={[`/build/${id}?add=${doc!.data.roster.forces[0].id}&only=no-such-unit`]}>
-        <Routes>
-          <Route path="/build/:id" element={<ListEditorPage />} />
-        </Routes>
-      </MemoryRouter>
-    </StorageProvider>,
-  );
+  renderEditor(id, `?add=${doc!.data.roster.forces[0].id}&only=no-such-unit`);
   const picker = await screen.findByRole('dialog', { name: 'Add a unit' }, { timeout: 5000 });
   expect(within(picker).getByText(/None of the suggested units can be added here any more/)).toBeInTheDocument();
   expect(within(picker).queryByText(/No units match/)).not.toBeInTheDocument();
@@ -231,7 +256,7 @@ test('a missing army choice is added straight from its fix, then picked in Army 
   renderEditor(id);
   await opened();
   expect(within(screen.getByRole('group', { name: 'Dynasty Choice' })).getByText(/Pick one/)).toBeInTheDocument();
-  await u.click(screen.getByRole('button', { name: /problems$/ }));
+  await u.click(screen.getByRole('button', { name: /to fix$/ }));
   await u.click(await screen.findByRole('button', { name: 'Choose Dynasty Choice' }));
   const dynasty = await screen.findByRole('group', { name: 'Dynasty Choice' });
   expect(within(dynasty).getByText(/Pick one/)).toBeInTheDocument();
@@ -385,4 +410,148 @@ test('sheets close with their own button: the picker with Close, the unit editor
   expect(editor).toHaveClass('sheet');
   await u.click(within(editor).getByRole('button', { name: 'Done' }));
   await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Necron Warriors' })).not.toBeInTheDocument());
+});
+
+test('the header: Back to Your lists, the list’s name and faction · size, and Play', async () => {
+  const id = await necronsList('incursion');
+  renderEditor(id);
+  await opened();
+  expect(screen.getByRole('link', { name: 'Back to Your lists' })).toHaveAttribute('href', '/build');
+  expect(screen.getByRole('heading', { level: 1, name: 'Necrons Strike Force' })).toBeInTheDocument();
+  expect(screen.getByText('Necrons · Incursion')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Play' })).toHaveAttribute('href', `/build/${id}/play`);
+  expect(points()).toHaveTextContent('0 / 1,000 pts');
+  expect(screen.getByText('1,000 pts left')).toBeInTheDocument();
+});
+
+test('an over-limit list says how far over it is', async () => {
+  renderEditor(await necronsList('combat-patrol', (r, add) => [1, 2, 3, 4, 5].reduce((out) => add(out, 'Necron Warriors'), r)));
+  await opened();
+  expect(screen.getByText('50 pts over')).toBeInTheDocument();
+});
+
+test('Undo is off until something changes; then it takes the change back, and Redo puts it back', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  const undo = screen.getByRole('button', { name: 'Undo' });
+  const redo = screen.getByRole('button', { name: 'Redo' });
+  expect(undo).toBeDisabled();
+  expect(redo).toBeDisabled();
+  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'warr');
+  await u.click(within(picker).getByRole('button', { name: /^Necron Warriors/ }));
+  await u.click(within(await screen.findByRole('dialog', { name: 'Necron Warriors' })).getByRole('button', { name: 'Done' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  expect(points()).toHaveTextContent('110 / 2,000 pts');
+  expect(undo).toBeEnabled();
+  await u.click(undo);
+  expect(points()).toHaveTextContent('0 / 2,000 pts');
+  expect(screen.queryByRole('button', { name: /^Necron Warriors/ })).not.toBeInTheDocument();
+  expect(redo).toBeEnabled();
+  await u.click(redo);
+  expect(points()).toHaveTextContent('110 / 2,000 pts');
+});
+
+test('List actions: Delete list goes back to Your lists and offers Undo, which brings the list back', async () => {
+  const u = user();
+  const id = await necronsList();
+  renderEditor(id);
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  const menu = screen.getByRole('menu', { name: 'List actions' });
+  expect(within(menu).getAllByRole('menuitem').map((i) => i.textContent)).toEqual(['Rename', 'Duplicate list', 'Export', 'Share link', 'Delete list']);
+  await u.click(within(menu).getByRole('menuitem', { name: 'Delete list' }));
+  expect(await screen.findByText('Your lists page')).toBeInTheDocument();
+  const toast = screen.getByRole('status');
+  expect(toast).toHaveTextContent('Deleted “Necrons Strike Force”');
+  await waitFor(async () => expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(true));
+  // The editor's own save on the way out must not bring it back.
+  await new Promise((r) => setTimeout(r, 700));
+  expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(true);
+  await u.click(within(toast).getByRole('button', { name: 'Undo' }));
+  await waitFor(async () => expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(false));
+  expect((await createRepository(db).getDoc<ListData>(id))!.data.roster.name).toBe('Necrons Strike Force');
+});
+
+test('List actions: Delete list right after an edit keeps that edit for Undo, and the deletion stays', async () => {
+  const u = user();
+  const id = await necronsList();
+  renderEditor(id);
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Strike Force · 2,000 pts' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'Battle size' })).getByRole('radio', { name: /Onslaught/ }));
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Delete list' }));
+  expect(await screen.findByText('Your lists page')).toBeInTheDocument();
+  await new Promise((r) => setTimeout(r, 700));
+  expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(true);
+  await u.click(within(screen.getByRole('status')).getByRole('button', { name: 'Undo' }));
+  await waitFor(async () => expect((await createRepository(db).getDoc<ListData>(id))!.data.roster.battleSize).toBe('onslaught'));
+});
+
+test('List actions: Duplicate list saves a copy and says so', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Duplicate list' }));
+  expect(await screen.findByText('Duplicated as “Necrons Strike Force (copy)”')).toBeInTheDocument();
+  const names = (await createRepository(db).listDocs<ListData>('list', 'user-1')).map((d) => d.data.roster.name);
+  expect(names.sort()).toEqual(['Necrons Strike Force', 'Necrons Strike Force (copy)']);
+});
+
+test('List actions: Rename names the list in one undo step', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Rename' }));
+  const sheet = screen.getByRole('dialog', { name: 'Rename list' });
+  await u.clear(within(sheet).getByRole('textbox', { name: 'List name' }));
+  await u.type(within(sheet).getByRole('textbox', { name: 'List name' }), 'Tomb World');
+  await u.click(within(sheet).getByRole('button', { name: 'Save' }));
+  expect(screen.getByRole('heading', { level: 1, name: 'Tomb World' })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Undo' }));
+  expect(screen.getByRole('heading', { level: 1, name: 'Necrons Strike Force' })).toBeInTheDocument();
+});
+
+test('the size chip opens Battle size; choosing Strike Force changes the points limit', async () => {
+  const u = user();
+  renderEditor(await necronsList('incursion'));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Incursion · 1,000 pts' }));
+  const sheet = screen.getByRole('dialog', { name: 'Battle size' });
+  expect(within(sheet).getByRole('radio', { name: /Incursion/ })).toBeChecked();
+  await u.click(within(sheet).getByRole('radio', { name: /Strike Force/ }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Battle size' })).not.toBeInTheDocument());
+  expect(points()).toHaveTextContent('0 / 2,000 pts');
+  expect(screen.getByRole('button', { name: 'Strike Force · 2,000 pts' })).toBeInTheDocument();
+  expect(screen.getByText('Necrons · Strike Force')).toBeInTheDocument();
+});
+
+test('the detachment chip names the detachment and opens Detachments', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Arks of Omen Detachment' }));
+  const sheet = screen.getByRole('dialog', { name: 'Detachments' });
+  expect(within(sheet).getByText('Arks of Omen Detachment')).toBeInTheDocument();
+  expect(within(sheet).getByRole('button', { name: 'Add detachment' })).toBeInTheDocument();
+});
+
+test('the status chip says All checks pass for a legal list and how many to fix otherwise; it opens Problems', async () => {
+  const u = user();
+  const legal = await legalList();
+  const broken = await necronsList();
+  const first = renderEditor(legal);
+  await opened();
+  expect(screen.getByRole('button', { name: 'All checks pass' })).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: /to fix$/ })).not.toBeInTheDocument();
+  first.unmount();
+  renderEditor(broken);
+  await opened();
+  await u.click(screen.getByRole('button', { name: '3 to fix' }));
+  expect(await screen.findByRole('dialog', { name: 'Problems' })).toBeInTheDocument();
 });

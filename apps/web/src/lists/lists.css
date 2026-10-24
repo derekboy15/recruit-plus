@@ -40,3 +40,54 @@
 @media (min-width: 768px) {
   .editor { grid-template-columns: minmax(0, 760px) minmax(280px, 340px); }
 }
+
+/* The header and summary strip stay at the top while the list scrolls, so the points stay in view. */
+.editor-top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+.editor-top .page-head { position: static; margin: 0; border-bottom: 1px solid var(--border); }
+.editor-top__play { gap: 6px; min-height: 40px; height: 40px; padding: 0 14px 0 11px; margin-left: 4px; }
+@media (max-width: 359px) {
+  /* A 320px phone keeps the title readable: Play shows its icon only (the name stays for screen readers). */
+  .editor-top__play { width: var(--touch); padding: 0; }
+  .editor-top__play-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.summary { display: flex; flex-direction: column; gap: 10px; padding: 12px 16px 12px; }
+.summary__row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.summary__points {
+  font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.summary__limit { font-size: 18px; font-weight: 500; color: var(--text-muted); }
+.summary__left { margin: 0; font-size: 0.8125rem; color: var(--text-muted); text-align: right; }
+.summary__left--over { color: var(--danger-text); font-weight: 600; }
+.summary__cp { color: var(--text-muted); font-weight: 400; }
+.summary__bar { display: block; height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; }
+.summary__fill { display: block; height: 100%; border-radius: 3px; background: var(--brass-strong); }
+.summary__bar--over .summary__fill { background: var(--red-strong); }
+.summary__chips { margin: 0 -16px; padding: 0 16px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; }
+.chip--ok { color: var(--ok); background: var(--ok-bg); border-color: #2f4a33; font-weight: 600; }
+.chip--warn { color: var(--warn); font-weight: 600; }
+@media (min-width: 768px) {
+  .editor-top { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+}
+
+/* ---------- Choices: radio or checkbox rows with what each does ---------- */
+.choice-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.choice-row {
+  display: flex; align-items: center; gap: 12px; min-height: var(--touch); padding: 10px 12px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px; cursor: pointer;
+}
+.choice-row:has(input:checked) { border-color: var(--brass); background: var(--surface-2); }
+.choice-row input { width: 22px; height: 22px; flex: none; accent-color: var(--brass-strong); }
+.choice-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.choice-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.choice-row__summary { font-size: 0.8125rem; color: var(--text-soft); }
+
+/* ---------- Detachments sheet ---------- */
+.detachment-list { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.detachment-list__item {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 8px 8px 8px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+}
+.detachment-list__name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.detachment-list__confirm { display: flex; flex-wrap: wrap; gap: 8px; }
+.detachment-list__add { margin-bottom: 12px; }
