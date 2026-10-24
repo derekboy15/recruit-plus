@@ -181,8 +181,9 @@ describe('generated info files', () => {
   test('info texts are not part of plain-English coverage', () => {
     const report: PlainReport = JSON.parse(readFileSync(join(GEN, 'plain-report.json'), 'utf8'));
     const totals = Object.values(report.shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
-    // The totals before info files existed (2026-10-24).
-    expect(totals).toEqual({ total: 5034, written: 5034 });
+    // 5034 before info files existed; 4742 once relics and other list-building extras on datasheets were flagged
+    // `extra` (their texts are option texts, like the info files', and keep their plain English). Info files add none.
+    expect(totals).toEqual({ total: 4742, written: 4742 });
     const infoReport = JSON.parse(readFileSync(join(GEN, 'info-plain-report.json'), 'utf8'));
     expect(infoReport).toMatchObject({ total: expect.any(Number), written: expect.any(Number), missing: expect.any(Array) });
   });

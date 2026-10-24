@@ -30,6 +30,8 @@ export interface ProfileOut {
   chars: Record<string, string>;
   /** Plain-English versions of the TEXT_CHARS values, by characteristic name (only those that passed the checks). */
   plain?: Record<string, string>;
+  /** From a list-building extra (a relic, Warlord trait, stratagem, chapter or Army of Renown option), not the unit's own wargear. */
+  extra?: true;
 }
 
 /** Profile characteristics that hold rules text (weapon abilities, psychic power details, psyker notes). */
@@ -43,6 +45,8 @@ export interface AbilityOut {
   amended?: string;
   /** Our plain-English version (only when it passed the checks). */
   plain?: string;
+  /** From a list-building extra (a relic, Warlord trait, stratagem, chapter or Army of Renown option), not the unit's own. */
+  extra?: true;
 }
 
 export interface UnitOut {

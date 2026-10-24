@@ -64,5 +64,6 @@ Sample: 20 texts (seed imperium-grey-knights) + 22 army rules + guide
 | 509e5f231533 | Rites of Battle (Aura) | rule | PASS | |
 | 60069bf7071a | Explodes (6"/D6) | rule | PASS | |
 | 95fff622f1ff | Bio-meltdown | ability | PASS | |
+| 8ec086de7fcd | Domina Liber Demonica (Aura) | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

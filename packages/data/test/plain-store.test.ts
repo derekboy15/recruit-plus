@@ -72,6 +72,26 @@ test('core stratagems are collected first, in the core shard', () => {
   expect(texts.filter((t) => t.name === 'Hit Them')).toHaveLength(0); // same text, core wins
 });
 
+test('list-building extras on a datasheet are option texts, not page texts: they are not collected', () => {
+  const RELIC = 'Each time the bearer is selected to fight, it can make 1 additional attack with this weapon.';
+  const cats = fixture();
+  cats[1].units[0].abilities.push({ name: 'Relic ability', text: RELIC, source: 'bsdata', extra: true });
+  cats[1].units[0].weapons.push({ name: 'Relic gun', chars: { Abilities: RELIC }, extra: true });
+  expect(collectOfficialTexts(cats, []).some((t) => t.text === RELIC)).toBe(false);
+});
+
+test("an extra's plain English is still attached, isn't counted, and its entry is not an orphan", () => {
+  const cats = fixture();
+  const relic = { name: 'Relic ability', text: REANIMATE.replace('5+', '4+'), source: 'bsdata' as const, extra: true as const };
+  cats[1].units[1].abilities.push(relic);
+  const plain = 'A slain model here comes back on a D6 roll of 4+, placed no more than 3" from its unit.';
+  const before = applyPlain(fixture(), [], loadPlainStore(store({})));
+  const report = applyPlain(cats, [], loadPlainStore(store({ necrons: { [textKey(relic.text)]: { name: 'Relic ability', kind: 'ability', plain } } })));
+  expect(relic).toMatchObject({ plain });
+  expect(report.orphans).toEqual([]);
+  expect(report.shards).toEqual(before.shards);
+});
+
 test('short weapon labels are not collected', () => {
   expect(collectOfficialTexts(fixture(), []).some((t) => t.text === 'Blast')).toBe(false);
 });

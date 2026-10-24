@@ -25,5 +25,8 @@ Sample: 20 texts (seed imperium-adeptus-astartes-space-wolves) + 1 army rules + 
 | 0322d178fa13 | Arbites Medi-kit | ability | PASS | |
 | 0d45a09f19f7 | Objective Secured | rule | PASS | The catalogue's one army rule. --rules printed nothing because this text is first collected as a unit ability, so the tool tags it as an ability. Plain matches the official text and the Arks of Omen note as written. |
 | 1e0abf74a2c9 | Objective Secured | rule | PASS | Reflects the Arks of Omen rules update. |
+| b65f8ba9ce7e | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 48ec73666c99 | Outflank | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| ba8f02d71bdb | Martial Superiority | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

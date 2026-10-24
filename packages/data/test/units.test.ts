@@ -27,6 +27,53 @@ describe('Necron Warriors', () => {
   });
 });
 
+describe('wargear of its own and list-building extras', () => {
+  const necrons = extractUnits(gd, byName('Necrons'));
+  const unit = (name: string) => necrons.find((u) => u.name === name)!;
+
+  test("the Royal Warden's own Relic Gauss Blaster is its weapon, not an extra", () => {
+    const w = unit('Royal Warden').weapons.find((x) => x.name === 'Relic Gauss Blaster');
+    expect(w).toBeDefined();
+    expect(w!.extra).toBeUndefined();
+  });
+
+  test("Necron Warriors' gauss weapons are their own", () => {
+    const weapons = unit('Necron Warriors').weapons.filter((w) => w.name === 'Gauss Flayer' || w.name === 'Gauss Reaper');
+    expect(weapons).toHaveLength(2);
+    for (const w of weapons) expect(w.extra, w.name).toBeUndefined();
+  });
+
+  test("the Overlord's Voidreaper (a Necron relic, Artefacts of the Aeons) is flagged extra, and so is a relic's ability", () => {
+    const overlord = unit('Overlord');
+    expect(overlord.weapons.find((w) => w.name === 'Voidreaper')?.extra).toBe(true);
+    expect(overlord.weapons.find((w) => w.name === 'Staff of Light (Shooting)')?.extra).toBeUndefined();
+    expect(overlord.abilities.find((a) => a.name === 'Living Metal')?.extra).toBeUndefined();
+    expect(overlord.abilities.some((a) => a.extra)).toBe(true);
+  });
+
+  describe('Ultramarines', () => {
+    const um = extractUnits(gd, byName('Imperium - Adeptus Astartes - Ultramarines'));
+    const intercessors = um.find((u) => u.name === 'Intercessor Squad')!;
+
+    test("the Intercessor Squad's own weapons are not extras; its special-issue and relic wargear is", () => {
+      expect(intercessors.weapons.find((w) => w.name === 'Bolt rifle')?.extra).toBeUndefined();
+      // Special-Issue Wargear (Ultramarines) and a Codex relic a sergeant can take.
+      const extras = intercessors.weapons.filter((w) => w.extra).map((w) => w.name);
+      expect(extras).toEqual(expect.arrayContaining(['Sunwrath Pistol']));
+      expect(extras).not.toContain('Bolt rifle');
+    });
+
+    test('units named "Relic …" are units, with their models', () => {
+      for (const name of ['Relic Terminator Squad', 'Relic Contemptor Dreadnought']) {
+        const u = um.find((x) => x.name === name);
+        expect(u, name).toBeDefined();
+        expect(u!.models.length, name).toBeGreaterThan(0);
+        expect(u!.weapons.filter((w) => !w.extra).length, name).toBeGreaterThan(0);
+      }
+    });
+  });
+});
+
 test('Blood Angels Intercessor Squad gets its profile through the Space Marines library', () => {
   const ba = extractUnits(gd, byName('Imperium - Adeptus Astartes - Blood Angels')).find((u) => u.name === 'Intercessor Squad')!;
   expect(ba).toBeDefined();

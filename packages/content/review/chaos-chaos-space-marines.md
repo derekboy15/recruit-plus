@@ -29,5 +29,7 @@ Sample: 20 texts (seed chaos-chaos-space-marines) + 2 army rules + guide
 | d10ad733a87c | Let the Galaxy Burn | rule | PASS | Data oddity: official is only a codex page reference; plain points to the army rule. |
 | 08f3513a1179 | Daemon Engine | rule | PASS | |
 | 398889989814 | Let the Galaxy Burn | ability | PASS | |
+| e1742766ca6c | Underhand Scheming | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 30d29ace94a6 | Hover Transport | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

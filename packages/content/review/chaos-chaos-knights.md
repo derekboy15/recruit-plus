@@ -30,6 +30,9 @@ Sample: 20 texts (seed chaos-chaos-knights) + 0 army rules + guide
 | dd6a5f79dd2d | Super-heavy Walker | rule | PASS | |
 | b56a3456ff83 | Harbingers of Dread | rule | PASS | Data oddity: official is only a codex page reference; plain points to the army rule. |
 | 84a6d1e60fb7 | Harbingers of Dread | ability | PASS | |
+| c5f617ecb578 | Twin hellstorm autocannon | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| b2417928a45d | Swirling Soul Energy | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| b787f97b9fd7 | Graviton crusher | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: FIXED
 - Army rules, Knight basics: FIXED. Now says most Knights have Ion Shields (5+ invulnerable save against ranged attacks); the Atrapos, Magaera and Styrix have an Ionic Flare Shield (5+ invulnerable save against all attacks); the Lancer's Ion Gauntlet Shield gives 5+, or 4+ against melee attacks, and TITANIC units subtract 1 from melee hit rolls against it.

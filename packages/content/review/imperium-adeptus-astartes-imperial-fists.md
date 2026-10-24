@@ -23,6 +23,7 @@ Sample: 20 texts (seed imperium-adeptus-astartes-imperial-fists) + 0 army rules 
 | a24de5624425 | Master of Sanctity | ability | PASS | |
 | f8b4ac5ef3b4 | Cartavolnus' Force Sword | weapon | PASS | |
 | 036b8138439f | Datalink Telemetry | ability | PASS | |
+| 8a35f1deafbc | Duty Eternal | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: FIXED
 - Key units, Captain Lysander: FIXED. "Very hard to wound" replaced with: as your WARLORD, unmodified wound rolls of 1-3 against him always fail.

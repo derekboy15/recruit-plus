@@ -3,8 +3,37 @@ import type { GameData, RawCatalogue, RawNode } from '../bsdata/types';
 import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type ProfileOut, type UnitOut } from '../model/types';
 import { slugify } from '../text';
 
-/** Option groups that are list-building extras, not part of the datasheet itself. */
-const SKIP_GROUP = /^(battle honours|battle scars|crusade|relics?|warlord traits?|stratagems?|agendas|specialist|enhancements?)\b/i;
+/** Crusade content, never part of a datasheet: skipped wherever it is (the roster files drop it too). */
+const DROPPED = /^(battle honours|battle scars|crusade|agendas)\b/i;
+
+/**
+ * List-building extras: a weapon or ability found under one of these (a group, or an entry or link, anywhere between
+ * the unit and the profile) is flagged `extra`, not the unit's own wargear. The rule is on the enclosing groups and
+ * entries, never the weapon's own name: "Relic Gauss Blaster" is the Royal Warden's own weapon, "Relic blade" an Honour
+ * Guard's, and "Relic Terminator Squad" a unit.
+ *
+ * Evidence (the group and entry names on the path to every weapon and ability in Necrons, Ultramarines, Orks, Astra
+ * Militarum and Chaos Space Marines, then every group name in every catalogue, 2026-10-24):
+ * - relics live in groups named "Relics", "Chapter Relics", "Relics of Macragge", "Sacred Relics of the Cult",
+ *   "Artefacts of the Aeons", "Bio-artefacts", "Heirlooms of Conquest", "Corrupted Heirloom", "Treasures of the
+ *   Aeldari", "Trophies of the Long War", "Relic Bearers", "Shiny Gubbinz", "Signature Systems", "Prototype Systems",
+ *   "Gifts of the Prescient";
+ * - Warlord traits in "Warlord Traits (…)", "Codex Traits", "Shield Host Trait", "Visions of the Augurium";
+ * - stratagem and requisition upgrades in "Stratagems", "Character Stratagems", "Specialist Mobs", "Specialist
+ *   Detachment", "Tank Aces", "Vehicle Kustom Jobs", "Extra Regimental Doctrine", "Favour of the Dark Gods", "Exalted
+ *   Abilities", "Blessings of the Faithful", "Special-Issue Wargear" / "Special Issue - …", "… Enhancements",
+ *   "Boarding Action Enhancements", "War Zone …";
+ * - and in entries named "Relic: …", "Relic (Sautekh): …", "Warlord Trait: …", "Stratagem: …", "Chapter Command: …".
+ * Not extras, though the plan's first guess had them: "Vanguard Veterans" (a squad's own models) and "Chapter …"
+ * groups other than relics and Chapter Command.
+ */
+const EXTRA_GROUP =
+  /\brelics?\b|\bartefacts?\b|\bheirlooms?\b|\btreasures?\b|\btrophies\b|\btraits?\b|\bstratagems?\b|^chapter (relics|command)\b|^special[- ]issue\b|\barmy of renown\b|\brequisitions?\b|\bregimental doctrines?\b|^tank aces\b|\bkustom jobs\b|\bgubbinz\b|\benhancements?\b|^specialist\b|^boarding action|^war zone|\bsignature systems\b|^prototype\b|^favour of the dark gods|^gifts of\b|^visions of\b|^blessings of\b|^exalted (abilities|bloodthirster|great unclean one|keeper of secrets|lord of change)/i;
+const EXTRA_ENTRY = /^!?(relic\s*[:(]|heirloom\s*[:(]|warlord traits?\b|wt\s*[:(]|strat[ae]gem:|chapter command:|army of renown)/i;
+
+/** A group, entry or link (with its target) that holds list-building extras. */
+const isExtra = (n: RawNode, target: RawNode) =>
+  [n.attrs.name, target.attrs.name].some((name) => (target.tag === 'selectionEntryGroup' ? EXTRA_GROUP : EXTRA_ENTRY).test((name ?? '').trim()));
 
 /** Forge World (Imperial Armour) catalogues; their internal names don't always say "FW". */
 const FORGE_WORLD_CATALOGUES = new Set([
@@ -72,9 +101,15 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     return null;
   }
 
+  /** Crusade content and list-building extras never hold a unit's models. */
+  const notModels = (c: RawNode) => {
+    const t = resolve(c);
+    return DROPPED.test(c.attrs.name ?? '') || (!!t && (DROPPED.test(t.attrs.name ?? '') || isExtra(c, t)));
+  };
+
   function innerCount(n: RawNode): [number, number] | null {
     const parts = [...kids(n, 'selectionEntries'), ...kids(n, 'entryLinks'), ...kids(n, 'selectionEntryGroups')]
-      .filter((c) => !SKIP_GROUP.test(c.attrs.name ?? ''))
+      .filter((c) => !notModels(c))
       .map(modelCount)
       .filter((x): x is [number, number] => x !== null);
     if (!parts.length) return null;
@@ -87,7 +122,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const seen = new Set<string>();
     const walk = (n: RawNode) => {
       for (const c of [...kids(n, 'selectionEntries'), ...kids(n, 'entryLinks'), ...kids(n, 'selectionEntryGroups')]) {
-        if (c.attrs.hidden === 'true' || SKIP_GROUP.test(c.attrs.name ?? '')) continue;
+        if (c.attrs.hidden === 'true' || notModels(c)) continue;
         const t = resolve(c);
         if (!t || t.attrs.hidden === 'true' || seen.has(t.attrs.id)) continue;
         seen.add(t.attrs.id);
@@ -106,61 +141,66 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const psychic: ProfileOut[] = [];
     const woundTrack: ProfileOut[] = [];
     let transport: ProfileOut | null = null;
-    const visited = new Set<string>();
-    const pushUnique = <T extends { name: string }>(list: T[], item: T) => {
-      if (!list.some((x) => x.name === item.name)) list.push(item);
+    // A node is walked once as the unit's own and once more at most as an extra (own wargear wins).
+    const visited = { own: new Set<string>(), extra: new Set<string>() };
+    /** Adds by name; the unit's own item replaces an extra of the same name. */
+    const pushUnique = <T extends { name: string; extra?: true }>(list: T[], item: T) => {
+      const i = list.findIndex((x) => x.name === item.name);
+      if (i < 0) list.push(item);
+      else if (list[i].extra && !item.extra) list[i] = item;
     };
+    const flag = (extra: boolean) => (extra ? { extra: true as const } : {});
 
-    const addProfile = (p: RawNode) => {
+    const addProfile = (p: RawNode, extra: boolean) => {
       const out = profileOut(p);
       const typeName = p.attrs.typeName ?? '';
-      if (typeName.startsWith('Unit')) return pushUnique(models, out);
-      if (/wound track|^stat damage/i.test(typeName)) return pushUnique(woundTrack, out);
+      // An extra's statline, wound track or transport capacity is not the unit's.
+      if (typeName.startsWith('Unit')) return extra ? undefined : pushUnique(models, out);
+      if (/wound track|^stat damage/i.test(typeName)) return extra ? undefined : pushUnique(woundTrack, out);
       switch (typeName) {
         case 'Weapon':
-          pushUnique(weapons, out);
+          pushUnique(weapons, { ...out, ...flag(extra) });
           break;
         case 'Abilities':
-          pushUnique(abilities, { name: out.name, text: out.chars.Description ?? '', source: 'bsdata' });
+          pushUnique(abilities, { name: out.name, text: out.chars.Description ?? '', source: 'bsdata', ...flag(extra) });
           break;
         case 'Psyker':
         case 'Psychic Power':
-          pushUnique(psychic, out);
+          pushUnique(psychic, { ...out, ...flag(extra) });
           break;
         case 'Transport':
-          transport = out;
+          if (!extra) transport = out;
           break;
       }
     };
-    const addRule = (r: RawNode) =>
-      pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata' });
+    const addRule = (r: RawNode, extra: boolean) =>
+      pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata', ...flag(extra) });
 
-    const walk = (n: RawNode) => {
+    const walk = (n: RawNode, extra: boolean) => {
       const key = n.attrs.id;
       if (key) {
-        if (visited.has(key)) return;
-        visited.add(key);
+        if (visited.own.has(key) || (extra && visited.extra.has(key))) return;
+        visited[extra ? 'extra' : 'own'].add(key);
       }
-      kids(n, 'profiles').forEach(addProfile);
-      kids(n, 'rules').forEach(addRule);
+      kids(n, 'profiles').forEach((p) => addProfile(p, extra));
+      kids(n, 'rules').forEach((r) => addRule(r, extra));
       for (const link of kids(n, 'infoLinks')) {
         const target = index.get(link.attrs.targetId);
         if (!target) continue;
         const hiddenUnitProfile = target.tag === 'profile' && (target.attrs.typeName ?? '').startsWith('Unit');
         if (link.attrs.hidden === 'true' && !hiddenUnitProfile) continue;
-        if (target.tag === 'profile') addProfile(target);
-        else if (target.tag === 'rule') addRule(target);
-        else walk(target);
+        if (target.tag === 'profile') addProfile(target, extra);
+        else if (target.tag === 'rule') addRule(target, extra);
+        else walk(target, extra);
       }
       for (const c of [...kids(n, 'selectionEntries'), ...kids(n, 'selectionEntryGroups'), ...kids(n, 'entryLinks')]) {
-        if (c.attrs.hidden === 'true' || SKIP_GROUP.test(c.attrs.name ?? '')) continue;
-        if (c.tag === 'entryLink') {
-          const target = index.get(c.attrs.targetId);
-          if (target && target.attrs.hidden !== 'true' && !SKIP_GROUP.test(target.attrs.name ?? '')) walk(target);
-        } else walk(c);
+        if (c.attrs.hidden === 'true' || DROPPED.test(c.attrs.name ?? '')) continue;
+        const target = c.tag === 'entryLink' ? index.get(c.attrs.targetId) : c;
+        if (!target || target.attrs.hidden === 'true' || DROPPED.test(target.attrs.name ?? '')) continue;
+        walk(target, extra || isExtra(c, target));
       }
     };
-    walk(entry);
+    walk(entry, false);
     return { models, weapons, abilities, psychic, woundTrack, transport: transport as ProfileOut | null };
   }
 
@@ -172,7 +212,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const name = target.attrs.name;
     const type = target.attrs.type;
     if ((type !== 'unit' && type !== 'model') || name.startsWith('[')) continue;
-    if (root.attrs.hidden === 'true' || target.attrs.hidden === 'true' || SKIP_GROUP.test(name)) continue;
+    if (root.attrs.hidden === 'true' || target.attrs.hidden === 'true' || DROPPED.test(name)) continue;
     if (seenIds.has(target.attrs.id)) continue;
     seenIds.add(target.attrs.id);
 

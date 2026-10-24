@@ -25,5 +25,9 @@ Sample: 20 texts (seed imperium-adeptus-astartes-black-templars) + 2 army rules 
 | d22d3966c4a2 | Blessing of the Omnissiah | ability | PASS | |
 | c4320f665f29 | Vows | rule | PASS | Page reference waived; vow list reordered but complete. |
 | 4b994c689c53 | Righteous Zeal | rule | PASS | |
+| 4d375afd8b93 | Defensive Array | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| ed04810237e5 | Automated Emplacement | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 5017f96f705b | Crewed Artillery | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 955726d8bd3f | Auto launchers | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 
 Guide: PASS

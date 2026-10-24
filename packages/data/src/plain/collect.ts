@@ -32,6 +32,11 @@ export interface TextItem {
   name: string;
   official: string;
   shard: string;
+  /**
+   * A list-building extra's text on a datasheet (a relic, a Warlord trait): an option text, like the info files'. It gets
+   * its plain English when there is one, but isn't one of the texts the pages must cover.
+   */
+  extra?: true;
   setPlain(plain: string): void;
 }
 
@@ -47,6 +52,7 @@ function profileItems(profiles: ProfileOut[], kind: 'weapon' | 'psychic', shard:
       name: p.name,
       official: p.chars[c],
       shard,
+      ...(p.extra && { extra: true as const }),
       setPlain: (plain: string) => {
         p.plain = { ...p.plain, [c]: plain };
       },
@@ -65,7 +71,7 @@ export function catalogueItems(cat: CatalogueOut, slugById: Map<string, string>)
     const shard = slugById.get(u.catalogueId) ?? cat.slug;
     for (const a of u.abilities) {
       if (!a.text.trim()) continue;
-      items.push({ kind: 'ability', name: a.name, official: officialFor(a.text, a.amended), shard, setPlain: (p) => void (a.plain = p) });
+      items.push({ kind: 'ability', name: a.name, official: officialFor(a.text, a.amended), shard, ...(a.extra && { extra: true as const }), setPlain: (p) => void (a.plain = p) });
     }
     items.push(...profileItems(u.weapons, 'weapon', shard), ...profileItems(u.psychic, 'psychic', shard));
   }
@@ -87,9 +93,10 @@ export function allItems(cats: CatalogueOut[], core: StratagemOut[]): TextItem[]
   return [...core.map((s) => stratagemItem(s, CORE_SHARD)), ...cats.flatMap((c) => catalogueItems(c, slugById))];
 }
 
+/** The texts the pages must cover, each once: list-building extras are left out. */
 function dedupe(items: TextItem[]): OfficialText[] {
   const seen = new Map<string, OfficialText>();
-  for (const i of items) {
+  for (const i of items.filter((x) => !x.extra)) {
     const key = textKey(i.official);
     if (!seen.has(key)) seen.set(key, { key, shard: i.shard, kind: i.kind, name: i.name, text: i.official });
   }
@@ -104,7 +111,7 @@ export function collectOfficialTexts(cats: CatalogueOut[], core: StratagemOut[])
 /** The distinct texts shown on one catalogue's pages, as collected in `all` (so each keeps its owning shard). */
 export function textsInCatalogue(cat: CatalogueOut, all: OfficialText[]): OfficialText[] {
   const byKey = new Map(all.map((t) => [t.key, t]));
-  const keys = new Set(catalogueItems(cat, new Map()).map((i) => textKey(i.official)));
+  const keys = new Set(catalogueItems(cat, new Map()).filter((i) => !i.extra).map((i) => textKey(i.official)));
   return [...keys].map((k) => byKey.get(k)).filter((t): t is OfficialText => !!t);
 }
 
