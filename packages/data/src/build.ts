@@ -12,7 +12,7 @@ import { attachInfoPlain, emitInfoFile, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
-import { emitRosterFile } from './roster/emit';
+import { emitRosterFile, gearIds } from './roster/emit';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
 import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
@@ -190,10 +190,12 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     if (!systemCategories.has(c.attrs.name)) systemCategories.set(c.attrs.name, c.attrs.id);
   }
   const rosterFiles: RosterFile[] = [];
+  // Weapon profiles are often in a library or the .gst: which entries carry one is worked out across every file.
+  const gear = gearIds(rosterSources);
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
     const scopeCategories = categoryNamesById(cat === gd.system ? [gd.system] : catalogueScope(gd, cat.id));
-    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, modifierRemovals: overrides.modifierRemovals, systemCategories, scopeCategories });
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, modifierRemovals: overrides.modifierRemovals, systemCategories, scopeCategories, gearIds: gear });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }

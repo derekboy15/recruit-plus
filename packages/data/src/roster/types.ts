@@ -19,6 +19,9 @@ export interface RNode {
   targetId?: string; targetKind?: 'entry' | 'group'; // links
   hidden?: true; collective?: true; defaultId?: string; // defaultId: a group's defaultSelectionEntryId
   costs?: CostMap; cats?: CatLink[]; constraints?: Constraint[]; mods?: Mod[]; children?: RNode[];
+  gear?: true;     // entries and links: carries a Weapon (or Wargear) profile, its own or its target's
+  perModel?: true; // an option of a unit-wide wargear choice (emit.ts isUnitWideChoice): counted once per model
+  extraKind?: 'trait' | 'relic'; // an option of a Warlord traits or relics group (emit.ts TRAIT_GROUP, RELIC_GROUP)
 }
 export interface RCategory { id: string; name: string; hidden?: true; constraints?: Constraint[]; mods?: Mod[] }
 export interface RForce { id: string; name: string; hidden?: true; cats: CatLink[]; constraints?: Constraint[]; mods?: Mod[] }

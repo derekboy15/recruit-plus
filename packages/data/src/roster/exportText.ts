@@ -4,7 +4,7 @@
  */
 import { BATTLEFIELD_ROLES } from '../model/types';
 import type { ForceView, RosterView, SelView } from './evaluate';
-import { displayName, factionDisplayName, stripCpSuffix } from './names';
+import { displayName, factionDisplayName, optionDisplay, stripCpSuffix } from './names';
 import { BATTLE_SIZES, BATTLE_SIZE_ENTRY, DETACHMENT_COMMAND_COST_ENTRY, GAME_TYPE_ENTRY } from './policy';
 import type { Scope } from './scope';
 import { COST_CP, COST_PL, COST_PTS, type CostMap } from './types';
@@ -76,23 +76,32 @@ function* descendants(children: SelView[], copies: number): Generator<{ v: SelVi
 }
 
 /**
- * Leaf upgrades (not models, not the Warlord, nothing selected under them, not zero) aggregated by name, first seen
- * first. A parent option is shown through its leaves. `skipModels` leaves out everything inside a model stack.
+ * Models in one copy of a unit, for a unit-wide wargear choice; 1 for a model-type unit (a character). A unit-wide
+ * choice (perModel, emit.ts) is one selection under the unit that every model carries, so it is counted once per model.
  */
-function aggregate(children: SelView[], skipModels = false): Map<string, number> {
+const modelsPerCopy = (unit: SelView) => (unit.type === 'unit' && unit.models > 1 ? unit.models / Math.max(1, unit.sel.count) : 1);
+/** Copies of a direct child of the unit: per model for a unit-wide choice. */
+const childCopies = (v: SelView, perModel: number) => v.sel.count * (v.merged?.node.perModel ? perModel : 1);
+
+/**
+ * Leaf upgrades (not models, not the Warlord, nothing selected under them, not zero) aggregated by name, first seen
+ * first. A parent option is shown through its leaves. `skipModels` leaves out everything inside a model stack;
+ * `perModel` is the model count a unit-wide choice among `children` is multiplied by.
+ */
+function aggregate(children: SelView[], skipModels = false, perModel = 1): Map<string, number> {
   const out = new Map<string, number>();
-  const visit = (vs: SelView[], copies: number) => {
+  const visit = (vs: SelView[], copies: number, top: boolean) => {
     for (const v of vs) {
       if (skipModels && v.type === 'model') continue;
-      const qty = copies * v.sel.count;
+      const qty = copies * (top ? childCopies(v, perModel) : v.sel.count);
       if (v.type !== 'model' && v.name !== WARLORD && qty > 0 && !v.children.length) {
         const name = displayName(v.name);
         out.set(name, (out.get(name) ?? 0) + qty);
       }
-      visit(v.children, qty);
+      visit(v.children, qty, false);
     }
   };
-  visit(children, 1);
+  visit(children, 1, true);
   return out;
 }
 
@@ -115,9 +124,64 @@ export function unitExport(v: SelView): UnitExport {
   if (hasWarlord(v)) details.push(WARLORD);
   const stacks = modelStacks(v);
   const perModel = stacks.length > 1;
-  for (const [name, qty] of aggregate(v.children, perModel)) details.push(`${num(qty)}x ${name}`);
+  for (const [name, qty] of aggregate(v.children, perModel, modelsPerCopy(v))) details.push(`${num(qty)}x ${name}`);
   if (perModel) details.push(...stacks.map((s) => `${s.name} (${num(s.count)})${s.upgrades ? `: ${s.upgrades}` : ''}`));
   return { title: `${copies}${displayName(v.name)}${models}`, points: `${num(cost(v.total, COST_PTS))} pts`, details };
+}
+
+/** What a unit holds, in player words (spec §4): for list rows (Plan B) and Play mode (Plan C). */
+export interface UnitSummary {
+  /** Weapons, counted like the export ("5x Gauss Blaster"); a single one reads just its name ("Staff of Light"). */
+  gear: string[];
+  warlord: boolean;
+  /** Warlord trait names (optionDisplay names, no prefixes). */
+  traits: string[];
+  /** Relic names. */
+  relics: string[];
+  /** Any other chosen upgrade (stratagem upgrades, psychic powers, wargear without a weapon profile…), optionDisplay names. */
+  other: string[];
+}
+
+/** The Requisition stratagems (optionDisplay names under "Stratagem"): the trait or relic they buy is shown instead. */
+const REQUISITIONS = new Set(['Warlord trait', 'Relic']);
+
+/**
+ * A unit's chosen upgrades sorted for display, walked like the export: a Warlord trait is one whose heading is
+ * "Warlord trait…" or that was chosen in a Warlord traits group (extraKind, emit.ts), a relic likewise; the Warlord
+ * upgrade sets `warlord`; the Requisition stratagems are left out; a leaf that carries a weapon (gear) is gear and
+ * anything else is other. A trait's or relic's own sub-options are not listed again. Names go through optionDisplay.
+ */
+export function unitSummary(v: SelView): UnitSummary {
+  const out: UnitSummary = { gear: [], warlord: hasWarlord(v), traits: [], relics: [], other: [] };
+  const gear = new Map<string, number>();
+  const add = (list: string[], name: string) => void (list.includes(name) || list.push(name));
+  const perModel = modelsPerCopy(v);
+  const visit = (vs: SelView[], copies: number, top: boolean) => {
+    for (const c of vs) {
+      const qty = copies * (top ? childCopies(c, perModel) : c.sel.count);
+      if (qty <= 0) continue;
+      const d = optionDisplay(c.name);
+      const kind = c.merged?.node.extraKind;
+      if (c.type !== 'model' && c.name !== WARLORD) {
+        if (kind === 'trait' || d.heading?.startsWith('Warlord trait')) {
+          add(out.traits, d.name);
+          continue;
+        }
+        if (kind === 'relic' || d.heading?.startsWith('Relic')) {
+          add(out.relics, d.name);
+          continue;
+        }
+        if (!c.children.length && !(d.heading === 'Stratagem' && REQUISITIONS.has(d.name))) {
+          if (c.merged?.node.gear || c.merged?.target.gear) gear.set(d.name, (gear.get(d.name) ?? 0) + qty);
+          else add(out.other, d.name);
+        }
+      }
+      visit(c.children, qty, false);
+    }
+  };
+  visit(v.children, 1, true);
+  out.gear = [...gear].map(([name, n]) => (n > 1 ? `${num(n)}x ${name}` : name));
+  return out;
 }
 
 function unitLines(v: SelView): string[] {

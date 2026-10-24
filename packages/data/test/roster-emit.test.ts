@@ -132,7 +132,7 @@ describe('mini fixture', () => {
     expect(emitRosterFile(cat, 'mini-faction')).toStrictEqual(expected);
   });
 
-  test('library entries drop profiles and keep children', () => {
+  test('library entries drop profiles, keep children and mark the ones that carry a weapon (gear)', () => {
     const lib = emitRosterFile(gd.catalogues.get('cat-lib')!, 'mini-library');
     expect(lib.library).toBe(true);
     expect(lib.shared).toStrictEqual([
@@ -141,9 +141,9 @@ describe('mini fixture', () => {
         kind: 'entry',
         name: 'Warrior',
         type: 'model',
-        children: [{ id: 'el-gun', kind: 'link', name: 'Gauss gun', targetId: 'se-gun', targetKind: 'entry' }],
+        children: [{ id: 'el-gun', kind: 'link', name: 'Gauss gun', targetId: 'se-gun', targetKind: 'entry', gear: true }],
       },
-      { id: 'se-gun', kind: 'entry', name: 'Gauss gun', type: 'upgrade' },
+      { id: 'se-gun', kind: 'entry', name: 'Gauss gun', type: 'upgrade', gear: true },
     ]);
   });
 
