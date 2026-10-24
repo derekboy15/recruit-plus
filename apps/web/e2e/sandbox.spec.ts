@@ -250,4 +250,17 @@ test('a real mission from the table companion data sets the board: Strike Force,
   expect(Math.max(...ys('B')) <= 30 || Math.min(...ys('B')) >= 30).toBe(true);
   await handOver(page);
   await shot(page, 'real-mission', testInfo.project.name);
+
+  // The narrowest phones: the games list (with this game's card), the setup and the game screen fit 320px.
+  const game = page.url();
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto('/play');
+  await expect(page.getByRole('link', { name: /Necrons Combat Patrol/ }).first()).toBeVisible();
+  await noSidewaysScroll(page);
+  await page.goto('/play/new');
+  await expect(page.getByRole('group', { name: 'Player 1' })).toBeVisible();
+  await noSidewaysScroll(page);
+  await page.goto(game);
+  await expect(page.getByRole('banner', { name: 'Game status' })).toBeVisible();
+  await noSidewaysScroll(page);
 });

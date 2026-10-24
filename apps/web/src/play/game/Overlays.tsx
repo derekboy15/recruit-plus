@@ -9,26 +9,18 @@ import { logGroups } from './logGroups';
 const FOCUSABLE = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /**
- * A modal over the game. Focus moves into it when it opens (unless a child takes it with autoFocus), Tab and Shift+Tab
- * stay inside it, and focus goes back to whatever had it before when it closes. Escape closes it when it can be closed,
- * wherever focus is.
+ * A modal over the game that only its own buttons close (the pass-the-device screen). Focus moves into it when it opens
+ * (unless a child takes it with autoFocus), Tab and Shift+Tab stay inside it, and focus goes back to whatever had it
+ * before when it closes.
  */
-export function Dialog({ label, onClose, children, className = '' }: { label: string; onClose?(): void; children: ReactNode; className?: string }) {
+export function Dialog({ label, children, className = '' }: { label: string; children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const close = useRef(onClose);
-  close.current = onClose;
   useEffect(() => {
     const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     if (!ref.current?.contains(document.activeElement)) ref.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       const dialog = ref.current;
-      if (!dialog) return;
-      if (e.key === 'Escape' && close.current) {
-        e.stopPropagation();
-        close.current();
-        return;
-      }
-      if (e.key !== 'Tab') return;
+      if (!dialog || e.key !== 'Tab') return;
       const items = [...dialog.querySelectorAll<HTMLElement>(FOCUSABLE)];
       if (!items.length) return;
       const [first, last] = [items[0], items[items.length - 1]];
@@ -48,7 +40,7 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
     };
   }, []);
   return (
-    <div className="game__overlay" onClick={onClose && ((e) => e.target === e.currentTarget && onClose())}>
+    <div className="game__overlay">
       <div
         ref={ref}
         role="dialog"
@@ -57,11 +49,6 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
         tabIndex={-1}
         className={`game__dialog ${className}`}
       >
-        {onClose && (
-          <button type="button" className="btn btn--small game__close" onClick={onClose}>
-            Close
-          </button>
-        )}
         {children}
       </div>
     </div>
