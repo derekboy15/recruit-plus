@@ -7,6 +7,7 @@ import { openDb, type RecruitDb } from '../storage/db';
 import { StorageProvider } from '../storage/StorageContext';
 import { AuthProvider } from '../auth/AuthContext';
 import { signedIn } from '../rules/__fixtures__/TestProviders';
+import { ToastProvider } from '../ui/toast';
 import { getMissions, missionById, resetMissionCache } from './missionData';
 
 const missions = { generatedAt: 'x', packs: [], secondaryFactions: {}, missions: [{ id: 'aoo-cleanse-the-land', name: 'Cleanse the Land' }] };
@@ -37,7 +38,10 @@ test('/table renders "Table companion" behind sign-in', async () => {
     <AuthProvider backend={signedIn()}>
       <StorageProvider db={db}>
         <MemoryRouter initialEntries={['/table']}>
-          <AppRoutes guard={(c) => c} />
+          {/* As in App.tsx: the games list's Delete shows an Undo toast. */}
+          <ToastProvider>
+            <AppRoutes guard={(c) => c} />
+          </ToastProvider>
         </MemoryRouter>
       </StorageProvider>
     </AuthProvider>,
