@@ -3,7 +3,7 @@ import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, test } from 'vitest';
 import { loadGameData } from '../src/bsdata/gamedata';
-import { attachInfoPlain, emitInfoFile } from '../src/info';
+import { attachInfoPlain, emitInfoFile, infoTextKeys } from '../src/info';
 import type { DataIndex, InfoFile } from '../src/model/types';
 import { textKey } from '../src/plain/collect';
 import type { PlainStore } from '../src/plain/store';
@@ -100,6 +100,10 @@ describe('attachInfoPlain', () => {
     ]);
   });
 
+  test('infoTextKeys gives the keys of the texts attachInfoPlain looks up', () => {
+    expect([...infoTextKeys([file()])].sort()).toEqual([textKey(RULE), textKey(DESC)].sort());
+  });
+
   test('the same text in many entries counts once', () => {
     const f = file();
     f.entries.d = { rules: [{ name: 'Awakened', text: RULE }] };
@@ -181,8 +185,8 @@ describe('generated info files', () => {
   test('info texts are not part of plain-English coverage', () => {
     const report: PlainReport = JSON.parse(readFileSync(join(GEN, 'plain-report.json'), 'utf8'));
     const totals = Object.values(report.shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
-    // 5034 before info files existed; 4742 once relics and other list-building extras on datasheets were flagged
-    // `extra` (their texts are option texts, like the info files', and keep their plain English). Info files add none.
+    // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
+    // (Task 4: their texts are option texts, in the info files, and keep their plain English there). Info files add none.
     expect(totals).toEqual({ total: 4742, written: 4742 });
     const infoReport = JSON.parse(readFileSync(join(GEN, 'info-plain-report.json'), 'utf8'));
     expect(infoReport).toMatchObject({ total: expect.any(Number), written: expect.any(Number), missing: expect.any(Array) });

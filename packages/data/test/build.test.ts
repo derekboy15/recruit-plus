@@ -2,6 +2,7 @@ import { test, expect, beforeAll } from 'vitest';
 import { existsSync, mkdtempSync, readFileSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 import { buildAll } from '../src/build';
 import type { CatalogueOut, DataIndex } from '../src/model/types';
 
@@ -25,6 +26,11 @@ test('every playable catalogue has units and each file is under 4 MB', () => {
     if (!c.library) expect(c.unitCount, c.name).toBeGreaterThan(0);
     expect(statSync(join(out, 'catalogues', `${c.slug}.json`)).size, c.slug).toBeLessThan(4 * 1024 * 1024);
   }
+});
+
+test('every generated catalogue, plain English included, fits the app budget of 300 kB gzip (budgets.mjs catalogueGzip)', () => {
+  const gen = join(ROOT, 'generated', 'catalogues');
+  for (const c of index.catalogues) expect(gzipSync(readFileSync(join(gen, `${c.slug}.json`)), { level: 9 }).length, c.slug).toBeLessThanOrEqual(300_000);
 });
 
 test('necrons.json has Necron Warriors with points and shared rules', () => {

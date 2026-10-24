@@ -43,12 +43,20 @@ describe('wargear of its own and list-building extras', () => {
     for (const w of weapons) expect(w.extra, w.name).toBeUndefined();
   });
 
-  test("the Overlord's Voidreaper (a Necron relic, Artefacts of the Aeons) is flagged extra, and so is a relic's ability", () => {
+  test("the Overlord's Voidreaper (a Necron relic, Artefacts of the Aeons) is flagged extra", () => {
     const overlord = unit('Overlord');
     expect(overlord.weapons.find((w) => w.name === 'Voidreaper')?.extra).toBe(true);
     expect(overlord.weapons.find((w) => w.name === 'Staff of Light (Shooting)')?.extra).toBeUndefined();
+  });
+
+  test("a datasheet's abilities are its own: no relic, Warlord trait or stratagem texts (those are in the info files)", () => {
+    const overlord = unit('Overlord');
     expect(overlord.abilities.find((a) => a.name === 'Living Metal')?.extra).toBeUndefined();
-    expect(overlord.abilities.some((a) => a.extra)).toBe(true);
+    const names = overlord.abilities.map((a) => a.name);
+    for (const n of ['Blood-Fuelled Fury', 'Enduring Will', 'Stratagem: Warlord Trait', 'Veil of Darkness']) expect(names).not.toContain(n);
+    for (const c of [...gd.catalogues.values()].filter((x) => isPlayableCatalogue(x, playableCatalogues))) {
+      for (const u of extractUnits(gd, c.id)) expect(u.abilities.filter((a) => a.extra).map((a) => a.name), `${c.name}: ${u.name}`).toEqual([]);
+    }
   });
 
   describe('Ultramarines', () => {

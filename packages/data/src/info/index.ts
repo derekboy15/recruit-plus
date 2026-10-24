@@ -24,6 +24,18 @@ function textChars(p: InfoProfile): string[] {
   });
 }
 
+/** The text keys of every option text attachInfoPlain looks up: rules, and profiles' rules-text characteristics. */
+export function infoTextKeys(files: InfoFile[]): Set<string> {
+  const keys = new Set<string>();
+  for (const f of files) {
+    for (const info of Object.values(f.entries)) {
+      for (const r of info.rules ?? []) keys.add(textKey(r.text));
+      for (const p of info.profiles ?? []) for (const c of textChars(p)) keys.add(textKey(p.chars[c]));
+    }
+  }
+  return keys;
+}
+
 /**
  * Attaches plain English to the info files' rules and profile text characteristics (in place), as applyPlain does for
  * catalogues: only where the store has an entry for the text's key that passes checkPlain. These texts are not part of

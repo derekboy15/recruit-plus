@@ -7,33 +7,45 @@ import { slugify } from '../text';
 const DROPPED = /^(battle honours|battle scars|crusade|agendas)\b/i;
 
 /**
- * List-building extras: a weapon or ability found under one of these (a group, or an entry or link, anywhere between
- * the unit and the profile) is flagged `extra`, not the unit's own wargear. The rule is on the enclosing groups and
- * entries, never the weapon's own name: "Relic Gauss Blaster" is the Royal Warden's own weapon, "Relic blade" an Honour
- * Guard's, and "Relic Terminator Squad" a unit.
+ * List-building choices, sorted by where they belong. The rule is on the groups and entries between the unit and a
+ * profile, never on the weapon's own name: "Relic Gauss Blaster" is the Royal Warden's own weapon, "Relic blade" an
+ * Honour Guard's, and "Relic Terminator Squad" a unit.
  *
  * Evidence (the group and entry names on the path to every weapon and ability in Necrons, Ultramarines, Orks, Astra
  * Militarum and Chaos Space Marines, then every group name in every catalogue, 2026-10-24):
- * - relics live in groups named "Relics", "Chapter Relics", "Relics of Macragge", "Sacred Relics of the Cult",
- *   "Artefacts of the Aeons", "Bio-artefacts", "Heirlooms of Conquest", "Corrupted Heirloom", "Treasures of the
+ * - relic-type options (EXTRA_*): groups named "Relics", "Chapter Relics", "Relics of Macragge", "Sacred Relics of the
+ *   Cult", "Artefacts of the Aeons", "Bio-artefacts", "Heirlooms of Conquest", "Corrupted Heirloom", "Treasures of the
  *   Aeldari", "Trophies of the Long War", "Relic Bearers", "Shiny Gubbinz", "Signature Systems", "Prototype Systems",
- *   "Gifts of the Prescient";
- * - Warlord traits in "Warlord Traits (…)", "Codex Traits", "Shield Host Trait", "Visions of the Augurium";
- * - stratagem and requisition upgrades in "Stratagems", "Character Stratagems", "Specialist Mobs", "Specialist
- *   Detachment", "Tank Aces", "Vehicle Kustom Jobs", "Extra Regimental Doctrine", "Favour of the Dark Gods", "Exalted
- *   Abilities", "Blessings of the Faithful", "Special-Issue Wargear" / "Special Issue - …", "… Enhancements",
- *   "Boarding Action Enhancements", "War Zone …";
- * - and in entries named "Relic: …", "Relic (Sautekh): …", "Warlord Trait: …", "Stratagem: …", "Chapter Command: …".
- * Not extras, though the plan's first guess had them: "Vanguard Veterans" (a squad's own models) and "Chapter …"
+ *   "Gifts of the Prescient", "Special-Issue Wargear" / "Special Issue - …", "Vehicle Kustom Jobs", "Chapter Command",
+ *   Army of Renown choices; entries named "Relic: …", "Relic (Sautekh): …", "Chapter Command: …";
+ * - the army's other options (OPTION_*): Warlord traits ("Warlord Traits (…)", "Codex Traits", "Shield Host Trait",
+ *   "Visions of the Augurium"), stratagem and requisition upgrades ("Stratagems", "Character Stratagems", "Specialist
+ *   Mobs", "Specialist Detachment", "Tank Aces", "Extra Regimental Doctrine", "Favour of the Dark Gods", "Exalted
+ *   Abilities", "Blessings of the Faithful", "… Enhancements", "Boarding Action Enhancements", "War Zone …"); entries
+ *   named "Warlord Trait: …", "WT: …", "Stratagem: …".
+ * Not list-building, though the plan's first guess had them: "Vanguard Veterans" (a squad's own models) and "Chapter …"
  * groups other than relics and Chapter Command.
+ *
+ * A datasheet shows the unit's own wargear and abilities, plus the weapons of relic-type options flagged `extra` (spec
+ * R2: "Also available"), which the sandbox can also match a chosen relic to. Their abilities, and everything under the
+ * other options, are left to the info files (src/info): repeated on every character they doubled the Space Marine
+ * catalogues past their 300 kB budget, and the engine reads a datasheet's abilities as the unit's own.
  */
 const EXTRA_GROUP =
-  /\brelics?\b|\bartefacts?\b|\bheirlooms?\b|\btreasures?\b|\btrophies\b|\btraits?\b|\bstratagems?\b|^chapter (relics|command)\b|^special[- ]issue\b|\barmy of renown\b|\brequisitions?\b|\bregimental doctrines?\b|^tank aces\b|\bkustom jobs\b|\bgubbinz\b|\benhancements?\b|^specialist\b|^boarding action|^war zone|\bsignature systems\b|^prototype\b|^favour of the dark gods|^gifts of\b|^visions of\b|^blessings of\b|^exalted (abilities|bloodthirster|great unclean one|keeper of secrets|lord of change)/i;
-const EXTRA_ENTRY = /^!?(relic\s*[:(]|heirloom\s*[:(]|warlord traits?\b|wt\s*[:(]|strat[ae]gem:|chapter command:|army of renown)/i;
+  /\brelics?\b|\bartefacts?\b|\bheirlooms?\b|\btreasures?\b|\btrophies\b|^chapter (relics|command)\b|^special[- ]issue\b|\barmy of renown\b|\bkustom jobs\b|\bgubbinz\b|\bsignature systems\b|^prototype\b|^gifts of\b/i;
+const EXTRA_ENTRY = /^!?(relic\s*[:(]|heirloom\s*[:(]|chapter command:|army of renown)/i;
+const OPTION_GROUP =
+  /\btraits?\b|\bstratagems?\b|\brequisitions?\b|\bregimental doctrines?\b|^tank aces\b|\benhancements?\b|^specialist\b|^boarding action|^war zone|^favour of the dark gods|^visions of\b|^blessings of\b|^exalted (abilities|bloodthirster|great unclean one|keeper of secrets|lord of change)/i;
+const OPTION_ENTRY = /^!?(warlord traits?\b|wt\s*[:(]|strat[ae]gem:)/i;
 
-/** A group, entry or link (with its target) that holds list-building extras. */
-const isExtra = (n: RawNode, target: RawNode) =>
-  [n.attrs.name, target.attrs.name].some((name) => (target.tag === 'selectionEntryGroup' ? EXTRA_GROUP : EXTRA_ENTRY).test((name ?? '').trim()));
+/** Whether a group, entry or link (with its target) has a name `group` (for groups) or `entry` matches. */
+const named = (n: RawNode, target: RawNode, group: RegExp, entry: RegExp) =>
+  [n.attrs.name, target.attrs.name].some((name) => (target.tag === 'selectionEntryGroup' ? group : entry).test((name ?? '').trim()));
+/** A relic-type option: its weapons are listed as extras. */
+const isExtra = (n: RawNode, target: RawNode) => named(n, target, EXTRA_GROUP, EXTRA_ENTRY);
+/** Crusade content or one of the army's other options: never part of the datasheet. */
+const isSkipped = (n: RawNode, target: RawNode) =>
+  DROPPED.test(n.attrs.name ?? '') || DROPPED.test(target.attrs.name ?? '') || named(n, target, OPTION_GROUP, OPTION_ENTRY);
 
 /** Forge World (Imperial Armour) catalogues; their internal names don't always say "FW". */
 const FORGE_WORLD_CATALOGUES = new Set([
@@ -104,7 +116,7 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
   /** Crusade content and list-building extras never hold a unit's models. */
   const notModels = (c: RawNode) => {
     const t = resolve(c);
-    return DROPPED.test(c.attrs.name ?? '') || (!!t && (DROPPED.test(t.attrs.name ?? '') || isExtra(c, t)));
+    return DROPPED.test(c.attrs.name ?? '') || (!!t && (isSkipped(c, t) || isExtra(c, t)));
   };
 
   function innerCount(n: RawNode): [number, number] | null {
@@ -154,27 +166,29 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const addProfile = (p: RawNode, extra: boolean) => {
       const out = profileOut(p);
       const typeName = p.attrs.typeName ?? '';
-      // An extra's statline, wound track or transport capacity is not the unit's.
-      if (typeName.startsWith('Unit')) return extra ? undefined : pushUnique(models, out);
-      if (/wound track|^stat damage/i.test(typeName)) return extra ? undefined : pushUnique(woundTrack, out);
+      // An extra shows only its weapons: its statline, abilities, psychic powers and the rest are not the unit's.
+      if (extra && typeName !== 'Weapon') return;
+      if (typeName.startsWith('Unit')) return pushUnique(models, out);
+      if (/wound track|^stat damage/i.test(typeName)) return pushUnique(woundTrack, out);
       switch (typeName) {
         case 'Weapon':
           pushUnique(weapons, { ...out, ...flag(extra) });
           break;
         case 'Abilities':
-          pushUnique(abilities, { name: out.name, text: out.chars.Description ?? '', source: 'bsdata', ...flag(extra) });
+          pushUnique(abilities, { name: out.name, text: out.chars.Description ?? '', source: 'bsdata' });
           break;
         case 'Psyker':
         case 'Psychic Power':
-          pushUnique(psychic, { ...out, ...flag(extra) });
+          pushUnique(psychic, out);
           break;
         case 'Transport':
-          if (!extra) transport = out;
+          transport = out;
           break;
       }
     };
-    const addRule = (r: RawNode, extra: boolean) =>
-      pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata', ...flag(extra) });
+    const addRule = (r: RawNode, extra: boolean) => {
+      if (!extra) pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata' });
+    };
 
     const walk = (n: RawNode, extra: boolean) => {
       const key = n.attrs.id;
@@ -194,9 +208,9 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
         else walk(target, extra);
       }
       for (const c of [...kids(n, 'selectionEntries'), ...kids(n, 'selectionEntryGroups'), ...kids(n, 'entryLinks')]) {
-        if (c.attrs.hidden === 'true' || DROPPED.test(c.attrs.name ?? '')) continue;
+        if (c.attrs.hidden === 'true') continue;
         const target = c.tag === 'entryLink' ? index.get(c.attrs.targetId) : c;
-        if (!target || target.attrs.hidden === 'true' || DROPPED.test(target.attrs.name ?? '')) continue;
+        if (!target || target.attrs.hidden === 'true' || isSkipped(c, target)) continue;
         walk(target, extra || isExtra(c, target));
       }
     };

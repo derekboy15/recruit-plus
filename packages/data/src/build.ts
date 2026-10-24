@@ -8,7 +8,7 @@ import { coreStratagems, selectStratagems } from './extract/stratagems';
 import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
 import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
-import { attachInfoPlain, emitInfoFile, type InfoPlainReport } from './info';
+import { attachInfoPlain, emitInfoFile, infoTextKeys, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
@@ -165,7 +165,11 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const core = coreStratagems(w, overrides.coreStratagems.map((c) => c.id));
   // Plain English is attached after amendments: a text's key covers its amendment.
   const plainStore = loadPlainStore(opts.contentDir ? join(opts.contentDir, 'plain') : '');
-  const plain = applyPlain(outs, core, plainStore);
+  // Info files: what every army-building option is and does, one per roster file. Their texts keep their plain
+  // English entries from being reported as orphans.
+  const rosterSources = [...catalogues, gd.system];
+  const infoFiles = rosterSources.map((cat) => emitInfoFile(gd, cat, rosterSlug(cat)));
+  const plain = applyPlain(outs, core, plainStore, infoTextKeys(infoFiles));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
   writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
   const missions = writeMissions(opts, w);
@@ -180,7 +184,6 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const g of content.guides) writeFileSync(join(opts.outDir, 'guides', `${g.slug}.json`), JSON.stringify(g));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
-  const rosterSources = [...catalogues, gd.system];
   for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints], ['modifier-removals.json', overrides.modifierRemovals]] as const) {
     for (const o of list) if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`${file} names unknown catalogue "${o.catalogueName}"`);
   }
@@ -201,10 +204,8 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   }
   writeFileSync(join(opts.outDir, 'roster', 'policy.json'), JSON.stringify(loadPolicy(opts.overridesDir, rosterFiles)));
 
-  // Info files: what every army-building option is and does, one per roster file.
   rmSync(join(opts.outDir, 'info'), { recursive: true, force: true });
   mkdirSync(join(opts.outDir, 'info'), { recursive: true });
-  const infoFiles = rosterSources.map((cat) => emitInfoFile(gd, cat, rosterSlug(cat)));
   const infoPlain = attachInfoPlain(infoFiles, plainStore);
   for (const f of infoFiles) writeFileSync(join(opts.outDir, 'info', `${f.slug}.json`), JSON.stringify(f));
   writeFileSync(join(opts.outDir, 'info-plain-report.json'), JSON.stringify(infoPlain, null, 2));

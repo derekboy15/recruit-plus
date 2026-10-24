@@ -92,6 +92,15 @@ test("an extra's plain English is still attached, isn't counted, and its entry i
   expect(report.shards).toEqual(before.shards);
 });
 
+test('an entry whose text is only an option text (an info file uses it) is not an orphan, and is not counted', () => {
+  const RELIC = 'Each time the bearer would lose a wound, roll one D6: on a 5+, that wound is not lost.';
+  const entries = { necrons: { [textKey(RELIC)]: { name: 'The Shield', kind: 'ability' as const, plain: 'Whenever the bearer would lose a wound, roll a D6: on a 5+ it keeps it.' } } };
+  expect(applyPlain(fixture(), [], loadPlainStore(store(entries))).orphans.map((o) => o.name)).toEqual(['The Shield']);
+  const report = applyPlain(fixture(), [], loadPlainStore(store(entries)), new Set([textKey(RELIC)]));
+  expect(report.orphans).toEqual([]);
+  expect(report.shards).toEqual(applyPlain(fixture(), [], loadPlainStore(store({}))).shards);
+});
+
 test('short weapon labels are not collected', () => {
   expect(collectOfficialTexts(fixture(), []).some((t) => t.text === 'Blast')).toBe(false);
 });
