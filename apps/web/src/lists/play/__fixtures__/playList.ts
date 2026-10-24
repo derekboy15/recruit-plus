@@ -15,6 +15,7 @@ import {
   type Roster,
   type RosterView,
   type Scope,
+  type Sel,
   type SelView,
 } from '@recruit/data/roster';
 import { getIndex, getPolicy, getRosterScope } from '../../../factions/dataClient';
@@ -105,4 +106,14 @@ export function datasheet(units: UnitIndex, name: string): UnitOut {
   const u = [...units.values()].find((i) => i.unit.name === name)?.unit;
   if (!u) throw new Error(`No datasheet "${name}"`);
   return u;
+}
+
+/**
+ * Test-only: the list with every force and selection id replaced, depth first, by f0, f1… and s0, s1…, so a saved copy
+ * of it (e2e/data/novokh-incursion.json) doesn't change each time it is rebuilt.
+ */
+export function stableIds(data: ListData): ListData {
+  let s = 0;
+  const sel = (x: Sel): Sel => ({ ...x, id: `s${s++}`, children: (x.children ?? []).map(sel) });
+  return { ...data, roster: { ...data.roster, forces: data.roster.forces.map((f, i) => ({ ...f, id: `f${i}`, selections: f.selections.map(sel) })) } };
 }

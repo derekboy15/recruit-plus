@@ -1,0 +1,200 @@
+{
+  "roster": {
+    "schema": 1,
+    "name": "Novokh Incursion",
+    "catalogueId": "61c6-c8c5-a304-ff5f",
+    "battleSize": "incursion",
+    "forces": [
+      {
+        "id": "f0",
+        "forceId": "fa51-993c-2f8b-9be4",
+        "catalogueId": "61c6-c8c5-a304-ff5f",
+        "selections": [
+          {
+            "id": "s0",
+            "entryId": "fb30-1514-c892-86b5",
+            "count": 1,
+            "children": [
+              {
+                "id": "s1",
+                "entryId": "269e-7125-5e4d-78b0",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s2",
+            "entryId": "4bcc-b0f4-b425-f38e",
+            "count": 1,
+            "children": [
+              {
+                "id": "s3",
+                "entryId": "76d2-6e71-243f-ad3d",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s4",
+            "entryId": "ec87-f19e-eee2-1ba8",
+            "count": 1,
+            "children": []
+          },
+          {
+            "id": "s5",
+            "entryId": "44e3-c224-ba82-1b55",
+            "count": 1,
+            "children": [
+              {
+                "id": "s6",
+                "entryId": "5686-7cd9-6664-635b",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s7",
+            "entryId": "3c7c-a442-53e3-e868",
+            "count": 1,
+            "children": [
+              {
+                "id": "s8",
+                "entryId": "8fe4-6466-fb24-5a1e",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s9",
+            "entryId": "2080-5fb8-3dfa-2b0c",
+            "count": 1,
+            "children": [
+              {
+                "id": "s10",
+                "entryId": "f7a8-e40e-3275-7a2e",
+                "count": 1,
+                "children": [
+                  {
+                    "id": "s11",
+                    "entryId": "b003-c6e7-eb51-2199",
+                    "count": 1,
+                    "children": []
+                  },
+                  {
+                    "id": "s12",
+                    "entryId": "4f8a-b8db-15d7-9e61",
+                    "count": 1,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "s13",
+                "entryId": "02f8-3c58-7af1-bb30",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s14",
+            "entryId": "b3eb-7580-13e5-3cb8",
+            "count": 1,
+            "children": [
+              {
+                "id": "s15",
+                "entryId": "6de6-8e31-8111-5153",
+                "count": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s16",
+            "entryId": "881a-dcaf-c88b-8ff1",
+            "count": 1,
+            "children": [
+              {
+                "id": "s17",
+                "entryId": "a881-d8ce-8c45-b8d6",
+                "count": 10,
+                "children": [
+                  {
+                    "id": "s18",
+                    "entryId": "d7e8-7123-841a-1ba5",
+                    "count": 1,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "s19",
+            "entryId": "887a-19fb-1377-70a4",
+            "count": 1,
+            "children": [
+              {
+                "id": "s20",
+                "entryId": "e196-f5d3-21bf-1bef",
+                "count": 1,
+                "children": []
+              },
+              {
+                "id": "s21",
+                "entryId": "a5b5-82cc-ad02-a0d9",
+                "count": 5,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "s22",
+            "entryId": "f9af-879f-af80-ed23",
+            "count": 1,
+            "children": [
+              {
+                "id": "s23",
+                "entryId": "9d9b-6e40-e0ea-0c03",
+                "count": 2,
+                "children": [
+                  {
+                    "id": "s24",
+                    "entryId": "75c2-cfd1-dae8-4d34",
+                    "count": 1,
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "s25",
+                "entryId": "7134-d8f5-af0e-42c3",
+                "count": 1,
+                "children": [
+                  {
+                    "id": "s26",
+                    "entryId": "5932-2186-5904-fc06",
+                    "count": 1,
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "catalogueSlug": "necrons",
+    "faction": "Necrons",
+    "battleSize": "incursion",
+    "points": 440,
+    "pointsLimit": 1000,
+    "issueCount": 1
+  }
+}
