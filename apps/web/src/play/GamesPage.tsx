@@ -1,6 +1,7 @@
 import type { Phase } from '@recruit/engine';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
 import { useStorage } from '../storage/StorageContext';
 import type { Doc } from '../storage/types';
 import { useGames, type GameData } from './store/gameStore';
@@ -61,6 +62,16 @@ function GameCard({ doc }: { doc: Doc<GameData> }) {
 /** The saved sandbox games: resume one, delete one, or start a new one. */
 export function GamesPage() {
   const { games, loading, error } = useGames();
+  const { user } = useAuth();
+  const { repo } = useStorage();
+  useEffect(() => {
+    // DEV only: the sandbox e2e seeds its list here instead of through the builder screens.
+    if (!import.meta.env.DEV || !user) return;
+    window.__practice = { seedList: async (spec) => (await import('./devSeed')).seedPracticeList(repo, user.id, spec) };
+    return () => {
+      delete window.__practice;
+    };
+  }, [repo, user]);
   return (
     <section>
       <h1>Play</h1>
