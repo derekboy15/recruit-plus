@@ -43,6 +43,19 @@ test('stratagem groups match ignoring case and either apostrophe', () => {
   expect([...shown].sort()).toEqual(['Emperor’s Children', 'Others']);
 });
 
+test('a supplement group goes with its choice: Leviathan (Supplement) only for a Leviathan army', () => {
+  const groups = ['Tyranids', 'Leviathan', 'Leviathan (Supplement)', 'Kraken'];
+  expect([...shownStratagemGroups(groups, ['Kraken'], ['Leviathan', 'Kraken'])].sort()).toEqual(['Kraken', 'Tyranids']);
+  expect([...shownStratagemGroups(groups, ['Leviathan'], ['Leviathan', 'Kraken'])].sort()).toEqual(['Leviathan', 'Leviathan (Supplement)', 'Tyranids']);
+});
+
+test('Specialist Detachment stratagems are left out at Arks of Omen sizes, where those detachments are not used', () => {
+  const s = (id: string, group: string) => ({ id, name: id, cp: '1', group, kind: '', phases: ['Shooting phase'], text: '' });
+  const catalogues = [{ stratagems: [s('a', 'Ultramarines'), s('v', 'Victrix Guard (Specialist Detachment)')] } as CatalogueOut];
+  expect(playStratagems({ catalogues, core: [], aoo: true, chosen: ['Ultramarines'], offered: [] }).mine.map((x) => x.id)).toEqual(['a']);
+  expect(playStratagems({ catalogues, core: [], aoo: false, chosen: ['Ultramarines'], offered: [] }).mine.map((x) => x.id)).toEqual(['a', 'v']);
+});
+
 test('stratagems: core always, Arks of Omen only at Arks of Omen sizes, and "all" holds everything', () => {
   const s = (id: string, group: string, phases = ['Shooting phase']) => ({ id, name: id, cp: '1', group, kind: 'Battle Tactic', phases, text: '' });
   const out = playStratagems({ catalogues: [{ stratagems: [s('a', 'Necrons'), s('b', 'Sautekh')] } as CatalogueOut], core: [s('c', CORE_GROUP), s('d', 'Arks of Omen')], aoo: false, chosen: [], offered: ['Sautekh'] });

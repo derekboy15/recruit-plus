@@ -44,9 +44,13 @@ export function armyRules(army: PlayArmy, scope: Scope, info: EntryInfoIndex | n
 }
 
 const ARKS_OF_OMEN = 'Arks of Omen';
-/** A stratagem group or choice name compared loosely: case, either apostrophe, and "(Specialist Detachment)" ignored. */
+const SPECIALIST = /\(specialist detachment\)\s*$/i;
+/**
+ * A stratagem group or choice name compared loosely: case, either apostrophe, and a "(Specialist Detachment)" or
+ * "(Supplement)" ending ignored, so "Leviathan (Supplement)" goes with the Leviathan choice.
+ */
 const groupKey = (s: string) =>
-  s.toLowerCase().replace(/[’‘�]/g, "'").replace(/\s*\(specialist detachment\)\s*$/, '').replace(/\s+/g, ' ').trim();
+  s.toLowerCase().replace(/[’‘�]/g, "'").replace(/\s*\((specialist detachment|supplement)\)\s*$/, '').replace(/\s+/g, ' ').trim();
 
 /**
  * The stratagem groups to show: a group named after a choice the army could have made (a dynasty, an Army of Renown, a
@@ -96,7 +100,8 @@ export function stratagemsByPhase(list: StratagemOut[]): PhaseGroup[] {
 
 /**
  * The army's stratagems. `all`: every stratagem of its catalogues, then the core ones (and the Arks of Omen ones at
- * Arks of Omen sizes). `mine`: those, without the groups of choices the army didn't make (shownStratagemGroups).
+ * Arks of Omen sizes). `mine`: those, without the groups of choices the army didn't make (shownStratagemGroups), and
+ * at Arks of Omen sizes without the Specialist Detachments' (not used in those games).
  */
 export function playStratagems(a: { catalogues: CatalogueOut[]; core: StratagemOut[]; aoo: boolean; chosen: string[]; offered: string[] }): { mine: StratagemOut[]; all: StratagemOut[] } {
   const ids = new Set<string>();
@@ -106,5 +111,6 @@ export function playStratagems(a: { catalogues: CatalogueOut[]; core: StratagemO
     ...a.core.filter((s) => s.group === CORE_GROUP || (a.aoo && s.group === ARKS_OF_OMEN)),
   ].filter(once);
   const shown = shownStratagemGroups([...new Set(all.map((s) => s.group))], a.chosen, a.offered);
-  return { mine: all.filter((s) => s.group === CORE_GROUP || s.group === ARKS_OF_OMEN || shown.has(s.group)), all };
+  const mine = all.filter((s) => s.group === CORE_GROUP || s.group === ARKS_OF_OMEN || (shown.has(s.group) && !(a.aoo && SPECIALIST.test(s.group))));
+  return { mine, all };
 }
