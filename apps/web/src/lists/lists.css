@@ -34,3 +34,9 @@
 /* ---------- Sheets ---------- */
 .rename { display: grid; gap: 6px; }
 .field-error { margin: 0; color: var(--danger-text); font-size: 0.875rem; font-weight: 600; }
+
+/* ---------- List editor ---------- */
+.editor__main { max-width: 760px; }
+@media (min-width: 768px) {
+  .editor { grid-template-columns: minmax(0, 760px) minmax(280px, 340px); }
+}

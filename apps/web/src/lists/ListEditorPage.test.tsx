@@ -99,10 +99,10 @@ test('the issues button shows the count; the HQ fix lets the player pick an HQ a
   expect(rows.map((r) => r.textContent)).toEqual([expect.stringMatching(/^Lord/), expect.stringMatching(/^Plasmancer/), expect.stringMatching(/^Psychomancer/)]);
   await u.click(within(picker).getByRole('button', { name: /^Lord/ }));
 
-  expect(await screen.findByRole('dialog', { name: 'Lord' })).toBeInTheDocument();
+  const lord = await screen.findByRole('dialog', { name: 'Lord' });
   expect(points()).toHaveTextContent('65 / 2,000 pts');
   // The HQ slot is filled; the Lord now has to be made the Warlord.
-  await u.click(screen.getByRole('button', { name: 'Done' }));
+  await u.click(within(lord).getByRole('button', { name: 'Done' }));
   await u.click(screen.getByRole('button', { name: '3 problems' }));
   const after = await screen.findByRole('dialog', { name: 'Problems' });
   expect(within(after).queryByText(/needs 1 more HQ unit/)).not.toBeInTheDocument();
@@ -348,4 +348,41 @@ test('the Game Type and Battle Size the app sets open read-only', async () => {
   expect(within(editor).queryAllByRole('radio')).toEqual([]);
   expect(within(editor).queryAllByRole('checkbox')).toEqual([]);
   expect(within(editor).queryByRole('button', { name: /Remove/ })).not.toBeInTheDocument();
+});
+
+test('on a wide screen Problems rests beside the list as a region, not a dialog; a unit opens as a drawer over it', async () => {
+  const u = user();
+  vi.stubGlobal('matchMedia', (query: string) => ({
+    matches: query === '(min-width: 768px)',
+    media: query,
+    addEventListener: () => {},
+    removeEventListener: () => {},
+  }));
+  renderEditor(await necronsList('strike-force', (r, add) => add(r, 'Necron Warriors')));
+  await opened();
+  const problems = screen.getByRole('region', { name: 'Problems' });
+  expect(within(problems).getByText(/needs 1 more HQ unit/)).toBeInTheDocument();
+  expect(within(problems).queryByRole('button', { name: 'Close' })).not.toBeInTheDocument();
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+  await u.click(screen.getByRole('button', { name: /^Necron Warriors/ }));
+  const editor = await screen.findByRole('dialog', { name: 'Necron Warriors' });
+  expect(screen.getByRole('region', { name: 'Problems' })).toBeInTheDocument();
+  await u.click(within(editor).getByRole('button', { name: 'Done' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+});
+
+test('sheets close with their own button: the picker with Close, the unit editor with Done', async () => {
+  const u = user();
+  renderEditor(await necronsList('strike-force', (r, add) => add(r, 'Necron Warriors')));
+  await opened();
+  await u.click(screen.getByRole('button', { name: '+ Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.click(within(picker).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Add a unit' })).not.toBeInTheDocument());
+  await u.click(screen.getByRole('button', { name: /^Necron Warriors/ }));
+  const editor = await screen.findByRole('dialog', { name: 'Necron Warriors' });
+  expect(editor).toHaveClass('sheet');
+  await u.click(within(editor).getByRole('button', { name: 'Done' }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Necron Warriors' })).not.toBeInTheDocument());
 });

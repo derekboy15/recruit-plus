@@ -14,6 +14,7 @@ import { UnitEditor } from './UnitEditor';
 import { UnitPicker } from './UnitPicker';
 import { useRosterEditor, type ReadyEditor } from './useRosterEditor';
 import { LoadError } from '../layout/OfflineNotice';
+import './lists.css';
 
 const WIDE = '(min-width: 768px)';
 
@@ -120,23 +121,24 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const defaultName = `${catalogue ? factionDisplayName(catalogue.name) : 'My'} ${BATTLE_SIZES[roster.battleSize]?.name ?? 'list'}`;
   const panelProps = { scope, roster, view, issues, units, dispatch };
 
-  let panel: ReactNode = null;
-  if (openSel) panel = <UnitEditor key={openSel.sel.id} selId={openSel.sel.id} {...panelProps} onClose={close} />;
+  // One sheet at a time over the list (a drawer from 768px); on wide screens Problems also rests beside the list.
+  let sheet: ReactNode = null;
+  if (openSel) sheet = <UnitEditor key={openSel.sel.id} selId={openSel.sel.id} {...panelProps} onClose={close} />;
   else if (pickerForce) {
     const only = params.get('only')?.split(',').filter(Boolean);
     const onAdd = (entryId: string) => {
       const selId = dispatch({ type: 'add-unit', forceSelId: pickerForce.force.id, entryId });
       if (selId) openUnit(selId);
     };
-    panel = <UnitPicker key={params.toString()} scope={scope} roster={roster} forceSelId={pickerForce.force.id} only={only} units={units} onAdd={onAdd} onClose={close} />;
+    sheet = <UnitPicker key={params.toString()} scope={scope} roster={roster} forceSelId={pickerForce.force.id} only={only} units={units} onAdd={onAdd} onClose={close} />;
   } else if (exportOpen) {
-    panel = <ExportSheet view={view} scope={scope} onClose={close} />;
+    sheet = <ExportSheet view={view} scope={scope} onClose={close} />;
   } else if (shareOpen) {
-    panel = <ShareSheet listId={listId} flush={flush} onClose={close} />;
-  } else if (issuesOpen || wide) {
-    panel = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} inline={wide && !issuesOpen} onClose={close} />;
+    sheet = <ShareSheet listId={listId} flush={flush} onClose={close} />;
+  } else if (issuesOpen) {
+    sheet = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} onClose={close} />;
   }
-  const sheet = !wide && !openSel && !pickerForce && issuesOpen;
+  const aside = wide && !issuesOpen ? <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} inline onClose={close} /> : null;
 
   return (
     <div className="editor">
@@ -177,8 +179,8 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
         ))}
         <ArmySetup scope={scope} roster={roster} policy={policy} catalogues={catalogues} dispatch={dispatch} />
       </div>
-      {sheet && <button type="button" className="backdrop" aria-label="Close problems" tabIndex={-1} onClick={close} />}
-      {panel && <div className="editor__aside">{panel}</div>}
+      {aside && <div className="editor__aside">{aside}</div>}
+      {sheet}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { availableUnits, type Roster, type Scope, type UnitOption } from '@recruit/data/roster';
 import { useMemo, useState } from 'react';
 import { fmt, unitName } from './editorView';
-import { Panel } from './Panel';
+import { Sheet } from '../ui/Sheet';
 import { unitInfo, type UnitIndex } from './unitIndex';
 
 interface Props {
@@ -32,7 +32,7 @@ export function UnitPicker({ scope, roster, forceSelId, only, units, onAdd, onCl
   }, [options, only, filtered, query]);
 
   return (
-    <Panel title="Add a unit" kind="full" onClose={onClose}>
+    <Sheet title="Add a unit" kind="full" onClose={onClose}>
       <input
         type="search"
         className="input"
@@ -80,6 +80,6 @@ export function UnitPicker({ scope, roster, forceSelId, only, units, onAdd, onCl
           </ul>
         </section>
       ))}
-    </Panel>
+    </Sheet>
   );
 }

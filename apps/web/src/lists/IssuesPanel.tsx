@@ -1,6 +1,6 @@
 import { explain, type Issue, type RosterView, type Scope } from '@recruit/data/roster';
 import { useMemo } from 'react';
-import { Panel } from './Panel';
+import { Sheet } from '../ui/Sheet';
 import type { EditorAction } from './useRosterEditor';
 
 interface Props {
@@ -34,8 +34,8 @@ export function IssueList({ issues, view, scope, dispatch, openUnitId }: Props) 
 
 export function IssuesPanel({ inline, onClose, ...props }: Props & { inline?: boolean; onClose: () => void }) {
   return (
-    <Panel title="Problems" kind="sheet" inline={inline} onClose={onClose}>
+    <Sheet title="Problems" kind="sheet" inline={inline} onClose={onClose}>
       {props.issues.length === 0 ? <p className="muted">No problems: this list is legal to play.</p> : <IssueList {...props} />}
-    </Panel>
+    </Sheet>
   );
 }

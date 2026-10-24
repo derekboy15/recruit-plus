@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Repository } from '../storage/repository';
 import { useStorage } from '../storage/StorageContext';
 import { setListPublic, type ListData } from './listStore';
-import { Panel } from './Panel';
+import { Sheet } from '../ui/Sheet';
 import { usePublicSource } from './publicSource';
 
 const CONFIRM_MS = 2000;
@@ -47,7 +47,7 @@ function downloadText(listName: string, text: string) {
 export function ExportSheet({ view, scope, onClose }: { view: RosterView; scope: Scope; onClose: () => void }) {
   const text = useMemo(() => exportText(view, scope), [view, scope]);
   return (
-    <Panel title="Export list" kind="full" closeLabel="Done" onClose={onClose}>
+    <Sheet title="Export list" kind="full" closeLabel="Done" onClose={onClose}>
       <textarea
         className="input export-text"
         readOnly
@@ -62,7 +62,7 @@ export function ExportSheet({ view, scope, onClose }: { view: RosterView; scope:
           Download .txt
         </button>
       </div>
-    </Panel>
+    </Sheet>
   );
 }
 
@@ -107,7 +107,7 @@ export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: 
   };
 
   return (
-    <Panel title="Share list" kind="full" closeLabel="Done" onClose={onClose}>
+    <Sheet title="Share list" kind="full" closeLabel="Done" onClose={onClose}>
       <label className="choices__option">
         <input type="checkbox" checked={shared === true} disabled={shared === null || saving !== null} onChange={(e) => void toggle(e.target.checked)} />
         <span>Anyone with the link can view</span>
@@ -125,6 +125,6 @@ export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: 
           {!linksWorkAnywhere && <p className="muted">Share links work on other devices once accounts are switched on.</p>}
         </>
       )}
-    </Panel>
+    </Sheet>
   );
 }

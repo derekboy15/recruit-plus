@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fmt, isArmyOption, isAutoManaged, issuesOfUnit, plural, unitName } from './editorView';
 import { IssueList } from './IssuesPanel';
 import { OptionList, type OptionCtx } from './OptionControls';
-import { Panel } from './Panel';
+import { Sheet } from '../ui/Sheet';
 import { datasheetPath, unitInfo, type UnitIndex } from './unitIndex';
 import type { EditorAction } from './useRosterEditor';
 
@@ -46,7 +46,7 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
   };
 
   return (
-    <Panel title={unitName(v.name)} kind="full" closeLabel="Done" onClose={onClose}>
+    <Sheet title={unitName(v.name)} kind="full" closeLabel="Done" onClose={onClose}>
       <p className="unit-summary">
         <span>{`${fmt(pts)} pts`}</span>
         {v.models > 0 && <span className="muted">{plural(v.models, 'model', 'models')}</span>}
@@ -87,7 +87,7 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
           </button>
         )}
       </div>
-    </Panel>
+    </Sheet>
   );
 }
 
