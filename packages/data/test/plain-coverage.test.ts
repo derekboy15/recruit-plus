@@ -40,7 +40,7 @@ test('every option text has plain English that passes the checks', () => {
   const missing = Object.entries(report.options).filter(([, r]) => r.written !== r.total).map(([s, r]) => `${s}: ${r.total - r.written} to do`);
   expect(missing).toEqual([]);
   const totals = Object.values(report.options).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
-  expect(totals).toEqual({ total: 3432, written: 3432 });
+  expect(totals).toEqual({ total: 3434, written: 3434 });
 });
 
 test('no plain English is left over from changed or removed official text', () => {

@@ -87,12 +87,14 @@ test('weapon options show their profile lines, one per profile', async () => {
   expect(within(editor).getByRole('radio', { name: 'Warscythe' })).toHaveAccessibleDescription('Melee · S +2 · AP -4 · D2');
 });
 
-test('the Warlord option says what being Warlord gives, in plain English', async () => {
-  // Plan F2: the Warlord option has no text of its own; choosing it reveals the Overlord's Grand Strategist ability.
-  const editor = await openUnit(novokhPatrol, 'Overlord');
-  const warlord = within(editor).getByRole('checkbox', { name: 'Warlord' });
-  await waitFor(() => expect(warlord).toHaveAccessibleDescription(/\S/));
-  expect(warlord).not.toHaveAccessibleDescription(/^Official wording/);
+test("an Overlord's Warlord option claims nothing: Grand Strategist is Imotekh's own", async () => {
+  // Plan F2: Grand Strategist ("2 extra Command points if this model is your WARLORD") is revealed by Imotekh's own
+  // Warlord option (data test: it sits on his link); the Warlord option every other Necron shares has no text.
+  const overlord = await openUnit(novokhPatrol, 'Overlord');
+  const warlord = within(overlord).getByRole('checkbox', { name: 'Warlord' });
+  // Once option texts have loaded (the trait has its summary), the Warlord option still has none.
+  await waitFor(() => expect(within(overlord).getByRole('radio', { name: 'Blood-Fuelled Fury' })).toHaveAccessibleDescription(/\S/));
+  expect(warlord).toHaveAccessibleDescription('');
 });
 
 test('Warlord traits drop their prefix and sit under their kind; each says what it does', async () => {

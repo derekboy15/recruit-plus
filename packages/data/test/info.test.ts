@@ -17,7 +17,9 @@ describe('info fixture', () => {
 
   test('the file is keyed by entry id', () => {
     expect(faction).toMatchObject({ schema: 1, slug: 'info-faction' });
-    expect(Object.keys(faction.entries).sort()).toEqual(['el-lib-marker', 'el-own', 'se-base', 'se-dyn', 'se-gun', 'se-marker', 'se-other', 'se-own', 'se-trait', 'sg-traits']);
+    expect(Object.keys(faction.entries).sort()).toEqual(
+      ['el-aor', 'el-hero-wl', 'el-lib-marker', 'el-own', 'se-base', 'se-dc', 'se-dyn', 'se-gun', 'se-marker', 'se-other', 'se-own', 'se-trait', 'sg-traits'],
+    );
   });
 
   test('a rule in a linked library resolves, and a hidden rule or link is still read', () => {
@@ -80,6 +82,20 @@ describe('info fixture', () => {
   test("a library marker revealed in the faction attaches to the faction's link, not twice", () => {
     expect(names('el-lib-marker')).toEqual(['Library marker rule']);
     expect(library.entries['se-lib-marker']).toBeUndefined();
+  });
+
+  test("a unit's own gift attaches to that unit's link, not to the shared option or to other units' links", () => {
+    expect(names('el-hero-wl')).toEqual(['Hero gift']);
+    expect(faction.entries['se-warlord']).toBeUndefined();
+    expect(faction.entries['el-knight-wl']).toBeUndefined();
+  });
+
+  test("a reveal that names a link's id attaches to that link, the rule named like the option first", () => {
+    expect(names('el-aor')).toEqual(['Pact', 'Aaa other']);
+  });
+
+  test('revealed abilities come before other kinds of profile', () => {
+    expect(names('se-dc')).toEqual(['Rage', 'A vision']);
   });
 
   test("a library's own options are in its own file", () => {
@@ -254,9 +270,18 @@ describe('generated info files', () => {
       ['chaos-chaos-space-marines', '2eb6-087d-4893-3167', 'Techinfernal Loci'],
       // Speed Freeks Speed Mob is defined in the game system; Orks links to it, so its revealed text is under the link.
       ['orks', 'd7bd-1e4a-7ce9-0234', 'Adrenaline Junkies'],
-      ['imperium-space-marines', '4ad6-eb88-f4b3-590e', null],
+      // Death Company upgrades reveal their rules inside each character, so they sit on that character's own link.
+      ['imperium-space-marines', '4315-8d89-cec2-0d76', 'Death Visions'],
     ];
     for (const [slug, id, name] of expected) expect(has(slug, id, name), `${slug} ${id} ${name ?? '(any text)'}`).toBe(true);
+    // A Warlord gift sits in one unit: Imotekh's Grand Strategist is on his own Warlord link, not on every Necron's.
+    expect(info('necrons').entries['8056-ce75-9ad4-f269']).toBeUndefined();
+    expect(has('necrons', 'd4bc-5c63-9182-ef69', 'Grand Strategist')).toBe(true);
+    // A reveal naming the link's id: AdMech's Skitarii Veteran Cohort Army of Renown.
+    expect(has('imperium-adeptus-mechanicus', '7967-3985-9e3c-e265', 'Stealth Optimisation')).toBe(true);
+    // The rule named like the option leads (the builder's summary); abilities lead other profile kinds.
+    expect(info('orks').entries['d7bd-1e4a-7ce9-0234'].rules?.[0].name).toBe('Speed Freeks Speed Mob');
+    expect(info('imperium-space-marines').entries['4315-8d89-cec2-0d76'].profiles?.[0].name).toBe('Death Visions');
     const diamonas = info('chaos-chaos-knights').entries['253c-8df9-6fb9-8cee'].profiles!.find((p) => p.name === 'The Diamonas')!;
     expect(diamonas.type).toBe('Weapon');
   });
@@ -279,8 +304,8 @@ describe('generated info files', () => {
     expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
     // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
     // gave marker options the text their selection reveals (3,416 -> 3,431) and the Treasures of the Aeldari relic its
-    // Stratagem (3,432).
-    expect(sum(report.options)).toEqual({ total: 3432, written: 3432 });
+    // Stratagem (3,434 once AdMech's Army of Renown and per-unit links were added in review).
+    expect(sum(report.options)).toEqual({ total: 3434, written: 3434 });
     expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

@@ -17,3 +17,11 @@ Second review: 3 of the 10 samples needed fixing (more than 2), so a second fres
 | 7e60a57a1441 | Heavy Grav-Cannon | 4 | PASS |  |
 | d72b0610bfbd | Multitasking Cortex | 2 | PASS |  |
 | ca8c02a708a7 | Solar Atomiser | 4 | FIXED | summary was only "has the Blast ability"; now also gives Damage D3+3 within half range (a weapon: the builder shows no summary, the ⓘ text is what changed) |
+
+## Plan F2 additions (25 Oct)
+
+Plan F2 gave the Skitarii Veteran Cohort Army of Renown its revealed text, which put this text in the shard's sample. Reviewer: a fresh subagent.
+
+| Key | Name | Tier | Verdict | Note |
+|---|---|---|---|---|
+| 7f45b127601b | Stealth Optimisation | 1 | PASS |  |

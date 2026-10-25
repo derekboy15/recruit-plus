@@ -891,8 +891,8 @@
   },
   "8ae47dad4c22": {
     "name": "Treasures of the Aeldari",
-    "kind": "stratagem",
-    "plain": "Before the battle, as you muster your army, provided your WARLORD has one of the keywords ASURYANI or HARLEQUINS: a HARLEQUINS WARLORD lets you choose one HARLEQUINS CHARACTER model of yours, and an ASURYANI WARLORD lets you choose one ASURYANI CHARACTER model of yours. The chosen CHARACTER model may receive one Treasures of the Aeldari Relic (it must be one it is allowed). Every Relic in your army must be different, and you can't use this Stratagem to hand a model 2 Relics. It can be used only once, except twice in a Strike Force battle or 3 times in an Onslaught battle."
+    "kind": "rule",
+    "plain": "Give one of your CHARACTER models a Treasures of the Aeldari Relic before the battle. Use this Stratagem while mustering your army, if your WARLORD has one of the keywords ASURYANI or HARLEQUINS: a HARLEQUINS WARLORD lets you pick one HARLEQUINS CHARACTER model of yours, and an ASURYANI WARLORD lets you pick one ASURYANI CHARACTER model of yours. The Relic must be one that model is allowed. Every Relic in your army must be different, and you can't use this Stratagem to hand a model 2 Relics. It can be used only once, except twice in a Strike Force battle or 3 times in an Onslaught battle."
   },
   "8b2629fca759": {
     "name": "Neuro Disruptor",
