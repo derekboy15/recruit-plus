@@ -1,5 +1,4 @@
 import { test, expect, describe } from 'vitest';
-import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadGameData, isPlayableCatalogue } from '../src/bsdata/gamedata';
 import { extractUnits } from '../src/extract/units';
@@ -118,9 +117,8 @@ describe('Legends from Wahapedia source books', () => {
   test('units from current books are not', () => {
     expect(unitIn('Necrons', 'Necron Warriors').legends).toBe(false);
     expect(unitIn('Imperium - Adeptus Astartes - Ultramarines', 'Intercessor Squad').legends).toBe(false);
-    // Added by overrides/added-units.json, so read from the build.
-    const we = JSON.parse(readFileSync(join(ROOT, 'generated', 'catalogues', 'chaos-world-eaters.json'), 'utf8'));
-    expect(we.units.find((u: { name: string }) => u.name === 'Khorne Berzerkers').legends).toBe(false);
+    // World Eaters' own Khorne Berserkers, joined to Wahapedia's Khorne Berzerkers datasheet (name-matches.json).
+    expect(unitIn('Chaos - World Eaters', 'Khorne Berserkers').legends).toBe(false);
   });
 
   // The audit's 26 entries (18 names), plus the Renegade Commander, which BSData stores as an upgrade (listed since Task 6).

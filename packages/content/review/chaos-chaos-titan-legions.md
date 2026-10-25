@@ -23,6 +23,7 @@ Sample: 20 texts (seed chaos-chaos-titan-legions) + 0 army rules + guide
 | 262f8609c337 | Sunfury plasma annihilator - Supercharge | weapon | PASS | |
 | 87e1176bf8b2 | War Engine | ability | PASS | |
 | 67e8f513b31e | Sunfury plasma annihilator | weapon | PASS | |
+| 72dcee621624 | Reactor Meltdown | ability | PASS | BSData's own Chaos Warlord Titan (Plan G) |
 | 0239851c99f1 | War Engine | ability | PASS | Plan G: unit newly listed |
 | 3dced6d1872c | Void Shields | ability | PASS | Plan G: unit newly listed |
 

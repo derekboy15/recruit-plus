@@ -223,5 +223,12 @@
     "unit": "Damned Legionnaires",
     "reason": "8th-edition rule: Damned Legionnaires could fill a Vanguard Detachment with no HQ. It isn't on the 9th-edition Damned Legionnaires datasheet, so it goes from the army rules and the datasheet (and the detachment it unlocked, force-removals.json).",
     "source": "Wahapedia 9th-edition datasheet 000000150 (Warhammer Legends: Legion of the Damned): abilities And They Shall Know No Fear, Bolter Discipline, Shock Assault, Unyielding Spectres, Aid Unlooked For, Flaming Projectiles; owner's ruling, 25 Oct 2026"
+  },
+  {
+    "catalogueName": "Chaos - World Eaters",
+    "name": "Berzerker icon",
+    "unit": "Khorne Berserkers",
+    "reason": "Wahapedia's spelling of the unit's own Berserker icon ability (BSData spells it Berserker), so the join added the same rule a second time.",
+    "source": "BSData v9.8.0 Chaos - World Eaters.cat, Khorne Berserkers' Berserker icon; Wahapedia 9th-edition datasheet 000002627 (Khorne Berzerkers), Berzerker icon: the same text"
   }
 ]

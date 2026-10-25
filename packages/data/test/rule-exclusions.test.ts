@@ -53,3 +53,13 @@ test('the Damned Legionnaires have no "Saviours From Beyond" (not on the 9th-edi
   expect(unit.abilities.map((a) => a.name)).not.toContain('Saviours From Beyond');
   expect(cat.rules.map((r) => r.name)).not.toContain('Saviours From Beyond');
 });
+
+test('an exclusion with a unit needn’t name an army rule: it only drops that ability', () => {
+  expect(excludeRules('Tyranids', rules, [{ ...x('Reanimation'), unit: 'Warriors' }]).map((r) => r.name)).toEqual(['Synapse', 'Hive Fleet Adaptations']);
+});
+
+test('World Eaters Khorne Berserkers show their icon once, in BSData’s spelling', () => {
+  const cat: CatalogueOut = JSON.parse(readFileSync(join(__dirname, '..', 'generated', 'catalogues', 'chaos-world-eaters.json'), 'utf8'));
+  const names = cat.units.find((u) => u.name === 'Khorne Berserkers')!.abilities.map((a) => a.name);
+  expect(names.filter((n) => /^Ber[sz]erker icon$/.test(n))).toEqual(['Berserker icon']);
+});

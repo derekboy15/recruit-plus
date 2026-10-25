@@ -13,7 +13,6 @@ import { writeMissions, type MissionsReport } from './missions/build';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile, gearIds } from './roster/emit';
-import { applyAddedUnits, type AddedUnit } from './patch/addedUnits';
 import { buildScope, resolve, rootEntriesFor } from './roster/scope';
 import type { AooAllies, BattleBrothers, DatasheetEquivalence, MustBeWarlord, PolicyData } from './roster/policy';
 import type { RosterFile } from './roster/types';
@@ -71,7 +70,10 @@ export interface RuleExclusion {
   name: string;
   /** Only the row with this BSData id, when the catalogue has several rules of that name (an empty duplicate). */
   id?: string;
-  /** A unit whose datasheet also shows the rule as an ability: it goes from there too. */
+  /**
+   * A unit whose datasheet shows the rule as an ability: it goes from there, and from the army rules when the catalogue
+   * has one of that name.
+   */
   unit?: string;
   reason: string;
   source: string;
@@ -83,7 +85,7 @@ export function excludeRules(catalogueName: string, rules: CatalogueOut['rules']
   const hits = (x: RuleExclusion, r: CatalogueOut['rules'][number]) => r.name === x.name && (!x.id || r.id === x.id);
   for (const x of own) {
     if (!x.reason || !x.source) throw new Error(`rule-exclusions.json: ${catalogueName} "${x.name}" needs a reason and a source`);
-    if (!rules.some((r) => hits(x, r))) {
+    if (!x.unit && !rules.some((r) => hits(x, r))) {
       throw new Error(`rule-exclusions.json: ${catalogueName} has no army rule "${x.name}"${x.id ? ` with id ${x.id}` : ''}`);
     }
   }
@@ -124,9 +126,6 @@ export interface InfoSummary {
 
 export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: CoverageReport; missions: MissionsReport; info: InfoSummary; points: PointsSummary } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
-  // Units BSData never added, copied in before anything reads the catalogues (overrides/added-units.json).
-  const addedUnits: AddedUnit[] = JSON.parse(readFileSync(join(opts.overridesDir, 'added-units.json'), 'utf8'));
-  applyAddedUnits(gd, addedUnits);
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
   mkdirSync(join(opts.outDir, 'catalogues'), { recursive: true });
