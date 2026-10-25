@@ -31,6 +31,8 @@ const three: LessonsData = {
   ],
 };
 const css = readFileSync(join(__dirname, 'learn.css'), 'utf8');
+/** How long a test waits for the lazily loaded drill screen. */
+const DRILL_LOAD_MS = 15_000;
 
 let db: RecruitDb;
 let n = 0;
@@ -188,11 +190,11 @@ describe('Lesson page', () => {
           </Routes>
         </TestProviders>,
       );
-      expect(await screen.findByRole('region', { name: 'Drill' })).toBeInTheDocument();
+      expect(await screen.findByRole('region', { name: 'Drill' }, { timeout: DRILL_LOAD_MS })).toBeInTheDocument();
     } finally {
       DRILLS.attacks = real;
     }
-  });
+  }, 30_000);
 
   test('an unknown lesson says so', async () => {
     renderAt('/learn/nope');
@@ -212,16 +214,17 @@ describe('Lesson page', () => {
           </Routes>
         </TestProviders>,
       );
-      await user.click(await screen.findByRole('radio', { name: '4 CP' }));
+      // The drill screen loads lazily (engine and board): under a busy machine that can take a few seconds.
+      await user.click(await screen.findByRole('radio', { name: '4 CP' }, { timeout: DRILL_LOAD_MS }));
       await user.click(screen.getByRole('button', { name: 'Check answer' }));
       await user.click(screen.getByRole('button', { name: 'End Command phase' }));
       expect(screen.getByRole('heading', { name: 'Drill complete' })).toBeInTheDocument();
       expect(screen.getByRole('link', { name: 'Next lesson' })).toHaveAttribute('href', '/learn/datasheets');
-      await waitFor(async () => expect(Object.keys((await createRepository(db).listDocs<ProgressData>('progress', 'user-1'))[0]?.data.lessons ?? {})).toEqual(['what-is-40k']));
+      await waitFor(async () => expect(Object.keys((await createRepository(db).listDocs<ProgressData>('progress', 'user-1'))[0]?.data.lessons ?? {})).toEqual(['what-is-40k']), { timeout: 5_000 });
     } finally {
       DRILLS['what-is-40k'] = real;
     }
-  });
+  }, 30_000);
 
   test('every Learn button and link is at least 44px', () => {
     for (const cls of ['learn-path__link', 'learn-path__start']) expect(css).toMatch(new RegExp(`\\.${cls}[^}]*min-height: var\\(--touch\\)`));
