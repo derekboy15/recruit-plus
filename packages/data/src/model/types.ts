@@ -65,6 +65,12 @@ export interface UnitOut {
   modelKeywords?: { model: string; keywords: string[] }[];
   /** The kinds of model the unit can have (Plan H): present whenever the tree has a model, one kind for a single model. */
   modelKinds?: ModelKindOut[];
+  /** Weapons and abilities on the unit itself, not on any model: shown against "Unit" (spec §7a). */
+  unitGear?: { weapons: number[]; abilities: number[] };
+  /** Weapons a choice gives every model in the unit (BattleScribe's unit-wide choice): shown against "Everyone". */
+  everyone?: number[];
+  /** What each BSData entry in the unit's tree brings, by target id: joins a roster selection (merged.target.id) to its gear. */
+  entries?: Record<string, EntryGear>;
   models: ProfileOut[];
   weapons: ProfileOut[];
   abilities: AbilityOut[];
@@ -188,6 +194,17 @@ export interface ModelKindOut {
   max: number;
   /** An extra model with a stat line of its own that the unit as added doesn't have ("Can also take"). */
   optional?: true;
+  /** Its gear as the unit is added, and the abilities it and that gear grant (indexes into the unit's lists). */
+  weapons: number[];
+  abilities: number[];
+}
+
+/** What one BSData entry brings, by index into the unit's lists: weapons, abilities, psychic, its model stat line. */
+export interface EntryGear {
+  w?: number[];
+  a?: number[];
+  p?: number[];
+  m?: number;
 }
 
 export interface DataIndex {

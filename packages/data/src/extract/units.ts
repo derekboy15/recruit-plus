@@ -1,6 +1,6 @@
 import { buildIdIndex, catalogueScope } from '../bsdata/gamedata';
 import type { GameData, RawCatalogue, RawNode } from '../bsdata/types';
-import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type ModelKindOut, type ProfileOut, type UnitOut } from '../model/types';
+import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type EntryGear, type ModelKindOut, type ProfileOut, type UnitOut } from '../model/types';
 import { modifiersOf } from '../roster/emit';
 import { optionDisplay } from '../roster/names';
 import { isUnitLike } from '../roster/options';
@@ -272,17 +272,22 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     };
     const limit = (link: RawNode | null, m: RawNode, type: 'min' | 'max') =>
       (link && constraintValue(link, type)) ?? constraintValue(m, type);
-    if (target.attrs.type === 'model') {
-      return [{ entryIds: [...new Set([root.attrs.id, target.attrs.id])], name: target.attrs.name, profile: profile(target), defaultCount: 0, min: 1, max: 1 }];
-    }
-    return modelEntries(target).map(({ link, model }) => ({
+    const single = (): ModelKindOut[] => [
+      { entryIds: [...new Set([root.attrs.id, target.attrs.id])], name: target.attrs.name, profile: profile(target), defaultCount: 0, min: 1, max: 1, weapons: [], abilities: [] },
+    ];
+    if (target.attrs.type === 'model') return single();
+    const found = modelEntries(target).map(({ link, model }) => ({
       entryIds: link ? [link.attrs.id, model.attrs.id] : [model.attrs.id],
       name: model.attrs.name,
       profile: profile(model),
       defaultCount: 0,
       min: limit(link, model, 'min') ?? 0,
       max: limit(link, model, 'max') ?? -1,
+      weapons: [],
+      abilities: [],
     }));
+    // A single model BattleScribe stores as an upgrade (Vashtorr, the Chaos Warlord Titan) is one kind too.
+    return !found.length && target.attrs.type === 'upgrade' && profile(target) >= 0 ? single() : found;
   }
 
   /** The model entries inside a unit (not descending into models), with the link that reached each. */
@@ -312,6 +317,14 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     let transport: ProfileOut | null = null;
     // A node is walked once as the unit's own and once more at most as an extra (own wargear wins).
     const visited = { own: new Set<string>(), extra: new Set<string>() };
+    /** By entry id (link and target): the names of what that entry itself brings, made indexes at the end. */
+    type Rec = { w: Set<string>; a: Set<string>; p: Set<string>; m?: string };
+    const recs = new Map<string, Rec>();
+    const recFor = (ids: string[]): Rec => {
+      const r = ids.map((id) => recs.get(id)).find(Boolean) ?? { w: new Set<string>(), a: new Set<string>(), p: new Set<string>() };
+      for (const id of ids) recs.set(id, r);
+      return r;
+    };
     /** Adds by name; the unit's own item replaces an extra of the same name. */
     const pushUnique = <T extends { name: string; extra?: true }>(list: T[], item: T) => {
       const i = list.findIndex((x) => x.name === item.name);
@@ -320,22 +333,28 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     };
     const flag = (extra: boolean) => (extra ? { extra: true as const } : {});
 
-    const addProfile = (p: RawNode, extra: boolean) => {
+    const addProfile = (p: RawNode, extra: boolean, rec: Rec) => {
       const out = profileOut(p);
       const typeName = p.attrs.typeName ?? '';
       // An extra shows only its weapons: its statline, abilities, psychic powers and the rest are not the unit's.
       if (extra && typeName !== 'Weapon') return;
-      if (typeName.startsWith('Unit')) return pushUnique(models, out);
+      if (typeName.startsWith('Unit')) {
+        rec.m ??= out.name;
+        return pushUnique(models, out);
+      }
       if (/wound track|^stat damage/i.test(typeName)) return pushUnique(woundTrack, out);
       switch (typeName) {
         case 'Weapon':
+          rec.w.add(out.name);
           pushUnique(weapons, { ...out, ...flag(extra) });
           break;
         case 'Abilities':
+          rec.a.add(out.name);
           pushUnique(abilities, { name: out.name, text: out.chars.Description ?? '', source: 'bsdata' });
           break;
         case 'Psyker':
         case 'Psychic Power':
+          rec.p.add(out.name);
           pushUnique(psychic, out);
           break;
         case 'Transport':
@@ -343,36 +362,54 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
           break;
       }
     };
-    const addRule = (r: RawNode, extra: boolean) => {
-      if (!extra) pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata' });
+    const addRule = (r: RawNode, extra: boolean, rec: Rec) => {
+      if (extra) return;
+      rec.a.add(r.attrs.name);
+      pushUnique(abilities, { name: r.attrs.name, text: child(r, 'description')?.text ?? '', source: 'bsdata' });
     };
 
-    const walk = (n: RawNode, extra: boolean) => {
+    /** `rec` collects what this entry itself brings; an info group's contents count as the entry's own. */
+    const walk = (n: RawNode, extra: boolean, rec: Rec) => {
       const key = n.attrs.id;
       if (key) {
         if (visited.own.has(key) || (extra && visited.extra.has(key))) return;
         visited[extra ? 'extra' : 'own'].add(key);
       }
-      kids(n, 'profiles').forEach((p) => addProfile(p, extra));
-      kids(n, 'rules').forEach((r) => addRule(r, extra));
+      kids(n, 'profiles').forEach((p) => addProfile(p, extra, rec));
+      kids(n, 'rules').forEach((r) => addRule(r, extra, rec));
       for (const link of kids(n, 'infoLinks')) {
         const target = index.get(link.attrs.targetId);
         if (!target) continue;
         const hiddenUnitProfile = target.tag === 'profile' && (target.attrs.typeName ?? '').startsWith('Unit');
         if (link.attrs.hidden === 'true' && !hiddenUnitProfile) continue;
-        if (target.tag === 'profile') addProfile(target, extra);
-        else if (target.tag === 'rule') addRule(target, extra);
-        else walk(target, extra);
+        if (target.tag === 'profile') addProfile(target, extra, rec);
+        else if (target.tag === 'rule') addRule(target, extra, rec);
+        else walk(target, extra, rec);
       }
       for (const c of [...kids(n, 'selectionEntries'), ...kids(n, 'selectionEntryGroups'), ...kids(n, 'entryLinks')]) {
         if (c.attrs.hidden === 'true') continue;
         const target = c.tag === 'entryLink' ? index.get(c.attrs.targetId) : c;
         if (!target || target.attrs.hidden === 'true' || isSkipped(c, target)) continue;
-        walk(target, extra || isExtra(c, target));
+        // Keyed by the target only: a roster selection reaches it through merged.target.id whichever link it took.
+        walk(target, extra || isExtra(c, target), recFor([target.attrs.id]));
       }
     };
-    walk(entry, false);
-    return { models, weapons, abilities, psychic, woundTrack, transport: transport as ProfileOut | null };
+    walk(entry, false, recFor([entry.attrs.id]));
+    const at = <T extends { name: string }>(list: T[], names: Set<string>) =>
+      [...names].map((nm) => list.findIndex((x) => x.name === nm)).filter((i) => i >= 0);
+    const entries: Record<string, EntryGear> = {};
+    for (const [id, r] of recs) {
+      const g: EntryGear = {};
+      const w = at(weapons, r.w);
+      const a = at(abilities, r.a);
+      const p = at(psychic, r.p);
+      if (w.length) g.w = w;
+      if (a.length) g.a = a;
+      if (p.length) g.p = p;
+      if (r.m !== undefined && models.findIndex((x) => x.name === r.m) >= 0) g.m = models.findIndex((x) => x.name === r.m);
+      if (Object.keys(g).length) entries[id] = g;
+    }
+    return { models, weapons, abilities, psychic, woundTrack, transport: transport as ProfileOut | null, entries };
   }
 
   /** Whether a unit- or model-typed entry is anywhere below the entry (a No Force Org Slot wrapper, not a unit). */
