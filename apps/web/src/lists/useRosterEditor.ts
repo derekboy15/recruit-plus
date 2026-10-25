@@ -78,6 +78,11 @@ export type RosterEditor = EditorState & {
   dispatch(a: EditorAction): string | undefined;
   /** Saves now if anything is unsaved. */
   flush(): Promise<void>;
+  /**
+   * Drops anything not yet saved and saves nothing more: the list has been deleted, so the editor's save on the way
+   * out (or one retried after a failure) must not bring it back.
+   */
+  discard(): void;
   /** Set when the last save failed (the edit is kept and saving is retried on the next edit). */
   saveError: Error | null;
   /** Set when an allied detachment couldn't be added because its faction's rules didn't load. */
@@ -162,6 +167,8 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
   const historyRef = useRef<History | null>(null);
   const versionRef = useRef(0);
   const dirtyRef = useRef(false);
+  /** Set by discard(): the list is gone, nothing more is saved. */
+  const discardedRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const savingRef = useRef<Promise<void>>(Promise.resolve());
   /** The last data handed to a save, when it was captured, and whether that save has landed. */
@@ -176,6 +183,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
     const l = loadedRef.current;
     const r = rosterRef.current;
     const sent = lastSentRef.current;
+    if (discardedRef.current) return savingRef.current;
     if (!dirtyRef.current || !l || !r) {
       // Nothing new, but the last save may still be in flight: keep a copy of what it carries in case it is cut off.
       if (leaving && sent && !sent.landed) keepPending(sent.listId, sent.data, sent.at);
@@ -208,6 +216,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
 
   useEffect(() => {
     let live = true;
+    discardedRef.current = false;
     setStatus('loading');
     load(repo, listId).then(
       (l) => {
@@ -282,6 +291,12 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
   const undoEdit = useCallback(() => step(undo), [step]);
   const redoEdit = useCallback(() => step(redo), [step]);
   const getVersion = useCallback(() => versionRef.current, []);
+  const discard = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = null;
+    dirtyRef.current = false;
+    discardedRef.current = true;
+  }, []);
 
   /** Adds a detachment from a catalogue the scope doesn't cover yet: rebuilds the scope with it, then adds. */
   const addAlliedForce = useCallback(
@@ -324,7 +339,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
 
   const result = useMemo(() => (loaded && roster ? validate(loaded.scope, roster, loaded.policy) : null), [loaded, roster]);
 
-  const base = { dispatch, flush, saveError, allyError };
+  const base = { dispatch, flush, discard, saveError, allyError };
   if (status === 'ready' && loaded && roster && result && history) {
     const { scope, policy, catalogues, slugs } = loaded;
     const edits: EditorHistory = {

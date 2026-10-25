@@ -866,3 +866,19 @@ test('adding from the preview opens the unit; Done goes back to the list, as add
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   expect(screen.getByRole('button', { name: /^Lychguard/ })).toBeInTheDocument();
 });
+
+test('Delete list stays deleted even when the edit just before it could not be saved', async () => {
+  const u = user();
+  const id = await necronsList();
+  renderEditor(id);
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Strike Force · 2,000 pts' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'Battle size' })).getByRole('radio', { name: /Onslaught/ }));
+  // The save of that edit fails (say the device's storage is full).
+  vi.spyOn(db.docs, 'put').mockRejectedValueOnce(new Error('QuotaExceededError'));
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'Delete list' }));
+  expect(await screen.findByText('Your lists page')).toBeInTheDocument();
+  await new Promise((r) => setTimeout(r, 900));
+  expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(true);
+});
