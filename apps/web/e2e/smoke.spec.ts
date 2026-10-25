@@ -12,10 +12,10 @@ test('sign in (dev), browse to Necron Warriors, see the datasheet', async ({ pag
 
   await expect(page.getByRole('heading', { name: 'Necron Warriors' })).toBeVisible();
   await expect(page.getByText('Gauss Flayer').first()).toBeVisible();
-  const stats = page.getByRole('group', { name: 'Necron Warrior characteristics' });
-  const terms = await stats.getByRole('term').allTextContents();
-  const values = await stats.getByRole('definition').allTextContents();
-  expect(values[terms.indexOf('T')]).toBe('4');
+  const stats = page.getByRole('rowgroup', { name: 'Necron Warrior characteristics' });
+  const columns = await page.locator('table.ds-stats thead th').allTextContents();
+  const values = await stats.getByRole('cell').allTextContents();
+  expect(values[columns.indexOf('T')]).toBe('4');
 
   const nav = page.getByRole('navigation', { name: 'Main' });
   const box = (await nav.boundingBox())!;

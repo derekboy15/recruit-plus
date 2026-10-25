@@ -101,7 +101,7 @@ test('add a unit through its preview, remove it and Undo; choose a dynasty from 
   await picker.getByRole('button', { name: /^Elites \d+$/ }).click();
   await picker.getByRole('button', { name: /^Skorpekh Destroyers/ }).click();
   const preview = page.getByRole('dialog', { name: 'Skorpekh Destroyers' });
-  await expect(preview.getByRole('group', { name: /characteristics$/ }).first()).toBeVisible();
+  await expect(preview.getByRole('rowgroup', { name: /characteristics$/ }).first()).toBeVisible();
   await shot(page, 'picker-preview', testInfo.project.name);
   // Back closes just the preview: the picker is still open on Elites.
   await page.goBack();
@@ -147,7 +147,7 @@ test('a datasheet opens over the list and closes back to it, without leaving the
   await page.getByRole('button', { name: 'Options for Necron Warriors' }).click();
   await page.getByRole('menuitem', { name: 'View datasheet' }).click();
   const sheet = page.getByRole('dialog', { name: 'Necron Warriors' });
-  await expect(sheet.getByRole('group', { name: 'Necron Warrior characteristics' })).toBeVisible();
+  await expect(sheet.getByRole('rowgroup', { name: 'Necron Warrior characteristics' })).toBeVisible();
   expect(new URL(page.url()).pathname).toBe(new URL(listUrl).pathname);
   await sheet.getByRole('button', { name: 'Close' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);

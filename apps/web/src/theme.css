@@ -444,6 +444,35 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .ds__more[open] > summary::before { content: '▾'; }
 .ds__more[open] > :not(summary) + :not(summary) { margin-top: 6px; }
 
+/* Layout B (Plan H): the stats and weapons tables. Fixed layout so nine stat columns fit a 320 px phone; each model's or
+   weapon's name sits on its own full-width row, so nothing scrolls sideways. */
+.ds-stats, .ds-weapons { width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.ds-stats th, .ds-stats td, .ds-weapons th, .ds-weapons td { padding: 4px 2px; text-align: center; overflow-wrap: anywhere; }
+.ds-stats thead th, .ds-weapons thead th { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.ds-stats td { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.2; border-bottom: 1px solid var(--border); }
+.ds-stats__model { text-align: left !important; padding-top: 8px !important; font-weight: 600; }
+.ds-stats__count, .ds-weapons__count { color: var(--text-muted); font-weight: 400; }
+.ds-weapons thead th:first-child { width: 34%; text-align: left; }
+.ds-weapons tbody th { text-align: left; font-weight: 600; vertical-align: top; }
+.ds-weapons td { font-size: 0.875rem; vertical-align: top; overflow-wrap: normal; }
+.ds-weapons thead th:nth-child(2) { width: 14%; }
+.ds-weapons thead th:nth-child(3) { width: 22%; }
+.ds-weapons tbody { border-bottom: 1px solid var(--border); }
+.ds-weapons__group { text-align: left; padding-top: 8px !important; }
+.ds-weapons__name { display: block; }
+.ds-weapons__who { display: block; font-size: 0.75rem; font-weight: 400; color: var(--brass-strong); }
+.ds-weapons__mode { display: block; font-weight: 400; color: var(--text-soft); }
+.ds-weapons__rule td { text-align: left; font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); white-space: pre-line; }
+.ds-models { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; font-size: 0.875rem; line-height: 1.45; overflow-wrap: anywhere; }
+.ds-models__name { font-weight: 600; }
+.ability__who { margin: 0; font-size: 0.75rem; color: var(--brass-strong); }
+.ds-options__list { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.ds-options__head { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.ds-options__name { font-weight: 600; }
+.ds-options__who { font-size: 0.75rem; color: var(--brass-strong); }
+.ds-options__choices { margin: 2px 0 6px; font-size: 0.8125rem; }
+.ds__keywords-model { display: inline; }
+
 .stat-grid { margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
 .stat-grid__box {
   min-width: 0; padding: 6px 0; text-align: center;

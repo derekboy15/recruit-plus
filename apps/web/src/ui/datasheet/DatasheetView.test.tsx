@@ -2,6 +2,8 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ProfileOut, UnitOut } from '@recruit/data/model';
 import type { ReactElement } from 'react';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { expect, test } from 'vitest';
 import { necronWarriors } from '../../factions/__fixtures__/necrons';
 import { WordingProvider } from '../../rules/wording';
@@ -12,46 +14,43 @@ const reaper: ProfileOut = { name: 'Gauss Reaper', chars: { Range: '12"', Type: 
 const warriors: UnitOut = { ...necronWarriors, weapons: [flayer, reaper] };
 
 const show = (ui: ReactElement) => render(<WordingProvider initial="plain">{ui}</WordingProvider>);
-const box = (grid: HTMLElement, label: string) => within(grid).getByText(label, { selector: 'dt' }).parentElement!;
+/** The cell under a stat's column in a model's row group (the stats table's head names the columns). */
+const box = (group: HTMLElement, label: string) => {
+  const cols = [...group.closest('table')!.querySelectorAll('thead th')].map((th) => th.textContent);
+  return group.querySelectorAll('tr')[1].querySelectorAll('td')[cols.indexOf(label)] as HTMLElement;
+};
 
-test('the stat grid shows each characteristic in its own box', () => {
+test('the stats table names its columns, and each model is a row group headed by its name', () => {
   show(<DatasheetView unit={warriors} />);
-  const grid = screen.getByRole('group', { name: 'Necron Warrior characteristics' });
-  expect(within(grid).getAllByRole('term').map((t) => t.textContent)).toEqual(['M', 'WS', 'BS', 'S', 'T', 'W', 'A', 'Ld', 'Sv']);
-  expect(within(box(grid, 'T')).getByText('4')).toBeInTheDocument();
-  expect(within(box(grid, 'Sv')).getByText('4+')).toBeInTheDocument();
+  const group = screen.getByRole('rowgroup', { name: 'Necron Warrior characteristics' });
+  const table = group.closest('table')!;
+  expect(within(table).getAllByRole('columnheader').map((t) => t.textContent)).toEqual(['M', 'WS', 'BS', 'S', 'T', 'W', 'A', 'Ld', 'Sv']);
+  expect(within(group).getByRole('rowheader', { name: 'Necron Warrior' })).toBeInTheDocument();
+  expect(within(box(group, 'T')).getByText('4')).toBeInTheDocument();
+  expect(within(box(group, 'Sv')).getByText('4+')).toBeInTheDocument();
 });
 
-test('the characteristics group wraps a plain <dl>, so every dt and dd sits in a list (axe dlitem)', () => {
-  show(<DatasheetView unit={warriors} />);
-  const group = screen.getByRole('group', { name: 'Necron Warrior characteristics' });
-  const dl = group.tagName === 'DL' ? group : group.querySelector('dl')!;
-  expect(dl).not.toBeNull();
-  expect(dl).not.toHaveAttribute('role');
-  for (const item of dl.querySelectorAll('dt, dd')) expect(item.closest('dl')).toBe(dl);
-});
-
-test('it has no wide stats table', () => {
+test('each stat line and weapon is labelled: tables with headers, not boxes', () => {
   const { container } = show(<DatasheetView unit={warriors} />);
-  expect(container.querySelector('table.stats')).toBeNull();
-  expect(container.querySelector('table')).toBeNull();
+  expect(container.querySelectorAll('table')).toHaveLength(2);
+  for (const t of container.querySelectorAll('table')) expect(t.querySelector('thead th')).not.toBeNull();
 });
 
-test('weapons are cards with the five numbers and the count', () => {
+test('weapons are rows with the five numbers', () => {
   show(<DatasheetView unit={{ ...warriors, weapons: [flayer] }} />);
-  const card = screen.getByRole('article', { name: 'Gauss Flayer' });
-  expect(within(card).getAllByRole('term').map((t) => t.textContent)).toEqual(['RANGE', 'TYPE', 'S', 'AP', 'D']);
-  expect(within(card).getByText('Rapid Fire 1')).toBeInTheDocument();
-  // A dash means no abilities: nothing is shown for it.
-  expect(within(card).queryByText('-')).toBeNull();
+  const row = screen.getByRole('rowgroup', { name: 'Gauss Flayer' });
+  expect(within(row.closest('table')!).getAllByRole('columnheader').map((t) => t.textContent)).toEqual(['Weapon', 'Range', 'Type', 'S', 'AP', 'D']);
+  expect(within(row).getByText('Rapid Fire 1')).toBeInTheDocument();
+  // A dash means no abilities: no rule line is shown for it.
+  expect(within(row).queryByText('-')).toBeNull();
 });
 
 test('taken weapons come first; the rest wait, closed, under Other wargear options', () => {
   show(<DatasheetView unit={warriors} taken={['Gauss Flayer']} />);
   const other = screen.getByText('Other wargear options').closest('details')!;
   expect(other).not.toHaveAttribute('open');
-  expect(within(other).getByRole('article', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
-  expect(other).not.toContainElement(screen.getByRole('article', { name: 'Gauss Flayer' }));
+  expect(within(other).getByRole('rowgroup', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
+  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Gauss Flayer' }));
 });
 
 test('taken matches every profile of a multi-profile weapon', () => {
@@ -59,19 +58,19 @@ test('taken matches every profile of a multi-profile weapon', () => {
   const melee: ProfileOut = { name: 'Staff of Light (Melee)', chars: { Range: 'Melee', Type: 'Melee', S: 'User', AP: '-2', D: '1' } };
   show(<DatasheetView unit={{ ...warriors, weapons: [shooting, melee, reaper] }} taken={['Staff of Light']} />);
   const other = screen.getByText('Other wargear options').closest('details')!;
-  expect(other).not.toContainElement(screen.getByRole('article', { name: 'Staff of Light (Shooting)' }));
-  expect(other).not.toContainElement(screen.getByRole('article', { name: 'Staff of Light (Melee)' }));
-  expect(within(other).getByRole('article', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
+  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Staff of Light (Shooting)' }));
+  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Staff of Light (Melee)' }));
+  expect(within(other).getByRole('rowgroup', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
 });
 
 test('a taken count shows on the weapon card', () => {
   show(<DatasheetView unit={warriors} taken={['10x Gauss Flayer']} />);
-  expect(within(screen.getByRole('article', { name: 'Gauss Flayer' })).getByText('×10')).toBeInTheDocument();
+  expect(within(screen.getByRole('rowgroup', { name: 'Gauss Flayer' })).getByText('×10')).toBeInTheDocument();
 });
 
 test('without taken, every weapon of the unit is listed, and nothing is under Other wargear options', () => {
   show(<DatasheetView unit={warriors} />);
-  expect(screen.getByRole('article', { name: 'Gauss Reaper' }).closest('details')).toBeNull();
+  expect(screen.getByRole('rowgroup', { name: 'Gauss Reaper' }).closest('details')).toBeNull();
   expect(screen.queryByText('Other wargear options')).toBeNull();
 });
 
@@ -81,7 +80,7 @@ test('relic and chapter extras (extra: true) wait, closed, under Also available'
   show(<DatasheetView unit={{ ...warriors, weapons: [flayer, relic], abilities: [...warriors.abilities, ability] }} />);
   const also = screen.getByText('Also available').closest('details')!;
   expect(also).not.toHaveAttribute('open');
-  expect(within(also).getByRole('article', { name: 'Voidreaper', hidden: true })).toBeInTheDocument();
+  expect(within(also).getByRole('rowgroup', { name: 'Voidreaper', hidden: true })).toBeInTheDocument();
   expect(within(also).getByText('Relic Ability')).toBeInTheDocument();
   expect(also).not.toContainElement(screen.getByText('Reanimation Protocols'));
 });
@@ -137,8 +136,8 @@ test('a degrading profile becomes one stat grid and a wound track', () => {
     ],
   };
   show(<DatasheetView unit={ark} />);
-  expect(screen.getAllByRole('group', { name: /characteristics$/ })).toHaveLength(1);
-  const grid = screen.getByRole('group', { name: 'Doomsday Ark characteristics' });
+  expect(screen.getAllByRole('rowgroup', { name: /characteristics$/ })).toHaveLength(1);
+  const grid = screen.getByRole('rowgroup', { name: 'Doomsday Ark characteristics' });
   expect(within(box(grid, 'W')).getByText('14')).toBeInTheDocument();
   const track = screen.getByRole('region', { name: 'Wound track' });
   const rows = within(track).getAllByRole('listitem');
@@ -194,7 +193,7 @@ test.each([
   const top = names.indexOf([...names].sort((a, b) => from(b) - from(a))[0]);
   const unit: UnitOut = { ...warriors, models: names.map((name, i) => ({ name, chars: chars(i === top ? '12' : 'N/A', `${10 - i}"`) })) };
   show(<DatasheetView unit={unit} />);
-  const grids = screen.getAllByRole('group', { name: /characteristics$/ });
+  const grids = screen.getAllByRole('rowgroup', { name: /characteristics$/ });
   expect(grids).toHaveLength(1);
   const base = names[0].replace(/^\d+\.\s*/, '').replace(/\s*(\[\d+\]|\d+)?\s*[([].*$/, '');
   expect(grids[0]).toHaveAccessibleName(`${base} characteristics`);
@@ -207,7 +206,7 @@ test.each([
 test('a single profile that merely mentions wounds stays an ordinary profile', () => {
   const unit: UnitOut = { ...warriors, models: [{ name: 'Spawn (2 wounds)', chars: { M: '8"', W: '2' } }] };
   show(<DatasheetView unit={unit} />);
-  expect(screen.getByRole('group', { name: 'Spawn (2 wounds) characteristics' })).toBeInTheDocument();
+  expect(screen.getByRole('rowgroup', { name: 'Spawn (2 wounds) characteristics' })).toBeInTheDocument();
   expect(screen.queryByRole('region', { name: 'Wound track' })).toBeNull();
 });
 
@@ -232,4 +231,17 @@ test('the meta line ends with the army choices the unit needs, any one of them',
   cleanup();
   show(<DatasheetView unit={{ ...warriors, needs: ['Khorne', 'Chaos Undivided'] }} />);
   expect(screen.getByText(/· Needs Khorne or Chaos Undivided$/)).toBeInTheDocument();
+});
+
+test('options say who can replace what, with one row per weapon (Cadian Command Squad, real data)', async () => {
+  const cat = JSON.parse(readFileSync(join(__dirname, '..', '..', '..', '..', '..', 'packages', 'data', 'generated', 'catalogues', 'imperium-astra-militarum.json'), 'utf8'));
+  const squad: UnitOut = cat.units.find((u: UnitOut) => u.name === 'Cadian Command Squad');
+  show(<DatasheetView unit={squad} />);
+  await userEvent.click(screen.getByText('Options'));
+  const options = screen.getByText('Options').closest('details')!;
+  expect(options).toHaveTextContent('Cadian Commander can replace their Laspistol with one of: Bolt pistol, Plasma pistol');
+  const swap = within(options).getByText(/Cadian Commander can replace their Laspistol/).closest('li')!;
+  // The plasma pistol's two profiles sit under one weapon.
+  expect(within(swap).getByRole('rowgroup', { name: 'Plasma pistol' })).toBeInTheDocument();
+  expect(within(swap).queryByRole('rowgroup', { name: 'Laspistol' })).toBeNull();
 });

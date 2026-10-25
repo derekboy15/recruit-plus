@@ -73,7 +73,8 @@ test('a unit sheet: datasheet, no repeated name heading, Previous and Next acros
   expect(within(sheet).getByText(/Troops · 10 models · 110 pts/)).toBeInTheDocument();
   expect(within(sheet).getAllByRole('heading', { name: 'Necron Warriors' })).toHaveLength(1);
   expect(within(sheet).getByRole('heading', { name: 'Weapons' })).toBeInTheDocument();
-  expect(within(sheet).getByText('×10')).toBeInTheDocument();
+  // The weapon's count (the stats table has its own "Necron Warrior ×10").
+  expect(within(within(sheet).getByRole('region', { name: 'Weapons' })).getByText('×10')).toBeInTheDocument();
   const nav = within(sheet).getByRole('navigation', { name: 'Other units in this army' });
   expect(within(nav).getByRole('button', { name: /^Previous/ })).toHaveTextContent('Royal Warden');
   await u.click(within(nav).getByRole('button', { name: /^Next/ }));

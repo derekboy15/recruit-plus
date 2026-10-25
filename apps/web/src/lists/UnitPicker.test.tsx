@@ -72,7 +72,7 @@ test('tapping a unit opens its datasheet; Add to list adds it', async () => {
   const { dialog, onAdd, options } = await picker();
   await u.click(within(dialog).getByRole('button', { name: /^Skorpekh Destroyers/ }));
   const preview = screen.getByRole('dialog', { name: 'Skorpekh Destroyers' });
-  expect(within(preview).getByRole('group', { name: /characteristics$/ })).toBeInTheDocument();
+  expect(within(preview).getByRole('rowgroup', { name: /characteristics$/ })).toBeInTheDocument();
   await u.click(within(preview).getByRole('button', { name: 'Add to list · 90 pts' }));
   expect(onAdd).toHaveBeenCalledWith(options.find((o) => o.name === 'Skorpekh Destroyers')!.entryId);
 });

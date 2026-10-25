@@ -57,7 +57,7 @@ const withPlain: CatalogueOut = {
 test('renders the Necron Warriors datasheet', async () => {
   renderDatasheet(necrons);
   expect(await screen.findByRole('heading', { level: 1, name: 'Necron Warriors' })).toBeInTheDocument();
-  expect(within(screen.getByRole('group', { name: 'Necron Warrior characteristics' })).getByText('4+')).toBeInTheDocument();
+  expect(within(screen.getByRole('rowgroup', { name: 'Necron Warrior characteristics' })).getByText('4+')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Back to Necrons' })).toHaveAttribute('href', '/factions/necrons');
   expect(screen.getByText('Gauss Flayer')).toBeInTheDocument();
   expect(screen.getByText(/110 pts/)).toBeInTheDocument();

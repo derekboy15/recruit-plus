@@ -136,7 +136,7 @@ test('View datasheet opens the datasheet over the unit, and closing it comes bac
   await u.click(await within(editor).findByRole('button', { name: 'View datasheet' }));
   await waitFor(() => expect(screen.getAllByRole('dialog', { name: 'Overlord' })).toHaveLength(2));
   const datasheet = screen.getAllByRole('dialog', { name: 'Overlord' })[1];
-  expect(within(datasheet).getByRole('group', { name: /characteristics$/ })).toBeInTheDocument();
+  expect(within(datasheet).getByRole('rowgroup', { name: /characteristics$/ })).toBeInTheDocument();
   expect(path()).toBe(before);
   await u.click(within(datasheet).getByRole('button', { name: 'Close' }));
   await waitFor(() => expect(screen.getAllByRole('dialog', { name: 'Overlord' })).toHaveLength(1));
