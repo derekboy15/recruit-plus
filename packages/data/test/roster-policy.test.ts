@@ -915,7 +915,7 @@ describe('Arks of Omen: only one SUPREME COMMANDER unit (§7.5)', () => {
     ]);
     expect(explain(limit[0], view, scope)).toEqual({
       text: "An Arks of Omen army can include only 1 Supreme Commander. You have 2: Abaddon the Despoiler and Be'lakor. Remove 1.",
-      fixLabel: 'Remove 1',
+      fixLabel: "Remove Be'lakor",
     });
   });
 
@@ -948,7 +948,7 @@ describe('Arks of Omen: no Specialist Detachments (§4.2, §7.3, §7.5)', () => 
     expect(flagged).toEqual([
       { rule: 'detachment-not-allowed', forceSelId: specialist!.force.force.id, selId: specialist!.sel.id, subject: { id: '6c38-ec13-d26b-598f', name: 'Specialist Detachment' }, limit: 0, actual: 1, fix: { kind: 'remove', selIds: [specialist!.sel.id] } },
     ]);
-    expect(explain(flagged[0], view, scope)).toEqual({ text: 'Specialist Detachments aren\'t used in Arks of Omen games. Remove "Specialist Detachment".', fixLabel: 'Remove 1' });
+    expect(explain(flagged[0], view, scope)).toEqual({ text: 'Specialist Detachments aren\'t used in Arks of Omen games. Remove "Specialist Detachment".', fixLabel: 'Remove Specialist Detachment' });
   });
 
   test('without one, or at Onslaught, nothing is reported', () => {

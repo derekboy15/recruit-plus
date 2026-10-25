@@ -8,7 +8,8 @@ import { openDb, type RecruitDb } from '../storage/db';
 import { isUuid } from '../storage/ids';
 import { createRepository, type Repository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
-import { createList, setListPublic, useLists, type ListData } from './listStore';
+import { createList, deleteList, duplicateList, restoreList, setListPublic, useLists, type ListData } from './listStore';
+import { uniqueListName } from './newListSetup';
 import { keepPending } from './pendingEdits';
 
 const data = (name: string, over: Partial<ListData['summary']> = {}): ListData => ({
@@ -53,6 +54,73 @@ describe('listStore', () => {
 
   test('setListPublic on a missing list is an error', async () => {
     await expect(setListPublic(repo, '00000000-0000-4000-8000-000000000009', true)).rejects.toThrow();
+  });
+});
+
+describe('uniqueListName', () => {
+  test('a name nobody uses is kept', () => {
+    expect(uniqueListName('Necrons Combat Patrol', ['Orks Incursion'])).toBe('Necrons Combat Patrol');
+  });
+  test('a taken name gets the next free number', () => {
+    expect(uniqueListName('Necrons Combat Patrol', ['Necrons Combat Patrol'])).toBe('Necrons Combat Patrol 2');
+    expect(uniqueListName('Necrons Combat Patrol', ['Necrons Combat Patrol', 'Necrons Combat Patrol 2', 'Necrons Combat Patrol 3'])).toBe(
+      'Necrons Combat Patrol 4',
+    );
+  });
+  test('names match whatever their case and spacing', () => {
+    expect(uniqueListName('Necrons Combat Patrol', ['  necrons combat patrol '])).toBe('Necrons Combat Patrol 2');
+  });
+});
+
+describe('duplicate, delete and restore', () => {
+  test('duplicateList saves a private copy named "(copy)", unique among the taken names, and returns its id', async () => {
+    const id = await createList(repo, 'user-1', data('Necrons Combat Patrol', { points: 480 }));
+    await setListPublic(repo, id, true);
+    const copy = await duplicateList(repo, 'user-1', id, ['Necrons Combat Patrol']);
+    expect(copy).not.toBe(id);
+    expect(isUuid(copy)).toBe(true);
+    const doc = (await repo.getDoc<ListData>(copy))!;
+    expect(doc).toMatchObject({ kind: 'list', ownerId: 'user-1', isPublic: false, deleted: false });
+    expect(doc.data.roster.name).toBe('Necrons Combat Patrol (copy)');
+    expect(doc.data.summary).toEqual(data('x', { points: 480 }).summary);
+    expect((await repo.getDoc<ListData>(id))!.isPublic).toBe(true);
+    const second = await duplicateList(repo, 'user-1', id, ['Necrons Combat Patrol', 'Necrons Combat Patrol (copy)']);
+    expect((await repo.getDoc<ListData>(second))!.data.roster.name).toBe('Necrons Combat Patrol (copy) 2');
+  });
+
+  test('duplicateList of a list that is gone is an error', async () => {
+    await expect(duplicateList(repo, 'user-1', '00000000-0000-4000-8000-000000000009', [])).rejects.toThrow();
+  });
+
+  test('deleteList returns the list as it was; restoreList brings it back newer than the deletion, sharing kept', async () => {
+    const id = await createList(repo, 'user-1', data('Doomed'));
+    await setListPublic(repo, id, true);
+    const before = (await repo.getDoc<ListData>(id))!;
+    const was = await deleteList(repo, id);
+    expect(was).toEqual(before);
+    const deletion = (await repo.getDoc<ListData>(id))!;
+    expect(deletion.deleted).toBe(true);
+    expect(await repo.listDocs('list', 'user-1')).toEqual([]);
+
+    await restoreList(repo, was);
+    const back = (await repo.getDoc<ListData>(id))!;
+    expect(back).toMatchObject({ deleted: false, isPublic: true, dirty: true, ownerId: 'user-1' });
+    expect(back.data).toEqual(before.data);
+    expect(back.updatedAt).toBeGreaterThan(deletion.updatedAt);
+    expect((await repo.listDocs<ListData>('list', 'user-1')).map((d) => d.id)).toEqual([id]);
+  });
+
+  test('a restore stamped in the same millisecond as the deletion is still later', async () => {
+    const fixed = createRepository(db, () => 5000);
+    const id = await createList(fixed, 'user-1', data('Same moment'));
+    const was = await deleteList(fixed, id);
+    vi.spyOn(Date, 'now').mockReturnValue(5000);
+    await restoreList(fixed, was);
+    expect((await fixed.getDoc<ListData>(id))!.updatedAt).toBeGreaterThan(5000);
+  });
+
+  test('deleteList of a list that is gone is an error', async () => {
+    await expect(deleteList(repo, '00000000-0000-4000-8000-000000000009')).rejects.toThrow();
   });
 });
 

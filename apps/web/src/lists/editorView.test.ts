@@ -1,8 +1,8 @@
-import { armyOptions, createRoster, FORCE, type BattleSizeId } from '@recruit/data/roster';
+import { armyOptions, COST_PTS, createRoster, FORCE, type BattleSizeId, type SelView } from '@recruit/data/roster';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { stubGeneratedData } from './__fixtures__/generatedData';
-import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
+import { article, firstSentence, isAutoManagedEntry, isHelperOption, offeredAtSize, roleTotals } from './editorView';
 import { armyChoices } from './newListSetup';
 
 beforeEach(() => {
@@ -71,4 +71,20 @@ test('Specialist Detachments are not offered at Arks of Omen sizes, only in Core
   };
   expect(await offered('aeldari-craftworlds', 'strike-force', FORCE.arksOfOmen)).toEqual([]);
   expect(await offered('aeldari-craftworlds', 'onslaught', FORCE.patrol)).toContain('Specialist Detachment');
+});
+
+test('HQ and Elites take "an"; every other role takes "a"', () => {
+  expect(['HQ', 'Elites', 'Troops', 'Fast Attack', 'Heavy Support', 'Lord of War', 'Flyer', 'Other'].map(article)).toEqual(['an', 'an', 'a', 'a', 'a', 'a', 'a', 'a']);
+});
+
+test('roleTotals counts the units and adds up their points', () => {
+  const unit = (pts?: number) => ({ total: pts === undefined ? {} : { [COST_PTS]: pts } }) as unknown as SelView;
+  expect(roleTotals([unit(90), unit(70), unit()])).toEqual({ count: 3, points: 160 });
+  expect(roleTotals([])).toEqual({ count: 0, points: 0 });
+});
+
+test('firstSentence keeps a problem’s first sentence', () => {
+  expect(firstSentence('This unit needs a weapon. Pick one below.')).toBe('This unit needs a weapon.');
+  expect(firstSentence('Your army needs a "Dynasty Choice" choice. Tap to add it.')).toBe('Your army needs a "Dynasty Choice" choice.');
+  expect(firstSentence('No full stop')).toBe('No full stop');
 });
