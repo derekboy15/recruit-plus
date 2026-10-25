@@ -97,7 +97,8 @@ describe('objective names', () => {
     expect(buildScene(withObjectives([{ id: 'n1', label: 'North' }, { id: 'n2' }]), ui).objectives.map((o) => o.name)).toEqual(['North', '2']);
   });
 
-  test('a labelled objective shows its label', () => {
-    expect(buildScene(withObjectives([{ id: 'nw', label: 'ne' }]), ui).objectives.map((o) => o.name)).toEqual(['ne']);
+  test('a labelled objective shows its label; a compass code from a turned map is numbered', () => {
+    expect(buildScene(withObjectives([{ id: 'nw', label: 'Relic' }]), ui).objectives.map((o) => o.name)).toEqual(['Relic']);
+    expect(buildScene(withObjectives([{ id: 'a' }, { id: 'nw', label: 'ne' }]), ui).objectives.map((o) => o.name)).toEqual(['1', '2']);
   });
 });

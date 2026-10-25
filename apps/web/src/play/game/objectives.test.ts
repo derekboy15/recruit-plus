@@ -12,6 +12,11 @@ test('real labels are kept; only unlabelled ones are numbered', () => {
   expect([...objectiveLabels([{ id: 'o1', label: 'North' }, { id: 'n2' }]).values()]).toEqual(['North', '2']);
 });
 
+test('compass codes made from ids on a turned map are numbered too, so a mission reads the same at every size', () => {
+  expect([...objectiveLabels([{ id: 'a' }, { id: 'b' }, { id: 'nw', label: 'ne' }, { id: 'se', label: 'sw' }, { id: 'n1', label: 'e1' }]).values()]).toEqual(['1', '2', '3', '4', '5']);
+  expect([...objectiveLabels([{ id: 'a1', label: 'A' }, { id: 'c', label: 'C' }, { id: 'x', label: 'Relic' }]).values()]).toEqual(['A', 'C', 'Relic']);
+});
+
 test('labels are keyed by objective id', () => {
   const labels = objectiveLabels([{ id: 'n1' }, { id: 'c', label: 'Centre' }]);
   expect(labels.get('n1')).toBe('1');
