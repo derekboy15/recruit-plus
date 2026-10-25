@@ -46,7 +46,7 @@
 /* The header and summary strip stay at the top while the list scrolls, so the points stay in view. */
 .editor-top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--surface); border-bottom: 1px solid var(--border); }
 .editor-top .page-head { position: static; margin: 0; border-bottom: 1px solid var(--border); }
-.editor-top__play { gap: 6px; min-height: 40px; height: 40px; padding: 0 14px 0 11px; margin-left: 4px; }
+.editor-top__play { gap: 6px; min-height: var(--touch); height: var(--touch); padding: 0 14px 0 11px; margin-left: 4px; }
 @media (max-width: 419px) {
   /* A phone keeps room for the list name beside Undo, Redo and ⋯: Play shows its icon only (its name stays for screen readers). */
   .editor-top__play { width: var(--touch); padding: 0; }
@@ -65,7 +65,7 @@
 .summary__fill { display: block; height: 100%; border-radius: 3px; background: var(--brass-strong); }
 .summary__bar--over .summary__fill { background: var(--red-strong); }
 .summary__chips { margin: 0 -16px; padding: 0 16px; }
-.chip { display: inline-flex; align-items: center; gap: 5px; }
+.summary-chips .chip, .picker-chips .chip { display: inline-flex; align-items: center; gap: 5px; }
 .chip--ok { color: var(--ok); background: var(--ok-bg); border-color: #2f4a33; font-weight: 600; }
 .chip--warn { color: var(--warn); font-weight: 600; }
 @media (min-width: 768px) {
@@ -203,7 +203,6 @@
 .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 4px; }
 /* A long chip ("Arks of Omen Compulsory Type: Troops") wraps its own text rather than push a 320px phone sideways. */
 .summary-chips .chip { max-width: 100%; white-space: normal; text-align: left; line-height: 1.25; padding-top: 6px; padding-bottom: 6px; }
-.editor-top__play { min-height: var(--touch); height: var(--touch); }
 
 /* ---------- Export: the text wraps on phones instead of scrolling sideways ---------- */
 .export-text.export-text--wrap { white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: hidden; }
