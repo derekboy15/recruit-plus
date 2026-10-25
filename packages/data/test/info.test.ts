@@ -197,10 +197,8 @@ describe('generated info files', () => {
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
     // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
     expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
-    // Plan F writes the option texts' plain English; 1662 of them were written before it (shared with datasheet texts).
-    const options = sum(report.options);
-    expect(options.total).toBe(3416);
-    expect(options.written).toBeGreaterThanOrEqual(1662);
+    // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts).
+    expect(sum(report.options)).toEqual({ total: 3416, written: 3416 });
     expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

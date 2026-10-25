@@ -36,7 +36,12 @@ test('every option-text entry passes its checks', () => {
   expect(Object.values(report.options).flatMap((r) => [...r.flagged, ...r.copied])).toEqual([]);
 });
 
-test.todo('every option text has plain English (Plan F Task 9 turns this on)');
+test('every option text has plain English that passes the checks', () => {
+  const missing = Object.entries(report.options).filter(([, r]) => r.written !== r.total).map(([s, r]) => `${s}: ${r.total - r.written} to do`);
+  expect(missing).toEqual([]);
+  const totals = Object.values(report.options).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
+  expect(totals).toEqual({ total: 3416, written: 3416 });
+});
 
 test('no plain English is left over from changed or removed official text', () => {
   expect(report.orphans).toEqual([]);
