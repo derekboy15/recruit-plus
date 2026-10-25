@@ -215,3 +215,25 @@ test('Export copies the list and Download saves it; Share turns the link on', as
   await shareSheet.getByRole('checkbox', { name: 'Anyone with the link can view' }).uncheck();
   await expect(shareSheet.getByRole('textbox', { name: 'Share link' })).toHaveCount(0);
 });
+
+test('at 320px with a wide font a long role heading (Dedicated Transport) still fits', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'phone width');
+  await page.goto('/build/new');
+  await page.getByRole('button', { name: 'Continue (dev)' }).click();
+  await page.getByRole('button', { name: /^Necrons/ }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Combat Patrol/ }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /^Patrol Detachment/ }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: 'Decide later' }).click();
+  await expect(page).toHaveURL(/\/build\/[0-9a-f-]{36}$/);
+  await (await addUnit(page, 'ghost', 'Ghost Ark')).getByRole('button', { name: 'Done' }).click();
+  await expect(page.getByRole('button', { name: /^Dedicated Transport/ })).toBeVisible();
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.addStyleTag({ content: '*{font-family:Verdana, "DejaVu Sans", sans-serif !important}' });
+  await page.waitForTimeout(300);
+  await noSidewaysScroll(page, 'Dedicated Transport heading');
+  const add = (await page.getByRole('button', { name: 'Add a Dedicated Transport unit' }).boundingBox())!;
+  expect(add.x + add.width).toBeLessThanOrEqual(320);
+});
