@@ -43,6 +43,12 @@ test('stratagem groups match ignoring case and either apostrophe', () => {
   expect([...shown].sort()).toEqual(['Emperor’s Children', 'Others']);
 });
 
+test("stratagem groups: a Vior'la Sept list shows the Vior’la group and hides the other septs'", () => {
+  const groups = ['T’au Empire', 'Bork’an', 'Dal’yth', 'Farsight Enclaves', 'Sa’cea', 'T’au Sept', 'Vior’la'];
+  const offered = ['Custom Sept', "Bork'an Sept", "Vior'la Sept", "Dal'yth Sept", 'Farsight Enclaves', "T'au Sept", "Sa'cea Sept", "Ke'lshan Sept"];
+  expect([...shownStratagemGroups(groups, ["Vior'la Sept"], offered)].sort()).toEqual(['T’au Empire', 'Vior’la']);
+});
+
 test('a supplement group goes with its choice: Leviathan (Supplement) only for a Leviathan army', () => {
   const groups = ['Tyranids', 'Leviathan', 'Leviathan (Supplement)', 'Kraken'];
   expect([...shownStratagemGroups(groups, ['Kraken'], ['Leviathan', 'Kraken'])].sort()).toEqual(['Kraken', 'Tyranids']);

@@ -1,10 +1,12 @@
 import 'fake-indexeddb/auto';
 import type { StratagemOut } from '@recruit/data/model';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
-import { getCatalogue, getRosterScope, resetDataCache } from '../factions/dataClient';
+import { FORCE } from '@recruit/data/roster';
+import { getCatalogue, getIndex, getRosterScope, resetDataCache } from '../factions/dataClient';
+import { factionDisplayName } from '../factions/names';
 import { stubGeneratedData } from '../lists/__fixtures__/generatedData';
 import { necronsListData } from '../lists/__fixtures__/necronsList';
-import { applyPicks, armyChoices } from '../lists/newListSetup';
+import { applyPicks, armyChoices, startingRoster } from '../lists/newListSetup';
 import { armyGroups, chosenNames, defaultGroups, mainGroup } from './armyGroups';
 
 beforeEach(() => {
@@ -35,7 +37,30 @@ test('armyGroups matches the faction, chosen names and "(Specialist Detachment)"
 });
 
 test('armyGroups ignores case but not a name that only starts the same', () => {
-  expect(armyGroups(['NOVOKH', 'Novokhan Raiders', 'Blitz Brigades'], 'Orks', ['novokh', 'Blitz Brigade'])).toEqual(['NOVOKH']);
+  expect(armyGroups(['NOVOKH', 'Novokhan Raiders', 'Blitz Brigade Veterans'], 'Orks', ['novokh', 'Blitz Brigade'])).toEqual(['NOVOKH']);
+});
+
+test('armyGroups matches a choice however BSData and Wahapedia spell it: apostrophes, "Sept", "The", "Order of", plurals', () => {
+  expect(armyGroups(['T’au Empire', 'Vior’la', 'Bork’an', 'T’au Sept'], "T'au Empire", ["Vior'la Sept"])).toEqual(['T’au Empire', 'Vior’la']);
+  expect(armyGroups(['T’au Empire', 'T’au Sept', 'Vior’la'], 'Orks', ["T'au Sept"])).toEqual(['T’au Sept']);
+  expect(armyGroups(['Ferrymen', 'Mortarion’s Anvil', 'Wretched'], 'Death Guard', ['The Ferrymen', "Mortarion's Anvil"])).toEqual(['Ferrymen', 'Mortarion’s Anvil']);
+  expect(armyGroups(['Bladed Cog', 'Rusted Claw'], 'Genestealer Cults', ['The Bladed Cog'])).toEqual(['Bladed Cog']);
+  expect(armyGroups(['Order of the Argent Shroud', 'Order of Our Martyred Lady', 'Order of the Bloody Rose'], 'Adepta Sororitas', ['Argent Shroud', 'Our Martyred Lady'])).toEqual([
+    'Order of the Argent Shroud',
+    'Order of Our Martyred Lady',
+  ]);
+  expect(armyGroups(['Goff', 'Blood Axe', 'Evil Sunz'], 'Orks', ['Goffs'])).toEqual(['Goff']);
+});
+
+test("a Vior'la list sees the Vior’la stratagems by default and not another sept's", async () => {
+  const tau = (await getIndex()).catalogues.find((c) => c.slug === 'tau-empire')!;
+  const scope = await getRosterScope(['tau-empire']);
+  let r = startingRoster(scope, { name: 'Vior’la', catalogueId: tau.id, sizeId: 'incursion', forceId: FORCE.arksOfOmen });
+  const sept = armyChoices(scope, r).find((c) => c.title === 'Sept Choice')!;
+  r = applyPicks(scope, r, [sept], { [sept.key]: sept.options.find((o) => o.name === "Vior'la Sept")!.id });
+  const shown = [...defaultGroups((await getCatalogue('tau-empire')).stratagems, factionDisplayName(tau.name), await chosenNames(r, 'tau-empire'))];
+  expect(shown).toEqual(expect.arrayContaining(['Core Book', 'T’au Empire', 'Vior’la']));
+  expect(shown).not.toContain('Bork’an');
 });
 
 test('defaultGroups is the Core Book, the main group and the army groups', () => {

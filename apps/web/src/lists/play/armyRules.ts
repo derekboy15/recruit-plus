@@ -2,7 +2,7 @@
 import type { CatalogueOut, EntryInfo, StratagemOut } from '@recruit/data/model';
 import { factionDisplayName, type Scope } from '@recruit/data/roster';
 import { entryInfo, type EntryInfoIndex } from '../../data/entryInfo';
-import { CORE_GROUP } from '../../table/stratagemFilter';
+import { CORE_GROUP, groupKey } from '../../table/stratagemFilter';
 import type { PlayArmy } from './playArmy';
 
 /** `from`: the choice that gives the rule ("Novokh") or the faction whose rule it is ("Necrons"). */
@@ -45,16 +45,11 @@ export function armyRules(army: PlayArmy, scope: Scope, info: EntryInfoIndex | n
 
 const ARKS_OF_OMEN = 'Arks of Omen';
 const SPECIALIST = /\(specialist detachment\)\s*$/i;
-/**
- * A stratagem group or choice name compared loosely: case, either apostrophe, and a "(Specialist Detachment)" or
- * "(Supplement)" ending ignored, so "Leviathan (Supplement)" goes with the Leviathan choice.
- */
-const groupKey = (s: string) =>
-  s.toLowerCase().replace(/[’‘�]/g, "'").replace(/\s*\((specialist detachment|supplement)\)\s*$/, '').replace(/\s+/g, ' ').trim();
 
 /**
  * The stratagem groups to show: a group named after a choice the army could have made (a dynasty, an Army of Renown, a
  * Specialist Detachment) only when it was made; every other group (the faction's own, Cult of the Cryptek…) always.
+ * Names are compared by groupKey, so "Leviathan (Supplement)" goes with the Leviathan choice and "Vior’la" with "Vior'la Sept".
  */
 export function shownStratagemGroups(groups: string[], chosen: string[], offered: string[]): Set<string> {
   const picked = new Set(chosen.map(groupKey));

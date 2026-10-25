@@ -13,6 +13,21 @@ const REACTIONS = ['Being targeted', 'Taking casualties', 'Enemy taking casualti
 const SHARED: TablePhase[] = ['fight', 'morale'];
 export const CORE_GROUP = 'Core Book';
 
+/** Bracketed endings that only say where a group comes from: "Blitz Brigade (Specialist Detachment)", "Leviathan (Supplement)". */
+const SOURCE_ENDING = /^\((specialist detachment|supplement)\)$/;
+
+/**
+ * A stratagem group or a list's choice compared loosely, since BSData names a choice and Wahapedia its group in their
+ * own ways: case, either apostrophe ("Vior'la" / "Vior’la"), a leading "The" or "Order of (the)" ("The Ferrymen" /
+ * "Ferrymen", "Argent Shroud" / "Order of the Argent Shroud"), a trailing "Sept" ("Vior'la Sept" / "Vior’la"), a plural
+ * ("Goffs" / "Goff") and a source ending are ignored. Any other bracketed ending is kept: "chaos space marine (khorne)".
+ */
+export function groupKey(name: string): string {
+  const [, base, bracket] = /^(.*?)\s*(\([^)]*\))?$/.exec(name.toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, ' ').trim())!;
+  const key = base.replace(/^(the|order of( the)?) /, '').replace(/ sept$/, '').replace(/s$/, '');
+  return bracket && !SOURCE_ENDING.test(bracket) ? `${key} ${bracket}` : key;
+}
+
 export function phaseFilter(phase: TablePhase, side: 'active' | 'reacting', ctx: { firstCommandOfRound: boolean }): { main: string[]; reactions: string[] } {
   const own = `${NAME[phase]} phase`;
   const enemy = `Enemy ${NAME[phase]} phase`;

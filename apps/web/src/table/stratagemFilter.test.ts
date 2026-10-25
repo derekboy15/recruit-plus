@@ -1,8 +1,24 @@
 import { describe, expect, test } from 'vitest';
 import type { StratagemOut } from '@recruit/data/model';
-import { costOptions, phaseFilter, stratagemsFor } from './stratagemFilter';
+import { costOptions, groupKey, phaseFilter, stratagemsFor } from './stratagemFilter';
 
 const s = (name: string, phases: string[], group = 'Necrons', cp = '1'): StratagemOut => ({ id: name, name, cp, group, kind: 'Battle Tactic', phases, text: 't' });
+
+describe('groupKey', () => {
+  test('a source ending is dropped; any other bracketed ending is kept after the loosened name', () => {
+    expect(groupKey('Blitz Brigade (Specialist Detachment)')).toBe('blitz brigade');
+    expect(groupKey('House Raven (Supplement)')).toBe(groupKey('House Raven'));
+    expect(groupKey('Chaos Space Marines (Khorne)')).toBe('chaos space marine (khorne)');
+    expect(groupKey('Chaos Space Marines (Khorne)').startsWith(`${groupKey('Chaos Space Marines')} (`)).toBe(true);
+  });
+
+  test("BSData's and Wahapedia's spellings of one choice give one key", () => {
+    for (const [a, b] of [["Vior'la Sept", 'Vior’la'], ['The Ferrymen', 'Ferrymen'], ['Argent Shroud', 'Order of the Argent Shroud'], ['Our Martyred Lady', 'Order of Our Martyred Lady'], ['Goffs', 'Goff']]) {
+      expect(groupKey(a), `${a} / ${b}`).toBe(groupKey(b));
+    }
+    expect(groupKey("T'au Sept")).not.toBe(groupKey('T’au Empire'));
+  });
+});
 
 describe('phaseFilter', () => {
   test('active Shooting includes "Shooting phase" and "Any phase"', () => {
