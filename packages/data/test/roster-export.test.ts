@@ -157,6 +157,20 @@ describe('unit-wide weapon choices and unitSummary (real data)', () => {
     expect(unitExport(squad).details).toContain('1x Bolt Pistol and Astartes Chainsword');
   });
 
+  test('a weapon whose option name carries its own count is counted once per weapon, in every BSData spelling', () => {
+    const aggressors = added('imperium-adeptus-astartes-ultramarines', 'Aggressor Squad'); // "2x Flamestorm Gauntlets"
+    expect(aggressors.models).toBe(3);
+    expect(unitExport(aggressors).details).toContain('6x Flamestorm Gauntlets');
+    expect(unitSummary(aggressors).gear).toEqual(['6x Flamestorm Gauntlets']);
+    const inceptors = added('imperium-adeptus-astartes-ultramarines', 'Inceptor Squad'); // "Assault bolter x2"
+    expect(unitExport(inceptors).details).toContain('6x Assault bolter');
+    expect(unitSummary(inceptors).gear).toEqual(['6x Assault bolter']);
+    const wraithlord = added('aeldari-craftworlds', 'Wraithlord'); // "2 x Shuriken Catapult"
+    expect(unitExport(wraithlord).details).toContain('2x Shuriken Catapult');
+    expect(unitSummary(wraithlord).gear).toContain('2x Shuriken Catapult');
+    for (const v of [aggressors, inceptors, wraithlord]) expect([...unitExport(v).details, ...unitSummary(v).gear].join('\n')).not.toMatch(/\dx \d+ ?x |\dx .* x\d/);
+  });
+
   test('a one-model character keeps 1x', () => {
     const overlord = added('necrons', 'Overlord', { options: ['Staff of Light'] });
     expect(unitExport(overlord).details).toContain('1x Staff of Light');

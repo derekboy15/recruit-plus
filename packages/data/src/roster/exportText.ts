@@ -83,6 +83,19 @@ const modelsPerCopy = (unit: SelView) => (unit.type === 'unit' && unit.models > 
 /** Copies of a direct child of the unit: per model for a unit-wide choice (never for a model chosen in a one-of group). */
 const childCopies = (v: SelView, perModel: number) => v.sel.count * (v.type !== 'model' && v.merged?.node.perModel ? perModel : 1);
 
+/** A count BattleScribe writes into an option's name: "2x Flamestorm Gauntlets", "2 x Shuriken Catapult", "Assault bolter x2". */
+const COUNT_PREFIX = /^(\d+)\s*x\s+(\S.*)$/i;
+const COUNT_SUFFIX = /^(\S.*?)\s+x(\d+)$/i;
+
+/** A name as the item it counts and how many of it one selection holds: "2x Flamestorm Gauntlets" -> 2 of "Flamestorm Gauntlets". */
+function counted(name: string): { name: string; count: number } {
+  const prefix = COUNT_PREFIX.exec(name);
+  if (prefix) return { name: prefix[2], count: Number(prefix[1]) };
+  const suffix = COUNT_SUFFIX.exec(name);
+  if (suffix) return { name: suffix[1], count: Number(suffix[2]) };
+  return { name, count: 1 };
+}
+
 /**
  * Leaf upgrades (not models, not the Warlord, nothing selected under them, not zero) aggregated by name, first seen
  * first. A parent option is shown through its leaves. `skipModels` leaves out everything inside a model stack;
@@ -95,8 +108,8 @@ function aggregate(children: SelView[], skipModels = false, perModel = 1): Map<s
       if (skipModels && v.type === 'model') continue;
       const qty = copies * (top ? childCopies(v, perModel) : v.sel.count);
       if (v.type !== 'model' && v.name !== WARLORD && qty > 0 && !v.children.length) {
-        const name = displayName(v.name);
-        out.set(name, (out.get(name) ?? 0) + qty);
+        const item = counted(displayName(v.name));
+        out.set(item.name, (out.get(item.name) ?? 0) + qty * item.count);
       }
       visit(v.children, qty, false);
     }
@@ -172,8 +185,10 @@ export function unitSummary(v: SelView): UnitSummary {
           continue;
         }
         if (!c.children.length && !(d.heading === 'Stratagem' && REQUISITIONS.has(d.name))) {
-          if (c.merged?.node.gear || c.merged?.target.gear) gear.set(d.name, (gear.get(d.name) ?? 0) + qty);
-          else add(out.other, d.name);
+          if (c.merged?.node.gear || c.merged?.target.gear) {
+            const item = counted(d.name);
+            gear.set(item.name, (gear.get(item.name) ?? 0) + qty * item.count);
+          } else add(out.other, d.name);
         }
       }
       visit(c.children, qty, false);

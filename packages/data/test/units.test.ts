@@ -118,6 +118,9 @@ test('Death Korps and Elysian units imported into Astra Militarum are flagged Fo
 });
 
 test('hidden root entries and Crusade honours never appear as units', () => {
+  const CRUSADE_NAME = /\bbattle honours\b|\bcrusade\b/i;
+  // The guard must match what it guards against.
+  expect(['Battle Honours', 'Crusade Relics'].filter((n) => !CRUSADE_NAME.test(n))).toEqual([]);
   for (const cat of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, playableCatalogues))) {
     const hiddenRootIds = cat.root.children
       .filter((c) => c.tag === 'entryLinks' || c.tag === 'selectionEntries')
@@ -130,7 +133,7 @@ test('hidden root entries and Crusade honours never appear as units', () => {
       .filter((e) => e.attrs.hidden !== 'true')
       .map((e) => e.attrs.targetId ?? e.attrs.id);
     for (const u of extractUnits(gd, cat.id)) {
-      expect(/battle honours|crusade/i.test(u.name), u.name).toBe(false);
+      expect(CRUSADE_NAME.test(u.name), u.name).toBe(false);
     }
     const ownUnitIds = new Set(extractUnits(gd, cat.id).map((u) => u.id));
     for (const id of hiddenRootIds) if (!visibleRootIds.includes(id)) expect(ownUnitIds.has(id), `${cat.name}: hidden root ${id}`).toBe(false);

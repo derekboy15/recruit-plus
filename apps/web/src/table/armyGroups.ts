@@ -6,7 +6,7 @@
 import type { StratagemOut } from '@recruit/data/model';
 import type { Roster, SelView } from '@recruit/data/roster';
 import { getIndex, getPolicy, getRosterScope } from '../factions/dataClient';
-import { CORE_GROUP } from './stratagemFilter';
+import { CORE_GROUP, groupKey } from './stratagemFilter';
 
 /**
  * The display names of every selection in a list (sub-faction, Army of Renown, detachment, units and their upgrades),
@@ -43,12 +43,12 @@ export function mainGroup(stratagems: StratagemOut[]): string | null {
 
 /**
  * The groups that belong to the army: the faction's name, a chosen name, or a chosen name followed by " (", as in
- * "Blitz Brigade (Specialist Detachment)". Case doesn't matter.
+ * "Chaos Space Marines (Khorne)", all compared by groupKey ("Vior'la Sept" is the "Vior’la" group).
  */
 export function armyGroups(groups: string[], factionName: string, chosen: string[]): string[] {
-  const names = [factionName, ...chosen].map((n) => n.toLowerCase());
+  const names = [factionName, ...chosen].map(groupKey);
   return groups.filter((g) => {
-    const group = g.toLowerCase();
+    const group = groupKey(g);
     return names.some((n) => group === n || group.startsWith(`${n} (`));
   });
 }

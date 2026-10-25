@@ -30,6 +30,14 @@ test('every playable catalogue has one stratagem-factions entry; libraries have 
   for (const c of index.catalogues.filter((x) => x.library)) expect(catalogue(c.slug).stratagems, c.name).toEqual([]);
 });
 
+test('Wahapedia text is read as UTF-8: the T’au group keeps its curly apostrophe and nothing holds U+FFFD', () => {
+  // Wahapedia writes "T’au" (U+2019) where BSData writes "T'au"; the CSV is UTF-8 with a BOM.
+  expect(new Set(catalogue('tau-empire').stratagems.map((s) => s.group))).toContain('T’au Empire');
+  expect(w.stratagems.filter((r) => Object.values(r).some((v) => v.includes('�'))).map((r) => r.name)).toEqual([]);
+  const garbled = catalogues().flatMap((c) => c.stratagems).filter((s) => `${s.group}|${s.name}`.includes('�'));
+  expect(garbled.map((s) => `${s.group}: ${s.name}`)).toEqual([]);
+});
+
 test('no boarding or crusade stratagems in any catalogue', () => {
   const byId = new Map(w.stratagems.map((r) => [r.id, r]));
   for (const c of catalogues()) {

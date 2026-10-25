@@ -1,4 +1,4 @@
-import { stateOf } from '@recruit/engine';
+import { objectiveName, stateOf } from '@recruit/engine';
 import { expect, test } from 'vitest';
 import { deployedGame } from '../__fixtures__/game';
 import { boardNames } from './names';
@@ -21,6 +21,12 @@ test('labels are keyed by objective id', () => {
   const labels = objectiveLabels([{ id: 'n1' }, { id: 'c', label: 'Centre' }]);
   expect(labels.get('n1')).toBe('1');
   expect(labels.get('c')).toBe('Centre');
+});
+
+test("the engine's log names objectives the same way (objectiveName)", () => {
+  const objectives = [{ id: 'a' }, { id: 'nw', label: 'ne' }, { id: 'c', label: 'Centre' }, { id: 'n1', label: 'e1' }, { id: 'x', label: 'Relic' }];
+  const labels = objectiveLabels(objectives);
+  expect(objectives.map((o) => objectiveName(objectives, o.id))).toEqual(objectives.map((o) => labels.get(o.id)));
 });
 
 test('boardNames names objectives the same way, for the board description and the Learn drills', () => {
