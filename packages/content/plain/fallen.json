@@ -64,6 +64,11 @@
     "kind": "ability",
     "plain": "Only a model with a power maul or accursed crozius can take this. It replaces that model's power maul or accursed crozius."
   },
+  "78eb280ee484": {
+    "name": "Fallen Angels",
+    "kind": "rule",
+    "plain": "Lets your army include one Fallen Angels Specialist Detachment: a Vanguard Detachment made up only of FALLEN, Sorcerer and Chaos Rhino units.\nUse this Stratagem before the battle, while you are mustering your army.\n• Sorcerer units and Chaos Rhinos in this Detachment lose their <MARK OF CHAOS>, HERETIC ASTARTES and <LEGION> Faction keywords and gain the IMPERIUM and FALLEN Faction keywords instead.\n• Sorcerer units also swap their Death to the False Emperor ability for the Fallen Angels ability.\n• Chaos Rhinos get a new Transport section: each can carry 10 FALLEN INFANTRY models, and can't carry JUMP PACK models.\n• Every unit in this Detachment gains the FALLEN ANGELS keyword."
+  },
   "8ff564ae0bfd": {
     "name": "Jump Pack Assault",
     "kind": "ability",

@@ -44,6 +44,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your IMPERIAL FISTS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "476b04f21ebc": {
+    "name": "No Matter The Odds",
+    "kind": "rule",
+    "plain": "Models with this tactic add 1 to hit when shooting much larger units, and score extra hits with bolt weapons.\n• When a model with this tactic makes a ranged attack, add 1 to its hit roll if, at the time the attacker's unit was selected to shoot, the target unit had at least 5 more models than the attacker's unit. Each VEHICLE model counts as 5 models for this.\n• When a model with this tactic attacks with a bolt weapon, each unmodified hit roll of 6 scores 1 additional hit."
+  },
   "4801fac8beb3": {
     "name": "Tank Hunters",
     "kind": "stratagem",
@@ -119,6 +124,11 @@
     "kind": "ability",
     "plain": "While they are within 6\" of this Warlord, your CRIMSON FISTS units have the Defenders of Humanity ability. If a unit already has it, each of its models counts as two models for that ability."
   },
+  "8dbb90fd280a": {
+    "name": "Siege Masters",
+    "kind": "rule",
+    "plain": "Models with this tactic ignore Light Cover with their ranged attacks, and score extra hits with bolt weapons.\n• Ranged attacks by models with this tactic deny the target the benefits of Light Cover.\n• When a model with this tactic attacks with a bolt weapon, each unmodified hit roll of 6 scores 1 additional hit."
+  },
   "93752f5832a5": {
     "name": "The Tyrant's Champion",
     "kind": "ability",
@@ -153,6 +163,11 @@
     "name": "Paragons of Dorn",
     "kind": "stratagem",
     "plain": "At the end of an enemy Shooting phase: pick one of your LIBERATOR STRIKE FORCE units that was targeted by one or more attacks this phase. It can shoot straight away as if it were your Shooting phase."
+  },
+  "c29fc1e92c81": {
+    "name": "By My Will I Deny Thee",
+    "kind": "rule",
+    "plain": "Attacks against units with this tactic always fail to wound on an unmodified 1 or 2, and their models can shrug off mortal wounds.\n• Any attack against a unit with this tactic always fails to wound on an unmodified wound roll of 1 or 2, whatever abilities the weapon or the attacker has.\n• Each time a mortal wound would make a model with this tactic lose a wound, roll one D6: on a 5+, the model doesn't lose it."
   },
   "c4cd9afc8ffe": {
     "name": "Ænigmata Ferrum",

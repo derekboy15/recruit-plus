@@ -47,6 +47,19 @@
     "kind": "stratagem",
     "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments an Anointed Throng Specialist Detachment. In that Detachment, ABOMINANTS and ABERRANTS gain the ANOINTED THRONG keyword."
   },
+  "130cd44ea921": {
+    "name": "Symbiotic Broodmind",
+    "kind": "ability",
+    "plain": "A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends."
+  },
+  "13a33b7676c4": {
+    "name": "Industrial Affinity",
+    "kind": "ability",
+    "plain": "When a model with this creed attacks with an industrial weapon, you can ignore any or all modifiers to its hit roll, Ballistic Skill and Weapon Skill.",
+    "waive": {
+      "107": "page reference; pages are not mentioned in plain text"
+    }
+  },
   "1558d0cdbf30": {
     "kind": "ability",
     "name": "Hand of Aberrance",
@@ -80,6 +93,16 @@
     "kind": "ability",
     "name": "Alchemicus Familiar",
     "plain": "Once per battle, when this model begins the Twisted Experiment action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
+  },
+  "1cf2237f3a39": {
+    "name": "Cold-eyed Killers",
+    "kind": "ability",
+    "plain": "When a model with this creed makes a melee attack, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "1daa7936d85c": {
+    "name": "Nomadic Survivalists",
+    "kind": "ability",
+    "plain": "Attacks with an AP of -1 or -2 are worsened by 1 AP against models with this creed, and these units can move and still count as having Remained Stationary.\n• When an attack with an Armour Penetration characteristic of -1 or -2 is allocated to a model with this creed, worsen that attack's Armour Penetration characteristic by 1.\n• If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until your Shooting phase ends."
   },
   "1def79cee03c": {
     "kind": "ability",
@@ -204,6 +227,11 @@
     "kind": "ability",
     "plain": "The bearer's ranged weapons get 12\" added to their Range characteristic."
   },
+  "3acf171fb330": {
+    "name": "Deep Supplies",
+    "kind": "ability",
+    "plain": "When a unit with this creed is picked to shoot or fight, one wound roll for its attacks can be re-rolled."
+  },
   "3c24348cc078": {
     "name": "Open-topped",
     "kind": "ability",
@@ -272,6 +300,11 @@
     "kind": "ability",
     "plain": "If this model has a cult sniper rifle (or a weapon replacing one), it gains the Crossfire ability and the CROSSFIRE keyword. Whenever it attacks with that weapon against a unit that has a crossfire marker, treat the target as Exposed for that attack."
   },
+  "5243abe892c0": {
+    "name": "Subterranean Ambushers",
+    "kind": "ability",
+    "plain": "You can re-roll charge rolls for units with this creed, and they get the benefits of Light Cover against ranged attacks from attackers more than 12\" away."
+  },
   "5361bbc27baf": {
     "kind": "weapon",
     "name": "Blessed Sledgehammer",
@@ -332,6 +365,11 @@
     "name": "Spiritual Leader (Aura)",
     "plain": "Aura: in the Psychic phase, while one of your <CULT> INFANTRY or <CULT> BIKER units is within 6\" of this model, whenever a model in that unit would lose a wound to a mortal wound, roll one D6: on a 5+ that wound is not lost."
   },
+  "670ca845b0b5": {
+    "name": "Disciplined Militants",
+    "kind": "ability",
+    "plain": "Units with this creed can shoot after Falling Back, and can perform actions after Falling Back or Advancing, shooting while they do.\n• A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends.\n• A unit with this creed can perform actions in a turn in which it Fell Back or Advanced, and it can shoot while performing an action without that action failing."
+  },
   "6753deb3e71f": {
     "kind": "ability",
     "name": "Blessed Sledgehammer",
@@ -362,6 +400,20 @@
     "kind": "stratagem",
     "plain": "When you would reveal your ambush markers: in a Combat Patrol or Incursion battle, you may take away one of your ambush markers; in a Strike Force or Onslaught battle, you may take away up to two. Place each marker taken away anywhere on the battlefield wholly within your deployment zone and more than 9\" from any enemy models. Then reveal all your ambush markers as normal."
   },
+  "6e6e5b3809c5": {
+    "name": "Alien Fury",
+    "kind": "ability",
+    "plain": "When a unit with this creed piles in or consolidates, its models can move 1\" further."
+  },
+  "6ef4208b39b6": {
+    "name": "Myriad Cults",
+    "kind": "ability",
+    "plain": "If your chosen cult has no Cult Creed of its own, you must build one by choosing Myriad Cult Creeds whose combined value is 4 or less. Each Myriad Cult Creed shows its value. When you choose a Myriad Cult Creed, swap every <CULT> keyword (if any) for your Myriad Cult's name.",
+    "waive": {
+      "56": "page reference; pages are not mentioned in plain text",
+      "61": "page reference; pages are not mentioned in plain text"
+    }
+  },
   "75905cadf9fb": {
     "kind": "ability",
     "name": "Sword of the Void's Eye",
@@ -385,10 +437,23 @@
       "102": "page reference; pages are not mentioned in plain text"
     }
   },
+  "7e336a02d18d": {
+    "name": "Martial",
+    "kind": "ability",
+    "plain": "Each ranged attack by a CROSSFIRE INFANTRY model with this creed treats the target as having a crossfire marker, unless the model's unit has moved this turn. You can't take this creed together with the Agile Guerrillas creed.",
+    "waive": {
+      "89": "page reference; pages are not mentioned in plain text"
+    }
+  },
   "7f6e80786b13": {
     "kind": "ability",
     "name": "Vockor's Talisman",
     "plain": "When the bearer makes a melee attack and the unmodified wound roll is 5+, no saving throw of any kind (invulnerable saves included) can be made against that attack."
+  },
+  "81ff69309950": {
+    "name": "Devoted Zealots",
+    "kind": "ability",
+    "plain": "Units with this creed hit more easily in melee after charging, being charged or making a Heroic Intervention, and can ignore Combat Attrition modifiers.\n• In a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each melee attack by a model with this creed adds 1 to its hit roll.\n• Units with this creed can ignore any or all modifiers to their Combat Attrition tests."
   },
   "823e5799f0f3": {
     "kind": "ability",
@@ -429,6 +494,16 @@
     "kind": "ability",
     "name": "Nexus of Devotion",
     "plain": "In your Command phase, one of your <CULT> CORE units that is within 6\" of this model can summon the cult."
+  },
+  "8b3a394ae2ca": {
+    "name": "Agile Guerrillas",
+    "kind": "ability",
+    "plain": "If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary in your Shooting phase that follows. You can't take this creed together with the Martial creed."
+  },
+  "8c429aa4104f": {
+    "name": "Toxin Agents",
+    "kind": "ability",
+    "plain": "When a model with this creed attacks in melee, an unmodified hit roll of 6 wounds the target automatically, unless the target is a VEHICLE or MONSTER unit."
   },
   "8c7370f51051": {
     "name": "One with the Shadows",
@@ -540,10 +615,20 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase or the Fight phase, after one of your SANCTUS models makes an attack: if an enemy model lost any wounds from that attack but wasn't destroyed, roll 3D6. If the total is higher than that enemy model's Leadership characteristic, that model's unit loses any aura abilities it has until the start of your next Shooting phase; and if that model is a PSYKER, Perils of the Warp is suffered by its unit. No enemy unit can be affected by this Stratagem more than once."
   },
+  "a48e9db444fe": {
+    "name": "Hunter's Instincts",
+    "kind": "ability",
+    "plain": "Units with this creed can re-roll their charge rolls."
+  },
   "a4f17c6767e0": {
     "name": "Vengeance for the Martyred",
     "kind": "stratagem",
     "plain": "When one of your PAUPER PRINCES CHARACTER models is destroyed by an enemy unit: for the rest of the battle, whenever a friendly PAUPER PRINCES model makes a melee attack against that enemy unit, add 1 to that attack's wound roll."
+  },
+  "a507ed7fdff5": {
+    "name": "Deliverance Broodsurge",
+    "kind": "ability",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments a Deliverance Broodsurge Specialist Detachment. In that Detachment, ACOLYTE ICONWARDS, NEOPHYTE HYBRIDS, ACOLYTE HYBRIDS and GOLIATH TRUCKS gain the DELIVERANCE BROODSURGE keyword."
   },
   "a5c6e6d15e98": {
     "name": "Coordinated Assault",
@@ -558,6 +643,11 @@
       "89": "page reference; pages are not mentioned in plain text"
     }
   },
+  "a900ce5983b3": {
+    "name": "Impassioned",
+    "kind": "ability",
+    "plain": "In a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each melee attack by a model with this creed adds 1 to its hit roll."
+  },
   "a97ae90199cf": {
     "name": "A Plan Generations in the Making",
     "kind": "stratagem",
@@ -570,6 +660,16 @@
     "waive": {
       "VEHICLER": "typo for VEHICLE in the official text; written as VEHICLE"
     }
+  },
+  "a9cd566f33cb": {
+    "name": "Thralls of the Patriarch",
+    "kind": "ability",
+    "plain": "Units with this creed ignore any or all modifiers to their Combat Attrition tests."
+  },
+  "aa6572ae3d97": {
+    "name": "Insurrectionists",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, Troops units in GENESTEALER CULTS and BROOD BROTHERS Detachments control objective markers even if more enemy models are in range. Each of those Troops units gains this ability: while it is in range of an objective marker (range as the mission sets it), it controls that marker even if more enemy models are in range of it. If an enemy unit in range of that marker has a similar ability, the player with the most models in range controls it, as normal."
   },
   "ab568b940bfd": {
     "kind": "psychic",
@@ -632,10 +732,24 @@
     "kind": "stratagem",
     "plain": "At the end of your Movement phase, choose one of your DELIVERANCE BROODSURGE GOLIATH TRUCK units. Any DELIVERANCE BROODSURGE units embarked within that GOLIATH TRUCK that didn't embark this turn can disembark straight away. If any do, roll a D6 for every disembarking model; for each 1, one model that disembarked (you choose which) is slain. Models disembarking this way can't move that phase, and they must be set up more than 9\" from any enemy models."
   },
+  "ba6aedd8dd7d": {
+    "name": "Synaptic Resonance",
+    "kind": "ability",
+    "plain": "When a unit with this creed takes a Psychic test, you can re-roll any or all of its dice that show 1-2."
+  },
   "bb16bec9ba0f": {
     "kind": "ability",
     "name": "Conceal",
     "plain": "During deployment, instead of placing this unit on the battlefield, you can set it up in ambush. If it is an INFANTRY or BIKER unit, you can instead set it up underground, rather than on the battlefield or in ambush."
+  },
+  "bc40b90fe263": {
+    "name": "Cult Creed",
+    "kind": "ability",
+    "plain": "GENESTEALER CULTS units with this ability, and all their models, gain their cult's Cult Creed if every cult unit in their Detachment is from the same cult. If your cult has no Cult Creed of its own, it is a Myriad Cult, and you must build a Cult Creed for it yourself instead. Either way, record each Detachment's Cult Creed on your army roster.",
+    "waive": {
+      "62": "page reference; pages are not mentioned in plain text",
+      "63": "page reference; pages are not mentioned in plain text"
+    }
   },
   "c37ddd8b8145": {
     "kind": "ability",
@@ -662,6 +776,11 @@
     "name": "Cult Icon",
     "plain": "In your Command phase, if a model in this unit is equipped with a cult icon, this unit can summon the cult."
   },
+  "c84387f38d8d": {
+    "name": "War Convoy",
+    "kind": "ability",
+    "plain": "Each time one of your VEHICLE or BIKER models with this creed is about to lose a wound, roll one D6: on a 6, it doesn't lose that wound."
+  },
   "c84c56178bb9": {
     "name": "Massed Firearms",
     "kind": "stratagem",
@@ -680,6 +799,16 @@
       "88": "page reference; pages are not mentioned in plain text",
       "89": "page reference; pages are not mentioned in plain text"
     }
+  },
+  "cec9435c135a": {
+    "name": "Leaders of the Cult",
+    "kind": "ability",
+    "plain": "Before the battle, if your WARLORD is a <CULT> PATRIARCH, up to two other <CULT> models in your army with the HQ Battlefield Role can each get a Warlord Trait. Do this while mustering your army; each must be a Warlord Trait that model could have. Those models count as your WARLORD only for the purposes of those Warlord Traits. Every Warlord Trait in your army must be unique (if you roll them randomly, re-roll duplicates). You can only use this Stratagem once."
+  },
+  "d1cc86ff539e": {
+    "name": "Cyborgised Hybrids",
+    "kind": "ability",
+    "plain": "Models with this creed get a 6+ invulnerable save, a wound re-roll each time their unit shoots or fights, and 3\" more range on most ranged weapons.\n• Each model with this creed has a 6+ invulnerable save.\n• When a unit with this creed is picked to shoot or fight, one wound roll for its attacks can be re-rolled.\n• Ranged weapons that models with this creed have get 3\" added to their Range characteristic, except Grenades and cache of demolition charges."
   },
   "d55c4e5ac519": {
     "kind": "psychic",
@@ -716,6 +845,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HIVECULT CORE CROSSFIRE units is chosen to shoot, choose one enemy unit that has no crossfire marker; give it one before resolving any attacks against it. For the rest of the phase, that enemy unit is the only unit that models in that CROSSFIRE unit can target."
   },
+  "e44647cf7105": {
+    "name": "Accustomed to Toil",
+    "kind": "ability",
+    "plain": "Attacks against a unit with this creed always fail on an unmodified wound roll of 1 or 2, whatever abilities the weapon or the attacker has."
+  },
   "e68a6f23f495": {
     "name": "Summon Familiar",
     "kind": "stratagem",
@@ -725,6 +859,21 @@
     "name": "Devoted Crew",
     "kind": "stratagem",
     "plain": "In your Command phase, choose one of your GENESTEALER CULTS VEHICLE models. Until the start of your next Command phase, use the characteristics on its profile as if it had its full wounds remaining."
+  },
+  "e9c3161a56f9": {
+    "name": "Experimental Subjects",
+    "kind": "ability",
+    "plain": "Models with this creed get 1 extra Strength and 1\" extra Move, and attacks against their units fail to wound on an unmodified 1-2.\n• Models with this creed have 1 added to their Strength characteristic.\n• Models with this creed have 1\" added to their Move characteristic.\n• Attacks against a unit with this creed always fail on an unmodified wound roll of 1-2, whatever abilities the weapon or attacker has."
+  },
+  "ea0e828df161": {
+    "name": "Splinter Cult",
+    "kind": "ability",
+    "plain": "Pick one of these cults and use its rules: Cult of the Four-armed Emperor, Hivecult, Bladed Cog, Rusted Claw, Pauper Princes or Twisted Helix.\n• Use the chosen cult's Cult Creed.\n• When a CHARACTER model with this Myriad Cult Creed gets a Warlord Trait, it can take the chosen cult's Cult Warlord Trait instead of a normal Warlord Trait. If it does, swap each <CULT> keyword on that Warlord Trait (such as TWISTED HELIX), if there are any, for the name of that CHARACTER's Myriad Cult.\n• You get access to the chosen cult's Cult Stratagem, unless your only units with this Myriad Cult are in Auxiliary Support, Super-heavy Auxiliary and/or Fortification Network Detachments. When you use it, swap each <CULT> keyword on it (such as TWISTED HELIX), if there are any, for the Myriad Cult of the units that have this Myriad Cult Creed.\n• With the same exception, <CULT> PSYKER models with this Myriad Cult Creed also know the chosen cult's psychic power, on top of their other psychic powers. When they use it, swap each <CULT> keyword on it (such as TWISTED HELIX), if there are any, for the Myriad Cult of the units that have this Myriad Cult Creed.",
+    "waive": {
+      "56": "page reference; pages are not mentioned in plain text",
+      "61": "page reference; pages are not mentioned in plain text",
+      "70": "page reference; pages are not mentioned in plain text"
+    }
   },
   "ebbf7c7cf824": {
     "kind": "ability",
@@ -746,6 +895,14 @@
     "name": "Booby Trap",
     "kind": "stratagem",
     "plain": "At the end of your turn, choose one objective marker you control that has one of your REDUCTUS SABOTEUR or GENESTEALER CULTS CORE units in range of it. Roll one D6 the next time any enemy unit (excluding AIRCRAFT units) finishes any kind of move in range of that marker: on a 2-4, that unit suffers D3 mortal wounds; on a 5+, it suffers 3 mortal wounds. Each objective marker can only be chosen for this Stratagem once."
+  },
+  "ed97c5b3c5b0": {
+    "name": "Anointed Throng",
+    "kind": "ability",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments an Anointed Throng Specialist Detachment. In that Detachment, ABOMINANTS and ABERRANTS gain the ANOINTED THRONG keyword.",
+    "waive": {
+      "ABERANTS": "misspelling of ABERRANTS in the official text; ABERRANTS is used"
+    }
   },
   "f218c37f0ce7": {
     "kind": "ability",

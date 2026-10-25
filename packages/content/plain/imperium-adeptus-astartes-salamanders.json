@@ -134,6 +134,11 @@
     "kind": "ability",
     "plain": "Vulkan He'stan gets a 3+ invulnerable save."
   },
+  "ea68f211b2de": {
+    "name": "Forged in Battle",
+    "kind": "rule",
+    "plain": "Units with this tactic can re-roll one wound roll when they shoot or fight, and attacks with an Armour Penetration of -1 count as 0 against them.\n• Each time one of these units is chosen to shoot or fight, you can re-roll one of the wound rolls for its attacks.\n• When an attack is allocated to one of these models and has an Armour Penetration characteristic of -1, it counts as 0 for that attack instead."
+  },
   "fa8c0d357977": {
     "name": "Trust of Prometheus",
     "kind": "stratagem",

@@ -89,6 +89,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, this model may repair one of your IRON HANDS VEHICLE models within 3\" of it: the VEHICLE regains up to 3 lost wounds. No model can be repaired more than once per turn."
   },
+  "eefdca5ddd31": {
+    "name": "The Flesh Is Weak",
+    "kind": "rule",
+    "plain": "Models with this tactic shrug off wounds on a 6, and count as having double their wounds remaining for damage-based characteristics.\n• Roll one D6 each time a model with this tactic would lose a wound: on a 6, the wound is not lost.\n• If a model with this tactic has characteristics that change as it suffers damage, treat it as having twice its remaining wounds when working out what those characteristics are."
+  },
   "f1381722852b": {
     "name": "Bequeathed by the Iron Council",
     "kind": "stratagem",

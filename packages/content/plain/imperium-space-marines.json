@@ -1,4 +1,101 @@
 {
+  "0e08d8dfbc8c": {
+    "name": "Duellists",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this tactic automatically wound INFANTRY and BIKER units on an unmodified hit roll of 6.\nYou can't take this tactic if you've already chosen the Whirlwind of Rage tactic."
+  },
+  "21c662c6e28c": {
+    "name": "Master Artisans",
+    "kind": "ability",
+    "plain": "Each time a unit with this tactic is chosen to shoot or fight, you can re-roll one of the hit rolls for its attacks."
+  },
+  "22a1d6d5e4bf": {
+    "name": "Inheritors of the Primarch",
+    "kind": "ability",
+    "plain": "Pick one of the Chapters below and use its Chapter Tactic as your only Successor Tactic.\nChoose from Blood Angels, Dark Angels, Imperial Fists, Iron Hands, Raven Guard, Salamanders, Space Wolves, Ultramarines or White Scars. You can't take this if you have already taken any other Successor Tactic, and once you take it you can't take a second.\nIf your Chapter is known in the published background as a successor of a particular First Founding Chapter, you must pick that Chapter's tactic.",
+    "waive": {
+      "94": "page reference (\"as listed on page 94-95\") for the Chapter Tactics, not part of the rule",
+      "95": "page reference (\"as listed on page 94-95\") for the Chapter Tactics, not part of the rule"
+    }
+  },
+  "262bca5f1790": {
+    "name": "Preferred Enemy",
+    "kind": "ability",
+    "plain": "Models with this tactic re-roll melee hit rolls of 1 against units with one Faction keyword you pick from a list.\nWhen you take this tactic, choose CHAOS KNIGHTS, TYRANIDS, AELDARI, ORK, HERETIC ASTARTES, NECRONS or T'AU EMPIRE."
+  },
+  "35e669ceeb10": {
+    "name": "Long-range Marksmen",
+    "kind": "ability",
+    "plain": "Models with this tactic add 3\" to the Range of their Rapid Fire and Heavy weapons, except Flame weapons.",
+    "waive": {
+      "195": "page reference (\"see page 195\") for Flame weapons, not part of the rule"
+    }
+  },
+  "364171c4d3cf": {
+    "name": "Warded",
+    "kind": "ability",
+    "plain": "Whenever a mortal wound would make a model with this tactic lose a wound, roll one D6: on a 5+, the wound is not lost."
+  },
+  "3e611bab0520": {
+    "name": "Scions of the Forge",
+    "kind": "ability",
+    "plain": "If a model with this tactic has characteristics that change as it takes damage, use double its remaining wounds to work out those characteristics."
+  },
+  "402d946dd005": {
+    "name": "Tactical Withdrawal",
+    "kind": "ability",
+    "plain": "Units with this tactic can still declare a charge in a turn in which they Fell Back."
+  },
+  "595be0b30895": {
+    "name": "Relentless Seekers",
+    "kind": "rule",
+    "plain": "Unmodified wound rolls of 1 or 2 against units with this tactic always fail, and its PSYKER models can re-roll 1s on Psychic and Deny the Witch tests.\n• The wound roll rule applies whatever abilities the weapon or the attacking model has.\n• For Psychic tests and Deny the Witch tests taken for those PSYKER models, you can re-roll any or all dice that show a 1."
+  },
+  "7308c784d487": {
+    "name": "Fearsome Aspect",
+    "kind": "ability",
+    "plain": "Units with this tactic gain the Fearsome Aspect aura: models in enemy units within 3\" of them subtract 1 from their Leadership."
+  },
+  "734c028549a6": {
+    "name": "Whirlwind of Rage",
+    "kind": "ability",
+    "plain": "If their unit charged, was charged or made a Heroic Intervention this turn, models with this tactic score 1 extra hit on each unmodified melee hit roll of 6.\nYou can't take this tactic if you've already chosen the Duellists tactic."
+  },
+  "9fca103adaa9": {
+    "name": "Stoic",
+    "kind": "ability",
+    "plain": "Models with this tactic add 1 to their Leadership characteristic."
+  },
+  "a6242f20f071": {
+    "name": "Hungry for Battle",
+    "kind": "ability",
+    "plain": "Units with this tactic add 1 to their Advance and charge rolls."
+  },
+  "b2469f8f88d8": {
+    "name": "Knowledge is Power",
+    "kind": "ability",
+    "plain": "When a PSYKER unit with this tactic takes a Psychic test or Deny the Witch test, you can re-roll any or all of its dice that show a 1."
+  },
+  "c14b385cb2ab": {
+    "name": "Born Heroes",
+    "kind": "ability",
+    "plain": "Models with this tactic add 1 to their melee hit rolls in a turn in which their unit made a charge move."
+  },
+  "cd3d28459ecf": {
+    "name": "Rapid Assault",
+    "kind": "ability",
+    "plain": "Models with this tactic ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced."
+  },
+  "e9d9955ac1f6": {
+    "name": "Stealthy",
+    "kind": "ability",
+    "plain": "Units with this tactic get the benefits of light cover against ranged attacks from attackers more than 18\" away."
+  },
+  "ef58c089afcc": {
+    "name": "Stalwart",
+    "kind": "ability",
+    "plain": "Unmodified wound rolls of 1 or 2 always fail for attacks against units with this tactic, whatever abilities the weapon or attacker has."
+  },
   "fbd7435e3823": {
     "name": "Objective Secured",
     "kind": "rule",

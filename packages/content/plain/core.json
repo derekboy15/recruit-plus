@@ -1,8 +1,33 @@
 {
+  "24995c69e56c": {
+    "name": "Automated Weapons",
+    "kind": "ability",
+    "plain": "If no friendly unit is embarked aboard this model, its attacks can only target the nearest enemy unit it can see. When two or more units are tied for nearest, you pick which one it targets."
+  },
+  "261963a86097": {
+    "name": "Containment Failure",
+    "kind": "ability",
+    "plain": "When this model is destroyed, its vortex missiles explode before any embarked models disembark, and each unit within 2D6\" suffers D6 mortal wounds. Roll another D6 for each model that loses wounds to those mortal wounds but isn't destroyed: on a 6, it suffers D6 more mortal wounds."
+  },
   "2a6de61c4ca4": {
     "name": "Counter-offensive",
     "kind": "stratagem",
     "plain": "Use after an enemy unit has fought this turn. Pick one of your units that is eligible to fight: it fights next."
+  },
+  "31da5b676624": {
+    "name": "Magazine Explosion (Macro-cannon)",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, roll a D6 before you remove it and before any embarked models disembark. On a 6, its magazine blows up and every unit within 2D6\" suffers D6 mortal wounds."
+  },
+  "3244febd8760": {
+    "name": "Stratagem: Warlord Trait",
+    "kind": "ability",
+    "plain": "Use once, while mustering your army before the battle and after picking your WARLORD: if that WARLORD is a CHARACTER model, determine a Warlord Trait for them.\nIt has to be a Warlord Trait they are allowed to have."
+  },
+  "37e8667cabe4": {
+    "name": "Immobile (Fortification)",
+    "kind": "ability",
+    "plain": "This model can never move, and it can't fight in the Fight phase. Attacks against it in the Fight phase hit automatically, with no hit roll made. It can shoot in your Shooting phase even with enemy models within 1\" of it, and your units can still target enemy units that are within 1\" of it."
   },
   "45500058f30e": {
     "name": "Fire Overwatch",
@@ -24,29 +49,74 @@
     "kind": "stratagem",
     "plain": "Use right after you make one of these rolls: a hit roll, wound roll, damage roll, saving throw, Advance roll, charge roll, Psychic test or Deny the Witch test, or the roll that sets how many attacks a weapon makes. You re-roll that roll, test or save."
   },
+  "723b7542fd06": {
+    "name": "Vortex Missile Battery",
+    "kind": "weapon",
+    "plain": "This weapon can target units the bearer can't see, even when it fires under the Automated Weapons ability. Each hit it scores makes the target suffer D6 mortal wounds. If a model loses wounds to this attack but isn't slain, roll another D6: on a 6, that model suffers D6 more mortal wounds."
+  },
   "8095b524686a": {
     "name": "Warlord Trait",
     "kind": "stratagem",
     "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. If your WARLORD is a CHARACTER model, give them a Warlord Trait (it must be one they are allowed to have). If your WARLORD is a named character who can have more than one specified Warlord Trait, a single use of this Stratagem gives them every one of those traits. You can use this Stratagem only once."
+  },
+  "87e47df34e48": {
+    "name": "Aquila Macro-cannon (Macro Shell)",
+    "kind": "weapon",
+    "plain": "Each damage roll of 1 or 2 made for this weapon counts as a 3."
   },
   "88145666ca30": {
     "name": "Desperate Breakout",
     "kind": "stratagem",
     "plain": "Use in your Movement phase. Pick one of your units that is within Engagement Range of at least one enemy unit and hasn't yet been picked to move this phase. Roll one D6 for each model in that unit: for every 1, you destroy one model of your choice from it. If the unit survives, it can now try to Fall Back, and its models can move across enemy models as if they weren't there. Any of its models that end the Fall Back move within Engagement Range of any enemy model are destroyed. If the unit still survives, it can't do anything else this turn (for example it can't try to manifest psychic powers, shoot, declare a charge or be picked to fight), even if it has a rule that would normally let it do so after Falling Back."
   },
+  "8b2f79dbb1d6": {
+    "name": "Shared Faction Bonus",
+    "kind": "rule",
+    "plain": "If a player's army has any Super-Heavy Auxiliary Detachments, one of them can swap its Command Benefits for a bonus of +3 Command points.\nTo earn it, that Detachment's unit must not be your WARLORD, it must share a Faction with your WARLORD's Detachment, and that Faction can't be CHAOS, IMPERIUM, AELDARI, YNNARI or TYRANIDS."
+  },
   "a90c70874562": {
     "name": "Emergency Disembarkation",
     "kind": "stratagem",
     "plain": "Use when one of your TRANSPORT models is destroyed. Before that model is removed from the battlefield, every unit embarked inside it can disembark and be set up wholly within 6\" of it, instead of the usual 3\". These units aren't affected by the destroyed model's Explodes ability (or similar ability). Instead, roll one D6 for each model you just set up: for each roll of 1 or 2, one model of your choice that disembarked is destroyed (normally this only happens on a 1). Units that disembarked from a destroyed TRANSPORT model can't declare a charge or perform a Heroic Intervention in that same turn."
+  },
+  "a99f82a874d1": {
+    "name": "Shadow Assignment",
+    "kind": "ability",
+    "plain": "Before the battle begins, if your army has exactly 1 OFFICIO ASSASSINORUM unit, you can swap it for 1 OFFICIO ASSASSINORUM unit of your choice.\nThe unit you take out doesn't count as destroyed for any rule. Unlike other units added to your army, the new unit costs no reinforcement points, even in matched play."
+  },
+  "ac24761b92f8": {
+    "name": "Command Benefit",
+    "kind": "ability",
+    "plain": "You get +1 Command point if all units in this Detachment share one Faction, and it matches the Faction of your WARLORD's Detachment."
+  },
+  "b60ad4e29e7d": {
+    "name": "Field Commander",
+    "kind": "ability",
+    "plain": "Before the battle, spend 1 CP to give one CHARACTER that isn't your Warlord the Warlord Trait of its Specialist Detachment.\nYou can only do this if you used any Specialist Detachment Stratagems when choosing your army. The CHARACTER must be from your army, must have gained a keyword from a Specialist Detachment Stratagem, and can't be a named character. It counts as your Warlord only for that Warlord Trait. You can use this Stratagem once for each Specialist Detachment Stratagem you used, paying 1 CP every time, and two characters can't share the same Warlord Trait."
+  },
+  "bd52fd05cc41": {
+    "name": "Containment Failure",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, its vortex missiles explode before you remove it and before any embarked models disembark. Every unit within 2D6\" suffers D6 mortal wounds. Roll another D6 for each model that loses wounds this way but isn't slain: on a 6, that model is slain."
   },
   "bd5d8700372e": {
     "name": "Cut Them Down",
     "kind": "stratagem",
     "plain": "Use when an enemy unit Falls Back, before any of its models are moved. For each of your models within Engagement Range of that enemy unit, roll one D6. For every 6, that enemy unit suffers 1 mortal wound."
   },
+  "c66c8ae4fba5": {
+    "name": "Beta Rules",
+    "kind": "rule",
+    "plain": "Units marked \"(Beta)\" use early, fully experimental rules that may change in later publications. It's best to try these units out only when every player in the game agrees."
+  },
   "dfdced1955e6": {
     "name": "Insane Bravery",
     "kind": "stratagem",
     "plain": "Once per battle, use before you take a Morale test for one of your units. That unit passes the test automatically, so you don't roll any dice for it."
+  },
+  "e07849049c5b": {
+    "name": "Shared Faction Bonus",
+    "kind": "rule",
+    "plain": "If your army has any Super-Heavy Auxiliary Detachments, one of them can swap its Command Benefits for a bonus of +2 Command points.\nTo earn it, that Detachment's unit must not be your WARLORD, it must share a Faction with your WARLORD's Detachment, and that Faction can't be CHAOS, IMPERIUM, AELDARI, YNNARI or TYRANIDS."
   }
 }

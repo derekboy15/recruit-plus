@@ -84,6 +84,11 @@
     "kind": "ability",
     "plain": "Add 1 to saving throws against melee weapon attacks made against this model. This doesn't affect invulnerable saves."
   },
+  "98296ed07b81": {
+    "name": "Lightning Assault",
+    "kind": "rule",
+    "plain": "Units with this tactic can charge after Advancing or Falling Back, and can shoot Assault weapons after Advancing without the usual hit penalty.\n• Units with this tactic can declare a charge in a turn in which they Advanced or Fell Back.\n• Models with this tactic ignore the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
+  },
   "af6f98020805": {
     "name": "Butchered Quarry",
     "kind": "stratagem",

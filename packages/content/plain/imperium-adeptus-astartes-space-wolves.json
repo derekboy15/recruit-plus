@@ -72,6 +72,11 @@
     "kind": "stratagem",
     "plain": "Use in your opponent's Psychic phase, once an enemy PSYKER unit has passed a Psychic test. Choose a SPACE WOLVES unit of yours that is within 12\" of that PSYKER unit; it can take a Deny the Witch test to try to deny that power, as though it were a PSYKER."
   },
+  "2c890d268659": {
+    "name": "Dark Terror",
+    "kind": "ability",
+    "plain": "Units with this tactic move faster and get light cover against shots from more than 18\" away:\n• Add 1 to Advance and charge rolls for units with this tactic.\n• When a model more than 18\" away makes a ranged attack against a unit with this tactic, that unit counts as having the benefits of light cover against it."
+  },
   "2cd0e26321b0": {
     "name": "An Army of One",
     "kind": "ability",
@@ -146,6 +151,11 @@
     "name": "The Last Laugh",
     "kind": "ability",
     "plain": "If, in the Fight phase, this model is killed by a melee attack from an enemy model, you and your opponent roll off. If you win, the attacking model's unit suffers D6 mortal wounds."
+  },
+  "5cc170ac02f2": {
+    "name": "Stalker Pack",
+    "kind": "ability",
+    "plain": "When choosing your army, make one SPACE WOLVES Detachment from your army a Stalker Pack Specialist Detachment. That Detachment's BATTLELEADERS, BLOOD CLAWS and REIVERS get the STALKER PACK keyword."
   },
   "5e7503560ebc": {
     "name": "Lord of Tempests",
@@ -447,6 +457,11 @@
     "name": "Savage Fury",
     "kind": "ability",
     "plain": "While the Assault Doctrine is active, each unmodified hit roll of 6 for a melee attack by a unit with this ability scores 1 extra hit on the target."
+  },
+  "ea3966ff0a6b": {
+    "name": "Hunters Unleashed",
+    "kind": "rule",
+    "plain": "Units with this tactic hit more easily in melee in turns they charge, are charged or Heroically Intervene, and can Heroically Intervene like CHARACTERS.\n• Add 1 to the hit roll of a melee attack by a model with this tactic if, this turn, its unit was charged, made a charge move or performed a Heroic Intervention.\n• Units with this tactic can make Heroic Interventions just like CHARACTERS."
   },
   "f1d9a4f92684": {
     "name": "Deed Worthy of a Saga",

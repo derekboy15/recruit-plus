@@ -54,6 +54,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Raven Guard successor Chapter as your Warlord: one CHARACTER model in your army from a Raven Guard successor Chapter can have one Relic of the Ravenspire instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every RAVEN GUARD keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
   },
+  "7537ebb93f0f": {
+    "name": "Shadow Masters",
+    "kind": "rule",
+    "plain": "Units with this tactic count as being in cover against ranged attacks from far away.\n• Against a ranged attack from an attacker more than 18\" away, a unit with this tactic gets the benefits of light cover.\n• Against a ranged attack from an attacker more than 12\" away, an INFANTRY unit with this tactic that is entirely on or within a terrain feature gets the benefits of dense cover."
+  },
   "ab6253e7ec20": {
     "name": "Master of the Trifold Path",
     "kind": "stratagem",

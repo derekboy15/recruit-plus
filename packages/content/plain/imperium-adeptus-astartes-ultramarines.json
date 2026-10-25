@@ -1,4 +1,12 @@
 {
+  "02bfd967f35e": {
+    "name": "Bolter Fusillades",
+    "kind": "ability",
+    "plain": "Models with this tactic re-roll hit rolls of 1 for ranged attacks made with bolt weapons.",
+    "waive": {
+      "195": "page reference (pg 195) for the list of bolt weapons, not part of the rule"
+    }
+  },
   "047435300fcb": {
     "name": "5) Psychic Shackles",
     "kind": "psychic",
@@ -38,6 +46,11 @@
     "name": "Mobidus Bolts",
     "kind": "ability",
     "plain": "When you give this Relic to a model, choose one bolt weapon that model has. Each time the model is picked to shoot, you can have that weapon fire a Morbidus bolt. If you do, that weapon makes only 1 attack, but if it hits:\n• the target suffers 2 mortal wounds and the attack sequence stops;\n• until the end of the turn, subtract 1 from that enemy unit's Combat Attrition tests."
+  },
+  "182840c86926": {
+    "name": "Codex Discipline",
+    "kind": "rule",
+    "plain": "Models with this tactic get 1 more Leadership, and their units can shoot in a turn in which they Fell Back, with a hit roll penalty if they do.\n• Models with this tactic get 1 added to their Leadership characteristic.\n• Units with this tactic can shoot in a turn in which they Fell Back. If a unit does, then until that turn ends, subtract 1 from the hit roll for each ranged attack its models make."
   },
   "1a716bcd9bc8": {
     "name": "Unfailing Nerve",
@@ -84,6 +97,11 @@
     "kind": "ability",
     "plain": "In your Command phase, choose one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units that is within 6\" of this model. Its models can re-roll hit rolls for their attacks until your next Command phase starts."
   },
+  "277b3766b050": {
+    "name": "Unyielding Resistance",
+    "kind": "rule",
+    "plain": "Units with this tactic add 1 to melee hit rolls in a turn they made a charge move, and attacks against them always fail on an unmodified wound roll of 1 or 2.\n• Each time a model with this tactic attacks in melee, add 1 to the hit roll if its unit made a charge move this turn.\n• Attacks against a unit with this tactic always fail on an unmodified wound roll of 1 or 2, no matter what abilities the weapon or the attacker has."
+  },
   "27b9c1c05e0e": {
     "name": "Bane of Tyranids",
     "kind": "ability",
@@ -124,6 +142,11 @@
     "kind": "ability",
     "plain": "Your ULTRAMARINES units within 6\" of Marneus Calgar can re-roll their hit rolls."
   },
+  "540f15acb559": {
+    "name": "The Bond Martial",
+    "kind": "rule",
+    "plain": "Units with this tactic can re-roll one hit roll when they shoot or fight, and auto-wound on unmodified 6s to hit in melee against INFANTRY or BIKER units.\n• Each time a model with this tactic attacks an INFANTRY or BIKER unit in melee, an unmodified hit roll of 6 wounds the target automatically.\n• Each time a unit with this tactic is chosen to shoot or fight, you can re-roll one of the hit rolls for its attacks."
+  },
   "5592c6025739": {
     "name": "Claim Runes",
     "kind": "stratagem",
@@ -133,6 +156,11 @@
     "name": "2) Scryer's Gaze",
     "kind": "psychic",
     "plain": "Warp charge 7. If it's manifested and your army is Battle-forged, you can gain 1 Command Point straight away. If you don't take the point, then once this turn, when a model from one of your ULTRAMARINES units attacks while its unit is within 18\" of this psyker, you can re-roll that attack's hit roll, wound roll or damage roll."
+  },
+  "57ac7ee69650": {
+    "name": "Indomitable",
+    "kind": "ability",
+    "plain": "Units with this tactic automatically pass every Combat Attrition test they take."
   },
   "58d5d55e5a45": {
     "name": "The Armour Umbral",
@@ -218,6 +246,11 @@
     "name": "Heroes of Ultramar",
     "kind": "ability",
     "plain": "This unit can Heroically Intervene as though it were a CHARACTER."
+  },
+  "981fd5484623": {
+    "name": "Redden the Earth",
+    "kind": "rule",
+    "plain": "Units with this tactic add 1 to Advance and charge rolls, and score extra melee hits on unmodified 6s in a turn they charge, are charged or intervene.\n• Add 1 to Advance rolls and charge rolls for units with this tactic.\n• When a model with this tactic attacks in melee in a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each unmodified hit roll of 6 scores 1 extra hit."
   },
   "9b2bbc294ae1": {
     "name": "Quietus",

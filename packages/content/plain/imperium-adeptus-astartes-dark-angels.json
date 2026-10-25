@@ -277,6 +277,11 @@
     "kind": "ability",
     "plain": "When this WARLORD is destroyed without exploding, you can use this Warlord Trait instead of any other ability that would take effect because it was destroyed (Astartes Banner, for example). If you do, leave this WARLORD in play until the next turn starts or the battle ends, whichever is first. Until then it still counts as in play, but any more wounds it would lose are not lost."
   },
+  "a8a247c1ceae": {
+    "name": "Honoured by the Rock",
+    "kind": "ability",
+    "plain": "You use this Stratagem after choosing a model from a DARK ANGELS successor Chapter as your WARLORD."
+  },
   "a95758d0cdf3": {
     "name": "Stasis bomb",
     "kind": "ability",
