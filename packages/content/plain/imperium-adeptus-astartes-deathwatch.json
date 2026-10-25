@@ -114,10 +114,20 @@
     "kind": "ability",
     "plain": "This WARLORD fights better against MONSTER and VEHICLE units.\n• Add 1 to its Attacks characteristic while it is within Engagement Range of one or more enemy MONSTER or VEHICLE units.\n• Its attacks against a MONSTER or VEHICLE unit add 1 to both the hit roll and the wound roll."
   },
+  "36659704c21a": {
+    "name": "Inquisitorial Cipher",
+    "kind": "ability",
+    "plain": "In a mission where you select secondary objectives or Agendas, once both players have revealed their choices, you can swap one of yours for a different one. Note the new pick on your army roster and tell your opponent. The usual selection rules still apply, except that after using this ability you can have 2 DEATHWATCH secondary objectives or DEATHWATCH Agendas. When both players have a rule letting them pick new secondary objectives or Agendas, both make their new picks first, then reveal them to each other at the same time."
+  },
   "3fca467576b8": {
     "name": "Kill Team Keywords",
     "kind": "ability",
     "plain": "• As long as every model in an INDOMITOR KILL TEAM unit is an Inceptor, the unit gains the FLY keyword."
+  },
+  "45623e8e6d5e": {
+    "name": "The Thief of Secrets",
+    "kind": "ability",
+    "plain": "Swaps the bearer's power sword, master-crafted power sword or xenophase blade for The Thief of Secrets. Only a model carrying one of those weapons can take this Relic."
   },
   "4600fe3535ce": {
     "name": "Echo of the Ravenspire",
@@ -179,6 +189,11 @@
     "kind": "ability",
     "plain": "As long as every model in an INDOMITOR KILL TEAM is an Inceptor, the unit gains the FLY keyword."
   },
+  "59bcd776c19a": {
+    "name": "The Thief of Secrets",
+    "kind": "weapon",
+    "plain": "Invulnerable saves can't be made against this weapon's attacks. Each of its attacks allocated to a TYRANIDS, AELDARI, ORK, NECRONS or T'AU EMPIRE model has a Damage of 2."
+  },
   "5f6c984eb3a5": {
     "name": "Battlefield Teleportation",
     "kind": "stratagem",
@@ -198,6 +213,16 @@
     "name": "Kill Team Keywords",
     "kind": "ability",
     "plain": "• As long as a PROTEUS KILL TEAM unit has any Vanguard Veterans in it, the unit has the MELTA BOMBS keyword. If every model in it is a Vanguard Veteran with a jump pack, it also gains the FLY keyword.\n• As long as every model in it is a Deathwatch Terminator, it gains the TERMINATOR keyword.\n• As long as every model in it is a Veteran Biker, it gains the BIKER keyword and no longer has the INFANTRY keyword."
+  },
+  "6304de2cc1e2": {
+    "name": "The Soul Fortress",
+    "kind": "ability",
+    "plain": "For a LIBRARIAN model only: you can ignore any or all modifiers on the bearer's Psychic tests, and its Psychic Hood ability's range becomes 24\"."
+  },
+  "67ca25276bd8": {
+    "name": "Eye of Abiding",
+    "kind": "ability",
+    "plain": "The bearer's attacks can ignore modifiers, and an unmodified wound roll of 6 stops invulnerable saves.\n• For each of the bearer's attacks, you can ignore any or all modifiers to the hit roll, wound roll, Ballistic Skill and Weapon Skill.\n• When one of the bearer's attacks has an unmodified wound roll of 6, the target can't take invulnerable saving throws against it."
   },
   "6e7394835049": {
     "name": "Reliquary of Gathalamor",
@@ -298,6 +323,16 @@
     "kind": "psychic",
     "plain": "Malediction, warp charge 7. If manifested, choose one enemy CHARACTER unit within 18\" of this PSYKER.\n• It suffers 1 mortal wound.\n• Until your next Psychic phase starts, its aura abilities reach 3\" less far. If the Psychic test result beat that CHARACTER unit's Leadership characteristic, then instead, until your next Psychic phase starts, enemy units get no benefit from its aura abilities at all."
   },
+  "8b0d1721f285": {
+    "name": "Dominus Aegis",
+    "kind": "ability",
+    "plain": "Replaces the bearer's storm shield, relic shield or combat shield, and gives it better armour saves plus a 5+ invulnerable save aura.\nOnly a model with one of those shields can take this Relic.\n• The bearer adds 1 to its armour saving throws.\n• Dominus Aegis (Aura): while one of your DEATHWATCH CORE or DEATHWATCH CHARACTER units is within 6\" of the bearer, its models have a 5+ invulnerable save."
+  },
+  "8b9e9c46deb9": {
+    "name": "Spear of the First Vigil",
+    "kind": "ability",
+    "plain": "Swaps the bearer's vigil spear for the Spear of the First Vigil; only a model with a vigil spear can take this Relic."
+  },
   "8c18fd703639": {
     "name": "Kill Team Abilities",
     "kind": "ability",
@@ -374,6 +409,14 @@
     "kind": "stratagem",
     "plain": "Use in your opponent's Shooting phase, after a T'AU EMPIRE unit has finished its shooting attacks against one of your DEATHWATCH units: remove every markerlight counter from that DEATHWATCH unit."
   },
+  "ac5ccbb552ae": {
+    "name": "Spear of the First Vigil (Shooting)",
+    "kind": "weapon",
+    "plain": "This weapon follows the Special-issue Ammunition rules.",
+    "waive": {
+      "50": "page reference (\"pg 50\") to where the Special-issue Ammunition rule is printed, not part of the rule"
+    }
+  },
   "acca89ba71c2": {
     "name": "Brotherhood of Veterans",
     "kind": "stratagem",
@@ -383,6 +426,11 @@
     "name": "Furor",
     "kind": "ability",
     "plain": "• Models in this unit re-roll wound rolls of 1 for attacks against enemy units with the Troops Battlefield Role.\n• If the Troops Battlefield Role is the one you picked for the Xenos Hunters Chapter Tactic, models in this unit can re-roll the wound roll for attacks against enemy units with that Battlefield Role."
+  },
+  "b1d2ec703cae": {
+    "name": "The Beacon Angelis",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can activate the Beacon Angelis to bring one of your DEATHWATCH INFANTRY or DEATHWATCH BIKER units to it. It can only do so if it didn't arrive as Reinforcements this turn. When it does, you can choose, in your Movement phase's Reinforcements step, one such unit that is either on the battlefield (and didn't arrive as Reinforcements this turn), in a teleportarium chamber, or in Strategic Reserves. Remove that unit, then set it up again as Reinforcements, more than 9\" from all enemy models and wholly within 6\" of the bearer."
   },
   "b1ef3b8929d8": {
     "name": "Combat Doctrines",
@@ -398,6 +446,16 @@
     "name": "Priority Doctrine Adoption",
     "kind": "stratagem",
     "plain": "Only if every unit in your army has the DEATHWATCH keyword (AGENT OF THE IMPERIUM and UNALIGNED units don't count). Use in your Command phase: choose one of your DEATHWATCH units and one combat doctrine. Until your next Command phase starts, that unit gets the chosen doctrine's bonus rather than the bonus of the doctrine your army has active."
+  },
+  "b7642260f548": {
+    "name": "Osseus Key",
+    "kind": "ability",
+    "plain": "WATCH MASTER only: the bearer has two auras that hinder enemy VEHICLE units within 12\" of it.\n• attacks made by models in such a unit subtract 1 from their hit rolls;\n• models in such a unit have their Attacks characteristic reduced by 1."
+  },
+  "bbc2564deb6f": {
+    "name": "Vhorkan-Pattern Auspicator",
+    "kind": "ability",
+    "plain": "The bearer has Omnikinopticon (Aura): your DEATHWATCH CORE units within 6\" of it add 1 to hit rolls for ranged attacks against units that can FLY."
   },
   "bc81ec49f422": {
     "name": "Spiritual Leaders (Aura)",
@@ -433,6 +491,11 @@
     "name": "Unflinching",
     "kind": "ability",
     "plain": "This unit passes Morale tests automatically."
+  },
+  "c8f9a76a7d64": {
+    "name": "The Tome of Ectoclades",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, you can pick an enemy datasheet: your DEATHWATCH CORE units within 6\" of the bearer can re-roll wound rolls against it. The datasheet must be one used by a unit in your opponent's army. This aura, called Tome of Ectoclades, lasts until the start of your next Command phase. It covers every attack a model in such a unit makes against a unit belonging to the chosen datasheet."
   },
   "c8fe542c5c9f": {
     "name": "5. Castellan of the Black Vault",
@@ -551,6 +614,11 @@
     "waive": {
       "2023": "date of the dataslate that made the change, not part of the rule"
     }
+  },
+  "fe3f1d61bc9b": {
+    "name": "The Blackweave Shroud",
+    "kind": "ability",
+    "plain": "The bearer gains 1 Toughness and a chance to ignore wounds lost to mortal wounds:\n• The bearer's Toughness characteristic goes up by 1.\n• Whenever a mortal wound would make the bearer lose a wound, roll one D6: on a 4+, that wound isn't lost."
   },
   "fe6e1da25295": {
     "name": "Atonement Through Honour",

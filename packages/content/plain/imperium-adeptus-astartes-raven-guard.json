@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "During deployment, you can put this unit high in the skies instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
   },
+  "119d6bf91fa9": {
+    "name": "The Raven Skull of Korvaad",
+    "kind": "ability",
+    "plain": "Once per turn, you can re-roll one hit roll, wound roll or damage roll for an attack made by the model with this Relic. If the model with this Relic is destroyed by an enemy unit's attack, then for the rest of the battle, add 1 to hit rolls for attacks by your RAVEN GUARD units against that enemy unit."
+  },
   "12506b8b627b": {
     "name": "Shadowmaster",
     "kind": "ability",
@@ -49,6 +54,11 @@
     "kind": "ability",
     "plain": "When this model has finished a charge move, you can roll one D6 against one enemy unit in its Engagement Range: on a 4+, that unit suffers 1 mortal wound."
   },
+  "521db414067b": {
+    "name": "Raven's Fury",
+    "kind": "ability",
+    "plain": "The model with this Relic can charge in a turn in which it Advanced, can re-roll its charge rolls, and can inflict a mortal wound after charging. After that model finishes a charge move, you can pick one enemy unit within 1\" of it and roll one D6: on a 4+, that unit suffers 1 mortal wound. Only a JUMP PACK model can take this Relic."
+  },
   "5dc3bb45149a": {
     "name": "Malice",
     "kind": "weapon",
@@ -59,6 +69,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Raven Guard successor Chapter as your Warlord: one CHARACTER model in your army from a Raven Guard successor Chapter can have one Relic of the Ravenspire instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every RAVEN GUARD keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
   },
+  "61e3c432c2a0": {
+    "name": "The Armor of Shadows",
+    "kind": "ability",
+    "plain": "Weapons with AP -1 count as AP 0 when attacking the model with this Relic, and attacks against it always fail on an unmodified hit roll of 1, 2 or 3."
+  },
   "7337c33632ca": {
     "name": "Feigned Flight",
     "kind": "ability",
@@ -68,6 +83,11 @@
     "name": "Shadow Masters",
     "kind": "rule",
     "plain": "Units with this tactic count as being in cover against ranged attacks from far away.\n• Against a ranged attack from an attacker more than 18\" away, a unit with this tactic gets the benefits of light cover.\n• Against a ranged attack from an attacker more than 12\" away, an INFANTRY unit with this tactic that is entirely on or within a terrain feature gets the benefits of dense cover."
+  },
+  "917d5a6d0b23": {
+    "name": "Ex Tenebris",
+    "kind": "weapon",
+    "plain": "When picking targets for this weapon, you can ignore the Look Out, Sir rule, and you can add 1 to its hit rolls. Targets of its attacks don't get the benefit of cover to their saving throws."
   },
   "ab6253e7ec20": {
     "name": "Master of the Trifold Path",
@@ -109,6 +129,11 @@
     "kind": "ability",
     "plain": "Aura: when you make a charge roll for a RAVEN GUARD JUMP PACK or RAVEN GUARD PHOBOS unit that is within 6\" of this model at the time, you can re-roll it."
   },
+  "ce29553e4300": {
+    "name": "The Ebonclaws",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 2 extra attacks with this weapon, and you can re-roll wound rolls for attacks with this weapon."
+  },
   "ce6d4e2d747d": {
     "name": "Swift and Deadly (Aura)",
     "kind": "ability",
@@ -138,6 +163,11 @@
     "name": "Strike from the Shadows",
     "kind": "stratagem",
     "plain": "During the Declare Reserves and Transports step of your mission: pick one of your RAVEN GUARD INFANTRY units. You can place it in ambush rather than deploying it on the battlefield. If you do, it arrives at the end of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "f05add8caaf2": {
+    "name": "Oppressor's End",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon, and attacks with this weapon against a CHARACTER unit have a Damage characteristic of 3."
   },
   "f6783e9a566c": {
     "name": "See, But Remain Unseen",

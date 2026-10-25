@@ -106,6 +106,19 @@
     "kind": "ability",
     "plain": "This WARLORD adds 1 to the roll to see if its litanies are inspiring, and can use the Commanding Oratory Stratagem for 1 command point.\nThat price applies each time you choose this WARLORD to use the Stratagem."
   },
+  "64be167918eb": {
+    "name": "Banebolts of Eryxia",
+    "kind": "ability",
+    "plain": "One of the bearer's bolt weapons can fire a single Banebolt of Eryxia: one attack at Strength 6, AP -2 and Damage 3.\nWhen you give a model this Relic, pick one bolt weapon it has. Each time that model is chosen to shoot, if the weapon isn't firing special-issue ammunition, you can have it fire a Banebolt of Eryxia. If you do, the weapon makes only that one attack, using the Banebolt's characteristics.",
+    "waive": {
+      "50": "page reference (\"pg 50\") for special-issue ammunition, not part of the rule"
+    }
+  },
+  "674f3c808466": {
+    "name": "Artificer Bolt Cache",
+    "kind": "ability",
+    "plain": "The bearer's bolt weapons gain the Special-issue Ammunition ability."
+  },
   "7308c784d487": {
     "name": "Fearsome Aspect",
     "kind": "ability",
@@ -116,6 +129,11 @@
     "kind": "ability",
     "plain": "If their unit charged, was charged or made a Heroic Intervention this turn, models with this tactic score 1 extra hit on each unmodified melee hit roll of 6.\nYou can't take this tactic if you've already chosen the Duellists tactic."
   },
+  "9a476d763109": {
+    "name": "Skull of Cacodominus",
+    "kind": "ability",
+    "plain": "Enemy Psyker units within 12\" of this model subtract 1 from their Psychic tests and suffer Perils of the Warp on any double, not just a double 1 or double 6.\nOnce per battle, when your opponent's Psychic phase starts, you can have the bearer raise the Skull. Until the end of that phase, it then also has an aura: enemy Psyker units within 18\" of this model subtract 1 from their Psychic tests. This stacks with the Relic's other effects."
+  },
   "9f8a3d86464f": {
     "name": "Stealth Adept",
     "kind": "ability",
@@ -125,6 +143,16 @@
     "name": "Stoic",
     "kind": "ability",
     "plain": "Models with this tactic add 1 to their Leadership characteristic."
+  },
+  "a1b9d0d977b8": {
+    "name": "Wolf Tail Talisman",
+    "kind": "ability",
+    "plain": "In the Psychic phase, whenever a mortal wound would make a model in the bearer's unit lose a wound, roll one D6: on a 4+, it keeps that wound."
+  },
+  "a1f378672c9b": {
+    "name": "Witchseeker Bolts",
+    "kind": "ability",
+    "plain": "One of the bearer's bolt weapons can fire a single witchseeker bolt, which also deals D3 mortal wounds when it hits a PSYKER unit.\nWhen you give a model this Relic, pick one bolt weapon it has. Each time the bearer shoots with that weapon, you can choose to fire a witchseeker bolt; if you do, that weapon makes only one attack.\n• When you fire a witchseeker bolt at a PSYKER CHARACTER unit, you can ignore the Look Out, Sir rule.\n• Each time a witchseeker bolt attack against a PSYKER unit hits, the target suffers D3 mortal wounds on top of any normal damage."
   },
   "a2ca4935f6e3": {
     "name": "Shoot and Fade",
@@ -190,6 +218,11 @@
     "name": "Target Priority",
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your <CHAPTER> PHOBOS units within 6\" of this WARLORD to add 1 to the hit rolls of its ranged attacks. This lasts until the start of your next Command phase."
+  },
+  "f7a7a417cf2c": {
+    "name": "The Axe of Medusa",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's power axe, and only an IRON HANDS model that has a power axe can take it."
   },
   "fbd7435e3823": {
     "name": "Objective Secured",

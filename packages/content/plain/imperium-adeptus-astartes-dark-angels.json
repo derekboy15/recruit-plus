@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "Aura: models in any of your DARK ANGELS CORE units within 6\" of this model add 1 to their Leadership. Also, whenever an enemy model's attack destroys a model in such a unit, roll one D6. On a 4+, leave the destroyed model in play for now: once the attacker's unit has finished all its attacks, it can either fire one of its ranged weapons as though it were your Shooting phase, or make a single attack with one of its melee weapons as though it were the Fight phase. Remove it once those attacks are resolved."
   },
+  "054f72becadf": {
+    "name": "Pennant of Remembrance",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DEATHWING INFANTRY CORE units within 6\" of the bearer to take less damage until your next Command phase. Until that phase starts, each attack allocated to a model in that unit has its Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
   "0b7b09bafc74": {
     "name": "Weapons from the Dark Age",
     "kind": "stratagem",
@@ -77,6 +82,16 @@
     "kind": "ability",
     "plain": "If a Detachment contains a DEATHWING TERMINATOR CAPTAIN unit, you can add one DEATHWING COMMAND SQUAD unit to it, and that unit doesn't use up a Battlefield Role slot."
   },
+  "3544123852de": {
+    "name": "Mace of Redemption",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a FALLEN or HERETIC ASTARTES unit, each unmodified wound roll of 4+ deals 2 mortal wounds to the target, and that attack sequence ends."
+  },
+  "3949b948b143": {
+    "name": "Reliquary of the Repentant",
+    "kind": "ability",
+    "plain": "While an enemy unit is within 3\" of the bearer, its models with a 4+ or better invulnerable save pass invulnerable saving throws only on an unmodified 5+."
+  },
   "39ea3ae8057a": {
     "name": "3. Calibanite Knight",
     "kind": "ability",
@@ -136,6 +151,11 @@
     "name": "Plasma storm battery (supercharge)",
     "kind": "weapon",
     "plain": "Blast. For each unmodified hit roll of 1 made for an attack with this profile, the bearer suffers 1 mortal wound after it has finished shooting with this weapon."
+  },
+  "4f9fcbb152d0": {
+    "name": "Shroud of Heroes",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack made against the bearer."
   },
   "53e34808854c": {
     "name": "Speed of the Raven",
@@ -360,6 +380,11 @@
     "kind": "ability",
     "plain": "Aura: in your Command phase, you can choose an enemy unit this model can see. Until your next Command phase starts, while any of your DARK ANGELS RAVENWING CORE units is within 6\" of this model, attacks made by models in that RAVENWING unit ignore the benefits of cover for the chosen enemy unit's saving throws."
   },
+  "c37674ead61f": {
+    "name": "Cup of Retribution",
+    "kind": "ability",
+    "plain": "Once per battle, instead of reciting one of the litanies it knows, the bearer can recite the Feast of Malediction litany. If it does, don't roll for it: that litany is automatically inspiring."
+  },
   "c3e58496ede3": {
     "name": "1. Brilliant Strategist",
     "kind": "ability",
@@ -369,6 +394,11 @@
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "c7d367f544b4": {
+    "name": "Feast of Malediction",
+    "kind": "ability",
+    "plain": "While one of your DARK ANGELS CORE units is within 6\" of this PRIEST, each model in that unit has its Attacks characteristic increased by 1."
   },
   "c8b3a41ca4da": {
     "name": "Chapter Master",
@@ -454,6 +484,11 @@
     "name": "Assault Doctrine",
     "kind": "rule",
     "plain": "This model's Pistol and melee weapons get 1 better Armour Penetration while this combat doctrine is active."
+  },
+  "f432e6706262": {
+    "name": "Eye of the Unseen",
+    "kind": "ability",
+    "plain": "The bearer gains a Fear aura and holds back enemy CHARACTER units that are in combat with it.\n• Fear (Aura): enemy units within 6\" of the bearer have their models' Leadership characteristic reduced by 1.\n• At the start of the Fight phase, any enemy CHARACTER unit in Engagement Range of the bearer can't fight until every other eligible unit from your army has fought."
   },
   "f4b3a2f61f70": {
     "name": "2nd Company",

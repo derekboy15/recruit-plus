@@ -12,6 +12,16 @@
     "kind": "psychic",
     "plain": "Warp charge 6. If it's manifested, pick one enemy unit within 18\" of this psyker that it can see. Until the start of your next Psychic phase, models in that unit have their Move halved (round up), and subtract 1 from that unit's charge rolls and Advance rolls. A unit can't be under this power and the Tenebrous Curse power at the same time."
   },
+  "076df37ac9a6": {
+    "name": "Standard of Macragge Inviolate",
+    "kind": "ability",
+    "plain": "ANCIENT model only: the bearer has two auras, giving extra attacks to nearby ULTRAMARINES CORE units and automatic Morale passes to nearby ULTRAMARINES units.\n• Unshakable Pride (Aura): while one of your ULTRAMARINES CORE units is within 6\" of the bearer, models in that unit get 1 extra attack.\n• Unshakable Determination (Aura): while one of your ULTRAMARINES units is within 12\" of the bearer, it passes every Morale test it takes automatically."
+  },
+  "087b72909f30": {
+    "name": "Armor of Kronor",
+    "kind": "ability",
+    "plain": "TERMINATOR only: the model with this Relic has a 4+ invulnerable save, and the damage from each attack against it is halved (rounding up)."
+  },
   "08cb0c615b5b": {
     "name": "1) Precognition",
     "kind": "psychic",
@@ -132,10 +142,20 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save, and all damage Marneus Calgar suffers is halved (round up)."
   },
+  "2eb717e4e093": {
+    "name": "Armour of Phourion",
+    "kind": "ability",
+    "plain": "The bearer can fight first if it starts the Fight phase in Engagement Range, and can perform a Heroic Intervention from further away, moving up to 6\".\n• If the bearer is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first in that phase.\n• The bearer can perform a Heroic Intervention when any enemy units are within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically.\n• When it makes a Heroic Intervention move, it can move up to 6\". Every other Heroic Intervention rule still applies."
+  },
   "33de3ac061f2": {
     "name": "Psyker",
     "kind": "psychic",
     "plain": "This model knows Smite plus 2 powers from the Librarius or Indomitus discipline."
+  },
+  "3404b1b0a484": {
+    "name": "Vengeance of Ultramar",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon, unless the target is a VEHICLE unit."
   },
   "34339a37287a": {
     "name": "Tip of the Sword",
@@ -166,6 +186,11 @@
     "name": "Precision Commander",
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your SILVER TEMPLARS PRIMARIS CORE units within 6\" of this Warlord to get hit and wound re-rolls. Until your next Command phase starts, whenever that unit is chosen to shoot or fight, you can re-roll one hit roll and one wound roll for its attacks."
+  },
+  "478dc280a4f7": {
+    "name": "Horizon Blade",
+    "kind": "weapon",
+    "plain": "In any turn when the bearer made a charge move or Heroic Intervention, this weapon's Damage characteristic is 3 and its AP is -5."
   },
   "50928db44597": {
     "name": "Chapter Master (Calgar)",
@@ -201,6 +226,11 @@
     "name": "Master of Strategy",
     "kind": "ability",
     "plain": "Once per battle round, while this Warlord is on the battlefield, you can pick one of your ULTRAMARINES units within 6\" of it. Until that battle round ends, the Tactical Doctrine counts as active for every attack made by a model in that unit."
+  },
+  "633e9b0d67df": {
+    "name": "Tarentian Cloak",
+    "kind": "ability",
+    "plain": "The model with this Relic gets a 5+ invulnerable save, and at the beginning of each of your Movement phases it gets back D3 lost wounds."
   },
   "644f21f1e469": {
     "name": "This Is Our Ground!",
@@ -252,6 +282,11 @@
     "kind": "ability",
     "plain": "This model knows the Litany of Hate and two other Litanies of Battle. In your Command phase, while it is on the battlefield, it can recite two of its litanies, as long as no friendly model has already recited them this turn. Roll one D6 per litany: on a 3+ it is inspiring and lasts until your next Command phase starts."
   },
+  "879d2ab1fd4a": {
+    "name": "Banner of Echoes",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, the bearer can activate this Relic to give nearby SILVER TEMPLAR PRIMARIS CORE units extra attacks. When it does, the bearer has this ability until your next Command phase starts: while one of your SILVER TEMPLAR PRIMARIS CORE units is within 6\" of the bearer, models in that unit get 1 extra attack."
+  },
   "88dd6739adc1": {
     "name": "Fight Like Demigods",
     "kind": "stratagem",
@@ -297,6 +332,11 @@
     "kind": "ability",
     "plain": "When the Fight phase starts, this model fights first that phase if any enemy Character units are within Engagement Range of it."
   },
+  "a06313b8df15": {
+    "name": "Armor of Zanaris",
+    "kind": "ability",
+    "plain": "The bearer treats incoming Armour Penetration of -1 or -2 as 0, and rolls to ignore wounds it would lose to mortal wounds.\n• When an attack is allocated to the bearer and has an Armour Penetration characteristic of -1 or -2, change it to 0 for that attack.\n• Each time the bearer would lose a wound because of a mortal wound, roll one D6: on a 6+, it doesn't lose that wound."
+  },
   "a2218b67cbf6": {
     "name": "Unorthodox Strategist",
     "kind": "ability",
@@ -311,6 +351,11 @@
     "name": "Vengeance for Calth",
     "kind": "stratagem",
     "plain": "Use when one of your ULTRAMARINES units is picked to fight in the Fight phase. Until the end of the phase, each melee weapon attack a model in that unit makes against a WORD BEARERS unit can re-roll the hit roll and can re-roll the wound roll."
+  },
+  "a5ef3f1eb1c1": {
+    "name": "The Sanctic Halo",
+    "kind": "ability",
+    "plain": "The bearer has a 3+ invulnerable save, and in each of your opponent's Psychic phases it can try to deny one psychic power the way a Psyker would."
   },
   "a67911d86d79": {
     "name": "Warden of Macragge",
@@ -357,6 +402,11 @@
     "kind": "stratagem",
     "plain": "When you choose your army: pick one ULTRAMARINES Detachment in your army to be a Victrix Guard Specialist Detachment. The VANGUARD VETERAN SQUADS, STERNGUARD VETERAN SQUADS, CAPTAINS, ANCIENTS, HONOUR GUARD and VICTRIX HONOUR GUARD in that Detachment get the VICTRIX GUARD keyword."
   },
+  "c2cade29f28e": {
+    "name": "Primarch's Codex",
+    "kind": "ability",
+    "plain": "You can re-roll the bearer's rolls to see if its litanies are inspiring, and each litany it recites gets 3\" more range (to a maximum of 12\")."
+  },
   "cd52d1908526": {
     "name": "Bearer of the Tome Empiricus",
     "kind": "ability",
@@ -366,6 +416,11 @@
     "name": "Reliquary of Gathalamor (Aura)",
     "kind": "ability",
     "plain": "Aura: subtract 1 from Psychic tests taken for any enemy PSYKER unit while it is within 18\" of the bearer. Whenever such a unit fails a Psychic test, roll one D6; on a 4+ it suffers D3 mortal wounds."
+  },
+  "d2e0afb16635": {
+    "name": "Druidic Talisman",
+    "kind": "ability",
+    "plain": "LIBRARIAN or CHAPLAIN model only: once per turn, you can re-roll one Psychic test for the bearer, or the roll to see if a litany it recites is inspiring."
   },
   "d3845a311c03": {
     "name": "Iron Resolve",
@@ -416,6 +471,11 @@
     "name": "Master Tactician",
     "kind": "ability",
     "plain": "If Marneus Calgar is your Warlord and your army is Battle-forged, you get 2 extra Command Points."
+  },
+  "e4d4e94f6626": {
+    "name": "Helm of Censure",
+    "kind": "ability",
+    "plain": "The model with this Relic can re-roll hit rolls of 1 and wound rolls of 1, and adds 1 to both rolls when it attacks ADEPTUS ASTARTES or HERETIC ASTARTES units."
   },
   "e9b138c93ca6": {
     "name": "Calm Under Fire (Aura)",

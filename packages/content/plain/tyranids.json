@@ -52,6 +52,11 @@
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your CRUSHER STAMPEDE units is chosen as the target of an attack. For the rest of the phase, attacks against that unit always fail to wound on an unmodified wound roll of 1-3, no matter what abilities the attacking model or its weapon has. Cost: 2CP if that unit has 5 or more models, or has any models with a Wounds characteristic of 10 or more; otherwise 1CP."
   },
+  "0a47a1695196": {
+    "name": "The Horror",
+    "kind": "psychic",
+    "plain": "This power's range is Synaptic Link range or 24\"."
+  },
   "0a7add5ff31f": {
     "name": "Relentless Hunger",
     "kind": "ability",
@@ -306,6 +311,11 @@
     "name": "Shadow in the Warp (Aura)",
     "plain": "Aura: for any enemy PSYKER unit within 18\" of this unit, Psychic tests it takes are reduced by 1, and every time it suffers Perils of the Warp it takes 1 more mortal wound than normal."
   },
+  "37c3a6ee874c": {
+    "name": "Synaptic Hive Blades",
+    "kind": "ability",
+    "plain": "Model with boneswords or monstrous boneswords only: your opponent can't make invulnerable saving throws against the bearer's melee attacks with those weapons."
+  },
   "37df11df9a3d": {
     "name": "Float Down",
     "kind": "ability",
@@ -315,6 +325,11 @@
     "name": "Animated by the Hive Mind",
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your LEVIATHAN MONSTER models (excluding TITANIC models) is destroyed. If it has an ability triggered by a dice roll on its destruction (such as Death Throes), skip that roll: the ability triggers automatically."
+  },
+  "38efd11ff722": {
+    "name": "Adaptive Neural Lobe",
+    "kind": "ability",
+    "plain": "Whenever your opponent pays a Command Point for a Stratagem while the bearer is on the battlefield, you may roll one D6; a 5+ gets you 1 Command Point."
   },
   "38f37c8939ff": {
     "name": "One Step Ahead",
@@ -944,6 +959,11 @@
     "kind": "ability",
     "plain": "Melee attacks by models with this adaptation add 1 to the hit roll when the target unit has fewer models than the attacker's unit. For this, each VEHICLE or MONSTER model counts as 5 models."
   },
+  "9d184434ba4c": {
+    "name": "The Void Crown",
+    "kind": "ability",
+    "plain": "PSYKER model only: the bearer knows 1 extra Hive Mind power, can do a psychic action and still manifest a power, and can't be denied on an unmodified 9+.\n• The bearer knows one more psychic power from the Hive Mind discipline.\n• The bearer can attempt a psychic action in your Psychic phase and still try to manifest one psychic power in that same phase.\n• When the bearer takes a Psychic test and the unmodified result is 9+, the psychic power or psychic action can't be denied."
+  },
   "9d8e91a50c9c": {
     "name": "The Deepest Shadow",
     "kind": "stratagem",
@@ -1197,6 +1217,11 @@
       "60": "page reference (\"pages 60-61\") to where the rules for creating an adaptation are printed; not part of the rule",
       "61": "page reference (\"pages 60-61\") to where the rules for creating an adaptation are printed; not part of the rule"
     }
+  },
+  "c9c3bf082ed0": {
+    "name": "Neuroparasite",
+    "kind": "psychic",
+    "plain": "This power's range is Synaptic Link range or 18\"."
   },
   "cb7846b3316b": {
     "name": "Synaptic Tendrils",

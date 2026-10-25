@@ -215,6 +215,11 @@
     "kind": "ability",
     "plain": "If this transport is destroyed, roll a D6 before any embarked models disembark and before you take it off the battlefield. On a 6 it explodes, and every unit within 3\" suffers 1 mortal wound."
   },
+  "1643eca21c28": {
+    "name": "Aquila Immortalis",
+    "kind": "ability",
+    "plain": "The bearer gets 1 added to both its Toughness and its Attacks characteristics."
+  },
   "169450e90f41": {
     "name": "Explodes",
     "kind": "ability",
@@ -319,6 +324,11 @@
     "name": "Combat Squads",
     "kind": "ability",
     "plain": "At the start of the game, before any models are deployed, if this unit has its maximum number of models, you can split it into two units with an equal number of models each."
+  },
+  "2441be94c495": {
+    "name": "Ancient Breviary",
+    "kind": "ability",
+    "plain": "CHAPLAIN model only: when you roll to see whether a litany the bearer recites is inspiring, roll one extra D6 and discard the lowest result."
   },
   "244f480e56a1": {
     "name": "Sword of the High Marshals - One Handed",
@@ -475,6 +485,11 @@
     "kind": "stratagem",
     "plain": "Use at the start of your Charge phase. Pick one of your ADEPTUS ASTARTES ASSAULT LAUNCHERS units and one enemy unit within 9\" of it (excluding VEHICLE or MONSTER units). That enemy unit can either brace or duck for cover:\n• If it braces, it suffers D3 mortal wounds.\n• If it ducks for cover, then until the end of the turn its models get 1 subtracted from their Attacks characteristic, and it can't fire Overwatch or Set to Defend."
   },
+  "3e39dace10a8": {
+    "name": "Light of the Emperor's Grace",
+    "kind": "ability",
+    "plain": "Models in this unit get 1 more Leadership, and this model gains an aura that makes Psychic tests harder for enemy psykers within 12\".\n• Models in this unit add 1 to their Leadership characteristic.\n• This model gains this ability: 'Light of the Emperor's Grace (Aura): Psychic tests taken for an enemy psyker unit within 12\" of this model have 1 subtracted from them.'"
+  },
   "3e8909902cc7": {
     "name": "Hellfire Shells",
     "kind": "stratagem",
@@ -623,6 +638,11 @@
       "188": "page reference to the codex, not part of the rule"
     }
   },
+  "4e9bef0de357": {
+    "name": "Beastpyre",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and every attack made with it hits the target automatically."
+  },
   "5017f96f705b": {
     "name": "Crewed Artillery",
     "kind": "ability",
@@ -727,6 +747,11 @@
     "name": "Master-Crafted Weapon",
     "kind": "ability",
     "plain": "When you give a model this Relic, pick one weapon it is equipped with (not a weapon whose profile includes the word 'master-crafted'). Add 1 to that weapon's Damage characteristic. That weapon counts as a Chapter Relic."
+  },
+  "5c8a51a75782": {
+    "name": "Holy Orb",
+    "kind": "ability",
+    "plain": "Once per battle, in your Shooting phase, one visible enemy unit within 6\" of this model can take D3 mortal wounds and has to wait to fight this turn.\n• Pick that unit, then roll one D6: on a 2+, it suffers D3 mortal wounds.\n• Until the end of the turn, it isn't eligible to fight until every eligible unit from your army has fought."
   },
   "5ecf726efc84": {
     "name": "Litany of Hate (Aura)",
@@ -927,6 +952,11 @@
     "name": "Explodes (2D6\"/2D6)",
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within 2D6\" suffers 2D6 mortal wounds."
+  },
+  "77d0a158372b": {
+    "name": "The Aurillian Shroud",
+    "kind": "ability",
+    "plain": "Once per battle, when either player's Command phase starts, the bearer can unveil the Shroud to gain a 4+ invulnerable save aura.\nIf it does, until your next Command phase starts, the bearer has this ability:\n'Aurillian Shroud (Aura): while one of your BLACK TEMPLARS CORE INFANTRY units is within 3\" of this model, its models have a 4+ invulnerable save.'"
   },
   "781882c09270": {
     "name": "Drop Pod Assault",
@@ -1349,6 +1379,11 @@
     "kind": "ability",
     "plain": "While this unit has any Cenobyte Servitor models, each attack that successfully wounds this unit must be allocated to one of them. Ignore destroyed Cenobyte Servitor models for Morale tests. If Chaplain Grimaldus is destroyed, any Cenobyte Servitors left in this unit are destroyed too. Cenobyte Servitor models can't be your Warlord."
   },
+  "ae0fcee4548a": {
+    "name": "Perdition's Edge",
+    "kind": "weapon",
+    "plain": "When an attack with this weapon gets an unmodified wound roll of 6, the target suffers 2 mortal wounds and that attack's sequence ends."
+  },
   "af05dd6e5455": {
     "name": "Champion of the Feast",
     "kind": "stratagem",
@@ -1427,6 +1462,11 @@
     "name": "Relic Shield",
     "kind": "ability",
     "plain": "Add 1 to the bearer's armour saves. Whenever the bearer suffers a mortal wound, roll one D6: on a 4+ that mortal wound has no effect."
+  },
+  "b7c5b0b41ad4": {
+    "name": "Sigismund's Seal",
+    "kind": "ability",
+    "plain": "This model's unit can re-roll hit and wound rolls for melee attacks against one enemy unit, chosen at the start of the first battle round.\nThat enemy unit must be on the battlefield when you pick it, and the re-rolls last until the end of the battle."
   },
   "b857bed40adc": {
     "name": "Bodyguard",
@@ -1717,6 +1757,11 @@
     "kind": "stratagem",
     "plain": "Use at the end of your Movement phase. Pick one of your <CHAPTER> APOTHECARY units, then pick a friendly <CHAPTER> INFANTRY or <CHAPTER> BIKER unit that is within 3\" of that <CHAPTER> APOTHECARY and below its Starting Strength (an INVADER ATV SQUAD can't be picked). Return one destroyed model to that unit, with its full wounds."
   },
+  "dc7ea1a0b541": {
+    "name": "Tannhauser's Bones",
+    "kind": "ability",
+    "plain": "Any attack allocated to the bearer has its Damage characteristic changed to 1."
+  },
   "dcdeb12aef38": {
     "name": "Explodes",
     "kind": "ability",
@@ -1809,6 +1854,11 @@
     "name": "Wolf Guard",
     "kind": "ability",
     "plain": "This unit gains the WOLF GUARD keyword if it belongs to the Space Wolves or to a successor Chapter of the Space Wolves."
+  },
+  "eb5e051f934a": {
+    "name": "The Crusader's Helm",
+    "kind": "ability",
+    "plain": "The bearer's auras reach further, and it can put one nearby unit into the Assault Doctrine.\n• Increase the range of the bearer's aura abilities by 3\", to a maximum of 9\".\n• In your Command phase, pick one of your BLACK TEMPLARS CORE units within 9\" of the bearer. Until your next Command phase starts, that unit treats the Assault Doctrine as active instead of the combat doctrine that is active for your army."
   },
   "eba77a7865a1": {
     "name": "Relic of the Chapter",
@@ -1927,6 +1977,11 @@
     "name": "Auto-Medicae Bionics",
     "kind": "ability",
     "plain": "When your turn starts, a model with this Relic that has lost any wounds gets back up to D3 of them."
+  },
+  "fb488bd1c076": {
+    "name": "Icon of Heinmann",
+    "kind": "ability",
+    "plain": "If an attack allocated to this model has Armour Penetration -1 or -2, change its Armour Penetration to 0."
   },
   "fb825afebe85": {
     "name": "The Emperor's Sword",

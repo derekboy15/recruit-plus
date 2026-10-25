@@ -19,6 +19,16 @@
     "kind": "ability",
     "plain": "Once per Shooting phase and once per Fight phase, one attack made by this Warlord skips its hit roll and hits automatically."
   },
+  "0fb210f2409e": {
+    "name": "Vulkan's Sigil",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its Attacks, and once per battle, at the start of the Fight phase, it can raise the Sigil for 1 more attack and an aura.\n• The bearer always gets 1 extra attack.\n• Once per battle, when the Fight phase starts, the bearer can raise Vulkan's Sigil. If it does, until that phase ends it gets another 1 extra attack (+2 Attacks in total), and it has this ability: 'Vulkan's Sigil (Aura): while one of your SALAMANDERS CORE units is within 6\" of the bearer, models in that unit get 1 extra attack.'"
+  },
+  "1726cdecc574": {
+    "name": "Helm of Draklos",
+    "kind": "ability",
+    "plain": "PRIMARIS model only: the model with this Relic adds 1 to its Wounds and has an aura that lowers the Leadership of enemy units near it.\n• Its Wounds characteristic goes up by 1.\n• Aura: while any enemy unit is within 6\" of the bearer, that unit's models subtract 1 from their Leadership characteristic."
+  },
   "1906331d61bc": {
     "name": "Master Artisans",
     "kind": "stratagem",
@@ -82,10 +92,23 @@
     "kind": "stratagem",
     "plain": "Once per battle, use at the start of your Movement phase while the Tactical Doctrine is active. From then until the start of the next battle round, when one of your SALAMANDERS models attacks with a Rapid Fire or Assault weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
   },
+  "5f11b7bd8dca": {
+    "name": "Nocturne's Vengeance - Flamer",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon's master-crafted flamer profile hit automatically; don't make hit rolls for them."
+  },
   "6113e796d2bc": {
     "name": "Forge Master",
     "kind": "ability",
     "plain": "Increase this Warlord's Toughness characteristic by 2."
+  },
+  "70157d6d5f95": {
+    "name": "Tome of Vel'cona",
+    "kind": "ability",
+    "plain": "LIBRARIAN model only: the model with this Relic knows an extra Promethean discipline power, and you can add 1 to its Psychic tests for that discipline. The extra power is on top of any other powers it knows, and the bonus applies whenever it takes a Psychic test to manifest a Promethean discipline power.",
+    "waive": {
+      "62": "page reference (pg 62) for the Promethean discipline, not part of the rule"
+    }
   },
   "7532b20d08a2": {
     "name": "Born Protectors",
@@ -152,6 +175,11 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, flame weapons fired by models in that unit don't roll for their number of attacks; each one makes the maximum number instead (so a Heavy D6 weapon makes 6 attacks)."
   },
+  "e0b578c155db": {
+    "name": "Drake-Smiter",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for attacks with this weapon; each unmodified wound roll of 6 adds 3 to its Damage characteristic for that attack."
+  },
   "e963b89f602d": {
     "name": "Kesare's Mantle",
     "kind": "ability",
@@ -171,5 +199,10 @@
     "name": "Steelsliver",
     "kind": "weapon",
     "plain": "Each time the bearer is picked to fight, it makes extra attacks with this weapon: one for each enemy model within Engagement Range of it."
+  },
+  "fe99e5583083": {
+    "name": "The Salamander's Mantle",
+    "kind": "ability",
+    "plain": "Subtract 1 from the wound roll for each attack made against the model with this Relic."
   }
 }

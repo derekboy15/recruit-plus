@@ -94,6 +94,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your BLOOD ANGELS DEATH COMPANY units is within 6\" of this model, it automatically passes every Morale test it takes."
   },
+  "2da854a84b77": {
+    "name": "Icon of The Angel",
+    "kind": "ability",
+    "plain": "The bearer gains the Icon of the Angel (Aura) ability: while one of your BLOOD ANGELS units is within 6\" of this model, you can re-roll its charge rolls."
+  },
   "35e6d4ef777a": {
     "name": "5) Fury of the Ancients",
     "kind": "psychic",
@@ -204,6 +209,11 @@
     "kind": "ability",
     "plain": "This WARLORD can take one extra Special-issue Wargear Relic: Adamantine Mantle, Artificer Armour, Master-crafted Weapon or Digital Weapons.\nThis is on top of any other Relics it has, and every Relic in your army must still be different."
   },
+  "58f2fc706185": {
+    "name": "Visage of Death",
+    "kind": "ability",
+    "plain": "Melee attacks against this unit subtract 1 from their hit rolls, and enemy units within 3\" of the bearer lose Objective Secured.\n• Subtract 1 from the hit roll of each melee attack made against this unit.\n• The bearer gains the Visage of Death (Aura) ability: any enemy unit within 3\" of this model loses Objective Secured, along with any similar ability that would let it control an objective marker however many enemy models are in range of that marker."
+  },
   "5a208fc219e0": {
     "name": "Orison Cult",
     "kind": "stratagem",
@@ -213,6 +223,11 @@
     "name": "God-splitter, Mighty Strikes",
     "kind": "weapon",
     "plain": "Subtract 1 from the hit roll of attacks made with this profile. Also, an unmodified wound roll of 6 for this weapon deals 1 mortal wound to the target, on top of the normal damage."
+  },
+  "5e42c6905ebe": {
+    "name": "The Crimson Plate",
+    "kind": "ability",
+    "plain": "The bearer moves faster, can charge after Advancing, and piles in and consolidates further.\n• Add 1\" to its Move characteristic.\n• It can declare a charge in a turn in which it Advanced.\n• Its pile-in and consolidation moves can be up to 4\"."
   },
   "61934d7c406f": {
     "name": "Psychic Hood",
@@ -384,6 +399,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your BLOOD ANGELS CORE units within 6\" of this model. Until your next Command phase starts, add 1 to the hit roll of each melee attack its models make."
   },
+  "a283c94185e6": {
+    "name": "Severer",
+    "kind": "ability",
+    "plain": "Only for a model with a chainsword: this Relic replaces its chainsword and uses the profile below."
+  },
   "a3561354dc08": {
     "name": "Artificer flamer",
     "kind": "weapon",
@@ -458,6 +478,11 @@
     "name": "Chief Librarian",
     "kind": "stratagem",
     "plain": "Once per battle, before the battle: pick one BLOOD RAVENS LIBRARIAN model from your army. It gains the CHIEF LIBRARIAN keyword and this ability: Chief Librarian: this model knows one extra psychic power from its chosen discipline, and in your opponent's Psychic phase it can try to deny one extra psychic power."
+  },
+  "bb30494a5cb5": {
+    "name": "Gallian's Staff",
+    "kind": "ability",
+    "plain": "Add 1 to every Psychic test this model takes to manifest a power from the Sanguinary discipline."
   },
   "bbaaecae65d2": {
     "name": "Chapter Master",
@@ -599,6 +624,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Blood Angels successor Chapter as your WARLORD: one CHARACTER model in your army from a Blood Angels successor Chapter can take one Relic of the Angels, in place of a Special-issue Wargear Relic or a Chapter Relic. If you do, every BLOOD ANGELS keyword on that Relic (if it has any) becomes that model's successor Chapter keyword."
   },
+  "f4e4d382feb3": {
+    "name": "Wrath of Baal",
+    "kind": "ability",
+    "plain": "Sanguinary Ancient model only: the bearer gains an aura that gives your BLOOD ANGELS JUMP PACK units within 6\" an extra 2\" of Move.\n• Wrath of Baal (Aura): while one of your BLOOD ANGELS JUMP PACK units is within 6\" of this model, each time it is picked to make a Normal Move, Advance or Fall Back, its Move characteristic goes up by 2\" until the phase ends."
+  },
   "f59f3911597b": {
     "name": "Blood Chalice",
     "kind": "ability",
@@ -608,6 +638,11 @@
     "name": "Miraculous Saviour",
     "kind": "ability",
     "plain": "At the end of the Heroic Interventions step in your opponent's Charge phase, if this model is not yet on the battlefield and any enemy units ended a charge move this phase within Engagement Range of any of your BLOOD ANGELS units, you can place this model within Engagement Range of one of those enemy units. In that turn, it counts as having performed a Heroic Intervention."
+  },
+  "f821957e0be5": {
+    "name": "Severer",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 5+ for an attack with this weapon also deals 1 mortal wound to the target, on top of any normal damage."
   },
   "fba41ba55983": {
     "name": "Blood Biter",

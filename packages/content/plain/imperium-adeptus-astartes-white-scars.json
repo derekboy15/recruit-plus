@@ -1,4 +1,9 @@
 {
+  "0b2fdaea5c53": {
+    "name": "Banner of the Eagle",
+    "kind": "ability",
+    "plain": "Aura (ANCIENT model only): while one of your WHITE SCARS CORE units is within 6\" of the bearer, its models add 1 to their Strength characteristic."
+  },
   "0c2dfeca6e91": {
     "name": "For the Khan!",
     "kind": "ability",
@@ -23,6 +28,11 @@
     "name": "Wind-swift",
     "kind": "stratagem",
     "plain": "Use in your Movement phase, after one of your WHITE SCARS units (excluding ARTILLERY) has made a Normal Move or Fallen Back. That unit can now make an Advance move as well. Until the end of the turn, that unit can't shoot, declare a charge or attempt to manifest psychic powers."
+  },
+  "259ffd88dc6d": {
+    "name": "The Hunter's Eye",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, you can pick one of your WHITE SCARS units within 6\" of the model with this Relic to ignore cover this phase. Until the end of the phase, the targets of ranged attacks by models in that unit don't get the benefit of cover to their saving throws."
   },
   "28b324a49f49": {
     "name": "The Eternal Hunt",
@@ -134,15 +144,38 @@
     "kind": "weapon",
     "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled (x2) for its attacks."
   },
+  "e2315ce7369a": {
+    "name": "Scimitar of the Great Khan",
+    "kind": "weapon",
+    "plain": "If an attack with this weapon gets an unmodified wound roll of 6, its Damage characteristic is 4 for that attack."
+  },
   "e4c35d9489de": {
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your WHITE SCARS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "e72ca43b6247": {
+    "name": "Wrath of the Heavens",
+    "kind": "ability",
+    "plain": "BIKER model only: the model with this Relic has a Move of 16\". In the Movement phase, it can pass through other models and terrain features as though they weren't there."
+  },
+  "f01ab4f16411": {
+    "name": "Plume of the Plainsrunner",
+    "kind": "ability",
+    "plain": "Aura: while one of your WHITE SCARS INFANTRY units is within 6\" of the bearer, add 1 to that unit's Advance and charge rolls."
+  },
   "f0485d210d22": {
     "name": "Anzuq",
     "kind": "ability",
     "plain": "When this model is chosen to shoot in your Shooting phase, you can pick one enemy unit within 12\" of it that is not a VEHICLE and roll one D6. On a 4+, it suffers 1 mortal wound."
+  },
+  "f1de06ad8cee": {
+    "name": "Mantle of the Stormseer",
+    "kind": "ability",
+    "plain": "PSYKER model only: add 1 to the total of each Psychic test the model with this Relic takes to manifest a power from the Stormspeaking discipline.",
+    "waive": {
+      "62": "page reference (pg 62) for the Stormspeaking discipline, not part of the rule"
+    }
   },
   "f76e630a5899": {
     "name": "Master Rider",
