@@ -586,7 +586,7 @@ describe('detachments', () => {
     ]);
   });
 
-  test('Core Book battle sizes offer the Core Book detachments of the primary catalogue and its faction group', () => {
+  test('Core Book battle sizes offer the Core Book detachments of the primary catalogue, its faction group and the Unaligned group', () => {
     const lotd = realCatalogueId('imperium-legion-of-the-damned');
     const scope = realScope('imperium-legion-of-the-damned');
     const r = createRoster(scope, { name: 'LotD', catalogueId: lotd, battleSize: 'onslaught', forceId: FORCE.patrol });
@@ -607,7 +607,7 @@ describe('detachments', () => {
     ]);
     expect(own.every((c) => !c.allied)).toBe(true);
     const groups = new Set(choices.map((c) => catalogues.find((s) => s.id === c.catalogueId)!.group));
-    expect([...groups]).toEqual(['Imperium']);
+    expect([...groups]).toEqual(['Imperium', 'Unaligned']);
     expect(choices.some((c) => c.catalogueId === realCatalogueId('imperium-astra-militarum') && c.allied)).toBe(true);
     expect(choices.some((c) => catalogues.find((s) => s.id === c.catalogueId)!.library)).toBe(false);
   });
@@ -666,8 +666,8 @@ describe('detachments', () => {
       return new Set(detachmentChoices(scope, r, policy, catalogues).filter((c) => c.allied).map((c) => catalogues.find((s) => s.id === c.catalogueId)!.name));
     };
 
-    test('Necrons are offered no Xenos allies: Orks, T’au and Tyranids share nothing with them', () => {
-      expect([...offered('necrons')]).toEqual([]);
+    test('Necrons are offered no Xenos allies (Orks, T’au and Tyranids share nothing with them), only UNALIGNED Monsters and Gribblies', () => {
+      expect([...offered('necrons')]).toEqual(['Unaligned - Monsters and Gribblies']);
     });
 
     test('Craftworlds are offered Drukhari and Harlequins (AELDARI), not Orks', () => {

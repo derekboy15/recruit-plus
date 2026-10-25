@@ -58,6 +58,13 @@ function categoryNamesById(files: RawCatalogue[]): Map<string, string> {
   return out;
 }
 
+/** A force that isn't an army on its own, and how it joins one (overrides/add-on-forces.json). */
+export interface AddOnForce {
+  catalogueName: string;
+  how: string;
+  source: string;
+}
+
 /** An army rule BSData carries that isn't a current 9th Edition rule (an 8th-edition leftover, a page reference, an empty entry). */
 export interface RuleExclusion {
   catalogueName: string;
@@ -138,6 +145,11 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const stratagemFaction = new Map(overrides.stratagemFactions.map((e) => [e.catalogueName, e]));
   const amendments: Amendment[] = JSON.parse(readFileSync(join(opts.overridesDir, 'amendments.json'), 'utf8'));
   const ruleExclusions: RuleExclusion[] = JSON.parse(readFileSync(join(opts.overridesDir, 'rule-exclusions.json'), 'utf8'));
+  const addOns: AddOnForce[] = JSON.parse(readFileSync(join(opts.overridesDir, 'add-on-forces.json'), 'utf8'));
+  for (const a of addOns) {
+    if (!playable.has(a.catalogueName)) throw new Error(`add-on-forces.json names unknown or library catalogue "${a.catalogueName}"`);
+    if (!a.how || !a.source) throw new Error(`add-on-forces.json: "${a.catalogueName}" needs a how and a source`);
+  }
   for (const x of ruleExclusions) if (!catalogues.some((c) => c.name === x.catalogueName)) throw new Error(`rule-exclusions.json names unknown catalogue "${x.catalogueName}"`);
   validateAmendments(amendments, new Set(catalogues.map((c) => c.name)));
   const amendmentTotals = new Map<Amendment, number>();
@@ -173,6 +185,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
       unitCount: units.length,
       rosterScope: catalogueScope(gd, cat.id).map(rosterSlug),
       factions: [], // filled in once the roster files exist
+      ...(addOns.some((a) => a.catalogueName === cat.name) && { addOn: { how: addOns.find((a) => a.catalogueName === cat.name)!.how } }),
     });
     report[slug] = {
       units: units.length,

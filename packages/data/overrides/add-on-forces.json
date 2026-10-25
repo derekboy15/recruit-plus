@@ -1,0 +1,27 @@
+[
+  {
+    "catalogueName": "Imperium - Legion of the Damned",
+    "how": "A single Legends unit, not an army. Add a squad to an Imperium army as an extra detachment in Onslaught games. Combat Patrol allows only one detachment, and Incursion and Strike Force (Arks of Omen) don’t allow it as an ally.",
+    "source": "One datasheet, Damned Legionnaires (Elites, no HQ): Wahapedia 000000150 (Warhammer Legends: Legion of the Damned). Detachment limits and allies: research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2.1 (Combat Patrol: 1 detachment; Onslaught: 4) and §7 (Arks of Omen allies). Owner's ruling, 25 Oct 2026."
+  },
+  {
+    "catalogueName": "Imperium - Adeptus Astra Telepathica",
+    "how": "Two psyker characters, not an army. Add one to an Imperium army as an extra detachment in Onslaught games.",
+    "source": "Two datasheets, Primaris Psyker (HQ) and Astropath (Elites), both PSYKER CHARACTERs, and no Troops (BSData v9.8.0; Wahapedia 000000889). Detachment limits and allies: library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2.1, §7."
+  },
+  {
+    "catalogueName": "Imperium - Titan Legions",
+    "how": "Titans join big Imperium armies: add one as a Super-heavy Auxiliary Detachment in Onslaught games. They don’t fit Combat Patrol, Incursion or Strike Force.",
+    "source": "Four Lords of War, 2,000-5,500 pts each, no HQ or Troops (BSData v9.8.0, Wahapedia). Detachment limits and allies: library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2.1, §7."
+  },
+  {
+    "catalogueName": "Chaos - Chaos Titan Legions",
+    "how": "Titans join big Chaos armies: add one as a Super-heavy Auxiliary Detachment in Onslaught games. They don’t fit Combat Patrol, Incursion or Strike Force.",
+    "source": "Four Lords of War, 2,000-5,500 pts each, no HQ or Troops (BSData v9.8.0, Wahapedia 000002448-000002451). Detachment limits and allies: library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2.1, §7."
+  },
+  {
+    "catalogueName": "Unaligned - Monsters and Gribblies",
+    "how": "Wild creatures, not an army. Add one to any army as an extra detachment in Onslaught games.",
+    "source": "Five UNALIGNED datasheets (Troops and Elites, no HQ), BSData v9.8.0. UNALIGNED units are exempt from the Army Faction rule: library 01_Core_Rules/Army_Building_Detachments_and_CP.md §1 and Glossary_and_Keywords.md (UNALIGNED). Detachment limits and allies: §2.1, §7."
+  }
+]

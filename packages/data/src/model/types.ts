@@ -161,6 +161,8 @@ export interface CatalogueSummary {
    * catalogue as an ally only when the two share one other than UNALIGNED.
    */
   factions: string[];
+  /** A force that isn't an army on its own (overrides/add-on-forces.json): how it joins one, in plain English. */
+  addOn?: { how: string };
 }
 
 export interface DataIndex {

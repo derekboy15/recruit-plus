@@ -237,14 +237,15 @@ test('the army keeps its own detachment while an ally remains', async () => {
   await waitFor(() => expect(screen.getAllByRole('region', { name: 'Patrol Detachment' })).toHaveLength(1));
 }, 20_000); // loads and builds the Harlequins rules too
 
-test('a Necrons army is offered no allies at Onslaught: no other Xenos faction shares a faction keyword with it', async () => {
+test('a Necrons army is offered no Xenos allies at Onslaught (none shares a faction keyword with it), only UNALIGNED Monsters and Gribblies', async () => {
   const u = user();
   renderEditor(await necronsList('onslaught'));
   await opened();
   await u.click(screen.getByRole('button', { name: 'Patrol Detachment' }));
   const sheet = screen.getByRole('dialog', { name: 'Detachments' });
   await u.click(within(sheet).getByRole('button', { name: 'Add detachment' }));
-  expect(within(sheet).queryByRole('heading', { name: 'Allies' })).not.toBeInTheDocument();
+  expect(within(sheet).getByRole('heading', { name: 'Allies' })).toBeInTheDocument();
+  expect([...sheet.querySelectorAll('details.ally > summary')].map((s) => s.textContent)).toEqual(['Monsters and Gribblies']);
   expect(within(sheet).queryByText('Orks')).not.toBeInTheDocument();
 });
 

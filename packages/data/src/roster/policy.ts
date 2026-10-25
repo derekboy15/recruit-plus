@@ -180,7 +180,8 @@ export interface DetachmentChoice { forceId: string; name: string; catalogueId: 
  * The detachments the roster can add next.
  * - Combat Patrol and Onslaught: the Core Book detachments and the catalogue's own force entries, for the primary
  *   catalogue and every playable catalogue in its faction group whose units could share a faction keyword with the
- *   army's (Army Faction, §1; `allied` when not the primary).
+ *   army's (Army Faction, §1; `allied` when not the primary), and the Unaligned group's catalogues: UNALIGNED units are
+ *   exempt from Army Faction, so any army may add them.
  * - Incursion and Strike Force: the Arks of Omen Detachment until there is one; then the allied detachments listed for
  *   the primary catalogue in aoo-allies.json (`allied: true`); nothing once there is an ally.
  * A catalogue's own force entries are only known when its file is in the scope. Adding a detachment from another
@@ -191,7 +192,9 @@ export function detachmentChoices(scope: Scope, r: Roster, policy: PolicyData, c
   if (!bs) return [];
   if (bs.mode === 'core') {
     const primary = catalogues.find((c) => c.id === r.catalogueId);
-    const group = primary ? catalogues.filter((c) => c.id !== primary.id && !c.library && c.group === primary.group && shareFaction(primary, c)) : [];
+    const group = primary
+      ? catalogues.filter((c) => c.id !== primary.id && !c.library && ((c.group === primary.group && shareFaction(primary, c)) || c.group === 'Unaligned'))
+      : [];
     return [r.catalogueId, ...group.map((c) => c.id)].flatMap((id) => coreChoices(scope, id, id !== r.catalogueId));
   }
   if (!r.forces.some((f) => f.forceId === FORCE.arksOfOmen)) return choice(scope, FORCE.arksOfOmen, r.catalogueId, false);
