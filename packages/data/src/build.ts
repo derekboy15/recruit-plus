@@ -10,6 +10,7 @@ import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
 import { attachInfoPlain, attachOptionStratagems, emitInfoFile, infoTextKeys, optionTierOf, TIER_NAMES, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
+import { applyDefaultModels } from './join/defaultModels';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile, gearIds } from './roster/emit';
@@ -258,7 +259,9 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   let priced = 0;
   for (const out of outs) {
     const scopeSlugs = index.catalogues.find((c) => c.id === out.id)!.rosterScope;
-    const p = applyEnginePoints(out, scopeSlugs.map((slug) => rosterFiles.find((f) => f.slug === slug)!));
+    const files = scopeSlugs.map((slug) => rosterFiles.find((f) => f.slug === slug)!);
+    const p = applyEnginePoints(out, files);
+    applyDefaultModels(out, files);
     priced += p.priced;
     pointsReport.push(...p.disagreements);
     writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));

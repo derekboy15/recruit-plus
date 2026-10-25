@@ -63,6 +63,8 @@ export interface UnitOut {
    * cannon is a VEHICLE, its Techmarine Gunner is INFANTRY). Model-level rules use these.
    */
   modelKeywords?: { model: string; keywords: string[] }[];
+  /** The kinds of model the unit can have (Plan H): present whenever the tree has a model, one kind for a single model. */
+  modelKinds?: ModelKindOut[];
   models: ProfileOut[];
   weapons: ProfileOut[];
   abilities: AbilityOut[];
@@ -169,6 +171,23 @@ export interface CatalogueSummary {
   factions: string[];
   /** A force that isn't an army on its own (overrides/add-on-forces.json): how it joins one, in plain English. */
   addOn?: { how: string };
+}
+
+/** One kind of model a unit can have (spec §3). `profile` points into the unit's own `models` list. */
+export interface ModelKindOut {
+  /** BSData ids that select this model: the model entry's id, and the link's id when a link reached it. */
+  entryIds: string[];
+  /** The entry's name, e.g. "Cadian Veteran w/ Medi-pack". */
+  name: string;
+  /** Index into UnitOut.models; -1 when the entry carries no Unit profile. */
+  profile: number;
+  /** How many the unit has as the list editor adds it (set by the build from the roster engine; 0 for optional models). */
+  defaultCount: number;
+  min: number;
+  /** -1 = no limit. */
+  max: number;
+  /** An extra model with a stat line of its own that the unit as added doesn't have ("Can also take"). */
+  optional?: true;
 }
 
 export interface DataIndex {

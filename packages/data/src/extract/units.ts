@@ -1,6 +1,6 @@
 import { buildIdIndex, catalogueScope } from '../bsdata/gamedata';
 import type { GameData, RawCatalogue, RawNode } from '../bsdata/types';
-import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type ProfileOut, type UnitOut } from '../model/types';
+import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type ModelKindOut, type ProfileOut, type UnitOut } from '../model/types';
 import { modifiersOf } from '../roster/emit';
 import { optionDisplay } from '../roster/names';
 import { isUnitLike } from '../roster/options';
@@ -224,6 +224,14 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       const max = constraintValue(n, 'max') ?? constraintValue(target, 'max') ?? Math.max(min, 1);
       return [min, max];
     }
+    // A squad inside the squad (the Cadian Command Squad's Veterans): its models, as many times as it is taken.
+    if (target.attrs.type === 'unit' && n.tag !== 'selectionEntryGroup') {
+      const inner = innerCount(target);
+      if (!inner) return null;
+      const min = constraintValue(n, 'min') ?? constraintValue(target, 'min') ?? 1;
+      const max = constraintValue(n, 'max') ?? constraintValue(target, 'max') ?? Math.max(min, 1);
+      return [inner[0] * min, inner[1] * max];
+    }
     return null;
   }
 
@@ -240,6 +248,41 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       .filter((x): x is [number, number] => x !== null);
     if (!parts.length) return null;
     return [parts.reduce((a, p) => a + p[0], 0), parts.reduce((a, p) => a + p[1], 0)];
+  }
+
+  /** A model entry's own stat line: a Unit profile on the entry, or one an info link on it points at. */
+  const unitProfileName = (model: RawNode): string | undefined => {
+    const own = kids(model, 'profiles').find((p) => (p.attrs.typeName ?? '').startsWith('Unit'));
+    if (own) return own.attrs.name;
+    for (const l of kids(model, 'infoLinks')) {
+      const t = index.get(l.attrs.targetId);
+      if (t?.tag === 'profile' && (t.attrs.typeName ?? '').startsWith('Unit')) return t.attrs.name;
+    }
+    return undefined;
+  };
+
+  /**
+   * The unit's kinds of model (spec §3): each model entry with the ids that select it, its stat line and its limits; a
+   * single-model unit is one kind. Default counts and `optional` are set by the build from the roster engine.
+   */
+  function kindsOf(root: RawNode, target: RawNode, models: ProfileOut[]): ModelKindOut[] {
+    const profile = (m: RawNode) => {
+      const name = unitProfileName(m);
+      return name === undefined ? -1 : models.findIndex((p) => p.name === name);
+    };
+    const limit = (link: RawNode | null, m: RawNode, type: 'min' | 'max') =>
+      (link && constraintValue(link, type)) ?? constraintValue(m, type);
+    if (target.attrs.type === 'model') {
+      return [{ entryIds: [...new Set([root.attrs.id, target.attrs.id])], name: target.attrs.name, profile: profile(target), defaultCount: 0, min: 1, max: 1 }];
+    }
+    return modelEntries(target).map(({ link, model }) => ({
+      entryIds: link ? [link.attrs.id, model.attrs.id] : [model.attrs.id],
+      name: model.attrs.name,
+      profile: profile(model),
+      defaultCount: 0,
+      min: limit(link, model, 'min') ?? 0,
+      max: limit(link, model, 'max') ?? -1,
+    }));
   }
 
   /** The model entries inside a unit (not descending into models), with the link that reached each. */
@@ -404,6 +447,8 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     const modelKeywords = distinctSets.size > 1 ? perModel : undefined;
 
     const counts = type === 'model' ? ([1, 1] as [number, number]) : innerCount(target);
+    const collected = collect(target);
+    const modelKinds = kindsOf(root, target, collected.models);
     const pl = kids(target, 'costs').find((c) => c.attrs.name?.trim() === 'PL');
     const publication = target.attrs.publicationId ? (index.get(target.attrs.publicationId)?.attrs.name ?? '') : '';
 
@@ -416,7 +461,8 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       keywords,
       factionKeywords,
       ...(modelKeywords ? { modelKeywords } : {}),
-      ...collect(target),
+      ...collected,
+      ...(modelKinds.length && { modelKinds }),
       minModels: counts ? counts[0] : null,
       maxModels: counts ? counts[1] : null,
       powerLevel: pl ? Number(pl.attrs.value) : null,
