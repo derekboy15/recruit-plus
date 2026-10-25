@@ -5,9 +5,9 @@
     "plain": "Before you remove this model from play after it is destroyed, roll one D6. If you get a 6+, it blows up: 3D6 mortal wounds are inflicted on each unit that is within 4D6\" of it."
   },
   "262f8609c337": {
-    "name": "Sunfury Plasma Annihilator (Supercharge)",
+    "name": "Sunfury plasma annihilator - Supercharge",
     "kind": "weapon",
-    "plain": "This weapon has the Blast ability. For each unmodified hit roll of 1 made for an attack with this profile, the bearer suffers 4 mortal wounds once it has finished shooting with this weapon."
+    "plain": "This weapon has the Blast ability, and the bearer suffers 4 mortal wounds for each unmodified hit roll of 1 made for an attack with this profile. Those mortal wounds are suffered once the bearer has finished shooting with this weapon."
   },
   "28f3681e6b64": {
     "name": "Void Shields",
@@ -27,7 +27,7 @@
   "aec27f0871a9": {
     "name": "Reaver Power Fist",
     "kind": "weapon",
-    "plain": "Whenever an attack made with this weapon destroys a VEHICLE or MONSTER model, you can choose one enemy unit that is within 9\" and roll one D6: if you get a 4+, D6 mortal wounds are inflicted on that unit."
+    "plain": "When an attack with this weapon destroys a VEHICLE or MONSTER model, you can pick an enemy unit within 9\" and roll one D6: on a 4+, it takes D6 mortal wounds."
   },
   "b3fc1028df62": {
     "name": "Reactor Meltdown",

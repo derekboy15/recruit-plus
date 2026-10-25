@@ -126,7 +126,7 @@
   "1a20934aa823": {
     "name": "Divine Deliverance: Miraculous ability",
     "kind": "ability",
-    "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER models is within Miracle range of this model, whenever that model makes a ranged attack that destroys an enemy model, subtract 1 from that enemy unit's Leadership characteristic until the end of the turn. No unit can have its Leadership characteristic lowered by more than 3 by this Miraculous ability.",
+    "plain": "Ranged attacks by your <ORDER> CORE or <ORDER> CHARACTER models in this model's Miracle range lower an enemy unit's Leadership when they destroy its models. Whenever such an attack destroys an enemy model, subtract 1 from that enemy unit's Leadership characteristic until the end of the turn. No unit can have its Leadership characteristic lowered by more than 3 by this Miraculous ability.",
     "waive": {
       "ORDER> CORE": "stray tab inside \"<ORDER>\" in the source makes this a garbled copy of <ORDER> CORE, which is present"
     }
@@ -209,7 +209,7 @@
   "26ff7f8ae46e": {
     "name": "5. Verse of Holy Piety",
     "kind": "ability",
-    "plain": "If this hymn is inspiring: choose one of your ADEPTUS SORORITAS CORE or ADEPTUS SORORITAS CHARACTER units within 6\" of this PRIEST model, and choose a Sacred Rite your army doesn't currently have active. That unit also benefits from that Sacred Rite, alongside the ones your army has active."
+    "plain": "If this hymn is inspiring, one of your ADEPTUS SORORITAS units within 6\" of this PRIEST model gains a Sacred Rite your army doesn't have active. Choose one of your ADEPTUS SORORITAS CORE or ADEPTUS SORORITAS CHARACTER units within that range, then choose a Sacred Rite that isn't active for your army. That unit then has that Sacred Rite active, as well as every rite your army already has active."
   },
   "291c79804922": {
     "name": "The Emperor’s Judgement",
@@ -292,7 +292,7 @@
   "3eebc4edf506": {
     "name": "Righteous Judgement: Miraculous ability",
     "kind": "ability",
-    "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER models is within Miracle range of this model, targets of that model's ranged attacks get no benefit from cover against those attacks.",
+    "plain": "Ranged attacks made by your <ORDER> CORE or <ORDER> CHARACTER models within Miracle range of this model ignore the target's benefits of cover.",
     "waive": {
       "ORDER> CORE": "stray tab inside \"<ORDER>\" in the source makes this a garbled copy of <ORDER> CORE, which is present"
     }
@@ -310,7 +310,7 @@
   "3ff635441d07": {
     "name": "The Emperor's Grace: Miraculous ability",
     "kind": "ability",
-    "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER models is within Miracle range of this model, your opponent can't re-roll hit rolls, wound rolls or damage rolls for attacks made against that unit.",
+    "plain": "Your opponent can't re-roll hit, wound or damage rolls for attacks against your <ORDER> CORE or <ORDER> CHARACTER units within Miracle range of this model. A unit counts while one of its <ORDER> CORE or <ORDER> CHARACTER models is within that range.",
     "waive": {
       "ORDER> CORE": "stray tab inside \"<ORDER>\" in the source makes this a garbled copy of <ORDER> CORE, which is present"
     }
@@ -441,12 +441,12 @@
   "54f9b3b6b021": {
     "name": "3. Psalm of Righteous Smiting",
     "kind": "ability",
-    "plain": "If this hymn is inspiring, this PRIEST model gets these bonuses: its Strength and Attacks characteristics are increased by 1; the Armour Penetration characteristic of its melee weapons, other than Relics, is improved by 1; and if it is within Engagement Range of any enemy units when the Fight phase ends, it can fight one additional time."
+    "plain": "If this hymn is inspiring, this PRIEST model gets 1 more Strength and Attacks and 1 better melee AP, and may fight again when the Fight phase ends. In full: its Strength and Attacks characteristics are each increased by 1; the Armour Penetration characteristic of its melee weapons, other than Relics, is improved by 1; and if it is within Engagement Range of any enemy units when the Fight phase ends, it can fight one additional time."
   },
   "57a999264dbb": {
     "name": "War Hymn",
     "kind": "ability",
-    "plain": "If this hymn is inspiring, pick a friendly unit within 6\" of this PRIEST model that is ADEPTUS MINISTORUM CORE, ADEPTUS MINISTORUM CHARACTER or ENGINE OF REDEMPTION. Each model in that unit gets 1 extra attack until your next Command phase starts."
+    "plain": "If this hymn is inspiring, pick one friendly unit within 6\" of this PRIEST model: each of its models gets 1 extra attack until your next Command phase starts. The unit you pick must be ADEPTUS MINISTORUM CORE, ADEPTUS MINISTORUM CHARACTER or ENGINE OF REDEMPTION."
   },
   "59c54c7fc786": {
     "name": "Angelic Saviour",
@@ -466,7 +466,7 @@
   "5c4f68fb340c": {
     "name": "3. Psalm of Righteous Smiting",
     "kind": "ability",
-    "plain": "If this hymn is inspiring, this PRIEST model gets 1 added to both its Strength and its Attacks, and the Armour Penetration of its melee weapons (other than Relics) gets 1 better. Also, if it is within Engagement Range of any enemy units at the end of the Fight phase, it can fight one more time."
+    "plain": "If this hymn is inspiring, this PRIEST model gets 1 more Strength and Attacks and 1 better melee AP, and may fight again at the end of the Fight phase. Its Strength and its Attacks each go up by 1, and the Armour Penetration of its melee weapons (other than Relics) gets 1 better. Also, if it is within Engagement Range of any enemy units at the end of the Fight phase, it can fight one more time."
   },
   "5c672297f62a": {
     "name": "Ecclesiarchy Battle Conclave (Arco)",
@@ -491,7 +491,7 @@
   "5d10de0781ee": {
     "name": "Zephyrim Pennant",
     "kind": "ability",
-    "plain": "The bearer gains this ability: 'The Righteous Path (Aura): while one of your <ORDER> CORE units is within 6\" of this model, you can re-roll that unit's charge rolls.'"
+    "plain": "The bearer gains The Righteous Path (Aura): while one of your <ORDER> CORE units is within 6\" of the bearer, you can re-roll that unit's charge rolls."
   },
   "5da1676db38b": {
     "name": "Saint in the Making",
@@ -536,7 +536,7 @@
   "626b4e0a2000": {
     "name": "Blinding Radiance: Miraculous ability",
     "kind": "ability",
-    "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER models is within Miracle range of this model, subtract 1 from the hit roll of each ranged attack made against that unit."
+    "plain": "Subtract 1 from the hit roll of ranged attacks against your <ORDER> CORE or <ORDER> CHARACTER units within Miracle range of this model. A unit counts while one of its <ORDER> CORE or <ORDER> CHARACTER models is within that range."
   },
   "645634c20e0e": {
     "name": "Righteous Suffering",
@@ -617,7 +617,7 @@
   "720a0fa40d9e": {
     "name": "Word of the Emperor: Miraculous ability",
     "kind": "ability",
-    "plain": "While an enemy unit is within Miracle range of this model, invulnerable saves can't be made against melee attacks made against that enemy unit by models in your <ORDER> CORE or <ORDER> CHARACTER units."
+    "plain": "Enemy units within Miracle range of this model can't make invulnerable saves against melee attacks from your <ORDER> CORE or <ORDER> CHARACTER units."
   },
   "734aa6f8307f": {
     "name": "Relic: The Ecclesiarch's Fury",
@@ -713,7 +713,7 @@
   "821ac17fceb9": {
     "name": "Rapturous Blows: Miraculous ability",
     "kind": "ability",
-    "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER units is within Miracle range of this model, whenever a model in that unit makes a melee attack, an unmodified wound roll of 6 inflicts 1 mortal wound on top of the normal damage."
+    "plain": "Each unmodified melee wound roll of 6 for your <ORDER> CORE or <ORDER> CHARACTER units within Miracle range of this model also inflicts 1 mortal wound. That mortal wound is on top of the attack's normal damage."
   },
   "823929530f26": {
     "name": "Mysterious Saviour",
@@ -746,7 +746,7 @@
   "88b1755e639f": {
     "name": "Incensor Cherub",
     "kind": "ability",
-    "plain": "Once per battle, when any phase starts, you can roll two D6 and throw one away; the value of the dice you keep becomes this unit's Cherub dice. Until that phase ends, this unit may use its Cherub dice as if it were a Miracle dice to perform one Act of Faith. A Cherub dice that a unit still holds when the phase ends is discarded.",
+    "plain": "Once per battle, when any phase starts, you can roll two D6 and keep one; this unit can use it as a Miracle dice for one Act of Faith that phase. The dice you keep becomes this unit's Cherub dice, with the value it rolled. Until that phase ends, this unit may use its Cherub dice as if it were a Miracle dice to perform one Act of Faith. A Cherub dice that a unit still holds when the phase ends is discarded.",
     "waive": {
       "91": "page reference to the codex, not rules content"
     }
@@ -1045,7 +1045,7 @@
   "b9f29999587a": {
     "name": "Tale of the Stoic (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your <ORDER> CORE units is within 6\" of this model, subtract 1 from the wound roll of any attack made against that unit with a Strength characteristic of 3 or less."
+    "plain": "Aura: subtract 1 from the wound roll for any attack with Strength 3 or less made against one of your <ORDER> CORE units within 6\" of this model."
   },
   "baaf03918f2e": {
     "name": "Solemn Procession",

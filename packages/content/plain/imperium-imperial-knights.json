@@ -307,7 +307,7 @@
   "4f1036d7b8ce": {
     "name": "Noble Combatants",
     "kind": "ability",
-    "plain": "When a model with this Martial Tradition fights, it can make extra attacks equal to the number of its attacks that didn't reach the Inflict Damage step.\n- This only applies if all of its attacks in that fight target one enemy unit and none of them use the Sweep profile of a melee weapon.\n- The extra attacks are made once all of those attacks have been resolved, against that same enemy unit, and they can't use a melee weapon's Sweep profile either."
+    "plain": "When a model with this Martial Tradition fights and aims all its attacks at one enemy unit, none with a Sweep profile, it gets extra attacks against that unit.\n- It gets one extra attack for each of its attacks in that fight that didn't reach the Inflict Damage step.\n- The extra attacks are made once all of its other attacks have been resolved, and they can't use a melee weapon's Sweep profile either."
   },
   "4fa0b1df860d": {
     "name": "Ravager - Strike",
@@ -623,7 +623,7 @@
   "9ec4a67ffbd7": {
     "name": "Strike and Shield",
     "kind": "ability",
-    "plain": "Melee attacks against a model with this Martial Tradition always miss on an unmodified hit roll of 1-3, and their Armour Penetration of -1 becomes 0.\n- The 1-3 rule applies whatever abilities the attacking model or its weapon has.\n- A melee attack with an Armour Penetration characteristic of -1 that is allocated to such a model is treated as having an Armour Penetration characteristic of 0 instead."
+    "plain": "Melee attacks against a model with this Martial Tradition always miss on an unmodified hit roll of 1-3, and their Armour Penetration of -1 becomes 0.\n- The 1-3 rule applies whatever abilities the attacking model or its weapon has.\n- The Armour Penetration change kicks in when such an attack is allocated to the model, and only attacks with -1 are changed."
   },
   "9ed69a07f386": {
     "name": "Legendary Knight",
@@ -761,7 +761,7 @@
   "b5d142e80a78": {
     "name": "Exalted Court",
     "kind": "rule",
-    "plain": "An upgraded model can use its Noble Exemplar ability only while your army is Honoured or Virtuous; it can't use it if your army is Dishonoured or if the model has no Bondsman abilities. A bearer that has a Bondsman ability can use that Bondsman ability one extra time in each of your Command phases."
+    "plain": "An upgraded model gets an extra Bondsman ability use in each of your Command phases, but can use Noble Exemplar only while your army is Honoured or Virtuous. Its Noble Exemplar ability can't be used at all if your army is Dishonoured or if the model has no Bondsman abilities. A bearer that has a Bondsman ability can use that Bondsman ability one extra time in each of your Command phases."
   },
   "b87f09a5876e": {
     "name": "Full Tilt",

@@ -110,7 +110,7 @@
   "69a5f3d91cde": {
     "name": "2. Gaze of the Emperor",
     "kind": "psychic",
-    "plain": "Witchfire. When this power is manifested, pick one enemy model that is visible to this Psyker and within 12\" of it. Draw a straight line from any part of that model's base (or hull) to this Psyker's base. Roll a D6 for every unit the line crosses, and one D6 for the target model's unit: each unit whose roll is 1-5 suffers 1 mortal wound, and each whose roll is a 6 suffers D3 mortal wounds."
+    "plain": "Witchfire: pick an enemy model within 12\" of and visible to this Psyker; its unit and every unit on a line between them take 1 mortal wound each, or D3 on a 6. When this power is manifested, draw a straight line from any part of that model's base (or hull) to this Psyker's base. Roll one D6 for the target model's unit and one D6 for every unit the line crosses: on a 1-5, the unit rolled for suffers 1 mortal wound; on a 6, it suffers D3 mortal wounds."
   },
   "6e18da0f6cf4": {
     "name": "4) Nightshroud",
@@ -160,7 +160,7 @@
   "8ffccf3ba6e7": {
     "name": "3. Psychic Barrier",
     "kind": "psychic",
-    "plain": "Blessing. When this power is manifested, pick a friendly ASTRA MILITARUM unit that is within 12\" of this PSYKER. That unit's models have an invulnerable save of 5+ until your next Psychic phase starts."
+    "plain": "Blessing: the models in one of your ASTRA MILITARUM units within 12\" of this PSYKER have a 5+ invulnerable save until your next Psychic phase starts. Pick that unit when this power is manifested."
   },
   "90b6eece9c09": {
     "name": "Crush Them",
@@ -205,7 +205,7 @@
   "a568997a539a": {
     "name": "4. Nightshroud",
     "kind": "psychic",
-    "plain": "Blessing. When this power is manifested, pick a friendly ASTRA MILITARUM unit that is within 12\" of this PSYKER. A TITANIC unit can only be picked if the Psychic test result was an unmodified 11+. Until your next Psychic phase starts, any unmodified hit roll of 1-3 made for an attack against that unit always fails, whatever abilities the weapon or model may have."
+    "plain": "Blessing: attacks against one of your ASTRA MILITARUM units within 12\" of this PSYKER always fail on an unmodified hit roll of 1-3. Pick that unit when this power is manifested; you can pick a TITANIC unit only if the Psychic test result was an unmodified 11+. This lasts until your next Psychic phase starts, and those hit rolls fail whatever abilities the weapon or model may have."
   },
   "a933f1c3b17d": {
     "name": "Psyker",
@@ -235,7 +235,7 @@
   "ba3d3f52ff72": {
     "name": "5. Mental Shackles",
     "kind": "psychic",
-    "plain": "Malediction. When this power is manifested, pick an enemy unit that is within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have their Move characteristic reduced by 2\", and you subtract 2 from any Advance or Charge roll made for that unit."
+    "plain": "Malediction: until your next Psychic phase starts, one enemy unit within 18\" of this PSYKER loses 2\" of Move and 2 from its Advance and Charge rolls. Pick that unit when this power is manifested: its models' Move characteristic drops by 2\", and 2 is subtracted from every Advance or Charge roll made for it."
   },
   "c08cc0478d42": {
     "name": "Emperor’s Wrath Artillery Company",
@@ -275,7 +275,7 @@
   "ca256f89f1b8": {
     "name": "1. Terrifying Visions",
     "kind": "psychic",
-    "plain": "Malediction. When this power is manifested, pick an enemy unit that is within 18\" of this Psyker. The following apply to it until your next Command phase ends: its models have their Leadership characteristic reduced by 2; your opponent can't pick it for the Insane Bravery Stratagem; and they can't use any rule that would let them re-roll a Morale test for it.\n\nThen roll 2D6: if the total equals or beats that unit's Leadership (counting the reduction above), any action that unit is performing fails straight away, and that unit can't perform actions until the start of your next Psychic phase."
+    "plain": "Malediction: an enemy unit within 18\" of this Psyker gets 2 less Leadership, no Insane Bravery or Morale re-rolls, and may be stopped from performing actions. Pick that unit when this power is manifested. Until your next Command phase ends: its models have their Leadership characteristic reduced by 2; your opponent can't pick it for the Insane Bravery Stratagem; and they can't use any rule that would let them re-roll a Morale test for it.\n\nThen roll 2D6: if the total equals or beats that unit's Leadership (counting the reduction above), any action that unit is performing fails straight away, and that unit can't perform actions until the start of your next Psychic phase."
   },
   "d3f185a381ee": {
     "name": "Flak Barrage",
@@ -305,7 +305,7 @@
   "f140c0cecd0d": {
     "name": "6. Psychic Maelstrom",
     "kind": "psychic",
-    "plain": "Witchfire. When this power is manifested, roll a number of D6 equal to your Psychic test result. Every 5+ inflicts 1 mortal wound on the nearest enemy unit that is visible to this PSYKER and within 18\" of it, up to a maximum of 6 wounds."
+    "plain": "Witchfire: if manifested, roll as many D6 as your Psychic test result; each 5+ deals 1 mortal wound to the closest visible enemy unit within 18\" of this PSYKER. It can inflict a maximum of 6 wounds this way."
   },
   "fe8637adaa18": {
     "name": "Mechanised Fire Support",

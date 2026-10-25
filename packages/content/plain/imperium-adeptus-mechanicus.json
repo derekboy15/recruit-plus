@@ -253,9 +253,9 @@
     "plain": "In the Fight phase, when one of your SKITARII units is selected to fight: until the end of the phase, models in that unit add 1 to their Strength characteristic."
   },
   "214bc6fb40e4": {
-    "name": "Order in Anarchy",
-    "kind": "stratagem",
-    "plain": "In your Command phase, pick one of your METALICA units. Until the end of the turn, when a model in that unit makes an attack that targets an enemy unit within 12\", you can add 1 to that hit roll."
+    "name": "Stratagem: Order in Anarchy -  1 CP",
+    "kind": "rule",
+    "plain": "In your Command phase, pick one of your METALICA units: until the end of the turn, you can add 1 to hit rolls for its attacks against enemy units within 12\"."
   },
   "256fc91a093d": {
     "name": "Radiant Disciples",
@@ -285,7 +285,7 @@
   "2d0cdbbe1610": {
     "name": "Broad Spectrum Data-tether",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your <FORGE WORLD> SKITARII CORE units within 6\" of this unit. Until your next Command phase starts, that unit gains the DATA-TETHER keyword and its models get 1 added to their Leadership characteristic."
+    "plain": "In your Command phase, pick one of your <FORGE WORLD> SKITARII CORE units within 6\" of this unit to gain the DATA-TETHER keyword and 1 extra Leadership. Until your next Command phase starts, that unit has the DATA-TETHER keyword and its models get 1 added to their Leadership characteristic."
   },
   "2db78737e64b": {
     "name": "Ashrunner",
@@ -448,14 +448,14 @@
     "plain": "Aura: while an enemy unit is within 3\" of the bearer, models in your METALICA units can re-roll wound rolls for attacks that target it."
   },
   "483674cbe8ff": {
-    "name": "Rad-oversaturation",
-    "kind": "stratagem",
-    "plain": "When any phase starts, choose one METALICA SKITARII VANGUARD unit in your army. For the rest of that phase, its Rad-saturation ability reaches out to 6\"."
+    "name": "Stratagem: Rad-Oversaturation - 2 CP",
+    "kind": "rule",
+    "plain": "When any phase starts, pick one METALICA SKITARII VANGUARD unit in your army: its Rad-saturation ability has a range of 6\" until the end of that phase."
   },
   "4c4e465806d4": {
-    "name": "Extinction Order",
-    "kind": "stratagem",
-    "plain": "In your Shooting phase, pick one Area Terrain feature that your METALICA WARLORD can see. Until the end of the phase, when a model in one of your METALICA units that is within 6\" of your METALICA WARLORD makes an attack targeting an enemy unit wholly within that feature, add 1 to that attack's wound roll."
+    "name": "Stratagem: Extinction Order - 3 CP",
+    "kind": "rule",
+    "plain": "Your METALICA units within 6\" of your METALICA WARLORD add 1 to wound rolls this phase against enemy units wholly within one Area Terrain feature it can see. Use this in your Shooting phase: pick an Area Terrain feature your METALICA WARLORD can see. Until the phase ends, whenever a model from one of your METALICA units that is within 6\" of your METALICA WARLORD attacks an enemy unit wholly within that feature, that attack's wound roll gets 1 added."
   },
   "4c723515037b": {
     "name": "Stratagem: Citation of Ruin - 2 CP/3 CP",
@@ -645,7 +645,7 @@
   "77ac6ec6a24e": {
     "name": "The Eye of Xi-Lexum",
     "kind": "ability",
-    "plain": "When your Shooting phase starts, choose an enemy VEHICLE unit within 18\" of the bearer; for the rest of that phase, the bearer has the following ability:"
+    "plain": "When your Shooting phase starts, pick an enemy VEHICLE unit within 18\" of the bearer; the bearer has the Eye of Xi-Lexum (Aura) ability for that phase."
   },
   "77e9549b0987": {
     "name": "Inspiring Leader",
@@ -818,9 +818,9 @@
     "plain": "At the end of your Movement phase, pick one of your <FORGE WORLD> models within 3\"; this model can repair it, and it regains up to D3 lost wounds. A model can be repaired only once per turn."
   },
   "993baf84b03c": {
-    "name": "Pre-calibrated Purge Solution",
-    "kind": "stratagem",
-    "plain": "In your Shooting phase, when an EXTREMIS SENTINEL unit of yours that is wholly within your deployment zone is picked to shoot: for the rest of that phase, its models add 1 to hit rolls for attacks against enemy units wholly within the enemy deployment zone."
+    "name": "Stratagem: Pre-Calibrated Purge Solution - 1 CP",
+    "kind": "rule",
+    "plain": "One of your EXTREMIS SENTINEL units wholly within your deployment zone adds 1 to hit rolls against enemy units wholly within the enemy deployment zone. Use this in your Shooting phase, when that unit is picked to shoot. For the rest of that phase, its models add 1 to the hit roll of each attack they make against an enemy unit wholly within the enemy deployment zone."
   },
   "9a3a711bd8bd": {
     "name": "Doctrina Imperatives",
@@ -970,7 +970,7 @@
   "b84cf55ae3e9": {
     "name": "Dogma - Shroud Protocolls",
     "kind": "rule",
-    "plain": "When a ranged attack targets a VEHICLE unit with this dogma that doesn't have the CORE keyword, the target gets the benefits of Dense Cover against it if the attacker is more than 18\" away. When a ranged attack targets any other unit with this dogma (anything except VEHICLE units lacking the CORE keyword), the target gets the benefits of Dense Cover against it if the attacker is more than 12\" away. When a unit with this dogma declares a charge, none of the units it is charging can Hold Steady or Set to Defend."
+    "plain": "Ranged attacks from over 12\" away (18\" for non-CORE VEHICLES) give units with this dogma Dense Cover, and units they charge can't Hold Steady or Set to Defend.\n- A VEHICLE unit with this dogma that doesn't have the CORE keyword gets the benefits of Dense Cover against a ranged attack if the attacker is more than 18\" away.\n- Any other unit with this dogma gets the benefits of Dense Cover against a ranged attack if the attacker is more than 12\" away.\n- When a unit with this dogma declares a charge, none of the units it is charging can Hold Steady or Set to Defend."
   },
   "b973b76077db": {
     "name": "Bionics of Veneration",
@@ -1035,12 +1035,12 @@
   "ca8c02a708a7": {
     "name": "Solar Atomiser",
     "kind": "weapon",
-    "plain": "This weapon has the Blast ability. Attacks made with it against a unit within half range have a Damage characteristic of D3+3."
+    "plain": "This weapon has the Blast ability, and its attacks against a unit within half range have a Damage characteristic of D3+3."
   },
   "cb916a56554b": {
     "name": "Dogma - Relentless March",
     "kind": "rule",
-    "plain": "Models with this dogma ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced, and the hit roll penalty for firing Heavy weapons in a turn their unit moved. While an enemy unit is within Engagement Range of one of your units with this dogma, that enemy unit counts as being below Half-strength."
+    "plain": "Models with this dogma fire Assault weapons in a turn their unit Advanced, and Heavy weapons in a turn their unit moved, without the usual hit roll penalty. While an enemy unit is within Engagement Range of one of your units with this dogma, that enemy unit counts as being below Half-strength."
   },
   "cc601ea71396": {
     "name": "Mechanicus Locum",
@@ -1100,7 +1100,7 @@
   "da61e883f618": {
     "name": "Calculate Without Diversion",
     "kind": "ability",
-    "plain": "While this WARLORD is on the battlefield, four Stratagems can each cost one fewer CP once per battle, if the right Imperative is active for your army. Each discount lasts until the end of the phase the Stratagem is used in, and can't take its cost below 0 CP:\n- with the Protector Imperative active, the Binharic Offense Stratagem;\n- with the Conqueror Imperative active, the Aggressive Override Stratagem;\n- with the Bulwark Imperative active, the Bionic Endurance Stratagem;\n- with the Aggressor Imperative active, the Expedited Purge Protocols Stratagem."
+    "plain": "While this WARLORD is on the battlefield, four Stratagems can each cost one fewer CP once per battle, if the right Imperative is active for your army. Each discount lasts until the end of the phase the Stratagem is used in, and can't take its cost below 0 CP:\n- with the Protector Imperative active, the Binaric Offensive Stratagem;\n- with the Conqueror Imperative active, the Aggression Override Stratagem;\n- with the Bulwark Imperative active, the Bionic Endurance Stratagem;\n- with the Aggressor Imperative active, the Expedited Purge Protocols Stratagem."
   },
   "de5e55bb0bbd": {
     "name": "Machine Spirit’s Revenge",
@@ -1245,7 +1245,7 @@
   "fd96db7afb39": {
     "name": "Command Uplink",
     "kind": "ability",
-    "plain": "The model with this gains the DATA-TETHER keyword and this ability: 'Command Uplink (Aura): while one of your <FORGE WORLD> SKITARII CORE units is within 3\" of this model, models in that unit get 1 added to their Leadership characteristic, and the unit gains the DATA-TETHER keyword.'"
+    "plain": "The bearer gains the DATA-TETHER keyword and an aura that gives your nearby <FORGE WORLD> SKITARII CORE units 1 extra Leadership and the DATA-TETHER keyword. The aura is Command Uplink (Aura): while one of your <FORGE WORLD> SKITARII CORE units is within 3\" of this model, its models get 1 added to their Leadership characteristic, and the unit gains the DATA-TETHER keyword."
   },
   "fe3f4205d8c6": {
     "name": "Artefactotum",

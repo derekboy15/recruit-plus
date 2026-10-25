@@ -98,7 +98,7 @@
   "1dc9bc0d4cae": {
     "name": "Anathematic Diadem",
     "kind": "ability",
-    "plain": "The bearer has this aura. Anathematic Diadem (Aura): during your opponent's Psychic phase, any enemy Psyker unit within 18\" of this model reduces its Psychic test by 1 each time it tries to manifest a psychic power. Also during your opponent's Psychic phase, whenever an enemy Psyker unit within 18\" of this model tries to manifest a psychic power and its Psychic test comes to 7 or less, this model may try to Deny the Witch as though it were a Psyker. It can do this up to twice per opponent's Psychic phase."
+    "plain": "The bearer's aura subtracts 1 from Psychic tests taken by enemy Psyker units within 18\" of it, and lets it try to Deny the Witch against them. Anathematic Diadem (Aura): during your opponent's Psychic phase, any enemy Psyker unit within 18\" of this model reduces its Psychic test by 1 each time it tries to manifest a psychic power. Also during your opponent's Psychic phase, whenever an enemy Psyker unit within 18\" of this model tries to manifest a psychic power and its Psychic test comes to 7 or less, this model may try to Deny the Witch as though it were a Psyker. It can do this up to twice per opponent's Psychic phase."
   },
   "1e59f79e9d6a": {
     "name": "Open the Vaults",
@@ -141,7 +141,7 @@
   "2ade6144a9c7": {
     "name": "Sally Forth",
     "kind": "ability",
-    "plain": "At the start of your Charge phase, pick one of your SOLAR WATCH INFANTRY units within 6\" of this WARLORD. Until the end of that phase, that unit can charge even if it Advanced this turn."
+    "plain": "At the start of your Charge phase, pick one of your SOLAR WATCH INFANTRY units within 6\" of this WARLORD: it can charge that phase even if it Advanced."
   },
   "2bae37fbd452": {
     "name": "Grim Responsibility",
@@ -151,7 +151,7 @@
   "2bfc05402b03": {
     "name": "All-Seeing Annihilator",
     "kind": "ability",
-    "plain": "During your Command phase, while this WARLORD is on the battlefield, choose either this WARLORD or a DREAD HOST CORE unit that is within 6\" of it. Until your next Command phase begins, whenever a model in the chosen unit attacks, an unmodified 6 on the hit roll scores 1 extra hit."
+    "plain": "In your Command phase, pick this WARLORD or a DREAD HOST CORE unit within 6\" of it: until your next one, its unmodified hit rolls of 6 score 1 extra hit. The effect lasts until your next Command phase starts. This WARLORD must be on the battlefield to do this, and the bonus covers attacks made by every model in the chosen unit."
   },
   "2c81f1e40964": {
     "name": "Death Mark",
@@ -166,7 +166,7 @@
   "2e38333382f3": {
     "name": "Impregnable Mind",
     "kind": "ability",
-    "plain": "During your opponent's Psychic phase, this WARLORD may try to Deny the Witch once, just like a PSYKER model would, and every Deny the Witch test taken for it gets 1 added to the result. For control of objective markers, this WARLORD is treated as two extra models, on top of any other rules that let it count as extra models."
+    "plain": "This WARLORD can try to Deny the Witch once in your opponent's Psychic phase, like a PSYKER, and counts as two extra models for objective control. Add 1 to the result of every Deny the Witch test taken for it. Counting as two extra models stacks with any other rules that make it count as extra models."
   },
   "30af285ff495": {
     "name": "Enhanced Voidsheen Cloak",
@@ -176,7 +176,7 @@
   "32795c6f7c55": {
     "name": "Oblivion Knight",
     "kind": "ability",
-    "plain": "This WARLORD has this ability: Oblivion Knight (Aura): ANATHEMA PSYKANA INFANTRY units add 1 to their Advance and charge rolls while they are within 6\" of this model. Also, when this WARLORD makes an attack, re-roll a wound roll of 1."
+    "plain": "This WARLORD has an aura that adds 1 to Advance and charge rolls for ANATHEMA PSYKANA INFANTRY units within 6\" of it, and it re-rolls its wound rolls of 1. Oblivion Knight (Aura): ANATHEMA PSYKANA INFANTRY units add 1 to their Advance and charge rolls while they are within 6\" of this model. Also, re-roll wound rolls of 1 for attacks this WARLORD makes."
   },
   "35279da95f5d": {
     "name": "Moment Shackle",
@@ -194,9 +194,9 @@
     "plain": "Each type of vexilla (for example, the vexilla magnifica) can be included in your army only once."
   },
   "3a0e8f35f21c": {
-    "name": "Victor of the Blood Games",
-    "kind": "stratagem",
-    "plain": "Use before the battle, after a Warlord Trait has been determined for one of your ADEPTUS CUSTODES CHARACTER models (not named characters). You can generate one extra Warlord Trait for that model. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly). This Stratagem can only be used once."
+    "name": "Stratagem: Victor of the Blood Games",
+    "kind": "ability",
+    "plain": "Before the battle, you can generate one extra Warlord Trait for one of your ADEPTUS CUSTODES CHARACTER models (not a named character) that already has one. Use this Stratagem after that model's Warlord Trait has been determined. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly). This Stratagem can only be used once."
   },
   "3bf1dc1eb883": {
     "name": "Adeptus Custodes",
@@ -237,9 +237,9 @@
     "plain": "When the Fight phase starts, if enemy units are within Engagement Range of this model, it can fight first in that phase. This model may perform a Heroic Intervention whenever an enemy unit is within 5\" vertically and 6\" horizontally of it. Its Heroic Intervention moves can be up to 6\", provided it finishes the move either nearer to the nearest enemy model or within Engagement Range of an enemy CHARACTER unit. Every other Heroic Intervention rule is unchanged."
   },
   "403189d90542": {
-    "name": "The Emperor’s Heroes",
-    "kind": "stratagem",
-    "plain": "Use before the battle, while mustering your army, if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Pick one of your ADEPTUS CUSTODES CHARACTER or ANATHEMA PSYKANA CHARACTER models and determine a Warlord Trait for it (one it is allowed to have); that model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly), and this Stratagem can't give one model two Warlord Traits. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+    "name": "Stratagem: The Emperor's Heroes",
+    "kind": "ability",
+    "plain": "Before the battle, one of your ADEPTUS CUSTODES CHARACTER or ANATHEMA PSYKANA CHARACTER models gets a Warlord Trait, counting as your WARLORD only for it. Use this Stratagem while mustering your army, and only if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Determine that trait as usual; it must be one the model is allowed to have. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly), and this Stratagem can't give one model two Warlord Traits. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
   "408bfcd64e48": {
     "name": "Stratagem: Open the Vaults",
@@ -274,7 +274,7 @@
   "4dae815a0ed6": {
     "name": "Shield Host Fighting Style",
     "kind": "rule",
-    "plain": "ADEPTUS CUSTODES units with this ability, and every model in them, gain a shield host fighting style, as long as all units in their Detachment that are assigned to a shield host are assigned to the same one. Which fighting style they get depends on the shield host they are assigned to."
+    "plain": "ADEPTUS CUSTODES units with this ability gain a shield host fighting style if all units in their Detachment assigned to a shield host share the same one. Every model in those units gains it too. Which style they get depends on the shield host they belong to."
   },
   "5196e6510049": {
     "name": "Inspirational Exemplar",
@@ -349,12 +349,12 @@
   "67821411c02a": {
     "name": "Mortis Gyre",
     "kind": "ability",
-    "plain": "Once per battle, when the bearer is chosen to fight, it can activate the Mortis Gyre. If it does, until that fight is resolved, invulnerable saving throws can't be made against its melee attacks."
+    "plain": "Once per battle, when the bearer is chosen to fight, it can stop invulnerable saving throws being made against its melee attacks until that fight is resolved. Doing this activates the Mortis Gyre."
   },
   "6abf1d434957": {
     "name": "Vexilla Imperius",
     "kind": "ability",
-    "plain": "The bearer has this aura. Vexilla Imperius (Aura): models in your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units get 1 added to their Attacks characteristic while their unit is within 6\" of this model."
+    "plain": "The bearer's aura adds 1 to the Attacks characteristic of models in your <SHIELD HOST> CORE and <SHIELD HOST> CHARACTER units within 6\" of it. Vexilla Imperius (Aura): models in your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units get 1 added to their Attacks characteristic while their unit is within 6\" of this model."
   },
   "6bc312c73ea0": {
     "name": "Veiled Blade",
@@ -364,7 +364,7 @@
   "6bd816e7c266": {
     "name": "Vexilla Defensor",
     "kind": "ability",
-    "plain": "The bearer has this aura ability. Vexilla Defensor (Aura): while one of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units is within 6\" of this model, that unit has the benefits of light cover."
+    "plain": "The bearer's aura gives your <SHIELD HOST> CORE and <SHIELD HOST> CHARACTER units within 6\" of it the benefits of light cover. Vexilla Defensor (Aura): while one of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units is within 6\" of this model, that unit has the benefits of light cover."
   },
   "6d1bd74b4298": {
     "name": "Wrath Angelis",
@@ -384,7 +384,7 @@
   "719414dd1f83": {
     "name": "Vexilla Magnifica",
     "kind": "ability",
-    "plain": "The bearer has this aura. Vexilla Magnifica (Aura): each of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units gets the benefits of dense cover while it is within 6\" of this model."
+    "plain": "The bearer's aura gives your <SHIELD HOST> CORE and <SHIELD HOST> CHARACTER units within 6\" of it the benefits of dense cover. Vexilla Magnifica (Aura): each of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units gets the benefits of dense cover while it is within 6\" of this model."
   },
   "72d0f1b9a719": {
     "name": "Purgation Sweep",
@@ -409,7 +409,7 @@
   "7924459b07cb": {
     "name": "Twilight Pallium",
     "kind": "ability",
-    "plain": "The bearer can use the Twilight Pallium once per battle, at the end of one of your phases: take it off the battlefield, then place it again anywhere more than 1\" from all enemy models. During the turn it was placed this way, it can't charge unless every enemy model is more than 9\" from it."
+    "plain": "Once per battle, at the end of one of your phases, the bearer can be removed from the battlefield and set up again more than 1\" from all enemy models. Doing this uses the Twilight Pallium. During the turn it was set up this way, it can't charge unless every enemy model is more than 9\" from it."
   },
   "7accb397f950": {
     "name": "Covered Advance",
@@ -434,7 +434,7 @@
   "8768a1c6fe52": {
     "name": "Epoch Auspice",
     "kind": "ability",
-    "plain": "Once per battle, the bearer can deploy the Epoch Auspice in your Command phase or at the start of the first battle round. If it does, until the start of your next Command phase, while one of your Infantry or Biker units is within 3\" of the bearer, subtract 1 from the wound roll of each ranged attack made against that unit by an attacker more than 12\" away."
+    "plain": "Once per battle, the bearer's Epoch Auspice can subtract 1 from the wound rolls of ranged attacks from over 12\" away against your Infantry and Bikers near it. The bearer can deploy it in your Command phase or at the start of the first battle round, and it lasts until the start of your next Command phase. While it does, subtract 1 from the wound roll of each ranged attack made against one of your Infantry or Biker units within 3\" of the bearer, if the attacker is more than 12\" away."
   },
   "87b9d5ec16bb": {
     "name": "Amelioration Pail",
@@ -459,7 +459,7 @@
   "8d54afbb1ff8": {
     "name": "Master of the Stances",
     "kind": "ability",
-    "plain": "During your Command phase, choose an ADEPTUS CUSTODES CORE or ADEPTUS CUSTODES CHARACTER unit that is within 6\" of this model; until your next Command phase starts, the chosen unit benefits from both stances of the ka'tah you currently have. You may only use this ability if all units in your army have the ADEPTUS CUSTODES keyword, ignoring ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units."
+    "plain": "In your Command phase, one of your ADEPTUS CUSTODES CORE or CHARACTER units within 6\" of this model can get both stances of your current ka'tah. Pick an ADEPTUS CUSTODES CORE or ADEPTUS CUSTODES CHARACTER unit that is within 6\" of this model; until your next Command phase starts, the chosen unit benefits from both stances of the ka'tah you currently have. You may only use this ability if all units in your army have the ADEPTUS CUSTODES keyword, ignoring ANATHEMA PSYKANA, AGENT OF THE IMPERIUM and UNALIGNED units."
   },
   "8f15c9f5b2e3": {
     "name": "Shield Host Fighting Style: Heralds of the Throne",
@@ -494,7 +494,7 @@
   "989302ef653b": {
     "name": "Silent Judge (Aura)",
     "kind": "ability",
-    "plain": "While an enemy unit is within 3\" of this WARLORD, subtract 1 from each Combat Attrition test taken for that unit, and that unit loses the Objective Secured ability.",
+    "plain": "While an enemy unit is within 3\" of this WARLORD, it loses the Objective Secured ability and subtracts 1 from every Combat Attrition test taken for it.",
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
@@ -562,7 +562,7 @@
   "ac78ae8f4730": {
     "name": "Fierce Conqueror",
     "kind": "ability",
-    "plain": "When this model is chosen to fight, after it piles in, if there are six or more enemy models within 2\" of it, add 2 to its Attacks characteristic until that fight is resolved."
+    "plain": "This model adds 2 to its Attacks characteristic for a fight if, after it piles in, six or more enemy models are within 2\" of it. This is checked each time it is chosen to fight, and the bonus lasts until that fight is resolved."
   },
   "b344ca30a156": {
     "name": "Inspirational Fighter (Aura)",
@@ -602,7 +602,7 @@
   "bce7fd9348de": {
     "name": "Auric Exemplar",
     "kind": "ability",
-    "plain": "Each time this WARLORD fights, once all its attacks are resolved, it can make extra attacks: one for each enemy model destroyed by its attacks during that fight, up to a maximum of 4 extra attacks."
+    "plain": "Each time this WARLORD fights, it can make one extra attack for each enemy model its attacks destroyed during that fight, up to a maximum of 4 extra attacks. It makes these only once all of its attacks have been resolved."
   },
   "be972e8819c5": {
     "name": "Shield Host Fighting Style: Magna Imperator",
@@ -627,7 +627,7 @@
   "c0802c779de4": {
     "name": "Emperor's Legion",
     "kind": "rule",
-    "plain": "In each ADEPTUS CUSTODES Detachment in your army, the number of ANATHEMA PSYKANA Troops units can't exceed the number of ADEPTUS CUSTODES Troops units, and the number of ANATHEMA PSYKANA HQ units can't exceed the number of ADEPTUS CUSTODES HQ units. An ANATHEMA PSYKANA model can't be your WARLORD."
+    "plain": "In each ADEPTUS CUSTODES Detachment, ANATHEMA PSYKANA Troops and HQ units can't outnumber ADEPTUS CUSTODES ones of the same role, and none can be your WARLORD.\n- Troops: in each ADEPTUS CUSTODES Detachment in your army, the ANATHEMA PSYKANA Troops units must not outnumber the ADEPTUS CUSTODES Troops units.\n- HQ: likewise, that Detachment's ANATHEMA PSYKANA HQ units must not outnumber its ADEPTUS CUSTODES HQ units.\n- WARLORD: no ANATHEMA PSYKANA model can be your WARLORD."
   },
   "c7f5035a6381": {
     "name": "Halo of the Torchbearer",
@@ -746,7 +746,7 @@
   "f12e6a05e8aa": {
     "name": "Mistress of Persecution (Aura)",
     "kind": "ability",
-    "plain": "While one of your ANATHEMA PSYKANA INFANTRY units is within 6\" of this WARLORD, the targets of attacks made by models in that unit get no benefit from Heavy or Light Cover against those attacks, and add 3\" to the Range characteristic of ranged weapons that models in that unit are equipped with.",
+    "plain": "While within 6\" of this WARLORD, your ANATHEMA PSYKANA INFANTRY units' ranged weapons get 3\" more range, and their targets get no Heavy or Light Cover. In full: while one of your ANATHEMA PSYKANA INFANTRY units is within 6\" of this WARLORD, whenever a model in that unit attacks, the target gets no benefit from Heavy or Light Cover against that attack, and add 3\" to the Range characteristic of every ranged weapon the unit's models are equipped with.",
     "waive": {
       "ANATHEMA PSYKANA INFANRY": "misspelling of ANATHEMA PSYKANA INFANTRY in the official text; the correct keyword is used"
     }
@@ -774,7 +774,7 @@
   "faf35bf34f77": {
     "name": "Watchers of the Throne",
     "kind": "rule",
-    "plain": "When applying the Look Out, Sir rule for your ADEPTUS CUSTODES CHARACTER models, every ADEPTUS CUSTODES INFANTRY and ADEPTUS CUSTODES BIKER model from the same <SHIELD HOST> is treated as 2 models."
+    "plain": "For Look Out, Sir, ADEPTUS CUSTODES INFANTRY and ADEPTUS CUSTODES BIKER models each count as 2 models when shielding a CHARACTER of their own <SHIELD HOST>. That CHARACTER must be one of your ADEPTUS CUSTODES CHARACTER models."
   },
   "fbf283ae1bde": {
     "name": "Tanglefoot Grenade",
