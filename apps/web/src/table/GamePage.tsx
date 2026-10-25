@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import type { PlayerKey } from '@recruit/data/missions';
 import { useAsync } from '../factions/useAsync';
@@ -66,7 +66,8 @@ export function GamePage({ roll = defaultRoll }: { roll?: (sides: 3 | 6) => numb
       </div>
       {state.ended ? (
         <p>
-          This game is over. <Link to={`/table/${id}/summary`}>See the summary</Link>
+          This game is over. <Link to={`/table/${id}/summary`}>See the summary</Link>{' '}
+          <button type="button" className="btn btn--small" onClick={() => void update(undo)}>Undo the end</button>
         </p>
       ) : (
         tab === 'Turn' && state.pos && (
@@ -87,8 +88,20 @@ function EndGameSheet({ setup, pos, append, onEnded, onClose }: {
   setup: TableSetup; pos: TableEvent['pos']; append: (e: TableEvent[]) => Promise<void>; onEnded: () => void; onClose: () => void;
 }) {
   const [step, setStep] = useState<'choose' | 'concede'>('choose');
+  // A second tap while the first is saving would log a second end, and Undo the end would then remove only one.
+  const ending = useRef(false);
+  const [saving, setSaving] = useState(false);
   const end = async (reason: 'complete' | 'agreed' | 'concede', concededBy?: PlayerKey) => {
-    await append([makeEvent({ t: 'end', reason, ...(concededBy ? { concededBy } : {}) }, pos)]);
+    if (ending.current) return;
+    ending.current = true;
+    setSaving(true);
+    try {
+      await append([makeEvent({ t: 'end', reason, ...(concededBy ? { concededBy } : {}) }, pos)]);
+    } catch (e) {
+      ending.current = false;
+      setSaving(false);
+      throw e;
+    }
     onClose();
     onEnded();
   };
@@ -96,18 +109,18 @@ function EndGameSheet({ setup, pos, append, onEnded, onClose }: {
     <Sheet kind="sheet" title="End the game" onClose={onClose}>
       {step === 'choose' ? (
         <div className="prompt__actions prompt__actions--stack">
-          <button type="button" className="btn" onClick={() => void end('complete')}>We’ve finished all 5 rounds</button>
-          <button type="button" className="btn" onClick={() => void end('agreed')}>We agreed to stop early</button>
-          <button type="button" className="btn" onClick={() => setStep('concede')}>A player concedes</button>
+          <button type="button" className="btn" disabled={saving} onClick={() => void end('complete')}>We’ve finished all 5 rounds</button>
+          <button type="button" className="btn" disabled={saving} onClick={() => void end('agreed')}>We agreed to stop early</button>
+          <button type="button" className="btn" disabled={saving} onClick={() => setStep('concede')}>A player concedes</button>
         </div>
       ) : (
         <>
           <p className="muted">Who concedes?</p>
           <div className="prompt__actions prompt__actions--stack">
             {(['A', 'B'] as const).map((p) => (
-              <button key={p} type="button" className="btn" onClick={() => void end('concede', p)}>{setup.players[p].name} concedes</button>
+              <button key={p} type="button" className="btn" disabled={saving} onClick={() => void end('concede', p)}>{setup.players[p].name} concedes</button>
             ))}
-            <button type="button" className="btn" onClick={() => setStep('choose')}>Back</button>
+            <button type="button" className="btn" disabled={saving} onClick={() => setStep('choose')}>Back</button>
           </div>
         </>
       )}

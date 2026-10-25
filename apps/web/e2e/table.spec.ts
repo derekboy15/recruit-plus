@@ -16,6 +16,16 @@ async function checkScreen(page: Page, testInfo: TestInfo, name: string) {
       .filter((b) => b.h < 44),
   );
   expect(small, `${name}: buttons under 44px`).toEqual([]);
+  const smallChecks = await page.evaluate(() =>
+    [...document.querySelectorAll<HTMLInputElement>('main input[type=checkbox], main input[type=radio]')]
+      .filter((i) => i.offsetParent !== null)
+      .map((i) => ({
+        text: [...(i.labels ?? [])].map((l) => l.textContent?.trim()).join(' ') || i.getAttribute('aria-label'),
+        h: Math.max(i.getBoundingClientRect().height, ...[...(i.labels ?? [])].map((l) => l.getBoundingClientRect().height)),
+      }))
+      .filter((b) => b.h < 44),
+  );
+  expect(smallChecks, `${name}: checkboxes and radios under 44px`).toEqual([]);
   if (process.env.SHOT_DIR) await page.screenshot({ path: `${process.env.SHOT_DIR}/table-${name}-${testInfo.project.name}.png`, fullPage: true });
 }
 
@@ -162,6 +172,12 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   const lefts = await page.locator('.odds__grid > :nth-child(2n)').evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().left)));
   expect(lefts.length, 'odds controls found').toBeGreaterThan(10);
   expect(new Set(lefts).size, 'odds controls share one left edge').toBe(1);
+  const oddsSize = page.viewportSize()!;
+  await page.setViewportSize({ width: 320, height: 700 });
+  const cut = await page.locator('.odds__grid > :nth-child(2n+1)').evaluateAll((els) => els.filter((e) => e.scrollWidth > e.clientWidth + 1).map((e) => e.textContent));
+  expect(cut, 'odds labels overflowing into their controls at 320px').toEqual([]);
+  await checkScreen(page, testInfo, 'odds-320');
+  await page.setViewportSize(oddsSize);
   await page.getByRole('tab', { name: 'Log' }).click();
   await expect(page.getByRole('list', { name: 'Game log' })).toContainText('Rolled 3D6');
   await expect(page.getByRole('list', { name: 'Game log' })).toContainText('You used Command Re-roll (1 CP)');
@@ -182,6 +198,20 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await score.getByRole('button', { name: 'More: Objective markers you control' }).click();
   await score.getByRole('button', { name: 'More: Objective markers your opponent controls' }).click();
   await checkScreen(page, testInfo, 'score-prompt');
+  const promptSize = page.viewportSize()!;
+  await page.setViewportSize({ width: promptSize.width, height: 600 });
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  const where = () =>
+    page.evaluate(() => ({
+      question: document.querySelector('.turn__prompt h2')!.getBoundingClientRect().top,
+      header: document.querySelector('.game__top')!.getBoundingClientRect().bottom,
+    }));
+  expect((await where()).question, 'the question starts out scrolled under the header').toBeLessThan((await where()).header);
+  await page.getByRole('button', { name: 'Next phase' }).click();
+  await expect(score.getByRole('heading', { level: 2 })).toBeFocused();
+  const after = await where();
+  expect(after.question, 'the focused question is hidden under the sticky scoreboard').toBeGreaterThanOrEqual(after.header);
+  await page.setViewportSize(promptSize);
   await score.getByRole('button', { name: 'Score 12 VP' }).click();
   await expect(vpOf(page, 'You')).toHaveText('12 VP');
 

@@ -320,3 +320,29 @@ test('with nothing to answer there is no hint', async () => {
   expect(await screen.findByRole('button', { name: 'Next phase' })).not.toHaveAccessibleDescription();
   expect(screen.queryByText('Answer the question above first.')).toBeNull();
 });
+
+test('a double tap on an End the game choice ends the game once', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'movement' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const stop = within(screen.getByRole('dialog', { name: 'End the game' })).getByRole('button', { name: 'We agreed to stop early' });
+  // Two taps before the first save finishes.
+  fireEvent.click(stop);
+  fireEvent.click(stop);
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  await new Promise((r) => setTimeout(r, 200));
+  expect((await doc(id)).data.events.filter((e) => e.t === 'end')).toHaveLength(1);
+});
+
+test('an ended game also offers Undo the end beside the summary link', async () => {
+  const u = userEvent.setup();
+  const pos: Pos = { round: 2, turn: 1, phase: 'movement' };
+  const id = await seed(testSetup(), pos, [[{ t: 'end', reason: 'agreed' }, pos]]);
+  renderGame(id);
+  expect(await screen.findByText(/This game is over\./)).toBeVisible();
+  await u.click(screen.getByRole('button', { name: 'Undo the end' }));
+  await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});

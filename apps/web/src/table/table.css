@@ -79,6 +79,11 @@ details.card summary { min-height: var(--touch); display: flex; align-items: cen
 /* Every odds control in one 11rem column, labels to their left, so the controls share one left edge. */
 .odds__grid { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; align-items: center; gap: 0.5rem 0.75rem; }
 .odds__grid > .input { width: 100%; }
+/* Each label is a 44px tap target for its control (the only one Blast's checkbox has). */
+.odds__label { display: flex; align-items: center; min-height: var(--touch); cursor: pointer; }
+.odds__grid > .odds__label, .odds__grid > .stepper__label { overflow-wrap: break-word; }
+/* The smallest phones: a narrower control column leaves room for one-word labels like "Invulnerable". */
+@media (max-width: 360px) { .odds__grid { grid-template-columns: minmax(0, 1fr) 9rem; } }
 .odds__check { display: flex; align-items: center; min-height: var(--touch); }
 .odds__check input { width: 22px; height: 22px; margin: 0; }
 .stepper--grid { justify-content: space-between; margin: 0; }
