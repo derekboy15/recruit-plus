@@ -1,10 +1,14 @@
 import { useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { getRules } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
+import { LoadError } from '../layout/OfflineNotice';
+import { PageHeader } from '../ui/PageHeader';
+import { ArticleContents } from './ArticleContents';
 import { Blocks } from './Blocks';
 import { ReportButton } from './ReportButton';
-import { LoadError } from '../layout/OfflineNotice';
+
+const BACK = { to: '/rules', label: 'Rules' };
 
 /** Scrolls to the element named by the URL hash once the page's content is on screen. */
 export function useScrollToHash(ready: boolean) {
@@ -22,31 +26,34 @@ export function RulesArticlePage() {
 
   if (state.status === 'loading') return <p className="muted">Loading the rules…</p>;
   if (state.status === 'error') return <LoadError error={state.error} what="the rules" />;
-  const back = (
-    <p>
-      <Link to="/rules">← Rules</Link>
-    </p>
-  );
   if (!article) {
     return (
       <section>
-        {back}
+        <PageHeader title="Page not found" back={BACK} />
         <p role="alert">That rules page doesn&apos;t exist.</p>
       </section>
     );
   }
   return (
-    <article>
-      {back}
-      <h1>{article.title}</h1>
-      <Blocks blocks={article.intro} />
-      {article.sections.map((s) => (
-        <section key={s.id} className="rules-section">
-          <h2 id={s.id}>{s.title}</h2>
-          <Blocks blocks={s.blocks} />
-          <ReportButton target={{ kind: 'rules-section', name: `${article.title}: ${s.title}` }} text={s.text} />
-        </section>
-      ))}
+    <article className="rules-article">
+      <PageHeader title={article.title} back={BACK} />
+      <div className="rules-article__layout">
+        <ArticleContents sections={article.sections} />
+        <div className="rules-article__body">
+          <Blocks blocks={article.intro} />
+          {article.sections.map((s) => (
+            <section key={s.id} className="rules-section">
+              <h2 id={s.id}>{s.title}</h2>
+              <Blocks blocks={s.blocks} />
+            </section>
+          ))}
+          <ReportButton
+            target={{ kind: 'rules-section', name: article.title }}
+            text={article.title}
+            parts={article.sections.map((s) => ({ name: `${article.title}: ${s.title}`, text: s.text }))}
+          />
+        </div>
+      </div>
     </article>
   );
 }

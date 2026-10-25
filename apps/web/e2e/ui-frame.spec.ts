@@ -14,7 +14,7 @@ async function checkPage(page: Page, path: string, label: string) {
   await page.goto(path);
   const h1 = page.locator('h1').first();
   await expect(h1, `${path} heading`).toBeVisible({ timeout: 20_000 });
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  const overflow = await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth);
   expect(overflow, `${path} sideways scroll at ${label}`).toBeLessThanOrEqual(0);
   const family = await h1.evaluate((el) => getComputedStyle(el).fontFamily);
   expect(family, `${path} h1 face`).toMatch(/^"?Barlow Condensed"?/);
@@ -63,7 +63,7 @@ test('the datasheet has a 44px Back link to its faction, and a long title stays 
   expect(clipped).toBe(true);
   const backBox = (await page.getByRole('link', { name: 'Back to Necrons' }).boundingBox())!;
   expect(backBox.x).toBeGreaterThanOrEqual(0);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 });
 
 test('the account menu opens from its icon and stays inside a 320px screen', async ({ page }, testInfo) => {

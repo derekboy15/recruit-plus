@@ -1,111 +1,23 @@
-/** The read-only page behind a share link. Opens without signing in; nothing here edits or saves anything. */
-import {
-  BATTLE_SIZES,
-  COST_CP,
-  COST_PL,
-  COST_PTS,
-  displayName,
-  exportText,
-  stripCpSuffix,
-  UNTITLED_LIST,
-  unitExport,
-  validate,
-  type ForceView,
-  type Issue,
-  type RosterView,
-  type Scope,
-} from '@recruit/data/roster';
-import { Link, useParams } from 'react-router-dom';
-import { getIndex, getPolicy, getRosterScope } from '../factions/dataClient';
-import { factionDisplayName } from '../factions/names';
+/**
+ * The read-only page behind a share link: the same army view as Play mode. Opens without signing in; nothing here edits
+ * the shared list. A signed-in visitor can save a copy of it to their own lists.
+ */
+import { useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../auth/AuthContext';
 import { useAsync } from '../factions/useAsync';
+import { useStorage } from '../storage/StorageContext';
+import { PageHeader } from '../ui/PageHeader';
 import { CopyButton } from './ExportSheet';
-import { fmt, isArmyOption, isAutoManaged, problemsLabel, unitsByRole } from './editorView';
-import { usePublicSource, type PublicListSource } from './publicSource';
-import { slugsFor } from './useRosterEditor';
+import { fmt, problemsLabel } from './editorView';
+import { createList, type ListData } from './listStore';
+import { loadPlayData, type PlayData } from './play/loadPlayData';
+import { PlayArmyView } from './play/PlayArmyView';
+import { PlaySheets } from './play/PlaySheets';
+import { usePlaySheetParam } from './play/usePlaySheetParam';
+import { usePublicSource } from './publicSource';
 
-interface Shared {
-  view: RosterView;
-  issues: Issue[];
-  scope: Scope;
-  text: string;
-  faction: string;
-  updatedAt: number;
-}
-
-async function loadShared(source: PublicListSource, id: string): Promise<Shared | null> {
-  const found = await source.get(id);
-  if (!found) return null;
-  const { roster, summary } = found.data;
-  const [{ catalogues }, policy] = await Promise.all([getIndex(), getPolicy()]);
-  const primary = catalogues.find((c) => c.id === roster.catalogueId)?.slug ?? summary.catalogueSlug;
-  const scope = await getRosterScope(slugsFor(roster, catalogues, primary));
-  const { view, issues } = validate(scope, roster, policy);
-  const catalogue = scope.catalogue(roster.catalogueId)?.name;
-  return {
-    view,
-    issues,
-    scope,
-    text: exportText(view, scope),
-    faction: catalogue ? factionDisplayName(catalogue) : summary.faction,
-    updatedAt: found.updatedAt,
-  };
-}
-
-/** "Dynasty Choice: Szarekhan" lines for the army choices the player made. */
-const armyChoices = (scope: Scope, fv: ForceView) =>
-  fv.selections
-    .filter((v) => v.merged && isArmyOption(scope, v) && !isAutoManaged(v) && v.children.length > 0)
-    .map((v) => `${displayName(v.name)}: ${v.children.map((c) => displayName(c.name)).join(', ')}`);
-
-function Detachment({ shared, fv }: { shared: Shared; fv: ForceView }) {
-  const { scope } = shared;
-  const choices = armyChoices(scope, fv);
-  const groups = unitsByRole(scope, fv);
-  return (
-    <section className="detachment" aria-label={stripCpSuffix(fv.name)}>
-      <h2 className="detachment__title">{stripCpSuffix(fv.name)}</h2>
-      {choices.map((c) => (
-        <p key={c} className="muted share__choice">
-          {c}
-        </p>
-      ))}
-      {groups.length === 0 && <p className="muted">No units in this detachment.</p>}
-      {groups.map((g) => (
-        <div key={g.role}>
-          <h3 className="role-head">{g.role}</h3>
-          <ul className="list">
-            {g.units.map((v) => {
-              if (!v.merged) {
-                return (
-                  <li key={v.sel.id} className="share__unit">
-                    <span className="share__name">{v.name}</span>
-                  </li>
-                );
-              }
-              const { title, points, details } = unitExport(v); // the same parts the copied text is built from
-              return (
-                <li key={v.sel.id} className="share__unit">
-                  <div className="share__line">
-                    <span className="share__name">{title}</span>
-                    <span className="row__pts">{points}</span>
-                  </div>
-                  {details.length > 0 && (
-                    <ul className="share__gear muted">
-                      {details.map((d, i) => (
-                        <li key={i}>{d}</li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
-    </section>
-  );
-}
+const HOME = { to: '/', label: 'Home' };
 
 const buildYourOwn = (
   <Link to="/" className="btn">
@@ -113,54 +25,96 @@ const buildYourOwn = (
   </Link>
 );
 
+interface Shared { data: PlayData; list: ListData; updatedAt: number }
+
+function SharedList({ shared }: { shared: Shared }) {
+  const { data, list, updatedAt } = shared;
+  const { army, issues } = data;
+  const { user } = useAuth();
+  const { repo } = useStorage();
+  const navigate = useNavigate();
+  const [open, setOpen] = usePlaySheetParam(army.units);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const updated = new Date(updatedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  const saveToMine = async () => {
+    if (!user) return;
+    setSaving(true);
+    setSaveError(null);
+    try {
+      navigate(`/build/${await createList(repo, user.id, list)}`);
+    } catch (e) {
+      setSaveError(e instanceof Error ? e.message : String(e));
+      setSaving(false);
+    }
+  };
+
+  return (
+    <>
+      <PageHeader title={army.name} subtitle={`${army.faction} · ${army.sizeName}`} back={HOME} />
+      <div className="share-intro">
+        <p className="share__totals">
+          <span className="share__pts">{`${fmt(army.points)} / ${fmt(army.pointsLimit)} pts`}</span>
+          <span className="muted">{` · ${fmt(army.powerLevel)} PL · ${fmt(army.commandPoints)} CP `}</span>
+          <span className={`status ${issues.length ? 'status--bad' : 'status--ok'}`}>{problemsLabel(issues.length)}</span>
+        </p>
+        <p className="muted">{`Read-only copy, last updated ${updated}.`}</p>
+        {saveError && (
+          <p role="alert" className="play-error">
+            {`Couldn’t save this list: ${saveError}`}
+          </p>
+        )}
+        <div className="sheet-actions">
+          <CopyButton text={data.text} label="Copy list" failedLabel="Couldn’t copy on this device" className="btn" />
+          {user ? (
+            <button type="button" className="btn btn--primary" disabled={saving} onClick={() => void saveToMine()}>
+              Save to my lists
+            </button>
+          ) : (
+            buildYourOwn
+          )}
+        </div>
+      </div>
+      <PlayArmyView data={data} onOpen={setOpen} />
+      {open && <PlaySheets data={data} open={open} onOpen={setOpen} />}
+    </>
+  );
+}
+
 export function SharePage() {
   const { id = '' } = useParams();
   const { source } = usePublicSource();
-  const state = useAsync(() => loadShared(source, id), id);
+  const state = useAsync(
+    () => source.get(id).then((f) => f && loadPlayData(f.data).then((data): Shared => ({ data, list: f.data, updatedAt: f.updatedAt }))),
+    id,
+  );
 
-  if (state.status === 'loading') return <p className="muted">Loading the list…</p>;
+  if (state.status === 'loading') {
+    return (
+      <>
+        <PageHeader title="Shared list" back={HOME} />
+        <p className="muted">Loading the list…</p>
+      </>
+    );
+  }
   if (state.status === 'error') {
     return (
-      <section>
+      <>
+        <PageHeader title="Shared list" back={HOME} />
         <p role="alert">{`Couldn’t open this list: ${state.error.message}`}</p>
         {buildYourOwn}
-      </section>
+      </>
     );
   }
   if (!state.data) {
     return (
-      <section>
-        <h1>List not found</h1>
+      <>
+        <PageHeader title="List not found" back={HOME} />
         <p>This list isn't shared, or the link is wrong.</p>
         {buildYourOwn}
-      </section>
+      </>
     );
   }
-
-  const shared = state.data;
-  const { view, issues, faction } = shared;
-  const { roster, total } = view;
-  const size = BATTLE_SIZES[roster.battleSize];
-  const updated = new Date(shared.updatedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-  return (
-    <article className="share">
-      <header>
-        <h1>{roster.name.trim() || UNTITLED_LIST}</h1>
-        <p className="muted share__sub">{`${faction} · ${size?.name ?? roster.battleSize}`}</p>
-        <p className="share__totals">
-          <span className="share__pts">{`${fmt(total[COST_PTS] ?? 0)} / ${fmt(size?.points ?? 0)} pts`}</span>
-          <span className="muted">{` · ${fmt(total[COST_PL] ?? 0)} PL · ${fmt(total[COST_CP] ?? 0)} CP `}</span>
-          <span className={`status ${issues.length ? 'status--bad' : 'status--ok'}`}>{problemsLabel(issues.length)}</span>
-        </p>
-        <p className="muted">{`Read-only copy, last updated ${updated}.`}</p>
-      </header>
-      <div className="sheet-actions">
-        <CopyButton text={shared.text} label="Copy list" failedLabel="Couldn’t copy on this device" className="btn btn--primary" />
-        {buildYourOwn}
-      </div>
-      {view.forces.map((fv) => (
-        <Detachment key={fv.force.id} shared={shared} fv={fv} />
-      ))}
-    </article>
-  );
+  return <SharedList shared={state.data} />;
 }

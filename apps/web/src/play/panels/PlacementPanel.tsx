@@ -9,6 +9,7 @@ import { Problems } from './Problems';
 import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { useDryRun } from './useDryRun';
+import { PinAction } from '../game/actionBar';
 
 export function PlacementPanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -75,9 +76,11 @@ export function PlacementPanel(props: PanelProps) {
         <input type="checkbox" checked={emergency} onChange={(e) => setEmergency(e.target.checked)} />
         <span>Emergency Disembarkation (1 CP): within 6", but each model dies on a 1–2</span>
       </label>
-      <button type="button" className="btn btn--primary" onClick={finish}>
-        Set them up
-      </button>
+      <PinAction slot="main">
+        <button type="button" className="btn btn--primary" onClick={finish}>
+          Set them up
+        </button>
+      </PinAction>
     </section>
   );
 }

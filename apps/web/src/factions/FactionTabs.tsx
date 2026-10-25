@@ -1,5 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
+/** Where Back goes from a faction's guide, units and stratagems pages. */
+export const FACTIONS_BACK = { to: '/factions', label: 'Factions' };
+
 /** Guide · Units · Stratagems under a faction's title. A library catalogue (not a playable army) has only its units. */
 export function FactionTabs({ slug, library = false }: { slug: string; library?: boolean }) {
   const tabs = library

@@ -70,6 +70,47 @@ test('shows the round, phase, CP and VP for both armies', async () => {
   expect(bar).toHaveTextContent('VP 0');
 });
 
+test('the game header links back to the Practice games and shows where the turn is', async () => {
+  await seed(deployedGame());
+  page();
+  const bar = await screen.findByRole('banner', { name: 'Game status' });
+  expect(within(bar).getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+  expect(within(within(bar).getByRole('list', { name: 'Phases' })).getByText('Command')).toHaveAttribute('aria-current', 'step');
+});
+
+test('a missing game offers the way back', async () => {
+  page('nope');
+  expect(await screen.findByText('This game no longer exists.')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+});
+
+test('the current primary action is in the Actions bar', async () => {
+  await seed(deployedGame());
+  page();
+  const bar = await screen.findByRole('group', { name: 'Actions' });
+  expect(within(bar).getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();
+  expect(bar.closest('.game__panel')).not.toBeNull();
+});
+
+test('the panel toggle says what it does', async () => {
+  await seed(deployedGame());
+  page();
+  const toggle = await screen.findByRole('button', { name: 'Bigger panel' });
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await userEvent.click(toggle);
+  expect(screen.getByRole('button', { name: 'Bigger board' })).toHaveAttribute('aria-expanded', 'true');
+});
+
+test('the board is sized to the map', async () => {
+  await seed(deployedGame());
+  page();
+  const board = (await screen.findByRole('application')).closest('.game__board') as HTMLElement;
+  expect(board).toHaveClass('game__board--fit');
+  const { w, h } = stateOf(deployedGame()).setup.board;
+  expect(board.style.getPropertyValue('--board-w')).toBe(String(w));
+  expect(board.style.getPropertyValue('--board-h')).toBe(String(h));
+});
+
 test("Undo shows the engine's refusal at the start of a phase", async () => {
   await seed(deployedGame());
   page();
@@ -77,13 +118,34 @@ test("Undo shows the engine's refusal at the start of a phase", async () => {
   expect(await screen.findByRole('alert')).toHaveTextContent("You can't undo past the start of this phase.");
 });
 
-test('the log lists plain-English lines', async () => {
-  await seed(deployedGame());
+test('the log lists plain-English lines, newest phase first, and closes with Close', async () => {
+  await seed(endPhases(deployedGame(), 1));
   page();
   await userEvent.click(await screen.findByRole('button', { name: 'Log' }));
   const log = screen.getByRole('dialog', { name: 'Game log' });
   expect(within(log).getByText(/set up Intercessor Squad/)).toBeInTheDocument();
-  expect(within(log).getByText(/Command phase/)).toBeInTheDocument();
+  const groups = within(log).getAllByRole('heading', { level: 3 }).map((h) => h.textContent);
+  expect(groups[0]).toMatch(/^Round 1 · Necrons’?'?s? Movement phase$/);
+  expect(groups.at(-1)).toBe('Before the battle');
+  await userEvent.click(within(log).getByRole('button', { name: 'Close' }));
+  expect(screen.queryByRole('dialog', { name: 'Game log' })).toBeNull();
+});
+
+test('the menu is a sheet with the way back to the Practice games', async () => {
+  await seed(deployedGame());
+  page();
+  await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
+  const menu = screen.getByRole('dialog', { name: 'Menu' });
+  expect(within(menu).getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+  expect(menu).toHaveClass('sheet');
+});
+
+test('the score opens as a sheet from an army', async () => {
+  await seed(deployedGame());
+  page();
+  const bar = await screen.findByRole('banner', { name: 'Game status' });
+  await userEvent.click(within(bar).getByText('Necrons'));
+  expect(screen.getByRole('dialog', { name: 'Score' })).toHaveClass('sheet');
 });
 
 test('a hand-over screen appears when the other player must act, and goes on a tap', async () => {
@@ -120,6 +182,8 @@ test('an unreadable game shows why and offers to delete it', async () => {
   await repo.saveDoc({ id: 'bad', kind: 'game', ownerId: 'u', data: { record: { schema: 2 }, meta: meta(), summary: summarise(deployedGame()) } });
   page('bad');
   expect(await screen.findByText('This saved game was made by a newer version of the app.')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: 'This game can’t be opened' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
   await userEvent.click(screen.getByRole('button', { name: 'Delete this game' }));
   expect(await screen.findByText('Games list')).toBeInTheDocument();
   expect((await repo.getDoc('bad'))?.deleted).toBe(true);
@@ -140,6 +204,7 @@ test('the toolkit opens from the menu in place of the phase panel, and closes ag
   await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
   await userEvent.click(screen.getByRole('button', { name: 'Toolkit' }));
   expect(screen.getByRole('heading', { name: 'Toolkit' })).toBeInTheDocument();
+  await waitFor(() => expect(screen.getByRole('heading', { name: 'Toolkit' })).toHaveFocus());
   expect(screen.queryByRole('button', { name: 'End Command phase' })).toBeNull();
   await userEvent.click(screen.getByRole('button', { name: 'Close the toolkit' }));
   expect(screen.getByRole('button', { name: 'End Command phase' })).toBeInTheDocument();
@@ -171,10 +236,10 @@ test('Escape closes the game menu and focus returns to Menu', async () => {
   page();
   const menu = await screen.findByRole('button', { name: 'Menu' });
   await userEvent.click(menu);
-  const dialog = screen.getByRole('dialog', { name: 'Game menu' });
+  const dialog = screen.getByRole('dialog', { name: 'Menu' });
   expect(dialog.contains(document.activeElement)).toBe(true);
   await userEvent.keyboard('{Escape}');
-  expect(screen.queryByRole('dialog', { name: 'Game menu' })).toBeNull();
+  expect(screen.queryByRole('dialog', { name: 'Menu' })).toBeNull();
   expect(menu).toHaveFocus();
 });
 
@@ -190,7 +255,7 @@ test('Tab from the last control in the game menu stays in the menu', async () =>
   await seed(deployedGame());
   page();
   await userEvent.click(await screen.findByRole('button', { name: 'Menu' }));
-  const dialog = screen.getByRole('dialog', { name: 'Game menu' });
+  const dialog = screen.getByRole('dialog', { name: 'Menu' });
   const focusables = [...dialog.querySelectorAll<HTMLElement>('button, a[href], input, select, textarea')];
   focusables.at(-1)!.focus();
   await userEvent.tab();

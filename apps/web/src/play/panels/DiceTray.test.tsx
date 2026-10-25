@@ -1,4 +1,5 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { afterEach, expect, test, vi } from 'vitest';
 import { DiceTray } from './DiceTray';
 
@@ -40,4 +41,30 @@ test('dice can be picked when the tray allows it, and show hits and misses', () 
   expect(second).toHaveAttribute('aria-pressed', 'true');
   screen.getByRole('button', { name: 'Die 1: 3, fail' }).click();
   expect(onToggle).toHaveBeenCalledWith(0);
+});
+
+test('sorted dice show high to low, ties in rolled order, and toggle their original index', async () => {
+  motion(true);
+  const onToggle = vi.fn();
+  render(<DiceTray dice={[{ value: 2, sides: 6 }, { value: 6, sides: 6 }, { value: 2, sides: 6 }, { value: 4, sides: 6 }]} rollKey="r" order="high-first" onToggle={onToggle} />);
+  const shown = within(screen.getByRole('group', { name: 'Dice' })).getAllByRole('button');
+  expect(shown.map((b) => b.getAttribute('aria-label'))).toEqual(['Die 2: 6', 'Die 4: 4', 'Die 1: 2', 'Die 3: 2']);
+  await userEvent.click(shown[0]);
+  expect(onToggle).toHaveBeenCalledWith(1);
+  await userEvent.click(shown[3]);
+  expect(onToggle).toHaveBeenLastCalledWith(2);
+});
+
+test('by default dice stay in the order rolled (Learn drills)', () => {
+  motion(true);
+  render(<DiceTray dice={[{ value: 2, sides: 6 }, { value: 6, sides: 6 }]} rollKey="r" />);
+  expect(within(screen.getByRole('group', { name: 'Dice' })).getAllByLabelText(/^Die/).map((d) => d.textContent)).toEqual(['2', '6']);
+});
+
+test('a changed die is marked with an icon, not an emoji', () => {
+  motion(true);
+  render(<DiceTray dice={[{ value: 5, sides: 6, replaced: true }]} rollKey="r" />);
+  const die = screen.getByLabelText('Die 1: 5, changed');
+  expect(die.textContent).not.toContain('✎');
+  expect(die.querySelector('svg')).not.toBeNull();
 });

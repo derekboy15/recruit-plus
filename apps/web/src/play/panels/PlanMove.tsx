@@ -8,6 +8,7 @@ import { Problems } from './Problems';
 import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { useDryRun } from './useDryRun';
+import { PinAction } from '../game/actionBar';
 
 export interface PlanMoveProps extends PanelProps {
   unitId: string;
@@ -56,9 +57,11 @@ export function PlanMove(props: PlanMoveProps) {
       </label>
       <TurnButtons ui={ui} />
       {dry && <Problems problems={dry} />}
-      <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={confirm}>
-        {confirmLabel}
-      </button>
+      <PinAction slot="main">
+        <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={confirm}>
+          {confirmLabel}
+        </button>
+      </PinAction>
       <div className="play-row">
         <button type="button" className="btn" onClick={() => ui.planDispatch({ type: 'reset' })}>
           Reset

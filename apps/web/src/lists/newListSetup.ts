@@ -5,13 +5,16 @@ import {
   BATTLE_SIZE_ENTRY,
   COST_PTS,
   GAME_TYPE_ENTRY,
+  addChild,
   addUnit,
   armyOptions,
+  childConstraints,
   childOptions,
   chooseInGroup,
   createRoster,
   detachmentChoices,
   displayName,
+  evaluate,
   factionDisplayName,
   resolve,
   stripCpSuffix,
@@ -21,11 +24,14 @@ import {
   type PolicyData,
   type RForce,
   type Roster,
+  type RosterView,
   type Scope,
 } from '@recruit/data/roster';
 import { offeredAtSize } from './editorView';
-import { cleanLabel } from './labels';
+import { cleanLabel, uniqueListName } from './labels';
 import type { ListData } from './listStore';
+
+export { uniqueListName };
 
 // ---------- step 2: battle sizes ----------
 
@@ -34,17 +40,24 @@ export interface SizeCard {
   name: string;
   points: number;
   description: string;
+  /** The size to start with: Combat Patrol. */
+  recommended: boolean;
 }
+
+const pts = (n: number) => n.toLocaleString('en-GB');
+const SIZE_TEXT: Partial<Record<BattleSizeId, string>> = {
+  'combat-patrol': 'Small and quick to play: the best way to learn.',
+  incursion: 'Arks of Omen rules: one main detachment.',
+  'strike-force': 'The usual size for most games and events. Arks of Omen rules.',
+};
 
 export function sizeCards(): SizeCard[] {
   return Object.values(BATTLE_SIZES).map((s) => ({
     id: s.id,
     name: s.name,
     points: s.points,
-    description:
-      s.mode === 'aoo'
-        ? 'Arks of Omen rules: one main detachment'
-        : `Core Book rules: up to ${s.maxDetachments} ${s.maxDetachments === 1 ? 'detachment' : 'detachments'}`,
+    description: `${pts(s.points)} points. ${SIZE_TEXT[s.id] ?? `Very large games. Core Book rules: up to ${s.maxDetachments} detachments.`}`,
+    recommended: s.id === 'combat-patrol',
   }));
 }
 
@@ -56,10 +69,20 @@ export interface DetachmentCard {
   name: string;
   /** Unit slots it offers, e.g. "1–2 HQ · 1–3 Troops". */
   slots: string;
+  /** What it is for, from its own info when the data has any. */
+  summary: string | null;
 }
 
 /** The detachments the first pick of a new army can be: the faction's own, never an ally's. */
-export function detachmentCards(scope: Scope, policy: PolicyData, catalogues: CatalogueSummary[], catalogueId: string, size: BattleSizeId): DetachmentCard[] {
+export function detachmentCards(
+  scope: Scope,
+  policy: PolicyData,
+  catalogues: CatalogueSummary[],
+  catalogueId: string,
+  size: BattleSizeId,
+  /** The one-line summary of a detachment's own info (none when there is none). */
+  describe: (forceId: string) => string | null = () => null,
+): DetachmentCard[] {
   const empty: Roster = { schema: 1, name: '', catalogueId, battleSize: size, forces: [] };
   const seen = new Set<string>();
   const cards: DetachmentCard[] = [];
@@ -67,7 +90,7 @@ export function detachmentCards(scope: Scope, policy: PolicyData, catalogues: Ca
     const force = scope.force(c.forceId);
     if (c.allied || !force || seen.has(force.id)) continue;
     seen.add(force.id);
-    cards.push({ forceId: force.id, name: stripCpSuffix(force.name), slots: slotSummary(scope, force) });
+    cards.push({ forceId: force.id, name: stripCpSuffix(force.name), slots: slotSummary(scope, force), summary: describe(force.id) });
   }
   return cards;
 }
@@ -171,12 +194,16 @@ function choiceTitle(optionName: string, groupName: string | null): string {
   return group && group !== option ? `${option}: ${group}` : option;
 }
 
-/** The roster with the player's picks applied (`picks`: choice key -> option id). Choices left out are left undecided. */
-export function applyPicks(scope: Scope, roster: Roster, choices: ArmyChoice[], picks: Record<string, string>): Roster {
+/**
+ * The roster with the player's picks applied (`picks`: choice key -> option id, or several ids for a group that takes
+ * several). Choices left out, or picked as '' (None), are left undecided.
+ */
+export function applyPicks(scope: Scope, roster: Roster, choices: ArmyChoice[], picks: Record<string, string | string[]>): Roster {
   let r = roster;
   for (const c of choices) {
-    const optionId = picks[c.key];
-    if (!optionId) continue;
+    const pick = picks[c.key];
+    const ids = (Array.isArray(pick) ? pick : [pick]).filter((id): id is string => !!id);
+    if (!ids.length) continue;
     const forceSelId = r.forces[0].id;
     let selId = r.forces[0].selections.find((s) => s.entryId === c.entryId)?.id;
     if (!selId) {
@@ -184,9 +211,21 @@ export function applyPicks(scope: Scope, roster: Roster, choices: ArmyChoice[], 
       r = added.roster;
       selId = added.selId;
     }
-    if (selId) r = chooseInGroup(scope, r, selId, c.groupId, optionId);
+    if (!selId) continue;
+    if (Array.isArray(pick)) for (const id of ids) r = addChild(scope, r, selId, id);
+    else r = chooseInGroup(scope, r, selId, c.groupId, ids[0]);
   }
   return r;
+}
+
+/** Whether the army can do without this choice (Army of Renown), so None is offered. A Dynasty Choice is required. */
+export function isOptionalChoice(scope: Scope, roster: Roster, c: ArmyChoice, view: RosterView = evaluate(scope, roster)): boolean {
+  const node = scope.node(c.entryId);
+  const army = view.forces[0];
+  if (!node || !army) return false;
+  return !childConstraints(scope, view, army, node).some(
+    (k) => k.type === 'min' && k.field === 'selections' && k.value >= 1 && ['parent', 'force', 'roster'].includes(k.scope),
+  );
 }
 
 // ---------- saving ----------
@@ -207,4 +246,6 @@ export function listData(scope: Scope, policy: PolicyData, roster: Roster, catal
   };
 }
 
-export const defaultListName = (catalogue: CatalogueSummary, size: BattleSizeId) => `${factionDisplayName(catalogue.name)} ${BATTLE_SIZES[size].name}`;
+/** "Necrons Combat Patrol", numbered ("… 2") when one of `taken` (the player's list names) already has that name. */
+export const defaultListName = (catalogue: CatalogueSummary, size: BattleSizeId, taken: string[] = []) =>
+  uniqueListName(`${factionDisplayName(catalogue.name)} ${BATTLE_SIZES[size].name}`, taken);

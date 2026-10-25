@@ -3,10 +3,11 @@ import type { PlayerId } from '@recruit/engine';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/AuthContext';
-import { fmt } from '../../lists/editorView';
 import { useLists, type ListData } from '../../lists/listStore';
 import { useStorage } from '../../storage/StorageContext';
 import type { Doc } from '../../storage/types';
+import { FactionBadge } from '../../ui/FactionBadge';
+import { PageHeader } from '../../ui/PageHeader';
 import { createGame, type GameMeta } from '../store/gameStore';
 import { buildGameSetup, setupBlockers } from './buildSetup';
 import { loadArmy, type LoadedArmy } from './loadArmy';
@@ -21,6 +22,17 @@ const PLAYERS: [PlayerId, string][] = [
   ['B', 'Player 2'],
 ];
 const SIZES = Object.keys(BATTLE_SIZES) as BattleSizeId[];
+const BACK = { to: '/play', label: 'Practice games' };
+const fmt = (n: number) => n.toLocaleString('en-GB');
+
+/** Why a list may not play well, shown under it (it doesn't stop the game: the army's own checks do that). */
+export function listWarning(l: Doc<ListData>): string | null {
+  const { points, pointsLimit, issueCount } = l.data.summary;
+  if (points === 0) return 'This list has no units yet.';
+  if (points > pointsLimit) return `Over its points limit: ${fmt(points)} / ${fmt(pointsLimit)} pts.`;
+  if (issueCount > 0) return `${issueCount} ${issueCount === 1 ? 'problem' : 'problems'} to fix in the builder.`;
+  return null;
+}
 
 /** Loads (musters) the list picked for a player whenever the pick changes. */
 function useArmy(list: Doc<ListData> | undefined, player: PlayerId): Loading | null {
@@ -45,19 +57,23 @@ function useArmy(list: Doc<ListData> | undefined, player: PlayerId): Loading | n
 
 function ListPicker({ label, name, lists, value, onPick, army }: { label: string; name: string; lists: Doc<ListData>[]; value: string | null; onPick(id: string): void; army: Loading | null }) {
   return (
-    <fieldset className="choices">
+    <fieldset className="choices play-lists">
       <legend>{label}</legend>
-      {lists.map((l) => (
-        <label key={l.id} className="choices__option">
-          <input type="radio" name={name} checked={value === l.id} onChange={() => onPick(l.id)} />
-          <span>
-            <strong>{l.data.roster.name}</strong>{' '}
-            <span className="muted">
-              {l.data.summary.faction} · {fmt(l.data.summary.points)} pts
+      {lists.map((l) => {
+        const { summary } = l.data;
+        const warning = listWarning(l);
+        return (
+          <label key={l.id} className="radio-card play-list">
+            <input type="radio" name={name} checked={value === l.id} onChange={() => onPick(l.id)} />
+            <FactionBadge slug={summary.catalogueSlug} name={summary.faction} size="sm" />
+            <span className="play-list__main">
+              <span className="play-list__name">{l.data.roster.name}</span>
+              <span className="play-list__meta">{`${summary.faction} · ${BATTLE_SIZES[summary.battleSize].name} · ${fmt(summary.points)} / ${fmt(summary.pointsLimit)} pts`}</span>
+              {warning && <span className="play-list__warn">{warning}</span>}
             </span>
-          </span>
-        </label>
-      ))}
+          </label>
+        );
+      })}
       {army?.status === 'loading' && <p className="muted">Getting the army ready…</p>}
       {army?.status === 'error' && <p className="status status--bad">{army.message}</p>}
       {army?.status === 'ready' && army.army.problems.length > 0 && (
@@ -149,9 +165,9 @@ export function NewGamePage() {
   if (error) return <p role="alert">Couldn’t read your saved lists on this device: {error.message}</p>;
   if (!lists.length)
     return (
-      <section>
-        <h1>New game</h1>
-        <p>You need two lists to play. You can use the same list for both players.</p>
+      <section className="play-setup">
+        <PageHeader title="New game" back={BACK} />
+        <p>You need a list to play. Both players can use the same one.</p>
         <Link to="/build/new" className="btn btn--primary">
           Build a list
         </Link>
@@ -160,7 +176,7 @@ export function NewGamePage() {
 
   return (
     <section className="play-setup">
-      <h1>New game</h1>
+      <PageHeader title="New game" back={BACK} />
       {PLAYERS.map(([player, label], i) => (
         <ListPicker
           key={player}

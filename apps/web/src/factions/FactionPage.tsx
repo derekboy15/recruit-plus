@@ -1,11 +1,20 @@
-import { BATTLEFIELD_ROLES } from '@recruit/data/model';
+import { BATTLEFIELD_ROLES, type UnitOut } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getCatalogue } from './dataClient';
-import { FactionTabs } from './FactionTabs';
-import { factionDisplayName } from './names';
-import { useAsync } from './useAsync';
 import { LoadError } from '../layout/OfflineNotice';
+import '../rules/rules.css';
+import { keyStats, sizeLabel } from '../ui/datasheet';
+import { PageHeader } from '../ui/PageHeader';
+import { getCatalogue } from './dataClient';
+import { factionLabel } from './factionSearch';
+import { FACTIONS_BACK, FactionTabs } from './FactionTabs';
+import { useAsync } from './useAsync';
+
+/** "10–20 models · M5" T4 W1 Sv4+": a unit's size and the stats a player checks first. */
+function unitMeta(u: UnitOut): string {
+  const { M, T, W, Sv } = keyStats(u);
+  return [sizeLabel(u), `M${M} T${T} W${W} Sv${Sv}`].filter(Boolean).join(' · ');
+}
 
 export function FactionPage() {
   const { slug = '' } = useParams();
@@ -24,10 +33,7 @@ export function FactionPage() {
 
   return (
     <section>
-      <p>
-        <Link to="/factions">← All factions</Link>
-      </p>
-      <h1>{factionDisplayName(cat.name)}</h1>
+      <PageHeader title={factionLabel(cat).name} back={FACTIONS_BACK} />
       <FactionTabs slug={cat.slug} library={cat.library} />
       <div style={{ display: 'grid', gap: '0.5rem', marginBottom: '1rem' }}>
         <input
@@ -52,13 +58,16 @@ export function FactionPage() {
             <ul className="list">
               {items.map((u) => (
                 <li key={u.id}>
-                  <Link className="list__link" to={`/factions/${cat.slug}/units/${u.slug}`}>
-                    <span>
-                      {u.name.replace(/\s*\[legends\]/i, '')}
-                      {u.legends && <span className="badge badge--legends">Legends</span>}
-                      {u.forgeWorld && <span className="badge badge--fw">FW</span>}
+                  <Link className="list__link faction-unit" to={`/factions/${cat.slug}/units/${u.slug}`}>
+                    <span className="faction-unit__main">
+                      <span className="faction-unit__name">
+                        {u.name.replace(/\s*\[legends\]/i, '')}
+                        {u.legends && <span className="badge badge--legends">Legends</span>}
+                        {u.forgeWorld && <span className="badge badge--fw">FW</span>}
+                      </span>
+                      <span className="faction-unit__meta">{unitMeta(u)}</span>
                     </span>
-                    <span className="muted">{u.points != null ? `${u.points} pts` : ''}</span>
+                    <span className="faction-unit__pts">{u.points != null ? `${u.points} pts` : ''}</span>
                   </Link>
                 </li>
               ))}

@@ -4,10 +4,12 @@ import { getCoreStratagems, getRules } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
 import { search, searchDocs, type SearchDoc } from './search';
 import { LoadError } from '../layout/OfflineNotice';
+import { PageHeader } from '../ui/PageHeader';
 
 const KIND_LABELS: Record<SearchDoc['kind'], string> = { section: 'Rules', term: 'Glossary', stratagem: 'Core stratagem' };
 
 const MORE = [
+  { to: '/factions', title: 'Factions and datasheets', blurb: 'Every army’s units, datasheets and stratagems.' },
   { to: '/rules/glossary', title: 'Glossary', blurb: 'Every game term and keyword, A to Z.' },
   { to: '/rules/stratagems', title: 'Core stratagems', blurb: 'The stratagems every army can use.' },
   { to: '/rules/factions', title: 'Faction guides', blurb: 'How each army plays, its rules and key units.' },
@@ -21,14 +23,15 @@ export function RulesHome() {
   const docs = useMemo(() => (state.status === 'ready' ? searchDocs(...state.data) : []), [state]);
   const hits = useMemo(() => search(docs, query), [docs, query]);
 
-  if (state.status === 'loading') return <p className="muted">Loading the rules…</p>;
-  if (state.status === 'error') return <LoadError error={state.error} what="the rules" />;
+  const header = <PageHeader variant="top" title="Rules" />;
+  if (state.status === 'loading') return <section>{header}<p className="muted">Loading the rules…</p></section>;
+  if (state.status === 'error') return <section>{header}<LoadError error={state.error} what="the rules" /></section>;
   const [rules] = state.data;
   const q = query.trim();
 
   return (
     <section>
-      <h1>Rules</h1>
+      {header}
       <input
         className="input"
         type="search"

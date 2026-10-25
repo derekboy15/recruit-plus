@@ -6,13 +6,14 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { AuthProvider } from '../../auth/AuthContext';
 import type { AuthBackend } from '../../auth/types';
 import type { ListData } from '../../lists/listStore';
+import type { Doc } from '../../storage/types';
 import { openDb, type RecruitDb } from '../../storage/db';
 import { createRepository } from '../../storage/repository';
 import { StorageProvider } from '../../storage/StorageContext';
 import { sampleSetup } from '../__fixtures__/game';
 import type { GameData } from '../store/gameStore';
 import type { LoadedArmy } from './loadArmy';
-import { NewGamePage } from './NewGamePage';
+import { listWarning, NewGamePage } from './NewGamePage';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { resetMissionCache } from '../../table/missionData';
@@ -97,10 +98,47 @@ const page = () =>
 const pick = async (player: 'Player 1' | 'Player 2', list: string) =>
   userEvent.click(within(await screen.findByRole('group', { name: player })).getByRole('radio', { name: new RegExp(list) }));
 
-test('with no lists it sends the player to build one', async () => {
+const doc = (summary: Partial<ListData['summary']>): Doc<ListData> => ({
+  id: 'l',
+  kind: 'list',
+  ownerId: user.id,
+  updatedAt: 1,
+  deleted: false,
+  isPublic: false,
+  dirty: false,
+  data: { ...listData('L', 'combat-patrol'), summary: { ...listData('L', 'combat-patrol').summary, ...summary } },
+});
+
+test('listWarning explains empty, over-limit and unfinished lists', () => {
+  expect(listWarning(doc({ points: 0 }))).toBe('This list has no units yet.');
+  expect(listWarning(doc({ points: 520, pointsLimit: 500 }))).toBe('Over its points limit: 520 / 500 pts.');
+  expect(listWarning(doc({ points: 2520, pointsLimit: 2000 }))).toBe('Over its points limit: 2,520 / 2,000 pts.');
+  expect(listWarning(doc({ points: 480, issueCount: 2 }))).toBe('2 problems to fix in the builder.');
+  expect(listWarning(doc({ points: 480, issueCount: 1 }))).toBe('1 problem to fix in the builder.');
+  expect(listWarning(doc({ points: 480, issueCount: 0 }))).toBeNull();
+});
+
+test('each list option shows faction, size and points, and its warning', async () => {
+  const repo = createRepository(db);
+  const summary = listData('x', 'combat-patrol').summary;
+  await repo.saveDoc({ id: 'e', kind: 'list', ownerId: user.id, data: { ...listData('Empty list', 'combat-patrol'), summary: { ...summary, points: 0 } } });
+  await repo.saveDoc({ id: 'w', kind: 'list', ownerId: user.id, data: { ...listData('Warriors', 'combat-patrol'), summary: { ...summary, points: 115 } } });
   page();
-  expect(await screen.findByText('You need two lists to play. You can use the same list for both players.')).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'New game' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+  const p1 = await screen.findByRole('group', { name: 'Player 1' });
+  expect(within(p1).getByRole('radio', { name: /Empty list/ })).toBeInTheDocument();
+  expect(within(p1).getByText('This list has no units yet.')).toBeInTheDocument();
+  expect(within(p1).getByText(/Necrons · Combat Patrol · 115 \/ 500 pts/)).toBeInTheDocument();
+  expect(within(p1).getAllByText(/This list has no units yet\./)).toHaveLength(1);
+});
+
+test('with no lists: one message and a way to the builder', async () => {
+  page();
+  expect(await screen.findByText('You need a list to play. Both players can use the same one.')).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Build a list' })).toHaveAttribute('href', '/build/new');
+  expect(screen.getByRole('link', { name: 'Back to Practice games' })).toHaveAttribute('href', '/play');
+  expect(screen.getByRole('heading', { level: 1, name: 'New game' })).toBeInTheDocument();
 });
 
 test('picking two lists and starting saves a game and opens it', async () => {

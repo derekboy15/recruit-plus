@@ -10,3 +10,14 @@ export function cleanLabel(name: string): string {
     .replace(/(^|\s+)(selections?|selector)$/i, '')
     .trim();
 }
+
+const sameName = (name: string) => name.trim().replace(/\s+/g, ' ').toLowerCase();
+
+/** `base`, else `base 2`, `base 3`…: the first name none of `taken` has (ignoring case and spacing). */
+export function uniqueListName(base: string, taken: string[]): string {
+  const used = new Set(taken.map(sameName));
+  if (!used.has(sameName(base))) return base;
+  let n = 2;
+  while (used.has(sameName(`${base} ${n}`))) n++;
+  return `${base} ${n}`;
+}

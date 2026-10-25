@@ -1,33 +1,26 @@
-/** The game screen's overlays: the pass-the-device screen, the game log and the menu. */
+/** The game screen's overlays: the pass-the-device screen, and the game log and menu (sheets over the game). */
 import type { LogLine, PlayerId } from '@recruit/engine';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { WordingToggle } from '../../rules/wording';
-import { PHASE_NAMES } from './names';
+import { Sheet } from '../../ui/Sheet';
+import { logGroups } from './logGroups';
 
 const FOCUSABLE = 'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 /**
- * A modal over the game. Focus moves into it when it opens (unless a child takes it with autoFocus), Tab and Shift+Tab
- * stay inside it, and focus goes back to whatever had it before when it closes. Escape closes it when it can be closed,
- * wherever focus is.
+ * A modal over the game that only its own buttons close (the pass-the-device screen). Focus moves into it when it opens
+ * (unless a child takes it with autoFocus), Tab and Shift+Tab stay inside it, and focus goes back to whatever had it
+ * before when it closes.
  */
-export function Dialog({ label, onClose, children, className = '' }: { label: string; onClose?(): void; children: ReactNode; className?: string }) {
+export function Dialog({ label, children, className = '' }: { label: string; children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const close = useRef(onClose);
-  close.current = onClose;
   useEffect(() => {
     const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     if (!ref.current?.contains(document.activeElement)) ref.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       const dialog = ref.current;
-      if (!dialog) return;
-      if (e.key === 'Escape' && close.current) {
-        e.stopPropagation();
-        close.current();
-        return;
-      }
-      if (e.key !== 'Tab') return;
+      if (!dialog || e.key !== 'Tab') return;
       const items = [...dialog.querySelectorAll<HTMLElement>(FOCUSABLE)];
       if (!items.length) return;
       const [first, last] = [items[0], items[items.length - 1]];
@@ -47,7 +40,7 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
     };
   }, []);
   return (
-    <div className="game__overlay" onClick={onClose && ((e) => e.target === e.currentTarget && onClose())}>
+    <div className="game__overlay">
       <div
         ref={ref}
         role="dialog"
@@ -56,11 +49,6 @@ export function Dialog({ label, onClose, children, className = '' }: { label: st
         tabIndex={-1}
         className={`game__dialog ${className}`}
       >
-        {onClose && (
-          <button type="button" className="btn btn--small game__close" onClick={onClose}>
-            Close
-          </button>
-        )}
         {children}
       </div>
     </div>
@@ -79,27 +67,25 @@ export function HandOver({ name, onDone }: { name: string; onDone(): void }) {
   );
 }
 
+/** The log, newest phase first, each phase's lines newest first. */
 export function GameLog({ lines, onClose }: { lines: LogLine[]; onClose(): void }) {
-  const rounds = [...new Set(lines.map((l) => l.round))];
   return (
-    <Dialog label="Game log" onClose={onClose} className="game__log">
-      <h2>Game log</h2>
-      {rounds.map((r) => (
-        <section key={r}>
-          <h3>{r === 0 ? 'Before the battle' : `Battle round ${r}`}</h3>
-          <ol>
-            {lines
-              .filter((l) => l.round === r)
-              .map((l, i) => (
-                <li key={`${l.seq}-${i}`}>
-                  {r > 0 && <span className="muted">{PHASE_NAMES[l.phase]}: </span>}
-                  {l.text}
-                </li>
-              ))}
-          </ol>
-        </section>
-      ))}
-    </Dialog>
+    <Sheet title="Game log" onClose={onClose}>
+      <div className="game__log">
+        {logGroups(lines).map((g) => (
+          <section key={g.key}>
+            <h3>{g.title}</h3>
+            {g.lines.length > 0 && (
+              <ol>
+                {g.lines.map((l) => (
+                  <li key={l.key}>{l.text}</li>
+                ))}
+              </ol>
+            )}
+          </section>
+        ))}
+      </div>
+    </Sheet>
   );
 }
 
@@ -118,8 +104,7 @@ export interface MenuProps {
 export function GameMenu({ hints, handOver, setHints, setHandOver, armies, ended, onConcede, onToolkit, onClose }: MenuProps) {
   const [conceding, setConceding] = useState(false);
   return (
-    <Dialog label="Game menu" onClose={onClose}>
-      <h2>Menu</h2>
+    <Sheet title="Menu" onClose={onClose}>
       <label className="choices__option">
         <input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} />
         <span>Hints for new players</span>
@@ -154,9 +139,9 @@ export function GameMenu({ hints, handOver, setHints, setHandOver, armies, ended
             </button>
           ))}
         <Link to="/play" className="btn">
-          Back to games
+          Back to Practice games
         </Link>
       </div>
-    </Dialog>
+    </Sheet>
   );
 }

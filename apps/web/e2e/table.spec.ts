@@ -3,12 +3,10 @@ import { necronsList } from '../e2e-prod/data';
 
 /**
  * No sideways scroll, every visible button at least 44px tall, and a screenshot when SHOT_DIR is set. The width is
- * checked against the viewport we set, not window.innerWidth: a phone browser widens its layout to fit content that
- * overflows, so innerWidth grows with it.
+ * checked against clientWidth: a phone browser widens innerWidth (and scrollWidth) to fit content that overflows.
  */
 async function checkScreen(page: Page, testInfo: TestInfo, name: string) {
-  const width = page.viewportSize()!.width;
-  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth)), `${name}: sideways scroll`).toBeLessThanOrEqual(width);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth), `${name}: sideways scroll`).toBeLessThanOrEqual(0);
   const small = await page.evaluate(() =>
     [...document.querySelectorAll('main button, main a.btn')]
       .filter((b) => (b as HTMLElement).offsetParent !== null)

@@ -5,6 +5,7 @@ import { armyName } from '../game/names';
 import { PlanMove } from './PlanMove';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
+import { PinAction } from '../game/actionBar';
 
 /** Models of the unit that can fight, grouped when they have the same profile, weapons and reachable targets. */
 interface FightGroup { key: string; label: string; modelIds: string[]; weapons: string[]; targets: string[]; attacks: number | null }
@@ -97,9 +98,11 @@ function Attacks({ sb, ui, unitId }: PanelProps & { unitId: string }) {
           </div>
         );
       })}
-      <button type="button" className="btn btn--primary" onClick={fight}>
-        Fight
-      </button>
+      <PinAction slot="main">
+        <button type="button" className="btn btn--primary" onClick={fight}>
+          Fight
+        </button>
+      </PinAction>
     </div>
   );
 }
@@ -145,9 +148,11 @@ export function FightPanel(props: PanelProps) {
             </button>
           </PlanMove>
         ) : (
-          <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'consolidate', by, unitId: a.unitId, moves: {} }))}>
-            Don't consolidate
-          </button>
+          <PinAction slot="end">
+            <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'consolidate', by, unitId: a.unitId, moves: {} }))}>
+              Don't consolidate
+            </button>
+          </PinAction>
         )}
       </section>
     );
@@ -164,9 +169,11 @@ export function FightPanel(props: PanelProps) {
       ) : (
         <h2>No units are left to fight</h2>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: s.active }))}>
-        End Fight phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: s.active }))}>
+          End Fight phase
+        </button>
+      </PinAction>
     </section>
   );
 }

@@ -1,9 +1,10 @@
 /** The score: each army's VP by category, who controls each objective now, and secondary or painted VP added by hand. */
-import { objectiveControl, objectiveName, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
+import { objectiveControl, totalVp, type Command, type GameState, type PlayerId, type Problem } from '@recruit/engine';
 import { useState } from 'react';
+import { Sheet } from '../../ui/Sheet';
 import { Problems } from '../panels/Problems';
 import { armyName } from './names';
-import { Dialog } from './Overlays';
+import { objectiveLabels } from './objectives';
 
 function ArmyScore({ state, player, act }: { state: GameState; player: PlayerId; act(cmd: Command): Problem[] | null }) {
   const [name, setName] = useState('');
@@ -54,9 +55,9 @@ function ArmyScore({ state, player, act }: { state: GameState; player: PlayerId;
 
 export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd: Command): Problem[] | null; onClose(): void }) {
   const control = objectiveControl(state);
+  const labels = objectiveLabels(state.setup.objectives);
   return (
-    <Dialog label="Score" onClose={onClose}>
-      <h2>Score</h2>
+    <Sheet title="Score" onClose={onClose}>
       <p className="muted play-small">
         {state.setup.rules.secondPlayerRound5 === 'end-of-turn'
           ? "Primary VP are scored for you at the end of each player's Command phase from battle round 2; in battle round 5 the player going second scores at the end of their turn instead."
@@ -64,12 +65,12 @@ export function ScoreSheet({ state, act, onClose }: { state: GameState; act(cmd:
       </p>
       <ul className="play-small">
         {state.setup.objectives.map((o) => (
-          <li key={o.id}>{`Objective ${objectiveName(o)}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
+          <li key={o.id}>{`Objective ${labels.get(o.id)}: ${control[o.id] ? armyName(state, control[o.id]!) : 'nobody'}`}</li>
         ))}
       </ul>
       {(['A', 'B'] as PlayerId[]).map((p) => (
         <ArmyScore key={p} state={state} player={p} act={act} />
       ))}
-    </Dialog>
+    </Sheet>
   );
 }

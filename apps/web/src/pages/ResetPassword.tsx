@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
+import { PageHeader } from '../ui/PageHeader';
 import { PasswordField } from './SignIn';
 
 const MIN_PASSWORD = 8;
@@ -20,11 +21,13 @@ export function ResetPassword() {
   if (auth.loading) return <p className="muted">Checking your link…</p>;
   if (!auth.user)
     return (
-      <section className="auth-page">
-        <h1>Reset your password</h1>
-        <p>This reset link has expired or has already been used.</p>
-        <Link className="btn btn--primary" to="/sign-in?mode=forgot">Send a new reset link</Link>
-      </section>
+      <>
+        <PageHeader title="Reset your password" back={{ to: '/', label: 'Home' }} />
+        <section className="auth-page">
+          <p>This reset link has expired or has already been used.</p>
+          <Link className="btn btn--primary" to="/sign-in?mode=forgot">Send a new reset link</Link>
+        </section>
+      </>
     );
 
   const submit = async (e: FormEvent) => {
@@ -44,16 +47,18 @@ export function ResetPassword() {
   };
 
   return (
-    <section className="auth-page">
-      <h1>Choose a new password</h1>
-      <p className="muted">For {auth.user.email ?? 'your account'}.</p>
-      <form onSubmit={(e) => void submit(e)} className="auth-form" noValidate>
-        <PasswordField id="new-password" label="New password" value={password} onChange={setPassword} autoComplete="new-password" />
-        <p className="muted auth-form__hint">At least {MIN_PASSWORD} characters.</p>
-        <PasswordField id="new-password-again" label="Type it again" value={again} onChange={setAgain} autoComplete="new-password" />
-        {error && <p role="alert" className="auth-form__error">{error}</p>}
-        <button className="btn btn--primary" type="submit" disabled={busy}>Save new password</button>
-      </form>
-    </section>
+    <>
+      <PageHeader title="Choose a new password" back={{ to: '/', label: 'Home' }} />
+      <section className="auth-page">
+        <p className="muted">For {auth.user.email ?? 'your account'}.</p>
+        <form onSubmit={(e) => void submit(e)} className="auth-form" noValidate>
+          <PasswordField id="new-password" label="New password" value={password} onChange={setPassword} autoComplete="new-password" />
+          <p className="muted auth-form__hint">At least {MIN_PASSWORD} characters.</p>
+          <PasswordField id="new-password-again" label="Type it again" value={again} onChange={setAgain} autoComplete="new-password" />
+          {error && <p role="alert" className="auth-form__error">{error}</p>}
+          <button className="btn btn--primary" type="submit" disabled={busy}>Save new password</button>
+        </form>
+      </section>
+    </>
   );
 }

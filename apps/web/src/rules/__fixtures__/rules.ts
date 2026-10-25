@@ -14,6 +14,7 @@ export const rulesData: RulesData = {
       sections: [
         section('look-out-sir', 'Look Out, Sir', 'You cannot shoot at an enemy CHARACTER with 9 or fewer wounds while it is within 3" of a friendly unit, unless it is the closest target.'),
         section('blast', 'Blast', 'Blast weapons always make at least 3 attacks against units of 6 or more models.'),
+        section('fast-dice', 'Fast dice', 'Roll the attacks of one weapon profile together to save time.'),
       ],
     },
     {

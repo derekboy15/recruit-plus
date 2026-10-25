@@ -2,6 +2,7 @@
 import type { Problem } from '@recruit/engine';
 import { armyName } from '../game/names';
 import type { PanelProps } from './types';
+import { PinAction } from '../game/actionBar';
 
 export function ReactionPanel({ sb, ui }: PanelProps) {
   const s = sb.state;
@@ -43,14 +44,18 @@ export function ReactionPanel({ sb, ui }: PanelProps) {
       <h2>
         {armyName(s, p.player)}: {title}
       </h2>
-      {choices.map(([choice, label]) => (
-        <button key={choice} type="button" className="btn btn--primary" onClick={() => respond(choice)}>
-          {label}
+      <PinAction slot="main">
+        {choices.map(([choice, label]) => (
+          <button key={choice} type="button" className="btn btn--primary" onClick={() => respond(choice)}>
+            {label}
+          </button>
+        ))}
+      </PinAction>
+      <PinAction slot="end">
+        <button type="button" className="btn" onClick={() => respond('decline')}>
+          No
         </button>
-      ))}
-      <button type="button" className="btn" onClick={() => respond('decline')}>
-        No
-      </button>
+      </PinAction>
     </section>
   );
 }

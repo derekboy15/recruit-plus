@@ -3,6 +3,7 @@ import { eligibleUnits, sheetOf, smiteTarget, type Problem } from '@recruit/engi
 import { useState } from 'react';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
+import { PinAction } from '../game/actionBar';
 
 export function PsychicPanel({ sb, ui }: PanelProps) {
   const s = sb.state;
@@ -76,9 +77,11 @@ export function PsychicPanel({ sb, ui }: PanelProps) {
           </details>
         </div>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: player }))}>
-        End Psychic phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: player }))}>
+          End Psychic phase
+        </button>
+      </PinAction>
     </section>
   );
 }

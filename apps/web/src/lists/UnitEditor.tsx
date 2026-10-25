@@ -1,26 +1,43 @@
-import { childOptions, COST_PTS, findSelView, type Issue, type OptionNode, type Roster, type RosterView, type Scope, type SelView } from '@recruit/data/roster';
+import { BATTLE_SIZES, childOptions, COST_PTS, findSelView, optionDisplay, unitSummary, type OptionNode, type SelView } from '@recruit/data/roster';
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import type { EntryInfoIndex } from '../data/entryInfo';
+import { useWording } from '../rules/wording';
+import { Sheet } from '../ui/Sheet';
+import { DatasheetSheet } from './DatasheetSheet';
 import { fmt, isArmyOption, isAutoManaged, issuesOfUnit, plural, unitName } from './editorView';
 import { IssueList } from './IssuesPanel';
 import { OptionList, type OptionCtx } from './OptionControls';
-import { Panel } from './Panel';
-import { datasheetPath, unitInfo, type UnitIndex } from './unitIndex';
-import type { EditorAction } from './useRosterEditor';
+import { unitInfo, type UnitIndex } from './unitIndex';
+import { useUndoToast } from './undoToast';
+import type { ReadyEditor } from './useRosterEditor';
 
 interface Props {
+  editor: ReadyEditor;
   selId: string;
-  scope: Scope;
-  roster: Roster;
-  view: RosterView;
-  issues: Issue[];
   units: UnitIndex | null;
-  dispatch: (a: EditorAction) => unknown;
+  info: EntryInfoIndex | null;
+  /** Whether the unit's datasheet is open over it, and how to open or close it (a URL step, so Back closes it). */
+  datasheet: boolean;
+  onDatasheet: (show: boolean) => void;
   onClose: () => void;
 }
 
-/** One unit (or army choice): its models and wargear, its problems, and duplicate / remove. */
-export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch, onClose }: Props) {
+/** Spec §4 (L15): under Arks of Omen a Warlord takes a trait only through the 1 CP Warlord Trait requisition. */
+export const REQUISITION_NOTE =
+  'In Arks of Omen games your Warlord only gets a Warlord trait if you pay 1 CP for it. Tick Warlord trait (1 CP) below to choose one.';
+
+/** Whether the unit has bought the Warlord Trait requisition (then its trait group is on screen). */
+const hasTraitRequisition = (v: SelView): boolean =>
+  v.children.some((c) => {
+    const d = optionDisplay(c.name);
+    return (d.heading === 'Stratagem' && /^warlord trait$/i.test(d.name)) || hasTraitRequisition(c);
+  });
+
+/** One unit (or army choice): its models and wargear, its problems, its datasheet, and duplicate / remove. */
+export function UnitEditor({ editor, selId, units, info, datasheet, onDatasheet, onClose }: Props) {
+  const { scope, roster, view, issues, dispatch } = editor;
+  const { wording } = useWording();
+  const undoToast = useUndoToast(editor);
   const v = findSelView(view, selId);
   // childOptions evaluates the roster, so each selection's options are worked out once per edit.
   const optionsOf = useMemo(() => {
@@ -34,19 +51,28 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
   const own = useMemo(() => issuesOfUnit(view, issues, selId), [view, issues, selId]);
   if (!v) return null;
 
-  const ctx: OptionCtx = { scope, view, dispatch, optionsOf };
+  const summary = unitSummary(v);
+  const aoo = BATTLE_SIZES[roster.battleSize]?.mode === 'aoo';
+  const warlordNote = summary.warlord && aoo && summary.traits.length === 0 && !hasTraitRequisition(v) ? REQUISITION_NOTE : null;
+  const ctx: OptionCtx = { scope, view, dispatch, optionsOf, info, wording, warlordNote };
   const nodes = optionsOf(selId);
-  const info = unitInfo(scope, units, v.sel.entryId);
+  const sheet = unitInfo(scope, units, v.sel.entryId);
   const armyChoice = v.merged !== null && isArmyOption(scope, v);
   const managed = v.merged !== null && isAutoManaged(v);
   const pts = v.total[COST_PTS] ?? 0;
+  const name = unitName(v.name);
   const remove = () => {
     dispatch({ type: 'remove', selId });
     onClose();
+    undoToast(`Removed ${name}`);
+  };
+  const duplicate = () => {
+    dispatch({ type: 'duplicate', selId });
+    undoToast(`Duplicated ${name}`);
   };
 
   return (
-    <Panel title={unitName(v.name)} kind="full" closeLabel="Done" onClose={onClose}>
+    <Sheet title={name} kind="full" closeLabel="Done" onClose={onClose}>
       <p className="unit-summary">
         <span>{`${fmt(pts)} pts`}</span>
         {v.models > 0 && <span className="muted">{plural(v.models, 'model', 'models')}</span>}
@@ -59,8 +85,8 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
       {managed ? (
         <>
           <ul className="managed-choices">
-            {chosen(v).map((name, i) => (
-              <li key={i}>{name}</li>
+            {chosen(v).map((n, i) => (
+              <li key={i}>{n}</li>
             ))}
           </ul>
           <p className="muted">Set by the battle size.</p>
@@ -71,13 +97,13 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
         <OptionList ctx={ctx} selId={selId} nodes={nodes} room={Infinity} spare={Infinity} depth={0} />
       )}
       <div className="unit-actions">
-        {info && (
-          <Link className="btn" to={datasheetPath(info)}>
+        {sheet && (
+          <button type="button" className="btn" aria-haspopup="dialog" onClick={() => onDatasheet(true)}>
             View datasheet
-          </Link>
+          </button>
         )}
         {!armyChoice && v.merged && (
-          <button type="button" className="btn" onClick={() => dispatch({ type: 'duplicate', selId })}>
+          <button type="button" className="btn" onClick={duplicate}>
             Duplicate unit
           </button>
         )}
@@ -87,7 +113,8 @@ export function UnitEditor({ selId, scope, roster, view, issues, units, dispatch
           </button>
         )}
       </div>
-    </Panel>
+      {datasheet && <DatasheetSheet v={v} info={sheet} onClose={() => onDatasheet(false)} />}
+    </Sheet>
   );
 }
 

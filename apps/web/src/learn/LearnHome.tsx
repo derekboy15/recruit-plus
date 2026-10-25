@@ -1,15 +1,17 @@
-/** The Learn tab: the lesson path in order, how far you are, and "Your first game" once every lesson is done. */
+/** The Learn tab: every lesson, open in any order, with the next one recommended; and "Your first game" once all are done. */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { useStorage } from '../storage/StorageContext';
+import { IconCheck } from '../ui/icons';
+import { PageHeader } from '../ui/PageHeader';
 import { allDone, nextLesson, updateProgress } from './progress';
 import { useLearnData } from './useLessons';
 import { LoadError } from '../layout/OfflineNotice';
 
 declare global {
   interface Window {
-    /** DEV only: end-to-end tests unlock the whole path. */
+    /** DEV only: end-to-end tests mark the whole path done. */
     __learn?: { completeAll(): Promise<void> };
   }
 }
@@ -35,11 +37,14 @@ export function LearnHome() {
   const doneCount = lessons.filter((l) => progress.lessons[l.id]).length;
   const next = nextLesson(data.order, progress);
   const finished = allDone(data.order, progress);
+  const left = lessons.filter((l) => !progress.lessons[l.id]);
+  const firstGameNeeds =
+    left.length === lessons.length ? `Finish all ${lessons.length} lessons` : left.length === 1 ? `Finish ${left[0].title}` : `Finish the ${left.length} lessons left`;
 
   return (
     <section className="learn">
-      <h1>Learn to play</h1>
-      <p>Short lessons, each with a drill on a real battlefield with real dice. Finish them in order.</p>
+      <PageHeader variant="top" title="Learn to play" />
+      <p className="learn-intro">Short lessons, each with a drill on a real battlefield with real dice. Take them in order, or start anywhere.</p>
       <div className="learn-meter" role="meter" aria-label="Lessons done" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={doneCount}>
         <div className="learn-meter__bar" style={{ width: `${lessons.length ? (100 * doneCount) / lessons.length : 0}%` }} />
         <span>
@@ -47,36 +52,37 @@ export function LearnHome() {
         </span>
       </div>
       <ol className="learn-path" aria-label="Lessons">
-        {lessons.map((l, i) => {
+        {lessons.map((l) => {
           const done = !!progress.lessons[l.id];
-          const isNext = l.id === next;
-          const heading = <h2 className="learn-path__title">{`${l.order}. ${l.title}`}</h2>;
+          const recommended = l.id === next;
           return (
-            <li key={l.id} className={`learn-path__item learn-path__item--${done ? 'done' : isNext ? 'next' : 'locked'}`}>
-              {done ? (
-                <Link to={`/learn/${l.id}`} className="learn-path__link">
-                  {heading}
-                  <span className="learn-path__meta">
-                    <span className="status status--ok">Done</span> {l.minutes} min
+            <li key={l.id} className={`learn-path__item${done ? ' learn-path__item--done' : ''}${recommended ? ' learn-path__item--recommended' : ''}`}>
+              <h2 className="learn-path__title">
+                <Link to={`/learn/${l.id}`} className="learn-path__link">{`${l.order}. ${l.title}`}</Link>
+              </h2>
+              <p className="learn-path__summary">{l.summary}</p>
+              <span className="learn-path__meta">
+                {done && (
+                  <span className="status status--ok">
+                    <IconCheck size={14} aria-hidden="true" />
+                    Done
                   </span>
-                </Link>
-              ) : isNext ? (
-                <div className="learn-path__body">
-                  {heading}
-                  <p className="learn-path__summary">{l.summary}</p>
-                  <span className="learn-path__meta">
-                    <span className="status">Next</span> {l.minutes} min
-                  </span>
-                  <Link to={`/learn/${l.id}`} className="btn btn--primary learn-path__start">
-                    Start
-                  </Link>
-                </div>
-              ) : (
-                <div className="learn-path__body" aria-disabled="true">
-                  {heading}
-                  <span className="learn-path__meta">
-                    <span className="status">Locked</span> <span>Finish lesson {i} first</span>
-                  </span>
+                )}
+                {recommended && <span className="status learn-path__badge">Recommended next</span>}
+                <span>{l.minutes} min</span>
+              </span>
+              {(recommended || done) && (
+                <div className="learn-path__actions">
+                  {recommended && (
+                    <Link to={`/learn/${l.id}`} className="btn btn--primary learn-path__start">
+                      Start
+                    </Link>
+                  )}
+                  {done && (
+                    <Link to={`/learn/${l.id}/drill`} className="btn learn-path__start" aria-label={`Replay drill: ${l.title}`}>
+                      Replay drill
+                    </Link>
+                  )}
                 </div>
               )}
             </li>
@@ -93,7 +99,7 @@ export function LearnHome() {
             </Link>
           </>
         ) : (
-          <p className="muted">Finish all {lessons.length} lessons to unlock a 500-point game against the Necrons, with hints on.</p>
+          <p className="muted">{firstGameNeeds} to unlock a 500-point game against the Necrons, with hints on.</p>
         )}
       </section>
     </section>

@@ -1,9 +1,10 @@
 /** Opens "Your first game" (creating it the first time) once every lesson is done. */
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import type { GameData } from '../play/store/gameStore';
 import { useStorage } from '../storage/StorageContext';
+import { PageHeader } from '../ui/PageHeader';
 import { allDone, updateProgress } from './progress';
 import { useLearnData } from './useLessons';
 import { LoadError } from '../layout/OfflineNotice';
@@ -42,17 +43,14 @@ export function FirstGamePage() {
   if (!ready)
     return (
       <section className="learn">
-        <h1>Your first game</h1>
+        <PageHeader title="Your first game" back={{ to: '/learn', label: 'Learn' }} />
         <p>Finish all {data.lessons.length} lessons to unlock your first game.</p>
-        <Link to="/learn" className="btn btn--primary learn-path__start">
-          Back to Learn
-        </Link>
       </section>
     );
   if (error)
     return (
       <section className="learn">
-        <h1>Your first game</h1>
+        <PageHeader title="Your first game" back={{ to: '/learn', label: 'Learn' }} />
         <p role="alert">Your first game couldn’t be set up: {error}</p>
         <button type="button" className="btn btn--primary" onClick={() => (setError(null), setAttempt((a) => a + 1))}>
           Try again

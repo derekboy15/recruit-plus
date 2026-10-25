@@ -3,6 +3,7 @@ import { BATTLEFIELD_ROLES } from '@recruit/data/model';
 import {
   AUTO_MANAGED_ENTRIES,
   BATTLE_SIZES,
+  COST_PTS,
   displayName,
   findSelView,
   isSpecialistDetachment,
@@ -121,6 +122,17 @@ function reveals(value: string, c: Cond): boolean {
   if (value === 'true') return (c.type === 'lessThan' && c.value >= 1) || (c.type === 'atMost' && c.value === 0) || (c.type === 'equalTo' && c.value === 0);
   return false;
 }
+
+/** "an" before HQ and Elites ("Add an HQ unit"), "a" before every other role. */
+export const article = (role: string): 'a' | 'an' => (/^(HQ|Elites)$/.test(role) ? 'an' : 'a');
+
+/** How many units a role section holds and what they cost together. */
+export function roleTotals(units: SelView[]): { count: number; points: number } {
+  return { count: units.length, points: units.reduce((sum, v) => sum + (v.total[COST_PTS] ?? 0), 0) };
+}
+
+/** The first sentence of a problem's explanation, for a unit row. */
+export const firstSentence = (text: string) => /^.*?[.!?](?=\s|$)/.exec(text.trim())?.[0] ?? text.trim();
 
 export interface RoleGroup { role: string; units: SelView[] }
 

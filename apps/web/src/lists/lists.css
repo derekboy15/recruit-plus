@@ -1,0 +1,214 @@
+/* The army builder (Plan B): Your lists, the list editor and the new-list wizard. Tokens only from theme.css. */
+
+/* ---------- Your lists ---------- */
+.lists-page__new { gap: 6px; padding-left: 10px; }
+.lists-search {
+  display: flex; align-items: center; gap: 8px; min-height: var(--touch); padding: 0 12px; margin-bottom: 8px;
+  background: var(--surface); border: 1px solid var(--input-border); border-radius: var(--radius); color: var(--text-muted);
+}
+.lists-search:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.lists-search__input {
+  flex: 1; min-width: 0; min-height: var(--touch); background: none; border: 0; outline: none; color: var(--text); font: inherit;
+}
+.lists-page__count { margin: 0 0 8px; font-size: 0.8125rem; color: var(--text-muted); }
+.list-cards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.list-card { display: flex; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.list-card:hover, .list-card:focus-within { border-color: var(--border-strong); }
+.list-card__link {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 12px 4px 12px 12px; border-radius: 12px 0 0 12px;
+  color: inherit; text-decoration: none;
+}
+.list-card__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.list-card__name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list-card__meta { font-size: 0.8125rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.list-card__status { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; font-size: 0.75rem; color: var(--text-muted); }
+.list-card__ok, .list-card__fix { display: inline-flex; align-items: center; gap: 3px; font-weight: 600; }
+.list-card__ok { color: var(--ok); }
+.list-card__fix { color: var(--warn); }
+.list-card .menu { align-self: stretch; }
+.list-card .menu__trigger { height: auto; min-height: var(--touch); border: 0; border-radius: 0 11px 11px 0; color: var(--text-muted); }
+.list-card .menu__trigger[aria-expanded='true'] { color: var(--text); }
+/* Lines a menu item with no icon of its own up with the rest. */
+.menu-spacer { display: inline-block; width: 18px; height: 18px; }
+
+/* ---------- Sheets ---------- */
+.rename { display: grid; gap: 6px; }
+.field-error { margin: 0; color: var(--danger-text); font-size: 0.875rem; font-weight: 600; }
+
+/* ---------- List editor ---------- */
+.editor__main { max-width: 760px; }
+/* Grid items may shrink below their content (the header's title ellipsizes), so nothing pushes the page sideways. */
+.editor__main > * { min-width: 0; }
+@media (min-width: 768px) {
+  .editor { grid-template-columns: minmax(0, 760px) minmax(280px, 340px); }
+}
+
+/* The header and summary strip stay at the top while the list scrolls, so the points stay in view. */
+.editor-top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+.editor-top .page-head { position: static; margin: 0; border-bottom: 1px solid var(--border); }
+.editor-top__play { gap: 6px; min-height: var(--touch); height: var(--touch); padding: 0 14px 0 11px; margin-left: 4px; }
+@media (max-width: 419px) {
+  /* A phone keeps room for the list name beside Undo, Redo and ⋯: Play shows its icon only (its name stays for screen readers). */
+  .editor-top__play { width: var(--touch); padding: 0; }
+  .editor-top__play-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.summary { display: flex; flex-direction: column; gap: 10px; padding: 12px 16px 12px; }
+.summary__row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.summary__points {
+  font-family: var(--font-display); font-weight: 600; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.summary__limit { font-size: 18px; font-weight: 500; color: var(--text-muted); }
+.summary__left { margin: 0; font-size: 0.8125rem; color: var(--text-muted); text-align: right; }
+.summary__left--over { color: var(--danger-text); font-weight: 600; }
+.summary__cp { color: var(--text-muted); font-weight: 400; }
+.summary__bar { display: block; height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; }
+.summary__fill { display: block; height: 100%; border-radius: 3px; background: var(--brass-strong); }
+.summary__bar--over .summary__fill { background: var(--red-strong); }
+.summary__chips { margin: 0 -16px; padding: 0 16px; }
+.summary-chips .chip, .picker-chips .chip { display: inline-flex; align-items: center; gap: 5px; }
+.chip--ok { color: var(--ok); background: var(--ok-bg); border-color: #2f4a33; font-weight: 600; }
+.chip--warn { color: var(--warn); font-weight: 600; }
+@media (min-width: 768px) {
+  .editor-top { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+}
+
+/* ---------- Choices: radio or checkbox rows with what each does ---------- */
+.choice-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.choice-row { display: flex; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.choice-row--on { border-color: var(--brass); background: var(--surface-2); }
+.choice-row__label { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 12px; min-height: var(--touch); padding: 12px 4px 12px 12px; cursor: pointer; }
+.choice-row__label input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--brass-strong); }
+.choice-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.choice-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.choice-row .info-btn { margin: 2px 2px 0 0; }
+.choice-row__summary { font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); }
+.choice-row__official { display: block; font-size: 0.75rem; }
+.choice-row input:disabled + .choice-row__text { opacity: 0.55; }
+
+/* An option's full text (the ⓘ sheet). */
+.option-info { display: flex; flex-direction: column; gap: 16px; }
+.option-info__block { display: flex; flex-direction: column; gap: 4px; }
+.option-info__name { margin: 0; font-size: 1.15rem; color: var(--text); }
+.option-info__kind { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+.option-info__char { margin: 0; }
+.option-info .rules-text { margin: 0; }
+
+/* ---------- Detachments sheet ---------- */
+.detachment-list { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.detachment-list__item {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 8px 8px 8px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+}
+.detachment-list__name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.detachment-list__confirm { display: flex; flex-wrap: wrap; gap: 8px; }
+.detachment-list__add { margin-bottom: 12px; }
+.choice-intro { margin: 0 0 12px; font-size: 0.875rem; line-height: 1.5; color: var(--text-soft); }
+
+/* ---------- Detachments, role sections and unit rows (Main artboard) ---------- */
+.detachment { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.detachment__title { margin: 12px 0 0; font-size: 1.3rem; color: var(--text); }
+.detachment__empty { margin: 8px 0; }
+.detachment__add { align-self: flex-start; margin-top: 8px; gap: 6px; }
+.role-section { display: flex; flex-direction: column; }
+.role-section__head { display: flex; align-items: center; gap: 4px; padding-top: 6px; }
+.role-section__title { flex: 1; min-width: 0; margin: 0; font: inherit; }
+.role-section__toggle {
+  width: 100%; min-height: var(--touch); display: flex; align-items: center; gap: 8px; padding: 0 8px 0 4px;
+  background: none; border: 0; border-radius: var(--radius); color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.role-section__toggle .label-caps { font-size: 1rem; }
+.role-section__chevron { flex: none; color: var(--text-muted); transition: transform 0.15s; }
+.role-section__toggle[aria-expanded='false'] .role-section__chevron { transform: rotate(-90deg); }
+.role-section__count { font-size: 0.8125rem; color: var(--text-muted); white-space: nowrap; }
+.role-section__add { color: var(--brass-strong); }
+.unit-rows { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.unit-row { display: flex; align-items: stretch; }
+.unit-row + .unit-row { border-top: 1px solid var(--border); }
+.unit-row--gone { align-items: center; gap: 8px; padding: 8px 8px 8px 14px; }
+.unit-row__open {
+  flex: 1; min-width: 0; min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 10px 4px 10px 14px;
+  background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.unit-row__open:hover { background: rgba(255, 255, 255, 0.03); }
+.unit-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.unit-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.unit-row__models { font-weight: 500; color: var(--text-muted); }
+.unit-row__gear {
+  font-size: 0.8125rem; color: var(--text-muted);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.unit-row__relic { font-size: 0.8125rem; color: var(--text-muted); }
+.unit-row__warlord, .unit-row__issue { display: flex; align-items: center; gap: 5px; margin-top: 2px; font-size: 0.75rem; font-weight: 600; }
+.unit-row__warlord { color: var(--brass-strong); }
+.unit-row__issue { color: var(--warn); }
+.unit-row__warlord svg, .unit-row__issue svg { flex: none; }
+.unit-row__pts { flex: none; font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.unit-row .menu__trigger { height: auto; min-height: var(--touch); color: var(--text-muted); border-radius: 0; }
+
+/* Phones: Add unit stays on screen just above the tab bar. */
+.add-bar {
+  position: sticky; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px)); z-index: 4;
+  display: flex; gap: 10px; margin: 8px -1rem 0; padding: 12px 16px; background: var(--surface); border-top: 1px solid var(--border);
+}
+.add-bar__add { flex: 1; min-height: 48px; gap: 8px; background: var(--surface-2); border-radius: 12px; }
+.add-bar__export { width: 48px; height: 48px; border: 1px solid var(--border-strong); border-radius: 12px; }
+
+/* ---------- Add a unit (UnitPicker artboard) ---------- */
+.picker-search {
+  display: flex; align-items: center; gap: 8px; min-height: var(--touch); padding: 0 12px;
+  background: var(--surface); border: 1px solid var(--input-border); border-radius: var(--radius); color: var(--text-muted);
+}
+.picker-search:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.picker-search__input { flex: 1; min-width: 0; min-height: var(--touch); background: none; border: 0; outline: none; color: var(--text); font: inherit; }
+.picker-chips { margin: 10px -16px 4px; padding: 0 16px; }
+.chip[aria-pressed='false'] .picker-chips__count, .chip:not([aria-pressed]) .picker-chips__count { color: var(--text-muted); }
+.picker-rows { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; }
+.picker-row { display: flex; align-items: center; border-bottom: 1px solid var(--border); }
+.picker-row__open {
+  flex: 1; min-width: 0; min-height: 58px; display: flex; align-items: center; gap: 10px; padding: 10px 4px;
+  background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.picker-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.picker-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.picker-row__stats { font-size: 0.8125rem; color: var(--text-muted); }
+.picker-row__pts { flex: none; font-size: 0.8125rem; color: var(--text-muted); white-space: nowrap; }
+.picker-row__num { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--text); }
+.picker-row__add { color: var(--brass-strong); }
+.picker-hidden { margin-top: 20px; }
+.picker-hidden__title { margin: 0; color: var(--text-muted); }
+.picker-hidden__note { margin: 4px 0 0; font-size: 0.8125rem; }
+.picker-hidden__hint { color: var(--warn); }
+
+/* ---------- Unit editor options: what each one is ---------- */
+.opt-row { display: flex; align-items: flex-start; gap: 4px; }
+.opt-row > .radio-card, .opt-row > .opt { flex: 1; min-width: 0; }
+.opt-row .info-btn { flex: none; margin-top: 2px; }
+.opt__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.opt__label { overflow-wrap: anywhere; }
+.opt__detail { font-size: 0.8125rem; line-height: 1.45; color: var(--text-soft); }
+.opt__line { display: block; font-variant-numeric: tabular-nums; }
+.opt__official { display: block; font-size: 0.75rem; }
+.opt__note { margin: 4px 0 8px; }
+.opt-kind { margin: 8px 0 0; padding: 0; border: 0; min-width: 0; }
+.opt-kind > legend { padding: 0; margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---------- New list wizard ---------- */
+.wizard__tag { justify-self: start; padding: 1px 8px; border: 1px solid var(--brass); border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: var(--brass-strong); }
+.wizard__summary { font-size: 0.875rem; color: var(--text-soft); }
+.wizard__choices { display: flex; flex-direction: column; gap: 20px; }
+.choice-list__legend { padding: 0; margin-bottom: 8px; }
+.choice-row__tag { font-weight: 600; color: var(--text-muted); }
+
+/* The army's chips wrap under the sticky points strip (Main artboard). */
+.summary-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 4px; }
+/* A long chip ("Arks of Omen Compulsory Type: Troops") wraps its own text rather than push a 320px phone sideways. */
+.summary-chips .chip { max-width: 100%; white-space: normal; text-align: left; line-height: 1.25; padding-top: 6px; padding-bottom: 6px; }
+
+/* ---------- Export: the text wraps on phones instead of scrolling sideways ---------- */
+.export-text.export-text--wrap { white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: hidden; }
+
+/* ---------- Problems: choices to make, then what must be fixed ---------- */
+.issues-groups { display: flex; flex-direction: column; gap: 16px; }
+.issues-group { display: flex; flex-direction: column; gap: 8px; }
+.issues-group__title { margin: 0; }
+.issues__item.issues__item--choice { background: var(--surface-2); border-color: var(--border-strong); box-shadow: inset 3px 0 0 var(--brass); }

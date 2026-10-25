@@ -21,7 +21,7 @@ const screenOf = (page: Page, modelId: string) =>
 const screenAt = (page: Page, world: Pt) => page.evaluate((w) => (window as unknown as { __sandbox: { screenAt(p: Pt): Pt } }).__sandbox.screenAt(w), world);
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 /** Every visible button and link on the Learn and drill screens is a 44px touch target. */
 async function touchTargets(page: Page) {
@@ -49,19 +49,26 @@ test('learn: lessons 1 and 2 with their drills, then Your first game', async ({ 
   await expect(page).toHaveURL(/\/learn$/);
   const path = page.getByRole('list', { name: 'Lessons' });
   await expect(path.getByRole('listitem')).toHaveCount(15);
-  await expect(path.getByRole('listitem').nth(0)).toContainText('Next');
-  await expect(path.getByRole('listitem').nth(1)).toContainText('Locked');
+  // Every lesson is open; the first one not done is recommended.
+  await expect(path.getByRole('listitem').nth(0)).toContainText('Recommended next');
+  await expect(path.getByRole('listitem').nth(1)).not.toContainText('Locked');
+  await expect(path.getByRole('listitem').nth(1).getByRole('link', { name: '2. Reading a datasheet' })).toHaveAttribute('href', '/learn/datasheets');
   await noSidewaysScroll(page);
   await touchTargets(page);
   await shot(page, 'home', project);
 
   // Lesson 1: the text, then the drill: a Normal Move onto the objective.
-  await path.getByRole('link', { name: 'Start' }).click();
+  await path.getByRole('link', { name: 'Start', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'What 40k is', level: 1 })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Back to Learn' })).toHaveAttribute('href', '/learn');
+  // The drill button stays on screen at the top of a long lesson, without scrolling.
+  const startBar = page.locator('.learn-start-bar').getByRole('link', { name: 'Start the drill' });
+  await expect(startBar).toBeInViewport();
   await expect(page.getByRole('region', { name: 'Key words' })).toBeVisible();
   await noSidewaysScroll(page);
+  await touchTargets(page);
   await shot(page, 'lesson', project);
-  await page.getByRole('link', { name: 'Start the drill' }).click();
+  await startBar.click();
   await expect(card(page)).toContainText('Your five Intercessors');
 
   const s = await state(page);
@@ -86,13 +93,14 @@ test('learn: lessons 1 and 2 with their drills, then Your first game', async ({ 
   await expect(card(page).getByRole('heading', { name: 'Drill complete' })).toBeVisible();
   await shot(page, 'drill-done', project);
 
-  // Back on the path: lesson 1 done, lesson 2 next.
+  // Back on the path: lesson 1 done (with Replay drill), lesson 2 recommended.
   await card(page).getByRole('link', { name: 'Back to Learn' }).click();
   await expect(path.getByRole('listitem').nth(0)).toContainText('Done');
-  await expect(path.getByRole('listitem').nth(1)).toContainText('Next');
+  await expect(path.getByRole('listitem').nth(0).getByRole('link', { name: 'Replay drill: What 40k is' })).toBeVisible();
+  await expect(path.getByRole('listitem').nth(1)).toContainText('Recommended next');
 
   // Lesson 2: read the datasheets, then fire the bolt rifles.
-  await path.getByRole('link', { name: 'Start' }).click();
+  await path.getByRole('link', { name: 'Start', exact: true }).click();
   await page.getByRole('link', { name: 'Start the drill' }).click();
   await expect(card(page).getByText('See datasheet: Intercessor Squad')).toBeVisible();
   await answer(page, '6"');

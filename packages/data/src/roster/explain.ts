@@ -301,8 +301,15 @@ function labelFor(ctx: Ctx, choice: string | undefined): string | undefined {
       if (issue.rule !== 'slot-min') return 'Choose a unit';
       const category = clean(issue.subject.name);
       return `Add ${article(category)} ${[category, 'unit'].filter(Boolean).join(' ')}`;
-    case 'remove':
-      return `Remove ${num(fix.selIds.length)}`;
+    case 'remove': {
+      // Names what goes: "Remove Doomsday Ark", "Remove 2 Warriors"; an item the rules data no longer has is "it".
+      const n = fix.selIds.length;
+      const gone = fix.selIds.every((id) => findSelView(ctx.view, id)?.merged === null);
+      if (gone) return n === 1 ? 'Remove it' : `Remove ${num(n)}`;
+      const names = [...new Set(fix.selIds.map((id) => selUnitName(ctx, id)))];
+      if (names.length > 1) return `Remove ${andList(names)}`;
+      return n === 1 ? `Remove ${names[0]}` : `Remove ${num(n)} ${names[0]}`;
+    }
     case 'set-count':
       return findSelView(ctx.view, fix.selId)?.type === 'model' ? `Set to ${num(fix.count)} ${plural(fix.count, 'model', 'models')}` : `Set to ${num(fix.count)}`;
     case 'open':

@@ -31,6 +31,7 @@ import { useStorage } from '../storage/StorageContext';
 import type { Doc } from '../storage/types';
 import type { ListData } from './listStore';
 import { isAutoManagedEntry } from './editorView';
+import { canRedo, canUndo, push, redo, start, undo, type History } from './history';
 import { applyPicks, listData, type ArmyChoice } from './newListSetup';
 import { dropPending, keepPending, recoverPending } from './pendingEdits';
 
@@ -60,12 +61,28 @@ export interface EditorData {
   /** Catalogue slugs the scope was built from: the army's first, then its allies'. */
   slugs: string[];
 }
-export type EditorState = EditorData | { status: 'loading' } | { status: 'missing' } | { status: 'error'; error: Error };
+/** Undo and redo (50 steps), saved like any other edit. */
+export interface EditorHistory {
+  undo(): void;
+  redo(): void;
+  canUndo: boolean;
+  canRedo: boolean;
+  /** Goes up by one on every committed change, undo and redo included. */
+  version: number;
+  /** The version right now, for handlers that run after a dispatch (`version` is the one this render saw). */
+  getVersion(): number;
+}
+export type EditorState = (EditorData & EditorHistory) | { status: 'loading' } | { status: 'missing' } | { status: 'error'; error: Error };
 export type RosterEditor = EditorState & {
   /** Applies an edit. Returns the id of a unit or model it added (add-unit, split), if any. */
   dispatch(a: EditorAction): string | undefined;
   /** Saves now if anything is unsaved. */
   flush(): Promise<void>;
+  /**
+   * Drops anything not yet saved and saves nothing more: the list has been deleted, so the editor's save on the way
+   * out (or one retried after a failure) must not bring it back.
+   */
+  discard(): void;
   /** Set when the last save failed (the edit is kept and saving is retried on the next edit). */
   saveError: Error | null;
   /** Set when an allied detachment couldn't be added because its faction's rules didn't load. */
@@ -142,11 +159,16 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
   const [roster, setRoster] = useState<Roster | null>(null);
   const [saveError, setSaveError] = useState<Error | null>(null);
   const [allyError, setAllyError] = useState<Error | null>(null);
+  const [history, setHistory] = useState<History | null>(null);
 
   // Refs hold the latest values so quick edits, timers and unmount handlers never act on a stale roster.
   const loadedRef = useRef<Loaded | null>(null);
   const rosterRef = useRef<Roster | null>(null);
+  const historyRef = useRef<History | null>(null);
+  const versionRef = useRef(0);
   const dirtyRef = useRef(false);
+  /** Set by discard(): the list is gone, nothing more is saved. */
+  const discardedRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const savingRef = useRef<Promise<void>>(Promise.resolve());
   /** The last data handed to a save, when it was captured, and whether that save has landed. */
@@ -161,6 +183,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
     const l = loadedRef.current;
     const r = rosterRef.current;
     const sent = lastSentRef.current;
+    if (discardedRef.current) return savingRef.current;
     if (!dirtyRef.current || !l || !r) {
       // Nothing new, but the last save may still be in flight: keep a copy of what it carries in case it is cut off.
       if (leaving && sent && !sent.landed) keepPending(sent.listId, sent.data, sent.at);
@@ -193,6 +216,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
 
   useEffect(() => {
     let live = true;
+    discardedRef.current = false;
     setStatus('loading');
     load(repo, listId).then(
       (l) => {
@@ -200,8 +224,10 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
         if (!l) return setStatus('missing');
         loadedRef.current = l;
         rosterRef.current = l.doc.data.roster;
+        historyRef.current = start(l.doc.data.roster);
         setLoaded(l);
         setRoster(l.doc.data.roster);
+        setHistory(historyRef.current);
         setStatus('ready');
       },
       (e: unknown) => {
@@ -228,17 +254,49 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
     };
   }, [flush]);
 
-  const commit = useCallback(
-    (next: Roster) => {
-      if (next === rosterRef.current) return;
-      rosterRef.current = next;
-      setRoster(next);
+  /** Shows the history's present roster and saves it (debounced). Every edit, undo and redo goes through here. */
+  const show = useCallback(
+    (h: History) => {
+      historyRef.current = h;
+      rosterRef.current = h.present;
+      versionRef.current += 1;
+      setHistory(h);
+      setRoster(h.present);
       dirtyRef.current = true;
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => void flush(), SAVE_DELAY_MS);
     },
     [flush],
   );
+
+  /** An edit is one undo step (a run of quick renames is one). */
+  const commit = useCallback(
+    (next: Roster, kind: string) => {
+      const h = historyRef.current;
+      if (!h || next === rosterRef.current) return;
+      show(push(h, next, kind, Date.now()));
+    },
+    [show],
+  );
+
+  const step = useCallback(
+    (move: (h: History) => History) => {
+      const h = historyRef.current;
+      if (!h || !loadedRef.current) return;
+      const next = move(h);
+      if (next !== h) show(next);
+    },
+    [show],
+  );
+  const undoEdit = useCallback(() => step(undo), [step]);
+  const redoEdit = useCallback(() => step(redo), [step]);
+  const getVersion = useCallback(() => versionRef.current, []);
+  const discard = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = null;
+    dirtyRef.current = false;
+    discardedRef.current = true;
+  }, []);
 
   /** Adds a detachment from a catalogue the scope doesn't cover yet: rebuilds the scope with it, then adds. */
   const addAlliedForce = useCallback(
@@ -251,7 +309,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
           const next = { ...l, scope, slugs };
           loadedRef.current = next;
           setLoaded(next);
-          commit(addForce(scope, rosterRef.current, forceId, catalogueId));
+          commit(addForce(scope, rosterRef.current, forceId, catalogueId), 'add-force');
         },
         (e: unknown) => setAllyError(e instanceof Error ? e : new Error(String(e))),
       );
@@ -264,7 +322,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
       const l = loadedRef.current;
       const r = rosterRef.current;
       if (!l || !r) return undefined;
-      if (a.type === 'apply-fix') return applyFix(l.scope, r, a.fix, commit, uiRef.current);
+      if (a.type === 'apply-fix') return applyFix(l.scope, r, a.fix, (next) => commit(next, a.type), uiRef.current);
       if (a.type === 'add-force') {
         const slug = l.catalogues.find((c) => c.id === a.catalogueId)?.slug;
         if (slug && !l.slugs.includes(slug)) {
@@ -273,7 +331,7 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
         }
       }
       const { roster: next, selId } = applyAction(l.scope, r, a);
-      commit(next);
+      commit(next, a.type);
       return selId;
     },
     [commit, addAlliedForce],
@@ -281,10 +339,18 @@ export function useRosterEditor(listId: string, ui?: EditorUi): RosterEditor {
 
   const result = useMemo(() => (loaded && roster ? validate(loaded.scope, roster, loaded.policy) : null), [loaded, roster]);
 
-  const base = { dispatch, flush, saveError, allyError };
-  if (status === 'ready' && loaded && roster && result) {
+  const base = { dispatch, flush, discard, saveError, allyError };
+  if (status === 'ready' && loaded && roster && result && history) {
     const { scope, policy, catalogues, slugs } = loaded;
-    return { ...base, status, roster, view: result.view, issues: result.issues, scope, policy, catalogues, slugs };
+    const edits: EditorHistory = {
+      undo: undoEdit,
+      redo: redoEdit,
+      canUndo: canUndo(history),
+      canRedo: canRedo(history),
+      version: versionRef.current,
+      getVersion,
+    };
+    return { ...base, ...edits, status, roster, view: result.view, issues: result.issues, scope, policy, catalogues, slugs };
   }
   if (status === 'error') return { ...base, status, error: error ?? new Error('Something went wrong.') };
   return status === 'missing' ? { ...base, status } : { ...base, status: 'loading' };

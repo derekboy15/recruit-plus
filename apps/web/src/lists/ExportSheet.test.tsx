@@ -8,12 +8,17 @@ import { AppRoutes } from '../routes';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
+import { WordingProvider } from '../rules/wording';
+import { ToastProvider } from '../ui/toast';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 import { necronsListData } from './__fixtures__/necronsList';
 import { ShareSheet } from './ExportSheet';
 import { ListEditorPage } from './ListEditorPage';
 import { createList, type ListData } from './listStore';
 import { createLocalPublicSource, PublicSourceContext } from './publicSource';
+
+// These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
+vi.setConfig({ testTimeout: 20_000 });
 
 let db: RecruitDb;
 let n = 0;
@@ -33,23 +38,33 @@ async function renderEditor(linksWorkAnywhere = false) {
   render(
     <StorageProvider db={db}>
       <PublicSourceContext.Provider value={{ source: createLocalPublicSource(db), linksWorkAnywhere }}>
-        <MemoryRouter initialEntries={[`/build/${id}`]}>
-          <Routes>
-            <Route path="/build/:id" element={<ListEditorPage />} />
-          </Routes>
-        </MemoryRouter>
+        <WordingProvider initial="plain">
+          <MemoryRouter initialEntries={[`/build/${id}`]}>
+            <ToastProvider>
+              <Routes>
+                <Route path="/build/:id" element={<ListEditorPage />} />
+              </Routes>
+            </ToastProvider>
+          </MemoryRouter>
+        </WordingProvider>
       </PublicSourceContext.Provider>
     </StorageProvider>,
   );
-  await screen.findByRole('textbox', { name: 'List name' }, { timeout: 5000 });
+  await screen.findByRole('meter', { name: 'Points' }, { timeout: 5000 });
   return id;
+}
+
+/** Opens Export or Share link from the editor's List actions menu. */
+async function fromMenu(u: ReturnType<typeof userEvent.setup>, item: 'Export' | 'Share link' | 'Rename') {
+  await u.click(screen.getByRole('button', { name: 'List actions' }));
+  await u.click(screen.getByRole('menuitem', { name: item }));
 }
 
 test('Export shows the list as read-only text, copies it and says Copied', async () => {
   const u = userEvent.setup();
   const writeText = vi.spyOn(navigator.clipboard, 'writeText').mockResolvedValue();
   await renderEditor();
-  await u.click(screen.getByRole('button', { name: 'Export' }));
+  await fromMenu(u, 'Export');
   const sheet = await screen.findByRole('dialog', { name: 'Export list' });
   const box = within(sheet).getByRole('textbox', { name: 'List text' });
   expect(box).toHaveAttribute('readonly');
@@ -69,7 +84,7 @@ test('"Copied" goes back to "Copy" after two seconds', async () => {
   const u = userEvent.setup({ delay: null });
   vi.spyOn(navigator.clipboard, 'writeText').mockResolvedValue();
   await renderEditor();
-  await u.click(screen.getByRole('button', { name: 'Export' }));
+  await fromMenu(u, 'Export');
   vi.useFakeTimers({ shouldAdvanceTime: true });
   try {
     await u.click(await screen.findByRole('button', { name: 'Copy' }));
@@ -87,7 +102,7 @@ test('turning sharing on saves the list as public and shows the link; turning it
   const u = userEvent.setup();
   const id = await renderEditor(true);
   const repo = createRepository(db);
-  await u.click(screen.getByRole('button', { name: 'Share' }));
+  await fromMenu(u, 'Share link');
   const sheet = await screen.findByRole('dialog', { name: 'Share list' });
   const toggle = within(sheet).getByRole('checkbox', { name: 'Anyone with the link can view' });
   expect(toggle).not.toBeChecked();
@@ -141,7 +156,7 @@ test('the switch stays on while the list is being saved, even when the save show
 test('in local development the link comes with a note that it only works on this device', async () => {
   const u = userEvent.setup();
   await renderEditor(false);
-  await u.click(screen.getByRole('button', { name: 'Share' }));
+  await fromMenu(u, 'Share link');
   const sheet = await screen.findByRole('dialog', { name: 'Share list' });
   await u.click(within(sheet).getByRole('checkbox', { name: 'Anyone with the link can view' }));
   expect(await within(sheet).findByText('Share links work on other devices once accounts are switched on.')).toBeInTheDocument();
@@ -150,10 +165,12 @@ test('in local development the link comes with a note that it only works on this
 test('turning sharing on keeps edits that were still waiting to be saved', async () => {
   const u = userEvent.setup();
   const id = await renderEditor(true);
-  const name = screen.getByRole('textbox', { name: 'List name' });
+  await fromMenu(u, 'Rename');
+  const name = within(screen.getByRole('dialog', { name: 'Rename list' })).getByRole('textbox', { name: 'List name' });
   await u.clear(name);
   await u.type(name, 'Renamed just now');
-  await u.click(screen.getByRole('button', { name: 'Share' }));
+  await u.click(screen.getByRole('button', { name: 'Save' }));
+  await fromMenu(u, 'Share link');
   await u.click(await screen.findByRole('checkbox', { name: 'Anyone with the link can view' }));
   await waitFor(async () => {
     const doc = await createRepository(db).getDoc<ListData>(id);
@@ -185,7 +202,76 @@ test('when the clipboard is blocked the Export sheet points to Download', async 
   const u = userEvent.setup();
   vi.spyOn(navigator.clipboard, 'writeText').mockRejectedValue(new Error('denied'));
   await renderEditor();
-  await u.click(screen.getByRole('button', { name: 'Export' }));
+  await fromMenu(u, 'Export');
   await u.click(await screen.findByRole('button', { name: 'Copy' }));
   expect(await screen.findByRole('button', { name: 'Couldn’t copy. Use Download instead.' })).toBeInTheDocument();
+});
+
+test('with the device’s share sheet, Share… sends the list’s name and text to it', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    await renderEditor();
+    await fromMenu(u, 'Export');
+    const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+    const text = (within(sheet).getByRole('textbox', { name: 'List text' }) as HTMLTextAreaElement).value;
+    await u.click(within(sheet).getByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalledWith({ title: 'Necrons Strike Force', text });
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
+});
+
+test('without a device share sheet there is no Share… button', async () => {
+  const u = userEvent.setup();
+  expect('share' in navigator).toBe(false);
+  await renderEditor();
+  await fromMenu(u, 'Export');
+  const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+  expect(within(sheet).getByRole('button', { name: 'Copy' })).toBeInTheDocument();
+  expect(within(sheet).queryByRole('button', { name: 'Share…' })).not.toBeInTheDocument();
+});
+
+test('the export text wraps instead of scrolling sideways', async () => {
+  const u = userEvent.setup();
+  await renderEditor();
+  await fromMenu(u, 'Export');
+  const box = within(await screen.findByRole('dialog', { name: 'Export list' })).getByRole('textbox', { name: 'List text' });
+  expect(box).toHaveClass('export-text--wrap');
+  expect(box).toHaveAttribute('wrap', 'soft');
+});
+
+test('the share sheet says sharing can be turned off here, and Share… sends the link', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    const id = await renderEditor(true);
+    await fromMenu(u, 'Share link');
+    const sheet = await screen.findByRole('dialog', { name: 'Share list' });
+    expect(sheet).toHaveTextContent('Turn sharing off here at any time.');
+    expect(sheet).not.toHaveTextContent('after your next sync');
+    await u.click(within(sheet).getByRole('checkbox', { name: 'Anyone with the link can view' }));
+    await u.click(await within(sheet).findByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalledWith({ title: 'Necrons Strike Force', url: `${window.location.origin}/share/${id}` });
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
+});
+
+test('a share the player cancels says nothing', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockRejectedValue(new DOMException('cancelled', 'AbortError'));
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    await renderEditor();
+    await fromMenu(u, 'Export');
+    const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+    await u.click(within(sheet).getByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalled();
+    expect(within(sheet).queryByRole('alert')).not.toBeInTheDocument();
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
 });

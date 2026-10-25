@@ -31,7 +31,7 @@ Recruit+ is built for phones first. This page records what was measured, the bud
 | Startup JS (the entry plus the chunks `index.html` modulepreloads) | ≤ 150 kB gzip |
 | Any other JS chunk | ≤ 120 kB gzip |
 | All CSS | ≤ 25 kB gzip |
-| Service-worker precache | ≤ 2.75 MB raw |
+| Service-worker precache | ≤ 3.0 MB raw |
 | Any catalogue | ≤ 300 kB gzip |
 | Any roster | ≤ 250 kB gzip |
 | `rules.json` | ≤ 100 kB gzip |
@@ -73,3 +73,4 @@ Changing a budget needs a line in the change log below saying why.
 - 2026-10-24: `infoGzip` (150 kB per option info file) added with the info files (UI overhaul Plan D). The largest, the Aeldari Library, is 43 kB gzip; info files are cached when used, like catalogues.
 - 2026-10-24: precache raised from 2.6 MB to 2.75 MB so the self-hosted fonts are precached (UI overhaul Plan A follow-up). Barlow Condensed 500/600/700 and Inter's variable latin file add 114 kB; without them an offline first paint fell back to system fonts.
 - 2026-10-24: the 110 kB "main entry" budget became a 150 kB "startup JS" budget: the entry plus every chunk `index.html` modulepreloads. Rolldown's `mergeCommonChunks` folds the shared storage/auth chunk (already preloaded at startup) into the entry once `lists/Panel` stops importing it, so the entry jumped 92 to 120 kB while startup JS only grew 129 to 134 kB. Startup JS measures what a first visit downloads, however the bundler splits it. It is 129 kB on `main` after Plans A and D.
+- 2026-10-25: precache raised from 2.75 MB to 3.0 MB raw after the UI overhaul's wave 2 (builder, Play mode, content pages, Practice and Table screens) added about 170 kB of code: 2.73 MB raw in 92 files, 0.81 MB compressed, which is what a phone downloads. Nothing was dropped from offline use.

@@ -14,6 +14,7 @@ import { FactionsPage } from './factions/FactionsPage';
 const ListsPage = lazy(() => import('./lists/ListsPage').then((m) => ({ default: m.ListsPage })));
 const NewListPage = lazy(() => import('./lists/NewListPage').then((m) => ({ default: m.NewListPage })));
 const ListEditorPage = lazy(() => import('./lists/ListEditorPage').then((m) => ({ default: m.ListEditorPage })));
+const PlayPage = lazy(() => import('./lists/play/PlayPage').then((m) => ({ default: m.PlayPage })));
 const SharePage = lazy(() => import('./lists/SharePage').then((m) => ({ default: m.SharePage })));
 // The Rules Reference loads on first visit too.
 const RulesHome = lazy(() => import('./rules/RulesHome').then((m) => ({ default: m.RulesHome })));
@@ -56,6 +57,7 @@ export function AppRoutes({ guard = (c) => c, extra }: { guard?: Guard; extra?: 
       <Route path="/build" element={guard(lazyPage(<ListsPage />))} />
       <Route path="/build/new" element={guard(lazyPage(<NewListPage />))} />
       <Route path="/build/:id" element={guard(lazyPage(<ListEditorPage />))} />
+      <Route path="/build/:id/play" element={guard(lazyPage(<PlayPage />))} />
       {/* A shared list opens read-only for anyone, signed in or not: deliberately not behind the guard. */}
       <Route path="/share/:id" element={lazyPage(<SharePage />)} />
       <Route

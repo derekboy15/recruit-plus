@@ -1,135 +1,173 @@
-import {
-  armyOptions,
-  displayName,
-  childConstraints,
-  type ForceView,
-  type Issue,
-  type Roster,
-  type RosterView,
-  type Scope,
-} from '@recruit/data/roster';
-import { useMemo } from 'react';
+/**
+ * Army-wide choices (Dynasty, Army of Renown, the Arks of Omen compulsory type…) as chips in the editor's summary,
+ * each opening a sheet that says what every option does; and on/off army options (stratagems bought before the
+ * battle) under a "More options" chip. They live in the first detachment.
+ */
+import { armyOptions, findSelView, optionDisplay, type Issue, type SelView } from '@recruit/data/roster';
+import { useCallback, useMemo } from 'react';
+import type { EntryInfoIndex } from '../data/entryInfo';
+import { useWording } from '../rules/wording';
+import { ChoiceList } from './ChoiceList';
+import type { ChoiceTarget } from './IssuesPanel';
+import { describeOption } from './optionText';
+import { IconWarning } from '../ui/icons';
+import { Sheet } from '../ui/Sheet';
 import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
-import { armyChoices, type ArmyChoice } from './newListSetup';
-import type { EditorAction } from './useRosterEditor';
-
-interface Props { scope: Scope; roster: Roster; view: RosterView; army: ForceView; issues: Issue[]; dispatch: (a: EditorAction) => unknown }
-
-/** "Pick 2", "Pick 1–3", "Pick at least 1": how many a group that takes several needs. */
-function pickCount(c: ArmyChoice): string {
-  if (c.max === -1) return `Pick at least ${c.min}`;
-  return c.min === c.max ? `Pick ${c.max}` : `Pick ${c.min}–${c.max}`;
-}
+import { armyChoices, isOptionalChoice, type ArmyChoice } from './newListSetup';
+import type { ReadyEditor } from './useRosterEditor';
 
 /**
- * Army-wide choices (Dynasty, Army of Renown, the Arks of Omen compulsory type…) as pick-one lists, and on/off army
- * options such as stratagems bought before the battle. They live in the first detachment.
+ * A choice's short title: its own group's name when its army option holds several ("Questor Allegiance: Noble
+ * Households" → "Noble Households"), without a trailing "Choice" or "Selection" ("Dynasty Choice" → "Dynasty").
  */
-export function ArmyOptions({ scope, roster, view, army, issues, dispatch }: Props) {
-  const choices = useMemo(() => armyChoices(scope, roster), [scope, roster]);
-  const toggles = useMemo(() => {
+export function choiceTitle(c: ArmyChoice): string {
+  const own = c.title.split(': ').pop()!.trim();
+  return own.replace(/\s+(choices?|selections?)$/i, '').trim() || own;
+}
+
+export interface ArmyChoiceState {
+  choices: ArmyChoice[];
+  /** On/off army options that aren't one of the choices (e.g. "Stratagem: Heroic Support"). */
+  toggles: { entryId: string; name: string }[];
+  /** The army option's selection in the first detachment, if the list has it. */
+  selOf(entryId: string): { sel: { id: string } } | undefined;
+  /** A problem asks for this choice. */
+  needsPick(c: ArmyChoice): boolean;
+  /** The army can do without it (Army of Renown), so None is offered. */
+  optional(c: ArmyChoice): boolean;
+}
+
+export function useArmyChoices(editor: ReadyEditor): ArmyChoiceState | null {
+  const { scope, roster, view, issues } = editor;
+  return useMemo(() => {
+    const army = view.forces[0];
+    if (!army) return null;
+    const choices = armyChoices(scope, roster);
     const picked = new Set(choices.map((c) => c.entryId));
     // A BattleScribe helper, or an option the battle size doesn't use, is left out unless the list already has it on (so it can be turned off).
     const has = new Set(army.selections.map((s) => s.sel.entryId));
-    return armyOptions(scope, roster, army.force.id).filter(
+    const toggles = armyOptions(scope, roster, army.force.id).filter(
       (o) => !picked.has(o.entryId) && !isAutoManagedEntry(scope, o.entryId) && (has.has(o.entryId) || (!isHelperOption(scope, o.entryId) && offeredAtSize(scope, roster, o.entryId))),
     );
-  }, [scope, roster, army, choices]);
-  if (!choices.length && !toggles.length) return null;
+    const selOf = (entryId: string) => army.selections.find((s) => s.sel.entryId === entryId);
+    /**
+     * Too few picked in its group, or the army option itself is missing. A problem about the army option that names
+     * none of its groups (a choice nested deeper) marks all of them.
+     */
+    const needsPick = (c: ArmyChoice) => {
+      const sel = selOf(c.entryId);
+      if (!sel) return issues.some((i: Issue) => i.fix?.kind === 'add-unit' && i.fix.entryIds.length === 1 && i.fix.entryIds[0] === c.entryId);
+      const own = issues.filter((i) => i.rule === 'option-required' && i.selId === sel.sel.id);
+      const groups = new Set(choices.filter((x) => x.entryId === c.entryId).map((x) => x.groupId));
+      return own.some((i) => i.subject.id === c.groupId || !groups.has(i.subject.id));
+    };
+    const optional = (c: ArmyChoice) => isOptionalChoice(scope, roster, c, view);
+    return { choices, toggles, selOf, needsPick, optional };
+  }, [scope, roster, view, issues]);
+}
 
-  const selOf = (entryId: string) => army.selections.find((s) => s.sel.entryId === entryId);
-  /**
-   * A problem asks for this choice: too few picked in its group, or the army option itself is missing. A problem about
-   * the army option that names none of its groups (a choice nested deeper) marks all of them.
-   */
-  const needsPick = (c: ArmyChoice) => {
-    const sel = selOf(c.entryId);
-    if (!sel) return issues.some((i) => i.fix?.kind === 'add-unit' && i.fix.entryIds.length === 1 && i.fix.entryIds[0] === c.entryId);
-    const own = issues.filter((i) => i.rule === 'option-required' && i.selId === sel.sel.id);
-    const groups = new Set(choices.filter((x) => x.entryId === c.entryId).map((x) => x.groupId));
-    return own.some((i) => i.subject.id === c.groupId || !groups.has(i.subject.id));
-  };
-  /** Optional army options (Army of Renown) can be taken out again; ones the army must have (Dynasty Choice) can't. */
-  const optional = (c: ArmyChoice) => {
-    const node = scope.node(c.entryId);
-    if (!node) return false;
-    return !childConstraints(scope, view, army, node).some(
-      (k) => k.type === 'min' && k.field === 'selections' && k.value >= 1 && ['parent', 'force', 'roster'].includes(k.scope),
-    );
-  };
+const rootOf = (v: SelView): SelView => (v.parent ? rootOf(v.parent) : v);
 
+/**
+ * The army choice a problem is about, so Problems can offer "Choose Dynasty" and open its sheet: the army option a fix
+ * would add, or the one the problem's selection belongs to (the choice of the group the problem names, when it names one).
+ */
+export function useChoiceTargets(editor: ReadyEditor): (issue: Issue) => ChoiceTarget | null {
+  const state = useArmyChoices(editor);
+  const { view } = editor;
+  return useCallback(
+    (issue: Issue) => {
+      if (!state) return null;
+      const fix = issue.fix;
+      let entryId: string | undefined;
+      if (fix?.kind === 'add-unit') entryId = fix.entryIds.length === 1 ? fix.entryIds[0] : undefined;
+      else {
+        const selId = fix?.kind === 'open' ? fix.selId : issue.selId;
+        const v = selId ? findSelView(view, selId) : undefined;
+        const root = v && rootOf(v);
+        if (root && root.force.force.id === view.forces[0]?.force.id) entryId = root.sel.entryId;
+      }
+      const matches = state.choices.filter((c) => c.entryId === entryId);
+      const c = matches.find((x) => x.groupId === issue.subject.id) ?? matches[0];
+      return c ? { key: c.key, title: choiceTitle(c) } : null;
+    },
+    [state, view],
+  );
+}
+
+export const pickedOf = (c: ArmyChoice) => (c.max !== 1 ? c.options.filter((o) => o.selIds.length > 0) : c.options.filter((o) => o.id === c.current));
+
+/** "Dynasty: Novokh", "Dynasty: choose" (a required choice not made yet) or "Army of Renown: None". */
+function chipLabel(state: ArmyChoiceState, c: ArmyChoice): string {
+  const picked = pickedOf(c);
+  const current = picked.length
+    ? picked.map((o) => optionDisplay(o.name).name).join(', ')
+    : state.optional(c) && !state.selOf(c.entryId)
+      ? 'None'
+      : 'choose';
+  return `${choiceTitle(c)}: ${current}`;
+}
+
+export function ArmyChoiceChips({ editor, onOpen }: { editor: ReadyEditor; onOpen: (p: Record<string, string>) => void }) {
+  const state = useArmyChoices(editor);
+  if (!state) return null;
   return (
-    <section className="card army-options" aria-labelledby="army-options-title">
-      <h2 id="army-options-title">Army options</h2>
-      {choices.map((c) => {
-        const sel = selOf(c.entryId);
-        const missing = needsPick(c);
-        const none = optional(c);
-        // A group that takes more than one (Chivalric Oath: two) is a set of checkboxes.
-        const multi = c.max !== 1;
-        const picked = multi ? c.options.filter((o) => o.selIds.length > 0) : c.options.filter((o) => o.id === c.current);
-        const current = picked.length ? picked.map((o) => o.name).join(', ') : none && !sel ? 'None' : 'Not chosen';
-        const full = c.max !== -1 && picked.length >= c.max;
-        // Collapsed to "Title: choice" so a phone reaches the units quickly; open while a choice is still needed.
+    <>
+      {state.choices.map((c) => {
+        const missing = state.needsPick(c);
         return (
-          <details key={c.key} className="army-choice" open={missing || undefined}>
-            <summary>
-              <span className="army-choice__title">{c.title}</span>
-              <span className={missing ? 'army-choice__value army-choice__value--bad' : 'army-choice__value muted'}>{current}</span>
-            </summary>
-            <fieldset className="choices">
-              <legend className="sr-only">{c.title}</legend>
-              {missing && <p className="hint">{`${multi ? pickCount(c) : 'Pick one'}: your army needs this choice.`}</p>}
-              {multi &&
-                c.options.map((o) => {
-                  const on = o.selIds.length > 0;
-                  const toggle = () =>
-                    on
-                      ? o.selIds.forEach((selId) => dispatch({ type: 'remove', selId }))
-                      : sel
-                        ? dispatch({ type: 'add-child', parentSelId: sel.sel.id, entryId: o.id })
-                        : dispatch({ type: 'army-choice', choice: c, optionId: o.id });
-                  return (
-                    <label key={o.id} className="opt">
-                      <input type="checkbox" checked={on} disabled={!on && full} onChange={toggle} />
-                      <span className="opt__name">{o.name}</span>
-                    </label>
-                  );
-                })}
-              {!multi && none && (
-                <label className="radio-card">
-                  <input type="radio" name={c.key} checked={!sel} onChange={() => sel && dispatch({ type: 'remove', selId: sel.sel.id })} />
-                  <span className="radio-card__name">None</span>
-                </label>
-              )}
-              {!multi && c.options.map((o) => (
-                <label key={o.id} className="radio-card">
-                  <input
-                    type="radio"
-                    name={c.key}
-                    checked={c.current === o.id}
-                    onChange={() => dispatch({ type: 'army-choice', choice: c, optionId: o.id })}
-                  />
-                  <span className="radio-card__name">{o.name}</span>
-                </label>
-              ))}
-            </fieldset>
-          </details>
+          <button key={c.key} type="button" className={missing ? 'chip chip--warn' : 'chip'} onClick={() => onOpen({ choice: c.key })}>
+            {missing && <IconWarning size={15} aria-hidden="true" />}
+            {chipLabel(state, c)}
+          </button>
         );
       })}
-      {toggles.map((o) => {
-        const sel = selOf(o.entryId);
-        return (
-          <label key={o.entryId} className="opt">
-            <input
-              type="checkbox"
-              checked={sel !== undefined}
-              onChange={() => (sel ? dispatch({ type: 'remove', selId: sel.sel.id }) : dispatch({ type: 'add-unit', forceSelId: army.force.id, entryId: o.entryId }))}
-            />
-            <span className="opt__name">{displayName(o.name)}</span>
-          </label>
-        );
-      })}
-    </section>
+      {state.toggles.length > 0 && (
+        <button type="button" className="chip" onClick={() => onOpen({ sheet: 'options' })}>
+          More options
+        </button>
+      )}
+    </>
+  );
+}
+
+export interface SheetProps {
+  editor: ReadyEditor;
+  info: EntryInfoIndex | null;
+  onClose: () => void;
+}
+
+/** The army's on/off options (stratagems bought before the battle…), each saying what it does. */
+export function MoreOptionsSheet({ editor, info, onClose }: SheetProps) {
+  const { scope, dispatch, view } = editor;
+  const { wording } = useWording();
+  const state = useArmyChoices(editor);
+  const army = view.forces[0];
+  if (!state || !army) return null;
+  const toggle = (id: string | null) => {
+    if (!id) return;
+    const sel = state.selOf(id);
+    if (sel) dispatch({ type: 'remove', selId: sel.sel.id });
+    else dispatch({ type: 'add-unit', forceSelId: army.force.id, entryId: id });
+  };
+  return (
+    <Sheet
+      title="More options"
+      onClose={onClose}
+      footer={
+        <button type="button" className="btn btn--primary" onClick={onClose}>
+          Done
+        </button>
+      }
+    >
+      <ChoiceList
+        name="more-options"
+        legend="More options"
+        multi
+        options={state.toggles.map((o) => describeOption(scope, info, wording, o.entryId, o.name))}
+        selected={state.toggles.filter((o) => state.selOf(o.entryId)).map((o) => o.entryId)}
+        onPick={toggle}
+      />
+    </Sheet>
   );
 }

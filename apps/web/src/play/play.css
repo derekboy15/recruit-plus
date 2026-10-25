@@ -1,16 +1,47 @@
 /* Sandbox styles (loaded with the /play routes). */
-.play-game { display: grid; gap: 0.4rem; }
-.play-game > .btn { justify-self: end; }
-.play-game__confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
-.play-game__confirm p { margin: 0; flex-basis: 100%; }
+/* ---------- Practice games page ---------- */
+/* The intro is a sentence, not a label: it wraps under the title rather than being cut off. */
+.play-games .page-head__sub { white-space: normal; }
+.play-games .page-head__actions .btn--primary { gap: 6px; }
+.play-game { min-width: 0; display: flex; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.play-game:hover { border-color: var(--border-strong); }
+.play-game__link { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 12px 4px 12px 12px; color: inherit; text-decoration: none; }
+.play-game__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.play-game__title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.play-game__meta { font-size: 13px; color: var(--text-muted); overflow-wrap: anywhere; }
+.play-game .menu { display: flex; }
+.play-game .menu__trigger { height: auto; min-height: var(--touch); border-radius: 0 11px 11px 0; }
 .play-problems { border: 1px solid var(--red-strong); background: var(--bad-bg); border-radius: var(--radius); padding: 0.5rem 0.75rem; margin: 0.5rem 0; }
 .play-problems p { margin: 0.25rem 0; }
 .play-problems ul { margin: 0.25rem 0; padding-left: 1.2rem; }
 .play-setup > .btn--primary { width: 100%; }
+/* New game: each list is a card with its crest, size, points and anything that needs fixing. */
+.play-list { align-items: flex-start; min-width: 0; }
+.play-list input { margin-top: 11px; }
+.play-list .faction-badge { margin-top: 2px; }
+.play-list__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.play-list__name { font-weight: 600; overflow-wrap: anywhere; }
+.play-list__meta { font-size: 13px; color: var(--text-muted); }
+.play-list__warn { font-size: 13px; color: var(--warn); }
+.play-lists .muted, .play-lists .status, .play-lists .play-problems { margin-top: 0.25rem; }
 .board { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: #0d0d0c; border-radius: var(--radius); }
 .board__canvas { position: absolute; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
 .board__zoom { position: absolute; right: 6px; bottom: 6px; display: grid; gap: 6px; }
 .board__zoom .btn { min-width: var(--touch); padding: 0; font-size: 1.2rem; background: rgba(28, 27, 26, 0.85); }
+/* The map key: a toggle over the board's top-left corner and the legend it opens. */
+/* It spans the board's height so the legend can scroll inside it, but lets taps through to the board around it. */
+.map-key {
+  position: absolute; top: 6px; bottom: 6px; left: 6px; z-index: 2; max-width: calc(100% - var(--touch) - 24px);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px; pointer-events: none;
+}
+.map-key > * { pointer-events: auto; }
+.map-key__toggle { flex: none; background: rgba(28, 27, 26, 0.88); }
+.map-key__panel { min-height: 0; overflow-y: auto; padding: 0.5rem 0.75rem; background: rgba(27, 26, 24, 0.95); border: 1px solid var(--border-strong); border-radius: 10px; font-size: 0.8125rem; }
+.map-key__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.map-key__list li { display: flex; align-items: center; gap: 0.5rem; }
+.map-key__swatch { flex: none; width: 14px; height: 14px; border-radius: 3px; }
+.map-key__swatch--zone { border: 2px solid; }
+.map-key__swatch--objective { border-radius: 50%; border: 2px solid var(--text); }
 
 /* ---------- Game screen: fills the window above the app's own bars ---------- */
 .game {
@@ -28,7 +59,28 @@
 .game__army-nums { color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .game__army--A { box-shadow: inset 4px 0 0 var(--brass); }
 .game__army--B { box-shadow: inset 4px 0 0 var(--red-strong); }
-.game__army[data-active='true'] { border-color: var(--focus); }
+.game__army--A[data-active='true'] { border-color: var(--brass); }
+.game__army--B[data-active='true'] { border-color: var(--red-strong); }
+/* The Practice game's header (TopBar): Back, where the game is and the tools; the armies; the phase strip. Drills keep
+   the plain .game__top grid above. */
+.game__top--nav { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'back where tools' 'armies armies armies' 'phases phases phases'; column-gap: 0.25rem; padding: 0 0.5rem 0 0.25rem; }
+.game__back { grid-area: back; }
+.game__top--nav .game__where { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.01em; }
+.game__top--nav .game__tools { align-items: center; gap: 0; }
+.game__top--nav .game__tools .btn--icon { padding: 0; }
+.game__log-btn { gap: 0.3rem; border-color: transparent; }
+/* On the narrowest phones the round and phase need the room: Log keeps its name for screen readers. */
+@media (max-width: 359px) {
+  .game__tools .game__log-btn { width: var(--touch); padding: 0; }
+  .game__log-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+.phase-strip {
+  grid-area: phases; list-style: none; margin: 0; padding: 0 0.25rem 0.25rem; display: flex; justify-content: space-between; gap: 0.25rem;
+  font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden;
+}
+.phase-strip__item { color: var(--text); padding: 2px 0; border-bottom: 2px solid transparent; }
+.phase-strip__item[data-done='true'] { color: var(--text-muted); }
+.phase-strip__item[aria-current='step'] { color: var(--brass-strong); border-bottom-color: var(--brass-strong); font-weight: 700; }
 .game__board { position: relative; min-height: 0; }
 .game__panel { overflow-y: auto; max-height: 40vh; padding: 0.25rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-top: 1px solid var(--border); }
 .game--tall .game__panel { max-height: 85vh; }
@@ -44,19 +96,51 @@
 .die { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; margin: 0 0.25rem 0.25rem 0; border-radius: 6px; background: var(--text); color: #111; font-weight: 700; font-size: 1.1rem; }
 .game__overlay { position: fixed; inset: 0; z-index: 30; background: rgba(0, 0, 0, 0.6); display: grid; place-items: center; padding: 1rem; }
 .game__dialog { position: relative; width: min(100%, 520px); max-height: 85vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; }
-.game__close { position: absolute; top: 0.5rem; right: 0.5rem; }
-.game__dialog h2 { margin-top: 0; }
-.game__log ol { padding-left: 1.2rem; font-size: 0.9rem; }
-.game__log h3 { font-size: 0.95rem; color: var(--brass-strong); }
+/* The game log sheet: one section per phase, newest first, so its lines aren't numbered. */
+.game__log section + section { margin-top: 1rem; }
+.game__log h3 { margin: 0 0 0.35rem; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.01em; color: var(--brass-strong); }
+.game__log ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.9rem; color: var(--text-soft); }
 .game__handover { text-align: center; }
 .game__handover-text { color: var(--text-muted); margin: 0; }
 .game__handover-name { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; overflow-wrap: anywhere; }
 .game__menu-actions { display: grid; gap: 0.5rem; margin-top: 1rem; }
 .game__menu-actions [role='group'] { display: grid; gap: 0.5rem; }
 
+/* ---------- Practice game (game--fit): the pinned action bar and a board sized to the map ---------- */
+/* The bar is the panel's last child and sticks to its bottom: the next step is on screen however far the panel scrolls.
+   Sticky positions keep clear of the scroller's padding, so the bar and the Toolkit title carry it instead. */
+.game--fit .game__panel { padding-top: 0; padding-bottom: 0; display: flex; flex-direction: column; }
+.game__panel-body { flex: 1 0 auto; }
+.game--fit .game__disclaimer { margin-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); }
+.game__actions {
+  position: sticky; bottom: 0; z-index: 2; flex: none; display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin: 0.5rem -0.75rem 0; padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  background: var(--surface); border-top: 1px solid var(--border);
+}
+.game__actions:not(:has(button, a)) { display: none; }
+.game__actions-main, .game__actions-end { flex: 1 1 9rem; min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.game__actions-main:empty, .game__actions-end:empty { display: none; }
+.game__actions .btn { width: 100%; margin: 0; }
+/* With something to commit, moving on is the quieter choice. */
+.game__actions-main:not(:empty) ~ .game__actions-end .btn--primary { background: transparent; border-color: var(--border-strong); color: var(--text); }
+.game__actions-main:not(:empty) ~ .game__actions-end .btn--primary:hover:not(:disabled) { background: var(--surface-2); border-color: var(--brass); }
+.play-toolkit__head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.25rem 0; background: var(--surface); }
+.game__panel .play-toolkit__head h2 { margin: 0; }
+@media (max-width: 767px) {
+  .game--fit, .game--fit.game--tall { grid-template-rows: auto auto minmax(0, 1fr); }
+  .game__board--fit {
+    aspect-ratio: var(--board-w) / var(--board-h); height: min(50dvh, calc(100vw * var(--board-h) / var(--board-w)));
+    max-width: 100%; justify-self: center;
+  }
+  .game--tall .game__board--fit { height: min(25dvh, calc(100vw * var(--board-h) / var(--board-w))); }
+  .game--fit .game__panel, .game--fit.game--tall .game__panel { max-height: none; min-height: 0; }
+}
+
 @media (min-width: 768px) {
   .game, .game--tall { grid-template-columns: minmax(0, 1fr) 380px; grid-template-rows: auto minmax(0, 1fr); }
   .game__top { grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'where armies tools'; }
+  .game__top--nav { grid-template-columns: auto auto minmax(0, 1fr) auto; grid-template-areas: 'back where armies tools' 'phases phases phases phases'; column-gap: 0.5rem; }
+  .phase-strip { justify-content: flex-start; gap: 1.25rem; padding-left: 52px; }
   .game__panel, .game--tall .game__panel { max-height: none; border-top: 0; border-left: 1px solid var(--border); }
   .game__handle { display: none; }
 }
@@ -64,14 +148,17 @@
 .play-row > .btn { flex: 1 1 8rem; }
 .play-small { font-size: 0.8rem; }
 .play-actions { margin-top: 0.5rem; }
-.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; }
-.play-field select, .play-field input { min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
+.play-field { display: grid; gap: 0.25rem; margin: 0.5rem 0; min-width: 0; }
+.play-field select, .play-field input { max-width: 100%; min-height: var(--touch); background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 0.5rem; font: inherit; }
 .dice { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
 .dice .die { position: relative; min-width: var(--touch); height: var(--touch); margin: 0; border: 2px solid transparent; cursor: default; font: inherit; font-weight: 700; font-size: 1.2rem; }
 .dice button.die { cursor: pointer; }
-.die small { position: absolute; top: 1px; right: 3px; font-size: 0.65rem; }
+.die small { position: absolute; top: 1px; right: 3px; display: flex; align-items: center; gap: 1px; font-size: 0.65rem; line-height: 1; }
+.play-tally { margin: 0.25rem 0 0; }
+.play-tally strong { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.01em; }
 .die--pass { background: var(--ok); }
-.die--fail { background: #8a8580; color: #2a2724; }
+.die--fail { background: var(--surface-2); color: var(--text-muted); }
+.dice .die--fail { border-color: var(--border-strong); }
 .die--picked { border-color: var(--focus); box-shadow: 0 0 0 2px var(--focus); }
 .die--rolling { animation: die-tumble 0.15s linear infinite; }
 @keyframes die-tumble { 0% { transform: rotate(0deg); } 50% { transform: rotate(12deg) scale(1.08); } 100% { transform: rotate(0deg); } }

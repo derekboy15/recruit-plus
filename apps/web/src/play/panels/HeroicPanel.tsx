@@ -4,6 +4,7 @@ import { armyName } from '../game/names';
 import { PlanMove } from './PlanMove';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
+import { PinAction } from '../game/actionBar';
 
 export function HeroicPanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -31,9 +32,11 @@ export function HeroicPanel(props: PanelProps) {
           onDone={() => ui.select(null)}
         />
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: s.active }))}>
-        No more Heroic Interventions
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: s.active }))}>
+          No more Heroic Interventions
+        </button>
+      </PinAction>
     </section>
   );
 }
