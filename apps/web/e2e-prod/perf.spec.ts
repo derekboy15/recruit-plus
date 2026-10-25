@@ -10,11 +10,38 @@ import { seedDoc, waitForServiceWorker } from './helpers';
 // The "perf" project runs this file alone, after the other suites, at 375×812 (playwright.prod.config.ts).
 test.describe.configure({ mode: 'serial' });
 
-async function throttle(page: Page): Promise<void> {
+async function throttle(page: Page, rate = 4): Promise<void> {
   const cdp = await page.context().newCDPSession(page);
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate });
   await cdp.send('Network.enable');
   await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 });
+}
+
+/**
+ * The budgets were measured on the owner's PC slowed 4×. A slower host (GitHub's runners are 1.7–2.4× slower, and vary
+ * from run to run) is already part of the way to phone speed, so it is slowed less: by 4× the reference benchmark time
+ * over its own, never more than 4× and never less than 1×. On the reference PC this stays 4×.
+ * The benchmark's median on the reference PC, measured 25 Oct 2026 (37.0, 37.3 and 38.2 ms over three runs):
+ */
+const REFERENCE_BENCH_MS = 37;
+
+async function calibratedRate(page: Page): Promise<number> {
+  const ms = await page.evaluate(() => {
+    const run = () => {
+      const t0 = performance.now();
+      let x = 0;
+      for (let i = 0; i < 10_000_000; i++) x = (x * 31 + i) % 1_000_003;
+      (globalThis as { benchSink?: number }).benchSink = x;
+      return performance.now() - t0;
+    };
+    run(); // let the JIT warm up
+    const times = Array.from({ length: 7 }, run).sort((a, b) => a - b);
+    return times[3];
+  });
+  // Within 10% of the reference is benchmark noise: such a host is the reference PC, slowed the full 4×.
+  const rate = ms <= REFERENCE_BENCH_MS * 1.1 ? 4 : Math.max(1, (4 * REFERENCE_BENCH_MS) / ms);
+  console.log(`CPU benchmark ${ms.toFixed(1)} ms (reference ${REFERENCE_BENCH_MS} ms): CPU slowed ${rate.toFixed(2)}×`);
+  return rate;
 }
 
 async function timeUntil(page: Page, path: string, ready: () => Promise<void>): Promise<number> {
@@ -64,7 +91,7 @@ test('crowded Strike Force board p95 frame ≤ 50ms', async ({ page, remote, sig
   await expect(board).toBeVisible({ timeout: 20_000 });
   await page.waitForTimeout(1500);
   if (process.env.SHOT_DIR) await page.screenshot({ path: `${process.env.SHOT_DIR}/crowded-board.png` });
-  await throttle(page);
+  await throttle(page, await calibratedRate(page));
   const box = (await board.boundingBox())!;
   const frames = page.evaluate(
     () =>
