@@ -152,7 +152,7 @@
   "33330d6e6577": {
     "name": "The Traitor's Mark",
     "kind": "ability",
-    "plain": "Once per battle, at the start of a battle round other than the first: after you pick the Harbinger ability that is active for your army, you can also pick a second Harbinger ability from that battle round, whatever Harbinger ability was picked in the battle round before. For the rest of the battle, that second ability is active for the bearer. Using this doesn't change your choice of Harbinger ability in the next battle round."
+    "plain": "Once per battle, you can give the bearer a second Harbinger ability from the current battle round, which stays active for it until the battle ends. Use it at the start of a battle round after the first, once you have picked the Harbinger ability active for your army; the second one can be any other Harbinger ability from that battle round, whatever Harbinger ability was picked in the battle round before. This doesn't change which Harbinger ability you can pick in the next battle round."
   },
   "33900649eafe": {
     "name": "Hungry for Combat",
@@ -192,7 +192,7 @@
   "3ed6db42ee51": {
     "name": "The Storm Malevolent",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase ends, whenever a CHAOS KNIGHT model from your army makes a melee attack against that unit:\n- add 1 to the wound roll;\n- if the wound roll is an unmodified 6, the target also suffers 1 mortal wound on top of the normal damage.\nNo enemy unit can suffer more than 3 mortal wounds per phase from this psychic power."
+    "plain": "Malediction: until your next Psychic phase ends, your CHAOS KNIGHT models add 1 to melee wound rolls against one enemy unit within 18\" of this PSYKER. Also, each time one of those attacks has an unmodified wound roll of 6, it inflicts 1 mortal wound on the target on top of the normal damage. No enemy unit can suffer more than 3 mortal wounds per phase from this psychic power."
   },
   "3f8c30fe3dc8": {
     "name": "Taskmaster (Aura)",
@@ -207,7 +207,7 @@
   "417c2bb2d8ff": {
     "name": "Wreathed in Shades",
     "kind": "psychic",
-    "plain": "Blessing. If manifested, pick one of your DISCIPLES OF BE'LAKOR units within 12\" of this PSYKER (not a MONSTER or VEHICLE unit). Until the start of your next Psychic phase, enemy models can only target that unit with ranged weapons if it is the closest eligible target to the firing model or is within 12\" of the firing model."
+    "plain": "Blessing: enemy models can only target one of your DISCIPLES OF BE'LAKOR units with ranged weapons if it is within 12\" of them or their closest eligible target. Pick a unit within 12\" of this PSYKER that isn't a MONSTER or VEHICLE unit; the effect lasts until your next Psychic phase starts."
   },
   "4308ee7e6112": {
     "name": "War Dog Squadron",
@@ -222,7 +222,7 @@
   "43570e13d231": {
     "name": "Penumbral Curse",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, melee attacks by models in that unit have 1 subtracted from their wound rolls and their Armour Penetration reduced by 1 as well."
+    "plain": "Malediction: melee attacks by one enemy unit within 18\" of this PSYKER have 1 subtracted from their wound rolls and their Armour Penetration reduced by 1. This lasts until your next Psychic phase starts."
   },
   "43e00aa6b74e": {
     "name": "Engine of Destruction",
@@ -257,12 +257,12 @@
   "492a82aead8d": {
     "name": "Cerastus shock lance (melee)",
     "kind": "ability",
-    "plain": "Pick one of the profiles below before you choose targets, and attack with it. The charged profile is only allowed if the bearer made a charge move this turn."
+    "plain": "Before choosing targets, pick which of the profiles below to attack with; the charged profile is only allowed if the bearer made a charge move this turn."
   },
   "49705e3aa251": {
     "name": "Spitesquall",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- The unit can't fire Overwatch or Set to Defend.\n- Track a Spitesquall tally for the unit: add one to it every time one of its models is destroyed. At the end of each phase, if the unit is still on the battlefield, roll one D6 for every mark on its tally; the unit suffers 1 mortal wound for each 5+ rolled. Then, at the end of every phase, its tally goes back to 0 once you've rolled."
+    "plain": "Malediction: one enemy unit within 18\" of this PSYKER can't fire Overwatch or Set to Defend, and risks 1 mortal wound for each model it loses in a phase. Until your next Psychic phase starts:\n- the unit can't fire Overwatch or Set to Defend;\n- it has a Spitesquall tally: add one to it every time one of its models is destroyed. At the end of each phase, if the unit is still on the battlefield, roll one D6 for every mark on its tally; the unit suffers 1 mortal wound for each 5+ rolled. The tally then goes back to 0 at the end of each phase."
   },
   "4b64ad040bfa": {
     "name": "Army of Renown - Disciples of Be'lakor",
@@ -302,7 +302,7 @@
   "4e4bcee2af57": {
     "name": "Cyclonic Lamentation",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested: all enemy units within 12\" of this PSYKER must each take a Dread test. Any that fail suffer 1 mortal wound each, or D3 mortal wounds each if your Psychic test result was 11+."
+    "plain": "Witchfire: every enemy unit within 12\" of this PSYKER takes a Dread test, and each that fails suffers 1 mortal wound (D3 instead if your Psychic test was 11+)."
   },
   "4f2c6f8dde95": {
     "name": "Tempest warblade",
@@ -322,7 +322,7 @@
   "5459e84d2fff": {
     "name": "Rune of Nak'T'Graa",
     "kind": "ability",
-    "plain": "When you choose this Relic, also pick a Fell Bond that none of the models in your army have. The bearer gains it, on top of any Fell Bond it already has."
+    "plain": "When you choose this Relic, pick a Fell Bond that none of the models in your army have; the bearer gains it, on top of any Fell Bond it already has."
   },
   "54ea4dce57fa": {
     "name": "Diabolic Bulwark",
@@ -472,7 +472,7 @@
   "7c0bbf0ad808": {
     "name": "Betraying Shades",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy unit within 18\" of this PSYKER and visible to it. Choose up to 6 models in that unit and add up their unmodified Attacks characteristics. Roll that many D6 (for example, if five of the chosen models had an Attacks characteristic of 2 and one had 3, you would roll thirteen D6). If the Psychic test result was 11 or more, add 1 to each dice result. That unit suffers 1 mortal wound for each roll of 6+."
+    "plain": "Witchfire: roll one D6 per Attack of up to 6 models in a visible enemy unit within 18\" of this PSYKER; that unit suffers 1 mortal wound for each 6+. Pick the unit, choose up to 6 of its models and add up their unmodified Attacks characteristics. Roll that many D6 (for example, if five of the chosen models had an Attacks characteristic of 2 and one had 3, you would roll thirteen D6). If the Psychic test result was 11 or more, add 1 to each dice result."
   },
   "7c83dee32fab": {
     "name": "Blood Shield",
@@ -487,7 +487,7 @@
   "7d9e874dcca3": {
     "name": "Serpentstrike Core",
     "kind": "ability",
-    "plain": "Choose one weapon this model is equipped with: a daemonbreath spear, daemonbreath meltagun, twin daemonbreath meltagun or daemonbreath thermal cannon. That weapon:\n- counts as a Relic for all rules purposes;\n- loses all of its abilities;\n- gets 1 added to its Strength;\n- gets 2 added to its Damage."
+    "plain": "One daemonbreath weapon this model has becomes a Relic for all rules purposes, loses its abilities, and gets 1 added to its Strength and 2 to its Damage. Pick which one: a daemonbreath spear, daemonbreath meltagun, twin daemonbreath meltagun or daemonbreath thermal cannon that it is equipped with."
   },
   "7ed0871559d5": {
     "name": "Soul-Raptor Swarm",
@@ -507,12 +507,12 @@
   "82257e54d5af": {
     "name": "Eager for the Kill",
     "kind": "ability",
-    "plain": "This WARLORD gets 1 added to its Advance and charge rolls, and 1 extra attack while it is within your opponent's deployment zone."
+    "plain": "Add 1 to this WARLORD's Advance and charge rolls; while it is within your opponent's deployment zone, it also gets 1 extra attack."
   },
   "826f81578bc1": {
     "name": "Shrouded Step",
     "kind": "psychic",
-    "plain": "Blessing. If manifested, pick one of your DISCIPLES OF BE'LAKOR INFANTRY units within 18\" of this PSYKER. Take it off the battlefield and set it up again anywhere on the battlefield more than 9\" away from all enemy models. If that unit Remained Stationary this turn, it counts as having made a Normal Move this turn instead."
+    "plain": "Blessing: one of your DISCIPLES OF BE'LAKOR INFANTRY units within 18\" of this PSYKER is removed and set up anywhere more than 9\" from all enemy models. If that unit Remained Stationary this turn, it counts as having made a Normal Move this turn instead."
   },
   "8466d5ef7b49": {
     "name": "War Dog Squadron",
@@ -535,7 +535,7 @@
   "8a90689e08e9": {
     "name": "Winds of the Warp",
     "kind": "psychic",
-    "plain": "Blessing (Aura). If manifested, these effects last until your next Psychic phase starts:\n- Roll one D6 whenever this PSYKER loses a wound; on a 5+, it isn't lost.\n- If the Psychic test result was 8 or more, then while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 6\" of this PSYKER, roll one D6 whenever that model loses a wound; on a 6, it doesn't lose that wound."
+    "plain": "Blessing (Aura): until your next Psychic phase starts:\n- Roll one D6 whenever this PSYKER loses a wound; on a 5+, it isn't lost.\n- If the Psychic test result was 8 or more, then while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 6\" of this PSYKER, roll one D6 whenever that model loses a wound; on a 6, it doesn't lose that wound."
   },
   "8c0794ac5d9a": {
     "name": "3 - Daemonic Power",
@@ -635,7 +635,7 @@
   "a080a7ff301f": {
     "name": "Voidslivers",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy model within 12\" of this PSYKER and visible to it. Draw a line from any part of this PSYKER's base to any part of the chosen model's base (or hull).\n- The chosen model's unit suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models.\n- Each other enemy unit that the line passes over or through suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models."
+    "plain": "Witchfire: pick a visible enemy model within 12\" of this PSYKER; that model's unit and each other enemy unit in between suffer 1 or D3 mortal wounds. Draw a line from any part of this PSYKER's base to any part of the chosen model's base (or hull):\n- The chosen model's unit suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models.\n- Each other enemy unit that the line passes over or through suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models."
   },
   "a15aa7a84b14": {
     "name": "Heretek Power Core",
@@ -645,7 +645,7 @@
   "a40473cabc38": {
     "name": "The Blasphemous Engine",
     "kind": "ability",
-    "plain": "- While the bearer is using its Daemonic Surge Traitoris Ambition, each time it would lose a wound because of a mortal wound, roll one D6: on a 2+, it doesn't lose that wound.\n- When working out which characteristics on its profile to use, treat the bearer as having twice as many wounds remaining as it really has."
+    "plain": "- While the bearer uses its Daemonic Surge Traitoris Ambition, roll one D6 each time it would lose a wound to a mortal wound: on a 2+, the wound isn't lost.\n- When working out which characteristics on its profile to use, treat the bearer as having twice as many wounds remaining as it really has."
   },
   "a5ac348ecebf": {
     "name": "Blessing of a Thousand Poxes",
@@ -695,7 +695,7 @@
   "b2b81dfab817": {
     "name": "Coruscating Hate",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, D3 mortal wounds are inflicted on the closest enemy unit within 12\" of this PSYKER that it can see. Then roll one D6. On a 2-3, 1 mortal wound is inflicted on the closest other enemy unit that is within 6\" of the first target and visible to it. On a 4+, that other unit suffers D3 mortal wounds instead."
+    "plain": "Witchfire: the closest enemy unit within 12\" of this PSYKER that it can see suffers D3 mortal wounds. Next, roll one D6. On a 2-3, 1 mortal wound is inflicted on the closest other enemy unit that is within 6\" of the first target and visible to it. On a 4+, that other unit suffers D3 mortal wounds instead."
   },
   "b48224c19dc7": {
     "name": "Worthy Offerings",
@@ -740,7 +740,7 @@
   "bf6aa82887f8": {
     "name": "Vortex Terrors",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- Models in that unit have 1 subtracted from their Leadership characteristic.\n- Whenever that unit is chosen to shoot or fight, it first has to take a Dread test. On a failed test, the Weapon Skill and Ballistic Skill characteristics of its models are reduced by 1 until the current phase ends."
+    "plain": "Malediction: until your next Psychic phase starts, one enemy unit within 18\" of this PSYKER loses 1 Leadership and takes a Dread test when it shoots or fights.\n- Models in that unit have 1 subtracted from their Leadership characteristic.\n- Whenever that unit is chosen to shoot or fight, it first has to take a Dread test. On a failed test, the Weapon Skill and Ballistic Skill characteristics of its models are reduced by 1 until the current phase ends."
   },
   "c06e49df94f8": {
     "name": "Lord of Dread",
@@ -845,7 +845,7 @@
   "e11d1486e585": {
     "name": "Warpshock harpoon",
     "kind": "weapon",
-    "plain": "Add 1 to the hit roll for attacks made with this weapon against a MONSTER or VEHICLE unit, unless it is an AIRCRAFT unit. Whenever an attack from this weapon is allocated to a model, the unit of that model suffers 3 mortal wounds on top of any normal damage."
+    "plain": "Each attack from this weapon that is allocated to a model deals 3 mortal wounds to that model's unit, on top of any normal damage. Against a MONSTER or VEHICLE unit, except an AIRCRAFT unit, add 1 to the hit roll for this weapon's attacks."
   },
   "e32b42330fbb": {
     "name": "Dark Forging",
@@ -870,7 +870,7 @@
   "e412c5c0d20f": {
     "name": "Traitor's Mark (Aura)",
     "kind": "ability",
-    "plain": "Aura: your opponent can't pick an enemy unit that is in Dread range of the bearer for the Insane Bravery Stratagem, and can't use any rule that would let that unit re-roll a Morale test."
+    "plain": "Aura: enemy units in Dread range of the bearer can't be picked for Insane Bravery and can't re-roll Morale tests. Your opponent can't use the Insane Bravery Stratagem on such a unit, or any rule that would let it re-roll a Morale test."
   },
   "ea5111f75a93": {
     "name": "Mirror of Fates",
@@ -895,7 +895,7 @@
   "ef98d8775b69": {
     "name": "Pall of Despair",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER that it can see, and roll 3D6. If the total beats that unit's Leadership characteristic, pick one of these effects; it applies to the unit until your next Psychic phase starts:\n- If the unit has any Aura abilities, choose one of them. The unit loses that ability until your next Psychic phase starts.\n- Until your next Psychic phase starts, the unit can't perform actions (if it is in the middle of an action, that action fails immediately).\n- Until your next Psychic phase starts, in the Fight phase the unit isn't eligible to fight that phase until every eligible unit from your army has fought."
+    "plain": "Malediction: one enemy unit within 18\" of this PSYKER loses an Aura ability, can't perform actions or fights last (you pick), if 3D6 beats its Leadership.\nPick an enemy unit within 18\" of this PSYKER that it can see, and roll 3D6. If the total beats that unit's Leadership characteristic, pick one of these effects; it applies to the unit until your next Psychic phase starts:\n- If the unit has any Aura abilities, choose one of them. The unit loses that ability until your next Psychic phase starts.\n- Until your next Psychic phase starts, the unit can't perform actions (if it is in the middle of an action, that action fails immediately).\n- Until your next Psychic phase starts, in the Fight phase the unit isn't eligible to fight that phase until every eligible unit from your army has fought."
   },
   "f016ecf49a1e": {
     "name": "Helm of Dogs (Aura)",
@@ -910,7 +910,7 @@
   "f2c96a6cc4a8": {
     "name": "Daemonic Shrike",
     "kind": "ability",
-    "plain": "At the start of each of your Shooting phases, pick an enemy unit within 18\" of the bearer. For the rest of the turn, the bearer's ranged attacks against that unit each have their Armour Penetration improved by 1."
+    "plain": "In each of your Shooting phases, the bearer's ranged attacks against one enemy unit within 18\" of it have their Armour Penetration improved by 1. Pick that unit at the start of the phase; the improvement lasts until the end of the turn."
   },
   "f6db2fa85483": {
     "name": "Sorcerous Ammunition",

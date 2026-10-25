@@ -17,7 +17,7 @@
   "097a7f2227bb": {
     "name": "Desecration of Worlds",
     "kind": "psychic",
-    "plain": "Malediction: when manifested, pick an enemy unit within 24\" of this PSYKER that it can see. Until your next Psychic phase starts, every time that unit Advances, Falls Back, makes a Normal Move or makes a charge move, you roll one D6 per model in it, and the unit suffers 1 mortal wound for each 6 rolled."
+    "plain": "Malediction: one enemy unit within 24\" of this PSYKER that it can see risks mortal wounds when it makes a Normal Move, Advances, Falls Back or charges. Until your next Psychic phase starts, every time that unit Advances, Falls Back, makes a Normal Move or makes a charge move, you roll one D6 per model in it, and the unit suffers 1 mortal wound for each 6 rolled."
   },
   "0b5ce6018866": {
     "name": "Airborne Predator",
@@ -77,7 +77,7 @@
   "1d39fbfd0a07": {
     "name": "Temporal Surge",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, choose a unit within 6\" of this PSYKER that is a THOUSAND SONS INFANTRY, THOUSAND SONS CAVALRY or THOUSAND SONS BEASTS unit. It gets to make a Normal Move."
+    "plain": "Blessing: one unit within 6\" of this PSYKER that is THOUSAND SONS CAVALRY, THOUSAND SONS BEASTS or THOUSAND SONS INFANTRY can make a Normal Move."
   },
   "1e98c3124faa": {
     "name": "Unwavering Phalanx",
@@ -217,7 +217,7 @@
   "496e2f2208c9": {
     "name": "Weaver of Fates",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one THOUSAND SONS unit within 18\" of this PSYKER. Until your next Psychic phase starts, its models have a 4+ invulnerable save."
+    "plain": "Blessing: the models in one THOUSAND SONS unit within 18\" of this PSYKER have a 4+ invulnerable save until your next Psychic phase starts."
   },
   "4c64a6e61bac": {
     "name": "Reality Unbound",
@@ -272,7 +272,7 @@
   "5ea99e4f1f78": {
     "name": "Psychic Stalk",
     "kind": "psychic",
-    "plain": "Witchfire: when manifested, pick an enemy unit within 18\" of this PSYKER that it can see and that is not a VEHICLE, MONSTER or CHARACTER. Roll 2D6. If the total is higher than that unit's unmodified Leadership characteristic, your opponent chooses one model in it and that model is slain."
+    "plain": "Witchfire: one enemy unit (not a VEHICLE, MONSTER or CHARACTER) within 18\" of this PSYKER that it can see loses a model if 2D6 beats its unmodified Leadership. Roll 2D6: if the total is higher than that unit's unmodified Leadership characteristic, your opponent chooses one model in it and that model is slain."
   },
   "6010d3552288": {
     "name": "Thousand Sons Daemon Prince",
@@ -297,7 +297,7 @@
   "633d1587e71b": {
     "name": "Presage",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 18\" of this PSYKER. Until your next Psychic phase starts, add 1 to the hit roll for every attack a model in that unit makes."
+    "plain": "Blessing: if manifested, pick one of your THOUSAND SONS units within 18\" of this PSYKER to add 1 to its hit rolls until your next Psychic phase starts."
   },
   "665d01afbaef": {
     "name": "Sorcerous Might",
@@ -372,12 +372,12 @@
   "7fe5b093f5b3": {
     "name": "Perplex",
     "kind": "psychic",
-    "plain": "Malediction: when manifested, pick an enemy unit within 24\" of this PSYKER. Until your next Psychic phase starts, whenever that unit is chosen to shoot, it can't pick any unit more than 24\" away as a target for ranged attacks."
+    "plain": "Malediction: until your next Psychic phase starts, one enemy unit within 24\" of this PSYKER can't target units more than 24\" away with ranged attacks."
   },
   "8297e88e12f7": {
     "name": "Temporal Manipulation",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS models within 12\" of this PSYKER, other than VEHICLES. That model is healed and gets back up to D3 lost wounds. A model can only be healed once per turn."
+    "plain": "Blessing: one of your THOUSAND SONS models within 12\" of this PSYKER, other than VEHICLES, is healed and gets back up to D3 lost wounds. A model can only be healed once per turn."
   },
   "836372ab1d9a": {
     "name": "Exalted Mutation",
@@ -492,7 +492,7 @@
   "9d4b488e56c6": {
     "name": "Tzeentch's Firestorm",
     "kind": "psychic",
-    "plain": "Witchfire: when manifested, pick an enemy unit within 18\" of this PSYKER that it can see and roll nine D6. That unit suffers 1 mortal wound for each 6 rolled. If the Psychic test was an unmodified 9+, it instead suffers 1 mortal wound for each 5+."
+    "plain": "Witchfire: roll nine D6 for one enemy unit within 18\" of this PSYKER that it can see; it suffers 1 mortal wound for each 6. If the Psychic test was an unmodified 9+, it suffers 1 mortal wound for each 5+ instead."
   },
   "9d813b608f45": {
     "name": "Sorcerer in Terminator Armour",
@@ -517,17 +517,17 @@
   "a6d20371f488": {
     "name": "Swelled by the Warp",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS models within 12\" of this PSYKER. Until your next Psychic phase starts, that model's Strength goes up by 2 and its Attacks go up by 1."
+    "plain": "Blessing: one of your THOUSAND SONS models within 12\" of this PSYKER adds 2 to its Strength and 1 to its Attacks until your next Psychic phase starts."
   },
   "a7a99499dc70": {
     "name": "Baleful Devolution",
     "kind": "psychic",
-    "plain": "Witchfire: when manifested, pick an enemy unit of 6 or more models within 18\" of this PSYKER that it can see. Roll as many D6 as the result of the Psychic test. For each 6, that unit suffers D3 mortal wounds."
+    "plain": "Witchfire: one enemy unit of 6 or more models within 18\" of this PSYKER that it can see suffers D3 mortal wounds for each 6 you roll. Roll as many D6 as the result of the Psychic test."
   },
   "ab179d2d4b28": {
     "name": "Glamour of Tzeentch",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 18\" of this PSYKER. Until your next Psychic phase starts, subtract 1 from the hit roll of every attack made against that unit."
+    "plain": "Blessing: until your next Psychic phase starts, subtract 1 from the hit roll of attacks against one of your THOUSAND SONS units within 18\" of this PSYKER."
   },
   "abcc51f33a84": {
     "name": "Helbrute fist",
@@ -547,12 +547,12 @@
   "aff924680577": {
     "name": "Pyric Flux",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your ARCANA ASTARTES units within 12\" of this PSYKER. Until the end of the turn, warpflamers, warpflame pistols and heavy warpflamers carried by models in that unit (and any relics that replace one of them) have their Strength increased by 1."
+    "plain": "Blessing: one of your ARCANA ASTARTES units within 12\" of this PSYKER adds 1 to the Strength of its warpflame weapons until the end of the turn. This means the warpflamers, warpflame pistols and heavy warpflamers carried by models in that unit, and any relics that replace one of them."
   },
   "b2b3ebce7394": {
     "name": "Gaze of Hate",
     "kind": "psychic",
-    "plain": "Witchfire: if this power is manifested, pick one enemy unit within 18\" of this PSYKER that it can see. Roll three D6; that unit suffers 1 mortal wound for each 4+."
+    "plain": "Witchfire: roll three D6 for one enemy unit within 18\" of this PSYKER that it can see; it suffers 1 mortal wound for each 4+."
   },
   "b5254a2b202d": {
     "name": "Battle-psyker",
@@ -597,7 +597,7 @@
   "bb9e930fa882": {
     "name": "Dark Blessing",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy model within 6\" of this PSYKER that it can see and roll one D6. If the roll beats that model's Toughness characteristic, the model's unit suffers D3+3 mortal wounds."
+    "plain": "Witchfire: roll one D6 for one enemy model within 6\" of this PSYKER that it can see; if the roll beats its Toughness, its unit suffers D3+3 mortal wounds."
   },
   "be29caa0a41b": {
     "name": "Malefic Maelstrom",
@@ -652,7 +652,7 @@
   "ceadfda746ed": {
     "name": "Empyric Guidance",
     "kind": "psychic",
-    "plain": "Blessing: when manifested, pick one of your THOUSAND SONS units within 12\" of this PSYKER. Until your next Psychic phase starts, Rapid Fire and Heavy weapons carried by models in that unit get 6\" more range."
+    "plain": "Blessing: until your next Psychic phase starts, Rapid Fire and Heavy weapons in one of your THOUSAND SONS units within 12\" of this PSYKER get 6\" more range."
   },
   "ceffc46c0cb8": {
     "name": "Diamond of Distortion",
@@ -772,7 +772,7 @@
   "e8c8fdd427b9": {
     "name": "Witch-warrior",
     "kind": "ability",
-    "plain": "Whenever this model manifests Smite, or a Witchfire power whose mortal wounds are decided by a dice roll (for example D3, or one D6 per model in the unit), you can re-roll one of the dice used to work out how many mortal wounds are inflicted."
+    "plain": "Whenever this model manifests Smite, or a Witchfire power that rolls dice to set its number of mortal wounds, you can re-roll one of those dice. For example, the roll might be D3, or one D6 for each model in the unit."
   },
   "ebf99e12a76a": {
     "name": "Cha'Qi'Thl's Theorem",
@@ -832,7 +832,7 @@
   "fc3db8ebb389": {
     "name": "Cacodaemonic Curse",
     "kind": "psychic",
-    "plain": "Malediction: when manifested, pick an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, ranged weapons carried by models in that unit have 1 taken off their Strength."
+    "plain": "Malediction: subtract 1 from the Strength of ranged weapons in one enemy unit within 18\" of this PSYKER until your next Psychic phase starts."
   },
   "fce34b7b8b9f": {
     "name": "Lord of the Planet of the Sorcerers",

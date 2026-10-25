@@ -2,12 +2,12 @@
   "0859b518bac4": {
     "name": "Explosive Demise",
     "kind": "ability",
-    "plain": "When this model drops to 0 wounds, roll a dice before you remove it. On a 5+, every unit within 3\" takes 1 mortal wound."
+    "plain": "When this model drops to 0 wounds, roll a dice before you remove it: on a 5+, every unit within 3\" takes 1 mortal wound."
   },
   "0a0dfefa3d35": {
     "name": "Servants of the Abyss",
-    "kind": "ability",
-    "plain": "This ability does nothing unless OBSIDIUS MALLEX is in your army. If he is, you can't set up any unit with this ability until OBSIDIUS MALLEX has been set up. When you set up OBSIDIUS MALLEX during deployment, every unit with this ability is set up straight away, at the same time. The first time OBSIDIUS MALLEX is set up on the battlefield, all units with this ability have to be placed within 6\" of him (or in the same TRANSPORT he is in). If they can't be set up like this, they count as destroyed."
+    "kind": "rule",
+    "plain": "Units with this ability are set up along with OBSIDIUS MALLEX; if he isn't in your army, this ability does nothing. You can't set up any unit with this ability until OBSIDIUS MALLEX has been set up. When you set up OBSIDIUS MALLEX during deployment, every unit with this ability is set up straight away, at the same time. The first time OBSIDIUS MALLEX is set up on the battlefield, all units with this ability have to be placed within 6\" of him (or in the same TRANSPORT he is in). If they can't be set up like this, they count as destroyed."
   },
   "199ecba2a65e": {
     "name": "Vox-caster",
@@ -57,7 +57,7 @@
   "83b62760995e": {
     "name": "Unrestrained Power",
     "kind": "ability",
-    "plain": "When this model takes a Psychic test, you can re-roll any dice that roll a 1. But it suffers Perils of the Warp on any double, not only a double 1 or double 6."
+    "plain": "On this model's Psychic tests, you can re-roll any dice that roll a 1, but it suffers Perils of the Warp on any double, not only a double 1 or double 6."
   },
   "843ed55da334": {
     "name": "Fanatical Devotion",

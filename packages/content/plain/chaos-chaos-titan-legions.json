@@ -47,7 +47,7 @@
   "72dcee621624": {
     "name": "Reactor Meltdown",
     "kind": "ability",
-    "plain": "If this model is destroyed, roll one D6 before taking it off the battlefield. On a 6+, it explodes: every unit within 4D6\" takes 3D6 mortal wounds."
+    "plain": "If this model is destroyed, roll one D6 before taking it off the battlefield: on a 6+, it explodes and every unit within 4D6\" takes 3D6 mortal wounds."
   },
   "75ed33929231": {
     "name": "Reaver melta cannon",

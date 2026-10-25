@@ -2,17 +2,17 @@
   "011132a651b9": {
     "name": "Xenos - Psychic Veil",
     "kind": "psychic",
-    "plain": "Blessing (Aura): once manifested, this lasts until your next Psychic phase starts. While it lasts, enemies can target friendly ORDO XENOS units within 6\" of this psyker with attacks only if such a unit is the closest visible enemy unit, and can choose such a unit as a charge target only if the charging unit is within 6\" of it."
+    "plain": "Blessing (Aura): if manifested, enemies are limited in when they can target friendly ORDO XENOS units within 6\" of this psyker with attacks or charges. This lasts until your next Psychic phase starts. While it lasts, such a unit can be the target of an attack only if it is the closest visible enemy unit, and the target of a charge only if the charging unit is within 6\" of it."
   },
   "0322d178fa13": {
     "name": "Arbites Medi-kit",
     "kind": "ability",
-    "plain": "Once per turn, when a model in the bearer's unit fails a saving throw for the first time that turn, change that attack's Damage characteristic to 0 for that attack."
+    "plain": "Once per turn, when a model in the bearer's unit first fails a saving throw that turn, change that attack's Damage characteristic to 0."
   },
   "03326891d413": {
     "name": "Steel Commissar",
     "kind": "ability",
-    "plain": "Officer model only. As well as Mechanised Orders, this model knows Prefectus Orders. In your Command phase, it can issue one Mechanised Order and one Prefectus Order. When it issues a Prefectus Order, it can pick an Infantry Officer or Abhuman unit for that Order, but if it does, the Regimental Tactics ability does not apply (every other rule for issuing Orders still applies)."
+    "plain": "Officer model only: this model knows Prefectus Orders as well as Mechanised Orders, and can issue one of each in your Command phase. When it issues a Prefectus Order, it can pick an Infantry Officer or Abhuman unit for that Order, but if it does, the Regimental Tactics ability does not apply (every other rule for issuing Orders still applies)."
   },
   "08c34f87afc3": {
     "name": "Armoured Cockpit",
@@ -27,7 +27,7 @@
   "0a7d670101ab": {
     "name": "Grim Demeanour",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Grim Demeanour keyword.\n\nWhenever a unit with this doctrine takes a Combat Attrition test, you can ignore some or all of the modifiers."
+    "plain": "Whenever a unit with this doctrine takes a Combat Attrition test, you can ignore some or all of the modifiers. Units with this doctrine also gain the Grim Demeanour keyword."
   },
   "0bb6ee11aab6": {
     "name": "Executioner Pistol",
@@ -207,7 +207,7 @@
   "357153a88545": {
     "name": "Mental Interrogation",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, pick one enemy Character model within 12\" of this Psyker that it can see. Until the start of your next Psychic phase, subtract 1 from the hit roll each time that enemy model makes an attack. Also, if your army is Battle-forged, roll 3D6: if the total equals or beats that enemy model's Leadership characteristic, you gain 1 Command point."
+    "plain": "Malediction: if manifested, an enemy Character model within 12\" of this Psyker and visible to it subtracts 1 from its hit rolls until your next Psychic phase. You pick the model. Also, if your army is Battle-forged, roll 3D6: if the total equals or beats that enemy model's Leadership characteristic, you gain 1 Command point."
   },
   "362b92177452": {
     "name": "Refractor Field",
@@ -237,7 +237,7 @@
   "3bd28b8a3549": {
     "name": "Dominate",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, pick one enemy model that isn't a VEHICLE within 12\" of this psyker, then roll 3D6. If the result equals or beats that model's Leadership characteristic, it can at once do one of two things: shoot with one of its weapons as though it were your Shooting phase, or make a single attack as though it were the Fight phase. While it shoots or makes that close combat attack, treat it as a separate unit belonging to your army."
+    "plain": "Malediction: if manifested, pick one enemy model that isn't a VEHICLE within 12\" of this psyker, then roll 3D6 to try to make it shoot or attack for your army. If the result equals or beats that model's Leadership characteristic, it can at once do one of two things: shoot with one of its weapons as though it were your Shooting phase, or make a single attack as though it were the Fight phase. While it shoots or makes that close combat attack, treat it as a separate unit belonging to your army."
   },
   "3c95091d4223": {
     "name": "Explodes (6+/6\"/D6)",
@@ -282,7 +282,7 @@
   "43b242dcb987": {
     "name": "Hereticus - Scourging",
     "kind": "psychic",
-    "plain": "If manifested, choose one enemy unit within 12\" of this psyker. Until your next Psychic phase begins, models in that unit have 1 fewer attack each, but never fewer than 1 attack. Next, roll 2D6. If you roll at least the highest Leadership characteristic in that unit, hit rolls for attacks made by that unit's models are also reduced by 1 until your next Psychic phase begins."
+    "plain": "If manifested, pick one enemy unit within 12\" of this psyker: until your next Psychic phase begins, its models have 1 fewer attack each (never fewer than 1). Next, roll 2D6. If you roll at least the highest Leadership characteristic in that unit, hit rolls for attacks made by that unit's models are also reduced by 1 until your next Psychic phase begins."
   },
   "46128a1faeec": {
     "name": "Curse of Mutation",
@@ -292,7 +292,7 @@
   "48863424efb3": {
     "name": "Vanquisher Battle Cannon",
     "kind": "weapon",
-    "plain": "Turret Weapon. When an attack made with this weapon wounds the target, no invulnerable saving throws can be made against it, and the target suffers D3 mortal wounds on top of any normal damage."
+    "plain": "When an attack with this Turret Weapon wounds, the target can't take an invulnerable save against it and suffers D3 mortal wounds on top of any normal damage."
   },
   "4b7ffed4b85d": {
     "name": "Explodes",
@@ -307,7 +307,7 @@
   "4c14cf245aa6": {
     "name": "Electrobane grenades",
     "kind": "weapon",
-    "plain": "Against a VEHICLE unit: if an attack with this weapon gets an unmodified wound roll of 4 or 5, the target suffers 1 mortal wound as well as the normal damage; on an unmodified 6, it suffers D3 mortal wounds as well as the normal damage."
+    "plain": "Against a VEHICLE unit, an unmodified wound roll of 4 or 5 with this weapon also deals 1 mortal wound, and an unmodified 6 also deals D3 mortal wounds. The target suffers them on top of any other damage."
   },
   "4d5a18e357fe": {
     "name": "Hover Jet",
@@ -317,7 +317,7 @@
   "4e89d77d01ad": {
     "name": "Trophy Hunters",
     "kind": "ability",
-    "plain": "You can't pick this doctrine if you have picked any other doctrine, and if you pick it you can't pick a second one. When a model with this doctrine attacks a Monster or Vehicle unit, add 1 to that attack's Strength characteristic."
+    "plain": "Each time a model with this doctrine attacks a Monster or Vehicle unit, add 1 to that attack's Strength characteristic. This must be your only doctrine: you can't pick it if you have picked any other doctrine, and once you pick it you can't pick a second."
   },
   "4fcee7f070c8": {
     "name": "Needle Pistol",
@@ -352,7 +352,7 @@
   "58e4b1e62083": {
     "name": "Regimental Tactics",
     "kind": "ability",
-    "plain": "Only if every model in your army has the ASTRA MILITARUM keyword (ignoring AGENT OF THE IMPERIUM and UNALIGNED models):\n- When an OFFICER from your army gives a Regimental or Prefectus Order to a unit with this ability, that Order can also affect one or more friendly PLATOON units of your choice within 6\" of that unit.\n- When an OFFICER from your army gives a Mechanised Order to a unit with this ability, that Order can also affect one or more other friendly SQUADRON units of your choice within 6\" of that unit."
+    "plain": "When an OFFICER from your army gives certain Orders to a unit with this ability, nearby friendly PLATOON or SQUADRON units can be affected too. This works only if every model in your army has the ASTRA MILITARUM keyword (ignoring AGENT OF THE IMPERIUM and UNALIGNED models):\n- A Regimental or Prefectus Order given to a unit with this ability can also affect one or more friendly PLATOON units of your choice within 6\" of that unit.\n- A Mechanised Order given to a unit with this ability can also affect one or more other friendly SQUADRON units of your choice within 6\" of that unit."
   },
   "5b08fb360d00": {
     "name": "Malus Codicium",
@@ -362,7 +362,7 @@
   "5b82fda8bd6c": {
     "name": "Castigation",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy unit within 18\" of this psyker that it can see, and roll 3D6. If the total is higher than the lowest Leadership characteristic in that unit, it suffers D3 mortal wounds."
+    "plain": "Witchfire: if manifested, one enemy unit within 18\" of this psyker can suffer D3 mortal wounds. Pick a unit the psyker can see and roll 3D6: it suffers the mortal wounds only if the total is higher than the lowest Leadership characteristic in that unit."
   },
   "5cee169e4ec0": {
     "name": "Armoured Frontis",
@@ -455,19 +455,19 @@
     "plain": "This model can still declare a charge in a turn when it has Fallen Back. When it is picked to shoot while within Engagement Range of enemy units, it can make attacks against eligible enemy units outside its Engagement Range, as though no enemy models were within Engagement Range of it."
   },
   "75e1e02674b0": {
-    "name": "Medusa Siege Cannon",
+    "name": "Heavy Mortar",
     "kind": "weapon",
-    "plain": "Blast. This weapon can shoot at units the bearer can't see."
+    "plain": "This Blast weapon can shoot at units the bearer can't see."
   },
   "763cad996972": {
     "name": "Neural Shredder",
     "kind": "weapon",
-    "plain": "Each time an attack is made with this weapon and it hits, skip the wound roll. Roll 3D6 instead: if the total equals or beats the highest Leadership characteristic in the target unit, that unit suffers D3 mortal wounds."
+    "plain": "For each hit from this weapon, skip the wound roll and roll 3D6: if that equals or beats the target unit's highest Leadership, it suffers D3 mortal wounds."
   },
   "76ccf4a8711e": {
     "name": "Psychic Fortitude",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, pick one friendly IMPERIUM unit within 12\" of this Psyker. That unit automatically passes Morale tests, without rolling any dice, until your next Psychic phase starts."
+    "plain": "Blessing: if manifested, pick one friendly IMPERIUM unit within 12\" of this Psyker; it automatically passes Morale tests until your next Psychic phase starts. No dice are rolled for those tests."
   },
   "775edfb758a1": {
     "name": "Explodes (6+/3\"/1)",
@@ -477,7 +477,7 @@
   "77af5511a3d3": {
     "name": "Nuncio Aquila",
     "kind": "ability",
-    "plain": "In your Morale phase, you can pick one enemy Infantry, Cavalry or Biker unit that is within 9\" of the bearer, visible to it, and not already sanctioned. Roll 2D6. If the total equals or beats that unit's Leadership characteristic, the unit is sanctioned until the start of your next Morale phase. While a unit is sanctioned, subtract 1 from the hit roll each time one of its models makes an attack."
+    "plain": "In your Morale phase, you can try to sanction an enemy Infantry, Cavalry or Biker unit within 9\" of the bearer, so its models subtract 1 from their hit rolls. The unit must be visible to the bearer and not already sanctioned. Roll 2D6: if the total equals or beats that unit's Leadership characteristic, the unit is sanctioned until the start of your next Morale phase. While a unit is sanctioned, subtract 1 from the hit roll each time one of its models makes an attack."
   },
   "7815ab6c45f9": {
     "name": "Armoured Tracks",
@@ -497,7 +497,7 @@
   "7f2c5caf84ed": {
     "name": "Covenant of Chaos",
     "kind": "ability",
-    "plain": "Whenever this unit fights in a turn in which it was charged, made a charge move or performed a Heroic Intervention, its models' Strength characteristic goes up by 1 until that fight is resolved."
+    "plain": "If this unit was charged, made a charge move or performed a Heroic Intervention this turn, add 1 to its models' Strength characteristic each time it fights. The bonus lasts until that fight is resolved."
   },
   "7fba61f590ba": {
     "name": "Griffon Heavy Mortar",
@@ -512,7 +512,7 @@
   "82278f0323ce": {
     "name": "Explodes (6+/2D6\"/D6)",
     "kind": "ability",
-    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield. On a 6, the model explodes: every unit within 2D6\" suffers D6 mortal wounds."
+    "plain": "Each time this model is destroyed, roll one D6 before taking it off the battlefield: on a 6, it explodes and every unit within 2D6\" takes D6 mortal wounds."
   },
   "841d653c59a6": {
     "name": "Deadshot",
@@ -582,7 +582,7 @@
   "975f7049ab1f": {
     "name": "Parade drill",
     "kind": "ability",
-    "plain": "Until the end of your next Shooting phase, lasguns and hot-shot lasguns carried by models in a unit with this doctrine have a Type characteristic of Heavy 2, if that unit Remained Stationary in your Movement phase."
+    "plain": "If a unit with this doctrine Remained Stationary during your Movement phase, its models' lasguns and hot-shot lasguns become Heavy 2. Their Type characteristic stays Heavy 2 until the end of your next Shooting phase."
   },
   "98aa2a699d21": {
     "name": "Avalanche of Rage",
@@ -607,7 +607,7 @@
   "a097b28b47ca": {
     "name": "Daemonhost - Daemonic Power",
     "kind": "ability",
-    "plain": "At the start of this model's Movement phase, roll a D6 for it and apply the result. On a 1 or 2 (Daemonic Speed): this model's Move becomes 12\" and it can FLY until the Movement phase ends. On a 3 or 4 (Re-knit Host Form): this model regains every wound it has lost earlier in the battle. On a 5 or 6 (Energy Torrent): each enemy unit within 3\" of this model takes D3 mortal wounds on a D6 roll of 2+ (roll separately for each unit)."
+    "plain": "At the start of this model's Movement phase, roll a D6 for it: it gets a 12\" Move and FLY, heals its lost wounds, or deals mortal wounds to nearby enemies. On a 1 or 2 (Daemonic Speed): this model's Move becomes 12\" and it can FLY until the Movement phase ends. On a 3 or 4 (Re-knit Host Form): this model regains every wound it has lost earlier in the battle. On a 5 or 6 (Energy Torrent): each enemy unit within 3\" of this model takes D3 mortal wounds on a D6 roll of 2+ (roll separately for each unit)."
   },
   "a2ca4870b888": {
     "name": "Masters of Close Confines",
@@ -632,12 +632,12 @@
   "a54e25837ef7": {
     "name": "Vaunted Praetorian",
     "kind": "ability",
-    "plain": "Super-Heavy or Rogal Dorn Battle Tank model only. This model knows Mechanised Orders and gains the Officer keyword. It can issue one Order in your Command phase. If this is a Super-Heavy model, it can give that Order to an Astra Militarum Titanic unit; every other rule for issuing Orders still applies."
+    "plain": "Super-Heavy or Rogal Dorn Battle Tank model only: it gains the Officer keyword, knows Mechanised Orders and can issue one Order in your Command phase. If this is a Super-Heavy model, it can give that Order to an Astra Militarum Titanic unit; every other rule for issuing Orders still applies."
   },
   "a5b58bd46ce1": {
     "name": "Armoured Superiority",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Armoured Superiority keyword. For control of an objective, models with this doctrine each count as several models: Sentinel models count as 3 models each, Titanic models as 10 models each, and all other Vehicle models as 5 models each."
+    "plain": "For control of an objective, Sentinel models with this doctrine count as 3 models each, Titanic models as 10 each, and all other Vehicle models as 5 each. Units with this doctrine also gain the Armoured Superiority keyword."
   },
   "a7ba19781025": {
     "name": "Inquisitor Eisenhorn",
@@ -662,7 +662,7 @@
   "acddac621743": {
     "name": "Psychic Pursuit",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, pick one enemy CHARACTER unit within 18\" of this psyker and visible to it, in which every model has a Wounds characteristic of 9 or less. Then pick one friendly <ORDO> INFANTRY unit within 6\" of this psyker. Up to the end of your next Shooting phase, when you choose targets for the ranged weapons of models in that <ORDO> INFANTRY unit, you may ignore Look Out, Sir if you choose that CHARACTER unit.",
+    "plain": "Blessing: until the end of your next Shooting phase, one friendly <ORDO> INFANTRY unit can ignore Look Out, Sir when shooting at one enemy CHARACTER unit. If manifested, first pick that CHARACTER unit: it must be within 18\" of this psyker and visible to it, and every model in it must have a Wounds characteristic of 9 or less. Then pick the friendly <ORDO> INFANTRY unit, which must be within 6\" of this psyker. Each time you choose a target for a ranged weapon of a model in that unit, you may ignore Look Out, Sir if you choose that CHARACTER unit.",
     "waive": {
       "<ORDO> NFANTRY": "misspelling of <ORDO> INFANTRY in the official text; the correct keyword <ORDO> INFANTRY is kept"
     }
@@ -720,7 +720,7 @@
   "b7972686b9ee": {
     "name": "Knight of Piety",
     "kind": "ability",
-    "plain": "- This model has a 5+ invulnerable save.\n- Each time this model would lose a wound because of a mortal wound, roll one D6. On a 5+, it doesn't lose that wound."
+    "plain": "This model has a 5+ invulnerable save, and on a 5+ it ignores each wound it would lose to a mortal wound. Each time it would lose a wound because of a mortal wound, roll one D6: on a 5+, it doesn't lose that wound."
   },
   "b9b82099b71c": {
     "name": "Psyocculum",
@@ -805,7 +805,7 @@
   "cdd0b61285dc": {
     "name": "Recon Operators",
     "kind": "ability",
-    "plain": "Before the first turn begins, at the start of the first battle round: each Infantry, Cavalry or Sentinel unit with this doctrine that begins wholly inside your deployment zone may make a Normal Move of up to 6\". It can't end that move within 9\" of any other models or of the enemy deployment zone."
+    "plain": "Infantry, Cavalry and Sentinel units with this doctrine can make a Normal Move of up to 6\" before the first turn begins. This happens at the start of the first battle round, and only units that begin wholly inside your deployment zone can do so. They can't end that move within 9\" of any other models or of the enemy deployment zone."
   },
   "cf81440b5bca": {
     "name": "Motive Force Evocation",
@@ -820,7 +820,7 @@
   "d13215f1952a": {
     "name": "Cult of Sacrifice",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Cult of Sacrifice keyword.\n\nIf a unit with this doctrine was below its Starting Strength when it was picked to shoot or fight, add 1 to the hit roll of each attack its models make."
+    "plain": "If a unit with this doctrine was below its Starting Strength when it was picked to shoot or fight, add 1 to the hit roll of each attack its models make. Units with this doctrine also gain the Cult of Sacrifice keyword."
   },
   "d140e0eee739": {
     "name": "Quarry - Hereticus",
@@ -835,7 +835,7 @@
   "d31fb4d8fa12": {
     "name": "Dozer Blade",
     "kind": "ability",
-    "plain": "The bearer now has the DOZER BLADE keyword. You can ignore some or all of the modifiers applied to its Move characteristic, its Advance rolls and its charge rolls."
+    "plain": "You can ignore some or all of the modifiers to the bearer's Move characteristic, Advance rolls and charge rolls. The bearer also gains the DOZER BLADE keyword."
   },
   "d33887665fe8": {
     "name": "Militarum Plasma Cannon - Overcharged",
@@ -860,12 +860,12 @@
   "d808d38f4c5c": {
     "name": "Elite Sharpshooters",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Elite Sharpshooters keyword.\n\nWhenever a unit with this doctrine is picked to shoot, you can re-roll a single hit roll for its attacks."
+    "plain": "Whenever a unit with this doctrine is picked to shoot, you can re-roll a single hit roll for its attacks. Units with this doctrine also gain the Elite Sharpshooters keyword."
   },
   "d8ad3f1e85a5": {
     "name": "Supersonic",
     "kind": "ability",
-    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, start by pivoting it on the spot by up to 90° (the pivot doesn't count toward how far it moves), then move it straight forwards. After that first pivot it can't pivot again."
+    "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, it moves straight forwards after one pivot on the spot of up to 90°. The pivot doesn't count toward how far it moves, and it can't pivot again after it."
   },
   "d91cf2eeca9d": {
     "name": "Agent of the Imperium",
@@ -885,7 +885,7 @@
   "dec57aa8f6a9": {
     "name": "Malleus - Warding Incantation",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose an IMPERIUM INFANTRY or IMPERIUM BIKER unit from your army that is within 12\" of this psyker. Its models have a 5+ invulnerable save until your next Psychic phase starts."
+    "plain": "Blessing: if manifested, one IMPERIUM INFANTRY or IMPERIUM BIKER unit from your army within 12\" of this psyker gets a 5+ invulnerable save. Pick the unit; its models have that save until your next Psychic phase starts."
   },
   "e20a9d8618e7": {
     "name": "Stealth Suit",
@@ -895,12 +895,12 @@
   "e3ba5ed3495d": {
     "name": "Mechanised Infantry",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Mechanised keyword.\n\nUnits with this doctrine may disembark from a Transport model (not an Aircraft model) after that model has made a Normal Move. If they do, they can't be picked to move again in this phase, though they still count as having moved, and neither they nor the Transport can declare a charge in this turn."
+    "plain": "Units with this doctrine can disembark from a Transport model (not an Aircraft model) after it has made a Normal Move, and they gain the Mechanised keyword. If they disembark this way, they can't be picked to move again in this phase, though they still count as having moved, and neither they nor the Transport can declare a charge in this turn."
   },
   "e660652da11a": {
     "name": "Terrify",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, pick one enemy unit within 18\" of the psyker that it can see. Until the start of your next Psychic phase, models in that unit subtract 1 from their Leadership characteristic, and that unit can't fire Overwatch."
+    "plain": "Malediction: if manifested, pick an enemy unit within 18\" of the psyker and visible to it: subtract 1 from its models' Leadership, and it can't fire Overwatch. Both effects last until the start of your next Psychic phase."
   },
   "e82feaf6edb2": {
     "name": "Field Generators and Uncanny Reflexes",
@@ -935,12 +935,12 @@
   "eda97d9bd66e": {
     "name": "Expert Bombardiers",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Expert Bombardiers keyword.\n\nWhen an Artillery model with this doctrine makes a ranged attack against a target that is within 12\" of a friendly Vox-caster or Sentinel unit and visible to that unit, add 1 to the hit roll."
+    "plain": "Artillery models with this doctrine add 1 to ranged hit rolls if a friendly Vox-caster or Sentinel unit is within 12\" of the target and can see it. Units with this doctrine also gain the Expert Bombardiers keyword."
   },
   "ef13a84667af": {
     "name": "Ritual Shackle",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose one enemy unit within 18\" of this psyker. Psychic tests taken for that unit have 1 subtracted until your next Psychic phase, as do the wound rolls of melee attacks made by its models. If the Psychic test to manifest this power came to 10 or more, the enemy unit can be up to 24\" away from this psyker instead of 18\"."
+    "plain": "Malediction: if manifested, an enemy unit within 18\" of this psyker subtracts 1 from its Psychic tests and melee wound rolls until your next Psychic phase. You pick the unit; if the Psychic test came to 10 or more, you can pick one within 24\" of this psyker instead of 18\"."
   },
   "f1859d740138": {
     "name": "Artillery and Crew",
@@ -965,7 +965,7 @@
   "f6c0487dcf70": {
     "name": "Veteran Guerrillas",
     "kind": "ability",
-    "plain": "This doctrine gives its units the Veteran Guerrillas keyword.\n\nWhen an Infantry or Sentinel model with this doctrine attacks a unit within 18\", that target gets no benefit from cover against the attack."
+    "plain": "When an Infantry or Sentinel model with this doctrine attacks a unit within 18\", that target gets no benefit from cover against the attack. Units with this doctrine also gain the Veteran Guerrillas keyword."
   },
   "f80373943dc4": {
     "name": "Life Drain",

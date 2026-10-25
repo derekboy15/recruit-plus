@@ -57,7 +57,7 @@
   "0f418a769152": {
     "name": "Sevenfold Blessings",
     "kind": "ability",
-    "plain": "Before the battle, while you muster your army, this Stratagem lets you pick a WRETCHED PSYKER model of yours.\n- It knows one more psychic power from the discipline it chose.\n- You may re-roll one of its Psychic tests per Psychic phase."
+    "plain": "This Stratagem gives one of your WRETCHED PSYKER models an extra psychic power and a Psychic test re-roll each Psychic phase. Use it before the battle, while you muster your army.\n- It knows one more psychic power from the discipline it chose.\n- You may re-roll one of its Psychic tests per Psychic phase."
   },
   "109bc7eb488c": {
     "name": "Daemon's Toll",
@@ -102,7 +102,7 @@
   "1bb55d28ae51": {
     "name": "Plague Wind",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, choose an enemy unit within 18\" of this PSYKER that it can see. Roll a D6 for each of that unit's models; each 6 rolled inflicts 1 mortal wound on the unit. If the Psychic test result was 9+, each 5+ rolled inflicts 1 mortal wound instead."
+    "plain": "Witchfire: roll a D6 for each model in one enemy unit within 18\" of this PSYKER that it can see; each 6 inflicts 1 mortal wound on that unit. If the Psychic test result was 9+, each 5+ rolled inflicts 1 mortal wound instead."
   },
   "1c6173496198": {
     "name": "Diseased Effluents",
@@ -167,7 +167,7 @@
   "2cd57f0acb1d": {
     "name": "Putrescent Vitality",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD INFANTRY unit within 18\" of this PSYKER. Its models get 1 added to their Strength and Toughness characteristics until your next Psychic phase starts."
+    "plain": "Blessing: one of your DEATH GUARD INFANTRY units within 18\" of this PSYKER adds 1 to its models' Strength and Toughness until your next Psychic phase starts."
   },
   "2db073d87043": {
     "name": "Putrid Detonation",
@@ -247,7 +247,7 @@
   "4101d18e771a": {
     "name": "Gift of Contagion",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have their Strength characteristic reduced by 1. If the Psychic test result was 8+, reduce both their Strength and Attacks characteristics by 1 instead."
+    "plain": "Malediction: if manifested, pick one enemy unit within 18\" of this PSYKER: its models' Strength is reduced by 1 until your next Psychic phase starts. If the Psychic test result was 8+, reduce both their Strength and Attacks characteristics by 1 instead."
   },
   "437a4ddcd7e4": {
     "name": "Warp Insect Hive",
@@ -312,7 +312,7 @@
   "4d49b29f4197": {
     "name": "Plague Skull of Glothila",
     "kind": "ability",
-    "plain": "Once per battle, when your Movement phase ends, the bearer may use this Enhancement. If it does, choose an enemy unit within 6\" of the bearer and roll seven D6s. Each 4+ inflicts 1 mortal wound on that unit, but a unit with the CHARACTER keyword can take no more than 3 mortal wounds this way."
+    "plain": "Once per battle, when your Movement phase ends, the bearer can use this Enhancement to roll for mortal wounds against one enemy unit within 6\" of it. Roll seven D6s: each 4+ inflicts 1 mortal wound on that unit, but a unit with the CHARACTER keyword can take no more than 3 mortal wounds this way."
   },
   "4f560009ca58": {
     "name": "Callous Disregard",
@@ -322,7 +322,7 @@
   "4f5d963a6ae5": {
     "name": "Shamblerot (Contagion)",
     "kind": "ability",
-    "plain": "When your opponent's Movement phase starts, roll one D6 for each enemy unit (other than a VEHICLE unit) within this unit's Contagion Range. Subtract 1 from the roll if that unit is a CHARACTER unit. On a 4+ it suffers 1 mortal wound, or D3 mortal wounds if the roll is a 6."
+    "plain": "When your opponent's Movement phase starts, each enemy unit (other than a VEHICLE unit) within this unit's Contagion Range can suffer mortal wounds. Roll one D6 for each of those units, subtracting 1 if that unit is a CHARACTER unit: on a 4+ it suffers 1 mortal wound, or D3 mortal wounds if the roll is a 6."
   },
   "53d82eaacf3e": {
     "name": "Eruption of Filth",
@@ -382,7 +382,7 @@
   "65139263cf8c": {
     "name": "Accelerated Entropy",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy model within 12\" of this PSYKER that it can see. You and your opponent each roll one D6 and add the Toughness characteristic of your own model. If your total beats your opponent's, that enemy model suffers 3 mortal wounds. If your total is double your opponent's or more, that model's unit suffers D3+3 mortal wounds."
+    "plain": "Witchfire: one enemy model within 12\" of this PSYKER that it can see suffers 3 mortal wounds if your D6 plus Toughness beats your opponent's. You and your opponent each roll one D6 and add the Toughness characteristic of your own model. If your total beats your opponent's, that enemy model suffers 3 mortal wounds. If your total is double your opponent's or more, that model's unit suffers D3+3 mortal wounds."
   },
   "670bd9ef3bec": {
     "name": "Ferric Miasma",
@@ -485,9 +485,9 @@
     "plain": "Aura: while one of your BUBONIC ASTARTES units is within 6\" of this model, any blight grenades its models carry have Damage 2 and Armour Penetration -1."
   },
   "8a4ceeaca3b8": {
-    "name": "Manreaper - Scythe",
+    "name": "Master-crafted manreaper - Scythe",
     "kind": "weapon",
-    "plain": "Plague Weapon. For each attack made with this weapon profile, make 2 hit rolls rather than 1."
+    "plain": "Plague Weapon: for each attack made with this weapon profile, make 2 hit rolls rather than 1."
   },
   "8bff402f1e13": {
     "name": "Relaptic Assault",
@@ -512,7 +512,7 @@
   "924a447745a0": {
     "name": "Curse of the Leper",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick the closest enemy unit that this PSYKER can see and that is within 18\" of it. Roll seven D6s: that unit suffers 1 mortal wound for each result higher than its Toughness characteristic."
+    "plain": "Witchfire: roll seven D6s for the closest visible enemy unit within 18\" of this PSYKER; each result above its Toughness inflicts 1 mortal wound."
   },
   "9261acbddd51": {
     "name": "Contagions of Nurgle",
@@ -555,7 +555,7 @@
   "9bf9603eede3": {
     "name": "Pernicious Dose",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly unit within 6\" of this PSYKER. Until your next Psychic phase starts, hit rolls for that unit's plague weapon attacks can be re-rolled."
+    "plain": "Blessing: one of your units within 6\" of this PSYKER can re-roll hit rolls for its plague weapon attacks until your next Psychic phase starts."
   },
   "9c8a2b621d63": {
     "name": "Foul Effluents (Aura)",
@@ -575,7 +575,7 @@
   "a27a83d8f027": {
     "name": "Lungrot",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- it can't Advance;\n- whenever it is picked to charge, only eligible units within 6\" may be chosen as its charge targets;\n- its charge rolls can't be re-rolled."
+    "plain": "Malediction: until your next Psychic phase, one enemy unit within 18\" of this PSYKER can't Advance, re-roll charge rolls or charge units more than 6\" away."
   },
   "a3511f3b39c9": {
     "name": "The Wrathful Dead",
@@ -620,7 +620,7 @@
   "aa5d727a6c70": {
     "name": "Rotwind",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, attacks by that unit's models have their Armour Penetration reduced by 2, though it can't go below AP 0 this way."
+    "plain": "Malediction: until your next Psychic phase, one enemy unit within 18\" of this PSYKER has its attacks' Armour Penetration reduced by 2, to a minimum of AP 0."
   },
   "aa889cbf631d": {
     "name": "On Droning Wings",
@@ -655,7 +655,7 @@
   "af249a596ecc": {
     "name": "Plague Skull of Glothila",
     "kind": "ability",
-    "plain": "Once per battle, when your Movement phase ends, the bearer can use this Relic to roll seven D6s against one enemy unit within 6\" of it. Each 4-5 inflicts 1 mortal wound on that unit, and each 6 inflicts D3 mortal wounds."
+    "plain": "Once per battle, when your Movement phase ends, the bearer can use this Relic to roll for mortal wounds against one enemy unit within 6\" of it. Roll seven D6s: each 4-5 inflicts 1 mortal wound on that unit, and each 6 inflicts D3 mortal wounds."
   },
   "b0570cc2cc06": {
     "name": "Grandfatherly Influence",
@@ -733,7 +733,7 @@
   "c90d94a979b1": {
     "name": "Miasma of Pestilence",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD unit within 18\" of this PSYKER. Until your next Psychic phase starts, attacks against that unit have 1 subtracted from their hit rolls."
+    "plain": "Blessing: until your next Psychic phase starts, subtract 1 from the hit roll of attacks against one of your DEATH GUARD units within 18\" of this PSYKER."
   },
   "c9d59fe72dc3": {
     "name": "The Droning (Contagion)",
@@ -766,7 +766,7 @@
   "d97bd6d8385e": {
     "name": "Noxious Discharge",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy unit within 12\" of this PSYKER that it can see.\n- That unit suffers 1 mortal wound.\n- Every unit within 3\" of that unit, other than NURGLE units, also suffers 1 mortal wound."
+    "plain": "Witchfire: if manifested, pick one enemy unit within 12\" of this PSYKER that it can see:\n- That unit suffers 1 mortal wound.\n- Every unit within 3\" of that unit, other than NURGLE units, also suffers 1 mortal wound."
   },
   "da1dd38ba0c1": {
     "name": "Malicious Calculation",
@@ -851,12 +851,12 @@
   "f287120bb461": {
     "name": "Gift of Infection",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have 1 subtracted from their Toughness characteristic. This doesn't stack with Toughness penalties caused by any Contagion of Nurgle abilities."
+    "plain": "Malediction: subtract 1 from the Toughness of models in one enemy unit within 18\" of this PSYKER until your next Psychic phase starts. This doesn't stack with Toughness penalties caused by any Contagion of Nurgle abilities."
   },
   "f40203926274": {
     "name": "Gift of Plagues",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD unit within 18\" of this PSYKER. Until your next Psychic phase starts, every Contagion ability that unit has gets 6\" added to its range, but no more than 12\" in total."
+    "plain": "Blessing: one of your DEATH GUARD units within 18\" of this PSYKER adds 6\" to the range of its Contagion abilities, to a maximum of 12\". This lasts until your next Psychic phase starts."
   },
   "f40bb2d61c5a": {
     "name": "Bile spurt",
@@ -896,11 +896,11 @@
   "fe1af2420b0f": {
     "name": "Unstable Sickness",
     "kind": "ability",
-    "plain": "Whenever an attack with this weapon destroys one or more enemy models, roll one D6. On a 4+, the destroyed model's unit suffers 1 mortal wound. No more than 3 mortal wounds can be inflicted this way per turn. The bearer can't be chosen for the Befouled Incubators Stratagem."
+    "plain": "Whenever an attack with this weapon destroys one or more enemy models, roll one D6: on a 4+, the destroyed model's unit suffers 1 mortal wound. No more than 3 mortal wounds can be inflicted this way per turn. The bearer can't be chosen for the Befouled Incubators Stratagem."
   },
   "ff7cd9c6aaf3": {
-    "name": "Manreaper - Cleave",
+    "name": "Master-crafted manreaper - Cleave",
     "kind": "weapon",
-    "plain": "Plague Weapon. Subtract 1 from the hit roll of each attack made with this weapon profile."
+    "plain": "Plague Weapon: subtract 1 from the hit roll of each attack made with this weapon profile."
   }
 }

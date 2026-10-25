@@ -76,7 +76,7 @@
   "3bd3ce0f8654": {
     "name": "Jakhal icon",
     "kind": "ability",
-    "plain": "The bearer's unit gains the ICON keyword. Whenever the bearer's unit takes a Combat Attrition test, if it contains any models equipped with a Jakhal icon, add 1 to the test."
+    "plain": "The bearer's unit gains the ICON keyword, and while at least one of its models is equipped with a Jakhal icon, add 1 to its Combat Attrition tests."
   },
   "3ce423272bda": {
     "name": "Mutable Form",

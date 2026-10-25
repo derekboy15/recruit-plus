@@ -112,7 +112,7 @@
   "0a9d7be1247c": {
     "name": "Mutated Invigoration",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> units within 18\" of this PSYKER. Until your next Psychic phase starts, add 1 to either the Strength or the Toughness of that unit's models. If the Psychic test result was 10+ and you picked a DAEMONKIN or DAEMON ENGINE unit, add 1 to both instead."
+    "plain": "Blessing: one of your <LEGION> units within 18\" of this PSYKER adds 1 to either its models' Strength or their Toughness until your next Psychic phase starts. If the Psychic test result was 10+ and that unit is a DAEMONKIN or DAEMON ENGINE unit, add 1 to both instead."
   },
   "0bfe6ee2ae54": {
     "name": "Malicious Volleys",
@@ -215,7 +215,7 @@
   "169ef81e7a34": {
     "name": "Diabolic Strength",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> INFANTRY or <LEGION> CHAOS SPAWN models within 12\" of this PSYKER. Until your next Psychic phase starts, that model adds 2 to its Strength and to its Attacks."
+    "plain": "Blessing: one of your <LEGION> INFANTRY or <LEGION> CHAOS SPAWN models within 12\" of this PSYKER adds 2 to its Strength and Attacks. This lasts until your next Psychic phase starts."
   },
   "1749904e6d16": {
     "name": "Unending Destruction",
@@ -255,7 +255,7 @@
   "1cae7b6e94f9": {
     "name": "Warp Marked",
     "kind": "psychic",
-    "plain": "Malediction: if this power is manifested, pick one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, add 1 to the wound roll each time one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE models attacks that unit."
+    "plain": "Malediction: your <LEGION> DAEMONKIN and <LEGION> DAEMON ENGINE models add 1 to wound rolls for attacks against one enemy unit within 18\" of this PSYKER. This lasts until your next Psychic phase starts."
   },
   "1cdf636ffbe5": {
     "name": "Hover Jet (Heldrake)",
@@ -325,7 +325,7 @@
   "2263d13ab3e9": {
     "name": "Loyalty's Reward",
     "kind": "ability",
-    "plain": "Pick one bolt weapon the bearer has.\n- That weapon now counts as a Relic for all rules purposes.\n- Each time the bearer attacks with that weapon and the target has the IMPERIUM keyword, a hit inflicts one mortal wound on the target and ends the attack sequence.\n- Each time the bearer attacks with that weapon and the target lacks the IMPERIUM keyword, if that attack wounds, it inflicts one mortal wound on the target and ends the attack sequence."
+    "plain": "One of the bearer's bolt weapons becomes a Relic whose hits on IMPERIUM targets, or wounds on others, inflict one mortal wound and end the attack sequence. Pick one bolt weapon the bearer has:\n- That weapon now counts as a Relic for all rules purposes.\n- Each time the bearer attacks with that weapon and the target has the IMPERIUM keyword, a hit inflicts one mortal wound on the target and ends the attack sequence.\n- Each time the bearer attacks with that weapon and the target lacks the IMPERIUM keyword, if that attack wounds, it inflicts one mortal wound on the target and ends the attack sequence."
   },
   "22a5d1262018": {
     "name": "Vectors of Death",
@@ -430,7 +430,7 @@
   "2f6751e044d1": {
     "name": "Infernal Power",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE units within 18\" of this PSYKER. Until your next Psychic phase starts, each time a DAEMONKIN or DAEMON ENGINE model in that unit makes a melee attack, an unmodified hit roll of 6 wounds the target automatically. When that happens, rules triggered by a particular wound roll treat it as an unmodified wound roll of 6 for that attack."
+    "plain": "Blessing: one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE units within 18\" of this PSYKER automatically wounds in melee on unmodified hit rolls of 6. Until your next Psychic phase starts, each time a DAEMONKIN or DAEMON ENGINE model in that unit makes a melee attack, an unmodified hit roll of 6 wounds the target automatically. When that happens, rules triggered by a particular wound roll treat it as an unmodified wound roll of 6 for that attack."
   },
   "2f7d68bb4ba7": {
     "name": "Unholy Fortitude",
@@ -465,7 +465,7 @@
   "329163551441": {
     "name": "Delightful Agonies",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> SLAANESH units within 18\" of this PSYKER. Until your next Psychic phase starts, whenever one of that unit's models would lose a wound, roll a D6. On a 5+, the wound is ignored."
+    "plain": "Blessing: one of your <LEGION> SLAANESH units within 18\" of this PSYKER ignores wounds on a 5+ until your next Psychic phase starts. In that time, whenever one of that unit's models would lose a wound, roll a D6. On a 5+, the wound is not lost."
   },
   "33130ab81422": {
     "name": "Distortion",
@@ -505,7 +505,7 @@
   "388975f720f9": {
     "name": "Thermal jets",
     "kind": "ability",
-    "plain": "Once the bearer has moved, you may choose one unit it moved over and roll one D6, taking 2 off the roll if the unit has the CHARACTER keyword. On a 2-5, the unit suffers D3 mortal wounds; on a 6, it suffers D6 mortal wounds."
+    "plain": "After the bearer moves, you can roll one D6 for one unit it moved over: that unit suffers D3 mortal wounds on a 2-5, or D6 mortal wounds on a 6. Take 2 off the roll if it has the CHARACTER keyword."
   },
   "38ea87dcfbd1": {
     "name": "Spitespitter - combi-bolter",
@@ -673,7 +673,7 @@
   "49e373f493c0": {
     "name": "Icon of the Hydra Cult (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your ALPHA LEGION CULTISTS units is within 6\" of the bearer, whenever a ranged attack is made against that unit by an attacker more than 12\" away, the target unit gets Dense Cover benefits against it."
+    "plain": "Aura: while one of your ALPHA LEGION CULTISTS units is within 6\" of the bearer, it has Dense Cover benefits against ranged attacks from more than 12\" away."
   },
   "49eee1dbb427": {
     "name": "Lasher tendrils",
@@ -706,9 +706,9 @@
     "plain": "In your Command phase, this model may start hovering. If it does, it loses the Airborne Predator, Hard to Hit and Supersonic abilities and has a Move characteristic of 20\" until your next Command phase begins."
   },
   "4d4508addb18": {
-    "name": "Chaos Icon",
+    "name": "Icon of Slaanesh",
     "kind": "ability",
-    "plain": "The bearer's unit gains the ICON keyword. Add 1 to every Combat Attrition test taken for the bearer's unit."
+    "plain": "The bearer's unit adds 1 to every Combat Attrition test taken for it, and it gains the ICON keyword."
   },
   "4e04f168a41f": {
     "name": "Body of Unholy Artifice",
@@ -817,8 +817,8 @@
   },
   "57ed0a0f64f7": {
     "name": "Balefire tome",
-    "kind": "psychic",
-    "plain": "Whenever this unit tries to manifest a psychic power, perform a psychic action or Deny the Witch, take all distances and line of sight from the model in it that carries the balefire tome. If an enemy unit has an ability that needs distance or line of sight measured to a PSYKER unit, measure to that same model."
+    "kind": "ability",
+    "plain": "For this unit's psychic powers, psychic actions and Deny the Witch tests, measure distances and line of sight from the model carrying the balefire tome. If an enemy unit has an ability that needs distance or line of sight measured to a PSYKER unit, measure to that same model."
   },
   "57f50c1cc8e1": {
     "name": "The Hamadrya",
@@ -863,7 +863,7 @@
   "5bba4e25f9a1": {
     "name": "Talons of the Night Terror",
     "kind": "ability",
-    "plain": "- Each time the bearer has finished a Normal Move or an Advance, pick one enemy unit it crossed over during this phase and roll a D6, subtracting 1 for a CHARACTER unit. On a 2+, that unit suffers D3 mortal wounds.\n- After the bearer finishes a charge move, pick one enemy unit within Engagement Range of it and roll a D6. On a 2+, that unit suffers D3 mortal wounds."
+    "plain": "After the bearer finishes a Normal Move or Advance across enemy units, or a charge move, roll a D6 for one of them: on a 2+, that unit suffers D3 mortal wounds.\n- Each time the bearer has finished a Normal Move or an Advance, pick one enemy unit it crossed over during this phase and roll a D6, subtracting 1 for a CHARACTER unit. On a 2+, that unit suffers D3 mortal wounds.\n- After the bearer finishes a charge move, pick one enemy unit within Engagement Range of it and roll a D6. On a 2+, that unit suffers D3 mortal wounds."
   },
   "5bfb561df8d1": {
     "name": "Mark of Slaanesh",
@@ -888,7 +888,7 @@
   "5f7664958f27": {
     "name": "Death Hex",
     "kind": "psychic",
-    "plain": "Malediction: if this power is manifested, pick one enemy unit within 12\" of this PSYKER. Until your next Psychic phase starts, that unit's models can't use invulnerable saves."
+    "plain": "Malediction: models in one enemy unit within 12\" of this PSYKER can't use invulnerable saves until your next Psychic phase starts."
   },
   "60069bf7071a": {
     "name": "Explodes (6\"/D6)",
@@ -1336,7 +1336,7 @@
   "85bb8bf8f79f": {
     "name": "Possession",
     "kind": "psychic",
-    "plain": "Witchfire: if this power is manifested, pick one enemy unit within 9\" of this PSYKER that it can see. Roll one D6, adding 1 if the Psychic test was an unmodified 10+. If the total is higher than that unit's Toughness, your opponent picks one model in that unit and it is destroyed. Then, if the unit has not been destroyed, it suffers D3 mortal wounds."
+    "plain": "Witchfire: one enemy unit within 9\" of this PSYKER that it can see loses a model if your D6 roll beats its Toughness, then suffers D3 mortal wounds. Roll one D6, adding 1 if the Psychic test was an unmodified 10+. If the total is higher than that unit's Toughness, your opponent picks one model in that unit and it is destroyed. Then, if the unit has not been destroyed, it suffers D3 mortal wounds."
   },
   "85ff2b78f878": {
     "name": "Master of Possession",
@@ -1381,7 +1381,7 @@
   "88c671a2e1a1": {
     "name": "Skeins of Fate",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> TZEENTCH units within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models get a 4+ invulnerable save."
+    "plain": "Blessing: the models in one of your <LEGION> TZEENTCH units within 18\" of this PSYKER have a 4+ invulnerable save until your next Psychic phase starts."
   },
   "8a97bca55113": {
     "name": "Chosen",
@@ -1556,7 +1556,7 @@
   "9f268c8c577c": {
     "name": "Hyper-growth Bolts",
     "kind": "ability",
-    "plain": "Model with a bolt weapon only. When you give this Relic to a model, pick one bolt weapon the bearer has:\n- That weapon counts as a Relic for all rules purposes.\n- Each time the bearer is chosen to shoot, you can have that weapon fire a hyper-growth bolt. If you do, the bearer can make only one attack with that weapon this phase, but if that attack hits, then unless the target is a VEHICLE unit, it automatically wounds, has an Armour Penetration of -1 and has a Damage of D3+3."
+    "plain": "The bearer's chosen bolt weapon can fire a single hyper-growth bolt that, on a hit against a non-VEHICLE target, wounds automatically at AP -1 and Damage D3+3. Model with a bolt weapon only. When you give this Relic to a model, pick one bolt weapon the bearer has:\n- That weapon counts as a Relic for all rules purposes.\n- Each time the bearer is chosen to shoot, you can have that weapon fire a hyper-growth bolt. If you do, the bearer can make only one attack with that weapon this phase, but if that attack hits, then unless the target is a VEHICLE unit, it automatically wounds, has an Armour Penetration of -1 and has a Damage of D3+3."
   },
   "9f43f646c2ad": {
     "name": "Twin Helfrost Cannon (Dispersed Beam)",
@@ -1756,7 +1756,7 @@
   "b21cfe548fe4": {
     "name": "Cursed Earth",
     "kind": "psychic",
-    "plain": "Blessing (Aura): if this power is manifested, then until your next Psychic phase starts, while one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE units is within 6\" of this PSYKER:\n- That unit's DAEMONKIN and DAEMON ENGINE models get a 4+ invulnerable save.\n- Whenever an enemy unit ends a charge within Engagement Range of that unit, roll a D6. On a 2-4 the enemy unit suffers 1 mortal wound; on a 5+ it suffers D3 mortal wounds."
+    "plain": "Blessing (Aura): your <LEGION> DAEMONKIN and <LEGION> DAEMON ENGINE units within 6\" of this PSYKER get a 4+ invulnerable save, and chargers risk mortal wounds. If this power is manifested, then until your next Psychic phase starts, while one of your <LEGION> DAEMONKIN or <LEGION> DAEMON ENGINE units is within 6\" of this PSYKER:\n- That unit's DAEMONKIN and DAEMON ENGINE models get a 4+ invulnerable save.\n- Whenever an enemy unit ends a charge within Engagement Range of that unit, roll a D6. On a 2-4 the enemy unit suffers 1 mortal wound; on a 5+ it suffers D3 mortal wounds."
   },
   "b2f5548db368": {
     "name": "Contagions of Nurgle",
@@ -1975,7 +1975,7 @@
   "c7ab33a28509": {
     "name": "Infernal Gaze",
     "kind": "psychic",
-    "plain": "Witchfire: if this power is manifested, pick one enemy unit within 18\" of this PSYKER that it can see, and roll three D6 (or six D6 instead if the Psychic test was an unmodified 10+). That unit suffers 1 mortal wound for each 4+ rolled."
+    "plain": "Witchfire: roll three D6 for one enemy unit within 18\" of this PSYKER that it can see; that unit suffers 1 mortal wound for each 4+. Roll six D6 instead if the Psychic test was an unmodified 10+."
   },
   "c7f0aa7ae40d": {
     "name": "Axe of the Forgemaster",
@@ -2030,7 +2030,7 @@
   "cd5cdfca2ea1": {
     "name": "Putrid Miasma",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> NURGLE units within 18\" of this PSYKER. Until your next Psychic phase starts, subtract 1 from the hit roll of each attack made against that unit."
+    "plain": "Blessing: until your next Psychic phase starts, subtract 1 from the hit roll of attacks against one of your <LEGION> NURGLE units within 18\" of this PSYKER."
   },
   "ce16e00fc22d": {
     "name": "Daemonic Machine Spirit",
@@ -2200,7 +2200,7 @@
   "dcfe63320065": {
     "name": "Warptime",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> INFANTRY or <LEGION> CHAOS SPAWN units within 6\" of this PSYKER.\n- It can make a Normal Move. If it Advanced during your previous Movement phase, it is still treated as having Advanced this turn.\n- Until the turn ends, it can't declare a charge."
+    "plain": "Blessing: one of your <LEGION> INFANTRY or <LEGION> CHAOS SPAWN units within 6\" of this PSYKER can make a Normal Move, but can't declare a charge this turn. If it Advanced during your previous Movement phase, it is still treated as having Advanced this turn."
   },
   "dd4b36e38c4a": {
     "name": "Will of the Arkifane - Agonise Machine Spirits",
@@ -2240,7 +2240,7 @@
   "e1a4a2e0c931": {
     "name": "Thermal jet array",
     "kind": "ability",
-    "plain": "Once the bearer has moved, you may choose one unit this model moved over and roll one D6, taking 1 off the roll if the unit has the CHARACTER keyword. On a 2-4, the unit suffers D3 mortal wounds; on a 5+, it suffers 2D3 mortal wounds."
+    "plain": "After the bearer moves, you can roll one D6 for one unit this model moved over: that unit suffers D3 mortal wounds on a 2-4, or 2D3 mortal wounds on a 5+. Take 1 off the roll if it has the CHARACTER keyword."
   },
   "e1e4b25fd7a1": {
     "name": "The Masters Are Watching",
@@ -2340,7 +2340,7 @@
   "ea425f7aa41d": {
     "name": "Prescience",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> units within 18\" of this PSYKER. Until your next Psychic phase starts, add 1 to the hit roll of every attack made by a model in that unit."
+    "plain": "Blessing: one of your <LEGION> units within 18\" of this PSYKER adds 1 to its hit rolls until your next Psychic phase starts."
   },
   "eb7b5e426b45": {
     "name": "The Great Sorcerer",
@@ -2465,7 +2465,7 @@
   "faf38d8c350d": {
     "name": "Pact of Flesh",
     "kind": "psychic",
-    "plain": "Blessing: if this power is manifested, pick one of your <LEGION> CORE, <LEGION> DAEMONKIN or <LEGION> CHARACTER units within 18\" of this PSYKER.\n- One model in that unit gets back up to D3 lost wounds.\n- If you picked a CORE or DAEMONKIN unit that is below its Starting Strength, one of its destroyed models is returned to the unit with all of its wounds."
+    "plain": "Blessing: one of your <LEGION> CORE, <LEGION> DAEMONKIN or <LEGION> CHARACTER units within 18\" of this PSYKER recovers wounds and may regain a destroyed model.\n- One model in that unit gets back up to D3 lost wounds.\n- If it is a CORE or DAEMONKIN unit that is below its Starting Strength, one of its destroyed models is returned to the unit with all of its wounds."
   },
   "fb38ba6b48d0": {
     "name": "Hellforged plasma blaster - Supercharge",
