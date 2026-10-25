@@ -172,7 +172,7 @@
   "e20351fb0560": {
     "name": "Khan's spear",
     "kind": "weapon",
-    "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled (x2) for its attacks."
+    "plain": "If the bearer made a charge move or a Heroic Intervention this turn, this weapon's attacks have a Strength characteristic of x2 (twice the bearer's Strength)."
   },
   "e2315ce7369a": {
     "name": "Scimitar of the Great Khan",
@@ -187,7 +187,7 @@
   "e72ca43b6247": {
     "name": "Wrath of the Heavens",
     "kind": "ability",
-    "plain": "BIKER model only: the model with this Relic has a Move of 16\". In the Movement phase, it can pass through other models and terrain features as though they weren't there."
+    "plain": "BIKER model only: the bearer has a Move of 16\" and, in the Movement phase, can pass through other models and terrain features as if they weren't there."
   },
   "f01ab4f16411": {
     "name": "Plume of the Plainsrunner",

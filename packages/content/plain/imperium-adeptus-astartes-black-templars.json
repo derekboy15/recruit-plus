@@ -22,12 +22,12 @@
   "03c797e3096f": {
     "name": "Dragonrage Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a dragonrage bolt. If you do, that weapon makes only one attack, but if that attack hits, make D6 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the target gets no benefit of cover to its saving throw, and the weapon has Damage 1 and Armour Penetration -1."
+    "plain": "The bearer can fire a dragonrage bolt from one bolt weapon: a single attack that ignores cover and makes D6 wound rolls if it hits.\nWhen you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a dragonrage bolt. If you do, that weapon makes only one attack, but if that attack hits, make D6 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the target gets no benefit of cover to its saving throw, and the weapon has Damage 1 and Armour Penetration -1."
   },
   "0632dae1c522": {
     "name": "Frost Weapon",
     "kind": "ability",
-    "plain": "When you give this Relic to a model, pick one weapon it has: lightning claw, master-crafted power axe, master-crafted power sword, power axe or power sword. Add 1 to that weapon's Strength and to its Damage (if the model has two lightning claws, both of them get this bonus). The chosen weapon (or both lightning claws) counts as a Chapter Relic."
+    "plain": "One power axe, power sword or lightning claw the bearer has gets 1 added to its Strength and Damage.\nWhen you give this Relic to a model, pick one weapon it has: lightning claw, master-crafted power axe, master-crafted power sword, power axe or power sword. Add 1 to that weapon's Strength and to its Damage (if the model has two lightning claws, both of them get this bonus). The chosen weapon (or both lightning claws) counts as a Chapter Relic."
   },
   "066413400d38": {
     "name": "Blade Stance",
@@ -70,7 +70,7 @@
   "0996c5ac1b04": {
     "name": "Grapnel Launcher",
     "kind": "ability",
-    "plain": "The bearer has the Outflank ability. Whenever its unit makes a Normal Move, Advances or Falls Back, ignore any vertical distance the bearer moves when working out how far it can move this turn.",
+    "plain": "The bearer has the Outflank ability, and vertical distance doesn't count towards how far it moves when its unit makes a Normal Move, Advances or Falls Back.",
     "waive": {
       "125": "page reference to the core rules, not part of the rule"
     }
@@ -93,7 +93,7 @@
   "0b5afa280635": {
     "name": "Storm shield",
     "kind": "ability",
-    "plain": "The bearer has a 4+ invulnerable save. Also add 1 to its armour saves."
+    "plain": "The bearer gets a 4+ invulnerable save, and you add 1 to its armour saves."
   },
   "0b6ecf5094be": {
     "name": "Covering Fire",
@@ -118,7 +118,7 @@
   "0d0fd30afbed": {
     "name": "Arbiter's Gaze",
     "kind": "ability",
-    "plain": "• Whenever the bearer attacks, a hit roll of 2+ always succeeds, whatever modifiers or abilities the target has, and this includes Overwatch.\n• The target gets no benefit from cover against the bearer's attacks."
+    "plain": "The bearer's attacks always hit on a 2+ and ignore cover.\n• Whenever the bearer attacks, a hit roll of 2+ always succeeds, whatever modifiers or abilities the target has, and this includes Overwatch.\n• The target gets no benefit from cover against the bearer's attacks."
   },
   "0d10e36d1c81": {
     "name": "Colossal Flyer",
@@ -148,7 +148,7 @@
   "0f1f6af25615": {
     "name": "Haywire Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a haywire bolt. If you do, that weapon makes only one attack. If that attack targets a VEHICLE unit, an unmodified wound roll of 4 or 5 deals D3 mortal wounds to the target, and an unmodified wound roll of 6 deals 3 mortal wounds to it. These are on top of any other damage."
+    "plain": "The bearer can fire a haywire bolt from one bolt weapon: a single attack that can deal mortal wounds to a VEHICLE unit.\nWhen you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a haywire bolt. If you do, that weapon makes only one attack. If that attack targets a VEHICLE unit, an unmodified wound roll of 4 or 5 deals D3 mortal wounds to the target, and an unmodified wound roll of 6 deals 3 mortal wounds to it. These are on top of any other damage."
   },
   "0f5119f7deba": {
     "name": "Suffer Not the Unclean to Live",
@@ -233,7 +233,7 @@
   "18d5a9343d7d": {
     "name": "Bolts of Judgement",
     "kind": "ability",
-    "plain": "When you give this Relic to a model, pick one bolt weapon it has. Each time the bearer shoots with that weapon, you can choose to fire a bolt of judgement. If you do, the weapon makes only one attack, but that attack has AP -2 and Damage 3, and unless the target is a VEHICLE or MONSTER unit, its wound roll always succeeds on a 2+."
+    "plain": "The bearer can fire a bolt of judgement from one bolt weapon: a single attack with AP -2 and Damage 3.\nWhen you give this Relic to a model, pick one bolt weapon it has. Each time the bearer shoots with that weapon, you can choose to fire a bolt of judgement. If you do, the weapon makes only one attack, but that attack has AP -2 and Damage 3, and unless the target is a VEHICLE or MONSTER unit, its wound roll always succeeds on a 2+."
   },
   "1937f5ef06a3": {
     "name": "Drakeblade",
@@ -288,7 +288,7 @@
   "218fd3ef7967": {
     "name": "Master of Sanctity",
     "kind": "ability",
-    "plain": "This model knows one extra litany from the Litanies of Battle. In your Command phase, while this model is on the battlefield, it can recite one extra litany it knows, as long as no friendly model has already recited that litany this turn."
+    "plain": "This model knows one extra litany from the Litanies of Battle, and can recite one extra litany in your Command phase. To do so it must be on the battlefield, and the extra litany must be one it knows that no friendly model has already recited this turn."
   },
   "21f3157cd2a3": {
     "name": "Twin hellstrike launcher",
@@ -363,7 +363,7 @@
   "29d04990ca45": {
     "name": "Chapter Master",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your <CHAPTER> CORE or <CHAPTER> CHARACTER units within 6\" of this model. Until your next Command phase starts, you can re-roll the hit roll for every attack its models make."
+    "plain": "In your Command phase, one of your units within 6\" of this model can re-roll its hit rolls until your next Command phase.\nPick one of your <CHAPTER> CORE or <CHAPTER> CHARACTER units within 6\" of this model. Until your next Command phase starts, you can re-roll the hit roll for every attack its models make."
   },
   "2a073c55df0a": {
     "name": "Icarus Rocket Pod",
@@ -398,7 +398,7 @@
   "2fd7a8fb28a4": {
     "name": "2. Psalm of the Remorseless Persecution",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLAR CORE units within 6\" of this PRIEST. When a model in that unit makes a melee attack, an unmodified wound roll of 6 also inflicts 1 mortal wound on the target, on top of any normal damage. No unit can suffer more than 6 mortal wounds per phase from this ability."
+    "plain": "If this litany is inspiring, one of your units within 6\" of this PRIEST deals 1 extra mortal wound on each unmodified melee wound roll of 6.\nPick one of your BLACK TEMPLAR CORE units within 6\" of this PRIEST. When a model in that unit makes a melee attack, an unmodified wound roll of 6 also inflicts 1 mortal wound on the target, on top of any normal damage. No unit can suffer more than 6 mortal wounds per phase from this ability."
   },
   "2fe9b06448ff": {
     "name": "Explodes (3\"/1)",
@@ -408,12 +408,12 @@
   "32bb4ae253ef": {
     "name": "Gatebreaker Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a gatebreaker bolt. If you do, that weapon makes only one attack, but if that attack hits, make D3 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the weapon has Armour Penetration -5 and Damage 1."
+    "plain": "The bearer can fire a gatebreaker bolt from one bolt weapon: a single attack that, if it hits, makes D3 wound rolls at Armour Penetration -5.\nWhen you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a gatebreaker bolt. If you do, that weapon makes only one attack, but if that attack hits, make D3 wound rolls for it instead of one (each successful wound roll is a separate wound that must be allocated). For that attack, the weapon has Armour Penetration -5 and Damage 1."
   },
   "338b50764ce0": {
     "name": "Epitome of Piety",
     "kind": "ability",
-    "plain": "• This Warlord can try to deny one psychic power in your opponent's Psychic phase, just as a Psyker could.\n• Add 1 to this Warlord's Deny the Witch tests."
+    "plain": "In your opponent's Psychic phase, this Warlord can try to deny one psychic power just as a Psyker could, and you add 1 to its Deny the Witch tests."
   },
   "3404b226e0ec": {
     "name": "Command Authority",
@@ -448,7 +448,7 @@
   "38ca25a779b5": {
     "name": "Seal of Oath",
     "kind": "ability",
-    "plain": "Before the first turn begins, at the start of the first battle round, pick one enemy unit. From then until the battle ends, the bearer has this Aura ability (Seal of Oath): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, you can re-roll both the hit roll and the wound roll for attacks its models make against the enemy unit you picked."
+    "plain": "The bearer gets an aura that lets your nearby Ultramarines Core and Character units re-roll hit and wound rolls against one enemy unit you pick.\nBefore the first turn begins, at the start of the first battle round, pick that enemy unit. From then until the battle ends, the bearer has this Aura ability (Seal of Oath): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, you can re-roll both the hit roll and the wound roll for attacks its models make against the enemy unit you picked."
   },
   "38e1cd77c812": {
     "name": "Transhuman Physiology",
@@ -473,7 +473,7 @@
   "3ac16341296f": {
     "name": "Haywire Mine",
     "kind": "ability",
-    "plain": "Once per battle, when an enemy unit ends a charge move within Engagement Range of the bearer's unit, you can set off the bearer's Haywire mine: roll one D6, and on a 2+ that enemy unit suffers D3 mortal wounds (3 mortal wounds instead if it is a VEHICLE)."
+    "plain": "Once per battle, the bearer's Haywire mine can inflict mortal wounds on an enemy unit that ends a charge move within Engagement Range of the bearer's unit. When that happens, you can set off the mine: roll one D6, and on a 2+ that enemy unit suffers D3 mortal wounds (3 mortal wounds instead if it is a VEHICLE)."
   },
   "3b0058b662cd": {
     "name": "Neo-volkite pistol",
@@ -523,7 +523,7 @@
   "41fbce66fce0": {
     "name": "1. Litany of Divine Protection",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. Roll one D6 whenever one of that unit's models would lose a wound: on a 5+, it doesn't lose that wound."
+    "plain": "If this litany is inspiring, one of your units within 6\" of this Priest can ignore each wound its models would lose on a 5+.\nPick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. Roll one D6 whenever one of that unit's models would lose a wound: on a 5+, it doesn't lose that wound."
   },
   "4211287ed0ba": {
     "name": "Melta rifle",
@@ -558,7 +558,7 @@
   "45a56137baad": {
     "name": "Auric Aquila",
     "kind": "ability",
-    "plain": "The bearer of this Relic has a 4+ invulnerable save. Also, roll one D6 each time it would lose a wound to a mortal wound in the Psychic phase: on a 5+, it doesn't lose that wound."
+    "plain": "The bearer of this Relic has a 4+ invulnerable save, and can ignore wounds lost to mortal wounds in the Psychic phase on a 5+. In the Psychic phase, each time it would lose a wound to a mortal wound, roll one D6: on a 5+, it doesn't lose that wound."
   },
   "45b96d413c66": {
     "name": "Armour of Fate",
@@ -643,7 +643,7 @@
   "4e95a4938913": {
     "name": "Litanies of Battle",
     "kind": "ability",
-    "plain": "This model knows the Litany of Hate, plus one litany from the Litanies of Battle. When your Command phase starts, it can recite one of its litanies, provided no friendly model has recited that litany yet this battle round. Roll one D6. If you get 3+, the litany is inspiring, and its effect lasts until your next Command phase.",
+    "plain": "This model knows the Litany of Hate plus one litany from the Litanies of Battle, and can recite one litany it knows at the start of your Command phase. It can only recite a litany that no friendly model has recited yet this battle round. Roll one D6. If you get 3+, the litany is inspiring, and its effect lasts until your next Command phase.",
     "waive": {
       "188": "page reference to the codex, not part of the rule"
     }
@@ -686,12 +686,12 @@
   "538d31a401f4": {
     "name": "3. Exhortation of Rage",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. Add 1 to the wound roll for every melee attack made by a model in that unit."
+    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST: add 1 to the wound roll of every melee attack its models make."
   },
   "5436efe57347": {
     "name": "Frontline Commander",
     "kind": "ability",
-    "plain": "• Add 1 to this Warlord's Advance rolls and charge rolls.\n• When one of your BLACK TEMPLAR CORE units declares a charge that targets an enemy unit within Engagement Range of this Warlord, that unit adds 1 to its charge roll."
+    "plain": "This Warlord adds 1 to its Advance and charge rolls, and your BLACK TEMPLAR CORE units add 1 to charge rolls against enemies in Engagement Range of it.\n• Add 1 to this Warlord's Advance rolls and charge rolls.\n• When one of your BLACK TEMPLAR CORE units declares a charge that targets an enemy unit within Engagement Range of this Warlord, that unit adds 1 to its charge roll."
   },
   "54f428e36105": {
     "name": "Sword Brethren",
@@ -746,7 +746,7 @@
   "5a92a1bd893e": {
     "name": "Teleport Strike",
     "kind": "ability",
-    "plain": "During deployment, you can place this model in a teleportarium chamber rather than on the battlefield. It can then teleport in when any of your Movement phases ends: put it anywhere on the battlefield over 9\" from every enemy model."
+    "plain": "During deployment, you can place this model in a teleportarium chamber rather than on the battlefield, to teleport it in later. It can teleport in when any of your Movement phases ends: put it anywhere on the battlefield over 9\" from every enemy model."
   },
   "5b6147b91f2c": {
     "name": "Heir of Sigismund",
@@ -756,7 +756,7 @@
   "5c106596ce3e": {
     "name": "Master-Crafted Weapon",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one weapon it is equipped with (not a weapon whose profile includes the word 'master-crafted'). Add 1 to that weapon's Damage characteristic. That weapon counts as a Chapter Relic."
+    "plain": "One weapon the bearer has gets 1 added to its Damage characteristic and counts as a Chapter Relic. When you give a model this Relic, pick that weapon from those it is equipped with; it can't be a weapon whose profile includes the word 'master-crafted'."
   },
   "5c8a51a75782": {
     "name": "Holy Orb",
@@ -766,7 +766,7 @@
   "5ecf726efc84": {
     "name": "Litany of Hate (Aura)",
     "kind": "ability",
-    "plain": "If this litany is inspiring, then while one of your Core or Character units is within 6\" of this Priest, you can re-roll the hit roll for each melee attack made by a model in that unit."
+    "plain": "If this litany is inspiring, then while one of your Core or Character units is within 6\" of this Priest, you can re-roll its models' melee hit rolls."
   },
   "5ed70c734dde": {
     "name": "Power Overload",
@@ -811,7 +811,7 @@
   "636fcb14f06f": {
     "name": "Inner Circle",
     "kind": "ability",
-    "plain": "This applies if the unit has the Grim Resolve Chapter Tactic, or if it has the Inheritors of the Primarch Successor tactic and uses the Dark Angels Chapter Tactic:\n• It passes Morale tests automatically.\n• Unless it has the VEHICLE keyword, it can't be selected to Fall Back while it is within Engagement Range of any enemy FALLEN units.\n• Whenever you want it to Fall Back, roll 2D6 unless it has the VEHICLE, RAVENWING or CHAPTER MASTER keyword: if the total is no higher than its Leadership characteristic, it can Fall Back; if not, it can't, and it must Remain Stationary instead."
+    "plain": "With the right Chapter Tactic, this unit passes Morale tests automatically and has limits on Falling Back. This applies if the unit has the Grim Resolve Chapter Tactic, or if it has the Inheritors of the Primarch Successor tactic and uses the Dark Angels Chapter Tactic:\n• It passes Morale tests automatically.\n• Unless it has the VEHICLE keyword, it can't be selected to Fall Back while it is within Engagement Range of any enemy FALLEN units.\n• Whenever you want it to Fall Back, roll 2D6 unless it has the VEHICLE, RAVENWING or CHAPTER MASTER keyword: if the total is no higher than its Leadership characteristic, it can Fall Back; if not, it can't, and it must Remain Stationary instead."
   },
   "639e4b737ae4": {
     "name": "Fist of Terra",
@@ -821,7 +821,7 @@
   "646b13fcc27a": {
     "name": "Chapter Banner",
     "kind": "ability",
-    "plain": "In your Command phase, choose one <CHAPTER> CORE unit within 6\" of this model. Until your next Command phase begins, that unit's models add 1 to the hit roll of each melee attack they make."
+    "plain": "In your Command phase, choose one <CHAPTER> CORE unit within 6\" of this model: it adds 1 to its melee hit rolls until your next Command phase begins."
   },
   "646c806ccb33": {
     "name": "Cyclonic melta lance",
@@ -831,7 +831,7 @@
   "64b29752277a": {
     "name": "Hellfury Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a hellfury bolt. If you do, that weapon makes only one attack, but if that attack hits, the target suffers 1 mortal wound and the attack sequence ends."
+    "plain": "The bearer can fire a hellfury bolt from one bolt weapon: a single attack that, if it hits, deals 1 mortal wound and ends its attack sequence.\nWhen you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a hellfury bolt. If you do, that weapon makes only one attack, but if that attack hits, the target suffers 1 mortal wound and the attack sequence ends."
   },
   "6545efa358e8": {
     "name": "Martial Exemplar",
@@ -866,7 +866,7 @@
   "6beb95732fb2": {
     "name": "Infiltrator comms array",
     "kind": "ability",
-    "plain": "The bearer's unit always counts as being in range of the Rites of Battle and Tactical Precision aura abilities of any friendly <CHAPTER> PHOBOS units on the battlefield."
+    "plain": "The bearer's unit always counts as being in range of the Rites of Battle and Tactical Precision auras of friendly <CHAPTER> PHOBOS units. This works wherever those units are on the battlefield."
   },
   "6c103fffaace": {
     "name": "Icarus Ironhail Heavy Stubber",
@@ -936,7 +936,7 @@
   "75b597e93175": {
     "name": "Orbital Comms Array",
     "kind": "ability",
-    "plain": "In your Shooting phase, you can choose one model in your army whose Orbital Comms Array hasn't been used yet this battle. It uses the array to call in an orbital barrage: choose a point on the battlefield, then roll a D6 for every unit within D6\" of it, subtracting 1 from the roll for a CHARACTER unit. On a 4+, the unit rolled for suffers D3 mortal wounds."
+    "plain": "In your Shooting phase, one model in your army whose Orbital Comms Array hasn't been used yet this battle can call in an orbital barrage with it. Choose a point on the battlefield, then roll a D6 for every unit within D6\" of it, subtracting 1 from the roll for a CHARACTER unit. On a 4+, the unit rolled for suffers D3 mortal wounds."
   },
   "75de5acb4639": {
     "name": "Command Squad",
@@ -1154,7 +1154,7 @@
   "93e774243e78": {
     "name": "Runic Weapon",
     "kind": "ability",
-    "plain": "• Add 1 to Deny the Witch tests taken for the bearer.\n• When you give a model this Relic, pick one of these weapons it has: force axe, force stave or force sword. Add 1 to that weapon's Strength characteristic. That weapon counts as a Chapter Relic."
+    "plain": "The bearer adds 1 to its Deny the Witch tests, and one of its force weapons gets 1 more Strength.\n• Add 1 to Deny the Witch tests taken for the bearer.\n• When you give a model this Relic, pick one of these weapons it has: force axe, force stave or force sword. Add 1 to that weapon's Strength characteristic. That weapon counts as a Chapter Relic."
   },
   "94125b1fbf08": {
     "name": "Smokescreen",
@@ -1189,7 +1189,7 @@
   "95da8c839c8c": {
     "name": "Fortis-Pattern Data Spike",
     "kind": "ability",
-    "plain": "TECHMARINE only. When a model with this Relic uses its Blessing of the Omnissiah ability, roll two dice for the number of lost wounds regained and discard one of them."
+    "plain": "TECHMARINE only: when a model with this Relic uses its Blessing of the Omnissiah ability, roll two dice for the number of lost wounds regained and discard one."
   },
   "95fe2356e239": {
     "name": "Decimator Protocols",
@@ -1224,7 +1224,7 @@
   "997903911c52": {
     "name": "Camo cloak",
     "kind": "ability",
-    "plain": "If a model in this unit is receiving the benefits of cover when a ranged attack is allocated to it, add an additional 1 to the armour save made against that attack."
+    "plain": "Models in this unit add an additional 1 to their armour saves against ranged attacks while they are receiving the benefits of cover."
   },
   "9a9fe7ace2b1": {
     "name": "Astartes Banner",
@@ -1289,7 +1289,7 @@
   "a0b6bd535c2a": {
     "name": "3. Plea of Deliverance",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this PRIEST.\n• Any psychic powers manifested by enemy models that are affecting that unit or its models stop affecting them.\n• Until the start of your next Command phase, psychic powers manifested by enemy units don't affect that unit or its models."
+    "plain": "If this litany is inspiring, one of your units within 6\" of this PRIEST is freed from enemy psychic powers and immune to them until your next Command phase.\nPick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this PRIEST.\n• Any psychic powers manifested by enemy models that are affecting that unit or its models stop affecting them.\n• Until the start of your next Command phase, psychic powers manifested by enemy units don't affect that unit or its models."
   },
   "a112524bdec1": {
     "name": "Wisdom of the Ancients",
@@ -1312,7 +1312,7 @@
   "a2e787e1b6bc": {
     "name": "Morkai's Teeth Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a Morkai's Teeth bolt. If you do, that weapon makes only one attack, but if it hits, the attack sequence ends and the target unit becomes marked by Morkai for the rest of the turn. Wound rolls of 1 are re-rolled for any attack made against a unit marked by Morkai."
+    "plain": "The bearer can fire a Morkai's Teeth bolt from one bolt weapon: if its single attack hits, attacks against the target unit re-roll wound rolls of 1 this turn.\nWhen you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a Morkai's Teeth bolt. If you do, that weapon makes only one attack, but if it hits, the attack sequence ends and the target unit becomes marked by Morkai for the rest of the turn. Wound rolls of 1 are re-rolled for any attack made against a unit marked by Morkai."
   },
   "a38aa3552578": {
     "name": "Master-crafted instigator bolt carbine",
@@ -1337,12 +1337,12 @@
   "a4a51e09614c": {
     "name": "1. Litany of Faith (Aura)",
     "kind": "ability",
-    "plain": "If this litany is inspiring, then while one of your CORE or CHARACTER units is within 6\" of this PRIEST, roll one D6 whenever one of its models would lose a wound to a mortal wound: on a 5+, that wound isn't lost."
+    "plain": "If this litany is inspiring, models in your CORE or CHARACTER units within 6\" of this PRIEST can avoid losing wounds to mortal wounds. Whenever one of those models would lose a wound to a mortal wound, roll one D6: on a 5+, that wound isn't lost."
   },
   "a55e6ecf34b0": {
     "name": "4. Mantra of Strength",
     "kind": "ability",
-    "plain": "If this litany is inspiring, this PRIEST'S Attacks and Strength characteristics each go up by 1, and so does the Damage characteristic of each melee weapon it has."
+    "plain": "If this litany is inspiring, this PRIEST'S Attacks and Strength characteristics each go up by 1. So does the Damage characteristic of each melee weapon it has."
   },
   "a5b3b1176b7a": {
     "name": "Explodes (D6+6\"/D6)",
@@ -1377,7 +1377,7 @@
   "ac233a907218": {
     "name": "5. Recitation of Focus",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. Add 1 to the hit roll for every ranged attack made by a model in that unit."
+    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST: add 1 to the hit roll of every ranged attack its models make."
   },
   "ad833d1ce6e5": {
     "name": "Automated Weapons",
@@ -1427,7 +1427,7 @@
   "b50c0ade8da2": {
     "name": "5. Fervent Acclamation",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one Templar Vow that isn't in effect, and one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. That unit gets the effects of that vow.",
+    "plain": "If this litany is inspiring, one of your units within 6\" of this Priest gains the effects of a Templar Vow that isn't in effect. Pick the vow, then pick the unit: it must be one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest.",
     "waive": {
       "44": "page reference to the codex, not part of the rule",
       "45": "page reference to the codex, not part of the rule"
@@ -1446,7 +1446,7 @@
   "b70ed1981e32": {
     "name": "Reliquary of Vengeance",
     "kind": "ability",
-    "plain": "Once per battle, a model with this Relic can reveal the reliquary at the start of the Fight phase. If it does, until that phase ends the bearer has this Aura ability (Reliquary of Vengeance): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, each model in that unit gets 1 extra attack."
+    "plain": "Once per battle, when the Fight phase starts, the bearer can reveal the reliquary to give your nearby Ultramarines units 1 extra attack per model that phase.\nIf it does, until that phase ends the bearer has this Aura ability (Reliquary of Vengeance): while one of your Ultramarines Core or Ultramarines Character units is within 6\" of the bearer, each model in that unit gets 1 extra attack."
   },
   "b72a06b4de6f": {
     "name": "Smoke Launchers",
@@ -1456,7 +1456,7 @@
   "b77ef2c06134": {
     "name": "4. Fires of Devotion",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. When that unit fights, if this turn it made a charge move, was charged or performed a Heroic Intervention, add 1 to the Attacks characteristic of its models."
+    "plain": "If this litany is inspiring, one of your units within 6\" of this Priest adds 1 to its Attacks in a turn it charges, is charged or makes a Heroic Intervention.\nPick one of your BLACK TEMPLARS CORE or BLACK TEMPLARS CHARACTER units within 6\" of this Priest. When that unit fights, if this turn it made a charge move, was charged or performed a Heroic Intervention, add 1 to the Attacks characteristic of its models."
   },
   "b785e0c87906": {
     "name": "Swiftclaw",
@@ -1471,7 +1471,7 @@
   "b7c54db50848": {
     "name": "Relic Shield",
     "kind": "ability",
-    "plain": "Add 1 to the bearer's armour saves. Whenever the bearer suffers a mortal wound, roll one D6: on a 4+ that mortal wound has no effect."
+    "plain": "Add 1 to the bearer's armour saves, and each time it suffers a mortal wound, roll one D6: on a 4+, that mortal wound has no effect."
   },
   "b7c5b0b41ad4": {
     "name": "Sigismund's Seal",
@@ -1486,7 +1486,7 @@
   "b8922c59e441": {
     "name": "Quake Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a quake bolt. If you do, that weapon makes only one attack, but if it hits, the target unit is felled until the end of the turn, on top of any normal damage. Add 1 to the hit roll of every melee attack made against a felled unit."
+    "plain": "The bearer can fire a quake bolt from one bolt weapon: if its single attack hits, the target is felled, so melee attacks against it add 1 to hit this turn.\nWhen you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a quake bolt. If you do, that weapon makes only one attack, but if it hits, the target unit is felled until the end of the turn, on top of any normal damage. Add 1 to the hit roll of every melee attack made against a felled unit."
   },
   "b9693aa8a728": {
     "name": "Boreas air defence missiles",
@@ -1496,7 +1496,7 @@
   "b974c645dceb": {
     "name": "Death from Above",
     "kind": "ability",
-    "plain": "During deployment, if every model in this unit has this ability, you can set it up high in the skies instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+    "plain": "During deployment, if every model in this unit has this ability, you can set it up high in the skies to drop in later, instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
   },
   "b988439a0456": {
     "name": "Airborne",
@@ -1536,7 +1536,7 @@
   "c000386b326d": {
     "name": "Camo cloaks",
     "kind": "ability",
-    "plain": "When a ranged attack is allocated to a model in this unit that has a camo cloak, and that model is receiving the benefits of cover, add a further 1 to any armour saving throw made against it."
+    "plain": "Models in this unit with a camo cloak add a further 1 to armour saving throws against ranged attacks while they are receiving the benefits of cover."
   },
   "c03ea70a0717": {
     "name": "Leviathan siege drill",
@@ -1580,7 +1580,7 @@
   "c590c741ba32": {
     "name": "2. Catechism of Fire",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your CORE or CHARACTER units within 6\" of this PRIEST. When a model in that unit shoots at the closest eligible target, add 1 to the wound roll for each of those ranged attacks."
+    "plain": "If this litany is inspiring, one of your units within 6\" of this PRIEST adds 1 to wound rolls for ranged attacks against the closest eligible target.\nPick one of your CORE or CHARACTER units within 6\" of this PRIEST. When a model in that unit shoots at the closest eligible target, add 1 to the wound roll for each of those ranged attacks."
   },
   "c59c52f48746": {
     "name": "Open-topped",
@@ -1625,7 +1625,7 @@
   "cb95e865c438": {
     "name": "Korvidari Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a korvidari bolt. If you do, add 6\" to that weapon's Range characteristic when choosing targets and ranged weapons for that model, and it can target units that aren't visible to the bearer, but that weapon can make only one attack."
+    "plain": "The bearer can fire a korvidari bolt from one bolt weapon: a single attack with 6\" more range that can target units it can't see.\nWhen you give a model this Relic, pick one bolt weapon it has. When that model is chosen to shoot, you can have that weapon fire a korvidari bolt. If you do, add 6\" to that weapon's Range characteristic when choosing targets and ranged weapons for that model, and it can target units that aren't visible to the bearer, but that weapon can make only one attack."
   },
   "cbc4d4868b0f": {
     "name": "Flakk Missile",
@@ -1685,7 +1685,7 @@
   "d3522b8745df": {
     "name": "Shard of Isstvan",
     "kind": "ability",
-    "plain": "A model with this Relic has 1 added to its Attacks characteristic. Also, Morale tests taken for <CHAPTER> units within 6\" of a friendly model with this Relic are passed automatically; don't roll the dice."
+    "plain": "A model with this Relic gets 1 extra attack, and Morale tests for <CHAPTER> units within 6\" of a friendly model with this Relic pass automatically. Don't roll the dice for those tests."
   },
   "d370289ccf2f": {
     "name": "Watcher's in the Dark",
@@ -1740,7 +1740,7 @@
   "d74674d6b842": {
     "name": "Gleaming Pinions",
     "kind": "ability",
-    "plain": "• Falling Back in a turn doesn't stop the bearer from charging that turn.\n• Charge rolls for the bearer can be re-rolled."
+    "plain": "The bearer can charge in a turn in which it Fell Back, and you can re-roll its charge rolls."
   },
   "d81ad866e860": {
     "name": "Tremor Shells",
@@ -1780,7 +1780,7 @@
   "dce072811ae0": {
     "name": "Nobility Made Manifest (Aura)",
     "kind": "ability",
-    "plain": "Aura: while your ULTRAMARINES INFANTRY and ULTRAMARINES BIKER units are within 6\" of this Warlord, they can perform Heroic Interventions as if they were CHARACTERS."
+    "plain": "Aura: your ULTRAMARINES INFANTRY and ULTRAMARINES BIKER units within 6\" of this Warlord can perform Heroic Interventions as if they were CHARACTERS."
   },
   "dd3a2ce06bda": {
     "name": "Communication Relay",
@@ -1790,7 +1790,7 @@
   "de113122bf14": {
     "name": "Explorator Augury Web",
     "kind": "ability",
-    "plain": "Enemy units arriving as reinforcements can't be set up within 12\" of the bearer. The bearer's transport capacity is reduced from 10 to 6 <CHAPTER> INFANTRY models."
+    "plain": "Enemy units arriving as reinforcements can't be set up within 12\" of the bearer, but its transport capacity drops from 10 to 6 <CHAPTER> INFANTRY models."
   },
   "de3656f3f3f9": {
     "name": "Servant of the Chapter",
@@ -1820,7 +1820,7 @@
   "e2caa04fbf70": {
     "name": "Digital Weapons",
     "kind": "ability",
-    "plain": "The bearer of this Relic can make 1 extra attack each time it fights, using the close combat weapon profile. If that attack hits, it inflicts 1 mortal wound on the target and its attack sequence ends.",
+    "plain": "Each time the bearer of this Relic fights, it can make 1 extra attack that inflicts 1 mortal wound if it hits. Make that attack with the close combat weapon profile. If it hits, the target suffers 1 mortal wound and the attack sequence ends.",
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 rulebook\""
     }
@@ -1858,7 +1858,7 @@
   "e8c291b99fe3": {
     "name": "Stormwrath Bolts",
     "kind": "ability",
-    "plain": "When you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a stormwrath bolt. If you do, that weapon makes only one attack, but for that attack it has Strength 7 and Armour Penetration -1, and Damage D6 if the target is a MONSTER."
+    "plain": "The bearer can fire a stormwrath bolt from one bolt weapon: a single attack at Strength 7 and Armour Penetration -1, with Damage D6 against a MONSTER.\nWhen you give a model this Relic, pick one bolt weapon it has. When the bearer shoots with that weapon, you can have it fire a stormwrath bolt. If you do, that weapon makes only one attack, but for that attack it has Strength 7 and Armour Penetration -1, and Damage D6 if the target is a MONSTER."
   },
   "e8dfddcc3a95": {
     "name": "Wolf Guard",
@@ -1878,7 +1878,7 @@
   "ecdc69d75a90": {
     "name": "Obsidian Aquila",
     "kind": "ability",
-    "plain": "While one of your SALAMANDERS CORE units is within 6\" of the bearer, each time a model in that unit would lose a wound, roll one D6: on a 6, the wound is not lost."
+    "plain": "While one of your SALAMANDERS CORE units is within 6\" of the bearer, roll one D6 whenever a model in it would lose a wound: on a 6, the wound is not lost."
   },
   "ed04810237e5": {
     "name": "Automated Emplacement",
@@ -1903,12 +1903,12 @@
   "efdbc5437d6c": {
     "name": "6. Oath of Glory",
     "kind": "ability",
-    "plain": "If this litany is inspiring:\n• If any enemy units are within Engagement Range of this PRIEST model when the Fight phase starts, it can fight first that phase.\n• When this PRIEST model attacks using a Crozius arcanum, an artificer crozius or a Relic replacing either of them, each unmodified hit roll of 6 scores 2 extra hits.\n• This PRIEST model gets 1 added to its Strength characteristic."
+    "plain": "If this litany is inspiring, this PRIEST model gets 1 more Strength and extra hits with its crozius, and can fight first if it is in Engagement Range.\n• If any enemy units are within Engagement Range of this PRIEST model when the Fight phase starts, it can fight first that phase.\n• When this PRIEST model attacks using a Crozius arcanum, an artificer crozius or a Relic replacing either of them, each unmodified hit roll of 6 scores 2 extra hits.\n• This PRIEST model gets 1 added to its Strength characteristic."
   },
   "f0055acc971f": {
     "name": "Teleport Homer",
     "kind": "ability",
-    "plain": "Once per battle, at the start of your Movement phase, you may take this unit off the battlefield. Then, in the Reinforcements step of your next Movement phase, it may be set up again, either wholly within your own deployment zone or within 3\" of a friendly <CHAPTER> model, and in both cases more than 9\" away from all enemy models. If the battle ends while this unit is off the battlefield, it is destroyed. If this unit has split in two using its Combat Squads ability, only one of the two units can use Teleport Homer."
+    "plain": "Once per battle, when your Movement phase starts, you can take this unit off the battlefield and bring it back in your next Movement phase. In the Reinforcements step of that next Movement phase, it may be set up again, either wholly within your own deployment zone or within 3\" of a friendly <CHAPTER> model, and in both cases more than 9\" away from all enemy models. If the battle ends while this unit is off the battlefield, it is destroyed. If this unit has split in two using its Combat Squads ability, only one of the two units can use Teleport Homer."
   },
   "f101406da1c5": {
     "name": "Vindicator siege shield",
@@ -1918,7 +1918,7 @@
   "f1b25a4f61df": {
     "name": "6. Canticle of Hate (Aura)",
     "kind": "ability",
-    "plain": "If this litany is inspiring, then while one of your CORE or CHARACTER units is within 6\" of this PRIEST:\n• add 2 to that unit's charge rolls (this doesn't stack with any other rule that adds to a unit's charge roll).\n• when a model in that unit piles in or consolidates, it can move up to 3\" further (this doesn't stack with any other rule that increases how far models can pile in or consolidate)."
+    "plain": "If this litany is inspiring, your CORE or CHARACTER units within 6\" of this PRIEST add 2 to their charge rolls and can pile in and consolidate further. While one of those units is within 6\" of this PRIEST:\n• add 2 to that unit's charge rolls (this doesn't stack with any other rule that adds to a unit's charge roll).\n• when a model in that unit piles in or consolidates, it can move up to 3\" further (this doesn't stack with any other rule that increases how far models can pile in or consolidate)."
   },
   "f3af76b3a3c3": {
     "name": "Xenophase blade",
@@ -2006,7 +2006,7 @@
   "fd46199a10fd": {
     "name": "Arcus multi-launcher",
     "kind": "weapon",
-    "plain": "Blast. This weapon may target units not visible to the target."
+    "plain": "Blast. This weapon can target units that aren't visible to the bearer."
   },
   "fdc4796c6010": {
     "name": "Combat shield",

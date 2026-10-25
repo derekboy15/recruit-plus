@@ -129,7 +129,7 @@
   "64be167918eb": {
     "name": "Banebolts of Eryxia",
     "kind": "ability",
-    "plain": "One of the bearer's bolt weapons can fire a single Banebolt of Eryxia: one attack at Strength 6, AP -2 and Damage 3.\nWhen you give a model this Relic, pick one bolt weapon it has. Each time that model is chosen to shoot, if the weapon isn't firing special-issue ammunition, you can have it fire a Banebolt of Eryxia. If you do, the weapon makes only that one attack, using the Banebolt's characteristics.",
+    "plain": "One of the bearer's bolt weapons can fire a Banebolt of Eryxia instead of its normal attacks: a single attack at Strength 6, AP -2 and Damage 3.\nWhen you give a model this Relic, pick one bolt weapon it has. Each time that model is chosen to shoot, if it isn't firing special-issue ammunition, you can have that weapon fire a Banebolt of Eryxia. If you do, the weapon makes only that one attack, using the Banebolt's characteristics.",
     "waive": {
       "50": "page reference (\"pg 50\") for special-issue ammunition, not part of the rule"
     }

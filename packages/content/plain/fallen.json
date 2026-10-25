@@ -7,7 +7,7 @@
   "0ac551802ab0": {
     "name": "Gift of Chaos",
     "kind": "psychic",
-    "plain": "If manifested, pick an enemy unit within 6\" of the psyker that the psyker can see, and roll a D6. If the roll is higher than that unit's Toughness, it suffers D3+3 mortal wounds. If this power slays a CHARACTER, you may put a new Chaos Spawn into your army: before that character's model is removed, place the Spawn within 1\" of it."
+    "plain": "If manifested, roll a D6 for one visible enemy unit within 6\" of the psyker: if the roll is higher than that unit's Toughness, it suffers D3+3 mortal wounds. If this power slays a CHARACTER, you may put a new Chaos Spawn into your army: before that character's model is removed, place the Spawn within 1\" of it."
   },
   "0c61f4f7b6c8": {
     "name": "Self-repair",
@@ -42,7 +42,7 @@
   "1afe2285c1a2": {
     "name": "Diabolic Strength",
     "kind": "psychic",
-    "plain": "If manifested, choose a HERETIC ASTARTES model within 12\" of the psyker. Its Strength goes up by 2 and its Attacks go up by 1 until your next Psychic phase starts."
+    "plain": "If manifested, one HERETIC ASTARTES model within 12\" of the psyker gets 2 more Strength and 1 more attack until your next Psychic phase starts."
   },
   "2be946dfae02": {
     "name": "Hatred Incarnate",
@@ -62,7 +62,7 @@
   "559986ea1239": {
     "name": "Infernal Gaze",
     "kind": "psychic",
-    "plain": "If manifested, roll 3 dice for one enemy unit that is visible and within 18\" of the psyker. Each 4+ inflicts one mortal wound on that unit."
+    "plain": "If manifested, roll 3 dice for one visible enemy unit within 18\" of the psyker: that unit suffers one mortal wound for each 4+."
   },
   "629d45524732": {
     "name": "Fallen Angels",
@@ -72,12 +72,12 @@
   "6736a9a19599": {
     "name": "Smoke Launchers",
     "kind": "ability",
-    "plain": "Once per game, in the Shooting phase, this model can use its Smoke Launchers instead of shooting any of its weapons. If it does, until your next Shooting phase your opponent must subtract 1 from every hit roll made with ranged weapons that target this vehicle."
+    "plain": "Once per game, this model can fire its Smoke Launchers: until your next Shooting phase, ranged attacks that target it subtract 1 from the hit roll. It does this in the Shooting phase, instead of shooting any of its weapons."
   },
   "6fe39d097642": {
     "name": "Daemon Weapon",
     "kind": "ability",
-    "plain": "In the Fight phase, the first time this model is chosen to fight that phase, roll one D6. On a 1, it suffers 1 mortal wound and can't use this weapon for the rest of the phase. On a 2+, it fights with this weapon as normal."
+    "plain": "In each Fight phase, roll one D6 the first time this model is chosen to fight: on a 1, it suffers 1 mortal wound and can't use this weapon that phase. On a 2+, it fights with this weapon as normal."
   },
   "7522b6538716": {
     "name": "The Black Mace",
@@ -127,7 +127,7 @@
   "bb23393fe385": {
     "name": "Warptime",
     "kind": "psychic",
-    "plain": "If manifested, choose a friendly HERETIC ASTARTES unit within 3\" of the psyker. It can make a move right now, as though it were its Movement phase. Each unit can be affected by Warptime no more than once in each Psychic phase."
+    "plain": "If manifested, choose a friendly HERETIC ASTARTES unit within 3\" of the psyker: it can make a move right now, as though it were its Movement phase. Each unit can be affected by Warptime no more than once in each Psychic phase."
   },
   "bce5aca4f1bf": {
     "name": "Ul'o'cca, The Black Axe",
@@ -137,7 +137,7 @@
   "c049f5d15a47": {
     "name": "Death Hex",
     "kind": "psychic",
-    "plain": "If manifested, choose an enemy unit that is visible and within 12\" of the psyker. That unit can't take invulnerable saves until your next Psychic phase starts."
+    "plain": "If manifested, pick one enemy unit within 12\" of the psyker that it can see: that unit can't take invulnerable saves until your next Psychic phase starts."
   },
   "c2db50a07b87": {
     "name": "Caliban Steel Blade",
@@ -162,6 +162,6 @@
   "fd9205713a1e": {
     "name": "Prescience",
     "kind": "psychic",
-    "plain": "If manifested, pick a HERETIC ASTARTES unit within 18\" of the psyker. Until the start of your next Psychic phase, you can add 1 to every hit roll made for that unit."
+    "plain": "If manifested, choose one HERETIC ASTARTES unit within 18\" of the psyker: until your next Psychic phase starts, you can add 1 to every hit roll made for it."
   }
 }

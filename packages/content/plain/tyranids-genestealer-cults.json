@@ -35,7 +35,7 @@
   "0d46dad6a825": {
     "kind": "ability",
     "name": "A Trap Sprung",
-    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, then until the end of the turn, whenever you make a charge roll for it, roll one extra dice and discard one of the dice.",
+    "plain": "This unit rolls one extra dice for its charge rolls, and discards one of the dice, in the turn it arrives from underground. This lasts until the end of the turn in which it is set up on the battlefield as Reinforcements because it was set up underground.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text"
     }
@@ -86,7 +86,7 @@
   "174751ef9954": {
     "name": "Brood Brothers",
     "kind": "rule",
-    "plain": "When mustering a Battle-forged army, for each GENESTEALER CULTS Detachment in it you may also include one ASTRA MILITARUM Detachment, even though its units share no Faction keywords with the rest of your army; this doesn't stop your army being Battle-forged. These ASTRA MILITARUM Detachments are called BROOD BROTHER Detachments, and these rules apply to them. Only units with the <REGIMENT> or UNALIGNED keyword can go in a BROOD BROTHERS Detachment. When you put an ASTRA MILITARUM unit in one, every instance of the IMPERIUM and <REGIMENT> keywords on its datasheet becomes the BROOD BROTHERS keyword. BROOD BROTHERS models can't be your WARLORD, can't have a Warlord Trait and can't be given any Relics. Having BROOD BROTHERS units in your army doesn't stop your GENESTEALER CULTS units using the Crossfire ability, as long as your BROOD BROTHERS units make up no more than 25% of your army's total Power Rating (or of its points, if the game uses points). BROOD BROTHERS units in a BROOD BROTHERS Detachment gain the Loyalty to the Cult Regimental Doctrine: models in a unit with this doctrine add 2 to their Leadership characteristic, and INFANTRY units with it gain the Unquestioning Loyalty ability.",
+    "plain": "When mustering a Battle-forged army, you may include one ASTRA MILITARUM Detachment for each GENESTEALER CULTS Detachment in it. This is allowed even though its units share no Faction keywords with the rest of your army, and it doesn't stop your army being Battle-forged. These ASTRA MILITARUM Detachments are called BROOD BROTHER Detachments, and these rules apply to them. Only units with the <REGIMENT> or UNALIGNED keyword can go in a BROOD BROTHERS Detachment. When you put an ASTRA MILITARUM unit in one, every instance of the IMPERIUM and <REGIMENT> keywords on its datasheet becomes the BROOD BROTHERS keyword. BROOD BROTHERS models can't be your WARLORD, can't have a Warlord Trait and can't be given any Relics. Having BROOD BROTHERS units in your army doesn't stop your GENESTEALER CULTS units using the Crossfire ability, as long as your BROOD BROTHERS units make up no more than 25% of your army's total Power Rating (or of its points, if the game uses points). BROOD BROTHERS units in a BROOD BROTHERS Detachment gain the Loyalty to the Cult Regimental Doctrine: models in a unit with this doctrine add 2 to their Leadership characteristic, and INFANTRY units with it gain the Unquestioning Loyalty ability.",
     "waive": {
       "89": "page number in a cross-reference to the Crossfire ability",
       "BROOD BROTEHRS": "misspelling of BROOD BROTHERS in the official text; BROOD BROTHERS is used"
@@ -105,7 +105,7 @@
   "1a17bc7050b5": {
     "kind": "ability",
     "name": "Alchemicus Familiar",
-    "plain": "Once per battle, when this model begins the Twisted Experiment action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
+    "plain": "Once per battle, this model can perform the Twisted Experiment action on a unit within 18\" of it instead of within 3\". When it begins the action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
   },
   "1cf2237f3a39": {
     "name": "Cold-eyed Killers",
@@ -115,12 +115,12 @@
   "1daa7936d85c": {
     "name": "Nomadic Survivalists",
     "kind": "ability",
-    "plain": "Attacks with an AP of -1 or -2 are worsened by 1 AP against models with this creed, and these units can move and still count as having Remained Stationary.\n• When an attack with an Armour Penetration characteristic of -1 or -2 is allocated to a model with this creed, worsen that attack's Armour Penetration characteristic by 1.\n• If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until your Shooting phase ends."
+    "plain": "Attacks with AP -1 or -2 are worsened by 1 AP against models with this creed, and its units can make a Normal Move or Advance yet count as Remained Stationary.\n• When an attack with an Armour Penetration characteristic of -1 or -2 is allocated to a model with this creed, worsen that attack's Armour Penetration characteristic by 1.\n• If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until your Shooting phase ends."
   },
   "1def79cee03c": {
     "kind": "ability",
     "name": "From Every Angle",
-    "plain": "If the mission uses the Strategic Reserves rules, then at the start of the first battle round you can put this unit into Strategic Reserves without paying any extra CPs, no matter how many units are already there. When you set this unit up from Strategic Reserves, treat the battle round number as one higher than it is, so it can arrive from Strategic Reserves in the first battle round."
+    "plain": "This unit can be put into Strategic Reserves without paying extra CPs, and can arrive from them a battle round early. If the mission uses the Strategic Reserves rules, then at the start of the first battle round you can put this unit into Strategic Reserves without paying any extra CPs, no matter how many units are already there. When you set this unit up from Strategic Reserves, treat the battle round number as one higher than it is, so it can arrive from Strategic Reserves in the first battle round."
   },
   "1e66784abdee": {
     "kind": "psychic",
@@ -213,7 +213,7 @@
   "31214fcfeb74": {
     "kind": "ability",
     "name": "The Crouchling",
-    "plain": "The bearer's psychic familiar loses its usual ability and gets this one instead: 'The Crouchling: you can re-roll one Psychic test taken for this model, once per Psychic phase. When this model passes a Psychic test and every dice in that test shows the same result, that psychic power or psychic action can't be denied.'"
+    "plain": "The bearer's psychic familiar gets this ability instead of its usual one: a Psychic test re-roll, and passes that can't be denied when all the dice match.\n'The Crouchling: you can re-roll one Psychic test taken for this model, once per Psychic phase. When this model passes a Psychic test and every dice in that test shows the same result, that psychic power or psychic action can't be denied.'"
   },
   "3190dbfcd4c7": {
     "kind": "ability",
@@ -268,7 +268,7 @@
   "3cb96d68b920": {
     "kind": "ability",
     "name": "They Came From Below",
-    "plain": "If this unit is set up in ambush, then when ambush markers are revealed you can do one of these: remove one ambush marker from the battlefield and set this unit up underground instead; or, after this unit is set up from an ambush marker, let it make a Normal Move as if it were your Movement phase, ending that move more than 9\" from every enemy model.",
+    "plain": "If this unit is set up in ambush, it can go underground instead, or make a Normal Move after it is set up from an ambush marker. When ambush markers are revealed, you can do one of these:\n• remove one ambush marker from the battlefield and set this unit up underground instead; or\n• after this unit is set up from an ambush marker, let it make a Normal Move as if it were your Movement phase, ending that move more than 9\" from every enemy model.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text"
     }
@@ -351,7 +351,7 @@
   "541b6ffafc39": {
     "name": "Flare Launcher",
     "kind": "ability",
-    "plain": "The bearer has a 6+ invulnerable save against ranged attacks. Whenever the bearer's unit is chosen as a charge target, subtract 2 from the charge roll, as long as the bearer isn't within Engagement Range of any enemy units."
+    "plain": "The bearer has a 6+ invulnerable save against ranged attacks, and charge rolls made against its unit are reduced by 2. The charge penalty applies whenever the bearer's unit is chosen as a charge target, as long as the bearer isn't within Engagement Range of any enemy units."
   },
   "547786175fef": {
     "name": "Rigged to Blow",
@@ -421,7 +421,7 @@
   "670ca845b0b5": {
     "name": "Disciplined Militants",
     "kind": "ability",
-    "plain": "Units with this creed can shoot after Falling Back, and can perform actions after Falling Back or Advancing, shooting while they do.\n• A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends.\n• A unit with this creed can perform actions in a turn in which it Fell Back or Advanced, and it can shoot while performing an action without that action failing."
+    "plain": "Units with this creed can shoot after Falling Back (subtracting 1 from hit rolls) and perform actions after Falling Back or Advancing, shooting while they do.\n• A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends.\n• A unit with this creed can perform actions in a turn in which it Fell Back or Advanced, and it can shoot while performing an action without that action failing."
   },
   "672ae36cabcc": {
     "name": "Stratagem: Xenoform Bionics",
@@ -510,7 +510,7 @@
   "7b1cf5f5f3d0": {
     "kind": "ability",
     "name": "Alchemist Supreme",
-    "plain": "When a unit is given this ability, choose one <CULT> CORE or <CULT> ABERRANT unit from your army; that unit gains one genomic enhancement of your choice (as described in the Genomic Enhancement ability).",
+    "plain": "When a unit is given this ability, choose one <CULT> CORE or <CULT> ABERRANT unit from your army to gain a genomic enhancement of your choice. The enhancements are described in the Genomic Enhancement ability.",
     "waive": {
       "102": "page reference; pages are not mentioned in plain text"
     }
@@ -526,7 +526,7 @@
   "7f6e80786b13": {
     "kind": "ability",
     "name": "Vockor's Talisman",
-    "plain": "When the bearer makes a melee attack and the unmodified wound roll is 5+, no saving throw of any kind (invulnerable saves included) can be made against that attack."
+    "plain": "When the bearer makes a melee attack with an unmodified wound roll of 5+, no saving throw of any kind (invulnerable saves included) can be made against it."
   },
   "81ff69309950": {
     "name": "Devoted Zealots",
@@ -782,7 +782,7 @@
   "adc56266b463": {
     "kind": "ability",
     "name": "Crossfire",
-    "plain": "This unit can use this ability, and the rules below apply, if every unit in your army has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units) and every unit in your army that belongs to a cult belongs to the same one. Some other rules boost or interact with these Crossfire rules; whatever their source, you can only use them if your army meets that same condition: every unit has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units), and all units that belong to a cult belong to the same one.",
+    "plain": "This unit can use this ability, and the rules below apply, only if your army is all GENESTEALER CULTS from a single cult. That means every unit in your army has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units) and every unit in your army that belongs to a cult belongs to the same one. Some other rules boost or interact with these Crossfire rules; whatever their source, you can only use them if your army meets that same condition: every unit has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units), and all units that belong to a cult belong to the same one.",
     "waive": {
       "54": "page reference; pages are not mentioned in plain text"
     }
@@ -906,7 +906,7 @@
   "ca91d7ce75a5": {
     "kind": "ability",
     "name": "A Perfect Ambush",
-    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, you can use this ability: pick an enemy unit that is within 12\" of it. For the rest of the turn, that enemy unit counts as Exposed and as having a crossfire marker for every ranged attack that models in this unit make against it.",
+    "plain": "When this unit arrives from underground, you can make an enemy unit within 12\" of it count as Exposed and as having a crossfire marker for this unit's shots. This works when this unit is set up on the battlefield as Reinforcements because it was set up underground. The effect lasts for the rest of the turn and applies to every ranged attack that models in this unit make against that enemy unit.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text",
       "89": "page reference; pages are not mentioned in plain text"
@@ -940,7 +940,7 @@
   "da61a6d02315": {
     "kind": "psychic",
     "name": "Broodvolt Surge (Aura)",
-    "plain": "Blessing (Aura): until the start of your next Psychic phase, while one of your BLADED COG units is within 3\" of this PSYKER, armour saving throws against attacks with a Damage characteristic of 1 that are allocated to models in that unit get 1 added to them."
+    "plain": "Blessing (Aura): your BLADED COG units within 3\" of this PSYKER add 1 to armour saving throws against attacks with a Damage characteristic of 1. This lasts until the start of your next Psychic phase, and applies to each such attack allocated to a model in a BLADED COG unit of yours while that unit is within 3\" of this PSYKER."
   },
   "dc9f2b5076b8": {
     "kind": "weapon",

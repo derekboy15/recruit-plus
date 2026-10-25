@@ -27,7 +27,7 @@
   "0cc1f09d5670": {
     "name": "The Armour Indomitus",
     "kind": "ability",
-    "plain": "• The bearer gets 1 extra wound (add 1 to its Wounds characteristic).\n• The bearer's save is 2+.\n• Once per battle, just before a saving throw is made for the bearer, you can switch on its armour's force field. If you do, the bearer has a 3+ invulnerable save until the end of the phase."
+    "plain": "The bearer gets 1 extra wound and a 2+ save, and once per battle it can switch on a 3+ invulnerable save for the rest of the phase.\n• The bearer gets 1 extra wound (add 1 to its Wounds characteristic).\n• The bearer's save is 2+.\n• Once per battle, just before a saving throw is made for the bearer, you can switch on its armour's force field. If you do, the bearer has a 3+ invulnerable save until the end of the phase."
   },
   "0cd19d97c5c4": {
     "name": "Overkill",
@@ -37,7 +37,7 @@
   "0ece3595784f": {
     "name": "2. Fortified With Contempt",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If manifested, choose a DEATHWATCH INFANTRY or DEATHWATCH BIKER unit from your army within 18\" of this PSYKER. Until your next Psychic phase starts, roll one D6 each time one of its models would lose a wound; on a 5+ it keeps that wound."
+    "plain": "Blessing, warp charge 6: one of your DEATHWATCH INFANTRY or DEATHWATCH BIKER units gets a 5+ roll to keep each wound its models would lose.\nIf manifested, choose a DEATHWATCH INFANTRY or DEATHWATCH BIKER unit from your army within 18\" of this PSYKER. Until your next Psychic phase starts, roll one D6 each time one of its models would lose a wound; on a 5+ it keeps that wound."
   },
   "0f0ee3618010": {
     "name": "Black Vault Bolts",
@@ -67,7 +67,7 @@
   "15ae45565fdd": {
     "name": "The Vox Espiritum",
     "kind": "ability",
-    "plain": "Primaris models only. The bearer's aura abilities get 3\" more range, up to a maximum of 9\". Aura abilities that are psychic powers don't get this extra range."
+    "plain": "The bearer's aura abilities, other than psychic powers, get 3\" more range, up to a maximum of 9\". Only a Primaris model can take this Relic."
   },
   "1954b2f46e1f": {
     "name": "The Emperor's Judgement",
@@ -137,7 +137,7 @@
   "4660620ed76e": {
     "name": "Deadly Hunter",
     "kind": "ability",
-    "plain": "Once this Warlord has made a charge move, you can choose an enemy unit within 1\" of it and roll one D6. On a 2+, that unit suffers 1 mortal wound."
+    "plain": "Once this Warlord has made a charge move, you can roll one D6 for an enemy unit within 1\" of it: on a 2+, that unit suffers 1 mortal wound."
   },
   "4698117fda17": {
     "name": "Malleus",
@@ -172,17 +172,17 @@
   "4d4b6fbf7ce8": {
     "name": "4. Psychic Cleanse",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 6. If manifested, roll one D6 per enemy model within 9\" of this PSYKER. Each 6 deals 1 mortal wound to the unit that model belongs to."
+    "plain": "Witchfire, warp charge 6: if manifested, roll one D6 per enemy model within 9\" of this PSYKER; each 6 deals 1 mortal wound to that model's unit."
   },
   "5004ec8e6133": {
     "name": "Special-issue Ammunition",
     "kind": "ability",
-    "plain": "When a unit is chosen to shoot and it has any models equipped with a weapon that has this ability, each such weapon can fire special-issue ammunition before you pick any targets. For each weapon that does, choose one of the ammunition types below; until the end of the phase, every time that weapon fires, it uses that ammunition's modifiers and abilities:\n• Dragonfire Bolts: the target gets no benefit of cover against each attack.\n• Hellfire Rounds: add 1 to the wound roll of each attack, unless the target unit has the VEHICLE or TITANIC keyword.\n• Vengeance Rounds: add 1 to each attack's Damage characteristic.\n• Kraken Bolts: each attack gets 6\" more Range, and its Armour Penetration characteristic is improved by 1 (this stacks with the Armour Penetration bonus from the Combat Doctrines ability)."
+    "plain": "When a unit is chosen to shoot, each of its weapons with this ability can fire special-issue ammunition, picked before you choose any targets.\nFor each weapon that does, choose one of the ammunition types below; until the end of the phase, every time that weapon fires, it uses that ammunition's modifiers and abilities:\n• Dragonfire Bolts: the target gets no benefit of cover against each attack.\n• Hellfire Rounds: add 1 to the wound roll of each attack, unless the target unit has the VEHICLE or TITANIC keyword.\n• Vengeance Rounds: add 1 to each attack's Damage characteristic.\n• Kraken Bolts: each attack gets 6\" more Range, and its Armour Penetration characteristic is improved by 1 (this stacks with the Armour Penetration bonus from the Combat Doctrines ability)."
   },
   "52d5e7edc351": {
     "name": "Teeth of Terra",
     "kind": "ability",
-    "plain": "Only for a model with an Astartes chainsword. The bearer's Astartes chainsword is swapped for the Teeth of Terra."
+    "plain": "Swaps the bearer's Astartes chainsword for the Teeth of Terra. Only a model with an Astartes chainsword can take this Relic."
   },
   "54b0315e7c33": {
     "name": "Prognosticating Volley",
@@ -227,17 +227,17 @@
   "67ca25276bd8": {
     "name": "Eye of Abiding",
     "kind": "ability",
-    "plain": "The bearer's attacks can ignore modifiers, and an unmodified wound roll of 6 stops invulnerable saves.\n• For each of the bearer's attacks, you can ignore any or all modifiers to the hit roll, wound roll, Ballistic Skill and Weapon Skill.\n• When one of the bearer's attacks has an unmodified wound roll of 6, the target can't take invulnerable saving throws against it."
+    "plain": "The bearer's attacks can ignore hit roll, wound roll, Ballistic Skill and Weapon Skill modifiers, and an unmodified wound roll of 6 stops invulnerable saves.\n• For each of the bearer's attacks, you can ignore any or all modifiers to the hit roll, wound roll, Ballistic Skill and Weapon Skill.\n• When one of the bearer's attacks has an unmodified wound roll of 6, the target can't take invulnerable saving throws against it."
   },
   "6e7394835049": {
     "name": "Reliquary of Gathalamor",
     "kind": "ability",
-    "plain": "Primaris models only. The bearer gains this ability: Reliquary of Gathalamor (Aura): subtract 1 from Psychic tests taken for any enemy Psyker unit while it is within 18\" of the bearer. Whenever that unit fails a Psychic test, roll one D6: on a 4+ it suffers D3 mortal wounds."
+    "plain": "Primaris models only: the bearer's aura makes Psychic tests harder for enemy Psyker units within 18\" of it and can deal mortal wounds when they fail one. The bearer gains this ability: Reliquary of Gathalamor (Aura): subtract 1 from Psychic tests taken for any enemy Psyker unit while it is within 18\" of the bearer. Whenever that unit fails a Psychic test, roll one D6: on a 4+ it suffers D3 mortal wounds."
   },
   "70ff753641b6": {
     "name": "Purgatorus",
     "kind": "ability",
-    "plain": "Only for a model carrying an absolver bolt pistol, bolt pistol, heavy bolt pistol or master-crafted special issue bolt pistol. This Relic, Purgatorus, takes that pistol's place and uses its own weapon profile."
+    "plain": "Swaps the bearer's absolver bolt pistol, bolt pistol, heavy bolt pistol or master-crafted special issue bolt pistol for the relic pistol Purgatorus. Purgatorus uses its own weapon profile. Only a model carrying one of those pistols can take this Relic."
   },
   "710db0bd2987": {
     "name": "Fortis Kill Team",
@@ -257,7 +257,7 @@
   "7920b9fa96f9": {
     "name": "The Shield Eternal",
     "kind": "ability",
-    "plain": "Only for models with a storm shield, relic shield or combat shield; this Relic takes the place of that shield.\n• The bearer gets a 4+ invulnerable save.\n• Add 1 to its armour saving throws.\n• Each time it would lose a wound, roll one D6: on a 5+ it keeps that wound."
+    "plain": "Replaces a storm shield, relic shield or combat shield; the bearer gets a 4+ invulnerable save, better armour saves and a 5+ roll to keep each lost wound.\nOnly a model with one of those shields can take this Relic.\n• The bearer gets a 4+ invulnerable save.\n• Add 1 to its armour saving throws.\n• Each time it would lose a wound, roll one D6: on a 5+ it keeps that wound."
   },
   "79d49fad7c5a": {
     "name": "Disruptive Launch",
@@ -306,7 +306,7 @@
   "837135d9ab14": {
     "name": "Ghostweave Cloak",
     "kind": "ability",
-    "plain": "Phobos models with a camo cloak only.\n• Whenever the bearer Advances, Falls Back or makes a Normal Move, it can move through models as though they weren't there.\n• Subtract 1 from the hit roll of attacks that target the bearer."
+    "plain": "The bearer can move through models when it Advances, Falls Back or makes a Normal Move, and attacks against it subtract 1 from their hit rolls. Only a Phobos model with a camo cloak can take this Relic."
   },
   "83cf2fbffb20": {
     "name": "Teleportarium",
@@ -326,7 +326,7 @@
   "8827816cf98c": {
     "name": "6. Severance",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 7. If manifested, choose one enemy CHARACTER unit within 18\" of this PSYKER.\n• It suffers 1 mortal wound.\n• Until your next Psychic phase starts, its aura abilities reach 3\" less far. If the Psychic test result beat that CHARACTER unit's Leadership characteristic, then instead, until your next Psychic phase starts, enemy units get no benefit from its aura abilities at all."
+    "plain": "Malediction, warp charge 7: an enemy CHARACTER unit suffers 1 mortal wound and its auras lose 3\" of range (or stop helping enemy units on a high Psychic test).\nIf manifested, choose one enemy CHARACTER unit within 18\" of this PSYKER.\n• It suffers 1 mortal wound.\n• Until your next Psychic phase starts, its aura abilities reach 3\" less far. If the Psychic test result beat that CHARACTER unit's Leadership characteristic, then instead, until your next Psychic phase starts, enemy units get no benefit from its aura abilities at all."
   },
   "8b0d1721f285": {
     "name": "Dominus Aegis",
@@ -346,7 +346,7 @@
   "8c1e3e7adf5a": {
     "name": "The Honor Vehement (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your <CHAPTER> CORE units is within 6\" of the bearer, whenever that unit fights, its models get 1 extra attack (add 1 to their Attacks characteristic) until that fight is over. This doesn't stack with the extra attack from the Shock Assault ability.",
+    "plain": "Aura: each time one of your <CHAPTER> CORE units fights while within 6\" of the bearer, its models get 1 extra attack until that fight is over. (This adds 1 to their Attacks characteristic.) This doesn't stack with the extra attack from the Shock Assault ability.",
     "waive": {
       "125": "page reference to the codex, not part of the rule"
     }
@@ -369,12 +369,12 @@
   "91174cabd3a2": {
     "name": "Deathwatch Heavy Flamer",
     "kind": "ability",
-    "plain": "Pick one of the profiles below before you choose targets, and make the attacks with that profile. Attacks with this weapon hit the target automatically."
+    "plain": "Attacks with this weapon hit the target automatically, whichever of its profiles you pick.\nPick one of the profiles below before you choose targets, and make the attacks with that profile."
   },
   "9461d7e760aa": {
     "name": "Pennant of the Fallen",
     "kind": "ability",
-    "plain": "When a friendly model is destroyed and gets to make attacks because of the bearer's Astartes Banner ability, it can make 2 attacks with one of its melee weapons, not 1."
+    "plain": "When the bearer's Astartes Banner ability lets a destroyed friendly model make attacks, that model can make 2 attacks, not 1, with one of its melee weapons."
   },
   "9b990350b762": {
     "name": "Chapter Tactics",
@@ -407,7 +407,7 @@
   "a9125acc0456": {
     "name": "1. Premorphic Resonance",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If manifested, choose one friendly DEATHWATCH unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n• Its Overwatch attacks hit on 5+.\n• If, at the start of the Fight phase, it is within Engagement Range of any enemy models, it gets to fight first that phase.\n• Add 1 to the hit roll of melee attacks made by its models."
+    "plain": "Blessing, warp charge 6: one friendly DEATHWATCH unit hits on 5+ in Overwatch, adds 1 to its melee hit rolls and can fight first.\nIf manifested, choose one friendly DEATHWATCH unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n• Its Overwatch attacks hit on 5+.\n• If, at the start of the Fight phase, it is within Engagement Range of any enemy models, it gets to fight first that phase.\n• Add 1 to the hit roll of melee attacks made by its models."
   },
   "aa5dc00c36d0": {
     "name": "Targeting Scramblers",
@@ -480,7 +480,7 @@
   "beda6c1b139d": {
     "name": "5. Mantle of Shadow",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If manifested, choose one friendly DEATHWATCH INFANTRY unit within 12\" of this PSYKER. Until your next Psychic phase starts, as long as it neither shoots nor declares a charge, enemy models can only pick it as the target of ranged attacks if it is the closest eligible unit or they are within 12\" of it."
+    "plain": "Blessing, warp charge 6: one friendly DEATHWATCH INFANTRY unit becomes hard to target with ranged attacks, as long as it doesn't shoot or declare a charge.\nIf manifested, choose one friendly DEATHWATCH INFANTRY unit within 12\" of this PSYKER. Until your next Psychic phase starts, as long as it neither shoots nor declares a charge, enemy models can only pick it as the target of ranged attacks if it is the closest eligible unit or they are within 12\" of it."
   },
   "bee00b3b60b7": {
     "name": "Shroud Field",
@@ -490,7 +490,7 @@
   "c18231126453": {
     "name": "6. The Ties That Bind (Aura)",
     "kind": "ability",
-    "plain": "Two benefits for your DEATHWATCH CORE units within 6\" of this WARLORD.\n• Aura: while one of your DEATHWATCH CORE units is within 6\" of this WARLORD, you can re-roll its Morale tests.\n• In your Command phase, you can pick one of your DEATHWATCH CORE units within 6\" of this WARLORD. Until your next Command phase starts, it has Objective Secured. Any model in it that already has that ability counts as one extra model when working out who controls an objective marker."
+    "plain": "Your DEATHWATCH CORE units within 6\" of this WARLORD can re-roll Morale tests, and in your Command phase one of them can gain Objective Secured.\n• Aura: while one of your DEATHWATCH CORE units is within 6\" of this WARLORD, you can re-roll its Morale tests.\n• In your Command phase, you can pick one of your DEATHWATCH CORE units within 6\" of this WARLORD. Until your next Command phase starts, it has Objective Secured. Any model in it that already has that ability counts as one extra model when working out who controls an objective marker."
   },
   "c3848214478f": {
     "name": "Imperial Fists: Architect of War (Aura)",
@@ -525,17 +525,17 @@
   "cd1d96f5441f": {
     "name": "Tome of Malcador",
     "kind": "ability",
-    "plain": "Librarians only. The bearer knows one extra psychic power from any discipline it can use."
+    "plain": "The bearer knows one extra psychic power from any discipline it can use. Only a Librarian model can take this Relic."
   },
   "cff7f667f76d": {
     "name": "Aquila",
     "kind": "ability",
-    "plain": "Once you have picked a Battlefield Role for your army's Xenos Hunters Chapter Tactic, pick one more Battlefield Role. For the rest of the battle, models in this unit re-roll wound rolls of 1 for attacks against enemy units with either of those Battlefield Roles."
+    "plain": "Models in this unit re-roll wound rolls of 1 against enemy units with your Xenos Hunters Battlefield Role or one extra Battlefield Role you pick. After you pick a Battlefield Role for your army's Xenos Hunters Chapter Tactic, pick one more Battlefield Role. For the rest of the battle, each time a model in this unit attacks an enemy unit with either of those Battlefield Roles, re-roll a wound roll of 1."
   },
   "d093ca70d37e": {
     "name": "The Primarch's Wrath",
     "kind": "ability",
-    "plain": "Only for a model carrying a boltgun, master-crafted boltgun or special issue bolt carbine. This Relic takes that weapon's place and uses its own weapon profile."
+    "plain": "Swaps the bearer's boltgun, master-crafted boltgun or special issue bolt carbine for this Relic, which uses its own weapon profile. Only a model carrying one of those weapons can take it."
   },
   "d0b62ba8c5f3": {
     "name": "Oathkeeper",
@@ -545,7 +545,7 @@
   "d194cd1349a6": {
     "name": "The Burning Blade",
     "kind": "ability",
-    "plain": "Only for a model equipped with a power sword or master-crafted power sword. This Relic takes the place of that sword and uses its own weapon profile."
+    "plain": "Swaps the bearer's power sword or master-crafted power sword for this Relic, which uses its own weapon profile. Only a model equipped with one of those swords can take it."
   },
   "d87b086bcac3": {
     "name": "Deathwatch Teleport Homer",
@@ -560,7 +560,7 @@
   "e36eff62847f": {
     "name": "A Vigil Unmatched",
     "kind": "stratagem",
-    "plain": "Once per battle, after you choose a DEATHWATCH CHARACTER model that isn't a named character as your WARLORD: that model gets one extra Warlord Trait from the Deathwatch Warlord Traits table. No two Warlord Traits in your army can be the same (if rolling randomly, re-roll any duplicates)."
+    "plain": "If your WARLORD is a DEATHWATCH CHARACTER model that isn't a named character, it can get one extra Warlord Trait from the Deathwatch Warlord Traits table. Use this Stratagem only once, after you choose that model as your WARLORD. No two Warlord Traits in your army can be the same (if rolling randomly, re-roll any duplicates)."
   },
   "e6e5335abdbe": {
     "name": "Deathwatch combi-grav (Grav-gun)",
@@ -585,7 +585,7 @@
   "edfdd0c60f67": {
     "name": "3. Neural Void",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 7. If manifested, choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n• Its models have 1 fewer attack (subtract 1 from their Attacks characteristic).\n• Whenever it declares a charge, the only unit it can choose as the charge target is the closest one."
+    "plain": "Malediction, warp charge 7: one enemy unit's models get 1 fewer attack, and it can only charge the closest unit.\nIf manifested, choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n• Its models have 1 fewer attack (subtract 1 from their Attacks characteristic).\n• Whenever it declares a charge, the only unit it can choose as the charge target is the closest one."
   },
   "ee381e499e1d": {
     "name": "Total Obliteration",
@@ -605,7 +605,7 @@
   "f8674c51aad2": {
     "name": "Standard of the Emperor Ascendant",
     "kind": "ability",
-    "plain": "Ancients only.\n• The bearer's Astartes Banner ability gets 3\" more range.\n• You can re-roll Morale tests taken for your <CHAPTER> CORE units that are within range of the bearer's Astartes Banner ability."
+    "plain": "The bearer's Astartes Banner ability gets 3\" more range, and you can re-roll Morale tests taken for your <CHAPTER> CORE units within range of that ability. Only an Ancient model can take this Relic."
   },
   "f8b2c04bba29": {
     "name": "Kill Team Keywords",

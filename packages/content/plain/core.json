@@ -17,12 +17,12 @@
   "2a6de61c4ca4": {
     "name": "Counter-offensive",
     "kind": "stratagem",
-    "plain": "Use after an enemy unit has fought this turn. Pick one of your units that is eligible to fight: it fights next."
+    "plain": "After an enemy unit has fought this turn, pick one of your units that is eligible to fight: it fights next."
   },
   "31da5b676624": {
     "name": "Magazine Explosion (Macro-cannon)",
     "kind": "ability",
-    "plain": "When this model drops to 0 wounds, roll a D6 before you remove it and before any embarked models disembark. On a 6, its magazine blows up and every unit within 2D6\" suffers D6 mortal wounds."
+    "plain": "When this model drops to 0 wounds, it might explode: roll a D6 before you remove it and before any embarked models disembark. On a 6, its magazine blows up and every unit within 2D6\" suffers D6 mortal wounds."
   },
   "3244febd8760": {
     "name": "Stratagem: Warlord Trait",
@@ -67,12 +67,12 @@
   "66913550c460": {
     "name": "Relic",
     "kind": "stratagem",
-    "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. Pick one CHARACTER model in your army that isn't a named character and give it one Relic (it must be a Relic that model is allowed to have). You can use this Stratagem only once."
+    "plain": "Before the battle, while mustering your army and after picking your WARLORD, give one Relic to one CHARACTER model in your army that isn't a named character. It must be a Relic that model is allowed to have. You can use this Stratagem only once."
   },
   "67fbe1c4b2b3": {
     "name": "Command Re-roll",
     "kind": "stratagem",
-    "plain": "Use right after you make one of these rolls: a hit roll, wound roll, damage roll, saving throw, Advance roll, charge roll, Psychic test or Deny the Witch test, or the roll that sets how many attacks a weapon makes. You re-roll that roll, test or save."
+    "plain": "Re-roll a hit, wound, damage, Advance or charge roll, a saving throw, a Psychic or Deny the Witch test, or the roll for how many attacks a weapon makes. Use it right after you make that roll or test."
   },
   "70fdb47a8feb": {
     "name": "Fire Overwatch - 1 CP",
@@ -179,7 +179,7 @@
   "bd5d8700372e": {
     "name": "Cut Them Down",
     "kind": "stratagem",
-    "plain": "Use when an enemy unit Falls Back, before any of its models are moved. For each of your models within Engagement Range of that enemy unit, roll one D6. For every 6, that enemy unit suffers 1 mortal wound."
+    "plain": "When an enemy unit Falls Back, roll one D6 for each of your models within Engagement Range of it; each 6 inflicts 1 mortal wound on that enemy unit. Use this before any of the Falling Back unit's models are moved."
   },
   "c66c8ae4fba5": {
     "name": "Beta Rules",
@@ -204,7 +204,7 @@
   "dfdced1955e6": {
     "name": "Insane Bravery",
     "kind": "stratagem",
-    "plain": "Once per battle, use before you take a Morale test for one of your units. That unit passes the test automatically, so you don't roll any dice for it."
+    "plain": "Once per battle, one of your units automatically passes a Morale test. Use this before you take the test; you don't roll any dice for it."
   },
   "e07849049c5b": {
     "name": "Shared Faction Bonus",

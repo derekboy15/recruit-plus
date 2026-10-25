@@ -100,7 +100,7 @@
   "3362246a1efd": {
     "name": "Storm Caller",
     "kind": "psychic",
-    "plain": "Blessing (Aura), warp charge 6: if manifested, until the start of your next Psychic phase, SPACE WOLVES models from your army get the benefit of light cover while their unit is within 6\" of this PSYKER."
+    "plain": "Blessing (Aura), warp charge 6: if manifested, your SPACE WOLVES models get the benefit of light cover while their unit is within 6\" of this PSYKER. This lasts until the start of your next Psychic phase."
   },
   "3407e2095f5a": {
     "name": "The Fierce-eye (Aura)",
@@ -310,7 +310,7 @@
   "873793484567": {
     "name": "Jaws of the World Wolf",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 7: if manifested, choose an enemy unit visible to this PSYKER and within 18\" of it. For each model in that unit, roll one D6, adding 1 to each roll if the Psychic test came to 9 or more. Each 6+ inflicts 1 mortal wound on that unit."
+    "plain": "Witchfire, warp charge 7: if manifested, roll one D6 per model in an enemy unit within 18\" of this PSYKER that it can see; the unit takes 1 mortal wound per 6+. Add 1 to each roll if the Psychic test came to 9 or more."
   },
   "87436e420686": {
     "name": "Savage Strike",
