@@ -37,6 +37,14 @@
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> CORE units is within 6\" of this model, its models re-roll wound rolls of 1 for their attacks."
   },
+  "0d67ecba63bc": {
+    "name": "Purifying Recitations",
+    "kind": "ability",
+    "plain": "Add 3 to Deny the Witch tests taken for units with this conviction. This doesn't stack with any other rule that adds to Deny the Witch results, such as Pure of Will.",
+    "waive": {
+      "72": "page reference (page 72) to the codex, not rules content"
+    }
+  },
   "0e22cabee66e": {
     "name": "Driven Onward",
     "kind": "ability",
@@ -163,6 +171,14 @@
     "kind": "stratagem",
     "plain": "In your Fight phase: choose one of your ORDER OF THE BLOODY ROSE PARAGON WARSUITS units that made a charge move this turn. For the rest of the phase, when its models attack an enemy unit that had 6 or more models when this phase started, each unmodified hit roll of 4+ scores 1 extra hit."
   },
+  "2d80070e5a05": {
+    "name": "Devout Serenity",
+    "kind": "ability",
+    "plain": "Units with this conviction pass Combat Attrition tests automatically, and each Miracle dice used in their Acts of Faith can win you another on a 4+.\n- Combat Attrition tests taken for a unit with this conviction are always passed.\n- Whenever you use a Miracle dice for an Act of Faith that a model or unit with this conviction performs, roll one D6; on a 4+, you gain 1 Miracle dice.",
+    "waive": {
+      "91": "page reference (pg 91) to the codex, not rules content"
+    }
+  },
   "2f6816cece27": {
     "name": "Word of the Emperor",
     "kind": "ability",
@@ -200,6 +216,16 @@
     "waive": {
       "ORDER> CORE": "stray tab inside \"<ORDER>\" in the source makes this a garbled copy of <ORDER> CORE, which is present"
     }
+  },
+  "3f00926bc2dd": {
+    "name": "Stoic Endurance",
+    "kind": "ability",
+    "plain": "Models with this conviction can ignore wounds from mortal wounds on a 5+, and attacks against them with Armour Penetration -1 or -2 have it reduced by 1.\n- Whenever a model with this conviction would lose a wound because of a mortal wound, roll one D6; on a 5+, it doesn't lose that wound.\n- Whenever an attack with an Armour Penetration characteristic of -1 or -2 is allocated to a model with this conviction, that attack's Armour Penetration characteristic is reduced by 1."
+  },
+  "3fa82be338cc": {
+    "name": "Unbridled Valour",
+    "kind": "ability",
+    "plain": "Units with this conviction add 1 to their Combat Attrition tests."
   },
   "3ff635441d07": {
     "name": "The Emperor's Grace: Miraculous ability",
@@ -259,6 +285,11 @@
     "kind": "ability",
     "plain": "When this unit fights, if it made a charge move this turn, all of its models get 1 extra attack until that fight is resolved."
   },
+  "5164ac771bd2": {
+    "name": "Witch Hunters",
+    "kind": "ability",
+    "plain": "Models with this conviction re-roll hit rolls of 1 in melee against PSYKER units, and also re-roll wound rolls of 1 against PSYKER CHARACTER units."
+  },
   "523db8fe79bb": {
     "name": "Blessed Bolts",
     "kind": "stratagem",
@@ -314,6 +345,16 @@
     "kind": "ability",
     "plain": "In a Battle-forged army, each Detachment that includes a CULT IMPERIALIS PRIEST unit can include one ARCO-FLAGELLANTS unit that doesn't take up a Battlefield Role slot."
   },
+  "5c6fc2b7ff58": {
+    "name": "In The Footsteps of Saints",
+    "kind": "ability",
+    "plain": "Units with this conviction follow an Order Militant of your choice, using its Order conviction and gaining access to its Warlord Traits and Stratagems. This Order Minoris conviction can't be picked alongside any other Order Minoris conviction, and if you pick it you can't pick a second one. Choose one of these Orders Militant: the Order of Our Martyred Lady, of the Valorous Heart, of the Bloody Rose, of the Ebon Chalice, of the Argent Shroud or of the Sacred Rose.\n- Use the Order conviction of the chosen Order Militant.\n- When a CHARACTER model with this conviction gains a Warlord Trait, it can take an Orders Militant Warlord Trait belonging to the chosen Order Militant instead of one from the Adepta Sororitas Warlord Traits table. If a CHARACTER has one of these Warlord Traits, swap every instance of the Order Militant keyword on it (such as ORDER OF OUR MARTYRED LADY), if there are any, for the name of the Order this CHARACTER is from.\n- You gain access to the Orders Militant Stratagems of the chosen Order Militant, unless the only units with this conviction are in an Auxiliary Support, Super-heavy Auxiliary and/or Fortification Network Detachment. When you use one of these Stratagems, swap every instance of the Order Militant keyword on it (such as ORDER OF OUR MARTYRED LADY) for the Order keyword of the units with this conviction.",
+    "waive": {
+      "58": "page reference (page 58-63) to the codex, not rules content",
+      "63": "page reference (page 58-63) to the codex, not rules content",
+      "72": "page reference (page 72) to the codex, not rules content; the table is named instead"
+    }
+  },
   "5ce06a598155": {
     "name": "Litany of Deeds",
     "kind": "ability",
@@ -328,6 +369,11 @@
     "name": "Saint in the Making",
     "kind": "stratagem",
     "plain": "Before the battle, while you muster your army, if your WARLORD has the ADEPTUS MINISTORUM keyword: choose one of your ADEPTUS MINISTORUM CHARACTER models (other than named characters) and give it one Warlord Trait it is allowed to have; that model is treated as your WARLORD only for that Warlord Trait. No Warlord Trait can appear twice in your army (re-roll duplicates if generating them randomly), and this Stratagem can't give a model two Warlord Traits. This Stratagem can be used only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "5ec08efee750": {
+    "name": "Guided by the Emperor's Will",
+    "kind": "ability",
+    "plain": "When a unit with this conviction is picked to shoot or fight, you may re-roll a single hit roll or a single wound roll made for its attacks."
   },
   "60384f83e3de": {
     "name": "Forced Warlord Override",
@@ -358,6 +404,11 @@
     "name": "Blinding Radiance: Miraculous ability",
     "kind": "ability",
     "plain": "While one of your <ORDER> CORE or <ORDER> CHARACTER models is within Miracle range of this model, subtract 1 from the hit roll of each ranged attack made against that unit."
+  },
+  "645634c20e0e": {
+    "name": "Righteous Suffering",
+    "kind": "ability",
+    "plain": "Attacks against units with this conviction always fail on an unmodified wound roll of 1-2, whatever abilities the attacking weapon or model has."
   },
   "66139370506c": {
     "name": "Icon of the Ecclessiarchy (Aura)",
@@ -399,6 +450,14 @@
     "kind": "ability",
     "plain": "Aura: while one of your ADEPTUS MINISTORUM CORE units is within 6\" of this model, its models can use this model's Leadership characteristic in place of their own."
   },
+  "6fdf5c9e3a36": {
+    "name": "Rites of Fire",
+    "kind": "ability",
+    "plain": "Flame weapons that models with this conviction are equipped with get 4\" more range. You can't pick this conviction if you have already picked Raging Fervour or Unshakable Vengeance.",
+    "waive": {
+      "121": "page reference (pg 121) to the codex, not rules content"
+    }
+  },
   "6ffcc322d8ca": {
     "name": "Relics of the Matriarchs",
     "kind": "ability",
@@ -413,6 +472,19 @@
     "name": "Word of the Emperor: Miraculous ability",
     "kind": "ability",
     "plain": "While an enemy unit is within Miracle range of this model, invulnerable saves can't be made against melee attacks made against that enemy unit by models in your <ORDER> CORE or <ORDER> CHARACTER units."
+  },
+  "737a2a225476": {
+    "name": "Perfervid Belief",
+    "kind": "ability",
+    "plain": "Before an Act of Faith by a model or unit with this conviction, you can discard 1 Miracle dice so that 1 Miracle dice used in it counts as a 6. This works whatever that dice's actual value is.",
+    "waive": {
+      "91": "page reference (pg 91) to the codex, not rules content"
+    }
+  },
+  "7481a34586df": {
+    "name": "Shield of Aversion",
+    "kind": "ability",
+    "plain": "Attacks with Armour Penetration -1 that are allocated to a model with this conviction count as Armour Penetration 0 instead."
   },
   "774b0365afd2": {
     "name": "Simulacrum of the Ebon Chalice",
@@ -452,12 +524,29 @@
     "kind": "stratagem",
     "plain": "When one of your ADEPTUS MINISTORUM units is picked to shoot in your Shooting phase, or picked to fight in the Fight phase: for the rest of that phase, attacks its models make against PSYKER units get 1 added to their hit rolls. If the attacker is an ADEPTUS MINISTORUM CHARACTER model, those attacks also get 1 added to their wound rolls."
   },
+  "7dcb4dcd04ac": {
+    "name": "Daughters of the Emperor",
+    "kind": "ability",
+    "plain": "Units with this conviction get two chosen sacred rites, and can discard 1 Miracle dice before an Act of Faith to make 1 dice used in it count as a 6.\n- If any units in your army have this conviction, then when you work out your army's active sacred rites once the mission is determined, you can't pick two at random. Instead, you pick one sacred rite and must then pick a second. Both are active for your units with this conviction; for your other units with the Sacred Rites ability, only the first is active.\n- Before an Act of Faith by a model or unit with this conviction, you can discard 1 Miracle dice. If you do, 1 Miracle dice used in that Act of Faith counts as a 6, whatever its actual value.",
+    "waive": {
+      "91": "page reference (pg 91) to the codex, not rules content",
+      "93": "page reference (pg 93) to the codex, not rules content"
+    }
+  },
   "80081f1045e0": {
     "name": "Prayers to the Saint",
     "kind": "ability",
     "plain": "While the battlefield has any BATTLE SANCTUM terrain features on it, your CULT IMPERIALIS PRIEST and ADEPTA SORORITAS units can attempt the action below. 'Pray to the Saint (Action): one of your CULT IMPERIALIS PRIEST or ADEPTA SORORITAS INFANTRY units that is wholly within a friendly BATTLE SANCTUM terrain feature can begin this action at the end of your Movement phase. It completes at the end of your turn, and when it does, you gain 1 Miracle dice.'",
     "waive": {
       "91": "page reference in a data-author remark (pg 91), not part of the rule"
+    }
+  },
+  "8059fca5a6a8": {
+    "name": "Unshakable Vengeance",
+    "kind": "ability",
+    "plain": "When a model with this conviction attacks with a bolt weapon, you can ignore any or all modifiers to the hit roll and to Ballistic Skill. You can't pick this conviction if you have already picked Raging Fervour or Rites of Fire.",
+    "waive": {
+      "121": "page reference (pg 121) to the codex, not rules content"
     }
   },
   "816489d5a7bb": {
@@ -474,6 +563,11 @@
     "name": "Mysterious Saviour",
     "kind": "ability",
     "plain": "While KYGANIL is part of this unit, every attack that successfully wounds the unit must be allocated to KYGANIL. Whenever KYGANIL would lose a wound, roll one D6: if you get a 5+, KYGANIL doesn't lose it. Morale tests ignore the destruction of KYGANIL. KYGANIL is also destroyed if EPHARAEL STERN is ever destroyed."
+  },
+  "8296e18c1802": {
+    "name": "Quick to Anger",
+    "kind": "ability",
+    "plain": "Units with this conviction get 1 extra attack and 1 better Armour Penetration in melee in turns they charge, are charged or perform a Heroic Intervention.\n- When a unit with this conviction fights, if this turn it was charged, made a charge move or performed a Heroic Intervention, each of its models gets 1 extra attack until that fight is resolved.\n- When a model with this conviction makes a melee attack, if its unit was charged, made a charge move or performed a Heroic Intervention this turn, improve that attack's Armour Penetration characteristic by 1."
   },
   "862acc5c07b3": {
     "name": "Deadly Descent",
@@ -516,6 +610,14 @@
     "kind": "ability",
     "plain": "This unit's models have a 4+ invulnerable save."
   },
+  "8caf99b2c188": {
+    "name": "Conviction of Faith",
+    "kind": "ability",
+    "plain": "If every unit in your army with an Order conviction has this one, you can re-roll each Miracle dice you gain that shows a 1 before it goes into your pool.",
+    "waive": {
+      "91": "page reference (pg 91) to the codex, not rules content"
+    }
+  },
   "8dee1bc9071e": {
     "name": "Endless Suffering",
     "kind": "ability",
@@ -530,6 +632,16 @@
     "name": "Sacred Task (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> CORE units is within 6\" of this model and is performing an action, that unit can shoot and its action does not fail."
+  },
+  "90ec2ea47517": {
+    "name": "Deeds, Not Words",
+    "kind": "ability",
+    "plain": "Units with this conviction count as having Remained Stationary after a Normal Move or Advance, and can re-roll one hit or wound roll when they shoot or fight.\n- If a unit with this conviction Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until the end of your Shooting phase.\n- When a unit with this conviction is picked to shoot or fight, you may re-roll a single hit roll or a single wound roll made for its attacks."
+  },
+  "9346dd6b1b95": {
+    "name": "Holy Wrath",
+    "kind": "ability",
+    "plain": "Models with this conviction get 1 better Armour Penetration in melee if their unit was charged, made a charge move or performed a Heroic Intervention this turn. You can't pick this conviction if you have already picked Devout Fanaticism."
   },
   "93f0de58fbdd": {
     "name": "Daemonifuge (Aura)",
@@ -550,6 +662,14 @@
     "name": "Martyr’s Immolation",
     "kind": "stratagem",
     "plain": "In any phase, when an IMMOLATOR model from your army equipped with immolation flamers is destroyed: it explodes automatically; don't roll to see whether it explodes."
+  },
+  "9692b2c26cb5": {
+    "name": "Raging Fervour",
+    "kind": "ability",
+    "plain": "Melta weapons of models with this conviction count the target as within half range for their abilities: always if Pistol or Assault, within 18\" if Heavy.\n- This applies to each attack a model with this conviction makes with a melta weapon of the Pistol or Assault type.\n- It applies to a melta weapon of the Heavy type only when the target unit is within 18\" of the firing model.\nYou can't pick this conviction if you have already picked Rites of Fire or Unshakable Vengeance.",
+    "waive": {
+      "121": "page reference (pg 121) to the codex, not rules content"
+    }
   },
   "96f162cc081b": {
     "name": "Carry Forth the Faithful",
@@ -683,6 +803,11 @@
     "kind": "ability",
     "plain": "You gain 1 Miracle die at the start of every battle round."
   },
+  "bbcdc67475dc": {
+    "name": "Devout Fanaticism",
+    "kind": "ability",
+    "plain": "When a unit with this conviction fights in a turn it was charged, made a charge move or performed a Heroic Intervention, its models add 1 to their hit rolls. This lasts until that fight is resolved. You can't pick this conviction if you have already picked Holy Wrath."
+  },
   "bcfcf0e8594b": {
     "name": "Fiery Oratory",
     "kind": "stratagem",
@@ -788,10 +913,23 @@
     "kind": "ability",
     "plain": "If this hymn is inspiring, pick one of your ADEPTUS MINISTORUM CORE, ADEPTUS MINISTORUM CHARACTER or ENGINE OF REDEMPTION units within 6\" of this PRIEST model. Any effects of psychic powers manifested by enemy models that are currently affecting that unit or its models end. Until the start of your next Command phase, psychic powers manifested by enemy units don't affect that unit or its models."
   },
+  "d080a9f77ee3": {
+    "name": "Slayers of Heretics",
+    "kind": "ability",
+    "plain": "Models with this conviction add 1 to hit rolls for attacks against CHARACTER units."
+  },
   "d08c6dd31e8f": {
     "name": "Stirring Rhetoric (Aura)",
     "kind": "ability",
     "plain": "Aura: whenever one of your ADEPTA SORORITAS units within 6\" of this model (or a model in it) performs an Act of Faith, you may first change the value of 1 Miracle Dice (or 1 Cherub Dice) used for it by 1, up or down, with 6 as the highest value and 1 as the lowest. This doesn't stack with other abilities that change a Miracle Dice or Cherub Dice value."
+  },
+  "d12e7bb0dbf4": {
+    "name": "The Blood of Martyrs",
+    "kind": "ability",
+    "plain": "Destroyed units with this conviction earn you Miracle dice, and models with it add 1 to hit rolls while their unit is below its Starting Strength.\n- You gain 1 Miracle dice at the end of each phase (except the Morale phase) in which one or more units with this conviction were destroyed. This is on top of any Miracle dice that Sacrifice gives you when a CHARACTER unit with this conviction is destroyed in that phase.\n- Whenever a model with this conviction makes an attack, add 1 to its hit roll if its unit is below its Starting Strength.",
+    "waive": {
+      "91": "page references (pg 91, page 91) to the codex, not rules content"
+    }
   },
   "d22ac2a657bc": {
     "name": "Medicus Ministorum (Aura)",
@@ -885,6 +1023,11 @@
     "name": "Sky Strike",
     "kind": "ability",
     "plain": "During deployment, you can place this unit in the skies rather than on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases, it can be set up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "e2248f6f3ba5": {
+    "name": "Hallowed Martyrs",
+    "kind": "ability",
+    "plain": "Models with this conviction add 1 to the hit rolls of their attacks while their unit is below its Starting Strength."
   },
   "e35caa4faab7": {
     "name": "Priest",

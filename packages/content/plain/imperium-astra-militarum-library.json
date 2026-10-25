@@ -1,17 +1,77 @@
 {
+  "0d2eb4601e33": {
+    "name": "Crassus",
+    "kind": "ability",
+    "plain": "This model can carry up to 35 ASTRA MILITARUM INFANTRY models, though some take extra room. A Heavy Weapon Team or Veteran Heavy Weapon Team model fills the space of 2 models, and an OGRYN model fills the space of 3."
+  },
+  "25315fd16cce": {
+    "name": "Subterranean Assault",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit underground rather than on the battlefield, and one COMBAT ENGINEER SQUAD unit can go underground alongside it. Later, in the Reinforcements step of any one of your Movement phases, you can bring this unit and any unit that went underground with it onto the battlefield: set them up within 3\" of each other, anywhere more than 9\" from enemy models."
+  },
+  "2c69d988baf0": {
+    "name": "Arvus Lighter",
+    "kind": "ability",
+    "plain": "This model has room for 12 RENEGADES AND HERETICS INFANTRY models, but it can't carry OGRYNS. Every Heavy Weapon Team takes up the space of two other models."
+  },
   "33a13406517d": {
     "name": "Vehicle Squadron",
     "kind": "rule",
     "plain": "When this unit is first set up, every model in it must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit for all rules purposes."
+  },
+  "5a2cad9fc851": {
+    "name": "Melta Cutter Drill",
+    "kind": "weapon",
+    "plain": "This weapon automatically hits a BUILDING, and its attacks that target a VEHICLE unit have a Damage characteristic of 6."
+  },
+  "61d78a9e1553": {
+    "name": "Born Soldiers",
+    "kind": "ability",
+    "plain": "Ranged attacks by models with this doctrine wound automatically on an unmodified hit roll of 6, and its Officers lend their Leadership to nearby Platoons. Units with this doctrine also get the Born Soldiers keyword, and every Officer with this doctrine has this aura: Born Soldiers (Aura): while one of your Platoon units is within 6\" of this model, its models use this Officer's Leadership characteristic rather than their own."
   },
   "743ef35db02c": {
     "name": "Disembarking Officers",
     "kind": "rule",
     "plain": "In your Movement phase, when an OFFICER from your army disembarks from a TRANSPORT model, it can issue Orders as though it were your Command phase once its unit is set up. Orders issued this way never benefit from Regimental Tactics, even if every model in your army has the ASTRA MILITARUM keyword. An OFFICER cannot do this if the TRANSPORT it disembarked from was destroyed."
   },
+  "7a76bed79b1b": {
+    "name": "Brood Brothers",
+    "kind": "ability",
+    "plain": "Units with this Regimental Doctrine add 2 to their models' Leadership characteristic, and INFANTRY units with it also gain the Unquestioning Loyalty ability."
+  },
   "7e88594eeb43": {
     "name": "Designer's Note (forgeworld)",
     "kind": "rule",
     "plain": "When you add this unit to your army, pick the forgeworld it comes from. Use that name wherever the <FORGEWORLD> keyword appears on this datasheet."
+  },
+  "81b3853c250b": {
+    "name": "Heavy Bombs",
+    "kind": "ability",
+    "plain": "Once per turn, the bearer can drop one of its remaining heavy bombs, which can deal mortal wounds to units within 6\" of a point it moved over. Right after the bearer has moved, you can pick one point on the battlefield that it crossed this phase. Roll one D6 for every unit within 6\" of that point, subtracting 1 from the roll for a CHARACTER unit (excluding VEHICLE and MONSTER units). A roll of 4-5 deals D3 mortal wounds to the unit rolled for, and a 6 deals D6 mortal wounds. No heavy bomb can be dropped more than once per battle."
+  },
+  "9200ac4f4f50": {
+    "name": "Whirling Blades",
+    "kind": "ability",
+    "plain": "Against melee attacks, this model gets a 4+ invulnerable save."
+  },
+  "9d5c4c519755": {
+    "name": "Artillery and Crew (Rapier Laser Destroyer)",
+    "kind": "ability",
+    "plain": "Each Rapier Laser Destroyer and its crew count as one model for all rules purposes, and the crew must stay within 1\" of their Rapier Laser Destroyer. The crew can't be targeted or attacked on their own, and visibility and every range are measured to and from the Rapier Laser Destroyer model rather than its crew. This unit can't Advance, can never charge or perform a Heroic Intervention, and can't make pile-in or consolidation moves."
+  },
+  "a40923160a1d": {
+    "name": "Arvus Lighter",
+    "kind": "ability",
+    "plain": "This model has room for 12 ASTRA MILITARUM INFANTRY models, but it can't carry OGRYNS. Every Heavy Weapon Team or Veteran Heavy Weapon Team takes up the space of two other models."
+  },
+  "b77626f58c21": {
+    "name": "Specialist Operators",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, each Detachment can include at most one of this unit for every COMBAT ENGINEER SQUAD unit in that Detachment."
+  },
+  "fa5ad39ed78d": {
+    "name": "Leading from the Front",
+    "kind": "ability",
+    "plain": "As long as this model is within 1\" of any enemy model, every one of your ASTRA MILITARUM units within 6\" of it passes Morale tests automatically."
   }
 }

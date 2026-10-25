@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, each KASTELAN ROBOTS unit in a Detachment lets you include a CYBERNETICA DATASMITH unit in that Detachment without it using up an additional Battlefield Role slot."
   },
+  "04ced6aba3d6": {
+    "name": "Stratagem: Expedited Purge Protocols - 1 CP/2 CP",
+    "kind": "rule",
+    "plain": "One of your SKITARII VETERAN COHORT CORE units (excluding VEHICLE models) that Advances in your Movement phase can still declare a charge this turn. Use it when that unit Advances. It costs 1 CP if the unit is a SKITARII RANGER or SKITARII VANGUARD unit, and 2 CP otherwise. This is a Strategic Ploy Stratagem."
+  },
   "04d14187cede": {
     "name": "Self-repair Mechanisms",
     "kind": "ability",
@@ -19,10 +24,20 @@
     "kind": "weapon",
     "plain": "A hit roll of 6 with this weapon automatically wounds the target, as long as the target is an enemy unit that is not a VEHICLE unit."
   },
+  "0792093bc1e6": {
+    "name": "Stratagem: Purity of the Machine - 1 CP/2 CP",
+    "kind": "rule",
+    "plain": "One of your METALICA units can ignore hit and wound roll modifiers when it shoots in your Shooting phase or fights in the Fight phase. Use it when that unit is selected to shoot or to fight. Until the end of that phase, its models' attacks can ignore any or all modifiers to their hit rolls and wound rolls. It costs 2 CP if the unit is a VEHICLE, and 1 CP otherwise."
+  },
   "07cfdbe44c07": {
     "name": "Kyropatris Field",
     "kind": "ability",
     "plain": "Models in this unit each have a 5+ invulnerable save."
+  },
+  "085308233556": {
+    "name": "Luminary Suffusion",
+    "kind": "rule",
+    "plain": "Models with this dogma swap Rad-saturation for an aura taking 1 off the Strength and Toughness of non-VEHICLE enemy units within 3\". The new ability is Extreme Rad-saturation (Aura): while an enemy unit (other than a VEHICLE unit) is within 3\" of this unit, that enemy unit's models have 1 subtracted from their Strength and Toughness characteristics."
   },
   "09793e9dda8c": {
     "name": "Chain-taser Protocols",
@@ -69,10 +84,24 @@
     "kind": "ability",
     "plain": "Protector Imperative gives +1 BS and -1 WS. Conqueror Imperative gives +1 WS and -1 BS. Bulwark Imperative gives +1 to the Save characteristic (it can't go better than 2+) and -3\" to the Move characteristic. Aggressor Imperative gives +3\" to the Move characteristic and -1 to the Save characteristic."
   },
+  "108cbe576a8f": {
+    "name": "Engineered Nanophages",
+    "kind": "rule",
+    "plain": "Melee attacks by models with this dogma improve their Armour Penetration by 1 when allocated to a model whose Save characteristic is 3+ or better."
+  },
   "10e8cebe6907": {
     "name": "Mag-inverter Shield",
     "kind": "ability",
     "plain": "Against melee attacks, this model has a 4+ invulnerable save. Each time you roll an unmodified 6 on an invulnerable saving throw for the bearer against a melee attack, the attacking model's unit suffers 1 mortal wound once that unit has finished making all its attacks."
+  },
+  "10f1d7d12f5a": {
+    "name": "Parent Protocols",
+    "kind": "rule",
+    "plain": "Use the dogma of one Forge World you pick from Agripinaa, Graia, Lucius, Mars, Metalica, Ryza and Stygies VIII; this primary dogma has no secondary dogmas.\nA CHARACTER model with this dogma that gains a Warlord Trait can take the Warlord Trait of the Forge World you picked, instead of one of the standard Warlord Traits. If it does, swap every instance of the <FORGE WORLD> keyword on that Warlord Trait, if there are any, for the name of the Forge World the CHARACTER is from.\nYou also get that Forge World's Stratagems, unless every unit with this dogma is part of an Auxiliary Support, Super-Heavy Auxiliary and/or Fortification Network Detachment.",
+    "waive": {
+      "66": "page number in a book reference ('a Warlord trait from pages 66-67'); page references are left out per STYLE rule 6",
+      "67": "page number in a book reference ('a Warlord trait from pages 66-67'); page references are left out per STYLE rule 6"
+    }
   },
   "12cef33998a0": {
     "name": "Expedited Purge Protocol",
@@ -134,6 +163,16 @@
     "kind": "ability",
     "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, first turn it on the spot by up to 90° (this doesn't count toward the distance it moves), then move it straight forward. At any point during that move it can turn by up to 90° once more."
   },
+  "1afa0d904c8a": {
+    "name": "Stratagem: March To War - 1 CP",
+    "kind": "rule",
+    "plain": "In your Movement phase, when one of your METALICA units Advances, skip its Advance roll and add 6\" to its Move characteristic until the end of the phase."
+  },
+  "1e0322267f7e": {
+    "name": "Omnitrac Impellors",
+    "kind": "rule",
+    "plain": "KATAPHRON SERVITORS and ONAGER DUNECRAWLER models with this dogma have 2\" added to their Move characteristic."
+  },
   "1ef7a3f3f9a0": {
     "name": "Electro-filament Countermeasures",
     "kind": "stratagem",
@@ -148,6 +187,11 @@
     "name": "Order in Anarchy",
     "kind": "stratagem",
     "plain": "In your Command phase, pick one of your METALICA units. Until the end of the turn, when a model in that unit makes an attack that targets an enemy unit within 12\", you can add 1 to that hit roll."
+  },
+  "256fc91a093d": {
+    "name": "Radiant Disciples",
+    "kind": "rule",
+    "plain": "Ranged attacks that target a CORE unit with this dogma from more than 12\" away have their Strength characteristic reduced by 1."
   },
   "2600cf04915c": {
     "name": "Infoslave Skull",
@@ -174,6 +218,11 @@
     "kind": "weapon",
     "plain": "When this weapon attacks a VEHICLE unit, the attack has Damage 2, and an unmodified wound roll of 4 wounds it successfully."
   },
+  "2e496b7f6b06": {
+    "name": "Stratagem: Bionic Endurance - 2 CP/3 CP",
+    "kind": "rule",
+    "plain": "One of your SKITARII VETERAN COHORT CORE units can ignore lost wounds on a 5+ until the end of the phase. Use it in any phase, when a model in that unit would lose a wound. Until the end of the phase, whenever a model in the unit would suffer a wound, roll one D6: on a 5+, it doesn't lose that wound. It costs 3 CP if the unit's Power Rating is 10 or more, and 2 CP otherwise. This is a Strategic Ploy Stratagem."
+  },
   "2e81644dbcd0": {
     "name": "Grav gun",
     "kind": "weapon",
@@ -183,6 +232,11 @@
     "name": "Host of the Intermediary",
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the ADEPTUS MECHANICUS keyword: pick one SKITARII model in your army that has 'Alpha' or 'Princeps' in its profile, and give it one Skitarii Warlord Trait (chosen or rolled). That model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be different (re-roll duplicates if you roll them randomly), and this Stratagem can't give one model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "33d00b263103": {
+    "name": "Magnabond Alloys",
+    "kind": "rule",
+    "plain": "Whenever a VEHICLE model with this dogma is about to lose a wound, roll one D6; on a 6, the wound is not lost."
   },
   "33e4a192618e": {
     "name": "Blaring Glory",
@@ -219,10 +273,25 @@
     "kind": "weapon",
     "plain": "When this weapon attacks a VEHICLE unit, the attack has Damage 2 and successfully wounds on any unmodified wound roll of 2+."
   },
+  "3e0e9ae00ff8": {
+    "name": "Stratagem: Rad-Bombardment - 3 CP",
+    "kind": "rule",
+    "plain": "Once per battle, in your Command phase, place a marker that can deal mortal wounds to every unit within 6\" of it when your next Command phase begins. You need a MECHANICUS DEFENCE COHORT WARLORD from your army on the battlefield to do this. Put the marker on any point of the battlefield. When your next Command phase begins, roll one D6 for every unit within 6\" of the marker's centre, subtracting 1 from the roll for a CHARACTER unit. On a 4-5, the unit suffers D3 mortal wounds. On a 6+, it suffers D3 mortal wounds and each of its models has its Toughness characteristic reduced by 1 until the turn ends (this is not cumulative). Then remove the marker."
+  },
   "3f47b6b3c5ca": {
     "name": "Daedalus Missile Launcher",
     "kind": "weapon",
     "plain": "When this weapon profile is used to attack an AIRCRAFT unit, add 1 to the attack's hit roll."
+  },
+  "3f8ca09a8b01": {
+    "name": "Stratagem: Blaring Glory - 1 CP",
+    "kind": "rule",
+    "plain": "In the Fight phase or your opponent's Shooting phase, stop one enemy unit within 6\" of one of your METALICA units from re-rolling dice for its attacks. Pick that enemy unit; until the end of the phase, your opponent can't re-roll any dice rolls made for attacks by models in it."
+  },
+  "407f097c7fef": {
+    "name": "Rugged Explorators",
+    "kind": "rule",
+    "plain": "Models in this unit fire Heavy weapons after moving without the hit penalty, and its VEHICLE models do the same with Assault weapons after Advancing.\n- Models in this unit don't take the hit roll penalty for firing Heavy weapons in a turn in which their unit moved.\n- VEHICLE models in this unit don't take the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
   },
   "413228430dc7": {
     "name": "Arc Lance (melee)",
@@ -233,6 +302,11 @@
     "name": "Battle Protocols: Protector",
     "kind": "ability",
     "plain": "While this protocol is active, this unit can't move except to pile in or consolidate, and its models have a BS characteristic of 3+."
+  },
+  "44087b4a74ac": {
+    "name": "Servo-focused auguries",
+    "kind": "rule",
+    "plain": "Models with this dogma can re-roll hit rolls for ranged attacks made with cognis weapons against targets within half range."
   },
   "44cd042bc615": {
     "name": "Knight of the Iron Cog",
@@ -264,6 +338,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, pick one Area Terrain feature that your METALICA WARLORD can see. Until the end of the phase, when a model in one of your METALICA units that is within 6\" of your METALICA WARLORD makes an attack targeting an enemy unit wholly within that feature, add 1 to that attack's wound roll."
   },
+  "4c723515037b": {
+    "name": "Stratagem: Citation of Ruin - 2 CP/3 CP",
+    "kind": "rule",
+    "plain": "In your Shooting phase, one of your EXTREMIS SENTINEL units picked to shoot can use Big Guns Never Tire as if its models were VEHICLE models. Use this when the unit is selected to shoot. Until the end of the phase, its models have that rule, and they also don't take the -1 penalty to hit rolls for attacking with Heavy weapons against units they are within Engagement Range of. It costs 3 CP if the unit has 4 or more models, and 2 CP otherwise."
+  },
   "4f259c74e10f": {
     "name": "Circuitous Assassins",
     "kind": "stratagem",
@@ -283,6 +362,11 @@
     "name": "Dogma - Refusal To Yield",
     "kind": "rule",
     "plain": "Units with this dogma pass Combat Attrition tests automatically. If a model with this dogma would lose a wound to a mortal wound, roll one D6; on a 5+ it doesn't lose that wound."
+  },
+  "55c814437f87": {
+    "name": "Stratagem: Omnissiah's Exaltation - 1 CP",
+    "kind": "rule",
+    "plain": "In the Morale phase, subtract 1 from combat attrition tests for an enemy unit within 6\" of one of your METALICA units. Use this when that enemy unit is selected to take a Morale test; the penalty lasts until the end of the phase."
   },
   "56da20a9ed3f": {
     "name": "Binharic Override",
@@ -369,6 +453,11 @@
     "kind": "stratagem",
     "plain": "Before the battle, pick one of your AGRIPINAA KATAPHRON SERVITORS units. Models in that unit add 1 to their Toughness characteristic. Each unit can be picked for this Stratagem only once. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
+  "6c3c2f8fb70f": {
+    "name": "Data-Bleed Generators",
+    "kind": "rule",
+    "plain": "Melee attacks against a unit with this dogma subtract 1 from the hit roll if the attacker charged, was charged or Heroically Intervened this turn. This applies to every melee attack by an enemy model that, this turn, made a charge move, was charged or made a Heroic Intervention."
+  },
   "6c6b44b84451": {
     "name": "Phosphor Serpenta",
     "kind": "weapon",
@@ -388,6 +477,11 @@
     "name": "Titan Guard",
     "kind": "ability",
     "plain": "While this model is within 6\" of any of your <TITANIC LEGION> TITANIC models, it can perform Heroic Interventions as though it were a CHARACTER. This unit can perform a Heroic Intervention whenever any enemy unit is within 6\" horizontally and 5\" vertically of it, and when it does, it can move 6\" rather than 3\". All other Heroic Intervention rules still apply."
+  },
+  "754d0eba13dd": {
+    "name": "Accelerated Actuators",
+    "kind": "rule",
+    "plain": "When a unit with this dogma fights after charging, being charged or Heroically Intervening, its melee weapons' Armour Penetration is improved by 1. This applies each time the unit fights in a turn in which it made a charge move, was charged, or made a Heroic Intervention, and lasts until that fight is resolved."
   },
   "792b3ca9bbe8": {
     "name": "Dogma - Red in Cog and Claw",
@@ -438,6 +532,11 @@
     "name": "Stealth Optimisation",
     "kind": "ability",
     "plain": "This unit gets the benefits of Light Cover against every ranged attack made against it. If it makes a Normal Move, Advances or Falls Back in your Movement phase, it loses this ability until your next Movement phase starts."
+  },
+  "816e580f4fd9": {
+    "name": "Stratagem: Bolster Defences - 2 CP",
+    "kind": "rule",
+    "plain": "Before the battle, once deployment zones are set, one Area Terrain or Obstacle feature in your deployment zone gains the Light Cover terrain trait. Pick that terrain feature. If it already had the Light Cover terrain trait, the bonus it gives to saving throws is 2 instead of 1. You can use this Stratagem only once."
   },
   "81db81ff0e51": {
     "name": "Machine Sentience (Aura)",
@@ -534,6 +633,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your CULT MECHANICUS CORE units within 6\" of this model. If you do, choose one Canticle (it may be one your army has already had active). This model and that unit then both use the chosen Canticle's benefit in place of your army's active Canticle until your next Command phase starts."
   },
+  "a0259c45d657": {
+    "name": "Purgation Protocols",
+    "kind": "rule",
+    "plain": "When a CORE model with this dogma makes a ranged attack, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1."
+  },
   "a1de59216c72": {
     "name": "Electro-shocked",
     "kind": "stratagem",
@@ -574,6 +678,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, pick one of your <FORGE WORLD> KASTELAN ROBOT models within 3\" of this model; this model can repair it, and that KASTELAN ROBOT model then gets back up to D3 lost wounds. A model can be repaired only once per turn."
   },
+  "a9ea31891cfd": {
+    "name": "Autosavant Spirits",
+    "kind": "rule",
+    "plain": "VEHICLE models with this dogma regain 1 lost wound in your Command phase, and models with this dogma count double wounds for damage-based characteristics.\n- When your Command phase starts, each VEHICLE model with this dogma in your army regains 1 lost wound.\n- If a model with this dogma has characteristics that change as it suffers damage, treat it as having twice its remaining wounds when working out what those characteristics are."
+  },
   "ab3f113b3378": {
     "name": "Bomb Rack",
     "kind": "ability",
@@ -583,6 +692,11 @@
     "name": "Omnissiah's Exaltation",
     "kind": "stratagem",
     "plain": "In the Morale phase, if an enemy unit within 6\" of a METALICA unit from your army is chosen to take a Morale test, Combat Attrition tests for that enemy unit have 1 subtracted from them for the rest of the phase."
+  },
+  "ad53cbc49fa4": {
+    "name": "Forward Operations",
+    "kind": "rule",
+    "plain": "When the first battle round starts, SKITARII CORE models with this dogma in your army can each make a Normal Move of up to 3\". This is on top of any other abilities that let them make a Normal Move. None of them can end this move within 9\" of enemy models."
   },
   "ade8dfa2c38c": {
     "name": "Canticles of the Omnissiah",
@@ -598,6 +712,11 @@
     "name": "Brotherhood of the Cog",
     "kind": "ability",
     "plain": "If your army is Battle-forged, each TECH-PRIEST DOMINUS or TECH-PRIEST MANIPULUS unit in a Detachment lets you include one TECH-PRIEST ENGINSEER or TECHNOARCHEOLOGIST unit in that same Detachment without it using up an additional Battlefield Role slot."
+  },
+  "b3d38b00b59a": {
+    "name": "Purified Datasphere",
+    "kind": "rule",
+    "plain": "Units with this dogma have 3\" more range on their aura abilities other than Rad-saturation, to a maximum of 9\"."
   },
   "b47c159a151a": {
     "name": "Reprogramming",
@@ -629,6 +748,11 @@
     "kind": "stratagem",
     "plain": "When an ARCHAEOPTER FUSILAVE model finishes a move during your Movement phase, choose one enemy unit that it passed over this phase; TITANIC units and units that can FLY can't be chosen. That unit is shaken until your next Movement phase starts. A shaken unit's models have their Move characteristic halved, and its Advance rolls and charge rolls are halved."
   },
+  "bb80292dba88": {
+    "name": "Stratagem: Aggression Override -1 CP",
+    "kind": "rule",
+    "plain": "In the Fight phase, add 1 to the Attacks characteristic of models in one of your SKITARII VETERAN COHORT units that made a charge move this turn. This lasts until the end of the phase. This is a Battle Tactic Stratagem."
+  },
   "c0847ad4fa90": {
     "name": "Dogma - Masters of the Forge",
     "kind": "rule",
@@ -648,6 +772,11 @@
     "name": "Transonic Razor",
     "kind": "weapon",
     "plain": "An unmodified wound roll of 6 for an attack with this weapon inflicts 1 mortal wound on the target on top of any normal damage."
+  },
+  "ca24bed97e53": {
+    "name": "Acquisitive Reach",
+    "kind": "rule",
+    "plain": "The rifle and carbine weapons carried by models with this dogma have their Range characteristic increased by 6\"."
   },
   "ca8c02a708a7": {
     "name": "Solar Atomiser",
@@ -759,10 +888,20 @@
     "kind": "ability",
     "plain": "When an Advance roll is made for this unit, roll one extra D6 and discard one of the dice. When this unit is targeted by a Blast weapon, it never counts as having 6 or more models for working out how many attacks that weapon makes."
   },
+  "edfdda1e253e": {
+    "name": "Scarifying Weaponry",
+    "kind": "rule",
+    "plain": "Radium weapons carried by models with this dogma have 1 added to their Strength characteristic and their Armour Penetration characteristic improved by 1."
+  },
   "f5ebcd9be22e": {
     "name": "Archeotech Specialists",
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the ADEPTUS MECHANICUS keyword: pick one ADEPTUS MECHANICUS CHARACTER model in your army and give it one Relic that it is allowed to have. All Relics in your army must be different, and this Stratagem can't give one model two Relics. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "f6eba40ff997": {
+    "name": "Stratagem: Binaric Offensive - 3 CP",
+    "kind": "rule",
+    "plain": "In the Shooting phase, two of your SKITARII VETERAN COHORT CORE units add 1 to their ranged wound rolls, but can only target one chosen enemy unit. Pick one enemy unit and the two units. For the rest of the phase, models in those two SKITARII units can target only that enemy unit, and only if it is an eligible target for their attacks. Each ranged attack made by a model in either of them adds 1 to its wound roll. This is a Battle Tactic Stratagem."
   },
   "f71360c1fe2c": {
     "name": "Eye of Serberys",

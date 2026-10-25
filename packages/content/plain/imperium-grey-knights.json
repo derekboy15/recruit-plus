@@ -164,6 +164,11 @@
     "kind": "ability",
     "plain": "Once per battle, when the Fight phase starts, you may choose one enemy DAEMON unit within 6\" of the bearer. In this phase, it isn't eligible to fight until all eligible units from your army have fought."
   },
+  "2e7564044420": {
+    "name": "Transport",
+    "kind": "ability",
+    "plain": "This model can carry 12 Grey Knights Infantry models and 1 Grey Knights Dreadnought. Every Terminator model uses up the space of two infantry models."
+  },
   "2eeac766e14b": {
     "name": "Interceptor",
     "kind": "rule",
@@ -534,6 +539,11 @@
     "kind": "stratagem",
     "plain": "In your Charge phase, when one of your NEMESIS DREADKNIGHT models finishes a charge move: pick one enemy unit within Engagement Range of it and roll one D6. On a 2-5 that unit suffers D3 mortal wounds; on a 6 it suffers 3 mortal wounds."
   },
+  "ab2398195b01": {
+    "name": "The Aegis",
+    "kind": "rule",
+    "plain": "Models in this unit can avoid losing wounds to mortal wounds on a 5+, and if this unit is a Psyker it adds 1 to its Deny the Witch tests.\n- Whenever a mortal wound would make a model in this unit lose a wound, roll one D6: on a 5+, it keeps that wound.\n- If this unit is a Psyker, its Deny the Witch tests get 1 added to them."
+  },
   "ab61b1a2d793": {
     "name": "Exemplar of the Silvered Host",
     "kind": "stratagem",
@@ -568,6 +578,11 @@
     "name": "Heroism's Favour",
     "kind": "ability",
     "plain": "Once per battle, when your opponent's Charge phase ends, you can pick one of your GREY KNIGHTS CORE units that is within 12\" of this model; it can make a Heroic Intervention as though it were a CHARACTER."
+  },
+  "b4f93573aa48": {
+    "name": "Aegis Eternal",
+    "kind": "psychic",
+    "plain": "Blessing: if manifested, until your next Psychic phase starts, models in this Psyker's unit avoid losing each wound on a D6 roll of 6, or 5+ in some cases. Each time a wound would be lost by a model in that unit, roll one D6: on a 6 it isn't lost. If the unit is Infantry and is within 3\" of one of your Grey Knights Apothecaries, the wound is instead not lost on a 5+."
   },
   "b596ffb18122": {
     "name": "Hammerhand",
@@ -738,5 +753,10 @@
     "name": "Gem of Inoktu",
     "kind": "ability",
     "plain": "Once per battle, you may use this gift when the bearer is chosen to manifest psychic powers. If so, until the phase ends, each time the bearer tries to manifest a Dominus discipline psychic power, add 2 to that Psychic test."
+  },
+  "fd7ba17c7705": {
+    "name": "Temporal Accuracy",
+    "kind": "psychic",
+    "plain": "Blessing: if manifested, this Psyker's unit treats its storm bolters as Pistol 4 weapons with a range of 12\" until your next Psychic phase starts. This covers storm bolters, master-crafted storm bolters and any Relics that replace either of them, carried by models in this Psyker's unit."
   }
 }

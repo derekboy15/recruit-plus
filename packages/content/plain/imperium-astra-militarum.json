@@ -1,4 +1,9 @@
 {
+  "01029b0c1989": {
+    "name": "Hacking Advance",
+    "kind": "ability",
+    "plain": "In the Fight phase, every unmodified hit roll of 6 for Gotfret de Montbard's attacks scores 2 hits rather than 1."
+  },
   "035405e2c7a9": {
     "name": "Stonetooth",
     "kind": "ability",
@@ -184,6 +189,11 @@
     "kind": "ability",
     "plain": "If Colonel-Commissar Ibram Gaunt is in this unit, it automatically passes every Morale test it takes."
   },
+  "4636137aa287": {
+    "name": "Shield of Faith",
+    "kind": "ability",
+    "plain": "In each enemy Psychic phase, Gotfret de Montbard can try to deny one psychic power like a PSYKER, but he rolls a single D6 instead of 2D6. The power is resisted if that roll beats the result of the Psychic test that manifested it."
+  },
   "47084438d0de": {
     "name": "Grav-chute Insertion",
     "kind": "ability",
@@ -223,6 +233,11 @@
     "name": "Memento Mori",
     "kind": "ability",
     "plain": "Whenever this model would lose a wound, roll a D6; on a 5+, it doesn't lose that wound."
+  },
+  "4ea458d7480b": {
+    "name": "Ecclesiarchy Battle Conclave",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, this unit takes up no slots in a Detachment that includes any MINISTORUM PRIESTS."
   },
   "546b420dc935": {
     "name": "Compact",
@@ -364,6 +379,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your ASTRA MILITARUM CORE or ASTRA MILITARUM INFANTRY CHARACTER units within 6\" of this model and roll a D6. On a 3+, choose one of these effects, which lasts until the start of your next Command phase: (a) add 1 to that unit's charge rolls, and you can re-roll the hit roll for melee attacks made by its models; or (b) the unit's models have a 6+ invulnerable save and can't be affected by Malediction psychic powers; any Malediction powers already affecting them stop applying to those models straight away."
   },
+  "803a29d8ae9f": {
+    "name": "Servant of the Imperium",
+    "kind": "ability",
+    "plain": "Putting Gotfret de Montbard in an ASTRA MILITARUM Detachment doesn't stop the other units in it from gaining a Regimental Doctrine. Gotfret de Montbard himself can never benefit from a Regimental Doctrine."
+  },
   "81b4336adc86": {
     "name": "Scything Momentum",
     "kind": "ability",
@@ -406,6 +426,11 @@
     "name": "Ripper Pistol",
     "kind": "weapon",
     "plain": "You can ignore the Look Out, Sir rule when picking a target for this weapon. On an unmodified wound roll of 6, attacks made with it inflict a mortal wound on top of any normal damage."
+  },
+  "965179ab285e": {
+    "name": "Acts of Faith (Gotfret)",
+    "kind": "rule",
+    "plain": "Your army gets Faith Points to spend on Acts of Faith, special effects that units with this ability can attempt by passing a D6 Test of Faith.\nYou start the battle with 3 Faith Points if your army has any models with this ability, plus 1 more for every 10 such models in it (round down). Every attempt costs one Faith Point, so with none left you can't attempt any, and each Act of Faith below can be attempted only once per battle round. To attempt one, pick a unit from your army that has the Acts of Faith ability, choose which Act of Faith it is attempting, and roll a D6 for its Test of Faith. The test fails, with no effect, if the roll is an unmodified 1 or is lower than that Act's devotion value; otherwise the Act of Faith succeeds.\nHand of the Emperor (attempt it as your Movement phase begins; devotion value 4): if it succeeds, the unit adds 3\" to its Move characteristic until that phase ends.\nSpirit of the Martyr (attempt it as your Movement phase begins; devotion value 3): if it succeeds, one model in the unit regains D3 lost wounds. Or, if none of its models are wounded but some have been slain, one slain model can rejoin the unit with 1 wound remaining: set it up in unit coherency and not within 1\" of any enemy models, and if it can't be placed, it doesn't return.\nAegis of the Emperor (attempt it as your opponent's Psychic phase begins; devotion value 3): if it succeeds, then until that phase ends, roll a D6 whenever the unit suffers a mortal wound, ignoring that mortal wound on a 4+.\nDivine Guidance (attempt it as your Shooting phase begins; devotion value 4): if it succeeds, then until that phase ends, add 1 to hit rolls for the unit's ranged weapon attacks.\nThe Passion (attempt it as your Fight phase begins; devotion value 5): if it succeeds, the unit can be picked to fight twice that phase rather than only once.\nLight of the Emperor (attempt it as the Morale phase begins; devotion value 3): if it succeeds, the unit automatically passes Morale tests that phase."
   },
   "98f490d01889": {
     "name": "Explodes (Cyclops)",
@@ -593,6 +618,11 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "When a model in this unit is destroyed, roll a D6 before you remove it from play. On a 6, every unit within 3\" of it suffers 1 mortal wound as it explodes."
+  },
+  "dfa8b8bc9265": {
+    "name": "Zealot",
+    "kind": "ability",
+    "plain": "In a turn in which Gotfret de Montbard charged, was charged by an enemy unit or performed a Heroic Intervention, you can re-roll his failed hit rolls."
   },
   "e041d72dcca3": {
     "name": "Battlefield Repairs",

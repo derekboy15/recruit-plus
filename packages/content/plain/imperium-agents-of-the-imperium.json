@@ -1,0 +1,22 @@
+{
+  "1501b2e8b901": {
+    "name": "Hector Rex",
+    "kind": "ability",
+    "plain": "Psychic powers: Smite, plus 2 from the Telethesia discipline."
+  },
+  "6ca704fa07c7": {
+    "name": "The Sanctic Shield",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save, adds 1 to its armour saving throws, and can avoid losing wounds to mortal wounds on a 5+. Each time a mortal wound would make this model lose a wound, roll one D6; on a 5+ it keeps that wound."
+  },
+  "7fd4e90d22ae": {
+    "name": "Stratagem: Arbiter of the Emperor's Will",
+    "kind": "ability",
+    "plain": "Before the battle, give a Warlord Trait to one INQUISITOR model in your army that isn't your Warlord, and possibly a Relic of the Inquisition as well. Determine one Warlord Trait for that model; it counts as your Warlord for the purposes of that trait. Then, if it isn't a named character or a VEHICLE, you can also give it one Relic of the Inquisition. Every Relic in your army must be different, and each must go to a different model. You can use this Stratagem only once per battle."
+  },
+  "c86cc2f72399": {
+    "name": "Arias",
+    "kind": "weapon",
+    "plain": "When an attack with this weapon wounds a DAEMON unit, that unit also suffers 1 mortal wound on top of the normal damage."
+  }
+}
