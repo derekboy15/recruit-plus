@@ -24,6 +24,11 @@
     "kind": "ability",
     "plain": "The bearer's unit adds 1 to its Advance and charge rolls."
   },
+  "0ed277cea431": {
+    "name": "Master Misinformator",
+    "kind": "ability",
+    "plain": "When the first battle round starts, before the first turn, redeploy this WARLORD and up to D3 of your CULT OF DUPLICITY units, other than VEHICLES. Take them off the battlefield, then set them up again using the mission's normal deployment rules."
+  },
   "12af58f5f5ca": {
     "name": "Warp Reality",
     "kind": "psychic",
@@ -88,6 +93,11 @@
     "name": "Arcane Smokescreen",
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when one of your THOUSAND SONS SMOKESCREEN units is chosen as an attack's target: for the rest of the phase, every attack made against that unit has 1 subtracted from its hit roll."
+  },
+  "28808bd36011": {
+    "name": "Lord of Forbidden Lore",
+    "kind": "ability",
+    "plain": "Your WARLORD knows one extra psychic power. If MAGNUS THE RED is your WARLORD, it knows every power from all of the disciplines it has access to."
   },
   "29829dedb316": {
     "name": "Herd banner",
@@ -229,6 +239,11 @@
     "kind": "ability",
     "plain": "Only a model with an inferno bolt pistol can take this. It replaces that model's inferno bolt pistol."
   },
+  "614ad19ab72e": {
+    "name": "Seeker After Shadows",
+    "kind": "ability",
+    "plain": "When this WARLORD attempts a Psychic action, roll one extra D6 for its Psychic test and discard one D6. If your army is a Cabal of Sorcerers, you also get 1 extra Cabal point whenever you generate Cabal points while this WARLORD is on the battlefield."
+  },
   "633d1587e71b": {
     "name": "Presage",
     "kind": "psychic",
@@ -309,6 +324,11 @@
     "kind": "psychic",
     "plain": "Blessing: when manifested, pick one of your THOUSAND SONS models within 12\" of this PSYKER, other than VEHICLES. That model is healed and gets back up to D3 lost wounds. A model can only be healed once per turn."
   },
+  "83a6978a3d3f": {
+    "name": "Grand Schemer (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while within 3\" of this WARLORD, your CULT OF SCHEMING units gain Objective Secured. If such a unit already has Objective Secured, each of its models counts as 2 models when working out who controls objective markers."
+  },
   "83f9e9b166ff": {
     "name": "Skaeloch's Talon",
     "kind": "ability",
@@ -323,6 +343,16 @@
     "name": "High Acolytes",
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the THOUSAND SONS keyword: pick one ARCANA ASTARTES CHARACTER model in your army (not a named character) and give it one Warlord Trait it is allowed to have. That model only counts as your WARLORD for that Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if rolling randomly), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "8842b207ed85": {
+    "name": "Arrogance of Aeons",
+    "kind": "ability",
+    "plain": "You can re-roll this WARLORD's Deny the Witch tests, and in a Cabal of Sorcerers army it can benefit from one extra Cabbalistic Ritual per Psychic phase."
+  },
+  "893e547a0117": {
+    "name": "Devastating Sorcery",
+    "kind": "ability",
+    "plain": "Once per Psychic phase, you can re-roll the Psychic test when this WARLORD tries to manifest Smite or a Witchfire power."
   },
   "8b5ad6b39f79": {
     "name": "Inescapable Forewarning",
@@ -369,10 +399,20 @@
     "kind": "ability",
     "plain": "For every <GREAT CULT> EXALTED SORCERER unit in a Detachment, you can add one <GREAT CULT> SORCERER unit to that Detachment that does not use up a Battlefield Role slot."
   },
+  "972d6edf76fa": {
+    "name": "Guided by the Whispers",
+    "kind": "ability",
+    "plain": "Once per turn, when this WARLORD is chosen as a charge target, it can make a Normal Move of up to 6\" after any Overwatch is fired but before the charge roll."
+  },
   "97f6987cfd1e": {
     "name": "Heldrake claws",
     "kind": "weapon",
     "plain": "Attacks from this weapon have Damage 4 when they are allocated to an AIRCRAFT."
+  },
+  "99a6663a85a5": {
+    "name": "Fickle Nature",
+    "kind": "ability",
+    "plain": "You can re-roll this WARLORD's charge rolls, and it can shoot and declare a charge even in a turn when it Fell Back."
   },
   "9b2bc2b0bf18": {
     "name": "Webway Infiltration",
@@ -388,6 +428,11 @@
     "name": "Sorcerer in Terminator Armour",
     "kind": "psychic",
     "plain": "This model knows Smite plus two powers from the Dark Hereticus discipline, the Discipline of Change, or a mix of both."
+  },
+  "a364af3ac3fe": {
+    "name": "Immaterial Echo",
+    "kind": "ability",
+    "plain": "In your Psychic phase, if this WARLORD gets a Psychic test result of 9+ when manifesting a power, it can try to manifest one extra psychic power that phase. If it passes the Psychic test for that extra power, the power can't be denied. This Warlord Trait gives it no more than one extra power per phase."
   },
   "a6480846e575": {
     "name": "Coruscating Beam",
@@ -454,6 +499,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your <GREAT CULT> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
   },
+  "b99a79ab213d": {
+    "name": "Otherworldly Prescience",
+    "kind": "ability",
+    "plain": "Once per battle, before a saving throw is made for this WARLORD, you can give it a 3+ invulnerable save until the end of the turn."
+  },
   "ba1cfc3f2a69": {
     "name": "Schemes of Change",
     "kind": "stratagem",
@@ -464,6 +514,11 @@
     "kind": "psychic",
     "plain": "Witchfire: if manifested, pick one enemy model within 6\" of this PSYKER that it can see and roll one D6. If the roll beats that model's Toughness characteristic, the model's unit suffers D3+3 mortal wounds."
   },
+  "c1ae467cd105": {
+    "name": "Aetherstride",
+    "kind": "ability",
+    "plain": "This WARLORD gets 3\" more Move and can declare a charge in a turn in which it Fell Back. It also moves as if it can FLY whenever it makes a Normal Move, an Advance, a charge move or Falls Back."
+  },
   "c221e2d6971a": {
     "name": "Exalted Sorcerer",
     "kind": "psychic",
@@ -473,6 +528,11 @@
     "name": "Masters of the Immaterium",
     "kind": "stratagem",
     "plain": "In your Psychic phase, when one of your THOUSAND SONS PSYKER units would suffer Perils of the Warp: it doesn't suffer it."
+  },
+  "c2d982fc3569": {
+    "name": "Manipulator of Reality",
+    "kind": "ability",
+    "plain": "When the first battle round starts, you can pick up to 3 of your TZAANGOR units and set them up again wholly within your deployment zone. Do this after any of your units have made Normal Moves granted by Touched by Tzeentch: take the chosen units off the battlefield, then place them anywhere on the battlefield wholly within your deployment zone. If the mission uses Strategic Reserves, you can put any of those units into Strategic Reserves instead, at no extra CP cost and no matter how many units are already there."
   },
   "c8bb2f865e69": {
     "name": "Great Sorcerer",
@@ -499,10 +559,25 @@
     "kind": "ability",
     "plain": "During deployment, you can put this model in a teleportarium chamber rather than on the battlefield. It can teleport in at the end of any of your Movement phases: set it up anywhere on the battlefield more than 9\" away from all enemy models."
   },
+  "d157faf60c61": {
+    "name": "Touch of Vicissitude",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, each unmodified hit roll of 6 also deals 1 mortal wound to the target, on top of any other damage."
+  },
+  "d22150e4d28e": {
+    "name": "Undying Form",
+    "kind": "ability",
+    "plain": "Every attack allocated to this WARLORD has its Damage characteristic reduced by 1, to a minimum of 1."
+  },
   "d25160f3fa14": {
     "name": "Brotherhood of Sorcerers",
     "kind": "rule",
     "plain": "If your army is Battle-forged, every THOUSAND SONS unit in a THOUSAND SONS Detachment gets these abilities:\n- Add 1 to Psychic tests taken for the unit.\n- If the unit is ARCANA ASTARTES or TZAANGOR, each of its models has a 5+ invulnerable save."
+  },
+  "d255cc073ea1": {
+    "name": "Ardent Scholar",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD takes a Psychic test, you can re-roll any of its dice that show a 1."
   },
   "d408efe0cfe2": {
     "name": "Doombolt",
@@ -523,6 +598,11 @@
     "name": "Incandeum (shooting)",
     "kind": "weapon",
     "plain": "Attacks made with this profile always hit the target automatically."
+  },
+  "e123948613a4": {
+    "name": "Beguiling Influence",
+    "kind": "ability",
+    "plain": "Attacks made against this WARLORD can't re-roll their hit rolls, wound rolls or damage rolls."
   },
   "e32941d9c32f": {
     "name": "Ephemeral Existence",

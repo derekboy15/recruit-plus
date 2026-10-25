@@ -124,6 +124,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, during your Command phase, if your DEATH GUARD WARLORD is on the battlefield: put a marker on any point of the battlefield. When your next Command phase starts, roll a D6 for each unit within 6\" of that marker's centre; add 1 to the result for an INFANTRY unit and subtract 1 for a CHARACTER. A 2-6 means that unit takes D3 mortal wounds, and a 7+ means it takes D6 mortal wounds. The marker is then removed. Cost: 2CP if your WARLORD has the LORD OF VIRULENCE keyword, otherwise 3CP."
   },
+  "2b41198ac834": {
+    "name": "Eater Plague (Contagion)",
+    "kind": "ability",
+    "plain": "When a friendly WRETCHED model attacks an enemy unit that is within this unit's Contagion Range, an unmodified hit roll of 6 wounds the target automatically."
+  },
   "2bcab3f7f783": {
     "name": "Haze of Corruption",
     "kind": "stratagem",
@@ -149,6 +154,11 @@
     "kind": "stratagem",
     "plain": "During the Fight phase, once a DEATH GUARD PLAGUE MARINES unit of yours is picked to fight: for the rest of the phase, whenever one of its models with any plague knives fights, it gets 1 bonus attack with one of those plague knives."
   },
+  "2fb46800e505": {
+    "name": "Sanguous Flux (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get 1 subtracted from their models' Leadership characteristic and from Combat Attrition tests taken for them."
+  },
   "302bc7a634bd": {
     "name": "Putrescent Fog (Aura)",
     "kind": "ability",
@@ -169,6 +179,11 @@
     "kind": "psychic",
     "plain": "This model knows Smite and two psychic powers from the Contagion discipline."
   },
+  "34fdb5584319": {
+    "name": "Harbinger of Death (Aura)",
+    "kind": "ability",
+    "plain": "Aura: if an enemy model with Leadership 7 or less is within 3\" of this WARLORD, its unit can't use Objective Secured or similar abilities, or perform actions. Also, while one or more enemy models are within range of this aura, this WARLORD's Attacks characteristic goes up by 1."
+  },
   "356c6089c74c": {
     "name": "Plentiful Pestilence",
     "kind": "ability",
@@ -178,6 +193,11 @@
     "name": "Deadly Pathogens",
     "kind": "ability",
     "plain": "Whenever you give a model a Deadly Pathogen, choose one of its plague weapons to upgrade; it can't be a Grenade weapon or a Relic. On top of the Deadly Pathogen's own effects, add 1 to that weapon's Strength characteristic. The Power Rating of the model's unit goes up by 1."
+  },
+  "39d9d830f401": {
+    "name": "Revoltingly Resilient",
+    "kind": "ability",
+    "plain": "Roll a D6 each time this WARLORD would lose a wound; on a 5+, it keeps that wound."
   },
   "3a0f188dbb56": {
     "name": "Dark Cravings",
@@ -209,6 +229,11 @@
     "kind": "ability",
     "plain": "When the first battle round starts, choose one Warlord Trait from this list: Shamblerot, Ferric Blight, Gloaming Bloat, Eater Plague, Sanguous Flux, Nurgle's Fruit or The Droning. It can't be one that another model in your army already has. For the rest of the battle this model has the chosen trait as well as any others it has, even when it isn't your WARLORD."
   },
+  "45665dc14ccb": {
+    "name": "Gloaming Bloat (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range can't fire Overwatch or Set to Defend. Also, hit rolls and wound rolls for attacks by their models can't be re-rolled."
+  },
   "4840816b3222": {
     "name": "Tainted Narthecium (Aura)",
     "kind": "ability",
@@ -239,10 +264,20 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, choose a BUBONIC ASTARTES TERMINUS EST ASSAULT FORCE unit of yours that is eligible to shoot.\n- For the rest of the turn, its models may target enemy units that are in Engagement Range of your own POXWALKERS or PLAGUE FOLLOWERS units.\n- When one of its models attacks an enemy unit that is in Engagement Range of one of your POXWALKERS or PLAGUE FOLLOWERS units, subtract 1 from the hit roll; a failed hit roll means the attack hits that POXWALKERS or PLAGUE FOLLOWERS unit instead."
   },
+  "4f5d963a6ae5": {
+    "name": "Shamblerot (Contagion)",
+    "kind": "ability",
+    "plain": "When your opponent's Movement phase starts, roll one D6 for each enemy unit (other than a VEHICLE unit) within this unit's Contagion Range. Subtract 1 from the roll if that unit is a CHARACTER unit. On a 4+ it suffers 1 mortal wound, or D3 mortal wounds if the roll is a 6."
+  },
   "53d82eaacf3e": {
     "name": "Eruption of Filth",
     "kind": "stratagem",
     "plain": "In any phase, once a DEATH GUARD CHARACTER model of yours is destroyed, you may use this Stratagem rather than any other rules that trigger when a model is destroyed (for example, Putrid Explosion). Before that model is removed from play, roll a D6 for every other unit within 3\", apart from NURGLE units: a 2-5 means that unit takes 1 mortal wound, and a 6 means it takes D3 mortal wounds."
+  },
+  "56c22e7b2365": {
+    "name": "Hulking Physique",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 added to its Wounds characteristic, and an unmodified wound roll of 1-3 always fails for attacks made against it. That holds whatever abilities the attacking model or its weapon may have."
   },
   "56d98d047055": {
     "name": "Fire Fever",
@@ -424,6 +459,14 @@
     "kind": "ability",
     "plain": "When you roll to see how many attacks this weapon makes, you can re-roll that roll."
   },
+  "98130061e3e3": {
+    "name": "Nurgle's Fruit (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get no benefit from cover against attacks made by friendly MORTARION'S CHOSEN SONS models.",
+    "waive": {
+      "MORTARION'S CHOSENS SONS": "misprint in the official text for the MORTARION'S CHOSEN SONS keyword, which is written correctly here"
+    }
+  },
   "9a2f7c9d3822": {
     "name": "Attendant's claws and teeth",
     "kind": "weapon",
@@ -438,6 +481,11 @@
     "name": "Pernicious Dose",
     "kind": "psychic",
     "plain": "Blessing: if manifested, choose a friendly unit within 6\" of this PSYKER. Until your next Psychic phase starts, hit rolls for that unit's plague weapon attacks can be re-rolled."
+  },
+  "9c8a2b621d63": {
+    "name": "Foul Effluents (Aura)",
+    "kind": "ability",
+    "plain": "Aura: when your Movement phase ends, roll one D6 for every enemy unit within 6\" of this WARLORD; a 4+ means that unit takes 1 mortal wound."
   },
   "9e76f7277003": {
     "name": "Plague Weapon",
@@ -463,6 +511,11 @@
     "name": "Pestilential Drop",
     "kind": "stratagem",
     "plain": "During the Reinforcements step of your Movement phase, when you place a TERMINUS EST ASSAULT FORCE unit of yours on the battlefield using its Outbreak Assault or Teleport Strike ability: choose one of its Contagion of Nurgle abilities. For the rest of the turn, that ability has a Contagion Range of 12\" for that unit. This doesn't stack with other abilities that raise Contagion Range."
+  },
+  "a4048bfe3f3c": {
+    "name": "Ferric Blight (Contagion)",
+    "kind": "ability",
+    "plain": "While an enemy unit is within this unit's Contagion Range, each attack by a friendly INEXORABLE model has its Armour Penetration characteristic improved by 1."
   },
   "a48b4e3155e8": {
     "name": "Explodes",
@@ -504,6 +557,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, choose up to three DEATH GUARD models of yours. For the rest of the phase, their plague weapons that have the Grenade type lose the Blast ability and become Pistol 6 weapons. Also, when one of those models uses one of those weapons to attack an enemy unit within Engagement Range, the attack hits the target automatically."
   },
+  "ace0566e1523": {
+    "name": "Rotten Constitution",
+    "kind": "ability",
+    "plain": "This WARLORD has 1 added to its Toughness characteristic, and attacks with AP -1 or -2 that are allocated to it are treated as AP 0 instead."
+  },
   "ae28849a236e": {
     "name": "Gellershift",
     "kind": "stratagem",
@@ -537,6 +595,11 @@
     "kind": "psychic",
     "plain": "This model knows Smite and 1 psychic power from the Contagion discipline."
   },
+  "bb0846634907": {
+    "name": "Arch-Contaminator (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DEATH GUARD CORE units is within 6\" of this WARLORD, its models can re-roll wound rolls for melee attacks with plague weapons. They can also re-roll the wound roll for a ranged attack made with a plague weapon if its target is a unit within 12\"."
+  },
   "bb2267c252f6": {
     "name": "Pestilential Fallout",
     "kind": "ability",
@@ -551,6 +614,11 @@
     "name": "Lord of the Death Guard (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <PLAGUE COMPANY> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "c1cb48fc660a": {
+    "name": "Living Plague (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 3\" of this WARLORD can't be affected by aura abilities from units in your opponent's army, apart from auras that are psychic powers."
   },
   "c594a2255dc1": {
     "name": "Plague-chosen",
@@ -571,6 +639,11 @@
     "name": "Miasma of Pestilence",
     "kind": "psychic",
     "plain": "Blessing: if manifested, choose a friendly DEATH GUARD unit within 18\" of this PSYKER. Until your next Psychic phase starts, attacks against that unit have 1 subtracted from their hit rolls."
+  },
+  "c9d59fe72dc3": {
+    "name": "The Droning (Contagion)",
+    "kind": "ability",
+    "plain": "When your opponent's Movement phase starts, halve the Move characteristic of every enemy unit within this unit's Contagion Range, for the rest of that phase."
   },
   "cb96f91b5ce3": {
     "name": "Rotting Tide",
@@ -699,6 +772,11 @@
     "name": "Foetid wings",
     "kind": "ability",
     "plain": "The bearer has the FLY keyword and a Move characteristic of 10\"."
+  },
+  "f91305890143": {
+    "name": "Arch-Contaminator (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <PLAGUE COMPANY> CORE units is within 6\" of this WARLORD, its models can re-roll wound rolls for melee attacks with plague weapons. They can also re-roll the wound roll for a ranged attack made with a plague weapon if its target is a unit within 12\"."
   },
   "face3d6516f7": {
     "name": "Primarch of the Death Guard",

@@ -13,6 +13,11 @@
       "D6": "stands for the official text's misprinted \"06\", which is a D6"
     }
   },
+  "06ee60dc719c": {
+    "name": "True Berserker",
+    "kind": "ability",
+    "plain": "Melee attacks allocated to this WARLORD have their Damage characteristic halved, rounding up."
+  },
   "08e9ac2af15f": {
     "name": "Relentless Rage",
     "kind": "ability",
@@ -47,6 +52,11 @@
     "name": "Aggressive Intervention",
     "kind": "stratagem",
     "plain": "Use this Stratagem during your opponent's Charge phase, in the Heroic Interventions step. Pick one of your WORLD EATERS CORE units. Until the end of the phase, it can perform a Heroic Intervention as though it were a CHARACTER unit, and it is also eligible to do so when any enemy units are within 6\" horizontally and 5\" vertically of it. When it performs a Heroic Intervention, each of its models can move up to 6\". All other Heroic Intervention rules still apply."
+  },
+  "29f3b70c1b6d": {
+    "name": "Battle Lust",
+    "kind": "ability",
+    "plain": "This WARLORD can perform a Heroic Intervention when any enemy unit is within 6\" horizontally and 5\" vertically of it, moving up to 6\" when it does. All other Heroic Intervention rules still apply. Also, when the Fight phase starts, this WARLORD can fight first that phase if it is within Engagement Range of any enemy unit."
   },
   "2afd47aa8b3a": {
     "name": "Wrathful Presence",
@@ -147,6 +157,11 @@
     "name": "Terrifying Assault",
     "kind": "stratagem",
     "plain": "Use this Stratagem in your Charge phase, when you choose one or more enemy units as targets of a charge by one of your WORLD EATERS units. Pick one of those enemy units. That unit can't fire Overwatch or Set to Defend against that charge, and in the following Fight phase, subtract 1 from the hit roll each time one of its models makes a melee attack."
+  },
+  "b5fadf31f88d": {
+    "name": "Favoured of Khorne",
+    "kind": "ability",
+    "plain": "You gain 1 Blood Tithe point in each of your Command phases, as long as this WARLORD is on the battlefield."
   },
   "ca0983fc2dc4": {
     "name": "The Blood Tithe",

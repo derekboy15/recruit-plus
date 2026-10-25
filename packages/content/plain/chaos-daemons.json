@@ -69,6 +69,11 @@
     "kind": "psychic",
     "plain": "Witchfire. When manifested, pick one enemy model within 12\" of this PSYKER that it can see. Draw a line from any part of this PSYKER's base to any part of the chosen model's base (or hull).\n- The chosen model's unit suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models.\n- Each other enemy unit the line crosses over or passes through suffers 1 mortal wound, or D3 mortal wounds instead if that unit has 11 or more models."
   },
+  "11cad309af24": {
+    "name": "Warp Tether (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your LEGIONES DAEMONICA TZEENTCH units within 12\" of this model can re-roll their Morale tests."
+  },
   "127c12643b23": {
     "name": "Brass Collar of Bloody Vengeance",
     "kind": "ability",
@@ -83,6 +88,11 @@
     "name": "Emissary of the Prince of Excess (Aura)",
     "kind": "ability",
     "plain": "Aura: models in your SLAANESH DAEMON units that are within 9\" of this model may swap their own Leadership characteristic for this model's."
+  },
+  "139c5c878659": {
+    "name": "Heaving Mass",
+    "kind": "ability",
+    "plain": "This WARLORD's Wounds characteristic is increased by 2."
   },
   "14eb08476c8e": {
     "name": "The Changeling",
@@ -169,10 +179,20 @@
     "kind": "psychic",
     "plain": "Malediction. When manifested, pick one enemy unit within 18\" of this PSYKER that it can see. Roll 3D6. If the total is higher than that unit's Leadership characteristic, choose one of these effects for that unit, lasting until the start of your next Psychic phase:\n- If the unit has any Aura abilities, pick one of them; the unit loses it.\n- The unit can't perform actions; if it is performing an action right now, that action fails at once.\n- In the Fight phase, the unit isn't eligible to fight until every eligible unit in your army has fought."
   },
+  "232430db7d0e": {
+    "name": "Fatal Caress",
+    "kind": "ability",
+    "plain": "If one of this WARLORD's melee attacks succeeds with an unmodified wound roll of 5+, invulnerable saves can't be made against that attack."
+  },
   "2395fd7b464a": {
     "name": "Putrid Demise",
     "kind": "ability",
     "plain": "When this model is destroyed, roll a D6 before taking it off the table. On a 4+, every unit within D6\" suffers D6 mortal wounds, except NURGLE units."
+  },
+  "24c8b7602361": {
+    "name": "Devastating Blow",
+    "kind": "ability",
+    "plain": "Rules that ignore wounds can't be used against this WARLORD's melee attacks."
   },
   "26bc1ab18514": {
     "name": "Master of the Blood Tide",
@@ -199,10 +219,20 @@
     "kind": "psychic",
     "plain": "Witchfire. When manifested, roll 2D6 for every enemy unit within 6\" of this PSYKER. If the roll beats the highest Toughness characteristic among that unit's models, the unit suffers D3 mortal wounds. If the roll is at least twice that highest Toughness, it suffers D6 mortal wounds instead."
   },
+  "2eaaeb19bfb6": {
+    "name": "Brazen Hide",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD would lose a wound, roll a D6; on a 5+, it doesn't lose that wound."
+  },
   "2edd4a6c120a": {
     "name": "Malefic Weapons",
     "kind": "ability",
     "plain": "Many Chaos Daemons weapons are malefic weapons, which have an ability reading \"Malefic\" followed by a value. Each time the bearer fights, it makes extra attacks with that weapon equal to that value, and it can't make more attacks than that with the weapon while resolving that fight. A model with more than one malefic weapon can make extra attacks with each of them.\n\nUnless stated otherwise, malefic weapons are never affected by effects or abilities that give models extra attacks, or by any ability that would add to, subtract from or in any way improve their characteristics."
+  },
+  "2f5328058825": {
+    "name": "Glory of Battle",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 extra attack, and more when it is close to many enemy models. While it is within 3\" of 6 or more enemy models, it gets 1 more attack; while it is within 3\" of 11 or more enemy models, it gets another 1 on top of that."
   },
   "2f89f487b32c": {
     "name": "Executioner's Axe (melee)",
@@ -274,6 +304,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your DAEMONETTES CORE units within 6\" of this model. Until your next Command phase starts, each melee attack made by a model in that unit has its Armour Penetration characteristic improved by 1."
   },
+  "434d70d46ac6": {
+    "name": "Pestilent Miasma",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, every enemy unit within Engagement Range of this WARLORD risks mortal wounds: roll a D6 for each one. On a 2-5, that unit suffers 1 mortal wound; on a 6, it suffers D3 mortal wounds."
+  },
   "44573f9f60d2": {
     "name": "Ritual Slaughter (Action)",
     "kind": "ability",
@@ -283,6 +318,11 @@
     "name": "Beast Handler",
     "kind": "ability",
     "plain": "In your Command phase, you can choose a friendly unit of BEASTS OF NURGLE or PLAGUE DRONES that is within 9\" of this model. Until your next Command phase begins:\n- Charge rolls made for that unit can be re-rolled.\n- Attacks made by that unit's models get 1 added to their hit roll."
+  },
+  "47180a371fe7": {
+    "name": "Overflowing Fecundity",
+    "kind": "ability",
+    "plain": "Attacks against this WARLORD always fail to wound on an unmodified wound roll of 1-3, whatever abilities the attacking weapon or model has."
   },
   "471a544b72bd": {
     "name": "Insatiable Onslaught",
@@ -354,6 +394,11 @@
     "kind": "weapon",
     "plain": "Whenever the bearer fights, it makes 2D6 extra attacks with this weapon."
   },
+  "5d3dc2970801": {
+    "name": "Tyrant of the Warp",
+    "kind": "ability",
+    "plain": "This WARLORD never suffers Perils of the Warp, and whenever it would lose a wound to a mortal wound, roll a D6: on a 5+, it doesn't lose that wound."
+  },
   "5d830d1e9bcf": {
     "name": "Discordant Disruption (Aura)",
     "kind": "ability",
@@ -399,6 +444,11 @@
     "kind": "psychic",
     "plain": "Malediction. When manifested, pick one enemy unit within 18\" of this PSYKER that it can see. Until the start of your next Psychic phase, that unit:\n- can't perform actions (if it is performing one right now, that action fails at once);\n- loses the Objective Secured ability."
   },
+  "680b7be6f9cc": {
+    "name": "Virulent Touch",
+    "kind": "ability",
+    "plain": "This WARLORD's melee attacks that hit automatically wound the target, except attacks against TITANIC units."
+  },
   "69419478e874": {
     "name": "Skull Altar",
     "kind": "ability",
@@ -423,6 +473,11 @@
     "name": "Daemonic Invulnerablity",
     "kind": "ability",
     "plain": "Every LEGIONES DAEMONICA datasheet uses a Daemonic Save characteristic in place of a normal Save characteristic. It has 2 values: use the first when a melee attack is allocated to the model, and the second when a ranged attack is allocated to it. Either way, the save can't be modified at all."
+  },
+  "6c9fa8ceda0f": {
+    "name": "Born of Sorcery",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Psychic tests."
   },
   "6d63b7d6ae11": {
     "name": "Swallow Energy",
@@ -473,6 +528,16 @@
     "name": "Pestilent Inspiration",
     "kind": "stratagem",
     "plain": "Use at the start of your Psychic phase. Pick one of your LEGIONES DAEMONICA NURGLE PSYKER models. For the rest of the phase, it knows every psychic power in the Warprot discipline."
+  },
+  "769eaaf6701f": {
+    "name": "Incorporeal Form",
+    "kind": "ability",
+    "plain": "Subtract 1 from the wound roll of any attack made against this WARLORD."
+  },
+  "76e1f1be6c5e": {
+    "name": "Plaguefly Hive (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this WARLORD subtract 1 from the hit rolls of their melee attacks and can't perform any actions."
   },
   "792a6b0b486a": {
     "name": "Scorn of the Blood God",
@@ -538,6 +603,11 @@
     "name": "Shining aegis",
     "kind": "ability",
     "plain": "This model's Daemonic Save characteristic is 4+/4+."
+  },
+  "85d7589bb177": {
+    "name": "Savage Hedonist",
+    "kind": "ability",
+    "plain": "At the start of every battle round, this WARLORD's Strength characteristic goes up by 1, up to a maximum of +3."
   },
   "85f569760cdf": {
     "name": "Daemonic",
@@ -649,6 +719,11 @@
     "kind": "ability",
     "plain": "Melee attacks made against this model have their Damage characteristic reduced by 1 (minimum 1)."
   },
+  "a080c830d68d": {
+    "name": "Aspect of Death (Aura)",
+    "kind": "ability",
+    "plain": "Aura: every enemy unit within 6\" of this WARLORD has 1 subtracted from its models' Leadership characteristic and from each Combat Attrition test taken for it."
+  },
   "a1218b52eb42": {
     "name": "Tormentbringer on Exalted Seeker Chariot",
     "kind": "psychic",
@@ -683,6 +758,11 @@
     "name": "Relics of the Brass Citadel",
     "kind": "stratagem",
     "plain": "Use before the battle, while you muster your army. Pick one LEGIONES DAEMONICA KHORNE CHARACTER model from your army and give it one Relic of Khorne that it is allowed to have. Every Relic in your army must be different, and this Stratagem can't give one model two Relics. You can use this Stratagem only once, or up to twice in a Strike Force battle, or up to three times in an Onslaught battle."
+  },
+  "a667781730a8": {
+    "name": "Quicksilver Duellist",
+    "kind": "ability",
+    "plain": "You can re-roll hit rolls for this WARLORD's melee attacks, and wound rolls too when the attack targets an enemy CHARACTER model."
   },
   "a9ce377f9f02": {
     "name": "Symphony of Pain",
@@ -744,6 +824,11 @@
     "kind": "ability",
     "plain": "Whenever this model is chosen to fight, you can pick one enemy INFANTRY model within Engagement Range of it. Until that fight is over, this model uses the picked model's Weapon Skill, Strength and Attacks characteristics."
   },
+  "b6ae5148ebd0": {
+    "name": "Fractal Mind",
+    "kind": "ability",
+    "plain": "In your Psychic phase, this WARLORD can attempt a psychic action and still try to manifest one psychic power that phase, without the psychic action failing."
+  },
   "b7f5064a476e": {
     "name": "Wreathed in Shades",
     "kind": "psychic",
@@ -794,6 +879,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your LEGIONES DAEMONICA <ALLEGIANCE> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
   },
+  "c79dbda871f6": {
+    "name": "Acidic Ichor",
+    "kind": "ability",
+    "plain": "For each wound this WARLORD loses to an enemy unit's melee attacks, roll a D6 after that unit finishes attacking: on a 4+, that unit suffers 1 mortal wound. This ability can inflict no more than 6 mortal wounds on any one unit per phase."
+  },
   "ca2af9c9b3e1": {
     "name": "Draught of Terror",
     "kind": "stratagem",
@@ -828,6 +918,11 @@
     "name": "Fateskimmer",
     "kind": "ability",
     "plain": "In your Command phase, pick a friendly SCREAMERS unit that is within 6\" of this model. Until your next Command phase begins, any melee attack made by a model in that unit that rolls an unmodified 6 to hit automatically wounds the target."
+  },
+  "cd1b6c1ab7ec": {
+    "name": "Aura of Bewitchment (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this WARLORD can't perform actions. If an enemy unit is already performing an action when it comes within range of this ability, that action fails at once."
   },
   "cd20f9c7e224": {
     "name": "Scabeiathrax the Bloated",
@@ -934,6 +1029,11 @@
     "kind": "stratagem",
     "plain": "Use when one of your PLAGUEBEARER units is chosen as the target of an attack. For the rest of the phase, whenever an attack targets that unit, an unmodified wound roll of 1-3 fails, no matter what abilities the attacking weapon or model has. This Stratagem costs 2CP if the unit's Power Rating is 12 or more, and 1CP otherwise."
   },
+  "de6546cb0160": {
+    "name": "Immense Power",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to the wound roll of each of its melee attacks."
+  },
   "e08ecbad26d9": {
     "name": "Blazing Warpfile (Aura)",
     "kind": "ability",
@@ -979,6 +1079,11 @@
     "kind": "ability",
     "plain": "This unit can make Heroic Interventions as though it were a CHARACTER unit. It qualifies for a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it (rather than the normal 3\" horizontally and 5\" vertically). Its Heroic Intervention move can be up to 6\". Every other Heroic Intervention rule still applies."
   },
+  "e7291fd556b6": {
+    "name": "Warp Mists",
+    "kind": "ability",
+    "plain": "If this WARLORD is on the battlefield at the end of a battle round, you can keep up to 2 unspent Warp Storm points."
+  },
   "e73b536b76d6": {
     "name": "Daemon Lord of Slaanesh (Aura)",
     "kind": "ability",
@@ -993,6 +1098,11 @@
     "name": "Trickster's staff",
     "kind": "weapon",
     "plain": "Whenever the bearer is chosen to fight, you can pick one melee weapon carried by an enemy INFANTRY model within Engagement Range of this model. Until that fight is over, this weapon uses that weapon's profile."
+  },
+  "e97f1f834a41": {
+    "name": "The Murderdance",
+    "kind": "ability",
+    "plain": "When this WARLORD fights in a turn in which it made a charge move, it gets D3 extra attacks until that fight is resolved."
   },
   "eb7c4eee5dee": {
     "name": "Horrific vomit",
@@ -1013,6 +1123,11 @@
     "name": "Bountiful Gifts",
     "kind": "ability",
     "plain": "If this model is on the battlefield at the end of a battle round, you can hold on to as many as 2 Warp Storm points you haven't spent."
+  },
+  "eedde13bbfa7": {
+    "name": "Rage Incarnate",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Advance and charge rolls. Your LEGIONES DAEMONICA KHORNE CORE units also add 1 to their charge roll whenever they declare a charge against an enemy unit that is within Engagement Range of this WARLORD."
   },
   "eee805da2f4a": {
     "name": "Daemonic Rewards",
@@ -1048,6 +1163,11 @@
     "name": "Virulent Blessing",
     "kind": "psychic",
     "plain": "Blessing. When manifested, pick one friendly LEGIONES DAEMONICA NURGLE CORE unit within 18\" of this PSYKER that it can see. Until the start of your next Psychic phase, the melee weapons that models in that unit are equipped with get 1 added to their Damage characteristic."
+  },
+  "f1fb89bd004f": {
+    "name": "Warp Tether",
+    "kind": "ability",
+    "plain": "This WARLORD gains the WARP LOCUS keyword."
   },
   "f243a67d99f7": {
     "name": "The Dark Master (Aura)",
@@ -1103,6 +1223,11 @@
     "name": "Herald of Khorne (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your LEGIONES DAEMONICA KHORNE CORE units is within 6\" of this model, you can re-roll wound rolls of 1 for attacks made by models in that unit."
+  },
+  "fc547d02a746": {
+    "name": "Lorekeeper of Tzeentch",
+    "kind": "ability",
+    "plain": "Psychic powers from the Pandaemoniac discipline that this WARLORD successfully manifests get 6\" added to their range. If a power lists more than one range, the 6\" is added only to the first one listed."
   },
   "fd179179304a": {
     "name": "Bloodmaster",
