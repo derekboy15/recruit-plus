@@ -1,4 +1,9 @@
 {
+  "002354370c39": {
+    "name": "Eagle's Eye",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its Wounds characteristic, and once per battle it can gain a 3+ invulnerable save for the rest of a phase. INFANTRY model only. To use the save, the bearer activates the helm just before a saving throw is made for it; it then has a 3+ invulnerable save until the end of that phase."
+  },
   "03f9d679e4b3": {
     "name": "Shield Host Fighting Style: Gilded Guardians",
     "kind": "ability",
@@ -29,6 +34,11 @@
     "kind": "ability",
     "plain": "Units with this trait improve the AP of attacks against enemy units within 9\" by 1, and can re-roll charge rolls.\nTrait 1: When a model in a unit with this trait attacks an enemy unit within 9\" of that model, improve the attack's Armour Penetration characteristic by 1.\nTrait 2: Charge rolls for units with this trait can be re-rolled.\nThis style's Martial Ka'tah: Dacatarai."
   },
+  "12a25d4399ad": {
+    "name": "Stasis Oubliette",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, pick an enemy unit in Engagement Range of the bearer; it can't fight that phase until all your eligible units have fought. SHADOWKEEPERS model only."
+  },
   "12e51d4378cf": {
     "name": "Aegis of the Emperor",
     "kind": "ability",
@@ -38,6 +48,19 @@
     "name": "Airborne Hunters",
     "kind": "ability",
     "plain": "When deploying, you may place this unit high in the skies rather than on the battlefield. In that case, at the end of any one of your Movement phases, you can put it anywhere on the battlefield that is more than 9\" from all enemy models."
+  },
+  "17b63a7b0d2b": {
+    "name": "Raptor Blade",
+    "kind": "ability",
+    "plain": "This Relic takes the place of an executioner greatblade. Only a model equipped with an executioner greatblade can have it."
+  },
+  "1867c43244d2": {
+    "name": "Castellan's Mark",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, up to two of your <SHIELD HOST> units can be redeployed wholly within your deployment zone or into Strategic Reserves. Take those units off the battlefield, then set each one up again anywhere wholly within your deployment zone. In a mission that uses the Strategic Reserves rules, any of them can be put into Strategic Reserves instead, at no extra CP cost and no matter how many units are already there. If both players have abilities that redeploy units, they roll off, and the winner decides who redeploys first.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
   },
   "19bc309e3819": {
     "name": "Martial K'atah",
@@ -59,6 +82,11 @@
     "kind": "ability",
     "plain": "Psychic powers can't target or affect this unit. Whenever any unit takes a Psychic test, its total is reduced by 1 for every unit that has this ability and is within 18\" of it (no more than -3 in total). Models in this unit increase their wound rolls by 1 when attacking an enemy PSYKER or DAEMON unit that is within 6\" of them."
   },
+  "1bd6fa16d623": {
+    "name": "Fulminaris Aggressor",
+    "kind": "ability",
+    "plain": "The bearer gets an aura that denies Heavy and Light Cover against attacks by your <SHIELD HOST> CORE and <SHIELD HOST> CHARACTER units within 6\" of it. VEXILUS PRAETOR model only. Fulminaris Aggressor (Aura): while one of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units is within 6\" of this model, whenever a model in that unit attacks, the target gets no benefit from Heavy or Light Cover against that attack."
+  },
   "1dc9bc0d4cae": {
     "name": "Anathematic Diadem",
     "kind": "ability",
@@ -68,6 +96,11 @@
     "name": "Open the Vaults",
     "kind": "stratagem",
     "plain": "Use before the battle, while mustering your army, if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Either give one Relic of Terra to one of your ADEPTUS CUSTODES CHARACTER models, or give one Relic of the Vigil to one of your ANATHEMA PSYKANA CHARACTER models; either way, it must be a Relic that model could have. All Relics in your army must be unique, and this Stratagem can't give one model two Relics. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "1f0dcb000087": {
+    "name": "Praetorian Plate",
+    "kind": "ability",
+    "plain": "Add 1 to the bearer's Toughness, and once per battle, in your opponent's Charge phase, it can teleport-shunt into Engagement Range of an enemy unit. TERMINATOR model only. The teleport-shunt happens in the Heroic Interventions step of that phase, and only if the bearer isn't within Engagement Range of any enemy units: take it off the battlefield, then set it up again within 3\" of one of your units (not a VEHICLE unit) and within Engagement Range of an enemy unit. If it can't be set up like that, it can't teleport-shunt. The bearer can't make a Heroic Intervention in the same turn as a teleport-shunt."
   },
   "1fe6406bd9ab": {
     "name": "Tarsus Buckler",
@@ -127,6 +160,11 @@
     "kind": "ability",
     "plain": "During your opponent's Psychic phase, this WARLORD may try to Deny the Witch once, just like a PSYKER model would, and every Deny the Witch test taken for it gets 1 added to the result. For control of objective markers, this WARLORD is treated as two extra models, on top of any other rules that let it count as extra models."
   },
+  "30af285ff495": {
+    "name": "Enhanced Voidsheen Cloak",
+    "kind": "ability",
+    "plain": "The bearer has a 4+ invulnerable save, and attacks made against it subtract 1 from both their hit roll and their wound roll."
+  },
   "32795c6f7c55": {
     "name": "Oblivion Knight",
     "kind": "ability",
@@ -159,6 +197,11 @@
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
+  },
+  "3cdcf2340bcc": {
+    "name": "Swiftsilver Talon",
+    "kind": "ability",
+    "plain": "The bearer can shoot and charge even in a turn in which it Fell Back. Only a SOLAR WATCH model equipped with a guardian spear can have this Relic, which takes the place of that spear."
   },
   "3d21df6c3065": {
     "name": "Praesidium Shieldwall",
@@ -194,6 +237,11 @@
     "name": "Voice of the Emperor",
     "kind": "ability",
     "plain": "This WARLORD's aura abilities get 3\" more range, up to a maximum of 12\" (already counted in the aura below). It also has this aura: Voice of the Emperor (Aura): while one of your ADEPTUS CUSTODES or ANATHEMA PSYKANA units is within 9\" of this model, models in that unit get 1 added to their Leadership characteristic."
+  },
+  "4329b4c8e58e": {
+    "name": "Admonimortis",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a castellan axe. Only a DREAD HOST model equipped with a castellan axe can have it."
   },
   "4af2fd20b4d1": {
     "name": "Indomitable Engines",
@@ -255,6 +303,11 @@
     "kind": "weapon",
     "plain": "You can re-roll the wound roll when this weapon attacks a VEHICLE unit."
   },
+  "5901a383f13a": {
+    "name": "Praesidius",
+    "kind": "ability",
+    "plain": "Subtract 1 from the wound roll of every attack made against the bearer. Only an AQUILAN SHIELD model with a praesidium shield can have this."
+  },
   "599e0c7b9523": {
     "name": "Supersonic",
     "kind": "ability",
@@ -290,10 +343,20 @@
     "kind": "ability",
     "plain": "The bearer has this aura. Vexilla Imperius (Aura): models in your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units get 1 added to their Attacks characteristic while their unit is within 6\" of this model."
   },
+  "6bc312c73ea0": {
+    "name": "Veiled Blade",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a sentinel blade. Only a model equipped with a sentinel blade can have it."
+  },
   "6bd816e7c266": {
     "name": "Vexilla Defensor",
     "kind": "ability",
     "plain": "The bearer has this aura ability. Vexilla Defensor (Aura): while one of your <SHIELD HOST> CORE or <SHIELD HOST> CHARACTER units is within 6\" of this model, that unit has the benefits of light cover."
+  },
+  "6d1bd74b4298": {
+    "name": "Wrath Angelis",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, place a marker on the battlefield; at your next Command phase, units within 6\" of it can suffer mortal wounds. VEXILUS PRAETOR model only. The bearer must be on the battlefield to place the marker. When your next Command phase starts, roll one D6 for every unit within 6\" of the marker's centre, whichever army it belongs to: add 1 if the unit is within 3\" of the centre, and subtract 1 if it is a CHARACTER. On a 2-5 the unit suffers D3 mortal wounds; on a 6+ it suffers D6 mortal wounds. Then remove the marker."
   },
   "6e39d00b8435": {
     "name": "Gnosis (Melee)",
@@ -493,6 +556,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your <SHIELD HOST> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 when they attack."
   },
+  "b38b87afe248": {
+    "name": "Excruciatus Flamer",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a witchseeker flamer. Only a model equipped with a witchseeker flamer can have it."
+  },
   "b6cb3da530f8": {
     "name": "Empyric Severance",
     "kind": "stratagem",
@@ -548,6 +616,14 @@
     "kind": "rule",
     "plain": "In each ADEPTUS CUSTODES Detachment in your army, the number of ANATHEMA PSYKANA Troops units can't exceed the number of ADEPTUS CUSTODES Troops units, and the number of ANATHEMA PSYKANA HQ units can't exceed the number of ADEPTUS CUSTODES HQ units. An ANATHEMA PSYKANA model can't be your WARLORD."
   },
+  "c7f5035a6381": {
+    "name": "Halo of the Torchbearer",
+    "kind": "ability",
+    "plain": "The bearer's aura lets nearby EMISSARIES IMPERATUS units ignore movement modifiers, and it can deal mortal wounds to enemy units within 3\" in the Fight phase. EMISSARIES IMPERATUS model only.\n- The bearer has this aura. Halo of the Torchbearer (Aura): while one of your EMISSARIES IMPERATUS units is within 3\" of this model, that unit can disregard any or all modifiers to its Move characteristic, its Advance rolls or its charge rolls.\n- When the Fight phase starts, roll one D6 for every enemy unit within 3\" of the bearer: each that rolls 3+ suffers 1 mortal wound, or D3 mortal wounds if its Leadership characteristic is 7 or less.",
+    "waive": {
+      "AMISSARIES IMPERATUS": "misspelling of EMISSARIES IMPERATUS in the official text; the correct keyword is used"
+    }
+  },
   "c7f9e131b35f": {
     "name": "Master of Martial Strategy",
     "kind": "ability",
@@ -565,6 +641,14 @@
     "name": "Eternal Penitent",
     "kind": "stratagem",
     "plain": "Use before the battle, while mustering your army, on one of your ADEPTUS CUSTODES DREADNOUGHT units. Add 1 to its Attacks characteristic, and you can re-roll its charge rolls; if it could already re-roll charge rolls (for example, from the Instruments of the Emperor's Wrath fighting style), add 1 to its charge rolls instead. This Stratagem can only be used once."
+  },
+  "c9ba3c59ca2b": {
+    "name": "Auric Aquilas",
+    "kind": "ability",
+    "plain": "You can re-roll the bearer's charge rolls, and it can boost in your Movement phase to double its Move, but then it can't shoot or charge that turn. BIKER model only.\n- If the bearer could already re-roll its charge rolls (for example, from the Instruments of the Emperor's Wrath fighting style), add 1 to its charge rolls instead.\n- The bearer can choose to boost when it is picked to move in your Movement phase. If it does, its Move characteristic is doubled until the end of that phase, and it can't shoot or declare a charge this turn.",
+    "waive": {
+      "56": "page number reference in the official text (\"on page 56\"), not a rules value"
+    }
   },
   "cbbf7cabc93d": {
     "name": "Adrastus Bolt Caliver",
@@ -586,6 +670,16 @@
     "kind": "stratagem",
     "plain": "Use in your Command phase, once you have chosen the ka'tah stance active for your army. Pick one of your ADEPTUS CUSTODES units with the Martial Ka'tah ability, then pick a ka'tah stance that isn't active for your army. Until your next Command phase starts, that unit benefits from the chosen stance rather than your army's active ka'tah stance(s). Cost: 1CP if that ADEPTUS CUSTODES unit has 4 or fewer models, otherwise 2CP."
   },
+  "d9506ab82e3b": {
+    "name": "Obliteratum",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a balistus grenade launcher. Only a model equipped with a balistus grenade launcher can have it."
+  },
+  "d9b21b66c4cc": {
+    "name": "Gatekeeper (Shooting)",
+    "kind": "weapon",
+    "plain": "Every ranged attack made with this weapon hits its target automatically."
+  },
   "dab216f91b60": {
     "name": "Vaultswords - Victus",
     "kind": "weapon",
@@ -600,6 +694,11 @@
     "name": "Manoeuvre and Fire",
     "kind": "stratagem",
     "plain": "Use in your Movement phase, when one of your ADEPTUS CUSTODES units that can FLY Falls Back. Until the end of the turn, it can still shoot despite having Fallen Back."
+  },
+  "e24b2633810b": {
+    "name": "Gatekeeper",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a guardian spear. Only a model equipped with a guardian spear can have it."
   },
   "e2a4ae0b944f": {
     "name": "Creeping Dread",

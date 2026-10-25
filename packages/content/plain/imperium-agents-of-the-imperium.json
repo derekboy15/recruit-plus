@@ -4,15 +4,30 @@
     "kind": "ability",
     "plain": "This WARLORD adds 1 to its Leadership characteristic, and its Unquestionable Wisdom ability has 6\" more range."
   },
+  "027f91138655": {
+    "name": "Universal Anathema",
+    "kind": "ability",
+    "plain": "Melee attacks by a model with this Relic always wound on a 2+, unless the target is a VEHICLE or TITANIC unit."
+  },
   "1501b2e8b901": {
     "name": "Hector Rex",
     "kind": "ability",
     "plain": "Psychic powers: Smite, plus 2 from the Telethesia discipline."
   },
+  "2c933d44e441": {
+    "name": "Tainted Blade",
+    "kind": "weapon",
+    "plain": "Each failed saving throw against this weapon's attacks lets the bearer make 1 additional attack with it against the same unit. Those additional attacks can't create any more attacks. The first time the bearer is picked to fight in each Fight phase, roll one D6. If you roll a 1, the bearer takes 1 mortal wound and this weapon can't be used that phase."
+  },
   "452c7af9e61b": {
     "name": "Esoteric Lore",
     "kind": "ability",
     "plain": "While this WARLORD is on the battlefield, you gain 1 Command Point on a D6 roll of 5+ each time your opponent uses a Stratagem."
+  },
+  "47b4910ae1ee": {
+    "name": "Ignis Judicium",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon have a Damage characteristic of D6+2 against a target within half range or with the CHAOS or PSYKER keyword."
   },
   "62a57a1a9815": {
     "name": "Radical",
@@ -29,10 +44,20 @@
     "kind": "ability",
     "plain": "This WARLORD knows one more Telethesia psychic power, and can attempt to manifest one more power in your Psychic phase and deny one more in your opponent's."
   },
+  "78f2f7f43045": {
+    "name": "Digital Weapons",
+    "kind": "ability",
+    "plain": "A model with this Relic can make 1 extra attack each time it fights, using the close combat weapon profile. If that attack hits, the target suffers 1 mortal wound and the attack sequence ends."
+  },
   "7fd4e90d22ae": {
     "name": "Stratagem: Arbiter of the Emperor's Will",
     "kind": "ability",
     "plain": "Before the battle, give a Warlord Trait to one INQUISITOR model in your army that isn't your Warlord, and possibly a Relic of the Inquisition as well. Determine one Warlord Trait for that model; it counts as your Warlord for the purposes of that trait. Then, if it isn't a named character or a VEHICLE, you can also give it one Relic of the Inquisition. Every Relic in your army must be different, and each must go to a different model. You can use this Stratagem only once per battle."
+  },
+  "824ada22b10f": {
+    "name": "Blade of the Ordo",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon against a unit named by the bearer's Quarry ability have a Damage characteristic of 3."
   },
   "930b66e7d303": {
     "name": "Puritan",

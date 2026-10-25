@@ -1,8 +1,18 @@
 {
+  "01d0d20d114e": {
+    "name": "Light of Saint Agnaetha",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a brazier of holy fire and uses the profile shown. Only an ORDER OF THE SACRED ROSE model that has a brazier of holy fire can take it."
+  },
   "03512093e77f": {
     "name": "Indomitable Belief (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> CORE INFANTRY units is within 6\" of this WARLORD, its models' Shield of Faith invulnerable save improves by 1 (maximum 4+)."
+  },
+  "05639fd2f530": {
+    "name": "Annunciation of the Creed",
+    "kind": "ability",
+    "plain": "This Relic replaces a condemnor boltgun, can fire one or both profiles, ignores Look Out, Sir, and its blessed stake does 3 extra mortal wounds against PSYKERS. Only an ORDER OF THE EBON CHALICE model equipped with a condemnor boltgun can take it. Before you pick targets, choose one or both of its profiles to attack with; if you choose both, subtract 1 from the hit roll of every attack made with this weapon this phase. This weapon ignores the Look Out, Sir rule when you pick its targets. Whenever a PSYKER model has an attack from the blessed stake profile allocated to it, its unit suffers 3 mortal wounds as well as the normal damage."
   },
   "05d1b801694b": {
     "name": "Lead the Righteous - Martyred Lady (Aura)",
@@ -59,6 +69,21 @@
     "name": "Priest",
     "kind": "ability",
     "plain": "This model knows War Hymn and also one more hymn from the Hymns of Battle. During your Command phase, while this model is on the battlefield, it can intone a hymn it knows, as long as no friendly model has intoned that hymn this turn already. Roll one D6; on a 3+, the hymn is inspiring, and its effect lasts until your next Command phase starts."
+  },
+  "1064fb2b06ff": {
+    "name": "Relic: Mantle of Ophelia",
+    "kind": "ability",
+    "plain": "Attacks allocated to the bearer always have a Damage characteristic of 1. CANONESS model only."
+  },
+  "112eae2e01ef": {
+    "name": "Relic: Iron Surplice of Saint Istaela",
+    "kind": "ability",
+    "plain": "The bearer gets 1 extra wound and a 2+ Save, and attacks against it fail on any unmodified wound roll of 1-3. ADEPTA SORORITAS model only.\n- The bearer's Wounds characteristic goes up by 1.\n- Every attack made against the bearer fails on an unmodified wound roll of 1-3, whatever abilities the attacking weapon or model has.\n- The bearer's Save characteristic is 2+."
+  },
+  "131eaf0fddc8": {
+    "name": "Sceptre of Vengeance",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a mace of the righteous and uses the profile shown. DOGMATA model only."
   },
   "14373cb5750f": {
     "name": "Sacred Rites",
@@ -121,10 +146,20 @@
     "kind": "ability",
     "plain": "This model is healed when each of your Command phases begins, regaining D3 lost wounds. A model can't be healed more than once per turn."
   },
+  "1c03538d6a8d": {
+    "name": "Relic: Simulacrum Sanctorum",
+    "kind": "ability",
+    "plain": "The bearer must recount two tales instead of just one, chosen at the start of the battle before the first turn begins. IMAGIFIER model only. You can't pick a tale already being recounted by another model from your army, unless all three tales are being recounted by your army's models."
+  },
   "1c300a5de3db": {
     "name": "The Martyr's Sword",
     "kind": "weapon",
     "plain": "Whenever the bearer fights, it makes 4 extra attacks with this weapon, and it can't make more than 4 attacks with this weapon."
+  },
+  "1c8728747aa0": {
+    "name": "Relic: Redemption",
+    "kind": "weapon",
+    "plain": "When an attack with this weapon scores a hit, make one wound roll against the target unit and one against every other unit a line to the target crosses. Draw that straight line from the closest part of this model's base (or hull) to the closest part of the base (or hull) of the closest model in the target unit."
   },
   "1e13f1705b3f": {
     "name": "Inspiring Orator",
@@ -155,6 +190,11 @@
     "name": "Embodied Prophecy",
     "kind": "stratagem",
     "plain": "In your Fight phase: choose one of your ZEPHYRIM SQUAD units. For the rest of that phase, melee attacks by its models get 1 added to their wound rolls."
+  },
+  "26485b73d2e2": {
+    "name": "Light of Saint Agnaetha",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit automatically, and unmodified wound rolls of 4+ (2+ against DAEMON targets) inflict 1 mortal wound and end the attack sequence. The 2+ applies when the target unit contains any DAEMON models."
   },
   "26cedb07fa18": {
     "name": "Vengeance for Armageddon",
@@ -244,6 +284,11 @@
     "kind": "stratagem",
     "plain": "After you nominate an ORDER OF OUR MARTYRED LADY model (excluding named characters) as your WARLORD: that model gains one extra Warlord Trait, which must come from the Order of Our Martyred Lady Warlord Traits table. Every Warlord Trait in your army must be unique (re-roll duplicates if generating them randomly). You can use this Stratagem only once."
   },
+  "3eeb87ca6b99": {
+    "name": "Sceptre of Vengeance",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon against TYRANIDS units add 1 to their wound rolls."
+  },
   "3eebc4edf506": {
     "name": "Righteous Judgement: Miraculous ability",
     "kind": "ability",
@@ -270,6 +315,19 @@
       "ORDER> CORE": "stray tab inside \"<ORDER>\" in the source makes this a garbled copy of <ORDER> CORE, which is present"
     }
   },
+  "40268ad3c8db": {
+    "name": "Beneficence",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it makes 3 extra attacks with this weapon, or D3+3 if 6 or more enemy models are within 3\" of it. Check for those enemy models when the bearer is selected to fight."
+  },
+  "431ed49b9c4f": {
+    "name": "Relic: Blessings of Sebastian Thor",
+    "kind": "ability",
+    "plain": "The bearer's unit gets two sacred rites of your choice instead of the ones active for the rest of your army. ADEPTA SORORITAS model only. Pick the two rites before you work out which sacred rite(s) are available for your army; until the end of the battle, they are active for the bearer's unit in place of the rest of your army's rites.",
+    "waive": {
+      "93": "page reference (pg 93) to the codex, not rules content"
+    }
+  },
   "437905212b5a": {
     "name": "Brazier of Holy Fire",
     "kind": "weapon",
@@ -285,6 +343,11 @@
     "kind": "ability",
     "plain": "While this unit is within 3\" of a friendly SANCTIFIED CHARACTER or <ORDER> CHARACTER unit, that CHARACTER unit is able to use the Look Out, Sir rule even when this unit has fewer than 3 models."
   },
+  "4aec1167562c": {
+    "name": "Relic: Redemption",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a plasma pistol and uses the profile shown. Only an ADEPTA SORORITAS model equipped with a plasma pistol can take it."
+  },
   "4b0d6a8bf8ec": {
     "name": "Banner of Sanctity",
     "kind": "ability",
@@ -295,6 +358,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> CORE units is within 6\" of this model, you can re-roll that unit's Advance rolls and charge rolls."
   },
+  "4b9644ee3d6a": {
+    "name": "Helm of the Fiery Heart",
+    "kind": "ability",
+    "plain": "Once per battle, before a saving throw is made for the bearer, you can give it a 2+ invulnerable save until the end of the phase. This is done by activating the Relic's Saintly blessings. That invulnerable saving throw can never be re-rolled."
+  },
   "4de34851a94f": {
     "name": "Inviolate Shieldwall",
     "kind": "stratagem",
@@ -304,6 +372,11 @@
     "name": "Icon of Chiros",
     "kind": "ability",
     "plain": "Each time a Morale test is taken for one of your ADEPTUS MINISTORUM or ASTRA MILITARUM units while it is within 6\" of this model, roll an extra D6, then discard one of the dice."
+  },
+  "4f4534cede92": {
+    "name": "Relic: The Ecclesiarch's Fury",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a chainsword and uses the profile shown. Only a model equipped with a chainsword can take it."
   },
   "4fbfedb85221": {
     "name": "Rod of Office",
@@ -324,6 +397,11 @@
     "name": "Witch Hunters",
     "kind": "ability",
     "plain": "Models with this conviction re-roll hit rolls of 1 in melee against PSYKER units, and also re-roll wound rolls of 1 against PSYKER CHARACTER units."
+  },
+  "51ebbd778d55": {
+    "name": "Candela Scroll",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, the bearer can unveil this scroll: until your next Command phase, its aura gives nearby units 1 extra attack. IMAGIFIER model only. The aura is Candela Scroll (Aura): while one of your ORDER OF OUR MARTYRED LADY CORE or ORDER OF OUR MARTYRED LADY CHARACTER units is within 6\" of the bearer, its models get 1 extra attack. It lasts until the start of your next Command phase."
   },
   "521e31d57972": {
     "name": "Incandescent Reprisal",
@@ -354,6 +432,11 @@
     "name": "Overseer of Redemption (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> SISTERS REPENTIA units is within 6\" of this model, add 1 to the wound roll of each melee attack made by a model in that unit."
+  },
+  "54b221cefb8f": {
+    "name": "Blade of Sacrifice",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a power sword and uses the profile shown. Only a model equipped with a power sword can take it."
   },
   "54f9b3b6b021": {
     "name": "3. Psalm of Righteous Smiting",
@@ -470,6 +553,11 @@
     "kind": "ability",
     "plain": "Each model in this unit has a 5+ invulnerable save. When the Fight phase starts, if any enemy units are within Engagement Range of this unit, it can fight first in that phase."
   },
+  "67aa77a6931d": {
+    "name": "Relic: Wrath of The Emperor",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a bolt pistol and uses the profile shown. Only a model with a bolt pistol can take it."
+  },
   "683ede93f122": {
     "name": "Endurant Implants",
     "kind": "ability",
@@ -494,6 +582,14 @@
     "name": "Holy Smokescreen",
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when one of your ADEPTA SORORITAS SMOKESCREEN units is chosen as an attack's target: for the rest of the phase, attacks against that unit have 1 subtracted from their hit rolls."
+  },
+  "6ddf180427e0": {
+    "name": "Relic: Chaplet of Sacrifice",
+    "kind": "ability",
+    "plain": "The bearer can re-roll its hit rolls, gets one free Epic Deed Stratagem per battle, and when destroyed it can shoot or fight before it is removed. ADEPTA SORORITAS model only.\n- Once per battle, when the bearer is selected for an Epic Deed Stratagem (other than Divine Intervention), that Stratagem costs 0CP.\n- You can re-roll the hit roll for each attack the bearer makes.\n- When the bearer is destroyed, leave it in play. At the end of that phase, it can shoot as though it were your Shooting phase, or fight as though it were the Fight phase; once its attacks are resolved, remove it.",
+    "waive": {
+      "66": "page reference (page 66) to the codex, not rules content"
+    }
   },
   "6e1e32ecfd4b": {
     "name": "Emboldended by Prayer (Aura)",
@@ -523,6 +619,11 @@
     "kind": "ability",
     "plain": "While an enemy unit is within Miracle range of this model, invulnerable saves can't be made against melee attacks made against that enemy unit by models in your <ORDER> CORE or <ORDER> CHARACTER units."
   },
+  "734aa6f8307f": {
+    "name": "Relic: The Ecclesiarch's Fury",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon subtract 1 from their hit roll and add 1 to their wound roll."
+  },
   "737a2a225476": {
     "name": "Perfervid Belief",
     "kind": "ability",
@@ -548,6 +649,11 @@
     "waive": {
       "91": "page reference to the codex, not rules content"
     }
+  },
+  "7a58f4e6824e": {
+    "name": "Mina's Wrath",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a power sword. Only an ORDER OF THE BLOODY ROSE model equipped with a power sword can take it."
   },
   "7b9db12b37ee": {
     "name": "Word of The Emperor",
@@ -650,10 +756,30 @@
     "kind": "ability",
     "plain": "When your opponent's Command phase begins, choose an enemy unit within 6\" of this model, and choose one of that unit's Aura abilities. Roll 3D6; if you roll at least that unit's Leadership characteristic, that unit loses the chosen Aura ability until your opponent's next Command phase starts."
   },
+  "8afbb7d27dc9": {
+    "name": "Martyrs' Vengeance",
+    "kind": "ability",
+    "plain": "This Relic takes the place of an inferno pistol and uses the profile shown. Only an ORDER OF OUR MARTYRED LADY model equipped with an inferno pistol can take it."
+  },
   "8b0fdd9dcbd9": {
     "name": "Keepers of the Faith",
     "kind": "ability",
     "plain": "This unit can perform Heroic Interventions as though it were a CHARACTER. Also, it may Set to Defend whenever it performs a Heroic Intervention or is the target of a charge declared by an enemy unit while it isn't within Engagement Range of any enemy units. A unit that Sets to Defend can't fire Overwatch until the end of the phase, but until the end of the next Fight phase, add 1 to the hit roll of each melee attack made by its models."
+  },
+  "8b1184c308ea": {
+    "name": "Icon of the Crimson Martyr",
+    "kind": "ability",
+    "plain": "The bearer gets 1 extra wound and a new Litany of Deeds tale that gains you Miracle dice when nearby ORDER OF THE BLOODY ROSE CORE units are destroyed. ORDER OF THE BLOODY ROSE IMAGIFIER model only.\n- The bearer's Wounds characteristic goes up by 1.\n- The bearer's Litany of Deeds ability gains the tale below, which can be picked in place of one of the tales on its datasheet.\nTale of the Martyr: you gain 1 Miracle dice at the end of each phase (except the Morale phase) in which any of your ORDER OF THE BLOODY ROSE CORE units within 6\" of the bearer were destroyed. This is on top of any Miracle dice you gain because a CHARACTER unit was destroyed in that phase."
+  },
+  "8b6f2c8ea82a": {
+    "name": "Beneficence",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a chainsword and uses the profile shown. Only an ORDER OF THE BLOODY ROSE model equipped with a chainsword can take it."
+  },
+  "8c3b2cab100d": {
+    "name": "Relic: Triptych of the Macharian Crusade",
+    "kind": "ability",
+    "plain": "The bearer gets 1 extra Toughness and a 4+ invulnerable save, and once per turn the first attack it fails a saving throw against has its Damage changed to 0. SANCTIFIED or CULT IMPERIALIS model only."
   },
   "8c4ba3b0dc36": {
     "name": "Rosarius",
@@ -682,6 +808,14 @@
     "name": "Sacred Task (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <ORDER> CORE units is within 6\" of this model and is performing an action, that unit can shoot and its action does not fail."
+  },
+  "909922b2021b": {
+    "name": "Relic: The Sigil Ecclesiasticus",
+    "kind": "ability",
+    "plain": "The bearer knows one extra hymn from the Hymns of Battle and can intone one extra hymn in your Command phase. PRIEST model only. That extra hymn must be one the bearer knows that no friendly model has already intoned that turn.",
+    "waive": {
+      "73": "page reference (pg 73) to the codex, not rules content"
+    }
   },
   "90ec2ea47517": {
     "name": "Deeds, Not Words",
@@ -751,6 +885,14 @@
     "kind": "weapon",
     "plain": "Attacks made with this weapon against an INFANTRY or SWARM unit score 3 hits instead of 1 for each successful hit roll."
   },
+  "9de91e330db8": {
+    "name": "Relic: Litanies of Faith",
+    "kind": "ability",
+    "plain": "Once per battle round, while the bearer is on the battlefield, you can re-roll a Miracle dice you gain before it goes into your pool. ADEPTA SORORITAS model only.",
+    "waive": {
+      "91": "page reference (pg 91) to the codex, not rules content"
+    }
+  },
   "9e283c66f99d": {
     "name": "Extremis Trigger Word",
     "kind": "stratagem",
@@ -784,6 +926,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your <ORDER> CORE units within 6\" of this model. That unit gains Objective Secured until your next Command phase starts. Any of its models that already had that ability each count as one extra model when deciding who controls an objective marker."
   },
+  "a83dc874b621": {
+    "name": "Quicksilver Veil",
+    "kind": "ability",
+    "plain": "The bearer adds 3\" to its Move characteristic, and attacks against it subtract 1 from their hit rolls. ORDER OF THE ARGENT SHROUD model only."
+  },
   "ac35bdc46da9": {
     "name": "Armourium Cherub",
     "kind": "ability",
@@ -798,6 +945,11 @@
     "name": "Holy Vanguard",
     "kind": "ability",
     "plain": "Before the first turn begins, at the start of the first battle round, this unit (or the ADEPTA SORORITAS TRANSPORT it is inside) can move up to 6\" with a Normal Move, as though it were your Movement phase. When it finishes, it must be more than 9\" from every enemy model. Where both players have units that can do this, whoever takes the first turn moves their units first."
+  },
+  "adb5f5943d5b": {
+    "name": "Mina's Wrath",
+    "kind": "weapon",
+    "plain": "When the bearer attacks with this weapon, an unmodified wound roll of 6 deals 2 mortal wounds to the target and ends the attack sequence."
   },
   "aef33679c71b": {
     "name": "A Sacred Burden",
@@ -847,6 +999,11 @@
     "name": "Non-militant Order",
     "kind": "ability",
     "plain": "If your army is Battle-forged: for each Detachment containing a CANONESS or CANONESS SUPERIOR unit, you can include one DIALOGUS unit in that Detachment, and it doesn't take up a Battlefield Role slot."
+  },
+  "b4e0c9104b5e": {
+    "name": "Relic: Brazier of Eternal Flame",
+    "kind": "ability",
+    "plain": "Enemy DAEMON models subtract 1 from hit rolls against the bearer, and enemy PSYKER units within 18\" of it suffer Perils of the Warp on any double. Only for a model with a brazier of holy fire.\n- Each attack an enemy DAEMON model makes against the bearer has 1 subtracted from its hit roll.\n- The bearer has this ability: Eternal Flame (Aura): while within 18\" of the bearer, an enemy PSYKER unit suffers Perils of the Warp whenever a Psychic test taken for it includes any double."
   },
   "b59236a5773e": {
     "name": "Unexpected Allies",
@@ -933,6 +1090,11 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your ORDER OF THE BLOODY ROSE INFANTRY units is picked to fight: for the rest of the phase, when its models attack with melee weapons (other than close combat weapons), an unmodified wound roll of 6 raises that attack's Damage characteristic by 1."
   },
+  "c3e5c822ddf8": {
+    "name": "Blade of Saint Ellynor",
+    "kind": "ability",
+    "plain": "This Relic takes the place of a blessed blade and uses the profile shown. Only a model equipped with a blessed blade can take it."
+  },
   "c45695299eae": {
     "name": "Line of Martyrs",
     "kind": "ability",
@@ -947,6 +1109,11 @@
     "name": "War Hymns",
     "kind": "ability",
     "plain": "While an ADEPTUS MINISTORUM INFANTRY or ASTRA MILITARUM INFANTRY unit is within 6\" of any friendly model with this ability, each model in that unit gets 1 extra attack."
+  },
+  "c5c257aaa9d0": {
+    "name": "Casket of Penance",
+    "kind": "ability",
+    "plain": "Aura: models in enemy units within 3\" of the bearer have 1 subtracted from their Toughness, and from their Strength too if their unit has the CHAOS keyword. This is the bearer's Casket of Penance (Aura) ability. ORDER OF THE VALOROUS HEART model only."
   },
   "c6431fd00b0a": {
     "name": "Blind Faith",
@@ -1179,6 +1346,11 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your ENGINE OF REDEMPTION units is targeted by a melee attack: for the rest of the phase, roll one D6 each time a melee attack destroys a model in that unit; on a 4+, the attacking model's unit suffers D3 mortal wounds once it is done making its attacks."
   },
+  "f3fdb7d0d3c7": {
+    "name": "Blade of Sacrifice",
+    "kind": "weapon",
+    "plain": "When selected to fight, the bearer can channel its soul, losing 1-2 wounds so that this weapon's successful wound rolls inflict that many mortal wounds. The bearer can't lose more wounds than it has remaining. Until that fight is resolved, each attack with this weapon that makes a successful wound roll inflicts mortal wounds on the target equal to the wounds lost by channelling, and the attack sequence ends."
+  },
   "f690cc566850": {
     "name": "Arco-flails",
     "kind": "weapon",
@@ -1206,6 +1378,11 @@
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core rules\""
     }
+  },
+  "fb83da39a8cc": {
+    "name": "Armour of True Sacrifice",
+    "kind": "ability",
+    "plain": "The bearer has a Save characteristic of 2+, and you gain 1 Miracle dice at the end of any phase in which it lost one or more wounds. ORDER OF THE BLOODY ROSE model only."
   },
   "fd9e12d1a3b6": {
     "name": "Blade of Vigil",

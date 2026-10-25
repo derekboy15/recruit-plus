@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, each KASTELAN ROBOTS unit in a Detachment lets you include a CYBERNETICA DATASMITH unit in that Detachment without it using up an additional Battlefield Role slot."
   },
+  "01b2119da3b7": {
+    "name": "The Eye of Xi-Lexum (Aura):",
+    "kind": "ability",
+    "plain": "Aura: your AGRIPINAA CORE and AGRIPINAA KATAPHRON SERVITORS units within 6\" of this model can re-roll wound rolls against the selected VEHICLE unit. This covers every attack their models make that targets that unit."
+  },
   "02518d23fc19": {
     "name": "Supervisory Radiance",
     "kind": "ability",
@@ -54,6 +59,11 @@
     "kind": "rule",
     "plain": "Models with this dogma swap Rad-saturation for an aura taking 1 off the Strength and Toughness of non-VEHICLE enemy units within 3\". The new ability is Extreme Rad-saturation (Aura): while an enemy unit (other than a VEHICLE unit) is within 3\" of this unit, that enemy unit's models have 1 subtracted from their Strength and Toughness characteristics."
   },
+  "08ab81b373d8": {
+    "name": "The Uncreator Gauntlet",
+    "kind": "weapon",
+    "plain": "The bearer makes 1 extra attack with this weapon each time it fights, and each of its attacks that hits a VEHICLE unit also deals 1 mortal wound. That mortal wound comes on top of any damage the attack does."
+  },
   "09793e9dda8c": {
     "name": "Chain-taser Protocols",
     "kind": "stratagem",
@@ -63,6 +73,11 @@
     "name": "Servo-skull Uplink (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <FORGE WORLD> SKITARII CORE units is within 6\" of this model, models in that unit re-roll wound rolls of 1 when making attacks."
+  },
+  "0a3b3888641a": {
+    "name": "Bionics of Veneration (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 3\" of the bearer, its models subtract 1 from the hit roll of every attack they make."
   },
   "0b225dc8bd75": {
     "name": "Combined Landing",
@@ -132,6 +147,11 @@
     "name": "Acquisition at Any Cost",
     "kind": "stratagem",
     "plain": "At the start of the Morale phase, pick one objective marker on the battlefield. Until the end of that phase, any ADEPTUS MECHANICUS unit from your army that is wholly within 6\" of that marker automatically passes Morale tests."
+  },
+  "14246e23e33a": {
+    "name": "The Red Axe",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it makes 3 extra attacks with this weapon. This weapon takes the place of the bearer's Omnissian Axe."
   },
   "15ce977a987e": {
     "name": "Luminescent Blessings",
@@ -388,6 +408,11 @@
     "kind": "ability",
     "plain": "While this unit is within 6\" of any of your <FORGE WORLD> TECH-PRIEST units, its models have Weapon Skill and Ballistic Skill characteristics of 4+ and a Leadership characteristic of 9. Also, if your army is Battle-forged, each <FORGE WORLD> TECH-PRIEST unit in a Detachment lets you include one <FORGE WORLD> SERVITORS unit in that Detachment without it using up a Battlefield Role slot."
   },
+  "46999b60bead": {
+    "name": "Metalican Lung (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 3\" of the bearer, models in your METALICA units can re-roll wound rolls for attacks that target it."
+  },
   "483674cbe8ff": {
     "name": "Rad-oversaturation",
     "kind": "stratagem",
@@ -422,6 +447,16 @@
     "name": "Dogma - Refusal To Yield",
     "kind": "rule",
     "plain": "Units with this dogma pass Combat Attrition tests automatically. If a model with this dogma would lose a wound to a mortal wound, roll one D6; on a 5+ it doesn't lose that wound."
+  },
+  "5482a1a5ca68": {
+    "name": "The Purgation's Purity",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon automatically wound the target on an unmodified hit roll of 4+."
+  },
+  "559cc6ad11c1": {
+    "name": "Sonic Reaper",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit the target automatically, and an unmodified wound roll of 5-6 deals 2 mortal wounds to the target and ends the attack sequence."
   },
   "55c814437f87": {
     "name": "Stratagem: Omnissiah's Exaltation - 1 CP",
@@ -513,6 +548,11 @@
     "kind": "stratagem",
     "plain": "When your Charge phase starts, choose one CYBERNETICA COHORT KASTELAN ROBOTS unit of yours that is within 3\" of a friendly CYBERNETICA COHORT CYBERNETICA DATASMITH. That unit adds 3 to its charge rolls for the rest of the phase."
   },
+  "69d27c70d84b": {
+    "name": "The Skull of Elder Nikola",
+    "kind": "ability",
+    "plain": "When your Shooting phase begins, every enemy VEHICLE unit within 12\" of the bearer may take mortal wounds. Roll one D6 per unit: a 2-3 inflicts 1 mortal wound on it, a 4-5 inflicts D3 mortal wounds, and a 6 inflicts 3 mortal wounds."
+  },
   "6bce05ad923b": {
     "name": "Aerial Deployment",
     "kind": "ability",
@@ -543,6 +583,11 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, you can include this unit in an Adeptus Mechanicus Detachment and it won't stop the other units in that Detachment from getting a forge world dogma. This unit itself can never benefit from a forge world dogma."
   },
+  "6ef899eaecef": {
+    "name": "Anzion's Pseudogenetor",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 3D3 extra attacks with this weapon."
+  },
   "72d372351390": {
     "name": "Titan Guard",
     "kind": "ability",
@@ -552,6 +597,11 @@
     "name": "Accelerated Actuators",
     "kind": "rule",
     "plain": "When a unit with this dogma fights after charging, being charged or Heroically Intervening, its melee weapons' Armour Penetration is improved by 1. This applies each time the unit fights in a turn in which it made a charge move, was charged, or made a Heroic Intervention, and lasts until that fight is resolved."
+  },
+  "77ac6ec6a24e": {
+    "name": "The Eye of Xi-Lexum",
+    "kind": "ability",
+    "plain": "When your Shooting phase starts, choose an enemy VEHICLE unit within 18\" of the bearer; for the rest of that phase, the bearer has the following ability:"
   },
   "77e9549b0987": {
     "name": "Inspiring Leader",
@@ -623,6 +673,16 @@
     "kind": "ability",
     "plain": "Before this model moves in your Movement phase, you can declare that it will hover. If you do, its Movement characteristic is 20\" until the end of that phase, and until the start of your next Movement phase it loses its Airborne, Hard to Hit and Maneuverable Craft abilities."
   },
+  "85e05534d77d": {
+    "name": "The Solar Flare",
+    "kind": "ability",
+    "plain": "Once per battle, in your Movement phase, the bearer can redeploy its own unit and up to one nearby LUCIUS CORE unit more than 9\" away from enemy models. That second unit must be one of your LUCIUS CORE units within 3\" of the bearer. Remove the units from the battlefield, then set them back up anywhere on the battlefield more than 9\" away from all enemy models. If you set up two units this way, both must be placed wholly within 6\" of each other."
+  },
+  "881c1de627c5": {
+    "name": "Target Exposure (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <FORGE WORLD> CORE units is within 6\" of this model, its ranged attacks against exposed units ignore Dense Cover. The exposed target gets no benefit from Dense Cover against those attacks."
+  },
   "887cde80916b": {
     "name": "Rad-bombardment",
     "kind": "stratagem",
@@ -632,6 +692,11 @@
     "name": "Kastelan Phosphor Blaster",
     "kind": "weapon",
     "plain": "When this weapon attacks, the target can't receive the benefits of Dense Cover against it."
+  },
+  "896056edfd6b": {
+    "name": "The Cage of Varadimas",
+    "kind": "ability",
+    "plain": "Enemy units (other than VEHICLE units) hit by the bearer's melee attacks become electro-shocked, subtracting 1 from their hit rolls until the end of the phase. Each time the bearer hits such a unit with a melee attack, that unit is electro-shocked until the end of the phase. Each attack made by a model in an electro-shocked unit subtracts 1 from its hit roll."
   },
   "89b52b78faa3": {
     "name": "Siphoned Vigor",
@@ -643,6 +708,11 @@
     "kind": "ability",
     "plain": "In your Command phase, this model can awaken one of your <FORGE WORLD> VEHICLE models within 3\" of it (but not a KASTELAN ROBOT model). Until the start of your next Command phase, add 1 to the hit roll of each attack that model makes. A model can be awakened only once per turn."
   },
+  "8bfce66aff30": {
+    "name": "Cantic Thrallnet",
+    "kind": "ability",
+    "plain": "In your Command phase, you can give one of your units its own Doctrina Imperative until your next Command phase, even one your army has already used. Pick one of your SKITARII VETERAN COHORT CORE units within 9\" of this model, or one of your SKITARII VETERAN COHORT CORE DATA-TETHER units anywhere on the battlefield, then pick one Doctrina Imperative. Until your next Command phase starts, that Imperative is active for that unit, even if your army has already had it active this battle. Picking an Imperative this way doesn't stop you choosing it for your army in later battle rounds. If the unit has a rule letting it ignore the Deprecation effect of whichever Doctrina Imperative is currently active, that rule applies to only one of the Imperatives active for the unit (your choice)."
+  },
   "8c8dbb4e24b4": {
     "name": "Phosphor Blaster",
     "kind": "weapon",
@@ -652,6 +722,11 @@
     "name": "Tech-adept",
     "kind": "stratagem",
     "plain": "At the start of your Command phase or the start of your Movement phase, pick one ADEPTUS MECHANICUS TECH-PRIEST model in your army. In your Command phase, it can use its Machine Focus or Awaken the Machine ability one extra time that phase. In your Movement phase, it can use its Master of Machines ability one extra time that phase."
+  },
+  "8c96dffc9113": {
+    "name": "The Omniscient Mask (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <FORGE WORLD> SKITARII CORE units is within 6\" of this model, its unmodified melee hit rolls of 6 score an extra hit."
   },
   "8da2099f0f5b": {
     "name": "Battle Protocols: Conqueror",
@@ -683,6 +758,11 @@
     "kind": "weapon",
     "plain": "This weapon has the Blast ability. Targets of its attacks don't get the benefits of Dense Cover against those attacks."
   },
+  "979e7285bd97": {
+    "name": "The Adamantine Arm",
+    "kind": "weapon",
+    "plain": "The bearer can make at most one attack with this weapon each time it fights; add 1 to the hit roll of each attack made with it."
+  },
   "989064913169": {
     "name": "Voltagheist Blast",
     "kind": "ability",
@@ -707,6 +787,11 @@
     "name": "Assassin Constructs",
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your SICARIAN units is picked to fight, check whether it made a charge move, was charged or made a Heroic Intervention this turn. If so, its models add 1 to their Attacks characteristic until that fight is resolved."
+  },
+  "9cf23f692cf9": {
+    "name": "Raiment of the Technomartyr",
+    "kind": "ability",
+    "plain": "The bearer ignores lost wounds on a 5+, and in your Command phase it lets one nearby unit shoot ignoring hit and Ballistic Skill modifiers. Whenever the bearer would lose a wound, roll one D6 and on a 5+ it keeps that wound. In your Command phase, pick one of your <FORGE WORLD> CORE units within 3\" of this model. Until your next Command phase starts, its models can ignore any or all modifiers to their hit rolls and Ballistic Skill when they make ranged attacks."
   },
   "9d6eb8df8226": {
     "name": "Machine Focus",
@@ -763,6 +848,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, choose one enemy unit within 12\" of one of your ELECTRO-PRIESTS units; it can't be a VEHICLE unit. Roll one D6, and subtract 1 from the result if the target has the CHARACTER keyword. A 2 to 5 inflicts D3 mortal wounds on it; a 6 inflicts 2D3 mortal wounds."
   },
+  "a7e3e4ca386e": {
+    "name": "Phosphoenix",
+    "kind": "weapon",
+    "plain": "This weapon's attacks ignore Dense Cover, and a hit on an enemy unit exposes it and gives the bearer Target Exposure (Aura) until the end of the phase. The target of an attack made with this weapon gets no benefit from Dense Cover against it. If an attack with this weapon against an enemy unit scores a hit, that enemy unit is exposed until the end of the phase, and for that time the bearer has the Target Exposure (Aura) ability."
+  },
   "a7f13caa4525": {
     "name": "Master of Machines (Datasmith)",
     "kind": "ability",
@@ -782,6 +872,11 @@
     "name": "Omnissiah's Exaltation",
     "kind": "stratagem",
     "plain": "In the Morale phase, if an enemy unit within 6\" of a METALICA unit from your army is chosen to take a Morale test, Combat Attrition tests for that enemy unit have 1 subtracted from them for the rest of the phase."
+  },
+  "ad2d1324c9c5": {
+    "name": "Delta Pistol",
+    "kind": "weapon",
+    "plain": "You can re-roll wound rolls for this weapon's attacks against VEHICLE units."
   },
   "ad53cbc49fa4": {
     "name": "Forward Operations",
@@ -833,6 +928,11 @@
     "kind": "rule",
     "plain": "When a ranged attack targets a VEHICLE unit with this dogma that doesn't have the CORE keyword, the target gets the benefits of Dense Cover against it if the attacker is more than 18\" away. When a ranged attack targets any other unit with this dogma (anything except VEHICLE units lacking the CORE keyword), the target gets the benefits of Dense Cover against it if the attacker is more than 12\" away. When a unit with this dogma declares a charge, none of the units it is charging can Hold Steady or Set to Defend."
   },
+  "b973b76077db": {
+    "name": "Bionics of Veneration",
+    "kind": "ability",
+    "plain": "The bearer gets a 4+ invulnerable save."
+  },
   "ba92321ab137": {
     "name": "Seismic Bomb",
     "kind": "stratagem",
@@ -847,6 +947,11 @@
     "name": "First-Hand Field Testing",
     "kind": "ability",
     "plain": "Pick one weapon this WARLORD is equipped with (not a Relic) when you choose this Warlord Trait; add 1 to that weapon's Strength and Damage."
+  },
+  "be627092918c": {
+    "name": "The Omnissiah's Hand",
+    "kind": "ability",
+    "plain": "Once per battle, when the Fight phase ends, you can use this Relic to threaten every enemy unit within 12\" of the bearer with mortal wounds. Roll one D6 for each of those units: a 2-5 inflicts 1 mortal wound on it, and a 6 inflicts D3 mortal wounds."
   },
   "c0847ad4fa90": {
     "name": "Dogma - Masters of the Forge",
@@ -943,6 +1048,11 @@
     "kind": "ability",
     "plain": "Each time this unit Advances, the Pistol weapons its models are equipped with change their Type to Assault until the end of the turn. Models in this unit are still eligible to shoot with their Assault weapons in a turn in which they shot with Pistol weapons."
   },
+  "d984e7284b49": {
+    "name": "Weapon XCIX",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 6 for an attack with this weapon also deals 2 mortal wounds to the target, on top of the normal damage. This weapon takes the place of the bearer's Volkite Blaster."
+  },
   "da61e883f618": {
     "name": "Calculate Without Diversion",
     "kind": "ability",
@@ -1003,6 +1113,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your <FORGE WORLD> CORE units within 9\" of this model that hasn't been picked for this ability yet this turn. Until your next Command phase starts, the Galvanic, Arc and Radium weapons (other than grenade weapons) that models in that unit are equipped with get 6\" added to their range, and attacks made with those weapons have their Armour Penetration characteristic improved by 1."
   },
+  "ebc88c4fdc3d": {
+    "name": "The Cerebral Techno-Mitre",
+    "kind": "ability",
+    "plain": "The bearer's aura abilities reach 3\" further, and you can add 3\" to its Command phase abilities that have a range, each to a maximum of 9\". The aura bonus always applies. The Command phase bonus is optional: whenever the bearer uses an ability with a stated range in your Command phase, you can add 3\" to that range (again to a maximum of 9\")."
+  },
   "ecff670e041f": {
     "name": "Omnispex",
     "kind": "ability",
@@ -1013,10 +1128,20 @@
     "kind": "ability",
     "plain": "When an Advance roll is made for this unit, roll one extra D6 and discard one of the dice. When this unit is targeted by a Blast weapon, it never counts as having 6 or more models for working out how many attacks that weapon makes."
   },
+  "edfaafa8b10b": {
+    "name": "Exemplar's Eternity (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <FORGE WORLD> SKITARII CORE units is within 6\" of this model, its models re-roll hit rolls of 1 and wound rolls of 1 for their attacks. This replaces the bearer's Servo-Skull Uplink ability."
+  },
   "edfdda1e253e": {
     "name": "Scarifying Weaponry",
     "kind": "rule",
     "plain": "Radium weapons carried by models with this dogma have 1 added to their Strength characteristic and their Armour Penetration characteristic improved by 1."
+  },
+  "ee11cd0d9740": {
+    "name": "Temporcopia",
+    "kind": "ability",
+    "plain": "When the Fight phase starts, you may choose an enemy unit within 3\" of the bearer; it can't fight that phase until all your eligible units have fought."
   },
   "f2f262bac677": {
     "name": "Emotionless Clarity",

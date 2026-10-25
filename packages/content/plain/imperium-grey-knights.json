@@ -269,6 +269,11 @@
     "kind": "ability",
     "plain": "When this model is reduced to 0 wounds, roll a D6 before you take it off the battlefield and before any models embarked in it disembark. On a 6, it explodes and every unit within 6\" suffers D3 mortal wounds."
   },
+  "4f412502dfcf": {
+    "name": "Banner of Refining Flame",
+    "kind": "ability",
+    "plain": "In your Psychic phase, the bearer can attempt a psychic action that deals D3 mortal wounds to each enemy unit within 6\" of it. Ancient model only. Refining Flame (Psychic Action - Warp Charge 6): the bearer can attempt this in your Psychic phase; if it is completed, every enemy unit within 6\" of the bearer suffers D3 mortal wounds."
+  },
   "5065847fc5c2": {
     "name": "Transport",
     "kind": "ability",
@@ -334,6 +339,11 @@
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your GREY KNIGHTS INFANTRY units makes a Normal Move: until the end of the turn, it counts as having Remained Stationary."
   },
+  "5f3c4db2762b": {
+    "name": "Aetheric Conduit",
+    "kind": "ability",
+    "plain": "Each time the bearer repairs a model with Blessing of the Omnissiah, it restores up to 3 lost wounds to that model rather than up to D3. TECHMARINE model only."
+  },
   "6047674792da": {
     "name": "Combat Squads",
     "kind": "ability",
@@ -388,6 +398,11 @@
     "name": "Mists of Deimos",
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when one of your GREY KNIGHTS SMOKESCREEN units is chosen as the target of an attack: for the rest of the phase, subtract 1 from the hit roll of each attack made against it."
+  },
+  "6f6c244ef13a": {
+    "name": "Artisan Nullifier Matrix (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your Grey Knights Psyker units is within 9\" of this model, it never suffers Perils of the Warp when it takes a Psychic test."
   },
   "6f8aebb619b2": {
     "name": "Psychic Channelling",
