@@ -200,3 +200,6 @@
 /* The army's chips wrap under the sticky points strip (Main artboard). */
 .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 4px; }
 .editor-top__play { min-height: var(--touch); height: var(--touch); }
+
+/* ---------- Export: the text wraps on phones instead of scrolling sideways ---------- */
+.export-text.export-text--wrap { white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: hidden; }

@@ -203,3 +203,72 @@ test('when the clipboard is blocked the Export sheet points to Download', async 
   await u.click(await screen.findByRole('button', { name: 'Copy' }));
   expect(await screen.findByRole('button', { name: 'Couldn’t copy. Use Download instead.' })).toBeInTheDocument();
 });
+
+test('with the device’s share sheet, Share… sends the list’s name and text to it', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    await renderEditor();
+    await fromMenu(u, 'Export');
+    const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+    const text = (within(sheet).getByRole('textbox', { name: 'List text' }) as HTMLTextAreaElement).value;
+    await u.click(within(sheet).getByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalledWith({ title: 'Necrons Strike Force', text });
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
+});
+
+test('without a device share sheet there is no Share… button', async () => {
+  const u = userEvent.setup();
+  expect('share' in navigator).toBe(false);
+  await renderEditor();
+  await fromMenu(u, 'Export');
+  const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+  expect(within(sheet).getByRole('button', { name: 'Copy' })).toBeInTheDocument();
+  expect(within(sheet).queryByRole('button', { name: 'Share…' })).not.toBeInTheDocument();
+});
+
+test('the export text wraps instead of scrolling sideways', async () => {
+  const u = userEvent.setup();
+  await renderEditor();
+  await fromMenu(u, 'Export');
+  const box = within(await screen.findByRole('dialog', { name: 'Export list' })).getByRole('textbox', { name: 'List text' });
+  expect(box).toHaveClass('export-text--wrap');
+  expect(box).toHaveAttribute('wrap', 'soft');
+});
+
+test('the share sheet says sharing can be turned off here, and Share… sends the link', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    const id = await renderEditor(true);
+    await fromMenu(u, 'Share link');
+    const sheet = await screen.findByRole('dialog', { name: 'Share list' });
+    expect(sheet).toHaveTextContent('Turn sharing off here at any time.');
+    expect(sheet).not.toHaveTextContent('after your next sync');
+    await u.click(within(sheet).getByRole('checkbox', { name: 'Anyone with the link can view' }));
+    await u.click(await within(sheet).findByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalledWith({ title: 'Necrons Strike Force', url: `${window.location.origin}/share/${id}` });
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
+});
+
+test('a share the player cancels says nothing', async () => {
+  const u = userEvent.setup();
+  const share = vi.fn().mockRejectedValue(new DOMException('cancelled', 'AbortError'));
+  Object.defineProperty(navigator, 'share', { value: share, configurable: true });
+  try {
+    await renderEditor();
+    await fromMenu(u, 'Export');
+    const sheet = await screen.findByRole('dialog', { name: 'Export list' });
+    await u.click(within(sheet).getByRole('button', { name: 'Share…' }));
+    expect(share).toHaveBeenCalled();
+    expect(within(sheet).queryByRole('alert')).not.toBeInTheDocument();
+  } finally {
+    delete (navigator as { share?: unknown }).share;
+  }
+});

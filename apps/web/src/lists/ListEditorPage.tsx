@@ -155,7 +155,7 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   } else if (exportOpen) {
     sheet = <ExportSheet view={view} scope={scope} onClose={close} />;
   } else if (shareOpen) {
-    sheet = <ShareSheet listId={listId} flush={flush} onClose={close} />;
+    sheet = <ShareSheet listId={listId} title={roster.name.trim() || undefined} flush={flush} onClose={close} />;
   } else if (choiceParam) {
     sheet = <ArmyChoiceSheet editor={editor} info={info} choiceKey={choiceParam} onClose={close} />;
   } else if (sheetParam === 'options') {

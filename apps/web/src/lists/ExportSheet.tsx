@@ -1,5 +1,5 @@
 import { liveQuery } from 'dexie';
-import { exportText, type RosterView, type Scope } from '@recruit/data/roster';
+import { exportText, UNTITLED_LIST, type RosterView, type Scope } from '@recruit/data/roster';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Repository } from '../storage/repository';
 import { useStorage } from '../storage/StorageContext';
@@ -43,13 +43,37 @@ function downloadText(listName: string, text: string) {
   setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
+/** "Share…": the device's own share sheet (messages, mail…), only where the browser has one. */
+function NativeShare({ data }: { data: ShareData }) {
+  const [error, setError] = useState<string | null>(null);
+  if (typeof navigator.share !== 'function') return null;
+  const share = async () => {
+    setError(null);
+    try {
+      await navigator.share(data);
+    } catch (e) {
+      // Closing the share sheet without sharing is not an error.
+      if (!(e instanceof DOMException && e.name === 'AbortError')) setError(e instanceof Error ? e.message : String(e));
+    }
+  };
+  return (
+    <>
+      <button type="button" className="btn" onClick={() => void share()}>
+        Share…
+      </button>
+      {error && <p role="alert" className="field-error">{`Couldn’t share: ${error}`}</p>}
+    </>
+  );
+}
+
 /** The list as plain text, ready to paste into a chat or a tournament form. */
 export function ExportSheet({ view, scope, onClose }: { view: RosterView; scope: Scope; onClose: () => void }) {
   const text = useMemo(() => exportText(view, scope), [view, scope]);
   return (
     <Sheet title="Export list" kind="full" closeLabel="Done" onClose={onClose}>
       <textarea
-        className="input export-text"
+        className="input export-text export-text--wrap"
+        wrap="soft"
         readOnly
         aria-label="List text"
         value={text}
@@ -61,6 +85,7 @@ export function ExportSheet({ view, scope, onClose }: { view: RosterView; scope:
         <button type="button" className="btn" onClick={() => downloadText(view.roster.name, text)}>
           Download .txt
         </button>
+        <NativeShare data={{ title: view.roster.name.trim() || UNTITLED_LIST, text }} />
       </div>
     </Sheet>
   );
@@ -80,7 +105,7 @@ function useIsShared(repo: Repository, listId: string) {
 }
 
 /** The "Anyone with the link can view" switch and, while it is on, the link to copy. */
-export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: () => Promise<void>; onClose: () => void }) {
+export function ShareSheet({ listId, title = UNTITLED_LIST, flush, onClose }: { listId: string; title?: string; flush: () => Promise<void>; onClose: () => void }) {
   const { repo } = useStorage();
   const { linksWorkAnywhere } = usePublicSource();
   const [stored, setStored] = useIsShared(repo, listId);
@@ -113,7 +138,7 @@ export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: 
         <span>Anyone with the link can view</span>
       </label>
       <p className="muted">
-        They see a read-only copy and don’t need to sign in. Turning sharing off makes the link stop working after your next sync.
+        They see a read-only copy and don’t need to sign in. Turn sharing off here at any time.
       </p>
       {error && <p role="alert">{`Couldn’t change sharing: ${error.message}`}</p>}
       {shared && (
@@ -121,6 +146,7 @@ export function ShareSheet({ listId, flush, onClose }: { listId: string; flush: 
           <input className="input" readOnly aria-label="Share link" value={link} onFocus={(e) => e.currentTarget.select()} />
           <div className="sheet-actions">
             <CopyButton text={link} label="Copy link" failedLabel="Couldn’t copy. Select the link instead." className="btn btn--primary" />
+            <NativeShare data={{ title, url: link }} />
           </div>
           {!linksWorkAnywhere && <p className="muted">Share links work on other devices once accounts are switched on.</p>}
         </>
