@@ -230,6 +230,11 @@
     "kind": "ability",
     "plain": "When this model is destroyed, before you remove it, roll one D6. On a 6+, the nearest enemy unit within 3\" takes 3 mortal wounds."
   },
+  "2b507c0466e5": {
+    "name": "Rare Organisms",
+    "kind": "rule",
+    "plain": "Each HIVE TENDRIL Detachment in your army can include no more than one HIVE TYRANT model."
+  },
   "2ce661cd231d": {
     "name": "Thunderous Impact",
     "kind": "stratagem",
@@ -365,6 +370,11 @@
     "kind": "psychic",
     "name": "Broodlord",
     "plain": "This model knows Smite and 1 psychic power from the Hive Mind discipline."
+  },
+  "3f731e6d3c2a": {
+    "name": "Detachment Abilities",
+    "kind": "rule",
+    "plain": "HIVE TENDRIL Detachments gain Rare Organisms, their HIVE TENDRIL units gain Hive Fleet Adaptations, and their Troops units gain Objective Secured.\nA Detachment counts as a HIVE TENDRIL Detachment if every model in it has the HIVE TENDRIL keyword, not counting models with the UNALIGNED keyword."
   },
   "3f801ceffdb0": {
     "name": "Soul Hunger (Aura)",
@@ -901,10 +911,20 @@
     "kind": "ability",
     "plain": "When a unit with this adaptation fights after making a charge move this turn, its models' attacks improve their Armour Penetration by 1. This lasts until that fight is resolved."
   },
+  "9099a244ae8b": {
+    "name": "Blinding Venom",
+    "kind": "weapon",
+    "plain": "If this weapon causes any unsaved wounds on a unit, your opponent subtracts 1 from that unit's hit rolls until the end of the turn."
+  },
   "919ccf9a7a3f": {
     "kind": "ability",
     "name": "Armoured Exoskeleton",
     "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1, to a minimum of 1. This doesn't stack with any other abilities that reduce an attack's Damage characteristic."
+  },
+  "922a7816444f": {
+    "name": "Distensible Jaws",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, exactly one of its attacks must use this weapon."
   },
   "927010b2f7a0": {
     "kind": "ability",
@@ -915,6 +935,11 @@
     "name": "Carapace Chitin Rams",
     "kind": "ability",
     "plain": "Whenever this model makes a charge move, you can pick one enemy unit within Engagement Range and roll a D6; on a 4+, that unit takes D3 mortal wounds, or D6 mortal wounds instead if it is a VEHICLE or MONSTER unit. Also, if this model made a charge move this turn, its melee attacks add 1 to their hit rolls."
+  },
+  "937eddb855d9": {
+    "name": "Rare Organisms (Matched Play)",
+    "kind": "rule",
+    "plain": "If your army has any HIVE TYRANT models, your WARLORD must be one of them."
   },
   "940581e1c024": {
     "name": "Living Bombs (Meiotic Spores)",
@@ -1005,6 +1030,14 @@
     "plain": "After both armies deploy and before the first battle round, you can redeploy up to two of your LEVIATHAN units in your deployment zone (not this WARLORD). If the mission uses the Strategic Reserves rules, you can put any of those units into Strategic Reserves at no extra CP cost, however many units are already there. If both players have abilities that redeploy units, roll off, and the winner decides who redeploys first.",
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a cross-reference, which the style guide says to leave out"
+    }
+  },
+  "a40a90e162c8": {
+    "name": "Alpha Leader-Beast",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering your army: give your WARLORD one extra Warlord Trait from the Leviathan Warlord Traits table. Use this after picking a LEVIATHAN CHARACTER that isn't a named character as your WARLORD. Every Warlord Trait in your army must be different (if you roll randomly, re-roll duplicates). You can use this Stratagem only once.",
+    "waive": {
+      "88": "page reference (\"pg 88\") to where the Leviathan Warlord Traits table is printed; not part of the rule"
     }
   },
   "a6e7439b4447": {

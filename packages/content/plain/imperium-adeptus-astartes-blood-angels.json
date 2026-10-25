@@ -14,6 +14,11 @@
     "kind": "psychic",
     "plain": "If it is manifested, this PSYKER can Fall Back or make a Normal Move as though it were your Movement phase. For the rest of the phase it also gains the FLY keyword and its Move becomes 12\"."
   },
+  "06c8e52c562e": {
+    "name": "Strategem: Lucifer-Pattern Engines",
+    "kind": "ability",
+    "plain": "Before the battle, one BLOOD ANGELS VEHICLE model from your army (not a DREADNOUGHT model or a model that can FLY) gains the Overcharged Engines ability."
+  },
   "099e6543533c": {
     "name": "Death-hold",
     "kind": "ability",
@@ -349,6 +354,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your BLOOD ANGEL CORE units is within 6\" of this model, its models re-roll hit rolls of 1 for their attacks."
   },
+  "96d54085085e": {
+    "name": "Frag cannon",
+    "kind": "weapon",
+    "plain": "Every attack with this Blast weapon hits its target automatically."
+  },
   "973129ac5427": {
     "name": "Rage unto Death",
     "kind": "ability",
@@ -393,6 +403,11 @@
     "name": "Chief Librarian",
     "kind": "ability",
     "plain": "This model knows one extra psychic power from its chosen discipline, and in your opponent's Psychic phase it can try to deny one extra psychic power."
+  },
+  "9e7103f51e2b": {
+    "name": "Invocation of Destruction",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, one of your BLOOD ANGELS units within 6\" of this model gets Armour Penetration -4 on melee attacks with an unmodified 6 to wound.\nYou choose which unit."
   },
   "a001977917b5": {
     "name": "Chapter Banner",

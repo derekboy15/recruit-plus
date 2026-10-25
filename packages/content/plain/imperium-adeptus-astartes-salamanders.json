@@ -39,6 +39,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a SALAMANDERS model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Salamanders Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
   },
+  "2ac074d13544": {
+    "name": "4) Drakeskin",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your SALAMANDERS units within 12\" of this psyker; its models add 1 to their Toughness until your next Psychic phase starts."
+  },
   "2cb16325b789": {
     "name": "Dreadfire heavy flamer",
     "kind": "weapon",
@@ -64,6 +69,14 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, every flame weapon carried by models in that unit becomes the Pistol type (so an Assault D6 flame weapon becomes Pistol D6)."
   },
+  "3c7449f2df78": {
+    "name": "3) Burning Hands",
+    "kind": "psychic",
+    "plain": "Warp charge 6: this Psyker can switch its melee attacks to the close combat weapon profile, and each hit with that profile deals 1 mortal wound. Until your next Psychic phase starts, whenever this Psyker attacks in melee, you can have it use the close combat weapon profile in place of a melee weapon it is equipped with. Whenever an attack by this Psyker using the close combat weapon profile scores a hit, the target suffers 1 mortal wound, and that attack's sequence ends there.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\", not part of the rule"
+    }
+  },
   "418e986bbb2f": {
     "name": "Self Sacrifice",
     "kind": "stratagem",
@@ -78,6 +91,11 @@
     "name": "Lord of Fire (Aura)",
     "kind": "ability",
     "plain": "Aura: while their unit is within 6\" of this Warlord, you can re-roll the dice that set how many attacks your SALAMANDERS models make with flame weapons."
+  },
+  "58b3a8c1498d": {
+    "name": "6) Draconic Aspect",
+    "kind": "psychic",
+    "plain": "Warp charge 6: until your next Psychic phase starts, enemy models subtract 2 from their Leadership characteristic while their unit is within 12\" of this psyker."
   },
   "5bf068b4d772": {
     "name": "Never Give Up",
@@ -130,6 +148,11 @@
     "kind": "ability",
     "plain": "This model gets a 5+ invulnerable save. Roll one D6 each time it would lose a wound; on a 5+, it doesn't lose that wound."
   },
+  "8ba03b0f9054": {
+    "name": "1) Flaming Blast",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll one D6 for each enemy unit within 3\" of a point you pick; on a 4+, it suffers 1 mortal wound. The point must be on the battlefield, within 24\" of this psyker and visible to it."
+  },
   "8bd1c54aac9d": {
     "name": "Rise from the Ashes",
     "kind": "stratagem",
@@ -170,6 +193,11 @@
     "kind": "weapon",
     "plain": "This weapon automatically hits."
   },
+  "c348e72d8a72": {
+    "name": "2) Fire Shield",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your SALAMANDERS units within 18\" of this psyker; subtract 1 from ranged hit rolls against it and from charge rolls that target it. Until the start of your next Psychic phase, subtract 1 from the hit roll of each attack made with a ranged weapon against that unit, and subtract 1 from the result of any charge roll for a charge that targets it."
+  },
   "d3965da90c0e": {
     "name": "Flamecraft",
     "kind": "stratagem",
@@ -179,6 +207,11 @@
     "name": "Drake-Smiter",
     "kind": "weapon",
     "plain": "Subtract 1 from the hit roll for attacks with this weapon; each unmodified wound roll of 6 adds 3 to its Damage characteristic for that attack."
+  },
+  "e264d6d5fe9d": {
+    "name": "5) Fury of Nocturne",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one enemy unit within 18\" of this psyker that it can see suffers D3 mortal wounds if you roll higher than its best Toughness on 2D6. Roll 2D6 after picking the unit; the total must be greater than the highest Toughness characteristic among that unit's models."
   },
   "e963b89f602d": {
     "name": "Kesare's Mantle",

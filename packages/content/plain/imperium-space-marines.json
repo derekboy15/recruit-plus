@@ -14,6 +14,11 @@
     "kind": "ability",
     "plain": "Melee attacks by models with this tactic automatically wound INFANTRY and BIKER units on an unmodified hit roll of 6.\nYou can't take this tactic if you've already chosen the Whirlwind of Rage tactic."
   },
+  "1d728cc39a99": {
+    "name": "Null Zone",
+    "kind": "psychic",
+    "plain": "Warp Charge 8: enemy models within 6\" of the psyker can't take invulnerable saves and must halve their Psychic test results, rounding up. This lasts until the start of your next Psychic phase."
+  },
   "2057540248a4": {
     "name": "Selfless Healer",
     "kind": "ability",
@@ -47,6 +52,11 @@
     "name": "Master of the Vanguard",
     "kind": "ability",
     "plain": "Your <CHAPTER> PHOBOS units within 6\" of this WARLORD add 1 to their charge rolls and move 1\" further.\nEach time such a unit is picked to make a Normal Move, Advance or Fall Back, it gets 1\" extra Movement until the end of the turn."
+  },
+  "2b20acdb9e5b": {
+    "name": "Thunderhawk Cluster Bombs",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer has moved, you can pick one unit it moved over and roll dice against it: each 4+ inflicts 1 mortal wound on that unit.\nRoll six D6 for every Vehicle or Monster model in the unit and 1 D6 for each of its other models, to a maximum of 18 D6."
   },
   "319512e3287a": {
     "name": "Master Marksman",
@@ -91,6 +101,16 @@
     "kind": "ability",
     "plain": "Units with this tactic can still declare a charge in a turn in which they Fell Back."
   },
+  "46e724ec77c0": {
+    "name": "Fortress of Resolve",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, Overwatch attacks made by models in your <CHAPTER> units within 6\" of this model score a hit on a hit roll of 5 or 6."
+  },
+  "47e3e9d9840b": {
+    "name": "Atomantic Pavaise",
+    "kind": "ability",
+    "plain": "If the Relic Deredeo Dreadnought has an atomantic pavaise, all your <CHAPTER> units wholly within 6\" of it have a 5+ invulnerable save. This save doesn't stack with, or improve, any invulnerable save a unit already has."
+  },
   "4abd73b5ee6b": {
     "name": "Storm of Fire",
     "kind": "ability",
@@ -128,6 +148,11 @@
     "name": "Whirlwind of Rage",
     "kind": "ability",
     "plain": "If their unit charged, was charged or made a Heroic Intervention this turn, models with this tactic score 1 extra hit on each unmodified melee hit roll of 6.\nYou can't take this tactic if you've already chosen the Duellists tactic."
+  },
+  "82482e9f48c0": {
+    "name": "Might of Heroes",
+    "kind": "psychic",
+    "plain": "Warp Charge 6: an ADEPTUS ASTARTES model within 12\" of the psyker adds 1 to its Strength, Toughness and Attacks until the start of your next Psychic phase."
   },
   "9a476d763109": {
     "name": "Skull of Cacodominus",
@@ -168,6 +193,16 @@
     "name": "Hungry for Battle",
     "kind": "ability",
     "plain": "Units with this tactic add 1 to their Advance and charge rolls."
+  },
+  "acc1077e61c7": {
+    "name": "Enhanced Repulsor Fields",
+    "kind": "ability",
+    "plain": "When a unit declares a charge against an Astraeus Super-heavy Tank, your opponent subtracts 3 from that unit's charge roll."
+  },
+  "b069dee39c52": {
+    "name": "Veil of Time",
+    "kind": "psychic",
+    "plain": "Warp Charge 6: an ADEPTUS ASTARTES unit within 18\" of the psyker can re-roll charge and Advance rolls, and always fights first.\nPick the unit when the power is manifested. The effect lasts until the start of your next Psychic phase, and the unit fights first in the Fight phase even if it didn't charge. If the enemy also has units that charged, or that have a similar ability, the players take turns picking units to fight, beginning with the player whose turn it is."
   },
   "b2469f8f88d8": {
     "name": "Knowledge is Power",
@@ -214,6 +249,11 @@
     "kind": "ability",
     "plain": "Unmodified wound rolls of 1 or 2 always fail for attacks against units with this tactic, whatever abilities the weapon or attacker has."
   },
+  "f2bcd732ae00": {
+    "name": "Stratagem: Heir of Sigismund",
+    "kind": "ability",
+    "plain": "Your WARLORD gets one extra Warlord Trait from the Black Templar Warlord Traits table, if it is a BLACK TEMPLARS CHARACTER model that isn't a named character.\nUse this Stratagem after you choose that model as your WARLORD. Every Warlord Trait in your army must be different; if you roll for them, re-roll any duplicates. You can only use this Stratagem once."
+  },
   "f6b8791d209c": {
     "name": "Target Priority",
     "kind": "ability",
@@ -223,6 +263,11 @@
     "name": "The Axe of Medusa",
     "kind": "ability",
     "plain": "This Relic replaces the bearer's power axe, and only an IRON HANDS model that has a power axe can take it."
+  },
+  "f9d0b78e214f": {
+    "name": "Champion of the Feast",
+    "kind": "ability",
+    "plain": "One BLACK TEMPLARS Sergeant or Sword Brother in your army adds 1 to its Attacks and Wounds characteristics and improves its Weapon Skill by 1.\nUse this Stratagem before the battle, picking a model from your army whose profile includes the word 'Sergeant' or 'Sword Brother'. You can only use this Stratagem once."
   },
   "fbd7435e3823": {
     "name": "Objective Secured",

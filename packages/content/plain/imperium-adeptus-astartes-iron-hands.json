@@ -14,6 +14,11 @@
     "kind": "weapon",
     "plain": "Attacks with this weapon's meltagun profile have a Damage characteristic of D6+2 when they target a unit within half range."
   },
+  "1a23fbedfece": {
+    "name": "4) Psysteel Armor",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one of your IRON HANDS units within 12\" of this psyker adds 1 to its saving throws (not invulnerable saves) until your next Psychic phase starts."
+  },
   "2758ee43d2ba": {
     "name": "March of the Ancients",
     "kind": "stratagem",
@@ -23,6 +28,16 @@
     "name": "Merciless Logic",
     "kind": "ability",
     "plain": "Each unmodified hit roll of 6 for this Warlord's attacks lets you make 1 additional attack with the same weapon against the same unit. That extra attack can't generate any further attacks."
+  },
+  "2a3cfcb4dff3": {
+    "name": "2) Objuration Mechanicum",
+    "kind": "psychic",
+    "plain": "Warp charge 7: one enemy unit within 18\" of and visible to this psyker suffers mortal wounds when it rolls unmodified 1s to hit with ranged weapons. Until the start of your next Psychic phase, each time a model in that unit makes a ranged weapon attack and the hit roll is an unmodified 1, the unit suffers 1 mortal wound after that attack is resolved."
+  },
+  "33c11ffb8307": {
+    "name": "3) Fury of Medusa",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one enemy model within 18\" of and visible to this psyker; its unit and every other enemy unit in the way can suffer mortal wounds. Draw the shortest possible imaginary straight line, 1mm wide, from this psyker's base to that model's base. Roll one D6 for that model's unit and for each other enemy unit the line crosses, adding 2 if the unit is a VEHICLE. On a 4-5, that unit suffers 1 mortal wound; on a 6+, it suffers D3 mortal wounds."
   },
   "41a71da197af": {
     "name": "Signum Array",
@@ -69,6 +84,11 @@
     "kind": "stratagem",
     "plain": "At the start of the Shooting phase: pick one of your IRON HANDS INFANTRY units. Until the end of the phase, if an attack made against one of your IRON HANDS CHARACTER models (excluding VEHICLE models) within 3\" of that unit would make it lose any wounds, the unit can try to intercept that attack. Before any rolls to ignore wounds are made (such as The Flesh is Weak or Adamantine Mantle), roll one D6: on a 2+, the CHARACTER does not lose those wounds and the unit suffers 1 mortal wound per wound instead. Only one attempt to intercept can be made for each attack."
   },
+  "a32b6fd597c9": {
+    "name": "5) Reforge",
+    "kind": "psychic",
+    "plain": "Warp charge 5: one of your IRON HANDS VEHICLE models within 3\" of and visible to this psyker regains up to D3 lost wounds. A model that has regained any lost wounds earlier this turn can't be picked."
+  },
   "a92e608f3a36": {
     "name": "The Ironstone",
     "kind": "ability",
@@ -89,6 +109,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, use at the start of your Movement phase while the Devastator Doctrine is active. From then until the start of the next battle round, when one of your IRON HANDS models attacks with a Heavy or Grenade weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
   },
+  "ce01d081c106": {
+    "name": "6) Machine Flense",
+    "kind": "psychic",
+    "plain": "Warp charge 6: an enemy VEHICLE unit within 18\" of and visible to this psyker suffers D3 mortal wounds, which can spill over onto a nearby enemy unit. You can then pick another enemy unit that the VEHICLE unit could see, and that was within 6\" of it, at the moment this power was manifested. Roll one D6 per mortal wound the VEHICLE unit suffered; each 3+ inflicts 1 mortal wound on that other unit."
+  },
   "ce41dc363d00": {
     "name": "Reject the Flesh, Embrace the Machine",
     "kind": "stratagem",
@@ -108,6 +133,11 @@
     "name": "Vengeance for Isstvan V",
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your IRON HANDS units is chosen to fight. Until the end of the phase, models in that unit can re-roll hit rolls for melee weapon attacks against WORD BEARERS, IRON WARRIORS, NIGHT LORDS or ALPHA LEGION units."
+  },
+  "db1c08e773b8": {
+    "name": "1) Blessing of the Machine God",
+    "kind": "psychic",
+    "plain": "Warp charge 5: one of your IRON HANDS VEHICLE models within 12\" of this psyker adds 1 to its hit rolls until the start of your next Psychic phase. It can only be a TITANIC model if the Psychic test result was 8 or more."
   },
   "dda5b0907abe": {
     "name": "Souls of Iron",

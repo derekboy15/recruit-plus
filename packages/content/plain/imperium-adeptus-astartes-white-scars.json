@@ -44,6 +44,11 @@
     "kind": "stratagem",
     "plain": "Use in your Movement phase, after one of your WHITE SCARS TRANSPORT units without the Flyer Battlefield Role moves. WHITE SCARS units embarked within it can disembark right away, but any that do can't make a charge move this turn."
   },
+  "38f34d864e44": {
+    "name": "3) Ride the Winds",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your WHITE SCARS units within 12\" of this psyker; until your next Psychic phase starts, add 2 to its Advance and charge rolls."
+  },
   "4409278a5b8b": {
     "name": "Strike for the Heart",
     "kind": "stratagem",
@@ -78,6 +83,11 @@
     "name": "Chogorian Thunderbolts",
     "kind": "stratagem",
     "plain": "Use when one of your WHITE SCARS BIKER units finishes a charge move. Each model in the unit can pick one enemy unit within 1\" of it and roll one D6; each 6 inflicts 1 mortal wound on that enemy unit."
+  },
+  "76947b280582": {
+    "name": "2) Lightning Call",
+    "kind": "psychic",
+    "plain": "Warp charge 7: the closest enemy unit within 18\" of this psyker takes D3 mortal wounds, and may then suffer more from a series of D6 rolls. If it survives, roll one D6: on a 4+, it suffers 1 more mortal wound. If it is still not destroyed, roll again: on a 5+, it suffers 1 more. If it is still not destroyed after that, roll once more: on a 6, it suffers 1 more."
   },
   "7a79fc0d2c21": {
     "name": "Ride Hard, Ride Fast",
@@ -119,6 +129,16 @@
     "kind": "stratagem",
     "plain": "Use when an enemy unit Falls Back from within 1\" of any of your WHITE SCARS INFANTRY or WHITE SCARS BIKER units, before it moves. From those WHITE SCARS units, pick one that is not within 1\" of any other enemy units: each of its models can make one melee weapon attack against that enemy unit as if it were within 1\" of it. After these attacks, if the enemy unit has not been destroyed, it can then make its Fall Back move; once it has moved, each model in the picked unit can move up to 3\", as long as it ends nearer to that enemy unit and more than 1\" away from every enemy unit."
   },
+  "b1b7d67b7dca": {
+    "name": "5) Spirits of Chogoris",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one enemy unit within 18\" of this psyker that it can see subtracts 1 from its models' Leadership and from their hit rolls. Both penalties last until the start of your next Psychic phase."
+  },
+  "b33f54caa817": {
+    "name": "4) Storm-wreathed",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one of your WHITE SCARS units within 12\" of this psyker can't be targeted by Overwatch and can deal mortal wounds after it charges. Until your next Psychic phase starts: enemy units can't fire Overwatch at it, and once it ends a charge move, each of its models lets you pick an enemy unit within 1\" of that model and roll one D6, with a 6 inflicting 1 mortal wound on that enemy unit."
+  },
   "bd9cdaeea454": {
     "name": "Moonfang",
     "kind": "weapon",
@@ -138,6 +158,16 @@
     "name": "Moonfang",
     "kind": "weapon",
     "plain": "If the target is a CHARACTER, this weapon has double Strength (x2)."
+  },
+  "dc4c0c5216fe": {
+    "name": "6) Eye of the Storm",
+    "kind": "psychic",
+    "plain": "Warp charge 6: each enemy unit within 12\" of this psyker suffers 1 mortal wound on a D6 roll of 4+; add 1 to the roll for a unit that can FLY."
+  },
+  "dff3df37d7f7": {
+    "name": "1) Blasting Gale",
+    "kind": "psychic",
+    "plain": "Warp charge 7: an enemy unit within 18\" of this psyker that it can see can't Advance and rolls one fewer D6 to charge, until your next Psychic phase starts. Its charge rolls can't drop below one D6, so it will usually roll one D6 rather than 2D6."
   },
   "e20351fb0560": {
     "name": "Khan's spear",

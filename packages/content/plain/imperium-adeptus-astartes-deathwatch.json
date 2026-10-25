@@ -149,6 +149,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your DEATHWATCH CORE units within 6\" of this WARLORD to re-roll wound rolls of 1 against one Battlefield Role. When you do, choose a Battlefield Role. Until your next Command phase starts, each time a model in that unit attacks an enemy unit with that Battlefield Role, re-roll a wound roll of 1."
   },
+  "4a441ddca5ac": {
+    "name": "Honoured Veteran of the Watch",
+    "kind": "ability",
+    "plain": "Once only, while mustering your army, if your WARLORD has the STRIKE FORCE keyword: give one DEATHWATCH Sergeant 1 extra wound and a Warlord Trait.\nUse this Stratagem before the battle. Pick one DEATHWATCH model in your army with the word 'Sergeant' in its profile (but not the Watch Sergeant from KILL TEAM CASSIUS):\n• Add 1 to its Wounds characteristic.\n• Give it one Warlord Trait. It counts as your WARLORD only for that trait. Every Warlord Trait in your army must be different (if you roll randomly, re-roll any duplicate)."
+  },
   "4ac89b60ebaa": {
     "name": "Inspired Retribution (Aura)",
     "kind": "ability",
@@ -431,6 +436,11 @@
     "name": "The Beacon Angelis",
     "kind": "ability",
     "plain": "Once per battle, the bearer can activate the Beacon Angelis to bring one of your DEATHWATCH INFANTRY or DEATHWATCH BIKER units to it. It can only do so if it didn't arrive as Reinforcements this turn. When it does, you can choose, in your Movement phase's Reinforcements step, one such unit that is either on the battlefield (and didn't arrive as Reinforcements this turn), in a teleportarium chamber, or in Strategic Reserves. Remove that unit, then set it up again as Reinforcements, more than 9\" from all enemy models and wholly within 6\" of the bearer."
+  },
+  "b1d8f9eeb9ef": {
+    "name": "Jump Packs",
+    "kind": "ability",
+    "plain": "The bearer has a 12\" Move characteristic and gains the FLY and JUMP PACK keywords, plus the Death from Above ability."
   },
   "b1ef3b8929d8": {
     "name": "Combat Doctrines",

@@ -335,6 +335,11 @@
     "kind": "weapon",
     "plain": "Each attack with this profile gets 2 hit rolls instead of 1 hit roll."
   },
+  "249b68b5ad62": {
+    "name": "Black Sword",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks with this weapon that target a CHARACTER or MONSTER unit."
+  },
   "24bf3266d84f": {
     "name": "Command Squad",
     "kind": "ability",
@@ -374,6 +379,11 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before you take it off the battlefield. On a 6 it explodes, and every unit within D6+6\" suffers D6 mortal wounds."
+  },
+  "2cf7080d0f2c": {
+    "name": "Sword of the High Marshals",
+    "kind": "weapon",
+    "plain": "When the bearer fights in a turn in which it made a charge move or performed a Heroic Intervention, it makes D3 extra attacks with this weapon."
   },
   "2e8d3c365118": {
     "name": "Combat Restoratives",

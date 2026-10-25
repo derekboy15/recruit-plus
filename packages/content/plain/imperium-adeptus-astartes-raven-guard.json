@@ -84,10 +84,25 @@
     "kind": "rule",
     "plain": "Units with this tactic count as being in cover against ranged attacks from far away.\n• Against a ranged attack from an attacker more than 18\" away, a unit with this tactic gets the benefits of light cover.\n• Against a ranged attack from an attacker more than 12\" away, an INFANTRY unit with this tactic that is entirely on or within a terrain feature gets the benefits of dense cover."
   },
+  "784e3266e24e": {
+    "name": "2) Enveloping Darkness",
+    "kind": "psychic",
+    "plain": "Warp charge 7: one enemy unit within 18\" of and visible to this psyker can't fire Overwatch and subtracts 1 from its hit rolls. This lasts until the start of your next Psychic phase."
+  },
+  "8d40dea8bb5d": {
+    "name": "5) The Abyss",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll three D6 for one enemy unit within 18\" of and visible to this psyker; it suffers 1 mortal wound for each 4+. If this power destroys any models in that unit, its models have 1 subtracted from their Leadership characteristic until this turn ends."
+  },
   "917d5a6d0b23": {
     "name": "Ex Tenebris",
     "kind": "weapon",
     "plain": "When picking targets for this weapon, you can ignore the Look Out, Sir rule, and you can add 1 to its hit rolls. Targets of its attacks don't get the benefit of cover to their saving throws."
+  },
+  "930726aab29d": {
+    "name": "6) The Darkness Within",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick up to 3 enemy units within 18\" of this psyker and roll one D6 for each; on a 4+, that unit suffers 1 mortal wound. Add 1 to each of those rolls if the Psychic test result was more than 10."
   },
   "ab6253e7ec20": {
     "name": "Master of the Trifold Path",
@@ -139,6 +154,16 @@
     "kind": "ability",
     "plain": "Aura: while one of your RAVEN GUARD CORE or RAVEN GUARD CHARACTER units is within 6\" of this Warlord, it can declare a charge in a turn in which it Advanced."
   },
+  "d318d9cffd5a": {
+    "name": "3) Spectral Blade",
+    "kind": "psychic",
+    "plain": "Warp charge 5: until the start of your next Psychic phase, this psyker's Strength equals its Leadership, and its melee attacks can have AP -4. For that time, any melee weapon attack this psyker makes against a unit whose highest Leadership characteristic is lower than its own has an Armour Penetration characteristic of -4."
+  },
+  "d52e70495931": {
+    "name": "1) Umbral Form",
+    "kind": "psychic",
+    "plain": "Warp charge 5: this psyker gets a 4+ invulnerable save until your next Psychic phase starts."
+  },
   "dbed351cb146": {
     "name": "Ambushing Fire",
     "kind": "stratagem",
@@ -168,6 +193,11 @@
     "name": "Oppressor's End",
     "kind": "weapon",
     "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon, and attacks with this weapon against a CHARACTER unit have a Damage characteristic of 3."
+  },
+  "f42bb3acbbfc": {
+    "name": "4) Shadowstep",
+    "kind": "psychic",
+    "plain": "Warp charge 7: one of your RAVEN GUARD CHARACTER units within 18\" of this psyker is redeployed more than 9\" away from any enemy models. Take that unit off the battlefield, then set it up again anywhere on the battlefield that is more than 9\" away from any enemy models."
   },
   "f6783e9a566c": {
     "name": "See, But Remain Unseen",

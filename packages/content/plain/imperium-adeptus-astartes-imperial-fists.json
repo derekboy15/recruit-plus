@@ -34,6 +34,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your IMPERIAL FISTS CORE or IMPERIAL FISTS CHARACTER units is within 6\" of the bearer, add 1 to hit rolls for its models' melee attacks. Only an ANCIENT model can take this Relic."
   },
+  "269b05001438": {
+    "name": "4) Fortify",
+    "kind": "psychic",
+    "plain": "Warp charge 4: one of your IMPERIAL FISTS INFANTRY or IMPERIAL FISTS BIKER models within 12\" of the psyker regains up to D3 lost wounds."
+  },
   "28348701d01c": {
     "name": "Architect of War",
     "kind": "ability",
@@ -98,6 +103,16 @@
     "name": "Clearance Protocols",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your IMPERIAL FISTS units is chosen to shoot. This phase, up to 10 models in that unit that have Grenades can each throw a Grenade, instead of just one model."
+  },
+  "557f49704d47": {
+    "name": "2) Wrack and Ruin",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll nine D6 to inflict mortal wounds on a BUILDING, or on an enemy unit in or on terrain. Pick either one BUILDING unit, or one enemy unit wholly within or on a terrain feature, that is visible to this psyker and within 18\" of it. Roll nine D6, adding 1 to each if you picked a BUILDING: that unit suffers 1 mortal wound for each 5+."
+  },
+  "57fc9ed72d3a": {
+    "name": "6) Chasm",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one enemy unit that can't FLY within 18\" of and visible to this psyker, and roll 2D6 against the lowest Move characteristic in it. If the roll is lower than that Move characteristic, the unit suffers 1 mortal wound; if it is equal, D3 mortal wounds; if it is higher, 3 mortal wounds."
   },
   "5e2c16f6c8ab": {
     "name": "Hand of Dorn",
@@ -169,6 +184,11 @@
     "kind": "ability",
     "plain": "While they are within 6\" of this Warlord, your CRIMSON FISTS units have the Defenders of Humanity ability. If a unit already has it, each of its models counts as two models for that ability."
   },
+  "8ba134002a01": {
+    "name": "1) Tectonic Purge",
+    "kind": "psychic",
+    "plain": "Warp charge 6: until the start of your next Psychic phase, subtract 2 from charge rolls made for enemy units within 12\" of this psyker."
+  },
   "8c6661fac5ff": {
     "name": "Stubborn Heroism",
     "kind": "ability",
@@ -213,6 +233,11 @@
     "name": "Know Thy Enemy",
     "kind": "ability",
     "plain": "Before the battle, pick one unit in your opponent's army; until the battle ends, this Warlord has an aura that adds 1 to hit rolls against that unit.\nKnow Thy Enemy (Aura): while one of your EXORCISTS CORE or EXORCISTS CHARACTER units is within 6\" of this Warlord, add 1 to the hit roll each time a model in that unit attacks the unit you picked."
+  },
+  "bf754a52ddcb": {
+    "name": "3) Iron Inferno",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick a spot within 18\" of this psyker that it can see; each enemy unit within 6\" of that spot suffers 1 mortal wound on a D6 roll of 4+. Roll separately for each of those units, and the spot must be on the battlefield."
   },
   "c1802de5a2cc": {
     "name": "Paragons of Dorn",
@@ -284,6 +309,11 @@
     "name": "Signum Array",
     "kind": "ability",
     "plain": "In your Command phase: pick one of your IMPERIAL FISTS units within 3\" of this model. Add 1 to hit rolls for ranged attacks by its models until your next Command phase starts."
+  },
+  "eec2bbf53279": {
+    "name": "5) Aspect of Stone",
+    "kind": "psychic",
+    "plain": "Warp charge 5: until your next Psychic phase starts, add 2 to both this psyker's Strength and its Toughness characteristics."
   },
   "f02a452c7a0f": {
     "name": "Proud to Live, Proud to Die, Hard to Kill (Aura)",

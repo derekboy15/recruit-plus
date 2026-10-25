@@ -187,6 +187,11 @@
     "kind": "ability",
     "plain": "This WARLORD can Heroically Intervene from further away, and move further when it does.\n• It can perform a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it.\n• Its Heroic Intervention moves can be up to 6\", as long as each one ends closer to the closest enemy model. The other Heroic Intervention rules all still apply."
   },
+  "71bb93ee59a9": {
+    "name": "Monster Slayer of Caliban",
+    "kind": "weapon",
+    "plain": "When this weapon's attacks target an enemy MONSTER or enemy VEHICLE, add 1 to their wound rolls."
+  },
   "71ee512cbf94": {
     "name": "Litany of Hate",
     "kind": "ability",

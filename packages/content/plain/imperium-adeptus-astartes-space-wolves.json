@@ -9,6 +9,11 @@
     "kind": "weapon",
     "plain": "For every attack with this weapon, make 2 hit rolls instead of 1 hit roll."
   },
+  "0aaa977f37ab": {
+    "name": "Aura of Majesty",
+    "kind": "ability",
+    "plain": "Saga (Aura): Morale tests for your SPACE WOLVES CORE units within 6\" of this model are passed automatically.\nDeed: this model starts your Command phase within range of an objective marker more than 6\" away from your deployment zone."
+  },
   "0d2104998df0": {
     "name": "Thane of the Retinue",
     "kind": "stratagem",
@@ -107,6 +112,11 @@
     "kind": "ability",
     "plain": "If this litany is inspiring: while a SPACE WOLVES unit from your army is within 6\" of this model, you can re-roll hit rolls for melee attacks made by its models."
   },
+  "3946d19a5193": {
+    "name": "Beastslayer",
+    "kind": "ability",
+    "plain": "Saga (Aura): SPACE WOLVES CORE units within 6\" of this model add 1 to the wound roll of their melee attacks against VEHICLES or MONSTERS.\nDeed: one of this model's attacks destroys an enemy MONSTER or VEHICLE unit."
+  },
   "3b618b838ee0": {
     "name": "Black Death",
     "kind": "ability",
@@ -146,6 +156,11 @@
     "name": "Pack Hunters",
     "kind": "stratagem",
     "plain": "Use in your Charge phase. Choose an enemy unit that is within Engagement Range of any SPACE WOLVES units in your army. For the rest of the turn:\n• when a SPACE WOLVES BEAST or SPACE WOLVES CAVALRY unit of yours declares a charge targeting the chosen unit, roll one extra D6 and discard one of the dice;\n• when one of your SPACE WOLVES CAVALRY models attacks the chosen unit with its crushing teeth and claws, or one of your SPACE WOLVES BEAST models attacks it with its teeth and claws, you can re-roll the wound roll."
+  },
+  "42b88eab23bb": {
+    "name": "Wolfkin",
+    "kind": "ability",
+    "plain": "Saga (Aura): your SPACE WOLVES CORE units within 6\" of this model always count as having made a charge move for the Shock Assault ability.\nDeed: this model destroys an enemy model with a melee attack."
   },
   "4b32289fa6eb": {
     "name": "Lord of the Wolfkin (Aura)",
@@ -191,6 +206,11 @@
     "name": "Aura of Majesty",
     "kind": "ability",
     "plain": "This WARLORD's litanies and four of its abilities reach 3\" further, to a maximum of 9\".\n• Its Rites of Battle, Tactical Precision, Chapter Master and Spiritual Leaders abilities each get 3\" more range (up to 9\" at most).\n• Any litany it recites gets 3\" more range (up to 9\" at most)."
+  },
+  "5f3ee8f5c224": {
+    "name": "Warrior Born",
+    "kind": "ability",
+    "plain": "Saga (Aura): at the start of the Fight phase, your SPACE WOLVES CORE units within 6\" of this model and in Engagement Range of enemies fight first that phase.\nDeed: this model destroys an enemy CHARACTER model with a melee attack."
   },
   "5f53f96d90b5": {
     "name": "Warrior of Legend",
@@ -349,6 +369,11 @@
     "name": "Wulfen Howl (Aura)",
     "kind": "ability",
     "plain": "Aura: you can re-roll charge rolls for any of your SPACE WOLVES INFANTRY, SPACE WOLVES BIKER or SPACE WOLVES CAVALRY units while they are within 6\" of this unit, and for any of your SPACE WOLVES BLOOD CLAWS units while they are within 12\" of this unit."
+  },
+  "9c2ba52fb2ad": {
+    "name": "Resolve of the Bear",
+    "kind": "ability",
+    "plain": "Saga (Aura): roll one D6 whenever a model in one of your SPACE WOLVES CORE units within 6\" of this model would lose a wound; on a 6, that wound isn't lost.\nDeed: this model loses one or more wounds."
   },
   "9d913f42ed89": {
     "name": "Jarl of Fenris",
@@ -522,6 +547,11 @@
     "name": "Blood Scent",
     "kind": "stratagem",
     "plain": "Use in the Fight phase. Choose an enemy INFANTRY or MONSTER unit that has lost models, or that has a model with fewer wounds left than it started with. For the rest of that phase, STALKER PACK units from your army add 1 to wound rolls for their attacks against that enemy unit."
+  },
+  "dfc2ddd7bc43": {
+    "name": "Hunter",
+    "kind": "ability",
+    "plain": "Saga (Aura): while one of your SPACE WOLVES CORE units is within 6\" of this model, it can declare a charge in a turn in which it Advanced. If that unit has the Swift Hunters ability, it can also declare a charge in a turn in which it Fell Back.\nDeed: this model makes a successful charge against an enemy unit."
   },
   "e05adf973f87": {
     "name": "Hunter",
