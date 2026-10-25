@@ -147,7 +147,7 @@
   "1e068ccc1262": {
     "name": "Veil of Darkness",
     "kind": "ability",
-    "plain": "Once per battle, in your Movement phase, you can take the bearer's unit and up to one of your <DYNASTY> CORE units within 3\" of the bearer off the battlefield. Set them up again anywhere on the battlefield more than 9\" from all enemy models. If 2 units are set up again this way, they must both end up wholly within 6\" of each other."
+    "plain": "Once per battle, in your Movement phase, you can set up the bearer's unit and up to one of your <DYNASTY> CORE units within 3\" of the bearer somewhere else. Remove them from the battlefield, then set them up again anywhere on the battlefield more than 9\" from all enemy models. If 2 units are set up again this way, they must both end up wholly within 6\" of each other."
   },
   "204acb6479dc": {
     "name": "Rarefied Nobility",
@@ -353,7 +353,7 @@
   "3b776d1fe5d3": {
     "name": "Sky of Falling Stars",
     "kind": "ability",
-    "plain": "Pick up to 3 enemy units within 24\" of this C'TAN SHARD and roll one D6 for each. On a 1-5, if the result is lower than the number of models in that unit, it suffers D3 mortal wounds, or 3 mortal wounds instead of D3 if this C'TAN SHARD is a TESSERACT VAULT."
+    "plain": "Up to 3 enemy units within 24\" of this C'TAN SHARD can each suffer D3 mortal wounds. Pick them and roll one D6 for each: on a 1-5, if the result is lower than the number of models in that unit, it suffers D3 mortal wounds, or 3 mortal wounds instead of D3 if this C'TAN SHARD is a TESSERACT VAULT."
   },
   "3c09cc9017d9": {
     "name": "Dimensional Sanctum",
@@ -693,7 +693,7 @@
   "77a1d38e55b5": {
     "name": "Phylacterine Hive",
     "kind": "ability",
-    "plain": "Once per battle, when using the bearer's Rites of Reanimation ability, you may have it affect one of your <DYNASTY> CANOPTEK, <DYNASTY> DESTROYER CULT or TRIARCH PRAETORIAN units rather than one of your <DYNASTY> CORE units."
+    "plain": "Once per battle, the bearer's Rites of Reanimation ability can affect a different kind of unit. When using it, you may have it affect one of your <DYNASTY> CANOPTEK, <DYNASTY> DESTROYER CULT or TRIARCH PRAETORIAN units rather than one of your <DYNASTY> CORE units."
   },
   "787b2db408ae": {
     "name": "Revenge of the Doomstalker",
@@ -768,7 +768,7 @@
   "8ab2f6165fa2": {
     "name": "Canoptek Control Node",
     "kind": "ability",
-    "plain": "The bearer gains this ability: 'Control Node (Aura): while one of your <DYNASTY> CANOPTEK units is within 6\" of this model, add 1 to the hit roll of every attack made by a model in that unit.'"
+    "plain": "Aura: while one of your <DYNASTY> CANOPTEK units is within 6\" of the bearer, add 1 to the hit roll of every attack its models make. The bearer gains this as its Control Node (Aura) ability."
   },
   "8adabc7a0dce": {
     "name": "Secondary Objective - Purge the Vermin",
@@ -923,7 +923,7 @@
   "a56c5a5bfd25": {
     "name": "Atavindicator",
     "kind": "ability",
-    "plain": "At the end of your Movement phase, pick one enemy unit (not a VEHICLE unit) within 18\" of the bearer and roll 3D6. If the total equals or beats that unit's Leadership characteristic, it takes D3 mortal wounds."
+    "plain": "At the end of your Movement phase, pick one enemy unit within 18\" of the bearer; it takes D3 mortal wounds if a 3D6 roll equals or beats its Leadership. You can't pick a VEHICLE unit."
   },
   "a62f07facb26": {
     "name": "Command Protocols - Protocol of the Vengeful Stars",
@@ -1006,7 +1006,7 @@
   "b046d54468f7": {
     "name": "Arkana: Aurorocular Mantle",
     "kind": "ability",
-    "plain": "TECHNOMANCER model with a canoptek cloak only. The bearer gains this ability: 'Aurorocular Mantle (Aura): while one of your CULT OF THE CRYPTEK units is within 6\" of this model, targets of attacks made by models in that unit don't get the benefits of cover against those attacks.'"
+    "plain": "Aura: while one of your CULT OF THE CRYPTEK units is within 6\" of the bearer, targets of its models' attacks don't get the benefits of cover. The bearer gains this as its Aurorocular Mantle (Aura) ability. Only a TECHNOMANCER model with a canoptek cloak can have this."
   },
   "b0a0aca37059": {
     "name": "Titanic Forelimbs (Reaping Sweep)",
@@ -1131,7 +1131,7 @@
   "c37229717aa0": {
     "name": "Arkana: Atomiser Stave",
     "kind": "ability",
-    "plain": "PLASMANCER model only. Whenever you use the bearer's Harbinger of Destruction ability, you roll 6 D6 instead of the usual 3 dice."
+    "plain": "Whenever you use the bearer's Harbinger of Destruction ability, you roll 6 D6 instead of the usual 3 dice. Only a PLASMANCER model can have this."
   },
   "c394f872e5ab": {
     "name": "Secondary Objective - Ancient Machineries",

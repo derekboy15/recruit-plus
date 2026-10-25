@@ -7,7 +7,7 @@
   "012d18f00314": {
     "name": "Mounted Assault",
     "kind": "ability",
-    "plain": "Before the battle, at the start of the mission sequence's Declare Reserves and Transports step, if this unit has 2 models, you can choose a HEARTHKYN WARRIORS or BERSERKS unit with 10 models. If you do, split it into two units of 5 models each (write down which models make up each new unit); they must begin the battle embarked within one of these two SAGITAUR models. In a Crusade mission, the Split Unit rules don't apply to INFANTRY units split this way: if the unit has any Battle Honours or Battle Scars, both halves count as having them, and you only take an Out of Action test for it if both halves are destroyed during the battle."
+    "plain": "If this unit has 2 models, then before the battle you can split a HEARTHKYN WARRIORS or BERSERKS unit with 10 models into two units of 5 models each. Do this at the start of the mission sequence's Declare Reserves and Transports step, and write down which models make up each new unit; they must begin the battle embarked within one of these two SAGITAUR models. In a Crusade mission, the Split Unit rules don't apply to INFANTRY units split this way: if the unit has any Battle Honours or Battle Scars, both halves count as having them, and you only take an Out of Action test for it if both halves are destroyed during the battle."
   },
   "013a001818d3": {
     "name": "The Last Crest of Jâluk",
@@ -47,12 +47,12 @@
   "0867e76572ed": {
     "name": "Grudge's End",
     "kind": "ability",
-    "plain": "When you give this Relic to a model, pick one bolt weapon that model has. That weapon counts as a Relic for all rules purposes, and its Damage and Armour Penetration characteristics are each increased by 1. Whenever an attack from that weapon hits a unit with 1 or more Judgement tokens, it wounds the target automatically."
+    "plain": "One bolt weapon of your choice on the bearer counts as a Relic for all rules purposes, and its Damage and Armour Penetration characteristics each go up by 1. You pick that weapon when you give this Relic to a model. Whenever an attack from that weapon hits a unit with 1 or more Judgement tokens, it wounds the target automatically."
   },
   "08fdbfd9da00": {
     "name": "Pan spectral scanner",
     "kind": "ability",
-    "plain": "The bearer's unit gains the SCANNER keyword. Also, when a model in the bearer's unit attacks with a ranged weapon, the target gets no benefit from Light Cover against that attack."
+    "plain": "When a model in the bearer's unit attacks with a ranged weapon, the target gets no benefit from Light Cover against that attack. The bearer's unit also gains the SCANNER keyword."
   },
   "09f1501ce14e": {
     "name": "The Hearthfist",
@@ -87,7 +87,7 @@
   "1cdbda820118": {
     "name": "Crushing Contempt",
     "kind": "psychic",
-    "plain": "Malediction. If manifested, pick one enemy unit within 18\" of this PSYKER and roll 3D6. If the total equals or beats that unit's Leadership characteristic, then until the start of your next Psychic phase it can't perform actions (any action it is in the middle of fails at once). If the total is higher than its Leadership characteristic, then until the start of your next Psychic phase, subtract 1 from the hit roll of every attack its models make."
+    "plain": "Malediction: if manifested, roll 3D6 to try to stop one enemy unit within 18\" of this PSYKER from performing actions and to subtract 1 from its hit rolls. If the total equals or beats that unit's Leadership characteristic, then until the start of your next Psychic phase it can't perform actions (any action it is in the middle of fails at once). If the total is higher than its Leadership characteristic, then until the start of your next Psychic phase, subtract 1 from the hit roll of every attack its models make."
   },
   "21fb24cd7962": {
     "name": "Omni-visors",
@@ -152,7 +152,7 @@
   "3c773ce9839b": {
     "name": "Taking It Personally",
     "kind": "ability",
-    "plain": "A unit with this custom has a chance to give 1 Judgement token to an enemy unit it damages but doesn't destroy. When it is picked to shoot or fight and all of its attacking models aim at the same enemy unit, then once those attacks are resolved, if that enemy unit took damage from them but survived, roll one D6, adding 1 if that enemy unit is now below Half-strength. On a 5+, it gains 1 Judgement token."
+    "plain": "When a unit with this custom aims all its attacks at one enemy unit and damages but doesn't destroy it, that enemy unit has a chance to gain 1 Judgement token. Each time your unit is picked to shoot or fight and all of its attacking models target the same enemy unit, wait until those attacks are resolved. Then, if that enemy unit took damage from them but survived, roll one D6, adding 1 if it is now below Half-strength. On a 5+, it gains 1 Judgement token."
   },
   "3caaad3fb189": {
     "name": "Kôrvyk's Cuirass",
@@ -227,12 +227,12 @@
   "6205e94695f4": {
     "name": "Grudgepyre",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy unit this PSYKER can see within 18\" of it that isn't a VEHICLE, MONSTER or CHARACTER. Roll 2D6 and add the number of Judgement tokens beside that unit. If the total is higher than that unit's unmodified Leadership characteristic, your opponent chooses one model in the unit, and that model is destroyed."
+    "plain": "Witchfire: if manifested, you can try to destroy one model in an enemy unit (not a VEHICLE, MONSTER or CHARACTER) this PSYKER can see within 18\". Roll 2D6 and add the number of Judgement tokens beside that unit. If the total is higher than that unit's unmodified Leadership characteristic, your opponent chooses one model in the unit, and that model is destroyed."
   },
   "630fbb4701b7": {
     "name": "Magna-rail weapons",
-    "kind": "ability",
-    "plain": "Weapons with the Magna-rail ability follow these rules for every attack they make. Your opponent can't take invulnerable saves against it. On an unmodified wound roll of 6, any excess damage the weapon causes isn't lost: carry on allocating it to other models in the target unit until all the excess damage has been allocated or the unit is destroyed."
+    "kind": "rule",
+    "plain": "Your opponent can't take invulnerable saves against attacks from weapons with the Magna-rail ability. On an unmodified wound roll of 6, any excess damage such a weapon causes isn't lost: carry on allocating it to other models in the target unit until all the excess damage has been allocated or the unit is destroyed."
   },
   "6729169ee16a": {
     "name": "Light’em Up",
@@ -262,7 +262,7 @@
   "78389594fd44": {
     "name": "Multiwave comms array",
     "kind": "ability",
-    "plain": "The bearer's unit gains the COMMS keyword. While it is within 24\" of one of your <LEAGUE> KÂHL models, the bearer's unit counts as being in range of that model's Kindred Hero aura ability."
+    "plain": "While within 24\" of one of your <LEAGUE> KÂHL models, the bearer's unit counts as being in range of that model's Kindred Hero aura ability. It also gains the COMMS keyword."
   },
   "7c01ce8b2aaa": {
     "name": "A Long List",
@@ -287,7 +287,7 @@
   "83839f4ac3da": {
     "name": "Wârpestryk",
     "kind": "ability",
-    "plain": "During any Normal Move, Advance, Fall Back or charge move the bearer makes, it can pass horizontally through models and terrain features (though it can't finish that move on top of another model or that model's base). Once per battle, using the Site-to-Site Teleport Stratagem on the bearer's unit costs 0 CP. Enemy units arriving on the battlefield as Reinforcements can't be set up within 12\" of this model's unit."
+    "plain": "During any Normal Move, Advance, Fall Back or charge move it makes, the bearer can pass horizontally through models and terrain features. It can't end that move on top of another model or its base. Enemy units arriving on the battlefield as Reinforcements can't be set up within 12\" of this model's unit. Once per battle, using the Site-to-Site Teleport Stratagem on the bearer's unit costs 0 CP."
   },
   "8449038b1349": {
     "name": "Wayfarer's Grace",
@@ -317,7 +317,7 @@
   "894090c45da9": {
     "name": "Fortify",
     "kind": "psychic",
-    "plain": "Blessing. If manifested, pick one of your <LEAGUE> CORE or <LEAGUE> CHARACTER units within 12\" of this PSYKER. Until your next Psychic phase begins, that unit's models get 1 added to their Toughness characteristic, and whenever one of them loses a wound, roll one D6: on a 6, the wound isn't lost."
+    "plain": "Blessing: until your next Psychic phase, models in one of your <LEAGUE> CORE or <LEAGUE> CHARACTER units within 12\" of this PSYKER add 1 to their Toughness. You pick the unit when this power is manifested. Until the start of your next Psychic phase, each time one of its models loses a wound, also roll one D6: on a 6, that wound isn't lost."
   },
   "8b490621f580": {
     "name": "Combat Surgery",
@@ -327,7 +327,7 @@
   "8be025aa37a7": {
     "name": "High Kâhl",
     "kind": "ability",
-    "plain": "In your Command phase, choose one <LEAGUE> CORE or <LEAGUE> CHARACTER unit of yours that is within 6\" of this model. Until your next Command phase begins, you can re-roll the hit roll for attacks made by that unit's models."
+    "plain": "In your Command phase, pick one of your <LEAGUE> CORE or <LEAGUE> CHARACTER units within 6\" of this model so you can re-roll its hit rolls. This lasts until the start of your next Command phase, and applies to every attack made by a model in that unit."
   },
   "8f0228d6b717": {
     "name": "Void Armour",
@@ -357,7 +357,7 @@
   "9cc097ba2d3d": {
     "name": "Sagitaur Squadron",
     "kind": "ability",
-    "plain": "If this unit has 2 models, then the first time it is set up on the battlefield, its models must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit."
+    "plain": "If this unit has 2 models, they must be within 6\" of each other when it is first set up on the battlefield; after that, each model counts as a separate unit."
   },
   "9cc6c645887b": {
     "name": "Ymmâ's Shield",
@@ -402,7 +402,7 @@
   "a533566a551b": {
     "name": "Unwavering Discipline",
     "kind": "ability",
-    "plain": "Models with this custom (not COG models) can ignore modifiers when they attack a target with 1 or more Judgement tokens. For those attacks, you can ignore any or all modifiers to the hit roll, Weapon Skill and Ballistic Skill."
+    "plain": "Against a target with 1 or more Judgement tokens, models with this custom (not COG models) can ignore hit roll, Weapon Skill and Ballistic Skill modifiers. Each time one of these models attacks such a target, you can ignore any or all of those modifiers."
   },
   "a53e7e5949d8": {
     "name": "The Might of the Einhyr",
@@ -422,7 +422,7 @@
   "a6f949cb8642": {
     "name": "Interface Echo",
     "kind": "psychic",
-    "plain": "Blessing. If it is manifested, you gain 1 Command point. CP you gain from this power ignore the usual cap of gaining or refunding 1 CP per battle round."
+    "plain": "Blessing: if it is manifested, you gain 1 Command point. CP you gain from this power ignore the usual cap of gaining or refunding 1 CP per battle round."
   },
   "a8ae1b898ac6": {
     "name": "Brôkhyr's Guild",
@@ -462,7 +462,7 @@
   "ae9549de836f": {
     "name": "Rollbar searchlight",
     "kind": "ability",
-    "plain": "The bearer's unit gains the SEARCHLIGHT keyword. Also, when a model in the bearer's unit attacks with a ranged weapon, the target gets no benefit from Dense Cover against that attack."
+    "plain": "When a model in the bearer's unit attacks with a ranged weapon, the target gets no benefit from Dense Cover against that attack. The bearer's unit also gains the SEARCHLIGHT keyword."
   },
   "af37dabb1b48": {
     "name": "Ranger Outriders",
@@ -527,7 +527,7 @@
   "d345961dc36c": {
     "name": "Brôkhyr Forge-master",
     "kind": "ability",
-    "plain": "Once per battle round, while this model is on the battlefield: if you use a Votann Wargear Stratagem and pick one of your <LEAGUE> units within 6\" of this BRÔKYR FORGE-MASTER for it, that Stratagem costs 1CP less. The discount only applies to that one use: later uses cost the usual number of CP."
+    "plain": "Once per battle round, a Votann Wargear Stratagem you use on one of your <LEAGUE> units within 6\" of this BRÔKYR FORGE-MASTER costs 1CP less. This only works while this model is on the battlefield, and only for that one use: later uses of the Stratagem cost the usual number of CP."
   },
   "d3754e925fb9": {
     "name": "New-found Nemesis",
@@ -536,13 +536,13 @@
   },
   "d5978ba788bc": {
     "name": "Beam weapons",
-    "kind": "ability",
-    "plain": "Weapons with the Beam ability work like this. Whenever an attack with one of them scores a hit, trace a line from the nearest point of the firing model's base (or hull) to the nearest point of the closest model in the target unit. Make a single wound roll against the target, and another against each other unit that line crosses, skipping any unit that wasn't eligible to be targeted by this weapon when you picked targets. If a VEHICLE model makes beam weapon attacks that target an enemy in Engagement Range, each such attack is resolved only against the target unit and can't hit any other unit."
+    "kind": "rule",
+    "plain": "When an attack with a Beam weapon scores a hit, make one wound roll against the target and one against each other unit the beam's line passes over. Draw that line from the nearest point of the firing model's base (or hull) to the nearest point of the closest model in the target unit, and skip any unit that wasn't eligible to be targeted by this weapon when you picked targets. If a VEHICLE model makes beam weapon attacks that target an enemy in Engagement Range, each such attack is resolved only against the target unit and can't hit any other unit."
   },
   "d6f9154f5069": {
     "name": "Anger of the Ancestors",
     "kind": "ability",
-    "plain": "When a LORD GRIMNYR tries to manifest a power from the Skeinwrought discipline, add 1 to its Psychic test if any enemy unit within 18\" of it has 1 or more Judgement tokens."
+    "plain": "When a LORD GRIMNYR tries to manifest a Skeinwrought power, add 1 to its Psychic test if any enemy unit within 18\" of it has 1 or more Judgement tokens."
   },
   "d74b7fd1bab0": {
     "name": "Legend of the League",
@@ -577,7 +577,7 @@
   "ddf061fc1ca1": {
     "name": "Null Vortex",
     "kind": "psychic",
-    "plain": "Malediction. If manifested, choose an enemy unit within 12\" of this PSYKER. Until your next Psychic phase begins, models in that unit can't use invulnerable saves."
+    "plain": "Malediction: if manifested, pick one enemy unit within 12\" of this PSYKER: until your next Psychic phase begins, its models can't use invulnerable saves."
   },
   "dfbfb342acc4": {
     "name": "Mass Driver Accelerator",
@@ -612,7 +612,7 @@
   "e63b0131c218": {
     "name": "Ancestral Wrath",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy unit this PSYKER can see within 18\" of it, and roll 3 dice (or 6 dice if that unit has 11 or more models). If the unit has one or more Judgement tokens, add 1 to every result. Each roll of 4+ inflicts 1 mortal wound on that unit."
+    "plain": "Witchfire: if manifested, pick one enemy unit within 18\" of this PSYKER that it can see, and roll dice to inflict mortal wounds on it. Roll 3 dice, or 6 dice instead if that unit has 11 or more models. If the unit has one or more Judgement tokens, add 1 to every result. Each roll of 4+ inflicts 1 mortal wound on that unit."
   },
   "e69736940c41": {
     "name": "Pulsed Beam Discharge",
@@ -647,17 +647,17 @@
   "ef940403da37": {
     "name": "Efficient Exemplar",
     "kind": "ability",
-    "plain": "When a HIGH KÂHL model destroys an enemy unit that had 1 or more Judgement tokens, you can pick one enemy unit this model can see. That unit gains one Judgement token."
+    "plain": "When a HIGH KÂHL model destroys an enemy unit that had 1 or more Judgement tokens, you can give one Judgement token to one enemy unit this model can see."
   },
   "f07e3e2640a9": {
     "name": "Forgemaster's Eye",
     "kind": "ability",
-    "plain": "Whenever a BRÔKYR FORGE-MASTER model attacks and gets an unmodified wound roll of 6 against a target with 1 or more Judgement tokens, the attack sequence ends and the target suffers mortal wounds equal to that attack's Damage characteristic. When a BRÔKYR FORGE-MASTER model attacks with a beam weapon, this also works against other units the beam \"hits\" along its line, as long as they have at least one Judgement token."
+    "plain": "Against a target with 1 or more Judgement tokens, a BRÔKYR FORGE-MASTER model's unmodified wound roll of 6 deals mortal wounds equal to the attack's Damage. The attack sequence then ends. When a BRÔKYR FORGE-MASTER model attacks with a beam weapon, this also works against other units the beam \"hits\" along its line, as long as they have at least one Judgement token."
   },
   "f32084361ad2": {
     "name": "Rampart Shield (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your <LEAGUE> INFANTRY or <LEAGUE> BIKER units is within 6\" of this model, that unit's models have a 5+ invulnerable save against ranged attacks. Nothing can increase this ability's range."
+    "plain": "Aura: while a <LEAGUE> INFANTRY or <LEAGUE> BIKER unit of yours is within 6\" of this model, models in it have a 5+ invulnerable save against ranged attacks. Nothing can increase this ability's range."
   },
   "f3b914fcbac9": {
     "name": "In the Right Hands",
@@ -712,7 +712,7 @@
   "fe2c2e1a0875": {
     "name": "Medipack",
     "kind": "ability",
-    "plain": "The bearer's unit gains the MEDIC keyword. Also, once per turn, the first time the bearer's unit fails a saving throw, the Damage characteristic of that attack becomes 0."
+    "plain": "Once per turn, the first time the bearer's unit fails a saving throw, that attack's Damage characteristic becomes 0. The bearer's unit also gains the MEDIC keyword."
   },
   "ffb8565aab5f": {
     "name": "The CORV Duas",

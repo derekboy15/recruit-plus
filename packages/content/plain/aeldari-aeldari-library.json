@@ -7,7 +7,7 @@
   "01b7e8b1eb4b": {
     "name": "Stimulant Innovators",
     "kind": "ability",
-    "plain": "Once per battle, in your Command phase, you can roll one D3 on the Combat Drugs table. Until the end of the turn, every unit with this Obsession and the Combat Drugs ability gets the result as an extra ability, on top of the abilities it already has."
+    "plain": "Once per battle, in your Command phase, you can roll one D3 on the Combat Drugs table and give the result to units with this Obsession until the turn ends. Only units that have the Combat Drugs ability get it, and it stacks with any abilities they already have."
   },
   "061a9b823564": {
     "name": "The Djin Blade",
@@ -25,12 +25,12 @@
   "08cfb17d8f3c": {
     "name": "Elite Citizenry",
     "kind": "ability",
-    "plain": "Models with this attribute add 1 to their Leadership characteristic.\nWhen a unit with this attribute fights, you can re-roll one of its hit rolls."
+    "plain": "Models with this attribute add 1 to their Leadership characteristic, and when a unit with this attribute fights, you can re-roll one of its hit rolls."
   },
   "0ac5df67b1d6": {
     "name": "A Foot in the Future",
     "kind": "ability",
-    "plain": "When this Warlord Advances, don't make an Advance roll: add D3+3\" to its Move characteristic until the end of the phase instead.\nYou can add 6 to any charge roll made for this Warlord."
+    "plain": "You can add 6 to this Warlord's charge rolls, and when it Advances, add D3+3\" to its Move characteristic until the end of the phase instead of an Advance roll."
   },
   "0c16c98dd294": {
     "name": "Soulheim",
@@ -53,22 +53,22 @@
   "119cd103d962": {
     "name": "Crash and Burn",
     "kind": "ability",
-    "plain": "When this model is reduced to 0 wounds, roll one D6 before taking it off the battlefield. On a 6, it explodes, and every unit within 6\" of it suffers D3 mortal wounds."
+    "plain": "When this model is reduced to 0 wounds, roll one D6 before removing it: on a 6, it explodes, and every unit within 6\" of it suffers D3 mortal wounds."
   },
   "1326be86b787": {
     "name": "The Phoenix Plume",
     "kind": "ability",
-    "plain": "The bearer gets a 4+ invulnerable save. Whenever a model in its unit would lose a wound, roll one D6, and on a 5+ it isn't lost. Only a Swooping Hawk Exarch model can have this."
+    "plain": "The bearer gets a 4+ invulnerable save, and each time a model in its unit would lose a wound, roll one D6: the wound isn't lost on a 5+. Only a Swooping Hawk Exarch model can have this."
   },
   "1330a335b317": {
     "name": "Dark Technomancers (All-Consuming)",
     "kind": "ability",
-    "plain": "When a unit with this Obsession is chosen to shoot, you can enhance any or all of its models' ranged weapons, except liquifier guns and twin liquifier guns. Until the end of the phase, attacks with an enhanced weapon add 1 to their wound roll and 1 to their Damage characteristic, but their hit roll can't be re-rolled. If any attack with an enhanced weapon has an unmodified hit roll of 1, the bearer's unit suffers 1 mortal wound once it has shot with that weapon; a VEHICLE or MONSTER bearer suffers D3 mortal wounds instead."
+    "plain": "When a unit with this Obsession shoots, you can enhance any or all of its ranged weapons to add 1 to their attacks' wound rolls and Damage this phase. Liquifier guns and twin liquifier guns can never be enhanced. Hit rolls for attacks with an enhanced weapon can't be re-rolled. If any attack with an enhanced weapon has an unmodified hit roll of 1, the bearer's unit suffers 1 mortal wound once it has shot with that weapon; a VEHICLE or MONSTER bearer suffers D3 mortal wounds instead."
   },
   "15e7224173ae": {
     "name": "Crescendo",
     "kind": "ability",
-    "plain": "Only a HARLEQUINS model with a shuriken pistol can take this Relic. It replaces that shuriken pistol and uses its own weapon profile."
+    "plain": "Only a HARLEQUINS model with a shuriken pistol can take this Relic, which replaces that shuriken pistol and uses its own weapon profile."
   },
   "1600085ac236": {
     "name": "Player of the Dark",
@@ -128,7 +128,7 @@
   "1ba183f8627f": {
     "name": "The Storied Sword",
     "kind": "ability",
-    "plain": "Only a HARLEQUINS model with an Aeldari power sword can take this Relic. It replaces that Aeldari power sword and uses its own weapon profile."
+    "plain": "Only a HARLEQUINS model with an Aeldari power sword can take this Relic, which replaces that Aeldari power sword and uses its own weapon profile."
   },
   "1c7bdeececef": {
     "name": "The Glaive Exquisite",
@@ -138,7 +138,7 @@
   "1dd5ceb4729b": {
     "name": "The Twilight Fang",
     "kind": "ability",
-    "plain": "Only a TWILIGHT TROUPE MASTER model with an Aeldari power sword can take this Relic. It replaces that Aeldari power sword and uses its own weapon profile.",
+    "plain": "Only a TWILIGHT TROUPE MASTER model with an Aeldari power sword can take this Relic, which replaces that sword and uses its own weapon profile.",
     "waive": {
       "TWIGHLIGHT TROUPE MASTER": "typo in the official text for TWILIGHT TROUPE MASTER; the plain text uses the correctly spelled TWILIGHT TROUPE MASTER keyword"
     }
@@ -254,7 +254,7 @@
   "319bc2a0512e": {
     "name": "The Spider's Bite",
     "kind": "ability",
-    "plain": "Only a Warp Spider Exarch model with powerblades can take this Relic. It replaces those powerblades and uses its own weapon profile."
+    "plain": "Only a Warp Spider Exarch model with powerblades can take this Relic, which replaces those powerblades and uses its own weapon profile."
   },
   "31fb1c2e237d": {
     "name": "Battle Focus",
@@ -384,7 +384,7 @@
   "4b5f2e857ae5": {
     "name": "Altansar 2. A Beacon of Light in the Darkness",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your ALTANSAR units within 9\" of this WARLORD. It gains these until your next Command phase starts:\n- it can make ranged attacks while performing an action without the action failing.\n- Advancing or Falling Back doesn't stop it performing actions that turn."
+    "plain": "In your Command phase, pick one of your ALTANSAR units within 9\" of this WARLORD: it can shoot during actions, and do actions after Advancing or Falling Back. Both last until your next Command phase starts. While performing an action, the unit can make ranged attacks without the action failing, and Advancing or Falling Back doesn't stop it performing actions that turn."
   },
   "4c2bf09604a4": {
     "name": "Cegorach's Rose",
@@ -444,7 +444,7 @@
   "594ebfcce250": {
     "name": "Diabolical Soothsayer",
     "kind": "ability",
-    "plain": "When this model is set up on the battlefield, choose one for the rest of the battle:\n- this WARLORD's Toughness and Wounds characteristics each go up by 1.\n- this WARLORD's Move and Attacks characteristics each go up by 1."
+    "plain": "When this model is set up on the battlefield, choose to add 1 to either this WARLORD's Toughness and Wounds or its Move and Attacks characteristics. Both characteristics in the pair you choose go up by 1, for the rest of the battle."
   },
   "5b030c45a47b": {
     "name": "Expert Crafters",
@@ -459,7 +459,7 @@
   "5d987d479f7f": {
     "name": "Fear Incarnate",
     "kind": "ability",
-    "plain": "At the end of your Movement phase, you can roll 3D6 for one enemy unit within 9\" of this WARLORD and compare the total to its Leadership characteristic. If the total is greater, then until the start of your next Movement phase that unit can't perform actions (an action it is performing fails immediately) and it loses the Objective Secured ability."
+    "plain": "At the end of your Movement phase, you can try to stop one enemy unit within 9\" of this WARLORD from performing actions and strip its Objective Secured ability. Roll 3D6: if the total is greater than that unit's Leadership characteristic, then until the start of your next Movement phase it can't perform actions (an action it is performing fails immediately) and it loses the Objective Secured ability."
   },
   "5db1ee33467a": {
     "name": "Power From Pain",
@@ -474,7 +474,7 @@
   "634e4c732e68": {
     "name": "Cronescream",
     "kind": "ability",
-    "plain": "Once per battle, when the Fight phase starts, you can roll one D6 for an enemy unit within Engagement Range of the bearer. On a 2+, that unit suffers D3 mortal wounds, plus 1 more for each charge move the bearer has made during the battle. Only a Howling Banshee Exarch model can have this."
+    "plain": "Once per battle, when the Fight phase starts, you can try to inflict D3 mortal wounds on an enemy unit within Engagement Range of the bearer. Pick the unit and roll one D6: on a 2+, it suffers D3 mortal wounds, plus 1 more for each charge move the bearer has made during the battle. Only a Howling Banshee Exarch model can have this."
   },
   "649364935b43": {
     "name": "Swift Strikes",
@@ -499,12 +499,12 @@
   "6694c7e4ae10": {
     "name": "Cegorach's Rose",
     "kind": "ability",
-    "plain": "Only a HARLEQUINS model with a Harlequin's kiss can take this Relic. It replaces that Harlequin's kiss and uses its own weapon profile."
+    "plain": "Only a HARLEQUINS model with a Harlequin's kiss can take this Relic, which replaces that Harlequin's kiss and uses its own weapon profile."
   },
   "6730e1f281b6": {
     "name": "Firesabre",
     "kind": "ability",
-    "plain": "Only an ASURYANI model with a Banshee blade or star glaive can take this Relic. It replaces that Banshee blade or star glaive and uses its own weapon profile."
+    "plain": "Only an ASURYANI model with a Banshee blade or star glaive can take this Relic, which replaces that weapon and uses its own weapon profile."
   },
   "67e721e11aa9": {
     "name": "Serpentin",
@@ -514,7 +514,7 @@
   "696640804eed": {
     "name": "Shadowsting",
     "kind": "ability",
-    "plain": "Only a Striking Scorpion Exarch model with a biting blade can take this Relic. It replaces that biting blade and uses its own weapon profile."
+    "plain": "Only a Striking Scorpion Exarch model with a biting blade can take this Relic, which replaces that biting blade and uses its own weapon profile."
   },
   "69edd26c6ed9": {
     "name": "Savage Blades",
@@ -544,7 +544,7 @@
   "6eadcd4b5daf": {
     "name": "Biel-Tan: Swordwind",
     "kind": "ability",
-    "plain": "For units with this attribute, Advance rolls and the rolls for Battle Focus moves count any 1 or 2 as a 3.\nWhen a unit with this attribute shoots or fights, you can re-roll one of its hit rolls.",
+    "plain": "Units with this attribute count Advance and Battle Focus move rolls of 1 or 2 as 3, and when such a unit shoots or fights, you can re-roll one of its hit rolls.",
     "waive": {
       "142": "page number reference (\"pg 142\") to where the Battle Focus rule is printed; the style guide forbids page references"
     }
@@ -686,7 +686,7 @@
   "8bc8e2432102": {
     "name": "Dark Mirth",
     "kind": "ability",
-    "plain": "Units with this Obsession have Dark Mirth (Aura): roll a D6 when an enemy unit within 12\" of them is picked to make a Normal Move, Advance, Fall Back or charge. On a 5+, that enemy unit suffers 1 mortal wound."
+    "plain": "Units with this Obsession have Dark Mirth (Aura), which can deal mortal wounds to enemy units within 12\" of them that are picked to move or charge. Each time an enemy unit within 12\" of one of these units is picked to make a Normal Move, Advance, Fall Back or charge, roll a D6: on a 5+, that enemy unit suffers 1 mortal wound."
   },
   "8c3b750c430b": {
     "name": "Light: Blaze of Light",
@@ -701,7 +701,7 @@
   "8e79c9de4f1d": {
     "name": "Khaine's Lance",
     "kind": "ability",
-    "plain": "Shining Spear Exarch model only: whenever the bearer finishes a charge move, pick one enemy unit within Engagement Range of it and roll one D6. On a 4+, that unit suffers D3 mortal wounds, and it isn't eligible to fight this phase until every eligible unit from your army has fought."
+    "plain": "Whenever the bearer finishes a charge move, pick one enemy unit within its Engagement Range and roll one D6: on a 4+, that unit suffers D3 mortal wounds. On that 4+, it also isn't eligible to fight this phase until every eligible unit from your army has fought. Only a Shining Spear Exarch model can have this."
   },
   "8ebd59651e1f": {
     "name": "Revered By The Dead",
@@ -716,7 +716,7 @@
   "912bb94ffa95": {
     "name": "Berserk Fugue (All-Consuming)",
     "kind": "ability",
-    "plain": "Melee attacks by a model with this Obsession score 1 extra hit on an unmodified hit roll of 6. This only applies in a turn in which the model's unit was charged, made a charge move or performed a Heroic Intervention. If a mortal wound would make a model with this Obsession lose a wound, roll a D6: on a 5+, the wound isn't lost."
+    "plain": "Models with this Obsession score 1 extra hit per unmodified melee hit roll of 6 if their unit charged, was charged or performed a Heroic Intervention this turn. If a mortal wound would make a model with this Obsession lose a wound, roll a D6: on a 5+, the wound isn't lost."
   },
   "91958b604615": {
     "name": "Soul Thirst",
@@ -776,7 +776,7 @@
   "9a8b0f1d6f7a": {
     "name": "Traitor's Embrace",
     "kind": "ability",
-    "plain": "When a melee attack destroys the bearer, roll one D6. On a 2+, the attacking model's unit suffers D3+3 wounds once it has finished making its attacks."
+    "plain": "When a melee attack destroys the bearer, roll one D6: on a 2+, the attacking model's unit suffers D3+3 wounds once it has finished making its attacks."
   },
   "9b395b5e38e8": {
     "name": "Whirling Death",
@@ -824,7 +824,7 @@
   "a4b7d5b542cb": {
     "name": "Altansar 3. Weaver of the Blade Storm",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 9\" of this WARLORD. Until your next Command phase starts, when a model in that unit attacks with a shuriken weapon, an unmodified hit roll of 6 wounds the target automatically."
+    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 9\" of this WARLORD: its unmodified hit rolls of 6 with shuriken weapons wound automatically. This lasts until your next Command phase starts, and applies to every attack a model in that unit makes with a shuriken weapon."
   },
   "a5fa0e125c70": {
     "name": "The Vexator Mask",
@@ -852,7 +852,7 @@
   "ace9d571c0a9": {
     "name": "Saim-Hann: Wild Rider Chieftain",
     "kind": "ability",
-    "plain": "This Warlord's Attacks characteristic goes up by 1. It can perform a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically, and its Heroic Intervention moves can be up to 6\" rather than 3\". All other Heroic Intervention rules still apply."
+    "plain": "This Warlord's Attacks characteristic goes up by 1, and its Heroic Intervention distances are 6\" instead of 3\", both to qualify and to move. It can perform a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically, and its Heroic Intervention moves can be up to 6\" rather than 3\". All other Heroic Intervention rules still apply."
   },
   "ad17f06eda90": {
     "name": "Seer Council (Farseer)",
@@ -867,7 +867,7 @@
   "b3af1bfdee9d": {
     "name": "Shuriken Weapons",
     "kind": "rule",
-    "plain": "Shuriken weapons are Aeldari weapons with an ability that says 'Shuriken'. When an attack is made with one, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 2."
+    "plain": "When an attack made with a shuriken weapon gets an unmodified wound roll of 6, that attack's Armour Penetration characteristic is improved by 2. Many Aeldari weapons are shuriken weapons: each has an ability that says 'Shuriken'."
   },
   "b4f7647eba8f": {
     "name": "2. Schemer Supreme",
@@ -882,12 +882,12 @@
   "b673147e30b0": {
     "name": "Alchemical Maestro",
     "kind": "ability",
-    "plain": "Once per battle, when this model is destroyed, you can skip any rules triggered by its destruction and instead roll one D6 at the end of the phase. On a 2+, set this model up again as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with D3 wounds remaining."
+    "plain": "Once per battle, when this model is destroyed, it can come back: roll one D6 at the end of the phase, and on a 2+, set it up again with D3 wounds remaining. If you choose to roll, skip any rules that its destruction triggers. It must be set up as close as possible to where it was destroyed, and not within Engagement Range of any enemy models."
   },
   "b7695c10c930": {
     "name": "The Phoenix Gem",
     "kind": "ability",
-    "plain": "ASURYANI model only: when the bearer is destroyed for the first time, roll a D6, and on a 2+ set it to one side. When that phase ends, set the bearer up again as near as possible to where it was, not within Engagement Range of any enemy models, with D3 wounds left."
+    "plain": "ASURYANI model only: when the bearer is first destroyed, roll a D6: on a 2+, it comes back at the end of the phase with D3 wounds left. Until then, keep it to one side. Set it back up as close as possible to where it was, not within Engagement Range of any enemy models."
   },
   "b9aab1c67939": {
     "name": "Firesabre",
@@ -897,7 +897,7 @@
   "bb1d54f73ef2": {
     "name": "Biotargeting Orb",
     "kind": "ability",
-    "plain": "COTERIES OF THE HAEMONCULI model only: when the first battle round starts, choose one enemy unit on the battlefield (not a VEHICLE unit). For the rest of the battle, the bearer has the ability below."
+    "plain": "For the rest of the battle, the bearer gains the ability below, which works against one enemy unit you pick at the start of the first battle round. That unit must be on the battlefield and can't be a VEHICLE unit. Only a COTERIES OF THE HAEMONCULI model can have this Relic."
   },
   "bb8580c7f229": {
     "name": "Master Regenerist",
@@ -932,7 +932,7 @@
   "c8003352e380": {
     "name": "Lord of Rebirth",
     "kind": "ability",
-    "plain": "This Warlord regains up to 1 lost wound at the start of each battle round. Whenever it would lose a wound, roll one D6; on a 5+, the wound isn't lost."
+    "plain": "This Warlord regains up to 1 lost wound at the start of each battle round, and each time it would lose a wound, roll one D6: the wound isn't lost on a 5+."
   },
   "c84d4a87ebc9": {
     "name": "Morvaines's Agoniser",
@@ -1002,7 +1002,7 @@
   "d301cd3b2b1f": {
     "name": "1: Ambush of Blades",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your <CRAFTWORLD> CORE or <CRAFTWORLD> CHARACTER units within 9\" of this Warlord. Until your next Command phase starts, melee attacks made by models in that unit have their Armour Penetration characteristic improved by 1."
+    "plain": "In your Command phase, pick one of your <CRAFTWORLD> CORE or <CRAFTWORLD> CHARACTER units within 9\" of this Warlord to improve the AP of its melee attacks by 1. This lasts until your next Command phase starts, and applies to the Armour Penetration characteristic of every melee attack made by a model in that unit."
   },
   "d3ae92a88905": {
     "name": "Headstrong",
@@ -1093,7 +1093,7 @@
   "e35c18538fbe": {
     "name": "Emblem of the Broken Chain",
     "kind": "ability",
-    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 6\" of the bearer. Until your next Command phase starts, that unit can re-roll its Advance rolls and charge rolls."
+    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 6\" of the bearer: it can re-roll Advance and charge rolls until your next Command phase."
   },
   "e37e0e231d90": {
     "name": "Children of the Open Skies",
@@ -1128,7 +1128,7 @@
   "ebbd636b861e": {
     "name": "The Laughing God's Eye",
     "kind": "ability",
-    "plain": "HARLEQUINS model only: while one of your HARLEQUINS units is within 6\" of the bearer, roll one D6 whenever a model in it would lose a wound to a mortal wound. On a 5+, that wound isn't lost. This is an aura ability called The Laughing God's Eye."
+    "plain": "While one of your HARLEQUINS units is within 6\" of the bearer, roll one D6 for each wound its models would lose to a mortal wound: on a 5+, it isn't lost. This is the bearer's aura ability, The Laughing God's Eye, and only a HARLEQUINS model can have this Relic."
   },
   "ec9e20bfe40d": {
     "name": "Precision Blows",
@@ -1148,12 +1148,12 @@
   "f07915b2cde3": {
     "name": "Void mine",
     "kind": "ability",
-    "plain": "Once per battle, in your Movement phase, once the bearer has finished a Normal Move or an Advance, you can choose a point on the battlefield it passed over. For every unit within 6\" of that point, roll a D6, subtracting 1 for units with the CHARACTER keyword (excluding VEHICLE or MONSTER units); on a 4+, the unit rolled for suffers D6 mortal wounds."
+    "plain": "Once per battle, after the bearer makes a Normal Move or Advances in your Movement phase, each unit within 6\" of a point it crossed can suffer D6 mortal wounds. You can pick a point on the battlefield that the bearer moved across, then roll one D6 for every unit within 6\" of it, subtracting 1 for units with the CHARACTER keyword (excluding VEHICLE or MONSTER units); on a 4+, the unit rolled for suffers D6 mortal wounds."
   },
   "f15a74027a09": {
     "name": "Biel-Tan: Natural Leader",
     "kind": "ability",
-    "plain": "In your Command phase, you can pick one of your BIEL-TAN CORE units within 6\" of this Warlord. Until the end of the turn, you can re-roll the hit roll for every attack made by models in that unit."
+    "plain": "In your Command phase, you can pick one of your BIEL-TAN CORE units within 6\" of this Warlord: until the end of the turn, you can re-roll its hit rolls. This applies to every attack made by a model in that unit."
   },
   "f20dfeb694d9": {
     "name": "Shiftshroud of Alanssair",
@@ -1191,7 +1191,7 @@
   "fa22153f0f70": {
     "name": "Labyrinthine Cunning",
     "kind": "ability",
-    "plain": "While this WARLORD is on the battlefield: whenever you or your opponent spends Command Points to use a Stratagem, you can roll a D6 per Command Point spent. Each 6 gains you one Command Point."
+    "plain": "While this WARLORD is on the battlefield, you can roll one D6 per Command Point either player spends on a Stratagem: each 6 gains you one Command Point."
   },
   "fb5171358032": {
     "name": "Rising Crescendo",
@@ -1211,6 +1211,6 @@
   "ff2dc69ae01f": {
     "name": "Iyanden: Stoic Endurance",
     "kind": "ability",
-    "plain": "Add 1 to Combat Attrition tests taken for units with this attribute. When an attack with an Armour Penetration of -1 or -2 is allocated to a model with this attribute, that attack's Armour Penetration is worsened by 1 (so AP -2 becomes AP -1)."
+    "plain": "Add 1 to Combat Attrition tests for units with this attribute, and worsen by 1 the Armour Penetration of attacks with AP -1 or -2 allocated to their models. For example, AP -2 becomes AP -1."
   }
 }

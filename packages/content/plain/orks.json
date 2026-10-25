@@ -234,7 +234,7 @@
   "1de3e95d5627": {
     "name": "Fight Detecta",
     "kind": "ability",
-    "plain": "In your opponent's Movement phase, once the Reinforcements step ends: if an enemy unit arrived as Reinforcements this turn within 12\" of the bearer, you may choose one of your BLOOD AXES CORE units that is within 6\" of the bearer and not in Engagement Range of any enemy units. That BLOOD AXES unit may declare a charge as though it were your Charge phase, but the only target it may choose is that enemy unit, and you add 2 to the charge roll."
+    "plain": "One of your BLOOD AXES CORE units can charge an enemy unit that has just arrived near the bearer. In your opponent's Movement phase, once the Reinforcements step ends: if an enemy unit arrived as Reinforcements this turn within 12\" of the bearer, you may choose one of your BLOOD AXES CORE units that is within 6\" of the bearer and not in Engagement Range of any enemy units. That BLOOD AXES unit may declare a charge as though it were your Charge phase, but the only target it may choose is that enemy unit, and you add 2 to the charge roll."
   },
   "1e07d5fa0576": {
     "name": "No Clan",
@@ -414,7 +414,7 @@
   "2df430e547fb": {
     "name": "Roar of Mork",
     "kind": "psychic",
-    "plain": "MALEDICTION (AURA). Choose one enemy unit within 18\" of the PSYKER that it can see: until the start of your next Psychic phase, its Advance and charge rolls are reduced by 2 each. Also, until the start of your next Psychic phase, any enemy unit within 18\" of this PSYKER has its models' Leadership characteristic reduced by 1 while it is there."
+    "plain": "Malediction (Aura): one enemy unit subtracts 2 from its Advance and charge rolls, and nearby enemy units lose 1 Leadership. Choose one enemy unit within 18\" of the PSYKER that it can see: until the start of your next Psychic phase, its Advance and charge rolls are reduced by 2 each. Also, until the start of your next Psychic phase, any enemy unit within 18\" of this PSYKER has its models' Leadership characteristic reduced by 1 while it is there."
   },
   "2f349d758955": {
     "name": "Beasthide Mantle",
@@ -770,7 +770,7 @@
   "631775a44e5a": {
     "name": "Grot Lash",
     "kind": "ability",
-    "plain": "The bearer gets this ability - Grot Lash (Aura): while one of your GRETCHIN INFANTRY units is within 3\" of any models with a grot-lash, its models' Move characteristic is increased by 1\"."
+    "plain": "Aura: while one of your GRETCHIN INFANTRY units is within 3\" of any models with a grot-lash, its models' Move characteristic is increased by 1\". The bearer gains this as its Grot Lash (Aura) ability."
   },
   "631dc9dc5ed4": {
     "name": "Da Krushin' Armour",
@@ -1219,7 +1219,7 @@
   "9830acf9c5b0": {
     "name": "Squig Hound",
     "kind": "ability",
-    "plain": "The bearer gets this ability - Squig Hound (Aura): while one of your GRETCHIN units is within 3\" of the bearer, its models ignore modifiers to Combat Attrition tests."
+    "plain": "Aura: while one of your GRETCHIN units is within 3\" of the bearer, its models ignore modifiers to Combat Attrition tests. The bearer gains this as its Squig Hound (Aura) ability."
   },
   "98f38313a552": {
     "name": "Grot-Guided Bomm",
@@ -1264,7 +1264,7 @@
   "9ede23ff7b74": {
     "name": "Noise Box",
     "kind": "ability",
-    "plain": "Aura: while an enemy unit is within 6\" of this model, its models' Leadership is reduced by 1 (reduced by 3 instead if this model has destroyed any CHARACTER units during the battle), and Combat Attrition tests taken for that unit are reduced by 1."
+    "plain": "Aura: enemy units within 6\" of this model have their models' Leadership reduced by 1, and Combat Attrition tests taken for them are reduced by 1. If this model has destroyed any CHARACTER units during the battle, the Leadership penalty is 3 instead."
   },
   "9fe183d574b1": {
     "name": "Gargantuan",
@@ -1763,7 +1763,7 @@
   "da73eeaa4201": {
     "name": "Big Bomb",
     "kind": "ability",
-    "plain": "Once per battle, in your Movement phase, once the bearer has finished a Normal Move or an Advance, you can pick a single point on the battlefield that it passed over during this phase. For each unit within 3\" of that point, roll a D6, subtracting 1 from the roll if the unit is a CHARACTER (VEHICLE or MONSTER units excluded). On a 4+, it takes D3 mortal wounds."
+    "plain": "Once per battle, the bearer can drop a big bomb that deals D3 mortal wounds on a 4+ to each unit near a point it moved over. In your Movement phase, once the bearer has finished a Normal Move or an Advance, pick a single point on the battlefield that it passed over during this phase. For each unit within 3\" of that point, roll a D6, subtracting 1 from the roll if the unit is a CHARACTER (VEHICLE or MONSTER units excluded). On a 4+, it takes D3 mortal wounds."
   },
   "da9236fa31cd": {
     "name": "Keep Up!",
