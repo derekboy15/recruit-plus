@@ -87,6 +87,11 @@
       "176": "page number of the book reference for the bolt weapon definition, not a rule value"
     }
   },
+  "0c56aad887df": {
+    "name": "Will of the Arkifane - Unholy Mechanisms",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, one friendly TRAITORIS ASTARTES DAEMON ENGINE model within 3\" of this model adds 1 to its hit rolls. You pick that model when you choose this ability, and it can't be a CHARACTER, AIRCRAFT or TITANIC unit."
+  },
   "0cb378fc98c4": {
     "name": "Hover Jet",
     "kind": "ability",
@@ -136,6 +141,11 @@
     "name": "Remorseless",
     "kind": "ability",
     "plain": "When this unit takes a Combat Attrition test, you can ignore any or all modifiers to it."
+  },
+  "1487bce4b7b5": {
+    "name": "Flawless Perfection",
+    "kind": "ability",
+    "plain": "Models with this trait can ignore hit roll, Weapon Skill and Ballistic Skill modifiers, and an unmodified wound roll of 6 improves the attack's AP by 1. They can ignore any or all of those modifiers when they attack. AP is the attack's Armour Penetration characteristic."
   },
   "1501ddc34d84": {
     "name": "Skyshrike Missile",
@@ -440,6 +450,11 @@
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before taking it off the battlefield. On a 4+, it explodes and every unit within 6\" (other than NURGLE units) takes 1 mortal wound."
   },
+  "43b143c7e3f8": {
+    "name": "Will of the Arkifane",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of the Will of the Arkifane abilities."
+  },
   "43da9bcfdcb4": {
     "name": "Scorn of Sorcery",
     "kind": "stratagem",
@@ -510,6 +525,16 @@
     "kind": "ability",
     "plain": "The bearer's unit gains the ICON keyword. Add 1 to every Combat Attrition test taken for the bearer's unit."
   },
+  "4e04f168a41f": {
+    "name": "Body of Unholy Artifice",
+    "kind": "ability",
+    "plain": "This model has a 4+ invulnerable save, and each attack allocated to it has its Damage reduced by 1 (to a minimum of 1)."
+  },
+  "4e971ae96136": {
+    "name": "Lord of Terror (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this WARLORD, your opponent rolls one extra D6 for each of its Morale tests and drops the lowest. If that unit fails a Morale test, it counts as below Half-strength for Combat Attrition tests until the phase ends."
+  },
   "4f33cd9efdda": {
     "name": "Trophies of Slaughter",
     "kind": "ability",
@@ -539,6 +564,11 @@
     "name": "Tip of the Spear",
     "kind": "stratagem",
     "plain": "At the start of your Charge phase, if none of your BLACK LEGION units are within Engagement Range of any enemy units: pick whichever of your BLACK LEGION CORE, BLACK LEGION DAEMONKIN or BLACK LEGION CHARACTER units is closest to an enemy unit. For the rest of the turn: charge rolls for that unit can be re-rolled; and each time one of its models makes a melee attack against an enemy unit that is within your opponent's deployment zone or in range of an objective marker, improve that attack's Armour Penetration characteristic by 1."
+  },
+  "51b11070c600": {
+    "name": "Masters of Duplicity",
+    "kind": "ability",
+    "plain": "Ranged attacks from more than 12\" away subtract 1 from the hit roll against units with this trait, and these units can act or charge after Falling Back. If a model in the target unit has a Wounds characteristic of 10 or more, the penalty needs the attacker to be more than 18\" away instead. These units can perform an action or declare a charge in the same turn they Fell Back, but if one declares a charge while performing an action, that action still fails."
   },
   "5287d8ede3fc": {
     "name": "Heavy armour",
@@ -788,6 +818,11 @@
     "kind": "ability",
     "plain": "Aura: add 1 to Psychic tests taken by any friendly <LEGION> PSYKER while it is within 9\" of this model."
   },
+  "70fca4487c2b": {
+    "name": "Techinfernal Loci",
+    "kind": "ability",
+    "plain": "With the DAEMON ENGINE keyword, this unit always counts as engaged in Wanton Destruction, Wanton Massacre and Wanton Slaughter; without it, it never does."
+  },
   "712ec8fab375": {
     "name": "Daemonforge",
     "kind": "stratagem",
@@ -807,6 +842,11 @@
     "name": "Punishing Volley",
     "kind": "stratagem",
     "plain": "If you did not take the first turn: at the end of your opponent's first Movement phase, pick one of your DEVASTATION BATTERY units. It can shoot right then, treating it as the Shooting phase."
+  },
+  "7411c96f7117": {
+    "name": "Experimental Enhancements",
+    "kind": "ability",
+    "plain": "Models with this trait get 1\" extra Move and 1 extra Strength, and on a 4+ can fight one last time when killed in melee. Add 1\" to their Movement characteristic and 1 to their Strength characteristic. When a model with this trait is destroyed by a melee attack before it has fought this phase, roll one D6: on a 4+, leave it on the battlefield for now. It can fight once the attacking model's unit has made all its attacks, and is removed afterwards. While it makes these attacks, if any of its characteristics change as it loses wounds, use the profile for a model with 1 wound remaining."
   },
   "745dda1c35bb": {
     "name": "Apostle of the Dark Council",
@@ -842,6 +882,11 @@
     "name": "Hunter in the Skies",
     "kind": "ability",
     "plain": "Add 1 to the hit roll of this model's attacks against units that can FLY."
+  },
+  "775e7bafb8f5": {
+    "name": "Raiders from the Maelstrom",
+    "kind": "ability",
+    "plain": "Units with this trait can declare a charge after Advancing, and each of their models counts as two models when working out who controls an objective marker. A model with a Wounds characteristic of 10 or more counts as 5 models instead."
   },
   "789399fc475b": {
     "name": "Lightning claw",
@@ -988,6 +1033,11 @@
     "kind": "weapon",
     "plain": "Add 1 to the hit roll of attacks this weapon makes against an AIRCRAFT unit, and its attacks that are allocated to an AIRCRAFT unit have Damage D3+3."
   },
+  "87f581550a36": {
+    "name": "Disciples of Shadows",
+    "kind": "ability",
+    "plain": "Your LEGION DISCIPLES units add 1 to Combat Attrition tests, and ranged attacks against them from more than 12\" away subtract 1 from the hit roll. They gain this as the Disciples of Shadows ability."
+  },
   "883d5a02c707": {
     "name": "Hellforged heavy plasma cannon - Supercharge",
     "kind": "weapon",
@@ -1002,6 +1052,11 @@
     "name": "Chosen",
     "kind": "ability",
     "plain": "As soon as this unit destroys its first enemy unit, it counts as engaged in Wanton Destruction, Wanton Massacre and Wanton Slaughter for the rest of the battle."
+  },
+  "8ab136072630": {
+    "name": "Terror Tactics",
+    "kind": "ability",
+    "plain": "Units with this trait lower nearby enemies' Leadership, and add 1 to melee wound rolls against units that are below Half-strength or have Leadership 5 or less. They have the Terror Tactics aura: enemy units within 9\" of a unit with this trait get 2 subtracted from their models' Leadership, and 1 subtracted from their Combat Attrition tests. When a model with this trait attacks with a melee weapon, add 1 to the wound roll if the target unit was below Half-strength when the attacker's unit was chosen to fight, or if the target unit's Leadership characteristic is 5 or less."
   },
   "8bbf196e068e": {
     "name": "Hideous Regeneration",
@@ -1128,6 +1183,11 @@
     "kind": "ability",
     "plain": "While this model has 7 or fewer wounds left, re-roll wound rolls of 1 for its attacks."
   },
+  "9efb018d8c8e": {
+    "name": "Iron Within, Iron Without",
+    "kind": "ability",
+    "plain": "Models with this trait deny their targets the benefit of cover, and attacks allocated to them with an Armour Penetration of -1 or -2 have it worsened by 1."
+  },
   "9f10018e785e": {
     "name": "Mark of Chaos Ascendant",
     "kind": "ability",
@@ -1152,6 +1212,11 @@
     "name": "Runes of the Blood God",
     "kind": "ability",
     "plain": "Roll one D6 whenever this model is picked as the target of a psychic power or would take mortal wounds because of one. On a 4+, the psychic power has no effect on this model."
+  },
+  "a1ab03a84bda": {
+    "name": "Black Crusaders",
+    "kind": "ability",
+    "plain": "Units with this trait can ignore Combat Attrition modifiers, and their models add 1 to hit when shooting the closest enemy or fighting after charging. You can ignore any or all of the modifiers to a Combat Attrition test taken for these units. A ranged attack gets the bonus if its target was the closest eligible enemy unit when the attacker's unit was chosen to shoot; a melee attack gets it if the attacker's unit made a charge move this turn."
   },
   "a1be59e03b18": {
     "name": "Chainsword",
@@ -1637,6 +1702,11 @@
     "kind": "psychic",
     "plain": "Blessing: if this power is manifested, pick one of your <LEGION> INFANTRY or <LEGION> CHAOS SPAWN units within 6\" of this PSYKER.\n- It can make a Normal Move. If it Advanced during your previous Movement phase, it is still treated as having Advanced this turn.\n- Until the turn ends, it can't declare a charge."
   },
+  "dd4b36e38c4a": {
+    "name": "Will of the Arkifane - Agonise Machine Spirits",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, models in one enemy VEHICLE unit within 18\" of this model that it can see have half their Move and Attacks. You pick that unit when you choose this ability."
+  },
   "de00e8dc20c4": {
     "name": "Foul Alterations",
     "kind": "stratagem",
@@ -1721,6 +1791,11 @@
     "name": "The Ashen Axe",
     "kind": "weapon",
     "plain": "Each time the bearer fights, if an attack made by this weapon destroyed any enemy models, roll 2D6. If the total is equal to or greater than the Leadership of the destroyed model's unit, then for the rest of the battle that unit can't Advance or Fall Back, and it can't fight in the Fight phase until every eligible unit from your army has fought."
+  },
+  "e71caf2b45e1": {
+    "name": "Vashtorr's hammer",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a VEHICLE unit, a successful unmodified wound roll of 5+ deals 4 mortal wounds to the target, and then the attack sequence ends."
   },
   "e87aaf7dcbb5": {
     "name": "Subterranean Assault",
@@ -1807,6 +1882,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, FABIUS BILE can begin this action. If he does, pick one of your TRAITORIS ASTARTES CORE units within 3\" of him that has neither the MARK OF CHAOS keyword nor an enhancement. The action is completed at the end of your Shooting phase if the chosen unit is still within 3\" of FABIUS BILE. If it is completed, roll one D3: the chosen unit gains the matching enhancement from the Enhance Warriors table for the rest of the battle."
   },
+  "f3e819a6013d": {
+    "name": "Profane Zeal",
+    "kind": "ability",
+    "plain": "Models with this trait can re-roll melee hit rolls after charging, being charged or making a Heroic Intervention, and ignore mortal wounds on a 5+. That re-roll works in any turn when the model's unit made a charge move, performed a Heroic Intervention or was charged. Whenever a model with this trait would lose a wound to a mortal wound, roll one D6: on a 5+, it doesn't lose that wound."
+  },
   "f3f7f99fdfed": {
     "name": "Tank Destroyers",
     "kind": "stratagem",
@@ -1866,6 +1946,11 @@
     "name": "Heralds of Doom",
     "kind": "stratagem",
     "plain": "In your Command phase: pick one of your BLACK LEGION LEGIONARIES units on the battlefield. Until the start of your next Command phase, it gains this ability: 'Heralds of Doom (Aura): while an enemy unit that has the Objective Secured ability is within 6\" of this unit, that enemy unit loses Objective Secured.'"
+  },
+  "fc496e44731f": {
+    "name": "Will of the Arkifane - Ghost in the Machine",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, the ranged weapons of models in one enemy unit within 18\" of this model that it can see have half their Range. You pick that unit when you choose this ability."
   },
   "fc5621c32261": {
     "name": "Explodes",

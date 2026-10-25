@@ -319,6 +319,11 @@
     "kind": "weapon",
     "plain": "Blast. Each time an attack with this profile gets an unmodified hit roll of 1, the bearer suffers 1 mortal wound once it has finished shooting this weapon."
   },
+  "506fca611496": {
+    "name": "Fanatic (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your RENEGADES AND HERETICS CORE units is within 6\" of this model, you can ignore any or all modifiers to its Combat Attrition tests."
+  },
   "53084a96eaeb": {
     "name": "Chaos Sigil",
     "kind": "ability",

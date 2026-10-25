@@ -169,6 +169,11 @@
     "kind": "psychic",
     "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- The unit can't fire Overwatch or Set to Defend.\n- Track a Spitesquall tally for the unit: add one to it every time one of its models is destroyed. At the end of each phase, if the unit is still on the battlefield, roll one D6 for every mark on its tally; the unit suffers 1 mortal wound for each 5+ rolled. Then, at the end of every phase, its tally goes back to 0 once you've rolled."
   },
+  "4b64ad040bfa": {
+    "name": "Army of Renown - Disciples of Be'lakor",
+    "kind": "ability",
+    "plain": "Every unit in your army gets the DISCIPLES OF BE'LAKOR keyword, except UNALIGNED and BUILDING units. Every unit in your army with the HERETIC ASTARTES Faction keyword, except CHAOS CULTIST units, also gets the LEGION DISCIPLES keyword."
+  },
   "4c0d5b9db692": {
     "name": "Dread Dominion (Aura)",
     "kind": "ability",

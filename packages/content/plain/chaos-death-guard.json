@@ -640,6 +640,11 @@
     "kind": "stratagem",
     "plain": "When the enemy Psychic phase starts: for the rest of the phase, enemy PSYKERS within 18\" of VULGRAR THRICE-CURSED have 1 subtracted from their Psychic tests."
   },
+  "e31d2293d65b": {
+    "name": "Outbreak Assault",
+    "kind": "rule",
+    "plain": "The rules for Outbreak Assault aren't included in the army data this app uses. They're in The Book of Rust."
+  },
   "e91359e3cde7": {
     "name": "Fiery Demise",
     "kind": "stratagem",

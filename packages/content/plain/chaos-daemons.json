@@ -274,6 +274,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your DAEMONETTES CORE units within 6\" of this model. Until your next Command phase starts, each melee attack made by a model in that unit has its Armour Penetration characteristic improved by 1."
   },
+  "44573f9f60d2": {
+    "name": "Ritual Slaughter (Action)",
+    "kind": "ability",
+    "plain": "While a model is embarked inside this TRANSPORT model, this model can perform the Ritual Slaughter action, which can earn you Warp Storm points. It can start the action at the end of your Movement phase, and the action is completed at the end of your next Charge phase. When it's completed, roll one D6 for each of your LEGIONES DAEMONICA KHORNE units that is within both 12\" of this model and Engagement Range of an enemy unit: you gain 1 Warp Storm point for each 4+."
+  },
   "445bb91069ee": {
     "name": "Beast Handler",
     "kind": "ability",
@@ -334,6 +339,11 @@
     "kind": "stratagem",
     "plain": "Use in your opponent's Shooting phase or in the Fight phase. Pick one of your LEGIONES DAEMONICA NURGLE units. Until the end of the phase, subtract 1 from the hit roll of every attack an enemy model makes against it."
   },
+  "59c8aaf6844f": {
+    "name": "Witchbane (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while any PSYKER unit is within 18\" of this model, subtract 2 from that unit's Psychic tests."
+  },
   "5c41379a3e4f": {
     "name": "Crushing Bulk",
     "kind": "stratagem",
@@ -388,6 +398,11 @@
     "name": "Malodorous Pall",
     "kind": "psychic",
     "plain": "Malediction. When manifested, pick one enemy unit within 18\" of this PSYKER that it can see. Until the start of your next Psychic phase, that unit:\n- can't perform actions (if it is performing one right now, that action fails at once);\n- loses the Objective Secured ability."
+  },
+  "69419478e874": {
+    "name": "Skull Altar",
+    "kind": "ability",
+    "plain": "This model can transport 1 KHORNE INFANTRY HERALD model."
   },
   "6958f670c2ca": {
     "name": "Contorted Epitome",
@@ -603,6 +618,11 @@
     "name": "Ritual knife",
     "kind": "ability",
     "plain": "At the end of the Fight phase, you can choose an enemy model within 3\" of the bearer that lost one or more wounds this phase to the bearer's attacks. Roll a D6; on a 2+, the chosen model suffers D3 mortal wounds."
+  },
+  "9536144bd20c": {
+    "name": "War Altar",
+    "kind": "ability",
+    "plain": "While a model is embarked inside this TRANSPORT model, this TRANSPORT also has all of that model's aura abilities."
   },
   "955790eed29f": {
     "name": "Infernal Gateway",

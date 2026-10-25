@@ -1,4 +1,9 @@
 {
+  "0859b518bac4": {
+    "name": "Explosive Demise",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, roll a dice before you remove it. On a 5+, every unit within 3\" takes 1 mortal wound."
+  },
   "0a0dfefa3d35": {
     "name": "Servants of the Abyss",
     "kind": "ability",
@@ -48,6 +53,11 @@
     "name": "Avalanche of Muscle",
     "kind": "ability",
     "plain": "In any turn in which this model made a successful charge, add 1 to its Attacks characteristic."
+  },
+  "83b62760995e": {
+    "name": "Unrestrained Power",
+    "kind": "ability",
+    "plain": "When this model takes a Psychic test, you can re-roll any dice that roll a 1. But it suffers Perils of the Warp on any double, not only a double 1 or double 6."
   },
   "843ed55da334": {
     "name": "Fanatical Devotion",
