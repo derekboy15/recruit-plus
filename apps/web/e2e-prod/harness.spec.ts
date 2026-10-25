@@ -27,7 +27,7 @@ test('a list created in the app is pushed to the remote', async ({ page, remote,
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: /Arks of Omen Detachment/ }).click();
   await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('radio', { name: 'Dynasty: Szarekhan' }).check();
+  await page.getByRole('radio', { name: 'Szarekhan' }).check();
   await page.getByRole('button', { name: 'Create list' }).click();
   await expect(page).toHaveURL(/\/build\/[0-9a-f-]{36}$/);
   // Auto-sync runs every minute, on reconnect and on focus; focus is the quick way in.

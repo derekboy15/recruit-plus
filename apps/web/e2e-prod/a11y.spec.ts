@@ -42,14 +42,47 @@ const STATES: State[] = [
     name: 'list editor: add unit and wargear',
     path: (i) => `/build/${i.listId}`,
     act: async (p) => {
-      await click('+ Add unit')(p);
+      await click(/^Add unit$/)(p);
       await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('searchbox', { name: 'Search units' }).fill('warriors');
-      await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('button', { name: /^Necron Warriors/ }).click();
+      await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('button', { name: 'Add Necron Warriors' }).click();
       await expect(p.getByRole('dialog', { name: 'Necron Warriors' })).toBeVisible();
     },
   },
-  { name: 'list editor: problems', path: (i) => `/build/${i.listId}`, act: async (p) => { await click(/problems?$/)(p); await expect(p.getByRole('dialog', { name: 'Problems' })).toBeVisible(); } },
-  { name: 'list editor: export', path: (i) => `/build/${i.listId}`, act: click('Export') },
+  {
+    name: 'list editor: unit preview',
+    path: (i) => `/build/${i.listId}`,
+    act: async (p) => {
+      await click(/^Add unit$/)(p);
+      await p.getByRole('dialog', { name: 'Add a unit' }).getByRole('button', { name: /^Skorpekh Destroyers/ }).click();
+      await expect(p.getByRole('dialog', { name: 'Skorpekh Destroyers' })).toBeVisible();
+    },
+  },
+  {
+    name: 'list editor: army choice',
+    path: (i) => `/build/${i.listId}`,
+    act: async (p) => {
+      await click(/^Dynasty: /)(p);
+      await expect(p.getByRole('dialog', { name: 'Choose: Dynasty' })).toBeVisible();
+    },
+  },
+  { name: 'list editor: problems', path: (i) => `/build/${i.listId}`, act: async (p) => { await click(/to fix$|^All checks pass$/)(p); await expect(p.getByRole('dialog', { name: 'Problems' })).toBeVisible(); } },
+  {
+    name: 'list editor: export',
+    path: (i) => `/build/${i.listId}`,
+    act: async (p) => {
+      await click('List actions')(p);
+      await p.getByRole('menuitem', { name: 'Export' }).click();
+      await expect(p.getByRole('dialog', { name: 'Export list' })).toBeVisible();
+    },
+  },
+  {
+    name: 'lists: a list’s menu',
+    path: () => '/build',
+    act: async (p) => {
+      await click(/^Actions for /)(p);
+      await expect(p.getByRole('menu')).toBeVisible();
+    },
+  },
   { name: 'rules', path: () => '/rules' },
   { name: 'rules article', path: () => '/rules/basics' },
   { name: 'glossary filtered', path: () => '/rules/glossary', act: async (p) => p.getByRole('searchbox').first().fill('cover') },
@@ -87,7 +120,7 @@ const STATES: State[] = [
       await click('Next')(p);
       await click(/Arks of Omen Detachment/)(p);
       await click('Next')(p);
-      await expect(p.getByRole('radio', { name: 'Dynasty: Szarekhan' })).toBeVisible();
+      await expect(p.getByRole('radio', { name: 'Szarekhan' })).toBeVisible();
     },
   },
   {

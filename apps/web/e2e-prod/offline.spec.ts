@@ -111,10 +111,10 @@ test.describe('after one online visit', () => {
     await page.goto(`/build/${listId}`);
     const points = page.getByRole('meter', { name: 'Points' });
     const before = (await points.getAttribute('aria-valuenow')) ?? '';
-    await page.getByRole('button', { name: '+ Add unit' }).click();
+    await page.getByRole('button', { name: 'Add unit', exact: true }).click();
     const picker = page.getByRole('dialog', { name: 'Add a unit' });
     await picker.getByRole('searchbox', { name: 'Search units' }).fill('warriors');
-    await picker.getByRole('button', { name: /^Necron Warriors/ }).click();
+    await picker.getByRole('button', { name: 'Add Necron Warriors' }).click();
     await page.getByRole('dialog', { name: 'Necron Warriors' }).getByRole('button', { name: 'Done' }).click();
     await expect(points).not.toHaveAttribute('aria-valuenow', before);
   });
@@ -155,9 +155,12 @@ test.describe('after one online visit', () => {
   test('sync resumes when back online', async ({ page, context, remote }) => {
     const { listId } = await visitOnlineThenGoOffline(page, context, remote);
     await page.goto(`/build/${listId}`);
-    const name = page.getByRole('textbox', { name: 'List name' });
-    await name.fill('Renamed offline');
-    await name.blur();
+    await page.getByRole('button', { name: 'List actions' }).click();
+    await page.getByRole('menuitem', { name: 'Rename' }).click();
+    const rename = page.getByRole('dialog', { name: 'Rename list' });
+    await rename.getByRole('textbox', { name: 'List name' }).fill('Renamed offline');
+    await rename.getByRole('button', { name: 'Save' }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Renamed offline' })).toBeVisible();
     const pushedBefore = remote.pushes.length;
     await page.waitForTimeout(1000);
     expect(remote.pushes.length).toBe(pushedBefore);
