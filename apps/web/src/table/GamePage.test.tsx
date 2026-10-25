@@ -1,10 +1,12 @@
 import 'fake-indexeddb/auto';
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../factions/dataClient';
 import { stubGeneratedData } from '../lists/__fixtures__/generatedData';
+import { necronsListData } from '../lists/__fixtures__/necronsList';
+import { createList } from '../lists/listStore';
 import { TestProviders } from '../rules/__fixtures__/TestProviders';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
@@ -40,11 +42,15 @@ async function seed(setup: TableSetup, pos?: Pos, extra: [EventBody, Pos][] = []
   await createRepository(db).saveDoc({ id, kind: 'game', ownerId: 'user-1', data });
   return id;
 }
-function renderGame(id: string, roll?: (sides: 3 | 6) => number) {
+/** The URL's query string, so tests can see where the army drawer is kept. */
+function Where() {
+  return <output data-testid="where">{useLocation().search}</output>;
+}
+function renderGame(id: string, roll?: (sides: 3 | 6) => number, search = '') {
   render(
-    <TestProviders db={db} path={`/table/${id}`}>
+    <TestProviders db={db} path={`/table/${id}${search}`}>
       <Routes>
-        <Route path="/table/:id" element={<GamePage roll={roll} />} />
+        <Route path="/table/:id" element={<><GamePage roll={roll} /><Where /></>} />
         <Route path="/table/:id/summary" element={<p>Summary page</p>} />
       </Routes>
     </TestProviders>,
@@ -345,4 +351,67 @@ test('an ended game also offers Undo the end beside the summary link', async () 
   await u.click(screen.getByRole('button', { name: 'Undo the end' }));
   await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
   expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
+
+test('Your army opens the list read-only, and Close takes it away', async () => {
+  const u = userEvent.setup();
+  const listId = await createList(createRepository(db), 'user-1', await necronsListData());
+  const setup = testSetup();
+  setup.players.A.listId = listId;
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Your army' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Necrons Strike Force' });
+  expect(screen.getByTestId('where')).toHaveTextContent('?army=A');
+  await u.click(within(sheet).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
+  expect(screen.getByTestId('where')).toBeEmptyDOMElement();
+});
+
+test('a game with no list offers no army button', async () => {
+  renderGame(await seed(testSetup()));
+  await screen.findByRole('heading', { level: 1 });
+  expect(screen.queryByRole('button', { name: /army$/ })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Armies' })).toBeNull();
+});
+
+test("a list deleted since the game started still opens the drawer's own message", async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone';
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Your army' }));
+  expect(await screen.findByText('This list isn’t on this device any more.')).toBeVisible();
+});
+
+test('two lists share an Armies menu', async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone-a';
+  setup.players.B.listId = 'gone-b';
+  setup.players.B.name = 'Sam';
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Armies' }));
+  expect(screen.getByRole('menuitem', { name: 'Your army' })).toBeVisible();
+  await u.click(screen.getByRole('menuitem', { name: 'Sam’s army' }));
+  expect(await screen.findByText('This list isn’t on this device any more.')).toBeVisible();
+  expect(screen.getByTestId('where')).toHaveTextContent('?army=B');
+});
+
+test('a game opened with ?army= shows the drawer; closing it keeps the game and its tab', async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone';
+  renderGame(await seed(setup), undefined, '?tab=Log&army=A');
+  const sheet = await screen.findByRole('dialog', { name: 'Your army' });
+  await u.click(within(sheet).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
+  expect(screen.getByRole('heading', { level: 1, name: 'Cleanse the Land' })).toBeVisible();
+  expect(screen.getByTestId('where')).toHaveTextContent('?tab=Log');
+  expect(screen.getByRole('list', { name: 'Game log' })).toBeVisible();
+});
+
+test('?army= for a player without a list opens nothing', async () => {
+  renderGame(await seed(testSetup()), undefined, '?army=A');
+  await screen.findByRole('heading', { level: 1 });
+  expect(screen.queryByRole('dialog')).toBeNull();
 });

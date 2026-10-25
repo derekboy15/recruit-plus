@@ -141,6 +141,21 @@ test('short tracked game', async ({ page, context }, testInfo) => {
   await page.getByText('Mission: Cleanse the Land').click();
   await page.evaluate(() => window.scrollTo(0, 0));
 
+  // Your army: the seeded list, read-only, in its own sheet. Close and the phone's Back button both take it away.
+  await page.getByRole('button', { name: 'Your army' }).click();
+  const army = page.getByRole('dialog', { name: 'Necrons Strike Force' });
+  await expect(army).toBeVisible();
+  await expect(page).toHaveURL(/[?&]army=A/);
+  await checkScreen(page, testInfo, 'army');
+  await army.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page).not.toHaveURL(/army=/);
+  await page.getByRole('button', { name: 'Your army' }).click();
+  await expect(army).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(position(page)).toHaveText('Round 1 · Your turn · Command phase');
+
   // The smallest phone: the long name must truncate, not push the header or the scoreboard sideways.
   const size = page.viewportSize()!;
   await page.setViewportSize({ width: 320, height: 700 });

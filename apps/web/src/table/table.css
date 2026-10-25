@@ -33,6 +33,11 @@ details.card summary { min-height: var(--touch); display: flex; align-items: cen
    bleeds to the edges of .shell__main the way a lone page header does. */
 .game__top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--bg); }
 .game__top .page-head { position: static; margin: 0; }
+/* The army button (one list) or Armies menu (two) beside the game menu: a labelled button, its label cut short when a
+   long player name would crowd out the mission name. */
+.game__army { gap: 6px; padding: 0 0.7rem; max-width: 40vw; }
+.game__army span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.game__armies .menu__trigger { width: auto; gap: 6px; padding: 0 0.7rem; }
 .scoreboard { background: var(--bg); padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); }
 .scoreboard__players { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 .scoreboard__player { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0 0.5rem; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
