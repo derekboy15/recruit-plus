@@ -64,6 +64,8 @@ export interface RuleExclusion {
   name: string;
   /** Only the row with this BSData id, when the catalogue has several rules of that name (an empty duplicate). */
   id?: string;
+  /** A unit whose datasheet also shows the rule as an ability: it goes from there too. */
+  unit?: string;
   reason: string;
   source: string;
 }
@@ -79,6 +81,21 @@ export function excludeRules(catalogueName: string, rules: CatalogueOut['rules']
     }
   }
   return rules.filter((r) => !own.some((x) => hits(x, r)));
+}
+
+/** The units without the abilities that unit-level exclusions name; throws if the unit or its ability is missing. */
+export function excludeUnitAbilities<U extends { name: string; abilities: { name: string }[] }>(catalogueName: string, units: U[], exclusions: RuleExclusion[]): U[] {
+  const own = exclusions.filter((x) => x.catalogueName === catalogueName && x.unit);
+  for (const x of own) {
+    if (!units.some((u) => u.name === x.unit && u.abilities.some((a) => a.name === x.name))) {
+      throw new Error(`rule-exclusions.json: ${catalogueName} unit "${x.unit}" has no ability "${x.name}"`);
+    }
+  }
+  if (!own.length) return units;
+  return units.map((u) => {
+    const drop = own.filter((x) => x.unit === u.name).map((x) => x.name);
+    return drop.length ? { ...u, abilities: u.abilities.filter((a) => !drop.includes(a.name)) } : u;
+  });
 }
 
 /** The .gst's roster file is always `system`. */
@@ -131,7 +148,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     const faction = overrides.factionMap[cat.name];
     if (!faction) throw new Error(`No faction-map entry for catalogue "${cat.name}"`);
     const joined = joinWahapedia(extractUnits(gd, cat.id), cat.name, w, overrides);
-    const units = [...joined.units].sort((a, b) => roleOrder(a) - roleOrder(b) || a.name.localeCompare(b.name));
+    const units = excludeUnitAbilities(cat.name, joined.units, ruleExclusions).sort((a, b) => roleOrder(a) - roleOrder(b) || a.name.localeCompare(b.name));
     const library = !playable.has(cat.name);
     const out: CatalogueOut = {
       id: cat.id,
@@ -193,7 +210,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const g of content.guides) writeFileSync(join(opts.outDir, 'guides', `${g.slug}.json`), JSON.stringify(g));
 
   mkdirSync(join(opts.outDir, 'roster'), { recursive: true });
-  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints], ['modifier-removals.json', overrides.modifierRemovals]] as const) {
+  for (const [file, list] of [['costs.json', overrides.costs], ['faction-keywords.json', overrides.factionKeywords], ['constraints.json', overrides.constraints], ['add-constraints.json', overrides.addedConstraints], ['modifier-removals.json', overrides.modifierRemovals], ['force-removals.json', overrides.forceRemovals]] as const) {
     for (const o of list) if (!rosterSources.some((c) => c.name === o.catalogueName)) throw new Error(`${file} names unknown catalogue "${o.catalogueName}"`);
   }
   // The .gst's category ids by name: faction-keywords.json links units to its "Faction: …" categories.
@@ -207,7 +224,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   for (const cat of rosterSources) {
     const slug = rosterSlug(cat);
     const scopeCategories = categoryNamesById(cat === gd.system ? [gd.system] : catalogueScope(gd, cat.id));
-    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, modifierRemovals: overrides.modifierRemovals, systemCategories, scopeCategories, gearIds: gear });
+    const file = emitRosterFile(cat, slug, { costs: overrides.costs, factionKeywords: overrides.factionKeywords, constraints: overrides.constraints, addedConstraints: overrides.addedConstraints, modifierRemovals: overrides.modifierRemovals, forceRemovals: overrides.forceRemovals, systemCategories, scopeCategories, gearIds: gear });
     rosterFiles.push(file);
     writeFileSync(join(opts.outDir, 'roster', `${slug}.json`), JSON.stringify(file));
   }

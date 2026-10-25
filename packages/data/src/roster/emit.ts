@@ -92,6 +92,17 @@ export interface ModifierRemoval {
   source: string;
 }
 
+/**
+ * A catalogue-level detachment (forceEntry) that isn't a 9th-edition rule (overrides/force-removals.json): it is left
+ * out of the roster file, so the builder never offers it.
+ */
+export interface ForceRemoval {
+  catalogueName: string;
+  forceId: string;
+  forceName: string;
+  source: string;
+}
+
 /** Corrections applied while emitting; build.ts loads them from overrides/ and checks their catalogue names. */
 export interface EmitOverrides {
   costs: CostOverride[];
@@ -99,6 +110,7 @@ export interface EmitOverrides {
   constraints: ConstraintOverride[];
   addedConstraints: AddedConstraint[];
   modifierRemovals: ModifierRemoval[];
+  forceRemovals: ForceRemoval[];
   /** The .gst's category ids by name ("Faction: Imperium" → id), for factionKeywords. */
   systemCategories: Map<string, string>;
   /**
@@ -408,6 +420,15 @@ function applyModifierRemovals(file: RosterFile, catalogueName: string, removals
   }
 }
 
+function applyForceRemovals(file: RosterFile, catalogueName: string, removals: ForceRemoval[]): void {
+  for (const o of removals.filter((x) => x.catalogueName === catalogueName)) {
+    const force = file.forces.find((f) => f.id === o.forceId);
+    if (!force) throw new Error(`force-removals.json: "${catalogueName}" has no detachment ${o.forceId}`);
+    if (force.name !== o.forceName) throw new Error(`force-removals.json: "${catalogueName}" detachment ${o.forceId} expects "${o.forceName}" but found "${force.name}"`);
+    file.forces = file.forces.filter((f) => f !== force);
+  }
+}
+
 function applyConstraintOverrides(
   file: RosterFile,
   catalogueName: string,
@@ -472,5 +493,6 @@ export function emitRosterFile(cat: RawCatalogue, slug: string, overrides: Parti
   applyAddedConstraints(file, cat.name, overrides.addedConstraints ?? []);
   applyConstraintOverrides(file, cat.name, overrides.constraints ?? [], overrides.systemCategories ?? new Map(), overrides.scopeCategories ?? new Map());
   applyModifierRemovals(file, cat.name, overrides.modifierRemovals ?? []);
+  applyForceRemovals(file, cat.name, overrides.forceRemovals ?? []);
   return file;
 }

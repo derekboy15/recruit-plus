@@ -23,10 +23,5 @@
     "name": "Aid Unlooked For",
     "kind": "ability",
     "plain": "When you deploy, you can keep this unit in the aether rather than putting it on the battlefield. It can then materialise at the end of any of your Movement phases: place it anywhere on the battlefield over 9\" away from every enemy model."
-  },
-  "ef853b04365d": {
-    "name": "Saviours From Beyond",
-    "kind": "ability",
-    "plain": "As long as your Warlord is from the IMPERIUM, this unit can go in a Vanguard Detachment even if that Detachment has no HQ units. If you do this, that Detachment's Command Benefits become 'None'."
   }
 }

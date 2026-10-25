@@ -6,7 +6,7 @@ import { loadGameData } from '../src/bsdata/gamedata';
 import type { RawCatalogue, RawNode } from '../src/bsdata/types';
 import { buildAll } from '../src/build';
 import type { DataIndex } from '../src/model/types';
-import { emitRosterFile, type AddedConstraint, type ConstraintOverride, type CostOverride, type FactionKeywordOverride, type ModifierRemoval } from '../src/roster/emit';
+import { emitRosterFile, type AddedConstraint, type ConstraintOverride, type CostOverride, type FactionKeywordOverride, type ForceRemoval, type ModifierRemoval } from '../src/roster/emit';
 import { COST_CP, COST_PL, COST_PTS, type Cond, type CondGroup, type Constraint, type Mod, type RNode, type RosterFile } from '../src/roster/types';
 
 const ROOT = join(__dirname, '..');
@@ -288,6 +288,15 @@ describe('mini fixture', () => {
     expect(emit({ field: 'no-such-field' })).toThrow(/no-such-field/);
   });
 
+  test('force removals drop one catalogue-level detachment, and throw on an unknown id or a different name', () => {
+    const removal: ForceRemoval = { catalogueName: 'Mini System', forceId: 'force-patrol', forceName: 'Patrol Detachment', source: 'test' };
+    const emit = (o: Partial<ForceRemoval>) => emitRosterFile(gd.system, 'system', { forceRemovals: [{ ...removal, ...o }] });
+    expect(emit({}).forces).toEqual([]);
+    expect(emit({ catalogueName: 'Other' }).forces.map((f) => f.id)).toEqual(['force-patrol']);
+    expect(() => emit({ forceId: 'missing' })).toThrow(/force-removals\.json: "Mini System" has no detachment missing/);
+    expect(() => emit({ forceName: 'Wrong' })).toThrow(/expects "Wrong" but found "Patrol Detachment"/);
+  });
+
   const added = (o: Partial<AddedConstraint> = {}, c: Partial<AddedConstraint['constraint']> = {}): AddedConstraint => ({
     catalogueName: 'Mini Faction',
     entryId: 'se-warriors',
@@ -494,6 +503,10 @@ describe('real BSData v9.8.0', () => {
     const links = allNodes(read('aeldari-aeldari-library')).filter((n) => n.kind === 'link' && n.name === "Harlequin's Kiss");
     expect(links.length).toBeGreaterThan(0);
     expect(links.some((n) => n.costs?.[COST_PTS] === 10)).toBe(true);
+  });
+
+  test("the Legion of the Damned's own no-HQ Vanguard is gone (force-removals.json)", () => {
+    expect(read('imperium-legion-of-the-damned').forces.map((f) => f.id)).not.toContain('0383-bad5-390e-4cca');
   });
 
   test('dropped elements: no Crusade or Battle Honours nodes, no nested forces', () => {

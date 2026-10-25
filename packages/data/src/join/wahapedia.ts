@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import type { BattlefieldRole, FactionGroup, UnitOut } from '../model/types';
 import type { CoreStratagem, StratagemDetail, StratagemExclusion, StratagemFaction } from '../extract/stratagems';
 import type { OptionStratagem } from '../info';
-import type { AddedConstraint, ConstraintOverride, CostOverride, FactionKeywordOverride, ModifierRemoval } from '../roster/emit';
+import type { AddedConstraint, ConstraintOverride, CostOverride, FactionKeywordOverride, ForceRemoval, ModifierRemoval } from '../roster/emit';
 import { htmlToText, normalizeName } from '../text';
 import type { Row, Wahapedia } from '../wahapedia/load';
 
@@ -34,6 +34,8 @@ export interface Overrides {
   addedConstraints: AddedConstraint[];
   /** BSData modifiers that encode rules a later GW change removed, dropped from the roster files (overrides/modifier-removals.json). */
   modifierRemovals: ModifierRemoval[];
+  /** Catalogue-level detachments that aren't 9th-edition rules, left out of the roster files (overrides/force-removals.json). */
+  forceRemovals: ForceRemoval[];
   /** The Wahapedia faction and subfactions whose stratagems each playable catalogue gets (overrides/stratagem-factions.json). */
   stratagemFactions: StratagemFaction[];
   /** Superseded Wahapedia stratagems left out of every catalogue (overrides/stratagems.json). */
@@ -58,6 +60,7 @@ export function loadOverrides(dir: string): Overrides {
     constraints: read('constraints.json'),
     addedConstraints: read('add-constraints.json'),
     modifierRemovals: read('modifier-removals.json'),
+    forceRemovals: read('force-removals.json'),
     stratagemFactions: read('stratagem-factions.json'),
     excludedStratagems: read('stratagems.json'),
     stratagemDetails: read('stratagem-details.json'),

@@ -300,8 +300,9 @@ describe('generated info files', () => {
     const sum = (shards: Record<string, { total: number; written: number }>) =>
       Object.values(shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
-    // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
-    expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
+    // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there); 4741 once
+    // the Legion of the Damned's 8th-edition Saviours From Beyond went (Plan G, rule-exclusions.json).
+    expect(sum(report.shards)).toEqual({ total: 4741, written: 4741 });
     // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
     // gave marker options the text their selection reveals (3,416 -> 3,431) and the Treasures of the Aeldari relic its
     // Stratagem (3,434 once AdMech's Army of Renown and per-unit links were added in review).

@@ -5,8 +5,9 @@
  * Rules: research library 01_Core_Rules/Army_Building_Detachments_and_CP.md §2.1 (Combat Patrol: one detachment,
  * 3 CP), §4 (Auxiliary Support: exactly one unit of any role, 2 CP), §5 (with no CHARACTER, any model may be the
  * Warlord).
- * BSData also has the catalogue's own Vanguard Detachment without HQ slots, from the Saviours From Beyond rule. That
- * rule isn't on the Wahapedia datasheet and no library file settles it, so no list here uses that detachment.
+ * BSData also has the catalogue's own Vanguard Detachment without HQ slots, from the 8th-edition Saviours From Beyond
+ * rule. That rule isn't on the Wahapedia datasheet, so both are dropped (overrides/force-removals.json,
+ * rule-exclusions.json; owner's ruling, 25 Oct 2026).
  */
 import type { CatalogueCorpus, UnitSpec } from '../spec';
 

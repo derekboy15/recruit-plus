@@ -29,7 +29,7 @@ Damned Legionnaires carry the usual Space Marine rules (they have the ADEPTUS AS
 - **Flaming Projectiles:** enemy units don't get the cover bonus to their saves against this unit's shooting.
 - **Unyielding Spectres:** every model has a 3+ invulnerable save.
 
-> **Not confirmed:** the army data also carries an older rule, Saviours From Beyond, that let the unit join a Vanguard Detachment with no HQ. The final datasheet doesn't print it, so agree with your opponent before relying on it.
+> **Left out:** an older rule, Saviours From Beyond, let the unit join a Vanguard Detachment with no HQ. The final 9th-edition datasheet doesn't print it, so the army builder doesn't offer it.
 
 Because they are ADEPTUS ASTARTES, they can use the general Space Marine stratagems that don't need keywords they lack. Many of those stratagems need a CHARACTER, PRIMARIS or PHOBOS unit, which the Legion doesn't have, so read each one's requirements before you plan around it.
 

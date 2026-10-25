@@ -604,13 +604,58 @@ describe('detachments', () => {
       'Super-Heavy Auxiliary Detachment -3CP',
       'Fortification Network -1CP',
       'Auxiliary Support Detachment -2CP',
-      'Vanguard Detachment', // Legion of the Damned's own
     ]);
     expect(own.every((c) => !c.allied)).toBe(true);
     const groups = new Set(choices.map((c) => catalogues.find((s) => s.id === c.catalogueId)!.group));
     expect([...groups]).toEqual(['Imperium']);
     expect(choices.some((c) => c.catalogueId === realCatalogueId('imperium-astra-militarum') && c.allied)).toBe(true);
     expect(choices.some((c) => catalogues.find((s) => s.id === c.catalogueId)!.library)).toBe(false);
+  });
+
+  // Wahapedia's Damned Legionnaires datasheet (000000150) has no "Saviours From Beyond", BSData's 8th-edition rule that
+  // let them fill a Vanguard Detachment with no HQ; the owner dropped it (25 Oct 2026, overrides/force-removals.json).
+  describe('the Legion of the Damned is an add-on, not an army', () => {
+    const lotd = realCatalogueId('imperium-legion-of-the-damned');
+    const HQ_DETACHMENTS: string[] = [FORCE.patrol, FORCE.battalion, FORCE.brigade, FORCE.vanguard, FORCE.spearhead, FORCE.outrider, FORCE.supremeCommand];
+
+    test('on its own it fills no detachment that needs an HQ: it has no HQ, and its no-HQ Vanguard is gone', () => {
+      const scope = realScope('imperium-legion-of-the-damned');
+      const empty: Roster = { schema: 1, name: '', catalogueId: lotd, battleSize: 'combat-patrol', forces: [] };
+      const own = detachmentChoices(scope, empty, policy, catalogues).filter((c) => !c.allied);
+      expect(own.every((c) => /-?\dCP$/.test(c.name))).toBe(true); // the Core Book's, each with its CP cost
+      expect(own.filter((c) => HQ_DETACHMENTS.includes(c.forceId))).toHaveLength(HQ_DETACHMENTS.length);
+      for (const c of own.filter((d) => HQ_DETACHMENTS.includes(d.forceId))) {
+        const r = createRoster(scope, { name: 'LotD', catalogueId: lotd, battleSize: 'combat-patrol', forceId: c.forceId });
+        const picker = availableUnits(scope, r, r.forces[0].id);
+        expect(picker.some((o) => o.role === 'HQ')).toBe(false);
+        const legionnaires = picker.find((o) => o.name === 'Damned Legionnaires'); // a Supreme Command takes none
+        const roster = legionnaires ? addUnit(scope, r, r.forces[0].id, legionnaires.entryId).roster : r;
+        const hq = c.forceId === FORCE.supremeCommand ? 'Primarch | Daemon Primarch | Supreme Commander' : 'HQ';
+        expect(ofRule(validate(scope, roster, policy).issues, 'slot-min').map((i) => i.subject?.name)).toContain(hq);
+      }
+    });
+
+    const ultramarinesWithLegion = (battleSize: Roster['battleSize']) => {
+      const scope = realScope('imperium-adeptus-astartes-ultramarines', 'imperium-legion-of-the-damned');
+      const spec: ListSpec = {
+        title: 'Ultramarines with a Legion of the Damned ally',
+        battleSize,
+        detachments: [
+          { detachment: 'Patrol Detachment -2CP', units: [{ name: 'Primaris Captain', warlord: true }, { name: 'Intercessor Squad' }] },
+          { detachment: 'Auxiliary Support Detachment -2CP', catalogue: 'Imperium - Legion of the Damned', units: [{ name: 'Damned Legionnaires', models: { Legionnaire: 4 } }] },
+        ],
+        expect: { points: 0, powerLevel: 0 },
+      };
+      return validate(scope, buildFromSpec(scope, realCatalogueId('imperium-adeptus-astartes-ultramarines'), spec), policy).issues;
+    };
+
+    test('an Ultramarines Onslaught army can add a Legion of the Damned Auxiliary Support Detachment, and the list validates', () => {
+      expect(ultramarinesWithLegion('onslaught')).toEqual([]);
+    });
+
+    test('at Combat Patrol the same ally is one detachment too many (one detachment, library §2.1)', () => {
+      expect(ultramarinesWithLegion('combat-patrol').map((i) => i.rule)).toEqual(['detachment-count']);
+    });
   });
 
   describe('Core Book battle sizes offer only the catalogues whose units could share a faction keyword with the army (§1)', () => {
