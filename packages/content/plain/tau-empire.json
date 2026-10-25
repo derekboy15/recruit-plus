@@ -34,6 +34,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when an attack by a T'AU SEPT model from your army causes an enemy model to lose any wounds: for the rest of the phase, attacks by your T'AU SEPT CORE models against that enemy model's unit add 1 to their wound rolls."
   },
+  "082ad65c5ac4": {
+    "name": "Master of the Killing Blow",
+    "kind": "ability",
+    "plain": "When this WARLORD makes an attack:\n- an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 3.\n- the model the attack is allocated to can't ignore any of the wounds it loses, whatever rules it has."
+  },
   "086171145c71": {
     "name": "Repulsor Impact Field",
     "kind": "stratagem",
@@ -100,6 +105,14 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, you must choose this unit's COMMANDER SHADOWSUN model as your WARLORD. If several models in your army have a rule like this, one of them must be your WARLORD."
   },
+  "1477c07c6497": {
+    "name": "Unifying Influence",
+    "kind": "ability",
+    "plain": "This WARLORD gains the two aura abilities below, which affect certain friendly units within 6\" of it.\nDiplomatic Excellence (Aura): while one of your DAL'YTH or T'AU AUXILIARY units, other than a CHARACTER unit, is within 6\" of this WARLORD, its models add 1 to their Leadership characteristic.\nIntegrated Command Structure (Aura): while one of your T'AU AUXILIARY units is within 6\" of this WARLORD, the Markerlights rule treats that unit as if it didn't have the T'AU AUXILIARY keyword.",
+    "waive": {
+      "93": "page reference (pg 93) to where the Markerlights rules are printed; not part of the rule"
+    }
+  },
   "150cbdbc255c": {
     "name": "Calm Under Pressure",
     "kind": "ability",
@@ -119,6 +132,11 @@
     "name": "Gravity Wave Projector",
     "kind": "ability",
     "plain": "Any unit that declares a charge against this unit must subtract 2 from its charge rolls."
+  },
+  "16c8091f1dfa": {
+    "name": "1. Precision of the Hunter",
+    "kind": "ability",
+    "plain": "For every attack this WARLORD makes, you can re-roll the hit roll, the wound roll, or both."
   },
   "16e647a3095c": {
     "name": "Drone Dock (Sun Shark)",
@@ -167,6 +185,11 @@
     "waive": {
       "76": "page reference (pg 76) to where the invocations are printed; not part of the rule"
     }
+  },
+  "1cb855cc3b37": {
+    "name": "4. Through Boldness, Victory",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly <SEPT> CORE unit within 9\" of this WARLORD: its CORE models' ranged attacks wound automatically on unmodified 6s to hit. This lasts until the start of your next Command phase."
   },
   "1cebf5d34b0e": {
     "name": "Docked Drone",
@@ -411,6 +434,11 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
   },
+  "428007b6eeb3": {
+    "name": "2. Pack Leader (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KROOT units is within 6\" of this WARLORD, roll one extra D6 for its charge rolls and discard one of the dice."
+  },
   "42d37adf115e": {
     "name": "XV02 Pilot Battlesuit",
     "kind": "ability",
@@ -629,6 +657,11 @@
     "kind": "ability",
     "plain": "The bearer has the NEUROWEB SYSTEM JAMMER keyword."
   },
+  "6aa9fea37095": {
+    "name": "2. Through Unity, Devastation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <SEPT> CORE units is within 6\" of this WARLORD, its CORE models' ranged attacks improve their AP by 1 on unmodified wound rolls of 6."
+  },
   "6c4b10299253": {
     "name": "Resonator Warheads",
     "kind": "ability",
@@ -648,6 +681,11 @@
     "name": "Master of War (Aura)",
     "kind": "ability",
     "plain": "Aura: re-roll hit rolls of 1 for attacks made by CORE models in any of your <SEPT> CORE units while that unit is within 6\" of this unit's COLDSTAR BATTLESUIT COMMANDER model."
+  },
+  "6ce75fda1f05": {
+    "name": "Academy Luminary",
+    "kind": "ability",
+    "plain": "You may get back Command points spent on T'au Empire Strategic Ploy and Wargear Stratagems. While this WARLORD is on the battlefield, roll one D6 for each Command point you spend on a T'au Empire Stratagem of either kind: on a 3+, that point is refunded."
   },
   "6dcb296d43dd": {
     "name": "Threat Identification Protocol",
@@ -765,6 +803,11 @@
     "name": "Tactical Acumen",
     "kind": "ability",
     "plain": "In your Command phase, you may choose one <SEPT> CRISIS CORE unit from your army within 9\" of this unit's CRISIS BATTLESUIT COMMANDER model. For the rest of the turn: that unit can still shoot and declare a charge in a turn when it Fell Back; and for each ranged attack a CORE model in that unit makes, you can ignore any or all hit roll modifiers."
+  },
+  "7f2458504a56": {
+    "name": "3. A Ghost Walks Among Us",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- has 1 subtracted from the hit roll of every attack made against it.\n- doesn't make an Advance roll when it Advances; instead, add 6\" to its Move characteristic until the end of the phase."
   },
   "7f5f4b73bb2d": {
     "name": "Adherents to the Teachings",
@@ -895,6 +938,11 @@
     "name": "XV22 Stalker Battlesuit",
     "kind": "ability",
     "plain": "The COMMANDER SHADOWSUN model in this unit has a 5+ invulnerable save."
+  },
+  "8f542c5d7784": {
+    "name": "1. Master of the Hunt (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KROOT units is within 6\" of this WARLORD, its models' ranged attacks against units within 12\" deny the target the benefits of cover."
   },
   "8fa749541e0c": {
     "name": "Explodes (Hammerhead)",
@@ -1189,6 +1237,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your STRIKE TEAM units is picked to shoot. Until the phase ends:\n- Models in that unit firing pulse rifles make twice as many attacks, ignoring the usual Rapid Fire rules.\n- Each ranged attack by a CORE model in that unit has its Armour Penetration improved by 1."
   },
+  "c08857c99558": {
+    "name": "3. Nomadic Hunter (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your nearby KROOT units shoot as though they had Remained Stationary. While one of your KROOT units is within 6\" of this WARLORD, unless it Fell Back this turn, it counts as having Remained Stationary in its previous Movement phase whenever its models make a ranged attack."
+  },
   "c0bede4b2cb0": {
     "name": "High Intensity Markerlight",
     "kind": "weapon",
@@ -1254,6 +1307,11 @@
     "kind": "ability",
     "plain": "Roll a D6 when this model is destroyed, before it is removed from play. On a 4-5 it explodes, dealing D6 mortal wounds to every unit within 2D6\". On a 6 it explodes, dealing 2D3 mortal wounds to every unit within 3D6\"."
   },
+  "c93b2a7356df": {
+    "name": "Strength of Conviction",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever this WARLORD would lose a wound: on a 5+, it doesn't lose that wound."
+  },
   "c9d08972ae7d": {
     "name": "Supersonic",
     "kind": "ability",
@@ -1303,6 +1361,14 @@
     "name": "Recon Suite",
     "kind": "ability",
     "plain": "When a model in this unit makes a ranged attack targeting a unit within 18\", the target gets no benefit from Light Cover against it."
+  },
+  "d0bdae94c95c": {
+    "name": "5. Exemplar of the Kauyon",
+    "kind": "ability",
+    "plain": "After both armies deploy and the first turn is decided, redeploy up to one of your <SEPT> units, or up to three if you picked the Kauyon Tactical Philosophy. If the mission uses the Strategic Reserves rules, any of these units can go into Strategic Reserves at no extra CP cost, regardless of how many are there already. If both players have redeploy abilities, roll off: the winner decides which player deploys their units first.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule"
+    }
   },
   "d0c136de19e4": {
     "name": "Supersonic",
@@ -1504,6 +1570,14 @@
     "kind": "ability",
     "plain": "You can add this model to any T'AU EMPIRE Detachment other than a FARSIGHT ENCLAVES Detachment. Doing so doesn't stop that Detachment counting as a Sept Detachment, and doesn't stop your other units getting their Sept Tenet. This model itself only gets a Sept Tenet if every <SEPT> unit in your army (ignoring SUPREME COMMANDER units) is from VIOR'LA."
   },
+  "f541d46d0988": {
+    "name": "Strategic Conqueror",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly SA'CEA unit within 9\" of this WARLORD: it has the Objective Secured ability until the start of your next Command phase. If the unit already has that ability, each of its models counts as one additional model when working out control of an objective marker.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
+  },
   "f7ffe0788b02": {
     "name": "The Shaper Commands (Aura)",
     "kind": "ability",
@@ -1539,6 +1613,14 @@
     "kind": "ability",
     "plain": "Roll a D6 when this transport is destroyed, before any embarked models disembark and before it is removed from play. On a 6 it explodes, dealing D6 mortal wounds to every unit within 9\"."
   },
+  "fa8db67e3927": {
+    "name": "6. Exemplar of the Mont'ka",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly <SEPT> CORE unit within 9\" of this WARLORD: its CORE models can re-roll ranged wound rolls against enemy units within 9\". That range is 12\" instead if you picked the Mont'ka Tactical Philosophy this battle. The effect lasts until the start of your next Command phase.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule"
+    }
+  },
   "fa9bae66c2d8": {
     "name": "Targeting Array",
     "kind": "ability",
@@ -1548,6 +1630,11 @@
     "name": "Combat Debarkation",
     "kind": "stratagem",
     "plain": "At the start of your Movement phase, choose how many of your DEVILFISH models to pick:\n- Up to three, if your Tactical Philosophy for the battle is Mont'ka and this is battle round 1, 2 or 3.\n- Up to three, if your Tactical Philosophy for the battle is Kauyon and this is battle round 3, 4 or 5.\n- Otherwise, one.\nFor the rest of the phase, each time a picked model finishes a Normal Move, units embarked within it may then disembark. Units that disembark like this can't charge this turn."
+  },
+  "fdfd9764ce51": {
+    "name": "Seeker of Perfection",
+    "kind": "ability",
+    "plain": "When this WARLORD makes a ranged attack:\n- that attack's Armour Penetration characteristic is improved by 1.\n- an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage (no more than 3 mortal wounds per phase from this)."
   },
   "fe585ff11070": {
     "name": "Heavy Rail Cannon",

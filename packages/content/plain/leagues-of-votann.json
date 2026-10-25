@@ -109,6 +109,11 @@
     "kind": "weapon",
     "plain": "When an attack with this weapon gets an unmodified hit roll of 6, the target suffers 1 mortal wound and the attack sequence ends."
   },
+  "38e3b50ac7b4": {
+    "name": "Ancestral Bearing",
+    "kind": "ability",
+    "plain": "Two range boosts for this WARLORD:\n- in your Command phase, when it uses an ability that has a range, you can add 3\" to that range (to a maximum of 12\").\n- its aura abilities have 3\" added to their range."
+  },
   "3934611b63a3": {
     "name": "Bastion Running",
     "kind": "stratagem",
@@ -149,6 +154,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your VOTANN units is picked to shoot: until the end of the phase, whenever a model in that unit attacks with a bolt weapon, an unmodified hit roll of 6 scores one extra hit, or 2 extra hits if the target unit had 11 or more models when you used this Stratagem."
   },
+  "4d62959eb700": {
+    "name": "Guild Affiliate",
+    "kind": "ability",
+    "plain": "In your Command phase, you can give one of your <LEAGUE> CORE units within 6\" of this WARLORD Objective Secured until the start of your next Command phase. If a model in that unit already has that ability, it counts as one extra model when working out control of an objective marker."
+  },
   "4e696b7b1ac6": {
     "name": "Subterranean Explosives",
     "kind": "stratagem",
@@ -173,6 +183,11 @@
     "name": "Multispectral Visor",
     "kind": "ability",
     "plain": "In your Command phase, if this unit has a BRÔKHYR IRON-MASTER model, you can pick one of your <LEAGUE> CORE or <LEAGUE> VEHICLE units within 9\" of this unit. Until the start of your next Command phase, add 1 to the hit roll whenever a model in that unit attacks with a ranged weapon."
+  },
+  "60732116656e": {
+    "name": "Experienced Eye",
+    "kind": "ability",
+    "plain": "In each of your Command phases, this WARLORD can use its Grim Efficiency ability one extra time. It can only do so if you pick an enemy unit that hasn't already been picked for that ability this turn."
   },
   "6205e94695f4": {
     "name": "Grudgepyre",
@@ -214,6 +229,11 @@
     "kind": "ability",
     "plain": "The bearer's unit gains the COMMS keyword. While it is within 24\" of one of your <LEAGUE> KÂHL models, the bearer's unit counts as being in range of that model's Kindred Hero aura ability."
   },
+  "7c01ce8b2aaa": {
+    "name": "A Long List",
+    "kind": "ability",
+    "plain": "This WARLORD gets three effects:\n- the target of each of its ranged attacks gets no benefit from Light Cover against that attack.\n- you can ignore the Look Out, Sir rule for units with one or more Judgement tokens when picking targets for its ranged weapons.\n- in each phase in which a <LEAGUE> unit from your army destroyed any enemy units that had Judgement tokens, pick one enemy unit visible to this WARLORD at the end of that phase: it gains 1 Judgement token."
+  },
   "7ccc2ecb6d79": {
     "name": "Honour the Ancestors",
     "kind": "ability",
@@ -223,6 +243,11 @@
     "name": "Concussion Blast",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your VOTANN CONCUSSION units is picked to shoot, choose one enemy unit within 6\" of it. Until the start of your next Shooting phase, that enemy unit can't fire Overwatch or Set to Defend, and its models subtract 1 from the hit roll of every attack they make."
+  },
+  "8239505b4d4c": {
+    "name": "Nomad Strategist",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, you can redeploy up to three of your TRANS-HYPERIAN ALLIANCE units that are wholly within your deployment zone. Remove them from the battlefield and set them up again anywhere wholly within your deployment zone. If the mission uses the Strategic Reserves rules, you can put any of those units into Strategic Reserves without paying any extra CPs, however many units are already there. If both players have redeploy abilities, roll off, and the winner picks which player redeploys their units first."
   },
   "83839f4ac3da": {
     "name": "Wârpestryk",
@@ -243,6 +268,11 @@
     "name": "E-COG Support",
     "kind": "ability",
     "plain": "When this unit uses its Brôkhyr's Guild ability and still has at least one E-COG model, the model it fixes gets back 1 more lost wound. Ignore E-COG models being destroyed when taking Morale tests. If this unit's BRÔKYR IRON-MASTER model is destroyed, every E-COG model left in the unit is destroyed with it."
+  },
+  "8714b1ae2c7e": {
+    "name": "Pragmatic Wisdom",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, you can roll one D6 for every Command point you spend on a Stratagem; on a 5+, you get that Command point back."
   },
   "894090c45da9": {
     "name": "Fortify",
@@ -309,6 +339,11 @@
     "kind": "stratagem",
     "plain": "In any phase, when a mortal wound would make one of your TRANS-HYPERIAN ALLIANCE models lose a wound: for the rest of the phase, whenever that model, or any other model in the same unit, would lose a wound due to a mortal wound, roll one D6; on a 5+ that wound isn't lost."
   },
+  "9fec4024b457": {
+    "name": "Guild Connections",
+    "kind": "ability",
+    "plain": "Add 1 to the Damage characteristic of every weapon this WARLORD is equipped with, other than Relics."
+  },
   "a464b9338ca7": {
     "name": "SP conversion beamer",
     "kind": "weapon",
@@ -369,6 +404,11 @@
     "kind": "rule",
     "plain": "Many Votann ranged weapons are of the 'HunTR' type. A model firing a HunTR weapon makes as many attacks as the number printed after the type on that weapon's profile. For example, 'HunTR 1' gives 1 attack, 'HunTR 3' gives 3 attacks, and so on."
   },
+  "ac270862e770": {
+    "name": "Unrelenting Toil",
+    "kind": "ability",
+    "plain": "Your <LEAGUE> CORE units that are performing an action can shoot without that action failing while they are within 6\" of this WARLORD."
+  },
   "ae9549de836f": {
     "name": "Rollbar searchlight",
     "kind": "ability",
@@ -398,6 +438,16 @@
     "name": "Weavefield crest",
     "kind": "ability",
     "plain": "The bearer's Wounds characteristic becomes 3, and it gains a 4+ invulnerable save."
+  },
+  "c02f1355fd19": {
+    "name": "Warrior Lord",
+    "kind": "ability",
+    "plain": "For this WARLORD's melee attacks:\n- you may re-roll the wound roll.\n- an enemy model that one of them is allocated to can't use any rules to ignore the wounds it loses."
+  },
+  "c16056339eba": {
+    "name": "Exemplary Hero",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- gets 1 extra attack each time it fights within Engagement Range of any enemy CHARACTER or MONSTER units, until that fight is resolved.\n- can re-roll the hit roll for each of its melee attacks.\n- adds 1 to the wound roll for its melee attacks against an enemy CHARACTER or MONSTER unit."
   },
   "c48bfd66437a": {
     "name": "Mag-riders",
@@ -458,6 +508,11 @@
     "name": "Stoic",
     "kind": "ability",
     "plain": "Units with this custom can re-roll failed Morale tests."
+  },
+  "ddc1b88d44b6": {
+    "name": "Grim Demeanour (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <LEAGUE> CORE units is within 6\" of this WARLORD:\n- it may disregard any or all modifiers to its Leadership characteristic.\n- you may disregard any or all modifiers whenever a Combat Attrition test is taken for it."
   },
   "ddf061fc1ca1": {
     "name": "Null Vortex",
@@ -564,6 +619,11 @@
     "kind": "stratagem",
     "plain": "At the end of your Movement phase, choose a VOTANN CORE INFANTRY unit of yours that is in range of an objective marker. Until your next Movement phase begins, as long as it remains in range of that marker: it passes Morale tests automatically; unless it makes a ranged attack or declares a charge, it can ignore any rules that would make actions it is performing fail; and whenever one of its models would lose a wound, roll one D6, and on a 6 the wound isn't lost."
   },
+  "f67827c6252d": {
+    "name": "Master Armourer",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- restores up to 3 lost wounds instead of D3 each time it repairs a model with its Brôkhyr's Guild ability. While this BRÔKYR FORGE-MASTER's unit includes 1 or more E-COG models, the repaired model regains up to 4 lost wounds instead (as the E-COG Support ability describes).\n- once per battle round, when a saving throw is failed for one of your <LEAGUE> VEHICLE or <LEAGUE> EXO-FRAME models within 6\" of it, can use this trait to change the Damage characteristic of that attack to 0."
+  },
   "f6ee1c20ff98": {
     "name": "Ancestral Fortune",
     "kind": "ability",
@@ -583,6 +643,11 @@
     "name": "Steady Advance",
     "kind": "ability",
     "plain": "You can ignore any or all modifiers to this unit's Move characteristic, Advance rolls and charge rolls. When this unit Advances, skip the Advance roll; instead, for the rest of the phase, each of its models adds 3\" to its Move characteristic (6\" if this unit is ACCELERATED)."
+  },
+  "fcc798ada82a": {
+    "name": "Ancestral Power",
+    "kind": "ability",
+    "plain": "Skeinwrought discipline psychic powers that this WARLORD manifests have their range increased by 6\"."
   },
   "fe2c2e1a0875": {
     "name": "Medipack",

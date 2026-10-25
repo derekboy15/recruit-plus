@@ -142,6 +142,11 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Rules\""
     }
   },
+  "212697c763c7": {
+    "name": "Immortal Pride (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <DYNASTY> CORE units is within 6\" of this model, you can ignore any or all modifiers to its Combat Attrition tests."
+  },
   "22fd57c533af": {
     "name": "Ancient Collector",
     "kind": "ability",
@@ -240,6 +245,11 @@
     "kind": "ability",
     "plain": "Models with this code add 3\" to the Range characteristic of their ranged weapons, except Pistols."
   },
+  "3221390a4a15": {
+    "name": "The Triarch's Will",
+    "kind": "ability",
+    "plain": "If your WARLORD has this Warlord Trait, you can pick 4 command protocols instead of 5 when you assign them for the battle. You can then assign one of those protocols to 2 battle rounds instead of one."
+  },
   "3396719c0df2": {
     "name": "Phaeron of the Stars (Aura)",
     "kind": "ability",
@@ -259,6 +269,11 @@
     "name": "Predictive Strategist",
     "kind": "ability",
     "plain": "Once per battle, when you use a Stratagem while your army is Battle-forged and this model is on the battlefield, this model can use its Predictive Strategy to make that Stratagem cost 1CP less (to a minimum of 0CP). This discount only applies to that single use; using the Stratagem again later costs the usual amount of CP."
+  },
+  "3678759ac787": {
+    "name": "Inspiring Leader (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your units add 1 to their Leadership characteristic while they are within 6\" of this WARLORD."
   },
   "3a54c9b9fce7": {
     "name": "Adaptive Strategy",
@@ -304,6 +319,11 @@
     "name": "Arkana: Obedience Nanoscarabs",
     "kind": "ability",
     "plain": "PSYCHOMANCER model only: whenever you use the bearer's Harbinger of Despair ability, you can pick two of its effects rather than just one."
+  },
+  "43eee02d2f7c": {
+    "name": "Honourable Combatant",
+    "kind": "ability",
+    "plain": "In the Fight phase, each time this WARLORD is picked to fight, it can engage in honourable combat: pick one enemy CHARACTER unit. Until the end of the phase, this WARLORD gets 2 extra attacks, but every attack it makes must target that enemy CHARACTER unit."
   },
   "440576934b73": {
     "name": "Resurrection Amplifier (Aura)",
@@ -354,6 +374,11 @@
     "name": "Bound Creation",
     "kind": "ability",
     "plain": "If your army is Battle-forged, each CRYPTEK unit in a Detachment lets you include one CRYPTOTHRALLS unit in that Detachment without using up a Battlefield Role slot."
+  },
+  "4dd69e1ed379": {
+    "name": "Merciless Tyrant",
+    "kind": "ability",
+    "plain": "This WARLORD's Strength and Attacks characteristics are each increased by 1."
   },
   "5218e93a1768": {
     "name": "Resurrection Orb",
@@ -500,6 +525,11 @@
     "kind": "ability",
     "plain": "From the Powers of the C'tan, this model knows two C'tan Powers. If it neither Advanced nor Fell Back during your Movement phase, it can use one C'tan Power it knows at the end of that phase. It may never use any one C'tan Power twice in a turn."
   },
+  "72e56d32b38a": {
+    "name": "Eternal Madness",
+    "kind": "ability",
+    "plain": "You can re-roll the wound roll for each melee attack this WARLORD makes."
+  },
   "7495b887d1b6": {
     "name": "Dynastic Heirlooms",
     "kind": "stratagem",
@@ -560,6 +590,11 @@
     "kind": "stratagem",
     "plain": "In your opponent's Psychic phase, when an enemy PSYKER tries to manifest a psychic power within 18\" of one of your SZAREKHAN units: roll a D6; on a 4+, that power is denied."
   },
+  "8657ac1cf9d0": {
+    "name": "Implacable Conqueror (Aura)",
+    "kind": "ability",
+    "plain": "Aura: you can re-roll charge rolls for your <DYNASTY> CORE units while they are within 6\" of this WARLORD."
+  },
   "873c9e0e44e2": {
     "name": "Preservative Auto-Torpor",
     "kind": "ability",
@@ -605,6 +640,11 @@
     "kind": "weapon",
     "plain": "Blast. Your opponent can't use invulnerable saves against attacks made with this weapon."
   },
+  "92bbcdd32884": {
+    "name": "Thrall of the Silent King",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities get 3\" more range, up to a maximum of 9\". This WARLORD's My Will Be Done, The Lord's Will and Adaptive Strategy abilities can pick one of your <DYNASTY> CORE units within 12\" of it, instead of 9\"."
+  },
   "94541a1589c0": {
     "name": "Solar Pulse",
     "kind": "stratagem",
@@ -625,6 +665,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
   },
+  "9b5a00976343": {
+    "name": "Curator of Deadly Curiosities",
+    "kind": "ability",
+    "plain": "Pick one weapon (not a Relic) this WARLORD has when you choose this trait, and for that weapon:\n- improve its Armour Penetration characteristic by 1.\n- add 1 to its Strength and Damage characteristics."
+  },
   "9c0b33a04e3d": {
     "name": "Dimensional Destabilisation",
     "kind": "stratagem",
@@ -634,6 +679,11 @@
     "name": "Dimensional Corridor",
     "kind": "stratagem",
     "plain": "At the start of your Movement phase: pick one of your <DYNASTY> CORE INFANTRY units that is on the battlefield and remove it. In the Reinforcements step of this phase, set it up again anywhere on the battlefield wholly within 3\" of one of your <DYNASTY> MONOLITH models and more than 9\" away from all enemy models."
+  },
+  "9c36efa9db98": {
+    "name": "Conductor of Legions",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your CULT OF THE CRYPTEK units within 9\" of this WARLORD: its ranged attacks won't make its action fail. This lasts until the start of your next Command phase."
   },
   "9cbdd77a2a5a": {
     "name": "Dynastic Agents and Star Gods",
@@ -739,6 +789,11 @@
     "name": "Relentlessly Expansionist",
     "kind": "ability",
     "plain": "Units with this code can each make a Normal Move of up to 6\" when the first battle round starts, before any turn has begun."
+  },
+  "ad0c5c197a71": {
+    "name": "Fluid Necrodermis",
+    "kind": "ability",
+    "plain": "For this WARLORD:\n- you can ignore any or all modifiers to its Move characteristic, Advance rolls and charge rolls.\n- the first time in each turn that a saving throw is failed for it, change that attack's Damage characteristic to 0."
   },
   "afc88ffeea20": {
     "name": "Power Crucible Terrain Features",
@@ -918,6 +973,11 @@
     "kind": "ability",
     "plain": "When an enemy model has a melee attack from this model allocated to it, that enemy model can't use any rules to ignore the wounds it loses."
   },
+  "cbe8a3cadda8": {
+    "name": "Hyperlogical Strategist",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, whenever you spend a Command point on a Stratagem, you can roll one D6: on a 5+, you get that Command point back."
+  },
   "cc30255f1444": {
     "name": "Doomsday Blaster (High Power)",
     "kind": "weapon",
@@ -935,6 +995,11 @@
     "name": "Hyperphase Reap-Blades",
     "kind": "ability",
     "plain": "Whenever a model in this unit attacks with a hyperphase reap-blade, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "cda4117c3ba6": {
+    "name": "Master of the Cult",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your CULT OF THE CRYPTEK units within 9\" of this WARLORD to add 1 to its hit rolls. This lasts until the start of your next Command phase and applies to every attack made by a model in that unit."
   },
   "cdfad4127f2f": {
     "name": "Photonic Transubjector",
@@ -975,6 +1040,11 @@
     "name": "Lurking Murderers",
     "kind": "stratagem",
     "plain": "At the start of the Fight phase: pick one of your FLAYED ONES units that is wholly within an Area Terrain feature. Until the phase ends, you can re-roll the wound roll for every attack made by a model in that unit. This Stratagem costs 2CP if the unit has 11 or more models, or 1CP if it does not."
+  },
+  "d36f5cd30a9f": {
+    "name": "Codifier of Lesser Beings",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your CULT OF THE CRYPTEK units within 6\" of this WARLORD and one enemy unit this WARLORD can see. Until the start of your next Command phase, you can add 1 to the wound roll of each attack that CULT OF THE CRYPTEK unit makes against that enemy unit."
   },
   "d57981ac894e": {
     "name": "Warrior Nobles",
@@ -1091,6 +1161,11 @@
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save. Also, whenever an attack targets this model, an unmodified wound roll of 1-3 always fails, whatever abilities the weapon or attacker has."
   },
+  "e5512c7b993e": {
+    "name": "Infomonger",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your CULT OF THE CRYPTEK units within 6\" of this WARLORD to get both directives of the active command protocol. This lasts until the end of the battle round."
+  },
   "e568bf6bb40d": {
     "name": "Cult of Annihilation",
     "kind": "ability",
@@ -1195,6 +1270,11 @@
     "name": "Artillery Battery",
     "kind": "ability",
     "plain": "The first time this unit is set up on the battlefield, its models don't need to be in unit coherency; instead, every model must be set up within 6\" of another model from its unit. From then on, treat each model in this unit as a separate unit."
+  },
+  "f9a7b7135dd9": {
+    "name": "Immortal Pride",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD would lose a wound because of a mortal wound, roll one D6: on a 5+, it doesn't lose that wound. This WARLORD also has the Immortal Pride (Aura) ability."
   },
   "f9da11c592f9": {
     "name": "Methodical Destruction",

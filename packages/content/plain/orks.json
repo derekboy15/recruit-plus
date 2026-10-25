@@ -117,6 +117,11 @@
     "kind": "ability",
     "plain": "The bearer's Move characteristic is increased by 2\". When the Fight phase begins, if this WARLORD is in Engagement Range of any enemy units, none of those enemy units can be chosen to fight until every eligible unit in your army has fought."
   },
+  "0ddf03cd9a7c": {
+    "name": "Opportunist",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- lets you ignore the Look Out, Sir rule whenever you pick a CHARACTER unit within 12\" as its target.\n- gets you 1 Command point each time an enemy VEHICLE unit is destroyed within 6\" of it."
+  },
   "0e1aa3ea07bb": {
     "name": "I'll Av Wot E's Avin!",
     "kind": "ability",
@@ -236,6 +241,11 @@
     "kind": "ability",
     "plain": "Models with this kultur:\n- score 1 extra hit for each unmodified hit roll of 6 they make in melee.\n- add 1 to the Strength characteristic of their melee attacks if their unit made a charge move or performed a Heroic Intervention this turn."
   },
+  "1ee45c210310": {
+    "name": "BeastGob (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <CLAN> SQUIG units is within 6\" of this WARLORD, add 1 to the Damage of its models' melee attacks with the jaws weapons named here. These are squighog jaws, smasha squig jaws and a squigosaur's jaws."
+  },
   "1fb3ab5b04c3": {
     "name": "Explodes (6+/6\"/D3 Transport)",
     "kind": "ability",
@@ -310,6 +320,11 @@
     "name": "Stikka (Shooting)",
     "kind": "weapon",
     "plain": "When this weapon attacks a unit within half range, the attack gets +1 Strength."
+  },
+  "2608d8ed87dc": {
+    "name": "Extra Kunnin'",
+    "kind": "ability",
+    "plain": "Once per battle round, when you use a Strategic Ploy Stratagem while this WARLORD is on the battlefield, you can make it cost 1CP less. The saving only applies to that one use; later uses of that Stratagem cost the normal number of CPs."
   },
   "264c416bf2f5": {
     "name": "Hit ’Em Harder",
@@ -391,10 +406,20 @@
     "kind": "ability",
     "plain": "Once per battle, when your Command phase begins, you may have the driver push the red button on his dashboard. If you do, roll a D6 to see what happens. 1 SHOUTY SPEAKAS: no effect. 2-3 BOOTA: this model's Move characteristic is increased by 4\" until your next Command phase. 4-5 MORE DAKKA: until your next Command phase, on this model's ranged attacks an unmodified hit roll of 6 gives 1 extra hit. 6 FORCE FIELDS: this model gets a 5+ invulnerable save until your next Command phase."
   },
+  "312dd3612aa0": {
+    "name": "Follow me Ladz!",
+    "kind": "ability",
+    "plain": "After this WARLORD makes a charge move, your <CLAN> ORKS units add 1 to charge rolls against enemy units within Engagement Range of it for the rest of the turn. This applies each time one of those units declares a charge against such an enemy unit."
+  },
   "31a2f2c8d353": {
     "name": "Tankhammer",
     "kind": "weapon",
     "plain": "This weapon can make only 1 attack each time the bearer fights. On a hit, the target unit takes D6 mortal wounds and the bearer is destroyed."
+  },
+  "32bff9046434": {
+    "name": "Fasta Than Yooz",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your EVIL SUNZ CORE units within 6\" of this model: it can declare a charge even if it Advanced or Fell Back this turn."
   },
   "332aa3a855b4": {
     "name": "Ded Chewy Blasta",
@@ -767,10 +792,20 @@
     "kind": "stratagem",
     "plain": "Use while choosing your army: make one of your ORK Detachments a Dread Waaagh! Specialist Detachment. Its BIG MEKS, KILLA KANS, DEFF DREADS, GORKANAUTS and MORKANAUTS get the DREAD WAAAGH! keyword."
   },
+  "7000590f8dba": {
+    "name": "Roadkilla",
+    "kind": "ability",
+    "plain": "Once this WARLORD has finished a charge move, you may pick one enemy unit within 1\" of it and roll a D6. On a 2+, that enemy unit takes D3 mortal wounds."
+  },
   "71ac8d985d04": {
     "name": "Bitin' Jawz",
     "kind": "psychic",
     "plain": "WITCHFIRE, warp charge 6. If it is manifested, choose one enemy model within 18\" of this PSYKER that it can see. Trace a line from any part of this PSYKER's base to any part of that model's base (or hull). The chosen model's unit takes 1 mortal wound, and so does every other enemy unit the line crosses over or passes through."
+  },
+  "73b15adef8bb": {
+    "name": "I've Got A Plan, Ladz!",
+    "kind": "ability",
+    "plain": "At the end of the Deploy Armies step, you can pick up to three of your BLOOD AXES units and set them up again (redeploy them). When the mission uses Strategic Reserves, you can put any of them into Strategic Reserves without spending extra CPs, no matter how many units are in Strategic Reserves already. If both players have abilities that let them redeploy units, they roll off, and the winner picks which player redeploys first."
   },
   "74a827878551": {
     "name": "'Eadbanger",
@@ -786,6 +821,11 @@
     "name": "Grot Oiler",
     "kind": "ability",
     "plain": "Once per battle, a VEHICLE model repaired by the bearer can regain 1 extra lost wound. (A Grot Oiler model can be placed beside the unit as a reminder and removed once used; it is not a model for any rules purposes.)"
+  },
+  "76955a8bca09": {
+    "name": "Proper Killy",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- adds 1 to its Attacks characteristic.\n- improves the Armour Penetration characteristic of its melee attacks by 1."
   },
   "76d07bbf0c82": {
     "name": "Blitz Brigade",
@@ -831,15 +871,30 @@
     "kind": "ability",
     "plain": "Aura: while one of your ORKS units is within 6\" of the bearer, that unit has a 6+ invulnerable save. Nothing can increase the range of this aura unless a rule specifically says it can."
   },
+  "7ae506f134dd": {
+    "name": "Half-Chewed",
+    "kind": "ability",
+    "plain": "This Warlord can avoid losing wounds while it is in Engagement Range of an enemy CHARACTER or MONSTER unit. Whenever this model would lose a wound while that is true, roll a D6: on a 4+, it keeps that wound."
+  },
   "7aec93eb5bc5": {
     "name": "Waaagh!",
     "kind": "rule",
     "plain": "Waaagh! (WARLORD is a WARBOSS): in your Command phase, once per battle, you can call a Waaagh! if that WARBOSS is on the battlefield or embarked in a TRANSPORT on the battlefield. Speedwaaagh! (WARLORD is a SPEEDBOSS): in your Command phase, once per battle, you can instead call a Speedwaaagh!, if that SPEEDBOSS is on the battlefield. Great Waaagh! (WARLORD is GHAZGHKULL THRAKA): you can call a Great Waaagh! instead, if GHAZGHKULL THRAKA is on the battlefield or embarked in a TRANSPORT on the battlefield. Each Waaagh! and Speedwaaagh! has two stages. The first begins when it is called and lasts until your next Command phase starts; the second then lasts until the start of the Command phase after that, at which point the effect ends completely. A Great Waaagh! counts as calling a Waaagh! and a Speedwaaagh! simultaneously, both active from the moment it is called, with stages running as described. WAAAAGH! Stage 1, Call Da Waaagh!: your ORKS CORE and ORKS CHARACTER units can declare a charge in a turn they Advanced; your ORKS models get 1 added to their Strength and Attacks characteristics and gain a 5+ invulnerable save. Stage 2, Get Stuck In!: your ORKS models get 1 added to their Strength and Attacks characteristics and gain a 6+ invulnerable save. SPEEDWAAAGH! Stage 1, Da Big Race: your ORKS models ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced; whenever one of your ORKS VEHICLE or ORKS BIKER models shoots a Dakka weapon, it makes 1 additional attack with it; and ranged attacks by models in your ORKS VEHICLE and ORKS BIKER units get their Armour Penetration improved by 1. Stage 2, Give 'Em Sum Dakka!: ranged attacks by models in your ORKS VEHICLE and ORKS BIKER units get their Armour Penetration improved by 1."
   },
+  "7b972ebaa2a0": {
+    "name": "Brutal but Kunnin",
+    "kind": "ability",
+    "plain": "When this WARLORD fights and aims all its attacks at one enemy unit, it can then make extra attacks against that unit. Once those attacks are resolved, it can make one more attack against that unit for each of its attacks in that fight that didn't reach the Inflict Damage step of the attack sequence."
+  },
   "7ba5158974fc": {
     "name": "Outriders",
     "kind": "ability",
     "plain": "Instead of deploying this unit on the battlefield, you can place it on the army's flank during deployment. If so, it arrives at the end of one of your Movement phases: set it up on the battlefield anywhere more than 9\" from every enemy model and wholly within 6\" of a battlefield edge."
+  },
+  "7bf1ab169621": {
+    "name": "Junkboss",
+    "kind": "ability",
+    "plain": "This WARLORD gets a 4+ invulnerable save."
   },
   "7cc4d227b28c": {
     "name": "Squigboss",
@@ -921,6 +976,11 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, choosing one of your DREAD WAAAGH! units. This phase, it can shoot twice with every ranged weapon it has."
   },
+  "8ba3c5ec36d6": {
+    "name": "Big Gob",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities have their range increased by 3\", up to a maximum of 9\"."
+  },
   "8c80253696e6": {
     "name": "Ramming Speed",
     "kind": "stratagem",
@@ -970,6 +1030,11 @@
     "name": "Get Da Loot",
     "kind": "stratagem",
     "plain": "Use as your Command phase begins. Choose one of your FREEBOOTERZ INFANTRY units on the battlefield; it has the Objective Secured ability until your next Command phase starts."
+  },
+  "9386917002b5": {
+    "name": "Duk An' Kuvva",
+    "kind": "ability",
+    "plain": "When your opponent's Shooting phase starts, if this WARLORD is wholly inside an Area Terrain feature, shield one unit there from distant ranged attacks. Pick one of your BLOOD AXES BOYZ or BLOOD AXES KOMMANDOS units that is wholly inside that feature. Until the phase ends, enemy models that are not within 12\" of that terrain feature can't choose that unit as a target for ranged attacks."
   },
   "94d83ff8e9da": {
     "name": "Gloryboyz",
@@ -1161,6 +1226,11 @@
     "kind": "ability",
     "plain": "This model can charge even in a turn in which it Advanced or Fell Back. At the start of the Charge phase, if it is able to charge, it must declare a charge, and the nearest enemy unit must be one of its targets."
   },
+  "a79ef6654a25": {
+    "name": "Killa Reputation",
+    "kind": "ability",
+    "plain": "This model:\n- subtracts 1 from the Leadership characteristic of models in any enemy unit within 3\" of it. While that enemy unit is within 3\", Combat Attrition tests taken for it also have 1 subtracted.\n- adds 1 to the Leadership characteristic of models in your FREEBOOTERZ units while they are within 6\" of it."
+  },
   "a87eaf0f426c": {
     "name": "Dok’s Tools",
     "kind": "ability",
@@ -1215,6 +1285,29 @@
     "name": "Makari's Stabba",
     "kind": "weapon",
     "plain": "For each attack with this weapon, an unmodified wound roll of 6 deals D3 mortal wounds to the target and ends the attack sequence."
+  },
+  "b0f2972d01f9": {
+    "name": "Da Best Armour Teef Can Buy",
+    "kind": "ability",
+    "plain": "This WARLORD gets a 4+ invulnerable save and adds 1 to its armour saving throws."
+  },
+  "b155e91c83e4": {
+    "name": "Surly as a Squiggoth",
+    "kind": "ability",
+    "plain": "The first time this WARLORD is destroyed, you may roll a D6 at the end of the phase: on a 4+, it comes back with D3 wounds remaining. When it comes back, set it up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy models. If you choose to roll, you don't use any rules that are triggered when a model is destroyed (such as the Orks is Never Beaten Stratagem).",
+    "waive": {
+      "63": "page number of the Orks is Never Beaten Stratagem in the official text; page references are left out"
+    }
+  },
+  "b21701c06b48": {
+    "name": "Big Killa Boss",
+    "kind": "ability",
+    "plain": "This WARLORD:\n- adds 2 to its Attacks when it fights while within Engagement Range of any enemy VEHICLE or MONSTER units, until that fight is resolved.\n- adds 1 to the wound roll of its melee attacks against VEHICLE or MONSTER units."
+  },
+  "b2a2e0f3948c": {
+    "name": "Counta-Taktics (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your BLOOD AXES CORE units is within 6\" of this WARLORD, it can perform Heroic Interventions as though it were a CHARACTER."
   },
   "b30921cfee97": {
     "name": "'ard Case",
@@ -1305,6 +1398,11 @@
     "name": "Stampede",
     "kind": "ability",
     "plain": "Whenever this model completes a charge, choose an enemy unit it is in Engagement Range of and roll a D6. On a 2+, that enemy unit takes D6 mortal wounds."
+  },
+  "c071bed04fe6": {
+    "name": "Get Up in Their Faces",
+    "kind": "ability",
+    "plain": "This WARLORD can shoot even in a turn in which it Fell Back."
   },
   "c11947728009": {
     "name": "Lobba",
@@ -1405,6 +1503,11 @@
     "name": "Attack Squig",
     "kind": "weapon",
     "plain": "When a model with an attack squig fights, it can make 2 extra attacks with this weapon, and it can never make more than 2 attacks with it."
+  },
+  "cc3f127d85d5": {
+    "name": "Speed King",
+    "kind": "ability",
+    "plain": "While one of your SPEED FREEKS units (other than a CHARACTER unit) is within 6\" of this WARLORD, its models re-roll wound rolls of 1 for their attacks."
   },
   "cda7fbca8a44": {
     "name": "Zzap gun",
@@ -1520,6 +1623,11 @@
     "name": "Red Gobbo",
     "kind": "ability",
     "plain": "This model can be part of an Ork Detachment and doesn't stop the other units in it from getting a Clan Kultur, though this model gains no benefit from any Clan Kultur itself."
+  },
+  "da22b4816dcb": {
+    "name": "Might is Right",
+    "kind": "ability",
+    "plain": "This Warlord adds 1 to its Strength and Attacks characteristics."
   },
   "da61a1220300": {
     "name": "Weirdboy",
@@ -1675,6 +1783,11 @@
     "name": "Hold On, Boyz!",
     "kind": "stratagem",
     "plain": "Use during your Movement phase, just before one of your <CLAN> BLITZ BRIGADE BATTLEWAGON models moves. Choose a friendly <CLAN> INFANTRY unit that is wholly within 3\" of it and lift that unit off the battlefield. When the BATTLEWAGON has finished moving, place the <CLAN> INFANTRY unit back on the battlefield so it is wholly within 3\" of the BATTLEWAGON and more than 3\" away from all enemy models. The infantry unit isn't embarked in the Battlewagon, so it doesn't use up any of its transport capacity. For the rest of the phase it can't move again (but it is treated as having moved this turn for all rules purposes), and it can't charge this turn."
+  },
+  "f8b65ec4f803": {
+    "name": "Ard as Nails",
+    "kind": "ability",
+    "plain": "Subtract 1 from the wound roll of every attack that targets this WARLORD."
   },
   "f957bc3f22f0": {
     "name": "Pyromaniaks",
