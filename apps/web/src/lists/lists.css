@@ -203,3 +203,9 @@
 
 /* ---------- Export: the text wraps on phones instead of scrolling sideways ---------- */
 .export-text.export-text--wrap { white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: hidden; }
+
+/* ---------- Problems: choices to make, then what must be fixed ---------- */
+.issues-groups { display: flex; flex-direction: column; gap: 16px; }
+.issues-group { display: flex; flex-direction: column; gap: 8px; }
+.issues-group__title { margin: 0; }
+.issues__item.issues__item--choice { background: var(--surface-2); border-color: var(--border-strong); box-shadow: inset 3px 0 0 var(--brass); }

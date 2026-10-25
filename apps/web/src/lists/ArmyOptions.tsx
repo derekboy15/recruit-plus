@@ -3,16 +3,17 @@
  * each opening a sheet that says what every option does; and on/off army options (stratagems bought before the
  * battle) under a "More options" chip. They live in the first detachment.
  */
-import { armyOptions, optionDisplay, type Issue } from '@recruit/data/roster';
-import { useMemo } from 'react';
+import { armyOptions, findSelView, optionDisplay, type Issue, type SelView } from '@recruit/data/roster';
+import { useCallback, useMemo } from 'react';
 import type { EntryInfoIndex } from '../data/entryInfo';
 import { useWording } from '../rules/wording';
+import { ChoiceList } from './ChoiceList';
+import type { ChoiceTarget } from './IssuesPanel';
+import { describeOption } from './optionText';
 import { IconWarning } from '../ui/icons';
 import { Sheet } from '../ui/Sheet';
-import { ChoiceList } from './ChoiceList';
 import { isAutoManagedEntry, isHelperOption, offeredAtSize } from './editorView';
 import { armyChoices, isOptionalChoice, type ArmyChoice } from './newListSetup';
-import { describeOption } from './optionText';
 import type { ReadyEditor } from './useRosterEditor';
 
 /**
@@ -63,6 +64,35 @@ export function useArmyChoices(editor: ReadyEditor): ArmyChoiceState | null {
     const optional = (c: ArmyChoice) => isOptionalChoice(scope, roster, c, view);
     return { choices, toggles, selOf, needsPick, optional };
   }, [scope, roster, view, issues]);
+}
+
+const rootOf = (v: SelView): SelView => (v.parent ? rootOf(v.parent) : v);
+
+/**
+ * The army choice a problem is about, so Problems can offer "Choose Dynasty" and open its sheet: the army option a fix
+ * would add, or the one the problem's selection belongs to (the choice of the group the problem names, when it names one).
+ */
+export function useChoiceTargets(editor: ReadyEditor): (issue: Issue) => ChoiceTarget | null {
+  const state = useArmyChoices(editor);
+  const { view } = editor;
+  return useCallback(
+    (issue: Issue) => {
+      if (!state) return null;
+      const fix = issue.fix;
+      let entryId: string | undefined;
+      if (fix?.kind === 'add-unit') entryId = fix.entryIds.length === 1 ? fix.entryIds[0] : undefined;
+      else {
+        const selId = fix?.kind === 'open' ? fix.selId : issue.selId;
+        const v = selId ? findSelView(view, selId) : undefined;
+        const root = v && rootOf(v);
+        if (root && root.force.force.id === view.forces[0]?.force.id) entryId = root.sel.entryId;
+      }
+      const matches = state.choices.filter((c) => c.entryId === entryId);
+      const c = matches.find((x) => x.groupId === issue.subject.id) ?? matches[0];
+      return c ? { key: c.key, title: choiceTitle(c) } : null;
+    },
+    [state, view],
+  );
 }
 
 export const pickedOf = (c: ArmyChoice) => (c.max !== 1 ? c.options.filter((o) => o.selIds.length > 0) : c.options.filter((o) => o.id === c.current));

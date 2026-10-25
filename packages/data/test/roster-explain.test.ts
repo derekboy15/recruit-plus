@@ -103,14 +103,14 @@ describe('explain (mini fixture)', () => {
     const [row] = explained(mini, roster);
     expect(row.issue.fix).toEqual({ kind: 'remove', selIds: [ids[4]] });
     expect(row.text).toBe('Your Patrol Detachment has 4 Troops units but can only take 3. Remove 1, or move it to another detachment.');
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Warriors');
   });
 
   test('slot-max says "them" for several and shrinks a stack with Set to', () => {
     const { roster } = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);
     const [many] = explained(mini, roster);
     expect(many.text).toBe('Your Patrol Detachment has 5 Troops units but can only take 3. Remove 2, or move them to another detachment.');
-    expect(many.fixLabel).toBe('Remove 2');
+    expect(many.fixLabel).toBe('Remove 2 Warriors');
     const four = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);
     const [shrink] = explained(mini, setCount(mini, four.roster, four.ids[3], 2));
     expect(shrink.issue.fix).toEqual({ kind: 'set-count', selId: four.ids[3], count: 1 });
@@ -170,7 +170,7 @@ describe('explain (mini fixture)', () => {
     const [row] = explained(s, r);
     expect(row.issue).toMatchObject({ rule: 'unique', scope: 'roster' });
     expect(row.text).toBe('Lord is a unique unit, so your army can include only 1. Remove 1.');
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Lord');
   });
 
   test('unique (one per detachment) says so and names the detachment', () => {
@@ -179,7 +179,7 @@ describe('explain (mini fixture)', () => {
     const [row] = explained(rules, r);
     expect(row.issue).toMatchObject({ rule: 'unique', scope: 'force' });
     expect(row.text).toBe('Lord is limited to 1 per detachment. Remove 1 from your Patrol Detachment.');
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Lord');
   });
 
   test('unit-limit (a most-N limit)', () => {
@@ -189,7 +189,7 @@ describe('explain (mini fixture)', () => {
     const { roster } = withUnits(s, emptyRoster(s), M.L_LORD, M.L_WARRIORS, M.L_WARRIORS, M.L_WARRIORS);
     const [row] = of(explained(s, roster), 'unit-limit');
     expect(row.text).toBe('Your army can include at most 2 Warriors. Remove 1.');
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Warriors');
   });
 
   test('unit-limit per detachment: at most, and at least', () => {
@@ -200,7 +200,7 @@ describe('explain (mini fixture)', () => {
     const [row] = of(explained(s, roster), 'unit-limit');
     expect(row.issue.scope).toBe('force');
     expect(row.text).toBe('Your Patrol Detachment can include at most 2 Warriors. Remove 1.');
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Warriors');
 
     const r1 = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS).roster;
     const view = evaluate(mini, r1);
@@ -265,14 +265,14 @@ describe('explain (mini fixture)', () => {
     const { roster, ids } = withUnits(rules, emptyRoster(rules), M.L_IMP, M.L_WARRIORS, M.L_LORD);
     const [hidden] = explained(rules, addChild(rules, roster, ids[2], M.E_WARLORD_UPG));
     expect(hidden.text).toBe("Imps can't be in this army any more because of an earlier choice. Remove it, or change that choice.");
-    expect(hidden.fixLabel).toBe('Remove 1');
+    expect(hidden.fixLabel).toBe('Remove Imps');
 
     const stale = { id: 'stale-sel', entryId: 'gone', count: 1, children: [] };
     const base = withUnits(mini, emptyRoster(mini), M.L_LORD, M.L_WARRIORS).roster;
     const r = { ...base, forces: [{ ...base.forces[0], selections: [...base.forces[0].selections, stale] }] };
     const [unknown] = explained(mini, r);
     expect(unknown.text).toBe("One item in this list isn't in the current rules data, so it was skipped. Remove it.");
-    expect(unknown.fixLabel).toBe('Remove 1');
+    expect(unknown.fixLabel).toBe('Remove it');
   });
 
   test('other, in the right direction, and no fix means no fixLabel', () => {
@@ -392,7 +392,14 @@ describe('explain (real Necrons)', () => {
     const { roster } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Canoptek Wraiths', 4);
     const [row] = of(explainPolicy(necronsScope, roster), 'rule-of-three');
     expect(row.text).toBe("You have 4 Canoptek Wraiths units. Strike Force allows 3 of the same datasheet (Troops and Dedicated Transports don't count). Remove 1.");
-    expect(row.fixLabel).toBe('Remove 1');
+    expect(row.fixLabel).toBe('Remove Canoptek Wraiths');
+  });
+
+  test('rule-of-three: the remove fix names the unit it takes out', () => {
+    const r0 = necronRoster('strike-force');
+    const { roster } = addNamed(necronsScope, r0, r0.forces[0].id, necrons, 'Doomsday Ark', 4);
+    const [row] = of(explainPolicy(necronsScope, roster), 'rule-of-three');
+    expect(row.fixLabel).toBe('Remove Doomsday Ark');
   });
 
   test('detachment-count: core, one per army and Arks of Omen', () => {
@@ -437,7 +444,7 @@ describe('explain (real Necrons)', () => {
     const two = addNamed(necronsScope, addNamed(necronsScope, r, aux, necrons, 'Canoptek Wraiths').roster, aux, necrons, 'Necron Warriors');
     const [max] = slot(two.roster, 'slot-max');
     expect(max.text).toBe('Your Auxiliary Support Detachment has 2 units but can only take 1. Remove 1, or move it to another detachment.');
-    expect(max.fixLabel).toBe('Remove 1');
+    expect(max.fixLabel).toBe('Remove Necron Warriors');
   });
 
   test('model-count on real data names the unit and the models', () => {

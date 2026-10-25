@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } fro
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useAsync } from '../factions/useAsync';
 import { ArmyChoiceSheet } from './ArmyChoiceSheet';
-import { MoreOptionsSheet } from './ArmyOptions';
+import { MoreOptionsSheet, useChoiceTargets } from './ArmyOptions';
 import { DatasheetSheet } from './DatasheetSheet';
 import { DetachmentSection, useCollapsed } from './Detachments';
 import { EditorHeader } from './EditorHeader';
@@ -108,6 +108,8 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const unitIndex = useAsync(() => loadUnitIndex(slugs), slugs.join('+'));
   const units = unitIndex.status === 'ready' ? unitIndex.data : null;
   const info = useEntryInfo(slugs);
+  const choiceFor = useChoiceTargets(editor);
+  const onChoose = useCallback((key: string) => open({ choice: key }), [open]);
   const [collapsed, toggleCollapsed] = useCollapsed(listId);
 
   const unitParam = params.get('unit');
@@ -167,9 +169,10 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   } else if (sheetParam === 'add-to') {
     sheet = <AddToSheet editor={editor} onPick={(forceSelId) => open({ add: forceSelId })} onClose={close} />;
   } else if (issuesOpen) {
-    sheet = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} onClose={close} />;
+    sheet = <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} choiceFor={choiceFor} onChoose={onChoose} onClose={close} />;
   }
-  const aside = wide && !issuesOpen ? <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} inline onClose={close} /> : null;
+  const aside =
+    wide && !issuesOpen ? <IssuesPanel issues={issues} view={view} scope={scope} dispatch={dispatch} choiceFor={choiceFor} onChoose={onChoose} inline onClose={close} /> : null;
 
   return (
     <div className="editor">

@@ -262,8 +262,7 @@ test('a missing army choice is added straight from its fix, then picked from its
   const chip = screen.getByRole('button', { name: 'Dynasty: choose' });
   expect(chip).toHaveClass('chip--warn');
   await u.click(screen.getByRole('button', { name: /to fix$/ }));
-  await u.click(await screen.findByRole('button', { name: 'Choose Dynasty Choice' }));
-  await u.click(screen.getByRole('button', { name: 'Dynasty: choose' }));
+  await u.click(await screen.findByRole('button', { name: 'Choose Dynasty' }));
   const sheet = await screen.findByRole('dialog', { name: 'Choose: Dynasty' });
   expect(within(sheet).getByText('Pick one: your army needs this choice.')).toBeInTheDocument();
   await u.click(within(sheet).getByRole('radio', { name: 'Szarekhan' }));
@@ -759,4 +758,32 @@ test('the bar beside Add unit opens Export', async () => {
   await opened();
   await u.click(screen.getByRole('button', { name: 'Export or share this list' }));
   expect(await screen.findByRole('dialog', { name: 'Export list' })).toBeInTheDocument();
+});
+
+test('Problems puts choices to make first, then what must be fixed', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: '3 to fix' }));
+  const panel = await screen.findByRole('dialog', { name: 'Problems' });
+  const choices = within(panel).getByRole('region', { name: 'Choices to make' });
+  const fixes = within(panel).getByRole('region', { name: 'Must fix' });
+  expect(choices.compareDocumentPosition(fixes) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  expect(within(choices).getByRole('button', { name: 'Choose Dynasty' })).toBeInTheDocument();
+  expect(within(fixes).getByText(/needs 1 more HQ unit/)).toBeInTheDocument();
+  expect(within(fixes).queryByRole('button', { name: /^Choose/ })).not.toBeInTheDocument();
+  expect(within(choices).getAllByRole('listitem').every((li) => li.classList.contains('issues__item--choice'))).toBe(true);
+  expect(within(fixes).getAllByRole('listitem').every((li) => !li.classList.contains('issues__item--choice'))).toBe(true);
+});
+
+test('Choose Dynasty in Problems opens the dynasty sheet', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: '3 to fix' }));
+  await u.click(within(await screen.findByRole('dialog', { name: 'Problems' })).getByRole('button', { name: 'Choose Dynasty' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Choose: Dynasty' });
+  await u.click(within(sheet).getByRole('radio', { name: 'Szarekhan' }));
+  expect(screen.getByRole('button', { name: 'Dynasty: Szarekhan' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: '2 to fix' })).toBeInTheDocument();
 });
