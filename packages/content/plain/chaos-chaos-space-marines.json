@@ -44,6 +44,11 @@
     "kind": "ability",
     "plain": "This WARLORD gets the DAEMON and DAEMONKIN keywords, a 4+ invulnerable save against ranged attacks, and better Strength, Attacks, Wounds and Move. It gains those keywords if it doesn't already have them. Add 1 to its Strength, Attacks and Wounds characteristics, and add 2\" to its Move characteristic."
   },
+  "037987da50ee": {
+    "name": "Techno-venomous Mechatendrils",
+    "kind": "ability",
+    "plain": "The bearer's Master of Mechanisms repairs restore up to 3 lost wounds instead of up to D3, and each hit from its Mechatendrils becomes 1 mortal wound. Each hit from its Mechatendrils deals 1 mortal wound to the target and then ends the attack sequence."
+  },
   "03c69a52500f": {
     "name": "Cult Demagogue",
     "kind": "ability",
@@ -147,6 +152,11 @@
     "kind": "ability",
     "plain": "Once per game, in the Shooting phase, this vehicle can use its Smoke Launchers instead of shooting with any of its weapons. If it does, until your next Shooting phase, your opponent subtracts 1 from every hit roll for ranged weapons targeting this vehicle."
   },
+  "0de37d79f7c5": {
+    "name": "Drakescale Plate",
+    "kind": "ability",
+    "plain": "The bearer's Save characteristic is 2+, and attacks against it fail on an unmodified wound roll of 1-3. Those wound rolls fail whatever abilities the attacking model or its weapon has."
+  },
   "0f7a51439466": {
     "name": "Revered Hosts",
     "kind": "stratagem",
@@ -166,6 +176,11 @@
     "name": "Veterans of the Long War",
     "kind": "stratagem",
     "plain": "In your Shooting phase or the Fight phase, when one of your TRAITORIS ASTARTES INFANTRY or TRAITORIS ASTARTES BIKER units is chosen to shoot or fight. For the rest of the phase, add 1 to the wound roll of every attack made by a model in that unit."
+  },
+  "143372912540": {
+    "name": "The Malefic Tome",
+    "kind": "ability",
+    "plain": "The bearer knows one extra psychic power from one of the disciplines it can use, and adds 1 to its Psychic test each time it tries to manifest a power."
   },
   "145ce717fc23": {
     "name": "Remorseless",
@@ -206,6 +221,11 @@
     "name": "Chainfist",
     "kind": "weapon",
     "plain": "Subtract 1 from the hit roll of every attack made with this weapon. If such an attack is allocated to a VEHICLE model, its Damage characteristic is 3 for that attack."
+  },
+  "19061b3f11db": {
+    "name": "Cranium Malevolus",
+    "kind": "ability",
+    "plain": "When your Shooting phase starts, each enemy VEHICLE unit within 9\" of the bearer risks mortal wounds. Roll one D6 per unit: on a 4-5 it suffers D3 mortal wounds, or 3 mortal wounds on a 6."
   },
   "195a72e76fe0": {
     "name": "Sigil of decay",
@@ -282,6 +302,11 @@
     "kind": "stratagem",
     "plain": "At the start of your opponent's Shooting phase: pick one of your IRON WARRIORS INFANTRY units, then pick one friendly IRON WARRIORS CULTISTS unit wholly within 6\" of it. For the rest of the phase, enemy models can't target that IRON WARRIORS INFANTRY unit while that IRON WARRIORS CULTISTS unit is a closer eligible target."
   },
+  "217e7d822ba8": {
+    "name": "Armour of Badab (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your RED CORSAIRS CORE and RED CORSAIRS CHARACTER units within 3\" of the bearer get an invulnerable save: 4+ for TERMINATOR models, 5+ for others."
+  },
   "21b0f045ed78": {
     "name": "Sicaran laser cannon",
     "kind": "weapon",
@@ -317,6 +342,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your ALPHA LEGION CORE units within 6\" of this WARLORD to gain Objective Secured and shoot during actions. Until your next Command phase starts, that unit can shoot while performing an action and the action doesn't fail. It also has the Objective Secured ability; any of its models that already have that ability count as 1 extra model when working out who controls an objective marker."
   },
+  "24a049697970": {
+    "name": "Hydra's Teeth",
+    "kind": "ability",
+    "plain": "One of the bearer's bolt weapons becomes a Relic that can swap its normal attacks for one stronger Hydra's Teeth shot that hits automatically. Only a model with a bolt weapon can take this Relic. When you give it to a model, pick one of its bolt weapons; that weapon counts as a Relic for all rules purposes. Whenever the bearer is chosen to shoot, you can have that weapon fire a Hydra's Teeth bolt: it makes only one attack with that weapon, but that attack hits automatically, gets 2 added to its Strength and Damage, has its Armour Penetration improved by 2, and can't be saved with an invulnerable save."
+  },
   "24b8f27b89c6": {
     "name": "Explodes (6\"/D6/Transport)",
     "kind": "ability",
@@ -336,6 +366,11 @@
     "name": "Blood Surge",
     "kind": "ability",
     "plain": "Whenever an enemy unit is chosen to shoot and any of its attacks target this unit, check once those attacks are resolved: if they destroyed any models in this unit, this unit can make a Blood Surge move. If it does, any actions it is performing fail. Then roll one D6: each model in the unit can move up to that many inches, but has to end as close as it can to the closest enemy unit. The unit can't end this move in Engagement Range of an enemy unit other than that closest one. A unit can't make a Blood Surge move in a turn in which it disembarked from a destroyed TRANSPORT model, or while it is already in Engagement Range of any enemy units."
+  },
+  "2834a19dd7f7": {
+    "name": "Misery of the Meek",
+    "kind": "ability",
+    "plain": "Once per battle, when any phase starts, the bearer can use this Relic to heal 3 lost wounds and gain extra attacks and aura range this turn. When it does, it regains 3 lost wounds, and until the end of the turn, add D3 to its Attacks characteristic and 3\" to the range of its aura abilities (to a maximum of 9\")."
   },
   "28512e611d05": {
     "name": "Spiteful Endurance",
@@ -362,6 +397,11 @@
     "kind": "ability",
     "plain": "When this unit makes a charge roll, roll an extra D6, and you may ignore any or all of the modifiers to that roll."
   },
+  "2dc05ff05bee": {
+    "name": "Hydra's Wail",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can make a Stratagem your opponent just used cost 1 more CP for the rest of the battle. Use this Relic after your opponent uses a Stratagem other than Command Re-roll; from then on, they must pay 1 extra CP each time they use that Stratagem again."
+  },
   "2e062f765d0f": {
     "name": "Black Rune of Damnation",
     "kind": "ability",
@@ -386,6 +426,11 @@
     "name": "Unholy Fortitude",
     "kind": "ability",
     "plain": "Your WARLORD ignores lost wounds on a 5+: roll one D6 whenever it would lose a wound, and on a 5+ that wound isn't lost."
+  },
+  "2fe02a85ed16": {
+    "name": "Epistle of Lorgar",
+    "kind": "ability",
+    "plain": "The bearer knows one extra prayer from the Prayers to the Dark Gods and can chant one extra prayer in your Command phase. To chant that extra prayer it must be on the battlefield, and the prayer must be one it knows that no friendly model has already chanted that turn."
   },
   "2fed897e432f": {
     "name": "Sorcerous Master",
@@ -437,6 +482,11 @@
     "kind": "weapon",
     "plain": "Each time an attack is made with this weapon, an unmodified wound roll of 6 inflicts 1 mortal wound on the target as well as the normal damage."
   },
+  "382983c2b073": {
+    "name": "Fatal Sonancy",
+    "kind": "ability",
+    "plain": "When your Movement phase ends, you can roll six D6 against one enemy unit within 12\" of the bearer that it can see; each 4+ deals 1 mortal wound to that unit."
+  },
   "388975f720f9": {
     "name": "Thermal jets",
     "kind": "ability",
@@ -451,6 +501,16 @@
     "name": "Master of Mechanisms",
     "kind": "ability",
     "plain": "At the end of your Movement phase, this model may repair one of your <LEGION> VEHICLE models within 3\" of it, which gets back up to D3 lost wounds. A model can be repaired only once per turn."
+  },
+  "3918d0802641": {
+    "name": "Living Carapace",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can enhance this Relic as an attack is allocated to it, making every attack allocated to it Damage 1 until the end of the turn. From then until the turn ends, each attack allocated to the bearer has its Damage characteristic changed to 1."
+  },
+  "3919eb7dd09d": {
+    "name": "Mantle of Traitors",
+    "kind": "ability",
+    "plain": "The bearer can use an Epic Deed Stratagem for 0CP once per battle, can re-roll melee hit rolls, and can extend some of its auras to one <LEGION> CORE unit. Once per battle, if the bearer is picked for an Epic Deed Stratagem, that Stratagem costs 0CP. You can re-roll hit rolls for its melee attacks. At the start of your Command phase, pick one of your <LEGION> CORE units on the battlefield: until your next Command phase starts, that unit counts as within range of the bearer's Lord of Chaos, Aspire to Glory and Demagogue aura abilities, if it has any of them."
   },
   "391dd9581e75": {
     "name": "Death Ecstasy",
@@ -474,6 +534,11 @@
     "name": "Hunter-killer missile",
     "kind": "weapon",
     "plain": "The bearer can fire each of its hunter-killer missiles only once per battle."
+  },
+  "3a451f34bf95": {
+    "name": "Traitor's Laurels (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your RED CORSAIRS CORE units within 6\" of the bearer can ignore any or all modifiers to their Combat Attrition tests."
   },
   "3ba73ff71db1": {
     "name": "Dark Disciples",
@@ -549,6 +614,11 @@
     "name": "Paragon of Hatred",
     "kind": "ability",
     "plain": "You can re-roll charge rolls for this WARLORD, and it gets extra attacks when it fights. Whenever it fights while within Engagement Range of any enemy units, add 1 to its Attacks characteristic until that fight is resolved, or add D3 instead if any of those enemy units have the IMPERIUM keyword."
+  },
+  "446c9ddbd444": {
+    "name": "Inferno Tome",
+    "kind": "ability",
+    "plain": "The bearer knows an extra prayer, and each heard prayer deals D3 mortal wounds to the closest visible enemy unit within 18\" of it. The extra prayer comes from the Prayers to the Dark Gods. The mortal wounds go to the closest enemy unit within 18\" of the bearer that it can see, each time it chants a prayer that is heard."
   },
   "44c92f5be897": {
     "name": "Helbrute fist",
@@ -655,6 +725,16 @@
     "kind": "stratagem",
     "plain": "At the start of your Charge phase, if none of your BLACK LEGION units are within Engagement Range of any enemy units: pick whichever of your BLACK LEGION CORE, BLACK LEGION DAEMONKIN or BLACK LEGION CHARACTER units is closest to an enemy unit. For the rest of the turn: charge rolls for that unit can be re-rolled; and each time one of its models makes a melee attack against an enemy unit that is within your opponent's deployment zone or in range of an objective marker, improve that attack's Armour Penetration characteristic by 1."
   },
+  "5181ba2538ad": {
+    "name": "Sightless Helm",
+    "kind": "ability",
+    "plain": "The bearer's attacks can ignore hit and skill modifiers, get 1 better Armour Penetration, and deny the target the benefits of cover. For each attack the bearer makes, you may ignore any or all of the modifiers to its hit roll, Weapon Skill and Ballistic Skill, and that attack's Armour Penetration is improved by 1. The target doesn't get the benefits of cover against it."
+  },
+  "51a2a92159cb": {
+    "name": "Veilbreaker Plate",
+    "kind": "ability",
+    "plain": "Attacks allocated to the bearer have their Armour Penetration worsened by 1, and once per battle it can redeploy with up to one nearby BLACK LEGION CORE unit. To redeploy, use this Relic in your Movement phase, as long as the bearer didn't arrive as Reinforcements this turn. Remove the bearer, and up to one of your BLACK LEGION CORE units within 3\" of it, from the battlefield, and set them up again anywhere on the battlefield more than 9\" from all enemy models. If two units are set up again this way, they must be placed within 6\" of each other."
+  },
   "51b11070c600": {
     "name": "Masters of Duplicity",
     "kind": "ability",
@@ -669,6 +749,11 @@
     "name": "Demagogue (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <LEGION> CORE, <LEGION> DAEMONKIN or <LEGION> CULTISTS units is within 6\" of this model, its models may use the Leadership of this model in place of their own."
+  },
+  "539ad23f55cb": {
+    "name": "Flayer",
+    "kind": "weapon",
+    "plain": "In the next Morale phase, each enemy model destroyed by an attack with this weapon is counted as 2 destroyed models."
   },
   "53e49c295ac7": {
     "name": "Artillery and Crew",
@@ -769,6 +854,11 @@
     "name": "Explodes (6\"/D6)",
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before taking it off the battlefield. On a 6, it explodes and every unit within 6\" takes D6 mortal wounds."
+  },
+  "600d376bd2dc": {
+    "name": "Talisman of Burning Blood",
+    "kind": "ability",
+    "plain": "The bearer gets 1 extra attack, gains another for each enemy unit it destroys in melee, and can make longer Heroic Interventions. It can perform a Heroic Intervention when an enemy unit is up to 6\" away horizontally and 5\" vertically, rather than the usual 3\" horizontally and 5\" vertically. Its Heroic Intervention move can be up to 6\" long, provided it finishes either within Engagement Range of an enemy CHARACTER unit or closer to the nearest enemy model; all other Heroic Intervention rules still apply. Add 1 to its Attacks characteristic, and each time one of its melee attacks destroys an enemy unit, add a further 1 to its Attacks for the rest of the battle."
   },
   "60ee7382768d": {
     "name": "Sonic Weapon",
@@ -938,10 +1028,25 @@
     "kind": "ability",
     "plain": "Aura: while one of your <LEGION> KHORNE CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
   },
+  "6f60532aa5d2": {
+    "name": "Ul'o'cca, the Black",
+    "kind": "ability",
+    "plain": "One of the bearer's melee weapons (not a Relic) becomes a Relic with the Daemon Weapon ability, and each attack with it that wounds also deals 1 mortal wound. You pick the weapon, and it counts as a Relic for all rules purposes. The mortal wound is dealt to the target on top of the attack's normal damage."
+  },
+  "6f9643be7192": {
+    "name": "Ghorisvex's Teeth",
+    "kind": "ability",
+    "plain": "Only a model with an astartes chainsword can take this Relic. It replaces that chainsword and has its own weapon profile."
+  },
   "6fe1449b8464": {
     "name": "Indomitable",
     "kind": "ability",
     "plain": "Halve the Damage characteristic (rounding up) of each attack allocated to your WARLORD."
+  },
+  "7045f03f15c7": {
+    "name": "Insidium",
+    "kind": "ability",
+    "plain": "The bearer gets the DAEMON and DAEMONKIN keywords, and its Strength, Toughness and Wounds characteristics each go up by 1."
   },
   "70ba9a45b79d": {
     "name": "Reservoir of Daemonic Energy (Aura)",
@@ -1008,6 +1113,11 @@
     "kind": "stratagem",
     "plain": "In your Command phase, if your BLACK LEGION WARLORD is on the battlefield and your army is engaged in Wanton Destruction, Wanton Massacre or Wanton Slaughter: pick one of your BLACK LEGION CORE units within 18\" of your WARLORD. That unit counts as engaged in all three (Wanton Destruction, Wanton Massacre and Wanton Slaughter) until your next Command phase starts."
   },
+  "76a926133e7c": {
+    "name": "Vox Daemonicus (Aura)",
+    "kind": "ability",
+    "plain": "Aura: when an enemy unit within 12\" of the bearer tries to do an action or psychic action, roll 2D6; if the total beats its Leadership, it can't attempt it."
+  },
   "77594e4710ae": {
     "name": "Hunter in the Skies",
     "kind": "ability",
@@ -1058,6 +1168,11 @@
     "kind": "stratagem",
     "plain": "At the start of your Movement phase: pick one of your DAEMONKIN RITUALISTS POSSESSED units and one friendly DAEMONKIN RITUALISTS CHARACTER within 6\" of it, and roll a D3. The POSSESSED unit suffers that many mortal wounds, and then the CHARACTER regains that many lost wounds."
   },
+  "7aff289cb7d6": {
+    "name": "Vox Daemonicus",
+    "kind": "ability",
+    "plain": "Enemy units can't be set up as reinforcements within 12\" of the bearer."
+  },
   "7c561455c11e": {
     "name": "Let the Galaxy Burn",
     "kind": "ability",
@@ -1083,6 +1198,11 @@
     "kind": "ability",
     "plain": "Once per battle, after the bearer has moved, you can pick one unit it moved across. Roll six D6 for each VEHICLE or MONSTER model in that unit and one D6 for each other model in it (up to a maximum of 18); for every 4+, that unit suffers 1 mortal wound. As updated in January 2023, this ability only works if the bearer is still on the battlefield when its move has finished."
   },
+  "7f1c6c13bc3c": {
+    "name": "The Spite-Iron Goad",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DAEMON ENGINE models within 9\" of the bearer: this turn, it can shoot and declare a charge even if it Fell Back."
+  },
   "7fb5a0c5e550": {
     "name": "Sickly Resistance",
     "kind": "ability",
@@ -1097,6 +1217,11 @@
     "name": "Helbrute plasma cannon",
     "kind": "weapon",
     "plain": "Blast. For every attack with this weapon that gets an unmodified hit roll of 1, the bearer suffers 1 mortal wound once it has finished shooting with this weapon."
+  },
+  "80904c88a8a1": {
+    "name": "Helm of All-Seeing",
+    "kind": "ability",
+    "plain": "While the bearer is on the battlefield, you can roll one D6 for every Command point your opponent spends on Stratagems; on a 5+, you gain 1 Command point."
   },
   "810b1ce63088": {
     "name": "The Chirurgeon",
@@ -1263,6 +1388,11 @@
     "kind": "ability",
     "plain": "This model can declare a charge in a turn in which it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move across other models (except MONSTER and VEHICLE models) as if they weren't there, and while doing so it can move within Engagement Range of those models, but it can't end its move within Engagement Range of any of them."
   },
+  "8f790640405c": {
+    "name": "Blade of the Hydra",
+    "kind": "weapon",
+    "plain": "When the bearer fights, this weapon gives it D3+3 extra attacks, or 6 extra attacks if 6 or more enemy models are within 3\" of it. Count those enemy models when the bearer is chosen to fight."
+  },
   "917db41987c7": {
     "name": "Daemon Shells",
     "kind": "stratagem",
@@ -1317,6 +1447,11 @@
     "name": "Nurglings' claws and teeth",
     "kind": "weapon",
     "plain": "Each time the bearer fights, it gets D6 extra attacks with this weapon, and it can make only those D6 attacks with this weapon. Re-roll a wound roll of 1 for attacks made with this weapon."
+  },
+  "98ad8eb10464": {
+    "name": "Crown of the Blasphemer",
+    "kind": "ability",
+    "plain": "Every model in the bearer's unit has a 4+ invulnerable save, which the bearer can raise to 3+ for one phase once per battle. It can do this just before a saving throw is made for it; the 3+ invulnerable save then applies to every model in the bearer's unit until the end of the phase."
   },
   "996f0624fe66": {
     "name": "Siege Crawler",
@@ -1393,6 +1528,11 @@
     "kind": "ability",
     "plain": "Roll one D6 whenever this model is picked as the target of a psychic power or would take mortal wounds because of one. On a 4+, the psychic power has no effect on this model."
   },
+  "a1a2d622c8fe": {
+    "name": "G'holl'ax, the Decayed",
+    "kind": "ability",
+    "plain": "One of the bearer's melee weapons (not a Relic) becomes a Relic with the Daemon Weapon ability, and each hit it scores wounds the target automatically. You pick the weapon, and it counts as a Relic for all rules purposes. When an attack with it hits, enemy models also can't ignore the wounds they lose by using any of their rules."
+  },
   "a1ab03a84bda": {
     "name": "Black Crusaders",
     "kind": "ability",
@@ -1432,6 +1572,11 @@
     "name": "Hellforged Dreadnought chainfist",
     "kind": "weapon",
     "plain": "Attacks from this weapon that are allocated to a VEHICLE model have a Damage characteristic of 6."
+  },
+  "a4732074b3bf": {
+    "name": "Liber Hereticus",
+    "kind": "ability",
+    "plain": "The bearer can try to manifest one extra psychic power in your Psychic phase, and adds 6\" to the range of the powers it manifests. Each power it successfully manifests gets 6\" added to the range of its effect; for a power with several ranges (such as Gift of Chaos), only the first range listed is increased."
   },
   "a50d362c0916": {
     "name": "Laser volley cannon - Overcharge fire",
@@ -1477,6 +1622,16 @@
     "name": "The Black Mace",
     "kind": "weapon",
     "plain": "For attacks made with this weapon, excess damage is not lost. Keep allocating it to other models in the target unit until there is no excess damage left to allocate or the target unit is destroyed."
+  },
+  "a9858a149e20": {
+    "name": "Remnant of the Maraviglia (Aura)",
+    "kind": "ability",
+    "plain": "Aura: models in your EMPEROR'S CHILDREN CORE and EMPEROR'S CHILDREN CHARACTER units within 6\" of the bearer get 1 extra attack."
+  },
+  "a9a9c2e856e4": {
+    "name": "Cloak of Conquest (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your BLACK LEGION CORE and BLACK LEGION CHARACTER units within 6\" of the bearer have the Objective Secured ability."
   },
   "aa3383d6c39c": {
     "name": "Fanatic Zealotry",
@@ -1562,6 +1717,11 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your TRAITORIS ASTARTES units is chosen to fight. Until the phase ends, whenever one of that unit's HERETIC ASTARTES models attacks an ADEPTUS ASTARTES or SANCTIC ASTARTES unit in melee, you may re-roll that hit roll."
   },
+  "b44f724a8a7e": {
+    "name": "Thaa' ris and Rhi'ol, the Rapacious",
+    "kind": "ability",
+    "plain": "Two of the bearer's melee weapons (not Relics) become Relics with the Daemon Weapon ability, and each gives the bearer D3 extra attacks when it fights. You pick the two weapons. They count as Relics for all rules purposes, but the bearer only counts as having one Relic. Each time the bearer is chosen to fight, it can make D3 extra attacks with each of those daemon weapons, rolling separately for each."
+  },
   "b463b17013f1": {
     "name": "Hellflamer",
     "kind": "weapon",
@@ -1571,6 +1731,11 @@
     "name": "Infernal bomb",
     "kind": "ability",
     "plain": "Once per turn, the bearer can drop one of its remaining infernal bombs (if it has any left). Immediately after it moves, choose a point on the battlefield that it passed over this phase. Roll one D6 for every unit within 6\" of that point, taking 1 off the roll if it is a CHARACTER (excluding VEHICLE or MONSTER units). A unit takes D3 mortal wounds on a 4-5, or D6 mortal wounds on a 6. No infernal bomb can be dropped more than once per battle. As updated in January 2023, this ability only works if the bearer is still on the battlefield at the end of its move."
+  },
+  "b5486396e2fd": {
+    "name": "Stormbolt Plate",
+    "kind": "ability",
+    "plain": "Enemy models can shoot the bearer only if it is within 12\" of them or is the closest eligible target, and it always has Light Cover and Heavy Cover. Against every attack made against it, the bearer counts as having the benefits of both Light Cover and Heavy Cover."
   },
   "b583e9a3279d": {
     "name": "Veteran Raider",
@@ -1657,10 +1822,30 @@
     "kind": "ability",
     "plain": "- When a model in this unit makes a melee attack, add 1 to its Strength if the unit charged, was charged or made a Heroic Intervention this turn.\n- If this unit has the ICON keyword, improve the Armour Penetration of its models' melee attacks by 1."
   },
+  "c1be8d0e68d3": {
+    "name": "Gorget of Eternal Hate",
+    "kind": "ability",
+    "plain": "The bearer gets 1 added to its armour saving throws and a 4+ invulnerable save, and may hurt nearby enemy units the first time it is destroyed. The first time it is destroyed, before it is removed from play, roll one D6 per enemy unit within 3\" of it: on a 2-5, that unit suffers D3 mortal wounds, and on a 6, it suffers 3 mortal wounds."
+  },
+  "c1f3abf3c8bc": {
+    "name": "Talisman of the Forge",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DAEMON ENGINE models within 9\" of the bearer; until your next Command phase starts, it ignores lost wounds on a 5+. Whenever that model would lose a wound, roll one D6 and ignore that wound on a 5+."
+  },
+  "c225c282489a": {
+    "name": "Raiment Revulsive (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your EMPEROR'S CHILDREN units within 6\" of the bearer can shoot during actions, and enemy units within 6\" of it can't start actions. A friendly unit that shoots this way while performing an action doesn't fail that action."
+  },
   "c26b8c627f9b": {
     "name": "Trophy-taker",
     "kind": "ability",
     "plain": "You can re-roll the wound roll for any melee attack this model makes against an enemy CHARACTER unit."
+  },
+  "c2daa3cea491": {
+    "name": "Mindveil",
+    "kind": "ability",
+    "plain": "The bearer moves further and can pass horizontally through models and terrain features when it moves. Each time it makes a Normal Move, Advances or Falls Back, add one D6 to its Movement characteristic until the end of the phase. During any Normal Move, Advance, Fall Back or charge move it makes, it can move horizontally through models and terrain features, but it can't end a move on top of another model or its base."
   },
   "c2faa556416a": {
     "name": "Combat Elixirs",
@@ -1682,6 +1867,11 @@
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when an enemy unit that is within 18\" of your WARLORD and visible to it has finished making its attacks: if any of those attacks targeted one of your TRAITORIS ASTARTES units within 6\" of your WARLORD, roll one D6. That enemy unit suffers D3 mortal wounds on a 2-4, or 3 mortal wounds on a 5+."
   },
+  "c39381469de0": {
+    "name": "Q'O'Ak, the Boundless",
+    "kind": "ability",
+    "plain": "One of the bearer's melee weapons (not a Relic) becomes a Relic with the Daemon Weapon ability, and its attacks ignore invulnerable saves. You pick the weapon, and it counts as a Relic for all rules purposes. No invulnerable saving throw can be taken against an attack made with it that is allocated to an enemy model."
+  },
   "c3ab9362df57": {
     "name": "Scuttling Gait",
     "kind": "ability",
@@ -1701,6 +1891,11 @@
     "name": "Impaler harpoon",
     "kind": "weapon",
     "plain": "If a model (other than an AIRCRAFT model) loses any wounds from an attack by this weapon but survives, it is impaled until your next Shooting phase starts. An impaled model has its Move characteristic halved, and when a charge roll is made for the bearer, add 2 to that roll if that charge targets the impaled model's unit."
+  },
+  "c6747f319542": {
+    "name": "The Endless Grin",
+    "kind": "ability",
+    "plain": "The bearer ignores each lost wound on a 6, and once per battle it can return with D3 wounds after being destroyed, on a 3+. Each time it would lose a wound, roll one D6: on a 6, it doesn't lose that wound. Once per battle, if the bearer is destroyed, this Relic can be used in place of any other rules triggered by its destruction. Mark its position and take it off the battlefield. When the phase ends, roll one D6: on a 3+, set it up again with D3 wounds left, as close as possible to the marked position but not within Engagement Range of any enemy unit."
   },
   "c6c7f0a26b1e": {
     "name": "Armour of Shrieking Souls",
@@ -1817,6 +2012,11 @@
     "kind": "stratagem",
     "plain": "At the start of your opponent's Shooting phase: pick one of your FALLEN ANGELS units that is entirely on or within a terrain feature. For the rest of the phase, subtract 1 from the hit roll whenever an enemy model attacks that unit."
   },
+  "d1615b6613bb": {
+    "name": "Helm of the Cyberphage (Aura)",
+    "kind": "ability",
+    "plain": "Aura: when one of your DAEMON ENGINE models within 6\" of the bearer attacks a VEHICLE model, improve that attack's Armour Penetration by 1."
+  },
   "d1854267f4fa": {
     "name": "Contempt Over Caution",
     "kind": "stratagem",
@@ -1836,6 +2036,11 @@
     "name": "Malevolent Covenant",
     "kind": "stratagem",
     "plain": "In your Psychic phase, when one of your WORD BEARERS PSYKER units fails a Psychic test: you can choose to have that PSYKER unit suffer 1 mortal wound; if you do, this Stratagem costs 1 CP, otherwise it costs 2 CP. Either way, the Psychic test counts as passed with the minimum warp charge value needed, with no double rolled, and it can't be denied by any Deny the Witch tests."
+  },
+  "d2c9c5af2103": {
+    "name": "Siegebreaker Mace - Swing",
+    "kind": "weapon",
+    "plain": "When the bearer is chosen to fight, it makes 1 extra attack with this weapon's Smash profile. Every other attack it makes with this weapon must use the Swing profile."
   },
   "d36885ca5963": {
     "name": "Blasphemous Machines",
@@ -1987,6 +2192,21 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when an attack by one of your CULT OF THE DAMNED CHAOS CULTISTS units destroys an enemy model: for the rest of the battle, that Chaos Cultist unit passes Morale tests automatically."
   },
+  "e3d738beb18f": {
+    "name": "Eight-fold Cursed Crozius",
+    "kind": "weapon",
+    "plain": "If the bearer is a PRIEST, a successful hit roll with this weapon wounds automatically, unless the target is a MONSTER or VEHICLE unit."
+  },
+  "e4017fc69ea9": {
+    "name": "Traitor's Laurels",
+    "kind": "ability",
+    "plain": "The bearer gets 1 extra attack, and once per battle, an Epic Deed Stratagem used on it costs 0CP."
+  },
+  "e466c6114239": {
+    "name": "Baleful Icon (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your opponent can't re-roll hit, wound or damage rolls for melee attacks against your WORD BEARERS INFANTRY units within 6\" of the bearer."
+  },
   "e47df13703da": {
     "name": "The Chirurgeon",
     "kind": "weapon",
@@ -2011,6 +2231,11 @@
     "name": "Storm Eagle multi-melta",
     "kind": "weapon",
     "plain": "Attacks from this weapon against a unit within half range have Damage D6+2."
+  },
+  "e6e67834423b": {
+    "name": "Z'aall, The Wrathful",
+    "kind": "ability",
+    "plain": "One of the bearer's melee weapons (not a Relic) becomes a Relic with the Daemon Weapon ability, and its attacks get D3 added to their Damage. You pick the weapon, and it counts as a Relic for all rules purposes."
   },
   "e7099c36af54": {
     "name": "The Ashen Axe",
@@ -2067,6 +2292,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase or the Fight phase, when one of your NIGHT LORDS CORE, NIGHT LORDS DAEMONKIN or NIGHT LORDS CHARACTER units is chosen to shoot or fight. For the rest of the phase, whenever a model in that unit attacks:\n- Hit rolls of 1 are re-rolled if the target has a Leadership characteristic of 6 or less, or was below its Starting Strength at the moment the attacking unit was chosen to shoot or fight.\n- You can re-roll the hit roll if the target has a Leadership characteristic of 5 or less, or was below Half-strength at the moment the attacking unit was chosen to shoot or fight."
   },
+  "ee7b76e118d5": {
+    "name": "Fleshmetal Exoskeleton",
+    "kind": "ability",
+    "plain": "Each attack allocated to the bearer has its Damage reduced by 1 (to a minimum of 1), and it can heal on a 4+ after surviving an enemy unit's attacks. Each time an enemy unit finishes shooting or fighting, if those attacks made the bearer lose wounds without destroying it, roll one D6: on a 4+, it regains up to D3 of the wounds lost to those attacks."
+  },
   "eea0e0cc46bd": {
     "name": "Decimator claws",
     "kind": "ability",
@@ -2097,10 +2327,20 @@
     "kind": "stratagem",
     "plain": "In the Heroic Interventions step of your opponent's Charge phase: pick one of your EMPEROR'S CHILDREN CORE, EMPEROR'S CHILDREN DAEMONKIN or EMPEROR'S CHILDREN CHARACTER units. For the rest of the phase:\n- If it is not a CHARACTER unit, it can perform Heroic Interventions as though it were a CHARACTER unit.\n- If it is a CHARACTER unit, it can perform a Heroic Intervention if any enemy unit is within 6\" horizontally and 5\" vertically of it, and when it does, each of its models can move up to 6\".\n- Whenever one of its models makes a pile-in or consolidation move, it can move up to 3\" further."
   },
+  "f18d83420212": {
+    "name": "Scourging Chains",
+    "kind": "ability",
+    "plain": "The bearer's melee attacks get 1 better Armour Penetration, and enemy models within its Engagement Range have their Attacks characteristic reduced by 1."
+  },
   "f1b18821f271": {
     "name": "Berserker icon",
     "kind": "ability",
     "plain": "The bearer's unit gets the ICON keyword. Whenever this unit makes a Blood Surge move, if it is performing an action, that action is completed (rather than failing) before the move is made."
+  },
+  "f2c712bef27d": {
+    "name": "Eye of Tzeentch",
+    "kind": "ability",
+    "plain": "Add 1 to every Psychic test taken for the bearer, and on an unmodified result of 9+, that psychic power or action can't be denied."
   },
   "f3048e92d3f2": {
     "name": "Confluence of Traitors",
@@ -2136,6 +2376,11 @@
     "name": "Vindicator siege shield",
     "kind": "ability",
     "plain": "Add 1 to armour saving throws made against ranged attacks allocated to the bearer."
+  },
+  "f875a51c9b73": {
+    "name": "Orb of Unlife",
+    "kind": "weapon",
+    "plain": "This weapon can be shot once per battle; a hit deals mortal wounds and lowers the target unit's Toughness by 1 for the rest of the battle. Its hit rolls can never score extra hits (for example, from being engaged in Wanton Destruction). If an attack with it hits, the target unit suffers D3 mortal wounds, or D3+3 if it has 11 or more models or the bearer is engaged in Wanton Destruction, and the attack sequence ends. Models in the target unit also have their Toughness reduced by 1 until the end of the battle."
   },
   "fa501cf3f3a3": {
     "name": "Soulforged Pack",
@@ -2201,6 +2446,11 @@
     "name": "Mysterious Protection",
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save. When an attack targets this model, an unmodified hit roll of 1-3 always fails, whatever abilities the attacking model or its weapon has."
+  },
+  "ff4895ba439e": {
+    "name": "Intoxicating Elixir",
+    "kind": "ability",
+    "plain": "Once per battle, when the Fight phase starts, the bearer can use this Relic to get D3 extra attacks and lose no more than 3 wounds that phase. Until the end of that phase, add D3 to its Attacks characteristic. Once it has lost 3 wounds this phase, any further wounds it would lose are not lost."
   },
   "ff69b6c6e046": {
     "name": "Vox caster",

@@ -98,6 +98,11 @@
     "kind": "stratagem",
     "plain": "Use this Stratagem in your opponent's Psychic phase, after an enemy PSYKER unit passes a Psychic test and after any Deny the Witch attempt has been made. If that enemy PSYKER unit is within 24\" of any of your WORLD EATERS units, roll one D6: on a 4+, the psychic power is denied."
   },
+  "4e2563594d5c": {
+    "name": "Talisman of Rage",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a WORLD EATERS CORE unit that is within 9\" of the bearer; its melee attacks automatically wound on an unmodified hit roll of 6. This lasts until your next Command phase starts."
+  },
   "503044a43020": {
     "name": "Bloodscent",
     "kind": "ability",
@@ -113,6 +118,11 @@
     "kind": "weapon",
     "plain": "Each time an attack is made with this weapon, pick which of the profiles below to use for that attack."
   },
+  "7314fd3b73a6": {
+    "name": "Helm of Brazen Ire",
+    "kind": "ability",
+    "plain": "Attacks made against the bearer have 1 subtracted from their wound rolls."
+  },
   "7a14d9a1e80a": {
     "name": "Blood Fury (Aura)",
     "kind": "ability",
@@ -122,6 +132,11 @@
     "name": "Blood Frenzy",
     "kind": "stratagem",
     "plain": "Use this Stratagem in the Fight phase, once an enemy unit has been chosen to fight. Pick one of your WORLD EATERS CORE units that is within Engagement Range of that enemy unit. Until the enemy unit has resolved its attacks, whenever a model in your unit is destroyed by a melee attack, do not remove it yet if it has not fought this phase. Once the enemy unit's attacks are resolved, that model can fight, and it is then removed from play. This Stratagem costs 1CP if the chosen WORLD EATERS unit is a Troops unit, and 2CP otherwise."
+  },
+  "8665db2c57e8": {
+    "name": "The Skull of An'gr'ant",
+    "kind": "ability",
+    "plain": "In your Command phase, pick an enemy unit visible to the bearer: you can re-roll wound rolls for the bearer's melee attacks against it. This lasts until your next Command phase starts."
   },
   "8f9157775a94": {
     "name": "Bloodthirsty Determination",
@@ -138,6 +153,11 @@
     "kind": "weapon",
     "plain": "If the bearer has 2 Eightbound chainfists, add 1 to this weapon's Damage characteristic."
   },
+  "a5eda9132a08": {
+    "name": "Burning Plate (World Eaters)",
+    "kind": "ability",
+    "plain": "The bearer gets 1 added to its armour saving throws and to its Wounds characteristic."
+  },
   "a87930f5f13b": {
     "name": "Gory Dismemberment",
     "kind": "stratagem",
@@ -147,6 +167,11 @@
     "name": "Daemonic",
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save against melee attacks, and a 4+ invulnerable save against ranged attacks."
+  },
+  "aa06e564e1b9": {
+    "name": "Soulburner",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon hit the target automatically. This Relic takes the place of an infernal cannon."
   },
   "ab33445d89a3": {
     "name": "Icon of Wrath",
@@ -192,6 +217,11 @@
     "name": "The Betrayer",
     "kind": "ability",
     "plain": "At the end of the Fight phase, if any other friendly units are within 3\" of this model, roll one D6. On a 1, pick one of those units: it suffers 2 mortal wounds.\n\nIn a Boarding Action, only friendly units that this model can see are affected by this ability."
+  },
+  "e98bba1d3c26": {
+    "name": "Berzerker Glaive",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 for an attack with this weapon scores 2 extra hits. This Relic takes the place of an exalted chainblade or axe of dismemberment."
   },
   "ea0ab1252c4e": {
     "name": "Diabolic Machines",
