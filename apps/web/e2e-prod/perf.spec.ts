@@ -24,6 +24,8 @@ async function throttle(page: Page, rate = 4): Promise<void> {
  * The benchmark's median on the reference PC, measured 25 Oct 2026 (37.0, 37.3 and 38.2 ms over three runs):
  */
 const REFERENCE_BENCH_MS = 37;
+/** Timestamp jitter allowed on a frame-time limit (see the crowded board test). */
+const FRAME_JITTER_MS = 1;
 
 async function calibratedRate(page: Page): Promise<number> {
   const ms = await page.evaluate(() => {
@@ -118,6 +120,8 @@ test('crowded Strike Force board p95 frame ≤ 50ms', async ({ page, remote, sig
   await page.mouse.up();
   const gaps = (await frames).sort((a, b) => a - b);
   const p95 = gaps[Math.floor(gaps.length * 0.95)];
-  console.log(`crowded board: ${gaps.length} frames in 3 s, p95 ${Math.round(p95)} ms`);
-  expect(p95).toBeLessThanOrEqual(50);
+  console.log(`crowded board: ${gaps.length} frames in 3 s, p95 ${p95.toFixed(1)} ms`);
+  // Gaps come in whole 60 Hz frames (16.7 ms), so 50 ms is three frames; frame timestamps jitter by a fraction of a
+  // millisecond, and three frames read as 50.1 ms on CI. The budget is still three frames: the next step is 66.7 ms.
+  expect(p95).toBeLessThanOrEqual(50 + FRAME_JITTER_MS);
 });
