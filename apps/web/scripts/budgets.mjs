@@ -4,7 +4,8 @@
  */
 const kB = 1000;
 export const BUDGETS = {
-  entryGzip: 110 * kB,
+  // Everything index.html loads at startup (the entry plus its modulepreloaded chunks), however the bundler splits it.
+  startupGzip: 150 * kB,
   chunkGzip: 120 * kB,
   cssGzip: 25 * kB,
   // 2.6 MB of app and shell data plus the self-hosted fonts (~114 kB woff2), precached so the app looks right offline.
@@ -18,18 +19,38 @@ export const BUDGETS = {
 const size = (n) => (n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(2)} MB` : `${(n / kB).toFixed(1)} kB`);
 
 /**
+ * The JS files index.html loads at startup: its module entry script, then every modulepreloaded chunk, in page order.
+ * @param {string} html dist/index.html
+ * @returns {string[]} paths relative to dist/
+ */
+export function startupFiles(html) {
+  const entry = /<script\b[^>]*type="module"[^>]*\bsrc="\/([^"]+)"/.exec(html)?.[1];
+  const preloads = [...html.matchAll(/<link\b[^>]*>/g)]
+    .map((m) => m[0])
+    .filter((tag) => /\brel="modulepreload"/.test(tag))
+    .map((tag) => /\bhref="\/([^"]+)"/.exec(tag)?.[1])
+    .filter(Boolean);
+  return entry ? [entry, ...preloads] : preloads;
+}
+
+/**
  * @param {BuiltFile[]} files every file in dist/
- * @param {string} entry the JS file index.html loads
+ * @param {string[]} startup the JS files index.html loads at startup: the entry first, then its preloaded chunks
  * @param {number} precacheBytes total size of the service worker's precache
  * @returns {{ ok: boolean; lines: string[] }}
  */
-export function evaluateBudgets(files, entry, precacheBytes) {
+export function evaluateBudgets(files, startup, precacheBytes) {
   const lines = [];
   const check = (label, value, limit, unit = 'gzip') => lines.push(`${value <= limit ? 'ok  ' : 'FAIL'} ${label} ${size(value)}${unit ? ` ${unit}` : ''} ≤ ${size(limit)}`);
   const js = files.filter((f) => /^assets\/.*\.js$/.test(f.path));
+  const [entry] = startup;
   const entryFile = js.find((f) => f.path === entry);
-  if (!entryFile) lines.push(`FAIL main entry ${entry} not found`);
-  else check('main entry', entryFile.gzip, BUDGETS.entryGzip);
+  const missing = startup.filter((p) => !js.some((f) => f.path === p));
+  if (!entry || missing.length) lines.push(`FAIL startup JS: ${missing.join(', ') || 'no entry'} not found`);
+  else {
+    const total = startup.reduce((s, p) => s + js.find((f) => f.path === p).gzip, 0);
+    check(`startup JS (entry + ${startup.length - 1} preloaded)`, total, BUDGETS.startupGzip);
+  }
   const biggest = (list) => [...list].sort((a, b) => b.gzip - a.gzip);
   for (const f of biggest(js.filter((f) => f !== entryFile))) if (f.gzip > BUDGETS.chunkGzip) check(f.path, f.gzip, BUDGETS.chunkGzip);
   const [topChunk] = biggest(js.filter((f) => f !== entryFile));
