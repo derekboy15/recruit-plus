@@ -34,15 +34,30 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when an attack by a T'AU SEPT model from your army causes an enemy model to lose any wounds: for the rest of the phase, attacks by your T'AU SEPT CORE models against that enemy model's unit add 1 to their wound rolls."
   },
+  "082ad65c5ac4": {
+    "name": "Master of the Killing Blow",
+    "kind": "ability",
+    "plain": "This WARLORD's attacks improve their AP by 3 on unmodified wound rolls of 6, and a model they are allocated to can't use rules to ignore the wounds it loses."
+  },
   "086171145c71": {
     "name": "Repulsor Impact Field",
     "kind": "stratagem",
     "plain": "In your opponent's Charge phase, when one of your BATTLESUIT units is picked as the target of a charge: until the phase ends, any unit that declares a charge against that BATTLESUIT unit must subtract 2 from its charge rolls. This modifier doesn't stack with any other negative modifier to a unit's charge roll."
   },
+  "096a52e42678": {
+    "name": "Defensive Doctrines",
+    "kind": "ability",
+    "plain": "If a model with this tenet was charged this turn, melee attacks with AP -1 or AP -2 that are allocated to it have AP 0 instead."
+  },
   "0a23e792dcb4": {
     "name": "Bodyguard Contingent",
     "kind": "ability",
     "plain": "If your army is Battle-forged, each <SEPT> COMMANDER unit in a Detachment lets you add one <SEPT> CRISIS BODYGUARDS unit to that Detachment without using up a Battlefield Role slot."
+  },
+  "0b3a987fd672": {
+    "name": "Play Their Part",
+    "kind": "ability",
+    "plain": "For objective control, BATTLESUIT models with this tenet count as 3 models each if their Wounds characteristic is 9 or less, or 5 models if it is 10 or more."
   },
   "0b3c31659d87": {
     "name": "Set-up (Shieldline)",
@@ -61,6 +76,11 @@
     "name": "Pech’ra",
     "kind": "ability",
     "plain": "Targets of ranged attacks made by models in the bearer's unit don't get the benefits of cover against those attacks."
+  },
+  "0ca689062dea": {
+    "name": "Overdrive Power Systems",
+    "kind": "ability",
+    "plain": "COMMANDER model only: pick up to two of the bearer's ranged weapons; its ranged attacks with them against units within half range add 1 to the wound roll."
   },
   "0d3dc8f3ef63": {
     "name": "Bounty Hunters",
@@ -90,6 +110,19 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, you must choose this unit's COMMANDER SHADOWSUN model as your WARLORD. If several models in your army have a rule like this, one of them must be your WARLORD."
   },
+  "1477c07c6497": {
+    "name": "Unifying Influence",
+    "kind": "ability",
+    "plain": "This WARLORD gains two auras:\n- your non-CHARACTER DAL'YTH or T'AU AUXILIARY units within 6\" of it add 1 to their models' Leadership (Diplomatic Excellence).\n- the Markerlights rule treats your T'AU AUXILIARY units within 6\" of it as if they didn't have the T'AU AUXILIARY keyword (Integrated Command Structure).",
+    "waive": {
+      "93": "page reference (pg 93) to where the Markerlights rules are printed; not part of the rule"
+    }
+  },
+  "150cbdbc255c": {
+    "name": "Calm Under Pressure",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots an Assault weapon at a unit within 12\", add 1 to that attack's Strength characteristic."
+  },
   "1572e6e2d4d8": {
     "name": "Explodes (Ghostkeel)",
     "kind": "ability",
@@ -104,6 +137,11 @@
     "name": "Gravity Wave Projector",
     "kind": "ability",
     "plain": "Any unit that declares a charge against this unit must subtract 2 from its charge rolls."
+  },
+  "16c8091f1dfa": {
+    "name": "1. Precision of the Hunter",
+    "kind": "ability",
+    "plain": "For every attack this WARLORD makes, you can re-roll the hit roll, the wound roll, or both."
   },
   "16e647a3095c": {
     "name": "Drone Dock (Sun Shark)",
@@ -153,6 +191,11 @@
       "76": "page reference (pg 76) to where the invocations are printed; not part of the rule"
     }
   },
+  "1cb855cc3b37": {
+    "name": "4. Through Boldness, Victory",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly <SEPT> CORE unit within 9\" of this WARLORD: its CORE models' ranged attacks wound automatically on unmodified 6s to hit. This lasts until the start of your next Command phase."
+  },
   "1cebf5d34b0e": {
     "name": "Docked Drone",
     "kind": "ability",
@@ -171,17 +214,32 @@
   "1f09b6febf59": {
     "name": "Sensory Negation Countermeasures",
     "kind": "ability",
-    "plain": "COMMANDER or CRISIS model only. Once per battle, when the Fight phase starts, the bearer may use this Prototype System: choose an enemy unit within Engagement Range of the bearer's unit. Until the next turn ends, attacks made by models in that enemy unit subtract 1 from their hit rolls."
+    "plain": "Once per battle, when the Fight phase starts, the bearer can make attacks by one enemy unit within Engagement Range of its unit subtract 1 from the hit roll. Doing so uses this Prototype System, and the penalty lasts until the end of the next turn. Only a COMMANDER or CRISIS model can have it."
   },
   "1f8701d68829": {
     "name": "Wisest of Their Kind (Aura)",
     "kind": "ability",
     "plain": "Aura: models in your KROOT units can use this model's Leadership characteristic in place of their own while their unit is within 6\" of this model."
   },
+  "1fc6904cd9a5": {
+    "name": "Stratagem: Promising Pupil",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering, if your WARLORD has the T'AU EMPIRE keyword, give one of your T'AU EMPIRE CHARACTER models a Warlord Trait it can have. That model counts as your Warlord for that Warlord Trait only. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly), and this Stratagem can't give a model 2 Warlord Traits. You can use it only once, or twice in a Strike Force battle, or 3 times in an Onslaught battle."
+  },
+  "20aac66831c4": {
+    "name": "Grav-Inhibitor Field",
+    "kind": "ability",
+    "plain": "The bearer:\n- makes enemy units in its Engagement Range at the start of the Fight phase ineligible to fight that phase until all your eligible units have fought.\n- has 1 subtracted from the hit roll of each melee attack made against it."
+  },
   "211e994c2491": {
     "name": "Master of War (Aura) (Coldstar)",
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's COLDSTAR BATTLESUIT COMMANDER model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
+  },
+  "2224f5ebe17e": {
+    "name": "Disengagement Protocols",
+    "kind": "ability",
+    "plain": "When an INFANTRY unit with this tenet is chosen to Fall Back, roll one D6 to try to deal mortal wounds to one enemy unit within its Engagement Range. On a 2-5, that unit suffers 1 mortal wound; on a 6, it suffers D3 mortal wounds."
   },
   "2233606a1d67": {
     "name": "Supremacy Railgun",
@@ -198,6 +256,11 @@
     "kind": "ability",
     "plain": "Whenever an attack is allocated to this unit's ENFORCER BATTLESUIT COMMANDER model, reduce that attack's Damage characteristic by 1 (minimum 1)."
   },
+  "25d8437e795c": {
+    "name": "Solid-image Projection Unit",
+    "kind": "ability",
+    "plain": "The bearer has a 4+ invulnerable save, and once per turn, the first time it fails a saving throw, that attack's Damage characteristic becomes 0."
+  },
   "27734539cb1c": {
     "name": "Mobile Defences (Action)",
     "kind": "ability",
@@ -207,6 +270,11 @@
     "name": "Semi-automatic Grenade Launcher (EMP Grenade)",
     "kind": "weapon",
     "plain": "When an attack from this weapon scores a hit against a VEHICLE unit (other than a TITANIC unit) whose profile changes as it loses wounds, treat that unit as having half its remaining wounds when deciding which characteristics it uses. This lasts until the start of your next Shooting phase."
+  },
+  "293edf61b6cf": {
+    "name": "Reliable Weaponry",
+    "kind": "ability",
+    "plain": "Whenever a unit with this tenet is chosen to shoot, you can re-roll one of its wound rolls for those attacks."
   },
   "296b843f6d89": {
     "name": "Limited Parameters",
@@ -220,6 +288,11 @@
     "name": "Grenade Belt",
     "kind": "weapon",
     "plain": "Blast. The bearer can shoot this weapon only once per battle."
+  },
+  "2b806bf69d7a": {
+    "name": "Ka'chak'tarr",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. Each unmodified wound roll of 6 for an attack with it also deals 1 mortal wound to the target, on top of any normal damage."
   },
   "2cd232be4eb7": {
     "name": "Crushing Feet",
@@ -236,6 +309,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's COMMANDER SHADOWSUN model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
   },
+  "2e434d5f857a": {
+    "name": "Stratagem: Emergency Dispensation",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering, if your WARLORD has the T'AU EMPIRE keyword, give one of your T'AU EMPIRE CHARACTER models a Relic it can have. Every Relic in your army must be different, and this Stratagem can't give a model 2 Relics. You can use it only once, or twice in a Strike Force battle, or 3 times in an Onslaught battle."
+  },
   "2eaede62f619": {
     "name": "Hover Drone",
     "kind": "ability",
@@ -244,7 +322,7 @@
   "2f4a07c5e5ed": {
     "name": "Stabilised Optics",
     "kind": "ability",
-    "plain": "The bearer ignores the hit roll penalty for firing Heavy weapons in a turn its unit moved. It also ignores the hit roll penalty for firing Heavy weapons at a target within Engagement Range of its unit."
+    "plain": "The bearer ignores the hit roll penalties for firing Heavy weapons in a turn its unit moved, and at targets within Engagement Range of its unit."
   },
   "30ef75ba67b9": {
     "name": "Airborne",
@@ -314,7 +392,7 @@
   "3cebd380f7ec": {
     "name": "Homing Beacon",
     "kind": "ability",
-    "plain": "Units carrying a homing beacon can perform this action.\nHoming Beacon (Action): any number of your units with homing beacons may begin this action in your Command phase; it finishes at the start of the Reinforcements step in your next Movement phase. On completion, the acting unit discards its homing beacon, and you may place on the battlefield one friendly <SEPT> CRISIS CORE unit that was in a Manta Hold (see Manta Strike), within 3\" of that unit and more than 9\" from all enemy models. This works even in the first battle round.",
+    "plain": "Units with a homing beacon can perform the action below, which lets you bring one of your <SEPT> CRISIS CORE units from a Manta Hold onto the battlefield.\nHoming Beacon (Action): any number of your units with homing beacons may begin this action in your Command phase; it finishes at the start of the Reinforcements step in your next Movement phase. On completion, the acting unit discards its homing beacon, and you may set up on the battlefield one friendly <SEPT> CRISIS CORE unit that was in a Manta Hold (see Manta Strike), within 3\" of that unit and more than 9\" from all enemy models. This works even in the first battle round.",
     "waive": {
       "92": "page number of the Manta Strike reference"
     }
@@ -327,7 +405,7 @@
   "3d7cf60a6526": {
     "name": "E-H Disruption Suite",
     "kind": "ability",
-    "plain": "GHOSTKEEL BATTLESUIT model only. Once per battle, during your Command phase, the bearer may activate this Prototype System to gain the following ability until your next Command phase starts. E-H Disruption (Aura): whenever an enemy unit is within 12\" of this model, your opponent pays 1CP extra for any Stratagem for which they select that unit, and for any Stratagem they use when that unit is picked to shoot or fight. The extra cost applies only to that particular use; later uses cost the usual CP."
+    "plain": "Once per battle, in your Command phase, the bearer can gain an aura that makes your opponent pay 1CP more for Stratagems on their units within 12\" of it. To do so it uses this Prototype System, and the aura (E-H Disruption) lasts until your next Command phase starts. It applies whenever your opponent selects one of those units for a Stratagem, and whenever they use a Stratagem when one of those units is picked to shoot or fight. The extra cost applies only to that particular use; later uses cost the usual CP. GHOSTKEEL BATTLESUIT model only."
   },
   "3df5a3cbd47d": {
     "name": "Walking Battleship",
@@ -373,6 +451,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's CRISIS BATTLESUIT COMMANDER model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
   },
+  "405f9bbb4447": {
+    "name": "Rapid Retreat",
+    "kind": "ability",
+    "plain": "When a unit with this tenet Falls Back, each of its models can move 3\" further than normal."
+  },
   "41397ac95b21": {
     "name": "Firing Positions",
     "kind": "ability",
@@ -380,6 +463,16 @@
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
+  },
+  "422108c4b3af": {
+    "name": "Neuro-empathic Nullfier",
+    "kind": "ability",
+    "plain": "ETHEREAL model only: the bearer can try, once per battle in your Command phase, to stop a visible enemy unit within 18\" of it from performing actions. To do so it uses this Relic: pick that unit and roll one D6. On a 2+, the unit can't perform actions until the start of the next Command phase, and if it is performing an action right now, that action fails immediately."
+  },
+  "428007b6eeb3": {
+    "name": "2. Pack Leader (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KROOT units is within 6\" of this WARLORD, roll one extra D6 for its charge rolls and discard one of the dice."
   },
   "42d37adf115e": {
     "name": "XV02 Pilot Battlesuit",
@@ -393,6 +486,16 @@
     "name": "Piranha Fusion Blaster",
     "kind": "weapon",
     "plain": "Against a target within half range, attacks from this weapon have a Damage characteristic of D6+4."
+  },
+  "448257b6b071": {
+    "name": "Strike Swiftly",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, each INFANTRY unit with this tenet that began wholly in your deployment zone may make a Normal Move of up to 6\". This happens before the first turn begins, and the move can't end within 9\" of the enemy deployment zone or of any enemy models."
+  },
+  "44879162bdfa": {
+    "name": "Advanced EM Scrambler",
+    "kind": "ability",
+    "plain": "Two effects:\n- enemy units can't be set up as Reinforcements within 12\" of the bearer.\n- in your Command phase, pick one enemy unit within 6\" of the bearer. Until your next Command phase starts, aura abilities of other units in your opponent's army can't affect it, unless those auras are psychic powers."
   },
   "456e1299bfba": {
     "name": "Wall of Mirrors",
@@ -412,20 +515,35 @@
       "55": "page reference (pg 55) to where Sept Tenets are printed; not part of the rule"
     }
   },
+  "4a16c7f98f0d": {
+    "name": "Talisman of Arthas Moloch",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its Deny the Witch tests and, in your opponent's Psychic phase, can try to deny one psychic power as though it were a PSYKER."
+  },
   "4a4e0527290b": {
     "name": "Failure Is Not An Option (Aura)",
     "kind": "ability",
     "plain": "Aura: your T'AU EMPIRE CORE units (except FARSIGHT ENCLAVES and T'AU AUXILIARY units) can borrow this model's Leadership characteristic in place of their own while they are within 6\" of this unit's ETHEREAL model."
+  },
+  "4b5ae71ac742": {
+    "name": "Reinforced Armour",
+    "kind": "ability",
+    "plain": "Subtract 1 from the Strength of ranged attacks made against VEHICLE or BATTLESUIT units with this tenet by weapons with a Strength characteristic of 7 or less."
   },
   "4b5b6311411e": {
     "name": "Explodes (6/2D6\"/2D6)",
     "kind": "ability",
     "plain": "Roll a D6 when this model is destroyed, before any embarked models disembark and before it is removed from play. On a 6 it explodes, dealing 2D6 mortal wounds to every unit within 2D6\"."
   },
+  "4baa7b333bea": {
+    "name": "3. Zephyr's Grace",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: subtract 1 from the hit roll of ranged attacks against it. This only applies if the unit didn't Remain Stationary in your previous Movement phase. You can't pick a FARSIGHT ENCLAVES unit."
+  },
   "4dec80ba77df": {
     "name": "Wide-Spectrum Scanners",
     "kind": "ability",
-    "plain": "Only for a model with an early warning override. When the Reinforcements step of your opponent's Movement phase ends, if the bearer isn't within Engagement Range of any enemy units, it can shoot as though it were your Shooting phase. Its only possible target is a single eligible enemy unit within 12\" of the bearer that arrived as Reinforcements during this turn."
+    "plain": "At the end of your opponent's Reinforcements step, the bearer can shoot one enemy unit within 12\" of it that arrived as Reinforcements this turn. It can do so only if it isn't within Engagement Range of any enemy units. It shoots as though it were your Shooting phase, but can target only a single such unit, and that unit must be an eligible target. Only a model with an early warning override can use this."
   },
   "4f796710c1e6": {
     "name": "Master of War (Aura) (Enforcer)",
@@ -454,6 +572,14 @@
     "name": "Supersonic (Sun Shark)",
     "kind": "ability",
     "plain": "When this unit's SUN SHARK BOMBER model Advances, Falls Back or makes a Normal Move, first turn it on the spot by up to 90 degrees (the turn doesn't count toward how far it moves), then move it straight ahead. It can't pivot again after that first pivot."
+  },
+  "519384e25c4a": {
+    "name": "Sa'cea Sept Tenet: Masters of Urban Warfare",
+    "kind": "ability",
+    "plain": "Three effects:\n- VEHICLE units with this tenet get the benefits of Dense Cover against ranged attacks from attackers more than 18\" away.\n- INFANTRY units with this tenet get the benefits of Dense Cover against ranged attacks from attackers more than 12\" away.\n- VEHICLE and BATTLESUIT models with this tenet ignore the hit roll penalty for firing Heavy weapons at enemy units within Engagement Range of them.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
   },
   "52d89759f3d9": {
     "name": "A Trap Well Laid",
@@ -485,6 +611,14 @@
     "kind": "ability",
     "plain": "Ignore DRONE models when: using the Look Out, Sir rule; working out this unit's Starting Strength and whether it is below Half-strength; and working out this unit's Toughness if the unit also has models without the DRONE keyword."
   },
+  "56d8f0d593b2": {
+    "name": "Ohr'tu's Lantern",
+    "kind": "ability",
+    "plain": "Model with a markerlight only: each time it performs the Fire Markerlights action, roll 5 extra D6s; each 3+ gives the enemy unit one Markerlight token.",
+    "waive": {
+      "93": "page reference (pg 93) to where the Fire Markerlights action are printed; not part of the rule"
+    }
+  },
   "5ac606f05549": {
     "name": "Sworn Protectors",
     "kind": "ability",
@@ -498,27 +632,50 @@
   "5b65ef1ba560": {
     "name": "Stimm Injectors",
     "kind": "ability",
-    "plain": "COMMANDER or CRISIS model only. Once per battle, if the bearer fails a saving throw, it may activate this Prototype System. If it does, roll one D6 whenever the bearer would lose a wound until the turn ends: on a 4+, the bearer doesn't lose it."
+    "plain": "Once per battle, when the bearer fails a saving throw, it can use this Prototype System to try to avoid losing wounds until the turn ends. If it does, roll one D6 each time the bearer would lose a wound this turn: on a 4+, it doesn't lose that wound. Only a COMMANDER or CRISIS model can have this system."
+  },
+  "5bfe0932d0a5": {
+    "name": "T'au Sept Tenet: Coordinated Fire Arcs",
+    "kind": "ability",
+    "plain": "Three effects:\n- each time a unit with this tenet is chosen to shoot or fight, one hit roll or one wound roll for its attacks can be re-rolled.\n- models with this tenet add 3\" to the range of their aura abilities, to a maximum range of 12\".\n- models with this tenet add 3\" to the range of each invocation they intone that isn't an aura, and of each ability with a stated range that they use in your Command phase (to a maximum range of 12\")."
   },
   "5dbedbf6d9ed": {
     "name": "Eclipse Shield Generator",
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save, and you add 1 to its armour saving throws."
   },
+  "5dfa24cca593": {
+    "name": "Tiger Shark (Transport)",
+    "kind": "ability",
+    "plain": "This model can transport up to 14 <SEPT> TACTICAL DRONES models."
+  },
   "5e84cfcda9fb": {
     "name": "Submunitions",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HAMMERHEAD models with a railgun is picked to shoot: rather than attacking with the railgun this phase, choose an enemy unit within 36\" of the model and visible to it that isn't within Engagement Range of any of your units. Roll a D6 per model in that unit, adding 1 to each roll if the unit has 11 or more models. Each 4+ inflicts 1 mortal wound on it, up to a maximum of 8 mortal wounds."
+  },
+  "60dcc71983fe": {
+    "name": "Puretide Engram Neurochip",
+    "kind": "ability",
+    "plain": "You may get back Command points spent on T'au Empire Battle Tactic and Epic Deed Stratagems. While the bearer is on the battlefield, roll one D6 for each Command point you spend on a T'au Empire Stratagem of either kind: on a 3+, that point is refunded."
   },
   "612e38e461cf": {
     "name": "Twin heavy fusion cannon",
     "kind": "weapon",
     "plain": "If the target of an attack from this weapon is within half range, that attack's Damage characteristic becomes D6+4."
   },
+  "619cc595d25b": {
+    "name": "Camouflage Experts",
+    "kind": "ability",
+    "plain": "INFANTRY units with this tenet that are entirely on or within a terrain feature get the benefits of Dense Cover against ranged attacks from over 12\" away.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
+  },
   "61c321ae0f72": {
     "name": "Novasurge Plasma Rifle",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS model with at least one plasma rifle. This Prototype System takes the place of one plasma rifle."
+    "plain": "A COMMANDER or CRISIS model with at least one plasma rifle can swap one of them for this Prototype System."
   },
   "63666d49716d": {
     "name": "Target Uploaded",
@@ -539,6 +696,11 @@
     "name": "Tracker",
     "kind": "ability",
     "plain": "During deployment, you may put Dahyak Grekh in pursuit instead of setting him up on the battlefield. He can then emerge at the end of any of your Movement phases: set him up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "67c3172b5166": {
+    "name": "The Kindled Blade",
+    "kind": "ability",
+    "plain": "CADRE FIREBLADE model only: in your Command phase, once per battle, the bearer can make nearby <SEPT> FIRE WARRIOR TEAM units pass Morale tests automatically. To do so it uses this Relic, gaining the Bonding Ritual aura until your next Command phase starts; the aura covers each of your <SEPT> FIRE WARRIOR TEAM units while that unit is within 6\" of the bearer."
   },
   "681ac29bb68a": {
     "name": "Cloaked Insertion",
@@ -563,15 +725,25 @@
     "kind": "weapon",
     "plain": "For each unmodified hit roll of 1 made for an attack with this profile, the bearer's unit suffers 1 mortal wound once it has finished shooting with this weapon."
   },
+  "6a17f4d76d57": {
+    "name": "1. Storm of Fire",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: it can make ranged attacks without its actions failing. You can't pick a FARSIGHT ENCLAVES unit."
+  },
   "6a96e3e81084": {
     "name": "Neuroweb System Jammer",
     "kind": "ability",
     "plain": "The bearer has the NEUROWEB SYSTEM JAMMER keyword."
   },
+  "6aa9fea37095": {
+    "name": "2. Through Unity, Devastation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <SEPT> CORE units is within 6\" of this WARLORD, its CORE models' ranged attacks improve their AP by 1 on unmodified wound rolls of 6."
+  },
   "6c4b10299253": {
     "name": "Resonator Warheads",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS model with at least one missile pod. This Prototype System takes the place of one missile pod."
+    "plain": "A COMMANDER or CRISIS model with at least one missile pod can swap one of them for this Prototype System."
   },
   "6c7a9ddba435": {
     "name": "Nova Reactor (Riptide)",
@@ -587,6 +759,11 @@
     "name": "Master of War (Aura)",
     "kind": "ability",
     "plain": "Aura: re-roll hit rolls of 1 for attacks made by CORE models in any of your <SEPT> CORE units while that unit is within 6\" of this unit's COLDSTAR BATTLESUIT COMMANDER model."
+  },
+  "6ce75fda1f05": {
+    "name": "Academy Luminary",
+    "kind": "ability",
+    "plain": "You may get back Command points spent on T'au Empire Strategic Ploy and Wargear Stratagems. While this WARLORD is on the battlefield, roll one D6 for each Command point you spend on a T'au Empire Stratagem of either kind: on a 3+, that point is refunded."
   },
   "6dcb296d43dd": {
     "name": "Threat Identification Protocol",
@@ -609,12 +786,25 @@
   "6f55be96aea6": {
     "name": "Early Warning Override",
     "kind": "ability",
-    "plain": "When the bearer fires Overwatch, unmodified hit rolls of 5+ score hits, rather than only 6s. Also, whenever you use the Fire Overwatch Stratagem and the unit chosen to fire Overwatch is the bearer's unit, with the bearer on the battlefield, the Stratagem costs 1CP less (minimum 0CP). This reduction only applies to that one use; later uses cost the usual CP."
+    "plain": "When the bearer fires Overwatch, unmodified hit rolls of 5+ score hits instead of only 6s, and Fire Overwatch costs 1CP less (minimum 0CP) for its unit. This cost cut needs the bearer to be on the battlefield when its unit is picked to fire Overwatch, and it applies only to that one use of the Stratagem; later uses cost the usual CP."
+  },
+  "6f933a238cd9": {
+    "name": "Hardened Warheads",
+    "kind": "ability",
+    "plain": "Targets of ranged attacks made with missile weapons by models with this tenet don't get the benefits of cover against those attacks.",
+    "waive": {
+      "130": "page reference (pg 130) to where missile weapons are printed; not part of the rule"
+    }
   },
   "70b0768ee094": {
     "name": "Master of War (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your FARSIGHT ENCLAVES CORE units is within 6\" of this model, re-roll a hit roll of 1 whenever a CORE model in that unit makes an attack."
+  },
+  "70e173d7b82e": {
+    "name": "4. Power of Tides",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU AUXILIARY units within 6\" of this ETHEREAL: add 1 to the wound roll for every attack its models make."
   },
   "71fe2e9d70df": {
     "name": "Tactical Acumen (Crisis)",
@@ -641,6 +831,11 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save. A model can only pick this unit as a target for ranged attacks if this unit is the closest eligible target to that model."
   },
+  "752da8e94cab": {
+    "name": "5. Unifying Mantra (Aura)",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, your T'AU EMPIRE CORE units within 6\" of this ETHEREAL add 1 to Combat Attrition tests and can re-roll Morale tests. This doesn't apply to FARSIGHT ENCLAVES units."
+  },
   "7908db0ea54c": {
     "name": "Remora Seeker Missile",
     "kind": "weapon",
@@ -649,7 +844,7 @@
   "7919a6b9130a": {
     "name": "Positional Relay",
     "kind": "ability",
-    "plain": "Once per battle round, when you set up one of your <SEPT> units from Strategic Reserves, the bearer can use this wargear. If it does, when working out where that unit can be set up, treat the battle round as 1 higher than it actually is, but the unit must then be set up within 6\" of the bearer."
+    "plain": "Once per battle round, the bearer can let one of your <SEPT> units arriving from Strategic Reserves set up wherever it could if the battle round were 1 higher. If it does, that unit must be set up within 6\" of the bearer."
   },
   "79b9939333b5": {
     "name": "Blacklight Markers",
@@ -669,7 +864,7 @@
   "7b0b880a776e": {
     "name": "DW-02 Advanced Burst Cannon",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS model with at least one burst cannon. This Prototype System takes the place of one burst cannon."
+    "plain": "A COMMANDER or CRISIS model with at least one burst cannon can swap one of them for this Prototype System."
   },
   "7b321f22004a": {
     "name": "Terrain Feature (Droneport)",
@@ -677,6 +872,14 @@
     "plain": "Once set up, this unit's Tidewall Droneport counts as a Building terrain feature.",
     "waive": {
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
+    }
+  },
+  "7cba91e1731c": {
+    "name": "Blocking Tactics",
+    "kind": "ability",
+    "plain": "When a CORE INFANTRY unit with this tenet makes a charge move, its CORE models have the Objective Secured ability until the start of your next Charge phase. Any such model that already has that ability counts as one additional model when working out control of an objective marker.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
     }
   },
   "7d5332bd95c0": {
@@ -688,6 +891,16 @@
     "name": "Tactical Acumen",
     "kind": "ability",
     "plain": "In your Command phase, you may choose one <SEPT> CRISIS CORE unit from your army within 9\" of this unit's CRISIS BATTLESUIT COMMANDER model. For the rest of the turn: that unit can still shoot and declare a charge in a turn when it Fell Back; and for each ranged attack a CORE model in that unit makes, you can ignore any or all hit roll modifiers."
+  },
+  "7f2458504a56": {
+    "name": "3. A Ghost Walks Among Us",
+    "kind": "ability",
+    "plain": "Attacks against this WARLORD subtract 1 from the hit roll, and when it Advances it skips the Advance roll and adds 6\" to its Move until the end of the phase."
+  },
+  "7f5f4b73bb2d": {
+    "name": "Adherents to the Teachings",
+    "kind": "ability",
+    "plain": "Models with this tenet add 3\" (to a maximum of 12\") to the range of their auras, non-aura invocations and abilities with a range used in your Command phase."
   },
   "8040d0256f30": {
     "name": "Docked Drones",
@@ -729,6 +942,11 @@
     "kind": "ability",
     "plain": "When you deploy, if all models in this unit have this ability, you can put the unit in a Manta hold instead of on the battlefield. A unit placed this way can arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield over 9\" from every enemy model."
   },
+  "845252b1b32b": {
+    "name": "Loyal to the End",
+    "kind": "ability",
+    "plain": "Models with this tenet add 1 to their Leadership characteristic, and you can re-roll Morale tests taken for units with this tenet."
+  },
   "859b8b88649b": {
     "name": "Pulse Bombs",
     "kind": "ability",
@@ -767,7 +985,7 @@
   "8a9a80d38241": {
     "name": "Dominator Fragmentation Launcher",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS with at least one airbursting fragmentation projector. This Prototype System takes the place of one airbursting fragmentation projector."
+    "plain": "A COMMANDER or CRISIS with at least one airbursting fragmentation projector can swap one of them for this Prototype System."
   },
   "8ab458a74093": {
     "name": "High Intensity Markerlights",
@@ -778,6 +996,16 @@
     "name": "Fighting Retreat (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your T'AU SEPT CORE units (other than BATTLESUIT units) is within 6\" of this model, it can shoot in a turn in which it Fell Back."
+  },
+  "8ba4ddb5d7fe": {
+    "name": "Bork'an Sept Tenet: Superior Craftsmanship",
+    "kind": "ability",
+    "plain": "Two effects:\n- models with this tenet add 4\" to the Range characteristic of their ranged weapons.\n- when a ranged attack is made against a VEHICLE or BATTLESUIT unit with this tenet using a weapon with a Strength characteristic of 7 or less, subtract 1 from that attack's Strength."
+  },
+  "8c3fadc29e9d": {
+    "name": "Vior'la Sept Tenet: Strike Fast",
+    "kind": "ability",
+    "plain": "Two effects:\n- at the start of your first turn, your units wholly within your deployment zone add 2\" to their models' Move characteristic until that turn ends.\n- you can re-roll Advance rolls and charge rolls for units with this tenet."
   },
   "8c8f6b0db5f9": {
     "name": "Promising Pupil",
@@ -799,6 +1027,16 @@
     "kind": "ability",
     "plain": "The COMMANDER SHADOWSUN model in this unit has a 5+ invulnerable save."
   },
+  "8ed895724a72": {
+    "name": "6. Wisdom of the Guides",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, you receive 1 Command point."
+  },
+  "8f542c5d7784": {
+    "name": "1. Master of the Hunt (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KROOT units is within 6\" of this WARLORD, its models' ranged attacks against units within 12\" deny the target the benefits of cover."
+  },
   "8fa749541e0c": {
     "name": "Explodes (Hammerhead)",
     "kind": "ability",
@@ -813,6 +1051,11 @@
     "name": "Saviour Protocols",
     "kind": "ability",
     "plain": "Whenever an attack made against one of your <SEPT> INFANTRY or <SEPT> BATTLESUIT units wounds it while it is within 3\" of one of your <SEPT> DRONES units, you may roll one D6. On a 2+, the attack sequence ends and that DRONES unit suffers 1 mortal wound."
+  },
+  "920431c239aa": {
+    "name": "Defenders of the Cause",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever a model with this tenet (other than a DRONE model) would lose a wound to a mortal wound: on a 5+, it doesn't lose that wound."
   },
   "923da724e59b": {
     "name": "Airborne (Sun Shark)",
@@ -857,6 +1100,11 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Book\" in the designer's note; not part of the rule"
     }
   },
+  "9d6399bafc7f": {
+    "name": "Dynamic Mirror Field",
+    "kind": "ability",
+    "plain": "The bearer has a 5+ invulnerable save, and ranged attacks can target it only if it is the firing model's closest target or that model is within 12\" of it."
+  },
   "9fa46f3a94a2": {
     "name": "Shocking Firestorm",
     "kind": "stratagem",
@@ -866,6 +1114,14 @@
     "name": "Gunship Ace",
     "kind": "ability",
     "plain": "Add 1 to the wound roll of each ranged attack this unit's HAMMERHEAD model makes against a MONSTER or VEHICLE unit."
+  },
+  "a032c1ddf188": {
+    "name": "Fire Saturation",
+    "kind": "ability",
+    "plain": "Ranged attacks made with burst weapons by models with this tenet add 1 to their hit roll when they target a unit within 12\".",
+    "waive": {
+      "130": "page reference (pg 130) to where burst weapons are printed; not part of the rule"
+    }
   },
   "a03e458dbc9c": {
     "name": "Plunge from the Sky",
@@ -927,10 +1183,36 @@
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see. Targets of attacks from this weapon don't get the benefits of Light Cover against those attacks."
   },
+  "a7d8a5f9c5dd": {
+    "name": "Enriched Reactors",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots with a plasma weapon, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage.",
+    "waive": {
+      "130": "page reference (pg 130) to where plasma weapons are printed; not part of the rule"
+    }
+  },
   "aa1b87fb49bb": {
     "name": "Twin Smart Missile System",
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see. Targets of attacks with this weapon don't get the benefits of Light Cover against them."
+  },
+  "aa84aa2f5601": {
+    "name": "Multi-sensory Discouragement Array",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, roll 3D6 for one enemy unit within 12\" of the bearer; if the total exceeds its Leadership, you choose a penalty for it. The penalty lasts until the start of your next Movement phase, and the options are:\n- That unit loses the Objective Secured ability.\n- Halve the Move characteristic of that unit's models, and halve its charge rolls.\n- That unit's models can only make ranged attacks against the closest eligible target."
+  },
+  "aaa171bdd935": {
+    "name": "Borthrod Gland",
+    "kind": "ability",
+    "plain": "KROOT model only: in your Command phase, once per battle, the bearer can gain an aura that adds 1 to the Attacks and Strength of your nearby KROOT models. To do so it uses this Relic. The aura, Alien Glands, lasts until your next Command phase starts and covers the models in each of your KROOT units while that unit is within 6\" of the bearer."
+  },
+  "aacd1b24e1ae": {
+    "name": "Farsight Enclaves Tenet: Devastating Counterstrike",
+    "kind": "ability",
+    "plain": "Two effects:\n- when a model with this tenet makes a ranged attack against a unit within 9\", treat the target as having a Markerlight token.\n- when a unit with this tenet is chosen to shoot or fight, you can re-roll one wound roll for its attacks.",
+    "waive": {
+      "93": "page reference (pg 93) to where Markerlight tokens are printed; not part of the rule"
+    }
   },
   "abea65db187e": {
     "name": "Concealed Booby Traps",
@@ -970,12 +1252,17 @@
   "b24fbc59d0e5": {
     "name": "Multi-tracker",
     "kind": "ability",
-    "plain": "Maximum 1 per model. When the bearer makes a ranged attack against a target unit that has at least 6 models, each unmodified hit roll of 6 results in 1 extra hit."
+    "plain": "When the bearer makes a ranged attack against a unit that has 6 or more models, each unmodified hit roll of 6 scores 1 extra hit. Maximum 1 per model."
   },
   "b2596714f70a": {
     "name": "Armoured Aggression",
     "kind": "ability",
     "plain": "If you picked the Mont'ka Tactical Philosophy when the battle began, then once the first battle round starts (before any turn has begun), this unit may move up to 9\" with a Normal Move. It can't finish that move within 9\" of any enemy model."
+  },
+  "b2adb61639da": {
+    "name": "Turbo-Jets",
+    "kind": "ability",
+    "plain": "Models with this tenet that can FLY have their Move characteristic increased by 2\"."
   },
   "b2c50e20edac": {
     "name": "Targeting Array (Sky Ray)",
@@ -991,6 +1278,11 @@
     "name": "Ambushing Predators",
     "kind": "ability",
     "plain": "When the first battle round starts, models in this unit may move up to 7\" as a Normal Move. They must finish that move more than 9\" away from all enemy models."
+  },
+  "b51c2e13b710": {
+    "name": "2. Sense of Stone",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: its CORE models can roll to avoid losing wounds. You can't pick a FARSIGHT ENCLAVES unit. Roll one D6 each time a CORE model in the chosen unit would lose a wound: on a 5+, that wound isn't lost."
   },
   "b7146478ea30": {
     "name": "Explodes",
@@ -1022,6 +1314,14 @@
     "kind": "ability",
     "plain": "Roll a D6 if this model is reduced to 0 wounds, before it is removed from the battlefield. On a 6 it explodes, dealing D6 mortal wounds to every unit within 9\"."
   },
+  "ba85fb4b5f8b": {
+    "name": "Fire Caste Marksmen",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots with a pulse weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1.",
+    "waive": {
+      "130": "page reference (pg 130) to where pulse weapons are printed; not part of the rule"
+    }
+  },
   "bac237b3bc5a": {
     "name": "Rail Rifle",
     "kind": "weapon",
@@ -1050,6 +1350,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your STRIKE TEAM units is picked to shoot. Until the phase ends:\n- Models in that unit firing pulse rifles make twice as many attacks, ignoring the usual Rapid Fire rules.\n- Each ranged attack by a CORE model in that unit has its Armour Penetration improved by 1."
   },
+  "c08857c99558": {
+    "name": "3. Nomadic Hunter (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your nearby KROOT units shoot as though they had Remained Stationary. While one of your KROOT units is within 6\" of this WARLORD, unless it Fell Back this turn, it counts as having Remained Stationary in its previous Movement phase whenever its models make a ranged attack."
+  },
   "c0bede4b2cb0": {
     "name": "High Intensity Markerlight",
     "kind": "weapon",
@@ -1058,7 +1363,7 @@
   "c1a29b05293d": {
     "name": "Drone Controller",
     "kind": "ability",
-    "plain": "In your Command phase, you can pick one DRONE unit within 6\" of the bearer. Until your next Command phase starts, the DRONE models in that unit have Ballistic Skill 4+, and any GUN DRONE models in it lose the Drone Identification Protocol ability."
+    "plain": "In your Command phase, you can give the DRONE models in one DRONE unit within 6\" of the bearer Ballistic Skill 4+ until your next Command phase starts. Any GUN DRONE models in that unit also lose the Drone Identification Protocol ability for the same period."
   },
   "c1bb6bc7e3e8": {
     "name": "Master of War (Aura)",
@@ -1070,6 +1375,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, if you picked the Kauyon Tactical Philosophy at the start of the battle and the mission uses the Strategic Reserves rule, then if this unit is within 9\" of any battlefield edge you can take it off the battlefield and put it into Strategic Reserves."
   },
+  "c357792c87a4": {
+    "name": "Pinpoint Targeting",
+    "kind": "ability",
+    "plain": "When a model with this tenet makes a ranged attack against a unit within 12\", the target doesn't get the benefits of Light Cover against it."
+  },
   "c39492ce72f7": {
     "name": "Experimental pulse submunitions rifle (EMP)",
     "kind": "weapon",
@@ -1080,6 +1390,14 @@
     "kind": "ability",
     "plain": "Any DRONE models in this unit start the battle docked with this unit's TIDEWALL DRONEPORT model."
   },
+  "c4dc81c2572d": {
+    "name": "The Humble Stave",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to rolls to see if its invocations are inspiring and, if on the battlefield in your Command phase, can intone one extra invocation it knows. That extra invocation must be one of the Invocations of the Ethereals that no friendly model has intoned this turn.",
+    "waive": {
+      "76": "page reference (pg 76) to where the Invocations of the Ethereals are printed; not part of the rule"
+    }
+  },
   "c523d1427918": {
     "name": "Nova Reactor",
     "kind": "ability",
@@ -1088,7 +1406,7 @@
   "c6ee07bb709a": {
     "name": "Thermoneutronic Projector",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS model with at least one T'au flamer. This Prototype System takes the place of one T'au flamer."
+    "plain": "A COMMANDER or CRISIS model with at least one T'au flamer can swap one of them for this Prototype System."
   },
   "c71148d22960": {
     "name": "Way of the Short Blade",
@@ -1100,6 +1418,11 @@
     "kind": "ability",
     "plain": "If this unit includes a Support Turret, that model isn't set up until the unit performs this action. Deploy Turret (Action): BREACHER TEAM or STRIKE TEAM units from your army, in any number, can start this action in your Command phase. It completes at the end of your next Movement phase. When it does, if the unit has a Support Turret model that is neither on the battlefield nor destroyed, set that model up on the battlefield in Unit Coherency with its unit."
   },
+  "c790719c7f7e": {
+    "name": "Automated Armour Defences",
+    "kind": "ability",
+    "plain": "COMMANDER model only: roll one D6 at the start of your Shooting phase to see whether the closest visible enemy unit suffers mortal wounds. On a 2-4, the closest enemy unit that is visible to the bearer and within 18\" of it suffers 1 mortal wound; on a 5+, the closest enemy unit that is visible to the bearer and within 12\" of it suffers D3 mortal wounds."
+  },
   "c791068bda9c": {
     "name": "Seeker Missile",
     "kind": "weapon",
@@ -1109,6 +1432,11 @@
     "name": "Explodes (Manta)",
     "kind": "ability",
     "plain": "Roll a D6 when this model is destroyed, before it is removed from play. On a 4-5 it explodes, dealing D6 mortal wounds to every unit within 2D6\". On a 6 it explodes, dealing 2D3 mortal wounds to every unit within 3D6\"."
+  },
+  "c93b2a7356df": {
+    "name": "Strength of Conviction",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever this WARLORD would lose a wound: on a 5+, it doesn't lose that wound."
   },
   "c9d08972ae7d": {
     "name": "Supersonic",
@@ -1145,6 +1473,11 @@
     "kind": "ability",
     "plain": "Ranged attacks made by this unit's SKY RAY GUNSHIP model against an AIRCRAFT unit add 2 to their hit roll, and you can re-roll their damage roll."
   },
+  "d013fe9dc367": {
+    "name": "Evasion Manoeuvres",
+    "kind": "ability",
+    "plain": "When a model with this tenet Advances, the FLY models in its unit get a 5+ invulnerable save against ranged attacks until your next Movement phase starts."
+  },
   "d03a78369abb": {
     "name": "Velocity Tracker",
     "kind": "ability",
@@ -1154,6 +1487,14 @@
     "name": "Recon Suite",
     "kind": "ability",
     "plain": "When a model in this unit makes a ranged attack targeting a unit within 18\", the target gets no benefit from Light Cover against it."
+  },
+  "d0bdae94c95c": {
+    "name": "5. Exemplar of the Kauyon",
+    "kind": "ability",
+    "plain": "After both armies deploy and the first turn is decided, redeploy up to one of your <SEPT> units, or up to three if you picked the Kauyon Tactical Philosophy. If the mission uses the Strategic Reserves rules, any of these units can go into Strategic Reserves at no extra CP cost, regardless of how many are there already. If both players have redeploy abilities, roll off: the winner decides which player deploys their units first.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule"
+    }
   },
   "d0c136de19e4": {
     "name": "Supersonic",
@@ -1236,6 +1577,20 @@
     "kind": "stratagem",
     "plain": "In any phase, when one of your BATTLESUIT models is destroyed: before it is removed from play, skip any rules that its destruction would trigger (such as Explodes). Instead, roll a D6 for each unit within 3\" of the model; add 1 to each roll if the model's Wounds characteristic is 12 or more. On a 3-5, the unit being rolled for suffers D3 mortal wounds; on a 6+, it suffers 3 mortal wounds."
   },
+  "dc32659eee74": {
+    "name": "Vectored Manoeuvring Thrusters",
+    "kind": "ability",
+    "plain": "BATTLESUIT model only:\n- The bearer's Move characteristic goes up by 2\".\n- Once per battle round, when the bearer is picked as a target of a charge while not within Engagement Range of any enemy units, it can make a Normal Move by using this Relic. If it does, it can't fire Overwatch or Set to Defend until the end of the phase. Your opponent can choose new targets for the charge."
+  },
+  "dc4adfe6793b": {
+    "name": "Dal'yth Sept Tenet: Trading Partners",
+    "kind": "ability",
+    "plain": "Two effects:\n- INFANTRY units with this tenet get the benefits of Light Cover against ranged attacks from attackers not within Engagement Range of them.\n- if you chose a Tactical Philosophy at the start of the battle, T'AU AUXILIARY units in the same Detachment as units with this tenet also benefit from your army's chosen Tactical Philosophy.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule",
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
+  },
   "dd3e024204f4": {
     "name": "Orbital Ion Beam",
     "kind": "stratagem",
@@ -1261,6 +1616,11 @@
     "kind": "ability",
     "plain": "Whenever this unit's HAMMERHEAD model is picked to shoot, you may re-roll a single hit roll while resolving its attacks."
   },
+  "e160607ad821": {
+    "name": "The Be'gel Hunter's Plate",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its armour saving throws, and you roll one D6 each time it would lose a wound: on a 5+, it doesn't lose that wound."
+  },
   "e22e0d616b6c": {
     "name": "Positional Relay (Aura)",
     "kind": "ability",
@@ -1284,12 +1644,12 @@
   "e6305ab651fb": {
     "name": "Starflare Ignition System",
     "kind": "ability",
-    "plain": "COLDSTAR COMMANDER model only. Once per battle, the bearer may activate this Prototype System as it begins or finishes a move, or as it uses its High-altitude Manoeuvres ability (before it is removed). When it does, each other unit within 3\" of this model is affected: roll one D6 per unit, and on a 2+ that unit suffers D3 mortal wounds."
+    "plain": "Once per battle, the bearer can use this Prototype System to deal D3 mortal wounds on a 2+ to each other unit within 3\" of it, rolling one D6 per unit. It can do so when it starts or ends a move, or when it uses its High-altitude Manoeuvres ability (before it is removed from the battlefield). COLDSTAR COMMANDER model only."
   },
   "e8eae66c8a4d": {
     "name": "Alternating Fusion Blaster",
     "kind": "ability",
-    "plain": "Only for a COMMANDER or CRISIS model with at least one fusion blaster. This Prototype System takes the place of one fusion blaster."
+    "plain": "A COMMANDER or CRISIS model with at least one fusion blaster can swap one of them for this Prototype System."
   },
   "ecae63afaf01": {
     "name": "Battlesuits",
@@ -1314,7 +1674,7 @@
   "ef1f8dbad20e": {
     "name": "Internal Grenade Packs",
     "kind": "ability",
-    "plain": "Once per turn, when this model has finished moving in your Movement phase, you may pick one unit it moved over. Roll one D6 for that unit: on a 2+, it suffers D3 mortal wounds."
+    "plain": "Once per turn, when this model has finished moving in your Movement phase, you may roll one D6 for a unit it moved over: on a 2+, it suffers D3 mortal wounds."
   },
   "f03260737c6e": {
     "name": "Explodes",
@@ -1345,6 +1705,14 @@
     "name": "Leadership Caste",
     "kind": "ability",
     "plain": "You can add this model to any T'AU EMPIRE Detachment other than a FARSIGHT ENCLAVES Detachment. Doing so doesn't stop that Detachment counting as a Sept Detachment, and doesn't stop your other units getting their Sept Tenet. This model itself only gets a Sept Tenet if every <SEPT> unit in your army (ignoring SUPREME COMMANDER units) is from VIOR'LA."
+  },
+  "f541d46d0988": {
+    "name": "Strategic Conqueror",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly SA'CEA unit within 9\" of this WARLORD: it has the Objective Secured ability until the start of your next Command phase. If the unit already has that ability, each of its models counts as one additional model when working out control of an objective marker.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
   },
   "f7ffe0788b02": {
     "name": "The Shaper Commands (Aura)",
@@ -1381,6 +1749,14 @@
     "kind": "ability",
     "plain": "Roll a D6 when this transport is destroyed, before any embarked models disembark and before it is removed from play. On a 6 it explodes, dealing D6 mortal wounds to every unit within 9\"."
   },
+  "fa8db67e3927": {
+    "name": "6. Exemplar of the Mont'ka",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly <SEPT> CORE unit within 9\" of this WARLORD: its CORE models can re-roll ranged wound rolls against enemy units within 9\". That range is 12\" instead if you picked the Mont'ka Tactical Philosophy this battle. The effect lasts until the start of your next Command phase.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule"
+    }
+  },
   "fa9bae66c2d8": {
     "name": "Targeting Array",
     "kind": "ability",
@@ -1390,6 +1766,11 @@
     "name": "Combat Debarkation",
     "kind": "stratagem",
     "plain": "At the start of your Movement phase, choose how many of your DEVILFISH models to pick:\n- Up to three, if your Tactical Philosophy for the battle is Mont'ka and this is battle round 1, 2 or 3.\n- Up to three, if your Tactical Philosophy for the battle is Kauyon and this is battle round 3, 4 or 5.\n- Otherwise, one.\nFor the rest of the phase, each time a picked model finishes a Normal Move, units embarked within it may then disembark. Units that disembark like this can't charge this turn."
+  },
+  "fdfd9764ce51": {
+    "name": "Seeker of Perfection",
+    "kind": "ability",
+    "plain": "This WARLORD's ranged attacks improve their Armour Penetration by 1, and each unmodified wound roll of 6 on them also deals 1 mortal wound to the target. These mortal wounds are on top of any normal damage, up to a maximum of 3 per phase."
   },
   "fe585ff11070": {
     "name": "Heavy Rail Cannon",

@@ -12,7 +12,7 @@
   "1dda9cc82bc6": {
     "name": "4. Veil of Tears",
     "kind": "psychic",
-    "plain": "If manifested, pick one enemy unit this PSYKER can see within 18\" of it. Until the start of your next Psychic phase, that unit's models can't make ranged attacks against <SAEDATH> units from your army that are more than 18\" away."
+    "plain": "If manifested, until the start of your next Psychic phase, one enemy unit can't make ranged attacks at <SAEDATH> units from your army more than 18\" away. You choose that enemy unit when the power is manifested, and it must be within 18\" of this PSYKER and visible to it."
   },
   "221ffd705d7f": {
     "name": "Death is Not Enough",
@@ -22,7 +22,7 @@
   "2b1227bd5d17": {
     "name": "Rift Ghoul",
     "kind": "ability",
-    "plain": "For every attack this model makes, the target gets no benefit from cover, and an unmodified wound roll of 4+ inflicts 1 mortal wound on the target on top of the normal damage."
+    "plain": "Each attack this model makes ignores the target's cover, and an unmodified wound roll of 4+ also deals 1 mortal wound to the target on top of normal damage."
   },
   "307f501ec999": {
     "name": "Open-topped",
@@ -65,12 +65,12 @@
   "58cce962129e": {
     "name": "Mirror Architect (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your <SAEDATH> units is within 6\" of this model, whenever an enemy unit is picked to shoot, each model in that <SAEDATH> unit counts as being an extra 6\" further from the shooting model when range to it is measured."
+    "plain": "Aura: while one of your <SAEDATH> units is within 6\" of this model, that unit's models count as being an extra 6\" further away from enemy models that shoot. This applies each time an enemy unit is picked to shoot, whenever range is measured from the shooting model to any model in that <SAEDATH> unit."
   },
   "681172b0d2ac": {
     "name": "2. Fog of Dreams",
     "kind": "psychic",
-    "plain": "If manifested, choose a <SAEDATH> CORE or <SAEDATH> CHARACTER unit of yours within 12\" of this PSYKER. Until your next Psychic phase begins, it can only be chosen as a ranged attack's target if it is the nearest eligible target for that attack, or if it is within 12\" of the firing model."
+    "plain": "If manifested, one of your units can only be targeted by a ranged attack if it's the nearest eligible target for that attack or within 12\" of the firing model. You pick that unit when the power is manifested: a <SAEDATH> CORE or <SAEDATH> CHARACTER unit within 12\" of this PSYKER. This lasts until your next Psychic phase begins."
   },
   "6d3285c6311b": {
     "name": "Harvester of Torment",
@@ -80,12 +80,12 @@
   "70d515da75cf": {
     "name": "6. Webway Dance",
     "kind": "psychic",
-    "plain": "If manifested, this PSYKER gains the ability below until the start of your next Psychic phase. Webway Dance (Aura): while one of your <SAEDATH> units is within 6\" of this PSYKER, each time one of that unit's models would lose a wound, roll one D6; the wound isn't lost on a 6."
+    "plain": "If manifested, your <SAEDATH> units within 6\" of this PSYKER can ignore each wound they would lose on a D6 roll of 6 until your next Psychic phase starts. For that time, this PSYKER gains the Webway Dance (Aura) ability: while one of your <SAEDATH> units is within 6\" of this PSYKER, each time one of that unit's models would lose a wound, roll one D6; the wound isn't lost on a 6."
   },
   "75400d3b5be5": {
     "name": "1. Twilight Pathways",
     "kind": "psychic",
-    "plain": "If manifested, choose a <SAEDATH> CORE or <SAEDATH> CHARACTER unit of yours within 6\" of this PSYKER. Right away, it can make a Normal Move, Advance or Fall Back, just as if it were your Movement phase. A unit that moves this way can't declare a charge this turn."
+    "plain": "If manifested, one <SAEDATH> CORE or <SAEDATH> CHARACTER unit of yours within 6\" of this PSYKER can make a Normal Move, Advance or Fall Back right away. You pick which unit, and it moves just as if it were your Movement phase. If it moves this way, it can't declare a charge this turn."
   },
   "7bc427663d33": {
     "name": "Agent of Pandemonium (Aura)",
@@ -100,7 +100,7 @@
   "817e17adba1a": {
     "name": "Lord of Crystal Bones",
     "kind": "ability",
-    "plain": "When this model shoots and scores any hits, unless the target is a VEHICLE or MONSTER unit, then until the start of your next turn the target unit's models subtract 2\" from their Move characteristic (but not below 0\"), and the target can't fire Overwatch or Set to Defend."
+    "plain": "If this model shoots and hits a target that isn't a VEHICLE or MONSTER unit, the target's models have 2\" less Move (minimum 0\") until your next turn starts. Until then, the target also can't fire Overwatch or Set to Defend."
   },
   "88de6a39ce84": {
     "name": "Hovering",
@@ -125,12 +125,12 @@
   "97a0e9d8366e": {
     "name": "Gloom Spider",
     "kind": "ability",
-    "plain": "In your Command phase, choose an enemy unit within 12\" of this model. Until your next Command phase begins, that unit's aura abilities give no benefit to enemy units."
+    "plain": "In your Command phase, pick one enemy unit within 12\" of this model; enemy units can't benefit from its aura abilities until your next Command phase starts."
   },
   "abd8e97670a9": {
     "name": "5. Shards of Light",
     "kind": "psychic",
-    "plain": "If manifested, pick one enemy unit this PSYKER can see within 18\" of it. That unit suffers 1 mortal wound, or D3 mortal wounds instead if it is a VEHICLE or MONSTER unit or has 6 or more models. Until the start of your next Psychic phase, that unit's models subtract 2 from their Leadership characteristic."
+    "plain": "If manifested, deal 1 or D3 mortal wounds to one enemy unit within 18\" of this PSYKER and visible to it, and subtract 2 from its models' Leadership. The unit suffers D3 mortal wounds instead of 1 if it is a VEHICLE or MONSTER unit or has 6 or more models. The Leadership penalty lasts until the start of your next Psychic phase."
   },
   "c5b98d48b6d4": {
     "name": "Harlequin's Mask",

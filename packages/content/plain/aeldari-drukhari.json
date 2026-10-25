@@ -145,7 +145,7 @@
   "3a2ae9b5e232": {
     "name": "Spirit Probe (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your DRUKHARI CORE or DRUKHARI CHARACTER units is within 6\" of the bearer, you can re-roll wound rolls of 1 for melee attacks made by models in that unit."
+    "plain": "Aura: your DRUKHARI CORE or DRUKHARI CHARACTER units within 6\" of the bearer can re-roll wound rolls of 1 for their models' melee attacks."
   },
   "3d3dafb4c356": {
     "name": "Explodes",
@@ -253,7 +253,7 @@
   "5c8ffb61b854": {
     "name": "Prow blade",
     "kind": "weapon",
-    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon, and it can never make more than 1 attack with this weapon."
+    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon, but it can't make more than 1 attack with this weapon in that fight."
   },
   "5c9860cac3e3": {
     "name": "Ancient Warrior",
@@ -725,7 +725,7 @@
   "f8a50f835c4a": {
     "name": "Beasts of the Arena",
     "kind": "ability",
-    "plain": "You can only include this unit in a Detachment that also has at least one DRUKHARI BEASTMASTER unit, and that Detachment can have no more than 3 DRUKHARI BEAST units per DRUKHARI BEASTMASTER unit in it."
+    "plain": "This unit needs a DRUKHARI BEASTMASTER unit in its Detachment. You can only include it in a Detachment that also has at least one DRUKHARI BEASTMASTER unit, and that Detachment can have no more than 3 DRUKHARI BEAST units per DRUKHARI BEASTMASTER unit in it."
   },
   "f8c6e210773e": {
     "name": "Agents of Vect",

@@ -1,28 +1,405 @@
 {
+  "010674c39578": {
+    "name": "5: Mark of the Incomparable Hunter",
+    "kind": "ability",
+    "plain": "Each time this Warlord makes a ranged attack, add 1 to that attack's Strength characteristic. For those attacks, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage."
+  },
+  "01b7e8b1eb4b": {
+    "name": "Stimulant Innovators",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, you can roll one D3 on the Combat Drugs table and give the result to units with this Obsession until the turn ends. Only units that have the Combat Drugs ability get it, and it stacks with any abilities they already have."
+  },
+  "061a9b823564": {
+    "name": "The Djin Blade",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 2 extra attacks with this weapon. If it attacked with this weapon at all, roll one D6 at the end of the Fight phase: on a 1, the bearer suffers 1 mortal wound."
+  },
+  "085bcfe3822f": {
+    "name": "The Weeping Stones",
+    "kind": "ability",
+    "plain": "While the bearer is on the battlefield, you can roll one extra D6 whenever you make a Strand of Fate roll. Only an ASURYANI PSYKER can have this Relic.",
+    "waive": {
+      "143": "page number reference (\"pg 143\") to where the Strand of Fate rule is printed; the style guide forbids page references"
+    }
+  },
+  "08cfb17d8f3c": {
+    "name": "Elite Citizenry",
+    "kind": "ability",
+    "plain": "Models with this attribute add 1 to their Leadership characteristic, and when a unit with this attribute fights, you can re-roll one of its hit rolls."
+  },
+  "0ac5df67b1d6": {
+    "name": "A Foot in the Future",
+    "kind": "ability",
+    "plain": "You can add 6 to this Warlord's charge rolls, and when it Advances, add D3+3\" to its Move characteristic until the end of the phase instead of an Advance roll."
+  },
+  "0c16c98dd294": {
+    "name": "Soulheim",
+    "kind": "ability",
+    "plain": "The bearer gains these abilities:\n- Subtract 1 from the hit roll of every attack that targets the bearer.\n- Roll one D6 each time the bearer would lose a wound: on a 5+, that wound isn't lost."
+  },
+  "0c2bdf30ce10": {
+    "name": "Spirit-Sting",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and invulnerable saves can't be taken against its attacks."
+  },
+  "0ee496278fc1": {
+    "name": "Kabal of the Black Heart: Thirst for Power",
+    "kind": "ability",
+    "plain": "When working out Power From Pain effects for units with this Obsession that have that ability, count the battle round as one higher than it really is.\nIf a Realspace Raid Detachment contains a KABAL OF THE BLACK HEART ARCHON, then for the rest of the battle all BLADES FOR HIRE units in that Detachment with the Power From Pain ability get the same benefit.\nModels with this Obsession add 1 to their Leadership characteristic.\nWhen a unit with this Obsession shoots or fights, you can re-roll one of its hit rolls.",
+    "waive": {
+      "89": "page number reference (\"pg 89\") to where the Power From Pain ability is printed; the style guide forbids page references"
+    }
+  },
+  "119cd103d962": {
+    "name": "Crash and Burn",
+    "kind": "ability",
+    "plain": "When this model is reduced to 0 wounds, roll one D6 before removing it: on a 6, it explodes, and every unit within 6\" of it suffers D3 mortal wounds."
+  },
+  "1326be86b787": {
+    "name": "The Phoenix Plume",
+    "kind": "ability",
+    "plain": "The bearer gets a 4+ invulnerable save, and each time a model in its unit would lose a wound, roll one D6: the wound isn't lost on a 5+. Only a Swooping Hawk Exarch model can have this."
+  },
+  "1330a335b317": {
+    "name": "Dark Technomancers (All-Consuming)",
+    "kind": "ability",
+    "plain": "When a unit with this Obsession shoots, you can enhance any or all of its ranged weapons to add 1 to their attacks' wound rolls and Damage this phase. Liquifier guns and twin liquifier guns can never be enhanced. Hit rolls for attacks with an enhanced weapon can't be re-rolled. If any attack with an enhanced weapon has an unmodified hit roll of 1, the bearer's unit suffers 1 mortal wound once it has shot with that weapon; a VEHICLE or MONSTER bearer suffers D3 mortal wounds instead."
+  },
+  "15e7224173ae": {
+    "name": "Crescendo",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with a shuriken pistol can take this Relic, which replaces that shuriken pistol and uses its own weapon profile."
+  },
+  "1600085ac236": {
+    "name": "Player of the Dark",
+    "kind": "ability",
+    "plain": "When this Warlord attacks in melee, each unmodified wound roll of 5+ also deals 1 mortal wound to the target, on top of any normal damage."
+  },
+  "163dd81ed866": {
+    "name": "Seer Council (Warlocks)",
+    "kind": "ability",
+    "plain": "Add 1 to Psychic tests for the selected FARSEER model while it is within 6\" of this WARLOCKS unit.\nWhile that FARSEER model is within 3\" of this WARLOCKS unit, it can use the Look Out, Sir rule even when this unit has fewer than 3 models."
+  },
+  "167af1aee3db": {
+    "name": "Kabal of the Obsidian Rose: Flawless Workmanship",
+    "kind": "ability",
+    "plain": "Models with this Obsession add 6\" to the Range characteristic of their Assault, Rapid Fire and Heavy weapons (Relics excluded).\nWhen a unit with this Obsession shoots or fights, you can re-roll one of its wound rolls."
+  },
+  "170759edb1b0": {
+    "name": "In The Footsteps Of The Ancients",
+    "kind": "ability",
+    "plain": "Pick one of these craftworlds: Ulthwe, Alaitoc, Biel-Tan, Iyanden or Saim-Hann; units with this attribute use that craftworld's Craftworld Attribute.\nThis Far-Flung Craftworld Attribute can't be combined with any other Far-Flung Craftworld Attribute.\nIf a CHARACTER model with this attribute gets a Warlord Trait, it can have the Craftworld Warlord Trait of the craftworld you picked instead of a normal one. On such a Warlord Trait, replace every instance of the <CRAFTWORLD> keyword (for example IYANDEN), if there are any, with the name of the craftworld this CHARACTER model comes from.\nUnless every unit with this attribute is in an Auxiliary Support, Super-heavy Auxiliary and/or Fortification Network Detachment, you also get the Craftworld Stratagem of the craftworld you picked. When you use it, replace every instance of the <CRAFTWORLD> keyword on it (for example IYANDEN) with the craftworld your units with this attribute have.",
+    "waive": {
+      "85": "page number reference (\"pages 85-89\") to where the Craftworld Attributes are printed; the style guide forbids page references",
+      "89": "page number reference (\"pages 85-89\") to where the Craftworld Attributes are printed; the style guide forbids page references",
+      "119": "page number reference (\"page 119\") to where the standard Warlord Traits are printed; the style guide forbids page references"
+    }
+  },
+  "18b0a40577b7": {
+    "name": "Disdain for Lesser Beings",
+    "kind": "ability",
+    "plain": "Add 1 to Combat Attrition tests taken for units with this Obsession."
+  },
+  "197e03e5b4a7": {
+    "name": "Fractal Storm",
+    "kind": "ability",
+    "plain": "Your opponent can't re-roll hit rolls, wound rolls or damage rolls for attacks made against this Warlord."
+  },
+  "1984d7a0bb56": {
+    "name": "Shard of Anaris",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets D3+3 extra attacks with this weapon."
+  },
+  "1a11c2f49fdc": {
+    "name": "Obsessive Collectors",
+    "kind": "ability",
+    "plain": "Whenever a melee attack by a unit with this Obsession destroys an enemy unit, one model in the attacking unit can regain D3 lost wounds. No model can be healed more than once per turn. If the attacker is a WRACK unit, D3 of its destroyed models can be added back to it. Those models can only be placed within Engagement Range of those enemy units already in Engagement Range of this unit, and they no longer count as destroyed for Morale tests this turn."
+  },
+  "1ad641b20308": {
+    "name": "Students of Vaul",
+    "kind": "ability",
+    "plain": "Add 1 to armour saving throws made for a VEHICLE model with this attribute against attacks with a Damage characteristic of 1."
+  },
   "1b5ecd577d7e": {
     "name": "Luck of the Laughing God",
     "kind": "rule",
     "plain": "The battle-size table in the Luck of the Laughing God ability no longer applies. At the start of the battle round you get 0 Luck re-rolls, whatever the battle size: the only way to gain Luck re-rolls is to make a Luck of the Laughing God roll."
+  },
+  "1ba183f8627f": {
+    "name": "The Storied Sword",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with an Aeldari power sword can take this Relic, which replaces that Aeldari power sword and uses its own weapon profile."
+  },
+  "1c7bdeececef": {
+    "name": "The Glaive Exquisite",
+    "kind": "weapon",
+    "plain": "Add 1 to the wound roll for attacks with this weapon that target an enemy unit with a Leadership characteristic of 8 or more. If the bearer fought with this weapon in a phase but didn't target any such enemy unit, it suffers 1 mortal wound at the end of that phase."
+  },
+  "1dd5ceb4729b": {
+    "name": "The Twilight Fang",
+    "kind": "ability",
+    "plain": "Only a TWILIGHT TROUPE MASTER model with an Aeldari power sword can take this Relic, which replaces that sword and uses its own weapon profile.",
+    "waive": {
+      "TWIGHLIGHT TROUPE MASTER": "typo in the official text for TWILIGHT TROUPE MASTER; the plain text uses the correctly spelled TWILIGHT TROUPE MASTER keyword"
+    }
+  },
+  "1f74707af8de": {
+    "name": "Children of Prophecy",
+    "kind": "ability",
+    "plain": "When a PSYKER unit with this attribute takes a Psychic test or Deny the Witch test, you can re-roll any or all of its dice that show a 1 or 2."
+  },
+  "1fdf5f7b495b": {
+    "name": "Master of Death",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for this Warlord's melee weapon attacks scores 1 extra hit."
+  },
+  "2075bec7eac9": {
+    "name": "Poisoner's Ampule",
+    "kind": "ability",
+    "plain": "Once per battle, at the end of your Movement phase, pick one enemy unit within 9\" of the bearer:\n- roll one D6, and on a 2+ it suffers D3 mortal wounds.\n- the unit's own Aura abilities stop working until the start of your next turn.\n- until the start of your next turn, the unit can't be affected by Aura abilities of friendly models."
+  },
+  "210c43f77bf4": {
+    "name": "The Flensing Blade",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and its attacks against a CHARACTER unit have a Damage characteristic of 3."
+  },
+  "21c2e776e6ed": {
+    "name": "3. Artist of Dark Alchemy",
+    "kind": "ability",
+    "plain": "Once per turn, you can re-roll a number-of-attacks roll for a weapon of a friendly <HAEMONCULUS COVEN> CORE model, if its unit is within 6\" of this WARLORD. If you do, then for the rest of the phase you can also re-roll every number-of-attacks roll for weapons used by models in that unit."
+  },
+  "21ede7160bdc": {
+    "name": "The Prophets of Flesh: Connoisseurs of Pain",
+    "kind": "ability",
+    "plain": "At the start of your Command phase, every CHARACTER, GROTESQUES OR MONSTER unit that has this Obsession regains 1 lost wound.\nWhen an attack is made against a unit with this Obsession, unless the attack's Strength characteristic is 8 or more, an unmodified wound roll of 1-3 for it fails, whatever abilities the attacking weapon or model has."
+  },
+  "229ad5909683": {
+    "name": "Towering Arrogance (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KABAL OF THE POISONED TONGUE units is within 6\" of this WARLORD, you can ignore any or all modifiers to its Combat Attrition tests."
+  },
+  "24561f7a00e1": {
+    "name": "Grave Lotus",
+    "kind": "ability",
+    "plain": "Models in this unit have their Strength characteristic increased by 1."
+  },
+  "24bf82852c9d": {
+    "name": "Superior Shurikens",
+    "kind": "ability",
+    "plain": "Shuriken weapons that models in units with this attribute are equipped with have their Range characteristic increased by 3\".",
+    "waive": {
+      "143": "page number reference (\"pg 143\") to where shuriken weapons are defined; the style guide forbids page references"
+    }
+  },
+  "273c8ee2bf64": {
+    "name": "Enhanced Sensory Organs",
+    "kind": "ability",
+    "plain": "Targets of attacks made by models with this Obsession don't get the benefits of Light Cover or Heavy Cover against those attacks."
+  },
+  "27ee2cf6b5a0": {
+    "name": "Ancient Evil",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, this WARLORD can hold back an enemy unit in its Engagement Range: it can't fight this phase until all your eligible units have."
   },
   "289a87f8f338": {
     "name": "Reckless Abandon [LEGENDS]",
     "kind": "rule",
     "plain": "This unit can make Heroic Interventions just as a CHARACTER could."
   },
+  "28a1f83f663a": {
+    "name": "Ulthwe: Foresight of the Damned",
+    "kind": "ability",
+    "plain": "When a unit with this attribute shoots or fights, you can re-roll one of its wound rolls.\nAdd 1 to the first Psychic test taken for each PSYKER unit with this attribute in each turn.\nModels with this attribute get a 6+ invulnerable save.\nWhenever a model with this attribute would lose a wound to a mortal wound, roll one D6; on a 5+ it isn't lost."
+  },
+  "2903a20aac8c": {
+    "name": "Grim",
+    "kind": "ability",
+    "plain": "Add 1 to Combat Attrition tests taken for units with this attribute."
+  },
+  "298912cd0436": {
+    "name": "6: Seer of the Shifting Vector",
+    "kind": "ability",
+    "plain": "While this Warlord is on the battlefield, you can roll one D6 per Command point either player spends on a Stratagem: each 6 gains you 1 Command point."
+  },
+  "2a9317d63d51": {
+    "name": "The Animus Vitae",
+    "kind": "weapon",
+    "plain": "Once per battle, the bearer can shoot this weapon: if it hits, the target suffers D3 mortal wounds (D3+3 instead if the target unit has 11 or more models). Until the end of the turn, your units with the Power from Pain ability count the battle round as one higher than it really is when working out which of its effects they get."
+  },
+  "2bfe46b5254e": {
+    "name": "The Coven of Twelve: Butchers of Flesh",
+    "kind": "ability",
+    "plain": "Attacks made by models with this Obsession with melee weapons other than Relics have their Armour Penetration characteristic improved by 1.\nA unit with this Obsession that is performing an action can still make ranged attacks without the action failing."
+  },
+  "2c98d438275d": {
+    "name": "Twilight: Twilight Falls",
+    "kind": "ability",
+    "plain": "Models in a unit with this characterisation fight with 1 extra attack if the unit charged, was charged or performed a Heroic Intervention this turn. The bonus lasts until that fight is resolved.\nModels with this characterisation can move up to 2\" further when they pile in or consolidate."
+  },
+  "2f355bfd4cd5": {
+    "name": "Alaitoc: Master of Ambush",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one ALAITOC INFANTRY CORE unit within 9\" of this Warlord: this turn, it can shoot mid-action without the action failing.\nWhen the first battle round starts, before the first turn, if this Warlord is on the battlefield, you can pick one other friendly ALAITOC RANGERS unit on the battlefield. Remove it and set it up again anywhere on the battlefield more than 9\" from the enemy deployment zone and from all enemy models. If both players have redeploy abilities that work before the first turn, roll off; the winner picks which player redeploys their units first."
+  },
+  "30c68f05f7c8": {
+    "name": "Stratagem: Wealth and Power",
+    "kind": "ability",
+    "plain": "Until the end of the battle, add 1 to the Strength characteristic of every ranged attack made by this unit."
+  },
+  "312484e42684": {
+    "name": "Twilight Gloom",
+    "kind": "ability",
+    "plain": "Warp charge 6: if manifested, pick one of your WRAITH HOST units within 18\" of the psyker to get the cover bonus to its saves until your next turn starts. It gets this bonus even when it isn't wholly on or within a terrain feature."
+  },
+  "319bc2a0512e": {
+    "name": "The Spider's Bite",
+    "kind": "ability",
+    "plain": "Only a Warp Spider Exarch model with powerblades can take this Relic, which replaces those powerblades and uses its own weapon profile."
+  },
   "31fb1c2e237d": {
     "name": "Battle Focus",
     "kind": "rule",
     "plain": "Advancing doesn't stop this unit from shooting that turn, but if it does shoot after Advancing, then until the end of the phase its models can only attack with Assault or Pistol weapons they have, and the unit counts as having Remained Stationary when those attacks are resolved. In your Shooting phase, once this unit has finished its attacks, it can make a Battle Focus move unless it Fell Back or Advanced this turn: roll one D6, and each model in the unit can make a Normal Move of up to that many inches, as if it were your Movement phase. After a Battle Focus move, the unit can't embark within a TRANSPORT model when that move ends, and it can't declare a charge until the end of the turn. A unit that arrived as Reinforcements this turn can't make a Battle Focus move, and no unit can make more than one Battle Focus move in a turn. Note (Area Terrain): if any model in the unit wants to cross any part of an Area Terrain feature during a Battle Focus move, subtract 3\" from how far the unit's models can move for that move (to a minimum of 0). The penalty still applies when no part of that Area Terrain feature is taller than 1\", but it doesn't stack with other penalties that terrain feature imposes (such as the Difficult Ground terrain trait)."
+  },
+  "330c5728f201": {
+    "name": "Howling Skysword of Galaleth",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon always wound on a 2+."
   },
   "33f07c2fc916": {
     "name": "Poisoned Weapon",
     "kind": "rule",
     "plain": "Many Drukhari weapons have the Poisoned Weapon ability, shown as 'Poisoned Weapon' followed by a value such as (4+) or (2+). When an attack with a poisoned weapon targets a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of that value always succeeds."
   },
+  "342171fde948": {
+    "name": "The Helm of Spite",
+    "kind": "ability",
+    "plain": "In your opponent's Psychic phase, the bearer can try to deny one psychic power as though it were a PSYKER. If it succeeds, the PSYKER that tried to manifest that power suffers Perils of the Warp."
+  },
+  "3424fa76d68a": {
+    "name": "Twisted Animator",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your <HAEMONCULUS COVEN> WRACK units within 3\" of this WARLORD and add D3 destroyed models back to it. Those models may be set up within Engagement Range of enemy units already in Engagement Range of that unit."
+  },
+  "34fab60cdae2": {
+    "name": "Master Nemesine",
+    "kind": "ability",
+    "plain": "Re-roll wound rolls of 1 for attacks made by this WARLORD."
+  },
+  "350ff0fec28e": {
+    "name": "Dark Harvest",
+    "kind": "ability",
+    "plain": "When a unit with this Obsession finishes a charge move, you can roll one D6 for one enemy unit within Engagement Range: on a 4+, it suffers 1 mortal wound. That enemy unit can't be a VEHICLE unit."
+  },
+  "35138819550e": {
+    "name": "Precise Killers",
+    "kind": "ability",
+    "plain": "For melee attacks made by models with this Obsession, the Blade Artists ability triggers on an unmodified roll of 5+ instead of 6."
+  },
+  "360ccb65e916": {
+    "name": "Masterful Shots",
+    "kind": "ability",
+    "plain": "Targets of ranged attacks made by models with this attribute don't get the benefits of Light Cover against those attacks."
+  },
+  "3804c6b458b9": {
+    "name": "The Nightmare Doll",
+    "kind": "ability",
+    "plain": "Roll one D6 each time the bearer would lose a wound: on a 4+, that wound isn't lost."
+  },
+  "38c7e535be13": {
+    "name": "Masters of Mutagens",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this Obsession using a poisoned weapon (not a Relic) automatically wound on an unmodified hit roll of 6. This doesn't apply against VEHICLE or TITANIC units."
+  },
+  "39f068c655f6": {
+    "name": "Garland of Spite",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, halve the Attacks characteristic of one enemy model within Engagement Range of the bearer until the end of the phase. That model can't be a MONSTER or VEHICLE model.\nThe bearer's melee attacks hit the target automatically."
+  },
+  "3b362f7bb33a": {
+    "name": "Acrobatic Display",
+    "kind": "ability",
+    "plain": "Models in a unit with this Obsession can pass horizontally through other models and terrain features when they pile in or consolidate. They can't end a move on top of another model or its base."
+  },
+  "3bc15f82ec10": {
+    "name": "Slashing Impact",
+    "kind": "ability",
+    "plain": "When a model with this Obsession finishes a charge move, you can roll one D6 for one enemy unit within Engagement Range: on a 6, it suffers 1 mortal wound. That enemy unit can't be a VEHICLE unit."
+  },
   "3ccc5a513666": {
     "name": "Insensible to Pain",
     "kind": "rule",
     "plain": "Each time one of this unit's models would lose a wound, roll one D6; the wound isn't lost on a 5+."
+  },
+  "3f38785f2997": {
+    "name": "Transfuser of Excruciation",
+    "kind": "weapon",
+    "plain": "The bearer can make only one attack with this weapon each time it fights. If that attack hits, the target suffers 1 mortal wound and the attack sequence ends. Whenever a unit (other than a VEHICLE unit) takes a mortal wound from this weapon, its models get 1 subtracted from their Ballistic Skill, Weapon Skill and Strength characteristics."
+  },
+  "3fad5802dc04": {
+    "name": "Treacherous Deceiver",
+    "kind": "ability",
+    "plain": "Each unmodified 4+ saving throw for this WARLORD against a melee attack deals 1 mortal wound to the attacking unit once it has finished its attacks. The second part of the Cursed Blades' Obsession, Only the Strong Will Thrive, doesn't apply to this WARLORD."
+  },
+  "41c9075d5c62": {
+    "name": "The Art of Pain",
+    "kind": "ability",
+    "plain": "Units with this Obsession that have Power From Pain count the battle round as one higher for its effects while within Engagement Range of any enemy units."
+  },
+  "41fa104d5e11": {
+    "name": "Iyanden: Enduring Resolve",
+    "kind": "ability",
+    "plain": "Whenever this Warlord would lose a wound, roll one D6: on a 5+, it doesn't lose that wound."
+  },
+  "4473edb7db29": {
+    "name": "Soul-Seeker",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and it can ignore the Look Out, Sir rule when you pick its targets. Targets don't get the benefits of cover against its attacks."
+  },
+  "4668068713d6": {
+    "name": "Writ of the Living Muse (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KABAL OF THE BLACK HEART CORE units is within 6\" of the bearer, re-roll wound rolls of 1 for attacks made by its models. If the bearer is a REALSPACE RAIDER unit, this also works for BLADES FOR HIRE units."
+  },
+  "491db814be61": {
+    "name": "Warden of Souls",
+    "kind": "ability",
+    "plain": "This WARLORD regains 1 lost wound at the start of your Command phase.\nWhen this WARLORD is chosen to fight, if any enemy unit within its Engagement Range is below Starting Strength, add 1 to its Strength and Attacks characteristics until the end of the phase."
+  },
+  "49ce28f8cc50": {
+    "name": "Sunstorm",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is 20\", and it has the Objective Secured ability. Only an ASURYANI BIKER model can have this Relic."
+  },
+  "4a341fe69aa9": {
+    "name": "Wrath of the Dead",
+    "kind": "ability",
+    "plain": "WRAITH CONSTRUCT units with this attribute (but not AIRCRAFT units) can perform Heroic Interventions as if they were CHARACTER units."
+  },
+  "4aabdd89e5b3": {
+    "name": "Parasite's Kiss",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and the bearer regains 1 lost wound each time one of its attacks destroys an enemy model."
+  },
+  "4b5f2e857ae5": {
+    "name": "Altansar 2. A Beacon of Light in the Darkness",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your ALTANSAR units within 9\" of this WARLORD: it can shoot during actions, and do actions after Advancing or Falling Back. Both last until your next Command phase starts. While performing an action, the unit can make ranged attacks without the action failing, and Advancing or Falling Back doesn't stop it performing actions that turn."
+  },
+  "4c2bf09604a4": {
+    "name": "Cegorach's Rose",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon. The bearer gains the HARLEQUIN'S KISS keyword."
+  },
+  "50b5da0444b9": {
+    "name": "Unparalleled Agility",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll and the wound roll of every attack made against this WARLORD."
+  },
+  "50c1a8d26953": {
+    "name": "Stimm Addict",
+    "kind": "ability",
+    "plain": "Before the battle, when you roll for this WARLORD's Combat Drugs ability, roll 2 extra dice, re-rolling any results of 6 and any results already in effect. This WARLORD's Combat Drugs ability gives these benefits on top of any others."
   },
   "51fd4a90b229": {
     "name": "Mysterious Appearance",
@@ -34,40 +411,787 @@
     "kind": "rule",
     "plain": "If every model in this unit has this ability, then during deployment you can set it up preparing a sudden assault instead of on the battlefield. In that case, in the Reinforcements step of any one of your Movement phases it can be placed anywhere on the battlefield more than 9\" from every enemy model."
   },
+  "53a131931bfb": {
+    "name": "Hypex",
+    "kind": "ability",
+    "plain": "Models in this unit have 2\" added to their Move characteristic."
+  },
+  "54a8ddbb9c16": {
+    "name": "Psytronome of Iyanden",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your IYANDEN SPIRIT HOST units within 9\" of the bearer to get 1 extra attack per model until your next Command phase. If it is a WRAITHGUARD unit, it also gains the Battle Focus ability for that time. Only an IYANDEN model can have this Relic."
+  },
+  "5651aae24b4e": {
+    "name": "Mask of Torment",
+    "kind": "ability",
+    "plain": "At the start of the Morale phase, subtract 4 from the Leadership of models in one enemy unit within 12\" of the bearer, until your next Command phase starts. Only a COTERIES OF THE HAEMONCULI model can have this Relic."
+  },
+  "5795f74db421": {
+    "name": "Saviour Stone",
+    "kind": "ability",
+    "plain": "When you make a Strands of Fate roll at the start of the battle round, you can raise or lower one of the dice by 1 (to a maximum of 6 or a minimum of 1). The bearer must be on the battlefield to do this."
+  },
+  "57fed34529c3": {
+    "name": "Player of the Twilight",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, you can roll one D6 per Command point either player spends on a Stratagem: each 6 gains you 1 Command point.\nRolling 4 or more dice on a Luck of the Laughing God roll while this WARLORD is on the battlefield also gains you 1 Command point."
+  },
+  "5915d2f9683a": {
+    "name": "Saim-Hann: Wild Host",
+    "kind": "ability",
+    "plain": "Units with this attribute can re-roll failed charge rolls. Falling Back doesn't stop them declaring a charge that turn."
+  },
+  "594ebfcce250": {
+    "name": "Diabolical Soothsayer",
+    "kind": "ability",
+    "plain": "When this model is set up on the battlefield, choose to add 1 to either this WARLORD's Toughness and Wounds or its Move and Attacks characteristics. Both characteristics in the pair you choose go up by 1, for the rest of the battle."
+  },
+  "5b030c45a47b": {
+    "name": "Expert Crafters",
+    "kind": "ability",
+    "plain": "When a unit with this attribute shoots or fights, you can re-roll one of its wound rolls."
+  },
+  "5d23963dd00c": {
+    "name": "The Lost Shroud",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to the bearer:\n- subtract 1 from its Damage characteristic (to a minimum of 1).\n- if its unmodified Damage characteristic is 1, add 1 to any armour saving throw made against it.\nOnly a YNNARI model can have this Relic."
+  },
+  "5d987d479f7f": {
+    "name": "Fear Incarnate",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, you can try to stop one enemy unit within 9\" of this WARLORD from performing actions and strip its Objective Secured ability. Roll 3D6: if the total is greater than that unit's Leadership characteristic, then until the start of your next Movement phase it can't perform actions (an action it is performing fails immediately) and it loses the Objective Secured ability."
+  },
   "5db1ee33467a": {
     "name": "Power From Pain",
     "kind": "rule",
     "plain": "Each effect below applies from the listed battle round onwards. Inured to Suffering (battle round 1+): models in this unit get a 6+ invulnerable save. Eager to Flay (battle round 2+): the unit is allowed to declare a charge in a turn in which it Advanced. Flensing Fury (battle round 3+): add 1 to the hit roll of every melee attack made by this unit's models; also, if this unit has the VEHICLE or MONSTER keyword, it ignores the hit roll penalty for firing Heavy weapons at enemy units within its Engagement Range. Mantle of Agony (battle round 4+): models in this unit get a 5+ invulnerable save. Emboldened by Bloodshed (battle round 5+): the unit passes Morale tests automatically, and if its characteristics change as it takes damage, it counts as having twice its remaining wounds when you work out which characteristics apply."
+  },
+  "5e3edad738f2": {
+    "name": "Agile Hunters (All-Consuming)",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll of attacks made by models with this Obsession against units that can FLY.\nIf a unit with this Obsession that has the Combat Drugs ability has the Hypex ability, it adds 4\" to its Move characteristic instead of 3\"."
+  },
+  "634e4c732e68": {
+    "name": "Cronescream",
+    "kind": "ability",
+    "plain": "Once per battle, when the Fight phase starts, you can try to inflict D3 mortal wounds on an enemy unit within Engagement Range of the bearer. Pick the unit and roll one D6: on a 2+, it suffers D3 mortal wounds, plus 1 more for each charge move the bearer has made during the battle. Only a Howling Banshee Exarch model can have this."
+  },
+  "649364935b43": {
+    "name": "Swift Strikes",
+    "kind": "ability",
+    "plain": "When a unit with this attribute is chosen to shoot in your Shooting phase, it counts as having Remained Stationary for the rest of the phase. This doesn't apply if it Fell Back this turn."
+  },
+  "64e1a891779d": {
+    "name": "The Spider's Bite",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this weapon gives that attack a Damage characteristic of 3."
+  },
+  "657543f51739": {
+    "name": "Webway Warriors",
+    "kind": "ability",
+    "plain": "In the turn a Reinforcement unit with this attribute is first set up on the battlefield, each unmodified hit roll of 6 for its attacks scores 1 extra hit."
+  },
+  "65d1055321d4": {
+    "name": "Children of Khaine",
+    "kind": "ability",
+    "plain": "For melee attacks made by models with this attribute, an unmodified wound roll of 6 adds 1 to that attack's Damage characteristic."
+  },
+  "6694c7e4ae10": {
+    "name": "Cegorach's Rose",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with a Harlequin's kiss can take this Relic, which replaces that Harlequin's kiss and uses its own weapon profile."
+  },
+  "6730e1f281b6": {
+    "name": "Firesabre",
+    "kind": "ability",
+    "plain": "Only an ASURYANI model with a Banshee blade or star glaive can take this Relic, which replaces that weapon and uses its own weapon profile."
+  },
+  "67e721e11aa9": {
+    "name": "Serpentin",
+    "kind": "ability",
+    "plain": "Models in this unit have their Weapon Skill characteristic improved by 1."
+  },
+  "696640804eed": {
+    "name": "Shadowsting",
+    "kind": "ability",
+    "plain": "Only a Striking Scorpion Exarch model with a biting blade can take this Relic, which replaces that biting blade and uses its own weapon profile."
+  },
+  "69edd26c6ed9": {
+    "name": "Savage Blades",
+    "kind": "ability",
+    "plain": "Improve the Armour Penetration of melee attacks by models with this attribute by 1 if their unit charged, was charged or performed a Heroic Intervention."
+  },
+  "6bc73adab4d0": {
+    "name": "Torturous Efficiency",
+    "kind": "ability",
+    "plain": "For ranged attacks made by models with this Obsession, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "6d6c63624524": {
+    "name": "Cult of Strife: The Spectacle of Murder",
+    "kind": "ability",
+    "plain": "A unit with this Obsession that is within Engagement Range of any enemy units at the start of the Fight phase can fight first that phase.\nWhen you declare a charge for a unit with this Obsession, add 1 to the charge roll if no other unit from your army is within Engagement Range of any of the charge's targets."
+  },
+  "6e015533f283": {
+    "name": "Cult of the Cursed Blade: Only The Strong Will Survive",
+    "kind": "ability",
+    "plain": "Models with this Obsession add 1 to their Strength characteristic.\nEach unmodified saving throw of 6 you make for a model with this Obsession against a melee attack deals 1 mortal wound to the attacking unit once it has finished making its attacks."
+  },
+  "6e7debd3adee": {
+    "name": "Competitive Edge",
+    "kind": "ability",
+    "plain": "When this WARLORD fights and directs all of its attacks at one enemy unit, it can make extra attacks against that unit once those attacks are resolved. It makes one extra attack for each of those attacks that never got to the inflict damage step of the attack sequence in that fight."
+  },
+  "6eadcd4b5daf": {
+    "name": "Biel-Tan: Swordwind",
+    "kind": "ability",
+    "plain": "Units with this attribute count Advance and Battle Focus move rolls of 1 or 2 as 3, and when such a unit shoots or fights, you can re-roll one of its hit rolls.",
+    "waive": {
+      "142": "page number reference (\"pg 142\") to where the Battle Focus rule is printed; the style guide forbids page references"
+    }
+  },
+  "702d65a8a4c0": {
+    "name": "Warp-Spawn Bane",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon always wound on a 2+, and invulnerable saves are ignored for its attacks against enemy PSYKERS or DAEMONS."
+  },
+  "7070c2caa908": {
+    "name": "The Armour of Misery",
+    "kind": "ability",
+    "plain": "The bearer has these benefits:\n- its Save characteristic is 3+.\n- subtract 1 from the hit roll of each melee attack made against it."
+  },
+  "712353e317f8": {
+    "name": "Biotargeting Orb (Aura)",
+    "kind": "ability",
+    "plain": "Aura: within 6\" of this model, friendly <HAEMONCULUS COVEN> CORE or <HAEMONCULUS COVEN> CHARACTER units add 1 to hit rolls against your chosen enemy unit. That is the enemy unit you picked at the start of the first battle round."
+  },
+  "732db9b9ba13": {
+    "name": "Stratagem: Art of Poisonry",
+    "kind": "ability",
+    "plain": "Until the end of the battle, any weapon a model in that unit has with the 'Poisoned Weapon (4+)' ability counts as having 'Poisoned Weapon (3+)' instead."
+  },
+  "7404605b3264": {
+    "name": "Deadly Deceivers (All-Consuming)",
+    "kind": "ability",
+    "plain": "Units with this Obsession can shoot in a turn in which they Fell Back. If they do, subtract 1 from the hit roll of their models' ranged attacks until the end of the turn."
+  },
+  "755e23789b64": {
+    "name": "Hunters of Ancient Relics",
+    "kind": "ability",
+    "plain": "Units with this attribute can shoot while performing an action without the action failing."
+  },
+  "760e2e5e605b": {
+    "name": "War Shout",
+    "kind": "ability",
+    "plain": "While this unit includes a Howling Banshee Exarch, subtract 1 from the hit roll of melee weapon attacks made against it."
+  },
+  "76b6cc7cd914": {
+    "name": "Master Executioner",
+    "kind": "ability",
+    "plain": "You can re-roll the wound roll for any attack made by this WARLORD."
+  },
+  "779a82b1c1f2": {
+    "name": "Mobile Raiders",
+    "kind": "ability",
+    "plain": "Models with this Obsession that can FLY have 2\" added to their Move characteristic."
+  },
+  "7a106c91411a": {
+    "name": "Famed Savagery",
+    "kind": "ability",
+    "plain": "This WARLORD's Strength and Attacks characteristics are both increased by 1."
+  },
+  "7a1fbb614627": {
+    "name": "Talisman of Tionchar",
+    "kind": "ability",
+    "plain": "If the bearer charged or Heroically Intervened this turn, its melee attacks have 1 more Strength and Damage, and 1 better Armour Penetration. Only a Saim-Hann model can have this Relic."
+  },
+  "7a44d12220e6": {
+    "name": "Stratagem: Alliance of Agony",
+    "kind": "ability",
+    "plain": "While mustering your army, if your WARLORD is a REALSPACE RAIDER ARCHON: one SUCCUBUS model and one HAEMONCULUS model from your army each get a Warlord Trait. Neither can be a named character, and each trait must be one that model can have. Each of those models counts as your WARLORD only for its own Warlord Trait. Every Warlord Trait in your army must be different (if you roll randomly, re-roll duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once."
+  },
+  "7abe2755055d": {
+    "name": "Wild Rider",
+    "kind": "ability",
+    "plain": "Falling Back this turn doesn't stop your Warlord, or any of your WINDRIDER HOST units within 6\" of your Warlord, from charging."
+  },
+  "7afcbef39be5": {
+    "name": "The Suit of Hidden Knives",
+    "kind": "ability",
+    "plain": "HARLEQUINS model only: when the Fight phase ends, the bearer can make 3 extra melee attacks, which can't target TITANIC units. For these attacks, every hit deals 1 mortal wound to the target and ends the attack sequence."
+  },
+  "7b0da48c5c7b": {
+    "name": "Stinger-Engorger Pistol",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (its value is missing from the official text). When the bearer shoots, once its attacks are resolved: if any model in an enemy unit (not a VEHICLE unit) lost one or more wounds to those attacks, then until the end of the turn, every attack your models make against that enemy unit has its Armour Penetration characteristic improved by 1."
+  },
+  "7ca953aa3f18": {
+    "name": "Deathly Perfectionist",
+    "kind": "ability",
+    "plain": "Every weapon this WARLORD has, other than Relics, gets 1 added to its Strength characteristic."
+  },
+  "7eea90d4042c": {
+    "name": "Hail of Doom",
+    "kind": "ability",
+    "plain": "Shuriken weapon attacks by models with this attribute wound automatically on an unmodified hit roll of 6, which also counts as an unmodified wound roll of 6. You can't pick this Far-flung Craftworld Attribute if you have picked any other Far-flung Craftworld Attribute, and if you pick it, you can't pick a second one.",
+    "waive": {
+      "143": "page reference (pg 143); page references are left out of plain texts"
+    }
+  },
+  "7efbd3bfa846": {
+    "name": "Altansar 1. Master of Rune-Warding",
+    "kind": "ability",
+    "plain": "In your opponent's Psychic phase, this WARLORD can try to deny one extra psychic power if it is a PSYKER; if not, it can try to deny one as if it were a PSYKER. You can re-roll this WARLORD's Deny the Witch tests.",
+    "waive": {
+      "PASYKER": "official typo for PSYKER; the plain text spells the keyword correctly (PSYKER is kept)"
+    }
+  },
+  "7f673f27826f": {
+    "name": "Quicksilver Fighter",
+    "kind": "ability",
+    "plain": "This WARLORD's Attacks characteristic goes up by 2."
+  },
+  "80d4d885bfec": {
+    "name": "Player of the Light",
+    "kind": "ability",
+    "plain": "This Warlord can make a Heroic Intervention when it is within 6\" horizontally and 5\" vertically of an enemy unit, rather than 3\" horizontally and 5\" vertically. Its Heroic Intervention moves can be up to 6\", and all other Heroic Intervention rules still apply. Each time it fights in a turn in which it made a charge move or performed a Heroic Intervention, add 1 to its Strength and Attacks characteristics until that fight is resolved."
+  },
+  "849355cea08f": {
+    "name": "Ulthwe: Fate Reader",
+    "kind": "ability",
+    "plain": "After each Strands of Fate roll you make, if this Warlord is on the battlefield, you can keep one extra dice.",
+    "waive": {
+      "143": "page reference (pg 143); page references are left out of plain texts"
+    }
+  },
+  "869711a2d34d": {
+    "name": "2: Walker of Many Paths",
+    "kind": "ability",
+    "plain": "Once per turn, you can re-roll a single hit roll, wound roll or damage roll made for this Warlord."
+  },
+  "87109d783b3a": {
+    "name": "Wraith Host",
+    "kind": "ability",
+    "plain": "When choosing your army, use this Stratagem to make one Craftworld Detachment in your army a Wraith Host Specialist Detachment. Its WRAITH CONSTRUCTS gain the WRAITH HOST keyword."
+  },
+  "8a43e81efdc1": {
+    "name": "Hyper-swift Reflexes",
+    "kind": "ability",
+    "plain": "Melee attacks made against this WARLORD always miss on an unmodified hit roll of 1-3, whatever abilities the attacking weapon or model has."
+  },
+  "8acfe708cb39": {
+    "name": "Favour of Cegorach",
+    "kind": "ability",
+    "plain": "Once per turn, after rolling one of this Warlord's hit rolls, wound rolls or saving throws, you can count the result as an unmodified 6."
+  },
+  "8bc8e2432102": {
+    "name": "Dark Mirth",
+    "kind": "ability",
+    "plain": "Units with this Obsession have Dark Mirth (Aura), which can deal mortal wounds to enemy units within 12\" of them that are picked to move or charge. Each time an enemy unit within 12\" of one of these units is picked to make a Normal Move, Advance, Fall Back or charge, roll a D6: on a 5+, that enemy unit suffers 1 mortal wound."
+  },
+  "8c3b750c430b": {
+    "name": "Light: Blaze of Light",
+    "kind": "ability",
+    "plain": "Attacks against a unit with this characterisation from a model more than 18\" away fail on an unmodified hit roll of 1-3. This applies whatever abilities the attacking weapon or model has. If a unit with this characterisation Advances or makes a Normal Move during your Movement phase, then in your next Shooting phase it counts as having Remained Stationary. This doesn't apply while the unit is embarked within a Transport."
+  },
+  "8e497127b459": {
+    "name": "Stratagem: Tolerated Ambition",
+    "kind": "ability",
+    "plain": "While mustering your army, if your WARLORD has the DRUKHARI keyword: give one DRUKHARI CHARACTER model in your army (not a named character) a Warlord Trait. The trait must be one that model can have, and the model counts as your WARLORD only for that trait. Every Warlord Trait in your army must be different (if you roll randomly, re-roll duplicates), and this Stratagem can't be used to give one model two Warlord Traits. It can be used once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "8e79c9de4f1d": {
+    "name": "Khaine's Lance",
+    "kind": "ability",
+    "plain": "Whenever the bearer finishes a charge move, pick one enemy unit within its Engagement Range and roll one D6: on a 4+, that unit suffers D3 mortal wounds. On that 4+, it also isn't eligible to fight this phase until every eligible unit from your army has fought. Only a Shining Spear Exarch model can have this."
+  },
+  "8ebd59651e1f": {
+    "name": "Revered By The Dead",
+    "kind": "ability",
+    "plain": "While your WRAITH HOST WRAITH CONSTRUCT units are within 6\" of your Warlord, you can re-roll their charge rolls."
   },
   "8f4a4001a8f0": {
     "name": "Harlequin's Panoply",
     "kind": "rule",
     "plain": "This unit's models have a 5+ invulnerable save. During any Normal Move, Advance, Fall Back or charge move this unit makes, its models can pass horizontally through models and terrain features (but they can't end the move on top of another model or its base). Subtract 1 from the hit roll of every melee attack made against this unit."
   },
+  "912bb94ffa95": {
+    "name": "Berserk Fugue (All-Consuming)",
+    "kind": "ability",
+    "plain": "Models with this Obsession score 1 extra hit per unmodified melee hit roll of 6 if their unit charged, was charged or performed a Heroic Intervention this turn. If a mortal wound would make a model with this Obsession lose a wound, roll a D6: on a 5+, the wound isn't lost."
+  },
+  "91958b604615": {
+    "name": "Soul Thirst",
+    "kind": "ability",
+    "plain": "This WARLORD's Attacks characteristic goes up by 1. Once per turn, when an enemy model within 6\" of this WARLORD is destroyed, this model gets back 1 lost wound."
+  },
+  "940064fa575a": {
+    "name": "Aegis of Eldanesh",
+    "kind": "ability",
+    "plain": "AUTARCH model only: the bearer's Save characteristic is 2+, and every attack allocated to it has its Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
+  "9415836164fd": {
+    "name": "Masters of Concealment",
+    "kind": "ability",
+    "plain": "A unit with this attribute gets the benefits of Light Cover against ranged attacks made by an attacker more than 12\" away."
+  },
+  "95b98fe6e5f6": {
+    "name": "Dancer's Edge",
+    "kind": "weapon",
+    "plain": "If an attack made with this weapon has an unmodified wound roll of 6, no invulnerable saving throw can be taken against it."
+  },
+  "96a68420ede3": {
+    "name": "Kabal of the Flayed Skull: Slay From The Skies",
+    "kind": "ability",
+    "plain": "If a model with this Obsession can FLY or is embarked on a TRANSPORT unit that can FLY, targets of its ranged attacks get no benefit from Light Cover. VEHICLE units with this Obsession add 2\" to their Move characteristic."
+  },
+  "96ff4e91a8ed": {
+    "name": "Blood Dancer",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, each unmodified hit roll of 6 scores 2 extra hits."
+  },
+  "97b5ef38b5f4": {
+    "name": "Kurnous' Bow",
+    "kind": "ability",
+    "plain": "ASURYANI model with a shuriken pistol only: this Relic takes the place of its shuriken pistol and uses its own weapon profile."
+  },
+  "989d66403d0a": {
+    "name": "The Avenging Blade",
+    "kind": "ability",
+    "plain": "Dire Avenger Exarch model with a diresword only: this Relic takes the place of the diresword and uses its own weapon profile."
+  },
+  "98d2f0b523f3": {
+    "name": "Painbringer",
+    "kind": "ability",
+    "plain": "Models in this unit get 1 added to their Toughness characteristic."
+  },
+  "9a0dd763bda8": {
+    "name": "Hungry for Flesh",
+    "kind": "ability",
+    "plain": "Charge rolls for units with this Obsession can be re-rolled."
+  },
+  "9a11952d7176": {
+    "name": "Splinterblades",
+    "kind": "ability",
+    "plain": "When a model with this Obsession attacks with a melee weapon, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "9a8b0f1d6f7a": {
+    "name": "Traitor's Embrace",
+    "kind": "ability",
+    "plain": "When a melee attack destroys the bearer, roll one D6: on a 2+, the attacking model's unit suffers D3+3 wounds once it has finished making its attacks."
+  },
+  "9b395b5e38e8": {
+    "name": "Whirling Death",
+    "kind": "ability",
+    "plain": "When this WARLORD fights, after any pile-in moves you can set its Attacks characteristic to 3 plus the number of enemy models within 2\" of it. This lasts until that fight is resolved."
+  },
+  "9b91fad03877": {
+    "name": "Master Torturers",
+    "kind": "ability",
+    "plain": "When you pick a unit with this Obsession for the Torturer's Craft Stratagem, that Stratagem costs 1 fewer Command point.",
+    "waive": {
+      "68": "page reference (pg 68); page references are left out of plain texts"
+    }
+  },
+  "9f4124ed29ed": {
+    "name": "Children of Morai-Heg",
+    "kind": "ability",
+    "plain": "While its unit is below its Starting Strength, a model with this attribute adds 1 to the hit roll of every attack it makes."
+  },
+  "a092b299820a": {
+    "name": "Alaitoc: Fieldcraft",
+    "kind": "ability",
+    "plain": "Units with this attribute:\n- get the benefits of Light Cover against ranged attacks when the attacker is more than 12\" away.\n- if they are INFANTRY or BIKER units entirely on or within a terrain feature, also get the benefits of Dense Cover against ranged attacks when the attacker is more than 12\" away.\n- if they are INFANTRY units, can ignore any or all modifiers to their Move characteristic and to their Advance rolls."
+  },
+  "a1e74f92a035": {
+    "name": "Dark: Dark Deeds",
+    "kind": "ability",
+    "plain": "If a melee attack destroys a model with this characterisation, roll one D6: on a 4+, the attacking unit suffers 1 mortal wound after it finishes its attacks. A unit can't suffer more than 6 mortal wounds per phase from this ability. Melee attacks made by models with this characterisation have their Armour Penetration characteristic improved by 1."
+  },
+  "a298dd724849": {
+    "name": "Soul Bound",
+    "kind": "ability",
+    "plain": "If a mortal wound would make a model with this Obsession lose a wound, roll a D6; that wound isn't lost on a 5+."
+  },
+  "a3225e7633d8": {
+    "name": "The Spirit Stone of Anath'lan",
+    "kind": "ability",
+    "plain": "BIEL-TAN PSYKER model only: the bearer knows one extra psychic power from its chosen discipline. Once per Psychic phase, you can re-roll one of its failed Psychic tests."
+  },
+  "a4a56a63a003": {
+    "name": "Adrenalight",
+    "kind": "ability",
+    "plain": "If this unit made a charge move or performed a Heroic Intervention this turn, each time it fights its models get 1 extra attack until that fight is resolved."
+  },
+  "a4b7d5b542cb": {
+    "name": "Altansar 3. Weaver of the Blade Storm",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 9\" of this WARLORD: its unmodified hit rolls of 6 with shuriken weapons wound automatically. This lasts until your next Command phase starts, and applies to every attack a model in that unit makes with a shuriken weapon."
+  },
+  "a5fa0e125c70": {
+    "name": "The Vexator Mask",
+    "kind": "ability",
+    "plain": "The bearer:\n- can't be shot at with Overwatch by enemy units.\n- lets you pick, at the start of the Fight phase, one enemy unit within 3\" of it: that unit isn't eligible to fight this phase until every eligible unit from your army has fought."
+  },
+  "a7c6d3db53b7": {
+    "name": "Faolchu's Wing",
+    "kind": "ability",
+    "plain": "ASURYANI INFANTRY model only: the bearer has a 12\" Move characteristic and the FLY keyword. When your Movement phase ends, choose one enemy unit that the bearer moved over during the phase and roll a D6: that unit suffers D3 mortal wounds on a 2+."
+  },
+  "a7cd1228152a": {
+    "name": "Shrine Skull",
+    "kind": "ability",
+    "plain": "Dark Reaper Exarch with a Reaper Launcher only: enemy units losing models to the bearer's attacks subtract 1 from Combat Attrition tests until the turn ends."
+  },
+  "a879514e6b55": {
+    "name": "Merciless Razorkin",
+    "kind": "ability",
+    "plain": "When a model with this Obsession attacks with a splinter weapon, each unmodified hit roll of 6 scores 1 extra hit.",
+    "waive": {
+      "116": "page reference (pg 116); page references are left out of plain texts"
+    }
+  },
+  "ace9d571c0a9": {
+    "name": "Saim-Hann: Wild Rider Chieftain",
+    "kind": "ability",
+    "plain": "This Warlord's Attacks characteristic goes up by 1, and its Heroic Intervention distances are 6\" instead of 3\", both to qualify and to move. It can perform a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically, and its Heroic Intervention moves can be up to 6\" rather than 3\". All other Heroic Intervention rules still apply."
+  },
+  "ad17f06eda90": {
+    "name": "Seer Council (Farseer)",
+    "kind": "ability",
+    "plain": "Add 1 to this FARSEER model's Psychic tests while it is within 6\" of the selected WARLOCKS unit. While it is within 3\" of that WARLOCKS unit, it can use the Look Out, Sir rule even if that unit has fewer than 3 models."
+  },
+  "ad9f85ca0150": {
+    "name": "Soulthirst",
+    "kind": "ability",
+    "plain": "In a turn in which this Warlord charged, was charged or made a Heroic Intervention, add 1 to its Attacks characteristic. Also, each time this Warlord destroys an enemy model in the Fight phase, it regains 1 lost wound."
+  },
   "b3af1bfdee9d": {
     "name": "Shuriken Weapons",
     "kind": "rule",
-    "plain": "Shuriken weapons are Aeldari weapons with an ability that says 'Shuriken'. When an attack is made with one, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 2."
+    "plain": "When an attack made with a shuriken weapon gets an unmodified wound roll of 6, that attack's Armour Penetration characteristic is improved by 2. Many Aeldari weapons are shuriken weapons: each has an ability that says 'Shuriken'."
+  },
+  "b4f7647eba8f": {
+    "name": "2. Schemer Supreme",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield: whenever your opponent spends a Command Point on a Stratagem, you can roll one D6, gaining 1 Command Point on a 5+."
+  },
+  "b50787b98962": {
+    "name": "The Avenging Blade",
+    "kind": "weapon",
+    "plain": "When an attack made with this weapon wounds the target, it deals 1 mortal wound to the target and the attack sequence ends."
+  },
+  "b673147e30b0": {
+    "name": "Alchemical Maestro",
+    "kind": "ability",
+    "plain": "Once per battle, when this model is destroyed, it can come back: roll one D6 at the end of the phase, and on a 2+, set it up again with D3 wounds remaining. If you choose to roll, skip any rules that its destruction triggers. It must be set up as close as possible to where it was destroyed, and not within Engagement Range of any enemy models."
+  },
+  "b7695c10c930": {
+    "name": "The Phoenix Gem",
+    "kind": "ability",
+    "plain": "ASURYANI model only: when the bearer is first destroyed, roll a D6: on a 2+, it comes back at the end of the phase with D3 wounds left. Until then, keep it to one side. Set it back up as close as possible to where it was, not within Engagement Range of any enemy models."
+  },
+  "b9aab1c67939": {
+    "name": "Firesabre",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, an unmodified hit roll of 6 also deals a mortal wound to the target, on top of any normal damage."
+  },
+  "bb1d54f73ef2": {
+    "name": "Biotargeting Orb",
+    "kind": "ability",
+    "plain": "For the rest of the battle, the bearer gains the ability below, which works against one enemy unit you pick at the start of the first battle round. That unit must be on the battlefield and can't be a VEHICLE unit. Only a COTERIES OF THE HAEMONCULI model can have this Relic."
+  },
+  "bb8580c7f229": {
+    "name": "Master Regenerist",
+    "kind": "ability",
+    "plain": "When this WARLORD uses its Fleshcraft ability, the model it targets gets back up to 3 lost wounds, not D3."
+  },
+  "bdfc12aac1a9": {
+    "name": "Faolchu's Talon",
+    "kind": "ability",
+    "plain": "SOARING SPITE model only: a SOARING SPITE TRANSPORT carrying the wearer can move an extra 6\" in the Movement phase. If a SOARING SPITE TRANSPORT is destroyed while the wearer is inside, skip the rolls for whether disembarking models are slain and whether the transport explodes: none of the disembarking models are slain and the transport doesn't explode."
   },
   "bf0f5041d926": {
     "name": "Webway Strike",
     "kind": "ability",
     "plain": "Whenever an AELDARI unit from your army arrives from Strategic Reserves, you can choose to place it anywhere on the battlefield wholly within 6\" of both Wraithbone Arches of one of your WEBWAY GATE units. If you do, it may be set up within 9\" of enemy models. If it ends up within Engagement Range of any enemy models this way, it is treated as having made a charge move this turn (no Overwatch attacks can be made against it), and until the end of the turn it can make melee attacks against any enemy unit it is within Engagement Range of, even though it didn't declare a charge this turn."
   },
+  "c06e05ac4b75": {
+    "name": "Cult of the Red Grief: The Speed of The Kill",
+    "kind": "ability",
+    "plain": "Units with this Obsession can re-roll their charge rolls, and add 2 to their Advance rolls."
+  },
   "c54803c659d6": {
     "name": "Favoured of Khaine",
     "kind": "rule",
     "plain": "This model has a 4+ invulnerable save, can't lose more than 3 wounds in any one phase, and can never be given a Relic or a Warlord Trait."
+  },
+  "c70cf3a5e8bb": {
+    "name": "Dragon's Fury (Shrine Relic)",
+    "kind": "ability",
+    "plain": "Fire Dragon Exarch model only: whenever the bearer's unit is chosen as a charge target, subtract 2 from that charge roll."
+  },
+  "c8003352e380": {
+    "name": "Lord of Rebirth",
+    "kind": "ability",
+    "plain": "This Warlord regains up to 1 lost wound at the start of each battle round, and each time it would lose a wound, roll one D6: the wound isn't lost on a 5+."
+  },
+  "c84d4a87ebc9": {
+    "name": "Morvaines's Agoniser",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (4+). Each time the bearer fights, once all its attacks are resolved, pick one enemy unit that was hit by this weapon's attacks (you can't pick a VEHICLE or MONSTER unit). That unit can't Fall Back until your next turn starts."
+  },
+  "c8ff1721cc0e": {
+    "name": "Test of Skill",
+    "kind": "ability",
+    "plain": "Melee attacks made by models with this Obsession against MONSTER or VEHICLE units add 1 to their wound rolls."
+  },
+  "ca5e1971c61b": {
+    "name": "Master Artisan",
+    "kind": "ability",
+    "plain": "This WARLORD's Toughness and Wounds characteristics each go up by 1."
+  },
+  "cb0f6a2f95bb": {
+    "name": "Favoured of Ynnead",
+    "kind": "ability",
+    "plain": "This Warlord's pile-in and consolidation moves can be up to 6\" rather than up to 3\"."
+  },
+  "cb67b5fdd7bf": {
+    "name": "Dark Lotus Toxin",
+    "kind": "ability",
+    "plain": "Every melee weapon the bearer has, other than Relics, gets 1 added to its Strength and Damage characteristics."
+  },
+  "cc9adabb4b06": {
+    "name": "Mobile Fighters",
+    "kind": "ability",
+    "plain": "If its unit disembarked from a TRANSPORT model this turn, a model with this attribute adds 1 to the wound roll of every attack it makes."
+  },
+  "cdc16ac8b90d": {
+    "name": "Consummate Weaponmaster",
+    "kind": "ability",
+    "plain": "Every melee weapon this WARLORD has, other than Relics, gets 1 added to its Damage characteristic."
+  },
+  "ce6e71d6c0ac": {
+    "name": "The Dark Creed: Distillers of Fear",
+    "kind": "ability",
+    "plain": "Units with this Obsession have Aura of Terror (Aura): enemy units within 6\" of them subtract 1 from their Leadership and their Combat Attrition tests. Units with this Obsession also add 1 to the hit roll of each melee attack they make against a unit whose Leadership characteristic is equal to or lower than the attacking unit's."
+  },
+  "cee34e12097c": {
+    "name": "The Starmist Raiment",
+    "kind": "ability",
+    "plain": "HARLEQUINS model only: hit rolls and wound rolls for attacks against the bearer can't be re-rolled. Once per battle, in your Command phase, you may have the bearer mimic Aelos, giving it a 3+ invulnerable save until your next Command phase starts."
+  },
+  "d19883a562a5": {
+    "name": "Splintermind",
+    "kind": "ability",
+    "plain": "Models in this unit have their Ballistic Skill and Leadership characteristics improved by 1."
+  },
+  "d2052c5d8499": {
+    "name": "Kurnous' Bow",
+    "kind": "weapon",
+    "plain": "Shuriken; also, any attack made with this weapon that wounds the target deals 1 mortal wound to it and ends the attack sequence."
+  },
+  "d264fdbb5b4e": {
+    "name": "1. Calculating Gaze (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <HAEMONCULUS COVEN> CORE units is within 6\" of this WARLORD, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "d2f402e24fa5": {
+    "name": "Hatred Eternal",
+    "kind": "ability",
+    "plain": "You can re-roll both the hit roll and the wound roll for every attack this WARLORD makes."
+  },
+  "d301cd3b2b1f": {
+    "name": "1: Ambush of Blades",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <CRAFTWORLD> CORE or <CRAFTWORLD> CHARACTER units within 9\" of this Warlord to improve the AP of its melee attacks by 1. This lasts until your next Command phase starts, and applies to the Armour Penetration characteristic of every melee attack made by a model in that unit."
+  },
+  "d3ae92a88905": {
+    "name": "Headstrong",
+    "kind": "ability",
+    "plain": "Units with this attribute can re-roll their Advance rolls and charge rolls."
+  },
+  "d4d5334f4069": {
+    "name": "Diviners of Fate",
+    "kind": "ability",
+    "plain": "Whenever you make a Strands of Fate roll, you can roll one extra D6, as long as all the units in your army have this attribute. Units that are AGENTS OF THE AELDARI, ANHRATHE or UNALIGNED are ignored for this.",
+    "waive": {
+      "143": "page reference (pg 143); page references are left out of plain texts"
+    }
+  },
+  "d52e6f894ca2": {
+    "name": "Altansar: Grim Survivors",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this attribute have AP improved by 1 if their unit was charged, made a charge move or performed a Heroic Intervention this turn. Add 1 to Combat Attrition tests taken for units with this attribute."
+  },
+  "d678958a46a4": {
+    "name": "Vengeful",
+    "kind": "ability",
+    "plain": "When a model with this attribute attacks with a melee weapon, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "d746d151a681": {
+    "name": "Toxin Crafters (All-Consuming)",
+    "kind": "ability",
+    "plain": "When a model with this Obsession attacks with a poisoned weapon, an unmodified hit roll of 6 gives that attack Poisoned Weapon (2+) instead. These attacks also re-roll a wound roll of 1."
+  },
+  "d771c2bf79a2": {
+    "name": "The Ghosthelm of Alishazier",
+    "kind": "ability",
+    "plain": "ULTHWE PSYKER model only: the bearer knows one extra psychic power from the Runes of Fortune discipline. When a Psychic test is taken for it, an unmodified result of 9+ means that psychic power or psychic action can't be denied.",
+    "waive": {
+      "123": "page reference (pg 123); page references are left out of plain texts"
+    }
+  },
+  "d8e18aa4325a": {
+    "name": "Experimental Creations",
+    "kind": "ability",
+    "plain": "Models with this Obsession get 1 added to their Strength characteristic."
+  },
+  "daedeb35eccd": {
+    "name": "The Phial Bouquet",
+    "kind": "ability",
+    "plain": "At the start of each battle round, roll one D6: until that battle round ends, the bearer gets the matching effect from the Combat Drugs ability table. The effect can be one the bearer already has, and it stacks with it."
   },
   "db5e569aaf96": {
     "name": "Advanced Positions",
     "kind": "rule",
     "plain": "During deployment, if every model in this unit has this ability, you can place it anywhere on the battlefield more than 9\" from the enemy deployment zone and from all enemy models."
   },
+  "dddd6bf66e7e": {
+    "name": "Towering Arrogance",
+    "kind": "ability",
+    "plain": "Whenever this WARLORD would lose a wound to a mortal wound, roll one D6; on a 5+, it doesn't lose that wound."
+  },
+  "ddf0f5188fe3": {
+    "name": "3: Falcon's Swiftness",
+    "kind": "ability",
+    "plain": "This Warlord's Move characteristic goes up by 2, and it can ignore the effects of the Difficult Ground terrain trait. When it makes a Battle Focus move, don't roll a dice; it can move up to 6\" instead."
+  },
+  "df76be5ec929": {
+    "name": "Scarlet Epicurean",
+    "kind": "ability",
+    "plain": "Every attack allocated to this WARLORD has its Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
+  "e1cac4316617": {
+    "name": "Kabal of the Poisoned Tongue: The Serpent's Kiss",
+    "kind": "ability",
+    "plain": "When a model with this Obsession attacks with a poisoned weapon, improve that weapon's Poisoned Weapon ability by 1, to a maximum of 2+. For example, Poisoned Weapon (4+) becomes Poisoned Weapon (3+). Until the end of the turn, subtract 1 from Combat Attrition tests for any enemy unit that has had models destroyed by poisoned-weapon attacks from models with this Obsession."
+  },
+  "e21c13681163": {
+    "name": "Warding Runes",
+    "kind": "ability",
+    "plain": "Models with this attribute get a 6+ invulnerable save. Whenever one of them would lose a wound to a mortal wound, roll one D6; on a 5+, the wound isn't lost."
+  },
+  "e242bd2a0ccb": {
+    "name": "The Triptych Whip",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (2+), and each time the bearer is chosen to fight, its Attacks characteristic goes up by 3 until the end of the phase."
+  },
+  "e271af2c66eb": {
+    "name": "Artists of the Flesh (All-Consuming)",
+    "kind": "ability",
+    "plain": "Attacks with Strength below 8 allocated to a model with this Obsession (not a VEHICLE model) have their Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
+  "e35c18538fbe": {
+    "name": "Emblem of the Broken Chain",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 6\" of the bearer: it can re-roll Advance and charge rolls until your next Command phase."
+  },
+  "e37e0e231d90": {
+    "name": "Children of the Open Skies",
+    "kind": "ability",
+    "plain": "Models with this attribute add 1\" to their Move characteristic, or 2\" instead of 1\" if they can FLY. When an Advance roll is made for a unit with this attribute, a roll of 1-2 counts as a 3."
+  },
+  "e496c8b80aba": {
+    "name": "Shard of Anaris",
+    "kind": "ability",
+    "plain": "ASURYANI model with a Banshee Blade or Star Glaive only: this Relic takes the place of that Banshee Blade or Star Glaive and uses its own weapon profile."
+  },
+  "e59b1fee645a": {
+    "name": "The Ghoulmask",
+    "kind": "ability",
+    "plain": "DARK model only: the bearer can try to deny one psychic power in your opponent's Psychic phase, just as a PSYKER could. If it is a PSYKER, it can try to deny one more psychic power than usual in each of your opponent's Psychic phases. The bearer also has the Hideous Form (Aura) ability: an enemy unit within 3\" of this model loses the Objective Secured ability."
+  },
+  "e5c39e49a489": {
+    "name": "Stratagem: Rule Through Fear",
+    "kind": "ability",
+    "plain": "This model's aura abilities get 3\" more range. Whenever it uses an ability other than an aura ability in your Command phase, that ability gets 3\" more range for that use."
+  },
+  "e878dff96957": {
+    "name": "Twisted Hunters",
+    "kind": "ability",
+    "plain": "Attacks made by models with this Obsession against CHARACTER units add 1 to their hit rolls."
+  },
+  "e935be08b983": {
+    "name": "Trophy Takers",
+    "kind": "ability",
+    "plain": "Enemy units that had any models destroyed by melee attacks from a unit with this Obsession roll one extra D6 for Morale tests and discard the lowest result."
+  },
+  "ebbd636b861e": {
+    "name": "The Laughing God's Eye",
+    "kind": "ability",
+    "plain": "While one of your HARLEQUINS units is within 6\" of the bearer, roll one D6 for each wound its models would lose to a mortal wound: on a 5+, it isn't lost. This is the bearer's aura ability, The Laughing God's Eye, and only a HARLEQUINS model can have this Relic."
+  },
+  "ec9e20bfe40d": {
+    "name": "Precision Blows",
+    "kind": "ability",
+    "plain": "When a melee attack by this WARLORD has an unmodified hit roll of 6, the target unit suffers mortal wounds equal to the weapon's Damage characteristic. The attack sequence then ends."
+  },
+  "ee11b7cd10f0": {
+    "name": "Ynnari: Strength from Death",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, any unit with this attribute that is within Engagement Range of enemy units can fight first that phase. While its unit is below its Starting Strength, a model with this attribute adds 1 to the hit roll of every attack it makes."
+  },
+  "ee2b27f6e0a8": {
+    "name": "Raiding Forces - CP Refund",
+    "kind": "rule",
+    "plain": "If all the Detachments in your army are DRUKHARI Patrol Detachments, each of them has a Command Cost of 0CP."
+  },
+  "f07915b2cde3": {
+    "name": "Void mine",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer makes a Normal Move or Advances in your Movement phase, each unit within 6\" of a point it crossed can suffer D6 mortal wounds. You can pick a point on the battlefield that the bearer moved across, then roll one D6 for every unit within 6\" of it, subtracting 1 for units with the CHARACTER keyword (excluding VEHICLE or MONSTER units); on a 4+, the unit rolled for suffers D6 mortal wounds."
+  },
+  "f15a74027a09": {
+    "name": "Biel-Tan: Natural Leader",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your BIEL-TAN CORE units within 6\" of this Warlord: until the end of the turn, you can re-roll its hit rolls. This applies to every attack made by a model in that unit."
+  },
+  "f20dfeb694d9": {
+    "name": "Shiftshroud of Alanssair",
+    "kind": "ability",
+    "plain": "ALAITOC INFANTRY model only: while it has the benefits of cover, the bearer can't be picked as a ranged attack's target, with one exception. It can be picked if the attacker is within 12\" and the bearer is the closest eligible target for that attack."
+  },
+  "f3eb6aa21b6c": {
+    "name": "The Twilight Fang",
+    "kind": "weapon",
+    "plain": "When the bearer fights, add the number of the current battle round to its Attacks characteristic until that fight is resolved."
+  },
+  "f562089e465d": {
+    "name": "Midnight's Chime",
+    "kind": "ability",
+    "plain": "Once per battle, at the start of the Fight phase, you can have MIDNIGHT SORROW units add 1 to their Attacks while within 6\" of the bearer, until the phase ends."
+  },
+  "f67fa6f14c7c": {
+    "name": "4: Fate's Messenger",
+    "kind": "ability",
+    "plain": "Once per turn, when this Warlord fails a saving throw, you can make the Damage characteristic of that attack 0."
+  },
+  "f830f29eaf7a": {
+    "name": "Webway Raiders",
+    "kind": "ability",
+    "plain": "When you use the Webway Portal Stratagem and pick any units with this Obsession for it, that Stratagem costs 1 fewer Command point.",
+    "waive": {
+      "69": "page reference (pg 69); page references are left out of plain texts"
+    }
+  },
   "f9e8b4726ae2": {
     "name": "Webway Travellers",
     "kind": "ability",
     "plain": "If this unit is part of your army and the Strategic Reserves rule is being used, the Command Point cost of putting AELDARI units into Strategic Reserves can be halved (round fractions down). This doesn't stack with similar abilities, such as Prince of Corsairs."
+  },
+  "fa22153f0f70": {
+    "name": "Labyrinthine Cunning",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, you can roll one D6 per Command Point either player spends on a Stratagem: each 6 gains you one Command Point."
   },
   "fb5171358032": {
     "name": "Rising Crescendo",
@@ -78,5 +1202,15 @@
     "name": "Blade Artists",
     "kind": "rule",
     "plain": "When a model in this unit attacks with a melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "fe3d0e77509a": {
+    "name": "Shadow Stone",
+    "kind": "ability",
+    "plain": "LIGHT SHADOWSEER model only: the bearer's aura abilities get 3\" more range, up to a maximum of 9\". When the bearer successfully manifests a psychic power from the Phantasmancy discipline, that power's effects get 3\" more range."
+  },
+  "ff2dc69ae01f": {
+    "name": "Iyanden: Stoic Endurance",
+    "kind": "ability",
+    "plain": "Add 1 to Combat Attrition tests for units with this attribute, and worsen by 1 the Armour Penetration of attacks with AP -1 or -2 allocated to their models. For example, AP -2 becomes AP -1."
   }
 }
