@@ -94,29 +94,32 @@ function GameScreen({ sb, renderer }: { sb: ReadySandbox; renderer?: RendererFac
       </div>
       <div className="game__panel">
         <ActionSlotProvider>
-          <button type="button" className="game__handle" aria-expanded={tall} onClick={() => setTall((t) => !t)}>
-            {tall ? 'Bigger board' : 'Bigger panel'}
-          </button>
-          {hint && (
-            <p role="note" aria-label="Hint" className="game__hint">
-              {hint}
-            </p>
-          )}
-          <Problems problems={problems} />
-          {toolkit ? (
-            <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
-          ) : (
-            <>
-              {selectedUnitId && !state.ended && state.phase !== 'pre-battle' && (
-                <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
-                  Adjust {state.units[selectedUnitId]?.name}…
-                </button>
-              )}
-              <PhasePanel sb={sb} ui={ui} />
-              {!state.ended && <AssistPanel sb={sb} ui={ui} />}
-            </>
-          )}
-          <p className="game__disclaimer muted">{DISCLAIMER}</p>
+          {/* Grows to fill the panel, so the Actions bar after it sits at the bottom even when there is little to show. */}
+          <div className="game__panel-body">
+            <button type="button" className="game__handle" aria-expanded={tall} onClick={() => setTall((t) => !t)}>
+              {tall ? 'Bigger board' : 'Bigger panel'}
+            </button>
+            {hint && (
+              <p role="note" aria-label="Hint" className="game__hint">
+                {hint}
+              </p>
+            )}
+            <Problems problems={problems} />
+            {toolkit ? (
+              <Toolkit sb={sb} ui={ui} onClose={() => setToolkit(false)} />
+            ) : (
+              <>
+                {selectedUnitId && !state.ended && state.phase !== 'pre-battle' && (
+                  <button type="button" className="btn btn--small game__adjust" onClick={() => setToolkit(true)}>
+                    Adjust {state.units[selectedUnitId]?.name}…
+                  </button>
+                )}
+                <PhasePanel sb={sb} ui={ui} />
+                {!state.ended && <AssistPanel sb={sb} ui={ui} />}
+              </>
+            )}
+            <p className="game__disclaimer muted">{DISCLAIMER}</p>
+          </div>
         </ActionSlotProvider>
       </div>
       {overlay === 'log' && <GameLog lines={sb.log} onClose={() => setOverlay(null)} />}

@@ -135,6 +135,14 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
     }
     await deploy.click();
   }
+  // Little in the panel (who goes first, the faction rules folded away): the Actions bar still sits at the panel's
+  // bottom, not halfway up.
+  await handOver(page);
+  await page.locator('.game__panel summary', { hasText: 'Faction rules for this moment' }).click();
+  const barBox = (await page.getByRole('group', { name: 'Actions' }).boundingBox())!;
+  const panelBox = (await page.locator('.game__panel').boundingBox())!;
+  expect(Math.abs(barBox.y + barBox.height - (panelBox.y + panelBox.height))).toBeLessThanOrEqual(1);
+  await page.locator('.game__panel summary', { hasText: 'Faction rules for this moment' }).click();
   await press(page, 'Roll off');
   const chooser = page.locator('.game__panel').getByRole('button', { name: /goes first$/ });
   if (await chooser.first().isVisible()) await press(page, /\(Player 1\) goes first$/);

@@ -109,10 +109,11 @@
 /* ---------- Practice game (game--fit): the pinned action bar and a board sized to the map ---------- */
 /* The bar is the panel's last child and sticks to its bottom: the next step is on screen however far the panel scrolls.
    Sticky positions keep clear of the scroller's padding, so the bar and the Toolkit title carry it instead. */
-.game--fit .game__panel { padding-top: 0; padding-bottom: 0; }
+.game--fit .game__panel { padding-top: 0; padding-bottom: 0; display: flex; flex-direction: column; }
+.game__panel-body { flex: 1 0 auto; }
 .game--fit .game__disclaimer { margin-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); }
 .game__actions {
-  position: sticky; bottom: 0; z-index: 2; display: flex; flex-wrap: wrap; gap: 0.5rem;
+  position: sticky; bottom: 0; z-index: 2; flex: none; display: flex; flex-wrap: wrap; gap: 0.5rem;
   margin: 0.5rem -0.75rem 0; padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
   background: var(--surface); border-top: 1px solid var(--border);
 }
