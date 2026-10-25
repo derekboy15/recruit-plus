@@ -40,7 +40,7 @@ async function press(page: Page, name: string | RegExp) {
 }
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 /** Every visible button on the game screen is a 44px touch target. */
 async function touchTargets(page: Page) {

@@ -2,7 +2,7 @@ import { expect, test, type Page, type TestInfo } from '@playwright/test';
 
 /** No sideways scroll, every visible button at least 44px tall, and a screenshot when SHOT_DIR is set. */
 async function checkScreen(page: Page, testInfo: TestInfo, name: string) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), `${name}: sideways scroll`).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth), `${name}: sideways scroll`).toBeLessThanOrEqual(0);
   const small = await page.evaluate(() =>
     [...document.querySelectorAll('main button, main a.btn')]
       .filter((b) => (b as HTMLElement).offsetParent !== null)

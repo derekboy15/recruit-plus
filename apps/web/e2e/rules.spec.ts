@@ -13,7 +13,7 @@ const shot = async (page: Page, name: string, project: string) => {
 };
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 
 /** Buttons and navigation links in the page body are touch-sized; links inside running text are not targets of their own. */

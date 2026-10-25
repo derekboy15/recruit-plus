@@ -78,7 +78,7 @@ test.describe('after one online visit', () => {
   test('app shell offline', async ({ page, context, remote }) => {
     await visitOnlineThenGoOffline(page, context, remote);
     await page.goto('/');
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Learn, build and play/);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Welcome back/);
     await expect(page.getByText(DISCLAIMER)).toBeVisible();
   });
 

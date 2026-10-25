@@ -323,29 +323,6 @@ label.opt { justify-content: flex-start; cursor: pointer; }
 .issues__item p:last-child { margin: 0; }
 .picker__note { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
 
-/* Panels: full screen or a bottom sheet on phones, the right-hand column from 768px. */
-.panel { color: var(--text); }
-.panel--full {
-  position: fixed; inset: 0; z-index: 30; overflow-y: auto; background: var(--bg);
-  padding: 0 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
-}
-.panel--sheet {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 85vh; overflow-y: auto;
-  background: var(--surface); border-top: 1px solid var(--border-strong); border-radius: 18px 18px 0 0;
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
-  padding: 0 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
-}
-.panel__head {
-  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
-  padding: 0.5rem 0; margin-bottom: 0.5rem; background: inherit; border-bottom: 1px solid var(--border);
-}
-.panel--full .panel__head { background: var(--bg); }
-.panel--sheet .panel__head { background: var(--surface); }
-.panel__head h2 { margin: 0; color: var(--text); font-size: 1.6rem; }
-.panel__head h2:focus { outline: none; }
-.panel .input[type='search'] { margin-bottom: 0.5rem; }
-.backdrop { position: fixed; inset: 0; z-index: 29; border: 0; background: rgba(0, 0, 0, 0.55); }
-
 @media (min-width: 768px) {
   .editor { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; }
   /* The top bar scrolls away, so the header and the side column stick to the top of the window. */
@@ -353,12 +330,6 @@ label.opt { justify-content: flex-start; cursor: pointer; }
   .editor__aside {
     position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto;
   }
-  .panel--full, .panel--sheet {
-    position: static; max-height: none; overflow: visible; background: var(--surface);
-    border: 1px solid var(--border); border-radius: var(--radius); padding: 0 1rem 1rem;
-  }
-  .panel--full .panel__head { background: var(--surface); }
-  .backdrop { display: none; }
 }
 
 /* ---------- Sheets (ui/Sheet.tsx): a bottom sheet or full screen on phones, a right-hand drawer from 768px ---------- */

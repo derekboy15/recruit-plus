@@ -70,7 +70,7 @@ test('home dashboard has no sideways scroll at 320px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto('/');
   await expect(page.getByRole('link', { name: `Play ${LONG_NAME}` })).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
   // The long name is cut with an ellipsis rather than widening the row; Play stays a 44px target.
   const name = page.getByRole('link', { name: LONG_NAME, exact: true });
   expect(await name.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(true);
@@ -94,5 +94,5 @@ test('signed out, every feature card on the landing page opens its tab', async (
   ]) {
     await expect(page.locator('main').getByRole('link', { name: new RegExp(`^${name}`) })).toHaveAttribute('href', href);
   }
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 });

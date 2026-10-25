@@ -21,7 +21,7 @@ const screenOf = (page: Page, modelId: string) =>
 const screenAt = (page: Page, world: Pt) => page.evaluate((w) => (window as unknown as { __sandbox: { screenAt(p: Pt): Pt } }).__sandbox.screenAt(w), world);
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 /** Every visible button and link on the Learn and drill screens is a 44px touch target. */
 async function touchTargets(page: Page) {

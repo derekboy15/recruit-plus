@@ -10,7 +10,7 @@ const shot = async (page: Page, name: string, project: string) => {
 };
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 
 test('a shared list opens read-only without signing in: the army, a datasheet, Copy list and Build your own', async ({ page }, testInfo) => {

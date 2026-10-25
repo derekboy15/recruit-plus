@@ -34,6 +34,6 @@ test('sign in (dev), browse to Necron Warriors, see the datasheet', async ({ pag
   }
 
   await expect(page.getByText(/Unofficial fan-made tool/)).toBeVisible();
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  const overflow = await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });

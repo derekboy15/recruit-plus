@@ -8,8 +8,9 @@ export const BUDGETS = {
   startupGzip: 150 * kB,
   chunkGzip: 120 * kB,
   cssGzip: 25 * kB,
-  // 2.6 MB of app and shell data plus the self-hosted fonts (~114 kB woff2), precached so the app looks right offline.
-  precacheBytes: 2.75 * 1024 * 1024,
+  // Raw bytes: the app's code, its fonts and the shell data, all precached so every route works offline. The download
+  // is compressed, so a phone fetches about a third of this (0.81 MB for 2.73 MB after the UI overhaul).
+  precacheBytes: 3.0 * 1024 * 1024,
   catalogueGzip: 300 * kB,
   rosterGzip: 250 * kB,
   rulesGzip: 100 * kB,

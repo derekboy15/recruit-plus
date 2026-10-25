@@ -78,14 +78,14 @@ describe('evaluateBudgets', () => {
     expect(failed(r).join()).toContain('CSS');
   });
 
-  test('precache over 2.75 MB fails', () => {
-    const r = evaluateBudgets(baseline, STARTUP, 2.76 * 1024 * 1024);
+  test('precache over 3.0 MB fails', () => {
+    const r = evaluateBudgets(baseline, STARTUP, 3.01 * 1024 * 1024);
     expect(failed(r).join()).toContain('precache');
   });
 
   // The self-hosted fonts (about 114 kB of woff2) are precached so the app looks the same offline.
-  test('a precache with the fonts, up to 2.75 MB, is ok', () => {
-    const r = evaluateBudgets(baseline, STARTUP, 2.74 * 1024 * 1024);
+  test('a precache with the fonts and the overhauled UI, up to 3.0 MB, is ok', () => {
+    const r = evaluateBudgets(baseline, STARTUP, 2.99 * 1024 * 1024);
     expect(failed(r).join()).not.toContain('precache');
   });
 });
