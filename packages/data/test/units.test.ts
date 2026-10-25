@@ -117,7 +117,7 @@ test('Death Korps and Elysian units imported into Astra Militarum are flagged Fo
   expect(am.find((u) => u.name === 'Infantry Squad')?.forgeWorld).toBe(false);
 });
 
-test('hidden root entries and Crusade honours never appear as units', () => {
+test('hidden root entries appear only with the army choice that reveals them; Crusade honours never', () => {
   const CRUSADE_NAME = /\bbattle honours\b|\bcrusade\b/i;
   // The guard must match what it guards against.
   expect(['Battle Honours', 'Crusade Relics'].filter((n) => !CRUSADE_NAME.test(n))).toEqual([]);
@@ -136,7 +136,11 @@ test('hidden root entries and Crusade honours never appear as units', () => {
       expect(CRUSADE_NAME.test(u.name), u.name).toBe(false);
     }
     const ownUnitIds = new Set(extractUnits(gd, cat.id).map((u) => u.id));
-    for (const id of hiddenRootIds) if (!visibleRootIds.includes(id)) expect(ownUnitIds.has(id), `${cat.name}: hidden root ${id}`).toBe(false);
+    const units = new Map(extractUnits(gd, cat.id).map((u) => [u.id, u]));
+    for (const id of hiddenRootIds) {
+      if (visibleRootIds.includes(id) || !ownUnitIds.has(id)) continue;
+      expect(units.get(id)!.needs?.length, `${cat.name}: hidden root ${units.get(id)!.name} is listed without what reveals it`).toBeGreaterThan(0);
+    }
   }
 });
 

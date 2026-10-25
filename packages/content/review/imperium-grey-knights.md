@@ -65,5 +65,8 @@ Sample: 20 texts (seed imperium-grey-knights) + 22 army rules + guide
 | 60069bf7071a | Explodes (6"/D6) | rule | PASS | |
 | 95fff622f1ff | Bio-meltdown | ability | PASS | |
 | 8ec086de7fcd | Domina Liber Demonica (Aura) | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| ae55b6348800 | Daemonic Power | ability | PASS | Plan G: unit newly listed |
+| 5a92a1bd893e | Teleport Strike | ability | PASS | Plan G: unit newly listed |
+| 1501b2e8b901 | Inquisitor psychic powers (Smite & 2 Telethesia) | psychic | PASS | Plan G: unit newly listed |
 
 Guide: PASS

@@ -23,6 +23,7 @@ Sample: 20 texts (seed imperium-agents-of-the-imperium) + 0 army rules + guide
 | 8686f065e2d1 | Spymask | ability | PASS | |
 | 7244840f7e3e | Head Shot | ability | PASS | |
 | b267438de47f | Poison Blades | weapon | PASS | |
+| 9c24a3d1922a | Psychic Hood | ability | PASS | Plan G: unit newly listed |
 
 Guide: FIXED
 - Key units, Culexus Assassin: FIXED. Now says every PSYKER unit within 18" of her, including your own, subtracts 2 from Psychic tests and Deny the Witch tests.

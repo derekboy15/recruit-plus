@@ -27,5 +27,7 @@ Sample: 20 texts (seed chaos-renegades-heretics-legends) + 0 army rules + guide
 | 84c90f328eea | Blind Grenades | weapon | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | 75a3c31d11b4 | Steel Behemoth | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | 2328cd4aa435 | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| a48b14db827b | Artillery and Crew | ability | PASS | Plan G: unit newly listed |
+| 1501b2e8b901 | Inquisitor psychic powers (Smite & 2 Telethesia) | psychic | PASS | Plan G: unit newly listed |
 
 Guide: PASS

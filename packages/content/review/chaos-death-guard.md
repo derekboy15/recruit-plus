@@ -29,5 +29,6 @@ Sample: 20 texts (seed chaos-death-guard) + 3 army rules + guide
 | 9261acbddd51 | Contagions of Nurgle | rule | PASS | |
 | fb091aa4cada | Inexorable Advance | rule | PASS | |
 | b84c407715f2 | Malicious Volleys | rule | PASS | |
+| 62ffd23af696 | Drop Pod Assault | ability | PASS | Plan G: unit newly listed |
 
 Guide: PASS

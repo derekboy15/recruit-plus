@@ -24,5 +24,6 @@ Sample: 20 texts (seed imperium-astra-militarum) + 0 army rules + guide
 | 3d784321d867 | Heirloom Weapons | ability | PASS | |
 | ca6202e64945 | Colossus Siege Mortar | weapon | PASS | |
 | 5804ee24a1ab | Firing Deck | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 1501b2e8b901 | Inquisitor psychic powers (Smite & 2 Telethesia) | psychic | PASS | Plan G: unit newly listed |
 
 Guide: PASS

@@ -29,6 +29,9 @@ Sample: 20 texts (seed orks) + 4 army rules + guide
 | 3b5ca179de88 | Mob Rule | rule | PASS | |
 | 264c416bf2f5 | Hit ’Em Harder | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | fc0502c122f3 | Shokk Tunnel | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 97640e5f7ef7 | Prophet of Gork and Mork | ability | PASS | Plan G: unit newly listed |
+| 07910c7ed7de | Full Throttle | ability | PASS | Plan G: unit newly listed |
+| 45e957043e54 | Drill Boss (Aura) | ability | PASS | Plan G: unit newly listed |
 
 Guide: FIXED
 - Clan Kulturs, Deathskulls: FIXED. Now says they can re-roll one hit roll and one wound roll each time they shoot or fight.

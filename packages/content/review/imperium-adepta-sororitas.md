@@ -27,5 +27,6 @@ Sample: 20 texts (seed imperium-adepta-sororitas) + 0 army rules + guide
 | e10530df09de | Shield of Faith | rule | PASS | |
 | 14373cb5750f | Sacred Rites | rule | PASS | |
 | b26bc5ae1c5e | Acts of Faith | ability | PASS | |
+| 6ca704fa07c7 | The Sanctic Shield | ability | PASS | Plan G: unit newly listed |
 
 Guide: PASS

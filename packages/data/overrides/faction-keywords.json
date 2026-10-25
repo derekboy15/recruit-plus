@@ -926,5 +926,41 @@
       "Kroot"
     ],
     "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000001392 \"Great Knarloc\" (https://wahapedia.ru/wh40k9ed/factions/t-au-empire/Great-Knarloc) faction keywords: Kroot, T’au Empire. BSData v9.8.0 has no \"Faction: Kroot\" category on this entry."
+  },
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "1277-2310-dc44-d2e0",
+    "entryName": "Corsair Cloud Dancer Band [Legends]",
+    "add": [
+      "Drukhari"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000002457 \"Corsair Cloud Dancer Band\" (https://wahapedia.ru/wh40k9ed/factions/drukhari/Corsair-Cloud-Dancer-Band) faction keywords: <Coterie>, Anhrathe, Aeldari, Drukhari. BSData v9.8.0 has no \"Faction: Drukhari\" category on this entry. Listed since Plan G (a unit BSData stores as an upgrade)."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "entryId": "259e-17d2-3f79-528b",
+    "entryName": "Rapier Laser Destroyer Battery",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000757 \"Rapier Laser Destroyer Battery\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Rapier-Laser-Destroyer-Battery) faction keywords: Brood Brothers, Astra Militarum, Imperium. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry. Listed since Plan G (a unit BSData stores as an upgrade)."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "entryId": "4666-f0c7-caf2-2eb3",
+    "entryName": "Valdor Tank Hunter",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000777 \"Valdor Tank Hunter\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Valdor-Tank-Hunter) faction keywords: Imperium, Astra Militarum, Brood Brothers. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry. Listed since Plan G (a unit BSData stores as an upgrade)."
+  },
+  {
+    "catalogueName": "Imperium - Astra Militarum - Library",
+    "entryId": "524d-4d10-843a-3bd3",
+    "entryName": "Arvus Lighter",
+    "add": [
+      "Imperium"
+    ],
+    "source": "Wahapedia 9th edition snapshot (raw/wahapedia/Datasheets_keywords.csv), datasheet 000000779 \"Arvus Lighter\" (https://wahapedia.ru/wh40k9ed/factions/astra-militarum/Arvus-Lighter) faction keywords: Imperium, Astra Militarum, Aeronautica Imperialis. BSData v9.8.0 has no \"Faction: Imperium\" category on this entry. Listed since Plan G (a unit BSData stores as an upgrade)."
   }
 ]

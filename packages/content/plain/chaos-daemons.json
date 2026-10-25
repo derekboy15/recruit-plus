@@ -289,6 +289,11 @@
     "kind": "weapon",
     "plain": "When an attack made with this weapon gets an unmodified wound roll of 4+, the target suffers 3 mortal wounds and the attack sequence ends."
   },
+  "34ad64c8c5c9": {
+    "name": "Ritual Slaughter",
+    "kind": "ability",
+    "plain": "While a model is embarked inside it, this TRANSPORT model can do the Ritual Slaughter action. It can start the action at the end of your Movement phase, and it finishes at the end of your next Charge phase. When it finishes, roll one D6 for every LEGIONES DAEMONICA KHORNE unit of yours that is both within 12\" of this model and within Engagement Range of an enemy unit. You gain 1 Warp Storm point for each 4+."
+  },
   "35d71a2ab0db": {
     "name": "Rot cannon",
     "kind": "weapon",

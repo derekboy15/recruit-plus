@@ -50,7 +50,6 @@ test('a unit the engine prices at 0 keeps its Wahapedia cost, or none: never "0 
   const craftworlds = catalogue('aeldari-craftworlds').units;
   expect(pickerPrices('aeldari-craftworlds').get(craftworlds.find((u) => u.name === 'Corsair Reaver Band [Legends]')!.id)).toBe(0);
   expect(craftworlds.find((u) => u.name === 'Corsair Reaver Band [Legends]')!.points).toBe(45);
-  expect(catalogue('chaos-death-guard').units.find((u) => u.name === 'Land Raider Variant (Open Play)')!.points).toBeNull();
   for (const c of realCatalogues()) for (const u of catalogue(c.slug).units) expect(u.points, `${c.slug}/${u.name}`).not.toBe(0);
 });
 

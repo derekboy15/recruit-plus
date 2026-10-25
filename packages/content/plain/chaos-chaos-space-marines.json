@@ -1398,11 +1398,6 @@
     "kind": "ability",
     "plain": "Whenever an enemy unit shoots or fights, once it has finished its attacks, any model in this unit that lost wounds from those attacks but wasn't destroyed immediately regains all its lost wounds."
   },
-  "8bfe8cfc0a05": {
-    "name": "Power Overload",
-    "kind": "ability",
-    "plain": "Within a single phase, if 3 or more of this model's hit rolls with lascannons or twin lascannons are a 1, it overloads and suffers 6 mortal wounds."
-  },
   "8c65f4785df7": {
     "name": "Great plague cleaver",
     "kind": "weapon",
@@ -2031,11 +2026,6 @@
     "name": "Putrid Miasma",
     "kind": "psychic",
     "plain": "Blessing: until your next Psychic phase starts, subtract 1 from the hit roll of attacks against one of your <LEGION> NURGLE units within 18\" of this PSYKER."
-  },
-  "ce16e00fc22d": {
-    "name": "Daemonic Machine Spirit",
-    "kind": "ability",
-    "plain": "This model ignores the -1 hit roll penalty for shooting Heavy weapons after it has moved."
   },
   "ceca730b28a6": {
     "name": "Explodes",

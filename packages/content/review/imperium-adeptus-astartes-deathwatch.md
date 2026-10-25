@@ -29,5 +29,6 @@ Sample: 20 texts (seed imperium-adeptus-astartes-deathwatch) + 4 army rules + gu
 | 4c7c5c5e326e | Veterans of the Long Vigil | rule | PASS | |
 | 5004ec8e6133 | Special-issue Ammunition | rule | PASS | |
 | 87250d27ddcc | Mixed Unit | rule | PASS | |
+| 17ab49667f81 | Captain on Deck | ability | PASS | Plan G: unit newly listed |
 
 Guide: PASS

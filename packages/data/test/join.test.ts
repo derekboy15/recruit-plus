@@ -43,11 +43,13 @@ test("T'au catalogue name with apostrophe still matches", () => {
 });
 
 describe('match rate per playable catalogue', () => {
+  // Units Wahapedia has no datasheet for (test/corpus/chaos/chaos-servants-of-the-abyss.ts).
+  const NO_DATASHEET: Record<string, string[]> = { 'Chaos - Servants of the Abyss': ['Traitor Commissar', 'Chaos Ogryn'] };
   for (const c of [...gd.catalogues.values()].filter((c) => isPlayableCatalogue(c, overrides.playableCatalogues))) {
     test(`${c.name} matches >= 90% of units (catalogues with 10+ units)`, () => {
       const { units, unmatched } = joined(c.name);
       if (units.length < 10) return;
-      expect(units.length - unmatched.length).toBeGreaterThanOrEqual(Math.ceil(units.length * 0.9));
+      expect(unmatched.filter((n) => !NO_DATASHEET[c.name]?.includes(n)).length).toBeLessThanOrEqual(units.length - Math.ceil(units.length * 0.9));
     });
   }
 });
@@ -66,8 +68,8 @@ test('"w/" variants match their own datasheet, not the base unit', () => {
 });
 
 test('left curly quotes in Wahapedia names still match', () => {
+  // The other one, Looted ‘Eavy Wagon, is a Narrative and Open Play unit, so it isn't listed (Plan G).
   expect(unit('Imperium - Astra Militarum', "'Iron Hand' Straken").wahapediaId).not.toBeNull();
-  expect(unit('Orks', "Looted 'Eavy Wagon").wahapediaId).not.toBeNull();
 });
 
 test('units whose model lines are all optional cost minimum models x cheapest model, never 0', () => {
@@ -90,8 +92,9 @@ test("units BSData gives no keywords take Wahapedia's (Exaction Squad, Sagitaur 
 });
 
 test('every playable unit has at least one keyword besides its faction keywords', () => {
-  // Open-play-only BSData entry with no Wahapedia datasheet and no keywords anywhere.
-  const allowed = new Set(['Imperium - Grey Knights: Land Raider Variant (Open Play)']);
+  // The unit the Seer Council Stratagem forms (Codex: Aeldari p158, shown once a Farseer is taken): BSData gives it no
+  // keywords anywhere and Wahapedia has no datasheet for it.
+  const allowed = new Set(['Aeldari - Craftworlds: Seer Council (Unit)']);
   const empty: string[] = [];
   for (const c of [...gd.catalogues.values()].filter((x) => isPlayableCatalogue(x, overrides.playableCatalogues)))
     for (const u of joined(c.name).units) if (u.keywords.length === 0 && !allowed.has(`${c.name}: ${u.name}`)) empty.push(`${c.name}: ${u.name}`);
@@ -120,12 +123,13 @@ describe('Legends from Wahapedia source books', () => {
     expect(we.units.find((u: { name: string }) => u.name === 'Khorne Berzerkers').legends).toBe(false);
   });
 
-  test('exactly the audited units gain the badge (26 entries, 18 names; 25 Oct 2026)', () => {
+  // The audit's 26 entries (18 names), plus the Renegade Commander, which BSData stores as an upgrade (listed since Task 6).
+  test('exactly the audited units gain the badge (27 entries, 19 names; 25 Oct 2026)', () => {
     const chapters = ['Blood Angels', 'Dark Angels', 'Imperial Fists', 'Iron Hands', 'Raven Guard', 'Salamanders', 'Space Wolves', 'Ultramarines', 'White Scars'];
     const renegades = [
       'Malefic Lord', 'Rogue Psyker Coven', 'Renegade Cultists', 'Renegade Militia Squad', 'Renegade Mutant Rabble', 'Renegade Command Squad',
       'Renegade Disciple Squad', 'Renegade Enforcer', 'Renegade Marauder Squad', 'Renegade Ogryn Beast Handlers', 'Renegade Ogryn Brutes',
-      'Renegade Plague Ogryns', 'Renegade Chaos Spawn', 'Renegade Heavy Weapons Squad',
+      'Renegade Plague Ogryns', 'Renegade Chaos Spawn', 'Renegade Heavy Weapons Squad', 'Renegade Commander',
     ];
     const audited = [
       'Aeldari - Drukhari: Hekatrix Bloodbrides',
@@ -137,6 +141,6 @@ describe('Legends from Wahapedia source books', () => {
     // Without a [Legends] tag in the name, the badge can only come from the Wahapedia source.
     const gained = [...gd.catalogues.values()].flatMap((c) => joined(c.name).units.filter((u) => u.legends && !/\[legends\]/i.test(u.name)).map((u) => `${c.name}: ${u.name}`));
     expect(gained.sort()).toEqual(audited.sort());
-    expect(new Set(gained.map((g) => g.split(': ')[1])).size).toBe(18);
+    expect(new Set(gained.map((g) => g.split(': ')[1])).size).toBe(19);
   });
 });

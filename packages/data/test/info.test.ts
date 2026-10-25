@@ -301,8 +301,9 @@ describe('generated info files', () => {
       Object.values(shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
     // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there); 4741 once
-    // the Legion of the Damned's 8th-edition Saviours From Beyond went (Plan G, rule-exclusions.json).
-    expect(sum(report.shards)).toEqual({ total: 4741, written: 4741 });
+    // the Legion of the Damned's 8th-edition Saviours From Beyond went (Plan G, rule-exclusions.json); 4745 once faction
+    // pages listed the units BattleScribe stores as upgrades and dropped Open Play and Narrative ones (Plan G Task 6).
+    expect(sum(report.shards)).toEqual({ total: 4745, written: 4745 });
     // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
     // gave marker options the text their selection reveals (3,416 -> 3,431) and the Treasures of the Aeldari relic its
     // Stratagem (3,434 once AdMech's Army of Renown and per-unit links were added in review).

@@ -33,5 +33,7 @@ Sample: 20 texts (seed chaos-servants-of-the-abyss) + 0 army rules + guide
 | 39a04b6274cb | Thunder hammer | weapon | PASS | |
 | 843ed55da334 | Fanatical Devotion | ability | PASS | |
 | e518fceb3ce6 | Talos Gauntlet | weapon | PASS | |
+| 9e5d643810a2 | Smite | psychic | PASS | Plan G: unit newly listed |
+| 3046891eb0e4 | Incinerator | weapon | PASS | Plan G: unit newly listed |
 
 Guide: PASS

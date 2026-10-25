@@ -77,6 +77,11 @@ export interface UnitOut {
   baseSize: string | null;
   wahapediaId: string | null;
   legends: boolean;
+  /**
+   * The army choices that reveal the unit in the builder ("Sautekh dynasty", "Blood Ravens"): any one of them will do.
+   * Absent when the unit is available without one.
+   */
+  needs?: string[];
   forgeWorld: boolean;
   /** Our note of a final GW change to the unit (e.g. a keyword) the sources missed. */
   amended?: string;

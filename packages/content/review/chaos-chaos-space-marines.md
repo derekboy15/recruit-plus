@@ -31,5 +31,7 @@ Sample: 20 texts (seed chaos-chaos-space-marines) + 2 army rules + guide
 | 398889989814 | Let the Galaxy Burn | ability | PASS | |
 | e1742766ca6c | Underhand Scheming | stratagem | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | 30d29ace94a6 | Hover Transport | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 43b143c7e3f8 | Will of the Arkifane | ability | PASS | Plan G: unit newly listed; BSData text ends before its list of abilities; the plain English says no more than it does |
+| e71caf2b45e1 | Vashtorr's hammer | weapon | PASS | Plan G: unit newly listed |
 
 Guide: PASS

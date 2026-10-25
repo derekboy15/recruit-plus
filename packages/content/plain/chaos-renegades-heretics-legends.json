@@ -414,6 +414,11 @@
     "kind": "ability",
     "plain": "Models in this unit have a 5+ invulnerable save. Also, whenever an enemy unit declares a charge against this unit, this unit can Set to Defend as long as it isn't within Engagement Range of any enemy units."
   },
+  "6a266b336203": {
+    "name": "Explodes",
+    "kind": "ability",
+    "plain": "Once this transport is destroyed, roll one D6, doing so before the models embarked inside it disembark and before it leaves play. If you roll a 6, it blows up: D3 mortal wounds are inflicted on each unit within 6\" of it."
+  },
   "6a98e25881fb": {
     "name": "Smoke Launchers",
     "kind": "ability",
@@ -619,6 +624,11 @@
     "kind": "ability",
     "plain": "Aura: models in friendly Imperium units within 6\" of this model may use this model's Leadership characteristic rather than their own."
   },
+  "a48b14db827b": {
+    "name": "Artillery and Crew",
+    "kind": "ability",
+    "plain": "For every rule, a Rapier Laser Destroyer and its crew count as one model, and the crew must stay within 1\" of their gun. So the crew can't be targeted or attacked on their own, and you measure visibility and every range to and from the gun itself, never the crew. This unit can't Advance, can never charge or make a Heroic Intervention, and can't pile in or consolidate."
+  },
   "a49a6b90b38c": {
     "name": "Regimental Tactics",
     "kind": "ability",
@@ -671,6 +681,11 @@
     "name": "Quarry",
     "kind": "ability",
     "plain": "Units with one of the Ordo Malleus, Ordo Hereticus, Ordo Xenos or Ordo Minoris keywords get the ability that matches their keyword:\n- Ordo Malleus: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Chaos or Daemon unit.\n- Ordo Hereticus: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Chaos or Psyker unit.\n- Ordo Xenos: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a unit that is not a Chaos, Imperium or Unaligned unit.\n- Ordo Minoris: you can re-roll hit rolls and wound rolls for attacks by this unit's models that target a Character unit."
+  },
+  "ae55b6348800": {
+    "name": "Daemonic Power",
+    "kind": "ability",
+    "plain": "When your Movement phase begins, roll one D6 for every model that has this ability, and that model gets the matching result:\n1-2 – Daemonic Speed: it can FLY and its Move characteristic is 12\" until your next turn starts.\n3-4 – Re-knit Host Form: it heals every wound it has lost.\n5-6 – Energy Torrent: roll one D6 for every enemy unit within 3\" of it; on a 2+, that unit suffers D3 mortal wounds."
   },
   "afd0274486e0": {
     "name": "Scout Vehicle",

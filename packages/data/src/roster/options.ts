@@ -14,6 +14,7 @@ export interface OptionNode {
 }
 
 const LEGENDS = /\[legends\]/i;
+const OPEN_PLAY = /\(open play\)/i;
 const CONFIGURATION = 'Configuration';
 const ARMY_ROLES = new Set([CONFIGURATION, 'Stratagems']);
 const NO_FORCE_ORG_SLOT = 'No Force Org Slot';
@@ -37,17 +38,28 @@ export function suggestedUnits(units: UnitOption[], max: number): string[] {
 }
 
 /**
- * Whether a root entry, with its effective primary category name and name, is a unit: unit- and model-typed entries,
- * and upgrade-typed ones with a battlefield role or with No Force Org Slot. A No Force Org Slot upgrade named "[…"
- * (a reference entry) or holding a unit or model entry (Brotherhood of the Cog, which holds a Tech-Priest) is not.
+ * Whether a root entry of this type, primary category name and name may be a unit (the faction pages use the same rule):
+ * unit- and model-typed entries, and upgrade-typed ones with a battlefield role or with No Force Org Slot, never a
+ * No Force Org Slot reference entry ("[…") or an Open Play-only entry ("… (Open Play)": the app only builds matched play
+ * lists, and not every catalogue hides them for it).
+ */
+export function isUnitLike(type: string | undefined, role: string | null, name: string): boolean {
+  if (OPEN_PLAY.test(name)) return false;
+  if (type === 'unit' || type === 'model') return true;
+  if (type !== 'upgrade') return false;
+  return isBattlefieldRole(role) || (role === NO_FORCE_ORG_SLOT && !name.startsWith('['));
+}
+
+/**
+ * Whether a root entry, with its effective primary category name and name, is a unit (isUnitLike), and not a
+ * No Force Org Slot upgrade holding a unit or model entry (Brotherhood of the Cog, which holds a Tech-Priest).
  * Audited safe for BSData v9.8.0: in every playable catalogue, the Rogue Psyker is the only upgrade-typed unit that
  * takes no slot; the other No Force Org Slot upgrades are wrappers (Brotherhood of the Cog, Dynastic Advisor). Re-audit
  * on a data bump, since a slot-free unit that holds a model entry would be hidden.
  */
 function isUnitEntry(scope: Scope, m: Merged, role: string | null, name: string): boolean {
-  if (m.type === 'unit' || m.type === 'model') return true;
-  if (m.type !== 'upgrade') return false;
-  return isBattlefieldRole(role) || (role === NO_FORCE_ORG_SLOT && !name.startsWith('[') && !holdsUnit(scope, m, new Set([m.target.id])));
+  if (!isUnitLike(m.type, role, name)) return false;
+  return m.type !== 'upgrade' || role !== NO_FORCE_ORG_SLOT || !holdsUnit(scope, m, new Set([m.target.id]));
 }
 
 /** Whether a unit- or model-typed entry is anywhere below the entry. */

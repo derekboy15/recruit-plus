@@ -253,6 +253,36 @@ function costs(n: RawNode, keepZero: boolean): CostMap | undefined {
   return Object.keys(out).length ? out : undefined;
 }
 
+/**
+ * A node's modifiers in document order, with modifier groups flattened into their modifiers (a group's conditions ANDed
+ * with each modifier's own). Only the fields `keep` accepts.
+ */
+export function modifiersOf(n: RawNode, keep: (field: string) => boolean = () => true): Mod[] {
+  const modifier = (m: RawNode): Mod | null => {
+    const a = m.attrs;
+    if (!keep(a.field)) return null;
+    const when = ownWhen(m);
+    return { type: a.type as ModType, field: a.field, value: a.value, ...(when && { when }), ...nonEmpty('repeats', repeats(m)) };
+  };
+  const flattenGroup = (g: RawNode): Mod[] => {
+    const groupConds = kids(g, 'conditions').map(cond);
+    const groupGroups = kids(g, 'conditionGroups').map(condGroup);
+    const groupRepeats = repeats(g);
+    return modifiersOf(g, keep).map(({ when: own, repeats: ownRepeats, ...rest }) => {
+      const when: CondGroup | undefined =
+        groupConds.length || groupGroups.length
+          ? { type: 'and', conds: groupConds, groups: [...groupGroups, ...(own ? [own] : [])] }
+          : own;
+      return { ...rest, ...(when && { when }), ...nonEmpty('repeats', [...(ownRepeats ?? []), ...groupRepeats]) };
+    });
+  };
+  return n.children.flatMap((c) => {
+    if (c.tag === 'modifiers') return c.children.map(modifier).filter((x): x is Mod => x !== null);
+    if (c.tag === 'modifierGroups') return c.children.flatMap(flattenGroup);
+    return [];
+  });
+}
+
 /** Per-file emitter; `charIds` are the characteristic type ids declared in the file. */
 function emitter(charIds: Set<string>, gear: Set<string>) {
   /**
@@ -261,35 +291,7 @@ function emitter(charIds: Set<string>, gear: Set<string>) {
    * checks every kept field across all files is a supported one.
    */
   const keepField = (f: string) => !DROPPED_FIELDS.has(f) && !charIds.has(f);
-
-  function modifier(m: RawNode): Mod | null {
-    const a = m.attrs;
-    if (!keepField(a.field)) return null;
-    const when = ownWhen(m);
-    return { type: a.type as ModType, field: a.field, value: a.value, ...(when && { when }), ...nonEmpty('repeats', repeats(m)) };
-  }
-
-  /** Modifiers in document order, with modifier groups flattened into their modifiers. */
-  function mods(n: RawNode): Mod[] {
-    return n.children.flatMap((c) => {
-      if (c.tag === 'modifiers') return c.children.map(modifier).filter((x): x is Mod => x !== null);
-      if (c.tag === 'modifierGroups') return c.children.flatMap(flattenGroup);
-      return [];
-    });
-  }
-
-  function flattenGroup(g: RawNode): Mod[] {
-    const groupConds = kids(g, 'conditions').map(cond);
-    const groupGroups = kids(g, 'conditionGroups').map(condGroup);
-    const groupRepeats = repeats(g);
-    return mods(g).map(({ when: own, repeats: ownRepeats, ...rest }) => {
-      const when: CondGroup | undefined =
-        groupConds.length || groupGroups.length
-          ? { type: 'and', conds: groupConds, groups: [...groupGroups, ...(own ? [own] : [])] }
-          : own;
-      return { ...rest, ...(when && { when }), ...nonEmpty('repeats', [...(ownRepeats ?? []), ...groupRepeats]) };
-    });
-  }
+  const mods = (n: RawNode) => modifiersOf(n, keepField);
 
   const holder = (n: RawNode) => ({ ...nonEmpty('constraints', constraints(n)), ...nonEmpty('mods', mods(n)) });
 

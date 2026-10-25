@@ -28,5 +28,6 @@ Sample: 20 texts (seed imperium-adeptus-astartes-space-wolves) + 1 army rules + 
 | b65f8ba9ce7e | Explodes | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | 48ec73666c99 | Outflank | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
 | ba8f02d71bdb | Martial Superiority | ability | PASS | Sample after list-building extras left the pool (2026-10-24) |
+| 1501b2e8b901 | Inquisitor psychic powers (Smite & 2 Telethesia) | psychic | PASS | Plan G: unit newly listed |
 
 Guide: PASS

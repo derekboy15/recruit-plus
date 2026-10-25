@@ -692,11 +692,6 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, you must choose this unit's COMMANDER SHADOWSUN model as your WARLORD. If several models in your army have a rule like this, one of them must be your WARLORD."
   },
-  "67174976d8a1": {
-    "name": "Tracker",
-    "kind": "ability",
-    "plain": "During deployment, you may put Dahyak Grekh in pursuit instead of setting him up on the battlefield. He can then emerge at the end of any of your Movement phases: set him up anywhere on the battlefield more than 9\" away from any enemy models."
-  },
   "67c3172b5166": {
     "name": "The Kindled Blade",
     "kind": "ability",
@@ -1214,11 +1209,6 @@
       "93": "page reference (pg 93) to where Markerlight tokens are printed; not part of the rule"
     }
   },
-  "abea65db187e": {
-    "name": "Concealed Booby Traps",
-    "kind": "ability",
-    "plain": "Once per battle, when your opponent's Movement phase ends, you may choose an enemy unit on the battlefield and roll a D6, subtracting 1 if that unit is a CHARACTER and adding 1 if it has 10 or more models. A result of 4+ inflicts D3 mortal wounds on that unit; a result of 7+ inflicts D6 mortal wounds on it instead."
-  },
   "acceae756ae5": {
     "name": "Master of War (Aura)",
     "kind": "ability",
@@ -1556,11 +1546,6 @@
     "name": "Mobile Defences",
     "kind": "ability",
     "plain": "Units in your army can do this action.\nMobile Defences (Action): one of your units embarked inside a TIDEWALL TRANSPORT may begin this action at the start of your Movement phase, even though units embarked within TRANSPORTS can't normally do actions. It finishes at the end of that phase. On a successful completion, that TIDEWALL TRANSPORT may make a Normal Move, treating it as having a Move characteristic of 8\" and the FLY keyword."
-  },
-  "d9823875c8fa": {
-    "name": "Quarry Can't Hide",
-    "kind": "ability",
-    "plain": "When you choose a target for any weapon this model attacks with, you can ignore the Look Out, Sir rule."
   },
   "daf341a14343": {
     "name": "Fidelity",

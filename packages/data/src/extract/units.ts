@@ -1,6 +1,11 @@
 import { buildIdIndex, catalogueScope } from '../bsdata/gamedata';
 import type { GameData, RawCatalogue, RawNode } from '../bsdata/types';
 import { BATTLEFIELD_ROLES, type AbilityOut, type BattlefieldRole, type ProfileOut, type UnitOut } from '../model/types';
+import { modifiersOf } from '../roster/emit';
+import { optionDisplay } from '../roster/names';
+import { isUnitLike } from '../roster/options';
+import { FORCE, MATCHED_GROUP } from '../roster/policy';
+import type { Cond, CondGroup, Mod } from '../roster/types';
 import { slugify } from '../text';
 
 /** Crusade content, never part of a datasheet: skipped wherever it is (the roster files drop it too). */
@@ -57,6 +62,71 @@ const FORGE_WORLD_CATALOGUES = new Set([
   'Chaos - Chaos Titan Legions',
 ]);
 const isForgeWorldCatalogue = (c: RawCatalogue) => FORGE_WORLD_CATALOGUES.has(c.name) || c.name.includes('FW ');
+
+/**
+ * Selections every list the app builds has a known count of: the game type is always Matched, never Open Play or
+ * Narrative, and the Boarding Patrol detachment is never offered. Everything else is an army choice.
+ */
+const KNOWN_COUNTS = new Map<string, number>([
+  [MATCHED_GROUP, 1],
+  ['cfc5-43e4-b02e-d1f9', 0], // Open (game type)
+  ['c702-d73b-dccf-5617', 0], // Narrative (game type)
+  [FORCE.boardingPatrol, 0],
+]);
+
+/** A condition's value in every list the app builds, or undefined when it depends on the army's choices. */
+function known(c: Cond): boolean | undefined {
+  const n = KNOWN_COUNTS.get(c.childId);
+  if (n === undefined || (c.field !== 'selections' && c.field !== 'forces')) return undefined;
+  switch (c.type) {
+    case 'lessThan': return n < c.value;
+    case 'greaterThan': return n > c.value;
+    case 'equalTo': return n === c.value;
+    case 'notEqualTo': return n !== c.value;
+    case 'atLeast': return n >= c.value;
+    case 'atMost': return n <= c.value;
+    default: return undefined;
+  }
+}
+
+/** A condition group's value in every list the app builds (an empty group holds), or undefined. */
+function knownGroup(g: CondGroup): boolean | undefined {
+  const values = [...g.conds.map(known), ...g.groups.map(knownGroup)];
+  if (g.type === 'and') return values.some((v) => v === false) ? false : values.every((v) => v === true) ? true : undefined;
+  return values.length === 0 || values.some((v) => v === true) ? true : values.every((v) => v === false) ? false : undefined;
+}
+
+/** Option prefixes that name a kind of army choice, read after the choice: "Sautekh dynasty", "Mars forge world". */
+const KIND_HEADINGS = /^(dynasty|forge world|order|chapter|legion|sept|hive fleet|clan|kabal|wych cult|coven|household|shield host|league|plague company|great company|brotherhood|regiment|craftworld)$/i;
+
+const isCount = (c: Cond) => c.field === 'selections' || c.field === 'forces';
+/** "X is not in the list": a hide on it means the unit needs X. */
+const absent = (c: Cond) => isCount(c) && ((c.type === 'lessThan' && c.value === 1) || (c.type === 'equalTo' && c.value === 0));
+/** "X is in the list": a reveal on it means the unit needs X. */
+const present = (c: Cond) => isCount(c) && ((c.type === 'atLeast' && c.value >= 1) || (c.type === 'greaterThan' && c.value === 0) || (c.type === 'equalTo' && c.value >= 1));
+
+/** The ids of the undecided conditions of one kind, in the branches of `g` that can still decide it. */
+function choices(g: CondGroup, kind: (c: Cond) => boolean): string[] {
+  if (knownGroup(g) !== undefined) return [];
+  return [...g.conds.filter((c) => known(c) === undefined && kind(c)).map((c) => c.childId), ...g.groups.flatMap((x) => choices(x, kind))];
+}
+
+/**
+ * Whether a root entry can be fielded in a matched play list, and the army choices that reveal it. A hide whose
+ * condition holds in every list (an Open Play- or Narrative-only unit), or hidden by default with nothing that can
+ * reveal it, leaves it off. A hide on "X is not in the list" (Imotekh without the Sautekh dynasty) needs X; a hide on
+ * "X is in the list" (Imotekh in an Annihilation Legion) only rules the unit out, so needs nothing.
+ */
+export function availability(mods: Mod[], hiddenByDefault: boolean): { fielded: boolean; needIds: string[] } {
+  const hides = mods.filter((m) => m.field === 'hidden' && m.value === 'true');
+  const reveals = mods.filter((m) => m.field === 'hidden' && m.value === 'false' && (!m.when || knownGroup(m.when) !== false));
+  if (!reveals.length && (hiddenByDefault || hides.some((m) => !m.when || knownGroup(m.when) === true))) return { fielded: false, needIds: [] };
+  const needIds = [
+    ...hides.flatMap((m) => (m.when ? choices(m.when, absent) : [])),
+    ...(hiddenByDefault ? reveals.flatMap((m) => (m.when ? choices(m.when, present) : [])) : []),
+  ];
+  return { fielded: true, needIds: [...new Set(needIds)] };
+}
 
 const child = (n: RawNode, tag: string) => n.children.find((c) => c.tag === tag);
 const kids = (n: RawNode, tag: string) => child(n, tag)?.children ?? [];
@@ -218,21 +288,51 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     return { models, weapons, abilities, psychic, woundTrack, transport: transport as ProfileOut | null };
   }
 
+  /** Whether a unit- or model-typed entry is anywhere below the entry (a No Force Org Slot wrapper, not a unit). */
+  const holdsUnit = (n: RawNode, seen: Set<string>): boolean =>
+    [...kids(n, 'selectionEntries'), ...kids(n, 'selectionEntryGroups'), ...kids(n, 'entryLinks')].some((c) => {
+      const t = resolve(c);
+      if (!t) return false;
+      if (t.attrs.type === 'unit' || t.attrs.type === 'model') return true;
+      if (seen.has(t.attrs.id)) return false;
+      seen.add(t.attrs.id);
+      return holdsUnit(t, seen);
+    });
+  /**
+   * The option or unit a condition names, as a player reads it: "Blood Ravens", "Sautekh dynasty" (a kind of choice
+   * after its name), "Destroyer Cult" (a faction alone), "Ynnari: Strength From Death" (any other prefix kept in front).
+   */
+  const needName = (id: string) => {
+    const { name, heading } = optionDisplay(index.get(id)?.attrs.name ?? id);
+    if (!heading || heading === 'Faction' || name.toLowerCase().endsWith(heading.toLowerCase())) return name;
+    return KIND_HEADINGS.test(heading) ? `${name} ${heading.toLowerCase()}` : `${heading}: ${name}`;
+  };
+
   const units: UnitOut[] = [];
-  const seenIds = new Set<string>();
+  const byId = new Map<string, UnitOut>();
   for (const { node: root, source } of rootEntries(gd, cat)) {
     const target = resolve(root);
     if (!target) continue;
     const name = target.attrs.name;
     const type = target.attrs.type;
-    if ((type !== 'unit' && type !== 'model') || name.startsWith('[')) continue;
-    if (root.attrs.hidden === 'true' || target.attrs.hidden === 'true' || DROPPED.test(name)) continue;
-    if (seenIds.has(target.attrs.id)) continue;
-    seenIds.add(target.attrs.id);
+    if (DROPPED.test(name)) continue;
 
     const catLinks = [...kids(root, 'categoryLinks'), ...(root === target ? [] : kids(target, 'categoryLinks'))];
     const primary = catLinks.find((l) => l.attrs.primary === 'true');
     const primaryName = primary ? categoryName(primary) : null;
+    if (!isUnitLike(type, primaryName, name) || name.startsWith('[')) continue;
+    if (type === 'upgrade' && !BATTLEFIELD_ROLES.includes(primaryName as BattlefieldRole) && holdsUnit(target, new Set([target.attrs.id]))) continue;
+    const hiddenByDefault = root.attrs.hidden === 'true' || target.attrs.hidden === 'true';
+    const { fielded, needIds } = availability([...modifiersOf(root), ...(root === target ? [] : modifiersOf(target))], hiddenByDefault);
+    if (!fielded) continue;
+    const needs = [...new Set(needIds.map(needName))];
+    const seen = byId.get(target.attrs.id);
+    if (seen) {
+      // Listed twice (a link per detachment type, say): it needs a choice only if every listing does.
+      if (seen.needs && !needs.length) delete seen.needs;
+      continue;
+    }
+
     const role: BattlefieldRole | null = BATTLEFIELD_ROLES.find((r) => r === primaryName) ?? null;
     const keywords: string[] = [];
     const factionKeywords: string[] = [];
@@ -281,7 +381,9 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       wahapediaId: null,
       legends: /\[legends\]/i.test(name),
       forgeWorld: isForgeWorldCatalogue(cat) || isForgeWorldCatalogue(source) || /imperial armour/i.test(publication),
+      ...(needs.length && { needs }),
     });
+    byId.set(target.attrs.id, units[units.length - 1]);
   }
   return units;
 }

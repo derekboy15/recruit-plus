@@ -32,5 +32,7 @@ Sample: 20 texts (seed aeldari-craftworlds) + 9 army rules + guide
 | 5db1ee33467a | Power From Pain | rule | PASS | |
 | fc76df3a0c80 | Blade Artists | rule | PASS | |
 | bdaac42ae1a0 | Strands of Fate | ability | PASS | |
+| 0c89b00af11c | Skyweaver Haywire Cannon | weapon | PASS | Plan G: unit newly listed |
+| fcbe1ceab9b4 | Matchless Swiftness | ability | PASS | Plan G: unit newly listed |
 
 Guide: PASS
