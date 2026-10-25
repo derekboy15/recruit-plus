@@ -264,6 +264,11 @@
     "kind": "ability",
     "plain": "Lets you apply Warp Storm effects to units in your army that are eligible for them."
   },
+  "30b2b812affb": {
+    "name": "Shadow Lord",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a friendly LEGIONES DAEMONICA CORE or DISCIPLES OF BE'LAKOR unit within 9\" of this WARLORD (not a VEHICLE) to re-roll its hit rolls. Until the start of your next Command phase, you can re-roll the hit roll for every attack a model in that unit makes."
+  },
   "32b5987557c4": {
     "name": "Minions of Magic",
     "kind": "stratagem",
@@ -283,6 +288,11 @@
     "name": "The Souleater Blade",
     "kind": "weapon",
     "plain": "When an attack made with this weapon gets an unmodified wound roll of 4+, the target suffers 3 mortal wounds and the attack sequence ends."
+  },
+  "35d71a2ab0db": {
+    "name": "Rot cannon",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and you can re-roll the wound roll for its attacks against any unit except VEHICLE units."
   },
   "3647257dfa9a": {
     "name": "Prey of the Blood God",
@@ -419,6 +429,16 @@
     "kind": "ability",
     "plain": "Aura: while any PSYKER unit is within 18\" of this model, subtract 2 from that unit's Psychic tests."
   },
+  "5a10b5dc34a6": {
+    "name": "3 - Iron Skin",
+    "kind": "ability",
+    "plain": "Models in that unit have their Toughness characteristic increased by 1."
+  },
+  "5be7a8b78a5e": {
+    "name": "Plague Banner",
+    "kind": "ability",
+    "plain": "Once per battle, right before the bearer's unit fights, you can make every plaguesword carried by that unit Damage 2 until the end of the phase."
+  },
   "5c41379a3e4f": {
     "name": "Crushing Bulk",
     "kind": "stratagem",
@@ -454,6 +474,11 @@
     "kind": "psychic",
     "plain": "This model knows Smite plus one psychic power from the Slaanesh discipline."
   },
+  "61bc5e5e29e0": {
+    "name": "1 - Extra Limbs",
+    "kind": "ability",
+    "plain": "Models in that unit have their Move characteristic increased by 2\"."
+  },
   "63660463898f": {
     "name": "Instrument of Chaos",
     "kind": "ability",
@@ -463,6 +488,11 @@
     "name": "Daemon Lord of Khorne (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your LEGIONES DAEMONICA KHORNE CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "64e66e017e2a": {
+    "name": "Daemonic Icon",
+    "kind": "ability",
+    "plain": "When you roll a 1 for a Morale test taken for a unit with any Daemonic Icons, no models flee and 1 slain Pox Rider is returned to the unit."
   },
   "65273f71000d": {
     "name": "Infernal Flames",
@@ -549,6 +579,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your SCREAMERS, FATESKIMMER or BURNING CHARIOT units is chosen to fight. Until the end of the phase, add 1 to the wound roll of every attack a model in that unit makes with a lamprey bite or Screamer bites."
   },
+  "73f60bbad7fe": {
+    "name": "2 - Mystic Strength",
+    "kind": "ability",
+    "plain": "Models in that unit have their Strength characteristic increased by 1."
+  },
   "7487901aec0a": {
     "name": "Dazzling Acrobatics",
     "kind": "ability",
@@ -593,6 +628,11 @@
     "name": "Master of Magics",
     "kind": "ability",
     "plain": "Add 1 to every Psychic test taken for this model. If it has 14 or more wounds left, add 2 to the result."
+  },
+  "7cc5344210b4": {
+    "name": "Warpsword",
+    "kind": "weapon",
+    "plain": "Failed hit rolls for this weapon can be re-rolled."
   },
   "7d1661d79f84": {
     "name": "Soporific Musk (Aura)",
@@ -884,6 +924,11 @@
     "kind": "ability",
     "plain": "Whenever this model finishes a charge move:\n- For each enemy unit within Engagement Range of it, roll four D6. That enemy unit suffers 1 mortal wound for each 5 rolled.\n- This model's Attacks characteristic goes up by 2 until the end of the turn."
   },
+  "b37374ede5f1": {
+    "name": "Jagged claws",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 2 extra attacks with this weapon."
+  },
   "b53432e96583": {
     "name": "The Entropic Knell",
     "kind": "ability",
@@ -908,6 +953,11 @@
     "name": "Formless Horror",
     "kind": "ability",
     "plain": "Whenever this model is chosen to fight, you can pick one enemy INFANTRY model within Engagement Range of it. Until that fight is over, this model uses the picked model's Weapon Skill, Strength and Attacks characteristics."
+  },
+  "b680911dc139": {
+    "name": "Pox Rider plaguesword",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 2 extra attacks with this weapon, and it can't make more than 2 attacks with it. You can re-roll wound rolls for attacks made with this weapon."
   },
   "b6ae5148ebd0": {
     "name": "Fractal Mind",
@@ -988,6 +1038,11 @@
     "name": "Effluvior",
     "kind": "weapon",
     "plain": "Excess damage from this weapon's attacks isn't lost. Keep allocating it to another model in the target unit until all of it is allocated or the target unit is destroyed."
+  },
+  "c97c1dc64b85": {
+    "name": "Daemon Prince of Chaos",
+    "kind": "ability",
+    "plain": "This model knows Smite plus 2 powers from the Pandaemoniac discipline."
   },
   "ca2af9c9b3e1": {
     "name": "Draught of Terror",
@@ -1088,6 +1143,11 @@
     "name": "Race Through the Warp",
     "kind": "stratagem",
     "plain": "Use in your Command phase. Pick one of your LEGIONES DAEMONICA SLAANESH VEHICLE units (but not a SOUL GRINDER unit). Take it off the battlefield and put it into Strategic Reserves."
+  },
+  "d801f552cb3c": {
+    "name": "The Endless Gift",
+    "kind": "ability",
+    "plain": "At the start of your Command phase, the bearer gets back up to as many wounds as the current battle round number."
   },
   "d80507622d3e": {
     "name": "The Transfigured (Aura)",
@@ -1309,6 +1369,11 @@
     "kind": "ability",
     "plain": "Whenever this model is chosen to fight, if it made a charge move this turn, its bladed axle's ability becomes Malefic 6."
   },
+  "f68d0ec61c43": {
+    "name": "Unholy Fury",
+    "kind": "ability",
+    "plain": "Even if the bearer Advanced or Fell Back this turn, it can still declare a charge."
+  },
   "f749276cd1ca": {
     "name": "Kairos Fateweaver",
     "kind": "psychic",
@@ -1333,6 +1398,11 @@
     "name": "Bolt of Change",
     "kind": "psychic",
     "plain": "Witchfire. When manifested, pick one enemy unit within 18\" of this PSYKER that it can see, and roll nine D6.\n- Each 5+ inflicts 1 mortal wound on that unit.\n- For every model destroyed by those mortal wounds, the unit suffers 1 extra mortal wound (up to 3 extra). These extra mortal wounds can't trigger any further extra mortal wounds."
+  },
+  "fb318e1d5330": {
+    "name": "Fatal Caress",
+    "kind": "ability",
+    "plain": "If one of the bearer's melee attacks succeeds with an unmodified wound roll of 5+, invulnerable saves can't be made against that attack."
   },
   "fb60daab6ccf": {
     "name": "The Forbidden Gem",

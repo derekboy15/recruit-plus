@@ -129,6 +129,11 @@
     "kind": "ability",
     "plain": "Whenever this model is attacked, an unmodified wound roll of 1-3 for that attack fails, no matter what abilities the attacking weapon or model has."
   },
+  "29de9632f269": {
+    "name": "Warp Flux",
+    "kind": "psychic",
+    "plain": "Pick an enemy unit within 12\" to suffer D3 mortal wounds at once. This power inflicts D6 mortal wounds instead on VEHICLES."
+  },
   "2c92482cdcda": {
     "name": "Melta bombs",
     "kind": "weapon",
@@ -153,6 +158,11 @@
     "name": "Frenzon",
     "kind": "ability",
     "plain": "Roll 3D6 instead of 2D6 for this model's charge rolls. Also, if this model charged or performed a Heroic Intervention this turn, add 2 to its Attacks characteristic."
+  },
+  "3007fc4b535d": {
+    "name": "Unnatural Vigour",
+    "kind": "psychic",
+    "plain": "For the rest of the turn, other RENEGADES AND HERETICS INFANTRY units within 6\" re-roll failed charge rolls, and failed hit and wound rolls in the Fight phase. When the Morale phase starts, every affected unit suffers D3 mortal wounds."
   },
   "3046891eb0e4": {
     "name": "Incinerator",
@@ -474,6 +484,11 @@
     "kind": "ability",
     "plain": "This model adds 1 to armour saving throws against any ranged attack that has a Damage characteristic of 1 and is allocated to it."
   },
+  "79d5b1f5e654": {
+    "name": "Banner of the apostate",
+    "kind": "ability",
+    "plain": "While enemy <IMPERIUM> units are within 6\" of any model with a banner of the apostate, take 1 off their Leadership."
+  },
   "7ab38b55bc93": {
     "name": "Warp Possession",
     "kind": "ability",
@@ -578,6 +593,11 @@
     "name": "Reign of Confusion",
     "kind": "ability",
     "plain": "If your army has any models with this ability: during the first battle round, each time your opponent spends CP to use a Stratagem, roll one D6. On a 4+, they must spend one more CP on that Stratagem or it has no effect, and any CP already spent on it are lost. Stratagems used before the battle can't be affected."
+  },
+  "99d61ccf87fd": {
+    "name": "Creeping Terror",
+    "kind": "psychic",
+    "plain": "Pick an enemy unit within 12\": if it takes a Morale test this battle round, take D3 off its Leadership characteristic until the battle round ends."
   },
   "9cf3d03c87a4": {
     "name": "Supreme Will (Aura)",
@@ -936,6 +956,11 @@
     "name": "Murder Cultists",
     "kind": "ability",
     "plain": "Re-roll hit rolls of 1 for melee attacks made by models in this unit."
+  },
+  "f41fedecfaa6": {
+    "name": "Banner of Hate",
+    "kind": "ability",
+    "plain": "When a <RENEGADE & HERETIC> model within 6\" of this unit is slain in the Fight phase, it can immediately make one attack against the unit that killed it."
   },
   "f6c0487dcf70": {
     "name": "Veteran Guerrillas",

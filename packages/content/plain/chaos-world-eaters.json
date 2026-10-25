@@ -113,6 +113,16 @@
     "kind": "ability",
     "plain": "Aura: while one of your WORLD EATERS CORE units is within 6\" of this model, each time that unit is chosen to make a Normal Move or Advance, its models add 2\" to their Move characteristic until the end of the phase."
   },
+  "5f4f62cb2399": {
+    "name": "Road of Eight Bloody Steps",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, this WARLORD's unit and up to 2 of your WORLD EATERS CORE units within 9\" of it can each make a Normal Move. This happens before the first turn begins."
+  },
+  "681701df11cc": {
+    "name": "Battle Lust (World Eaters)",
+    "kind": "ability",
+    "plain": "In each phase, when the bearer first destroys an enemy model, you gain 1 Blood Tithe point."
+  },
   "6f830711d94a": {
     "name": "Samni'arius and Spinegrinder",
     "kind": "weapon",
@@ -128,10 +138,20 @@
     "kind": "ability",
     "plain": "Aura: while an enemy unit (other than a VEHICLE unit) is within 6\" of this unit, roll a D6 each time that enemy unit is chosen to Fall Back or to perform an action. On a 4+, it can't Fall Back this turn, or the action automatically fails."
   },
+  "7c0d16317353": {
+    "name": "Arch-slaughterer",
+    "kind": "ability",
+    "plain": "When this WARLORD is chosen to fight, if 6 or more enemy models are within 3\" of it, add D3 to its Attacks characteristic until those attacks are resolved."
+  },
   "810d09d76c20": {
     "name": "Blood Frenzy",
     "kind": "stratagem",
     "plain": "Use this Stratagem in the Fight phase, once an enemy unit has been chosen to fight. Pick one of your WORLD EATERS CORE units that is within Engagement Range of that enemy unit. Until the enemy unit has resolved its attacks, whenever a model in your unit is destroyed by a melee attack, do not remove it yet if it has not fought this phase. Once the enemy unit's attacks are resolved, that model can fight, and it is then removed from play. This Stratagem costs 1CP if the chosen WORLD EATERS unit is a Troops unit, and 2CP otherwise."
+  },
+  "83bf2444b3f9": {
+    "name": "Mutable Form",
+    "kind": "ability",
+    "plain": "You can re-roll the bearer's Advance rolls and charge rolls, and no Overwatch attacks can be made against it."
   },
   "8665db2c57e8": {
     "name": "The Skull of An'gr'ant",

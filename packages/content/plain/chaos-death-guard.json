@@ -349,6 +349,11 @@
     "kind": "ability",
     "plain": "Mortarion has an invulnerable save of 4+."
   },
+  "58897c3da01d": {
+    "name": "Nurgle's Fruit (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get no benefit from cover against attacks made by friendly MORTARION'S CHOSEN SONS models."
+  },
   "58acbbdb8c32": {
     "name": "Acidic Malady",
     "kind": "ability",
@@ -363,6 +368,11 @@
     "name": "Foul Smokescreen",
     "kind": "stratagem",
     "plain": "During your opponent's Shooting phase, once a DEATH GUARD SMOKESCREEN unit of yours is picked as an attack's target: for the rest of the phase, attacks against that unit have 1 subtracted from their hit rolls."
+  },
+  "5e33c407f19b": {
+    "name": "Instrument of Chaos",
+    "kind": "ability",
+    "plain": "If a unit has any Instruments of Chaos, add 1 to its Advance and charge rolls."
   },
   "61fb4e919160": {
     "name": "Bodyguard (Aura)",

@@ -9,6 +9,11 @@
     "kind": "weapon",
     "plain": "Before you pick targets, choose which one of the profiles below this weapon will attack with."
   },
+  "0c9217a63aa5": {
+    "name": "Apocalypse missile launcher",
+    "kind": "weapon",
+    "plain": "You can shoot this weapon at units the bearer can't see."
+  },
   "11c1261b724f": {
     "name": "Anvillus defence battery",
     "kind": "weapon",
