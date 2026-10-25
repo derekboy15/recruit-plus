@@ -24,6 +24,11 @@
     "kind": "stratagem",
     "plain": "In the Fight phase: pick one of your <DYNASTY> LYCHGUARD units. Until the phase ends, while it is within 3\" of one of your <DYNASTY> NOBLE models, each of its models gets 1 extra attack."
   },
+  "0a69c072be49": {
+    "name": "Masters of the Martial",
+    "kind": "ability",
+    "plain": "Each time a unit with this code is picked to shoot or fight, one of the hit rolls for those attacks can be re-rolled."
+  },
   "0b61188c9251": {
     "name": "Cryptogeometric Adjuster",
     "kind": "ability",
@@ -33,6 +38,11 @@
     "name": "Living Lightning",
     "kind": "ability",
     "plain": "When the Fight phase starts, roll a D6 for each enemy unit that is within 6\" of this model; each unit you roll a 4+ for takes 1 mortal wound."
+  },
+  "0ccb4a882a9c": {
+    "name": "Aggressively Territorial",
+    "kind": "ability",
+    "plain": "Units with this code get the Objective Secured ability. If one of their models already has that ability, it counts as one extra model when working out who controls an objective marker. While a unit with this code is wholly within its controller's deployment zone, attacks with an Armour Penetration characteristic of -1 that are allocated to its models count as having an Armour Penetration characteristic of 0 instead. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Eternal Guardian, not just one, whenever it becomes active for your army."
   },
   "0d9eb85fac20": {
     "name": "Resurrection Protocols",
@@ -137,6 +147,11 @@
     "kind": "ability",
     "plain": "If this model is in your army, the first time you use the Dynastic Heirlooms Stratagem it costs 1 Command point less. If this model is in your Crusade force, the Relic Requisition costs 0 Requisition Points."
   },
+  "231e5ea1dc17": {
+    "name": "Unyielding",
+    "kind": "ability",
+    "plain": "Models with this code get a 6+ invulnerable save."
+  },
   "23b6ee852be7": {
     "name": "Tesseract Singularity Chamber (Particle Hurricane)",
     "kind": "weapon",
@@ -167,6 +182,11 @@
     "kind": "ability",
     "plain": "Before the battle, pick 1 of the 6 abilities below; this model keeps it all battle. Or roll 2 D6 instead and give it both abilities you rolled (on a double, reroll both dice until they show different numbers).\n\n1 Cosmic Tyrant: if this model neither Advanced nor Fell Back in your Movement phase, then at the end of that phase it may use 1 more C'tan Power from those it knows. No single C'tan Power can be used by it twice in one turn.\n2 Immune to Natural Law: when attacks target this model, any wound roll that is an unmodified 1-3 fails, no matter what abilities the weapon or its wielder have.\n3 Sentient Necrodermis: its Save becomes 3+.\n4 Transdimensional Displacement: it gains Dimensional Translocation.\n5 Untamed Power: its Attacks become 6 and its Strength 7.\n6 Writhing Worldscape: as your Movement phase begins, roll a D6 for every enemy unit in Engagement Range of this model; on 4+, that unit takes 1 mortal wound. Also, after a unit declares a charge against this model, subtract 2 from its charge rolls for the rest of the phase."
   },
+  "27d98ac08c75": {
+    "name": "Tomb Guardians",
+    "kind": "ability",
+    "plain": "This unit:\n- never gains a Dynastic Code.\n- has 1 added to its models' Attacks characteristic.\n- lets you re-roll its Reanimation Protocol rolls of 1."
+  },
   "288140f8b453": {
     "name": "Murderous Demise",
     "kind": "stratagem",
@@ -181,6 +201,11 @@
     "name": "Dimensional Translocation",
     "kind": "ability",
     "plain": "During deployment, you can place this unit in a hyperspace dimension rather than on the battlefield. If you do, in the Reinforcements step of any one of your Movement phases you can set it up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "2a7b5d572a83": {
+    "name": "Pitiless Hunters",
+    "kind": "ability",
+    "plain": "Models with this code make double the number of attacks with Rapid Fire weapons when their target is within half the weapon's range. INFANTRY models with this code also do so if their unit Remained Stationary in your previous Movement phase. This replaces the normal Rapid Fire rules."
   },
   "2aaf6c682854": {
     "name": "Disintegration Capacitors",
@@ -209,6 +234,11 @@
     "name": "Sentinel Construct",
     "kind": "ability",
     "plain": "Whenever an enemy unit declares a charge against one of your <DYNASTY> or DYNASTIC AGENT units within 6\" of this model, this model can fire Overwatch at the charging unit as though it were also a target of the charge, as long as it is not within Engagement Range of any enemy models. This is on top of any other units firing Overwatch. Whenever this model fires Overwatch, it attacks with the high power profile of its doomsday blaster."
+  },
+  "30aeeb6ab52e": {
+    "name": "Healthy Paranoia",
+    "kind": "ability",
+    "plain": "Models with this code add 3\" to the Range characteristic of their ranged weapons, except Pistols."
   },
   "3396719c0df2": {
     "name": "Phaeron of the Stars (Aura)",
@@ -360,6 +390,11 @@
     "kind": "stratagem",
     "plain": "In your Command phase: pick one of your CANOPTEK WRAITHS units. Until the start of your next Command phase, whenever a model in it attacks with vicious claws, that attack's Armour Penetration characteristic improves by 1; and whenever a model in it attacks with whip coils, you make one extra hit roll."
   },
+  "5685d1853a22": {
+    "name": "Translocation Beams",
+    "kind": "ability",
+    "plain": "Models with this code get a 6+ invulnerable save. When a unit with this code Advances, it can translocate instead of making an Advance roll: until the end of the phase, add 6\" to its models' Move characteristic, but its models can't shoot until the end of the turn. When a unit with this code Falls Back or translocates, its models can move through models and terrain as though they were not there until the phase ends. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Sudden Storm, not just one, whenever it becomes active for your army."
+  },
   "57f876ee08ac": {
     "name": "Ziggurat Dock",
     "kind": "ability",
@@ -399,6 +434,11 @@
     "name": "Systematic Vigour",
     "kind": "ability",
     "plain": "While this unit is within 6\" of any of your CRYPTEK units, its models have Weapon Skill 3+, Ballistic Skill 3+ and an Attacks characteristic of 6."
+  },
+  "60ed2b048227": {
+    "name": "Contemptuous of the Codes",
+    "kind": "ability",
+    "plain": "You can add 1 to the hit roll of any attack a model with this code makes against a CHARACTER unit."
   },
   "6526103295c9": {
     "name": "Fabricator Claw Array",
@@ -505,6 +545,11 @@
     "kind": "ability",
     "plain": "Whenever an enemy unit shoots or fights, once it has made its attacks, if those attacks destroyed any models in this unit but did not destroy the unit itself, this unit's reanimation protocols are enacted and the destroyed models begin to reassemble.\n\nWhenever a unit's reanimation protocols are enacted, make its Reanimation Protocol rolls: roll a number of D6 equal to the total of the Wounds characteristics of all the reassembling models. Put every Reanimation Protocol roll of 5+ into a pool. Reanimation Protocol rolls can never be modified beyond -1 or +1.\n\nIf the pool holds at least as many dice as the Wounds characteristic of any reassembling model, choose one of those models to be Reanimated. A Reanimated model:\n- returns to its unit with all of its wounds;\n- may be set up in Engagement Range only of those enemy units that its unit is already within Engagement Range of;\n- in your Charge phase, can't be set up any closer to enemy units that are targets of a charge its unit declared this phase;\n- stops counting as destroyed for Morale tests this turn.\n\nNext, take out of the pool a number of dice equal to the Reanimated model's Wounds characteristic, and repeat these steps until either no reassembling models are left or the pool has fewer dice than the Wounds characteristic of any of the reassembling models. Reassembling models that weren't Reanimated fail to reassemble, and any dice still in the pool are discarded."
   },
+  "7fab75a7271e": {
+    "name": "The Ancients Stir",
+    "kind": "ability",
+    "plain": "CANOPTEK models with this code add 1\" to their Move characteristic. Whenever a CANOPTEK unit with this code piles in or consolidates, each of its models can move up to 4\", as long as every model that moves ends closer to the closest enemy model."
+  },
   "80111b87ad7e": {
     "name": "Targeting Relay",
     "kind": "ability",
@@ -595,6 +640,11 @@
     "kind": "rule",
     "plain": "Putting DYNASTIC AGENT and C'TAN SHARD units in a NECRONS Detachment doesn't prevent that Detachment's other units from gaining a Dynastic Code. No DYNASTIC AGENT or C'TAN SHARD unit ever gains a Dynastic Code. Each NECRONS Detachment in your army can include no more than one C'TAN SHARD model."
   },
+  "9d5369a803ac": {
+    "name": "Rad-Wreathed (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit (other than a VEHICLE unit) is within 1\" of this unit, its models' Toughness characteristic is reduced by 1."
+  },
   "9dbc7cafd632": {
     "name": "Dynastic Command Node",
     "kind": "ability",
@@ -640,10 +690,20 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, pick one enemy unit (not a VEHICLE unit) within 18\" of the bearer and roll 3D6. If the total equals or beats that unit's Leadership characteristic, it takes D3 mortal wounds."
   },
+  "a69270ad44c0": {
+    "name": "Interplanetary Invaders",
+    "kind": "ability",
+    "plain": "VEHICLE units with this code can shoot in a turn in which they Fell Back; if they do, subtract 1 from their ranged attacks' hit rolls until the end of the turn. VEHICLE models with this code also ignore the hit roll penalty for shooting Heavy weapons while their unit is within Engagement Range of enemy units."
+  },
   "a802ed00b375": {
     "name": "Stalking Annihilator",
     "kind": "stratagem",
     "plain": "In your Shooting phase: pick one of your CANOPTEK DOOMSTALKER models that made a Normal Move or Fell Back this turn. It can shoot this turn, and when it does, you can use the high power profile of its doomsday blaster even though it didn't Remain Stationary this turn."
+  },
+  "a85f23be4a0c": {
+    "name": "Awakened By Murder",
+    "kind": "ability",
+    "plain": "Units with this code add 1 to their charge rolls. When a model with this code makes a melee attack, improve that attack's Armour Penetration characteristic by 1 if the model's unit has made a charge move, been charged or performed a Heroic Intervention this turn. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Hungry Void, not just one, whenever it becomes active for your army."
   },
   "a87b385a9e5b": {
     "name": "Annihilation Protocols",
@@ -674,6 +734,11 @@
     "name": "Inspiring Leader (Aura)",
     "kind": "ability",
     "plain": "Aura: your units add 1 to their Leadership characteristic while they are within 6\" of this WARLORD."
+  },
+  "aba8919bc237": {
+    "name": "Relentlessly Expansionist",
+    "kind": "ability",
+    "plain": "Units with this code can each make a Normal Move of up to 6\" when the first battle round starts, before any turn has begun."
   },
   "afc88ffeea20": {
     "name": "Power Crucible Terrain Features",
@@ -728,6 +793,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, in the Reinforcement step of your Movement phase: pick one of your CANOPTEK PLASMACYTE units that has been destroyed. Put it back on the battlefield, anywhere within 3\" of one of your DESTROYER CULT units but not within Engagement Range of any enemy models."
   },
+  "b3d8f96821d7": {
+    "name": "Immovable Phalanx",
+    "kind": "ability",
+    "plain": "INFANTRY models with this code add 1 to armour saving throws against attacks with a Damage characteristic of 1. This doesn't apply if, this battle round, the model's unit made a Normal Move, Advanced or Fell Back."
+  },
   "b3fad0de95c5": {
     "name": "Surrogate Hosts",
     "kind": "ability",
@@ -757,6 +827,16 @@
     "name": "Hardwired for Destruction",
     "kind": "ability",
     "plain": "Re-roll any hit roll of 1 for attacks made by this model."
+  },
+  "bca499600b2f": {
+    "name": "Superior Artisans",
+    "kind": "ability",
+    "plain": "Each time a unit with this code is picked to shoot or fight, one of the wound rolls for those attacks can be re-rolled."
+  },
+  "bcd0d481a4e7": {
+    "name": "Butchers",
+    "kind": "ability",
+    "plain": "Units with this code add 1 to their charge rolls."
   },
   "bd5c7caf0922": {
     "name": "Powers of the C'tan (Nightbringer)",
@@ -793,6 +873,11 @@
     "kind": "ability",
     "plain": "During your opponent's Psychic phase, Szarekh can try to deny a single psychic power, as though he were a PSYKER."
   },
+  "c5378ceb40e1": {
+    "name": "Isolationists",
+    "kind": "ability",
+    "plain": "When a model with this code attacks a unit within 12\" with a Rapid Fire weapon, add 1 to that attack's Strength characteristic."
+  },
   "c56a56a5aa11": {
     "name": "Translocation Protocols",
     "kind": "ability",
@@ -817,6 +902,11 @@
     "name": "Talent for Annihilation",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your MEPHRIT units is picked to shoot: until the phase ends, whenever a model in it attacks, an unmodified wound roll of 6 deals 1 mortal wound to the target on top of any normal damage (no more than 3 mortal wounds per phase can be dealt through this Stratagem)."
+  },
+  "cb27f3797dcf": {
+    "name": "The Unmerciful Horde",
+    "kind": "ability",
+    "plain": "You can re-roll Morale tests taken for units with this code."
   },
   "cb3cc4f505ea": {
     "name": "Blood Rites",
@@ -885,6 +975,11 @@
     "name": "Lurking Murderers",
     "kind": "stratagem",
     "plain": "At the start of the Fight phase: pick one of your FLAYED ONES units that is wholly within an Area Terrain feature. Until the phase ends, you can re-roll the wound roll for every attack made by a model in that unit. This Stratagem costs 2CP if the unit has 11 or more models, or 1CP if it does not."
+  },
+  "d57981ac894e": {
+    "name": "Warrior Nobles",
+    "kind": "ability",
+    "plain": "NOBLE models with this code re-roll hit rolls of 1 and wound rolls of 1 for their melee attacks."
   },
   "d667afde1265": {
     "name": "Reanimation Prioritisation",
@@ -956,6 +1051,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your MAYNARKH VEHICLE units within 6\" of this model. When it uses its Living Metal ability this phase, it gets back up to D3 lost wounds rather than 1."
   },
+  "e183f221342a": {
+    "name": "Relentless Advance",
+    "kind": "ability",
+    "plain": "You can re-roll Morale tests taken for units with this code. When a model with this code shoots a Rapid Fire weapon at a target within 18\", it makes double the number of attacks, instead of using the normal Rapid Fire rules. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Conquering Tyrant, not just one, whenever it becomes active for your army."
+  },
   "e19ba2618511": {
     "name": "Hand of the Phaeron",
     "kind": "stratagem",
@@ -966,10 +1066,20 @@
     "kind": "stratagem",
     "plain": "In the Reinforcements step of your Movement phase: pick one of your <DYNASTY> CORE units that is in Strategic Reserves, then pick one of your <DYNASTY> NIGHT SCYTHE or <DYNASTY> MONOLITH models on the battlefield. Set up the CORE unit anywhere on the battlefield wholly within 3\" of the NIGHT SCYTHE or MONOLITH model and not in Engagement Range of any enemy units. You can't use this Stratagem in the first battle round."
   },
+  "e32aceda45ff": {
+    "name": "Uncanny Artificers",
+    "kind": "ability",
+    "plain": "Whenever a model with this code would lose a wound because of a mortal wound, roll one D6: on a 5+, it doesn't lose that wound. Whenever a unit with this code is picked to shoot or fight, one wound roll for that unit's attacks can be re-rolled. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Undying Legions, not just one, whenever it becomes active for your army."
+  },
   "e3c252640f94": {
     "name": "Voice of the Triarch",
     "kind": "ability",
     "plain": "Once per battle, at the start of any battle round, Szarekh can alter your command protocols if he is on the battlefield. If he does, then for that battle round, a command protocol you didn't assign to any battle round before the battle becomes active for your army in place of the one you did assign to it."
+  },
+  "e3f89920d118": {
+    "name": "Severed",
+    "kind": "ability",
+    "plain": "Units with this code get your active command protocol's selected directive within 9\" of any of your NECRONS CHARACTER models, instead of 6\". C'TAN SHARD models don't count for this."
   },
   "e401794a9d15": {
     "name": "Swift Dismemberment",
@@ -980,6 +1090,11 @@
     "name": "Quantum Shielding",
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save. Also, whenever an attack targets this model, an unmodified wound roll of 1-3 always fails, whatever abilities the weapon or attacker has."
+  },
+  "e568bf6bb40d": {
+    "name": "Cult of Annihilation",
+    "kind": "ability",
+    "plain": "With this rule:\n- every DESTROYER CULT unit in your army gains the Cult of Annihilation ability and the Annihilation Protocols.\n- this unit can never gain a Dynastic Code.\n- when a model with this ability makes an attack against a unit that was below its Starting Strength at the time this model was picked to shoot or fight, add 1 to the attack's hit roll.\n- add 1 to the wound roll of an attack made by a model with this ability if the target was below Half-strength at the time this model was picked to shoot or fight."
   },
   "e5c1973f08fc": {
     "name": "Spear of the Void Dragon (Shooting)",
@@ -1016,6 +1131,11 @@
     "kind": "ability",
     "plain": "In your Command phase, this unit can choose one of your SAUTEKH CORE units that is within 9\" of it. Add 1 to the hit roll of each attack made by a model in the chosen unit until your next Command phase begins. No unit can be chosen for this ability more than once per phase."
   },
+  "e9d5b5ec795c": {
+    "name": "Solar Fury",
+    "kind": "ability",
+    "plain": "Models with this code add 3\" to the Range characteristic of their ranged weapons, except Pistols. When a model with this code makes a ranged attack against a unit within half range, improve that attack's Armour Penetration characteristic by 1. If all the units in your army (not counting DYNASTIC AGENT and C'TAN SHARD units) have this code, you can pick both directives of the Protocol of the Vengeful Stars, not just one, whenever it becomes active for your army."
+  },
   "ea2c8aedacd0": {
     "name": "Phase Shifter",
     "kind": "ability",
@@ -1041,6 +1161,11 @@
     "kind": "ability",
     "plain": "This model can use its Rites of Reanimation ability one extra time each turn."
   },
+  "f3cd55ca6b71": {
+    "name": "Arise Against the Interlopers",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this code against INFANTRY or BIKER units automatically wound on an unmodified hit roll of 6."
+  },
   "f6a4a2f2a53a": {
     "name": "Empyric Overcharger (Aura)",
     "kind": "ability",
@@ -1051,10 +1176,20 @@
     "kind": "stratagem",
     "plain": "Before the battle, when declaring reserves and transports (or during deployment, if your mission has no such step): pick one of your NEPHREKH units that is not a VEHICLE or MONSTER unit. It gains the Dimensional Translocation ability."
   },
+  "f7c44f1ddd9f": {
+    "name": "Eternal Conquerors",
+    "kind": "ability",
+    "plain": "Units with this code get the Objective Secured ability. If one of their models already has that ability, it counts as one extra model when working out who controls an objective marker."
+  },
   "f816c5901156": {
     "name": "Phaeron",
     "kind": "ability",
     "plain": "This model can use My Will Be Done one extra time each turn."
+  },
+  "f83d446f04e9": {
+    "name": "Rad-Wreathed",
+    "kind": "ability",
+    "plain": "Units with this code get the Rad-wreathed (Aura) ability."
   },
   "f8ef03f0f33c": {
     "name": "Artillery Battery",

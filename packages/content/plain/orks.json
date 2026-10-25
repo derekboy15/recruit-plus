@@ -1,4 +1,9 @@
 {
+  "0022147b1c1d": {
+    "name": "Evil Sunz",
+    "kind": "ability",
+    "plain": "Units with this kultur:\n- add 1\" to their models' Move characteristic, or 2\" instead for SPEED FREEKS models.\n- add 1 to their Advance rolls.\n- have models that ignore the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
+  },
   "01177c3dd9c3": {
     "name": "Bounca's Jaws",
     "kind": "weapon",
@@ -211,6 +216,11 @@
     "kind": "ability",
     "plain": "In your opponent's Movement phase, once the Reinforcements step ends: if an enemy unit arrived as Reinforcements this turn within 12\" of the bearer, you may choose one of your BLOOD AXES CORE units that is within 6\" of the bearer and not in Engagement Range of any enemy units. That BLOOD AXES unit may declare a charge as though it were your Charge phase, but the only target it may choose is that enemy unit, and you add 2 to the charge roll."
   },
+  "1e07d5fa0576": {
+    "name": "No Clan",
+    "kind": "ability",
+    "plain": "Your army can include units from several Clans and Mobs, but you can't use some of the Clan Kulturs and Subkulturs."
+  },
   "1e72586fc3e8": {
     "name": "Grot Gunner and Targetin' Squig",
     "kind": "ability",
@@ -220,6 +230,11 @@
     "name": "Terrain Traits (Mekboy Workshop)",
     "kind": "ability",
     "plain": "Every piece of this terrain feature is an Obstacle, and has the following traits: Light Cover, Heavy Cover, Defence Line, Difficult Ground, Defensible, Unstable Position."
+  },
+  "1ed779745354": {
+    "name": "Goffs",
+    "kind": "ability",
+    "plain": "Models with this kultur:\n- score 1 extra hit for each unmodified hit roll of 6 they make in melee.\n- add 1 to the Strength characteristic of their melee attacks if their unit made a charge move or performed a Heroic Intervention this turn."
   },
   "1fb3ab5b04c3": {
     "name": "Explodes (6+/6\"/D3 Transport)",
@@ -499,6 +514,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your GOFF STORMBOYZ units is within 6\" of this model, whenever that unit fails a Morale test, then for the rest of the phase, halve the number of its models that flee because of failed Combat Attrition tests (round fractions down)."
   },
+  "48b9ddb3f302": {
+    "name": "Freebooterz",
+    "kind": "ability",
+    "plain": "Each time one of your FREEBOOTERZ units destroys an enemy unit, your other FREEBOOTERZ units with this kultur add 1 to hit rolls until the end of the phase. This starts once the attacks of the unit that destroyed the enemy have been resolved."
+  },
   "497b90788534": {
     "name": "Morbad's Gitgrabba",
     "kind": "weapon",
@@ -528,6 +548,11 @@
     "name": "'Urty Syringe",
     "kind": "weapon",
     "plain": "When the bearer fights, it gets 1 extra attack with this weapon. Attacks with this weapon succeed on a wound roll of 6+ against a VEHICLE or TITANIC unit, and on a wound roll of 4+ against anything else."
+  },
+  "4d2577bad747": {
+    "name": "Blood Axes",
+    "kind": "ability",
+    "plain": "Units with this kultur:\n- count as having the benefits of light cover against ranged attacks from attackers more than 18\" away.\n- may either shoot or declare a charge in a turn when they Fell Back, but not both."
   },
   "4e7a3491a7be": {
     "name": "Grot Gunner (Boostas)",
@@ -840,6 +865,11 @@
     "name": "Da Gyroblitza",
     "kind": "ability",
     "plain": "When chosen to fight, this model can direct its full number of attacks at each enemy unit within Engagement Range."
+  },
+  "7f40dd2a2ba9": {
+    "name": "Snakebites",
+    "kind": "ability",
+    "plain": "Units with this kultur:\n- can't be wounded by an attack with an unmodified wound roll of 1-3, unless that attack's Strength characteristic is 8 or more. This applies whatever abilities the weapon or the attacking model has.\n- add 1 to the wound roll of melee attacks made by their SQUIG models in a turn when the unit has made a charge move or performed a Heroic Intervention."
   },
   "8129e268ca64": {
     "name": "Kunnin’ Infiltrator",
@@ -1211,6 +1241,11 @@
     "kind": "weapon",
     "plain": "When attacking with this weapon: against a VEHICLE unit that can FLY, the attack's Damage is D6+3; against an AIRCRAFT unit, add 2 to the hit roll; against any non-AIRCRAFT unit, add 1 to the hit roll."
   },
+  "b5da9ca5db00": {
+    "name": "Bad Moons",
+    "kind": "ability",
+    "plain": "Models with this kultur:\n- add 6\" to the Range characteristic of their DAKKA and Heavy weapons.\n- improve a ranged attack's Armour Penetration characteristic by 1 when it gets an unmodified wound roll of 6."
+  },
   "b5e2d915fc57": {
     "name": "Snagged",
     "kind": "ability",
@@ -1375,6 +1410,11 @@
     "name": "Zzap gun",
     "kind": "weapon",
     "plain": "Whenever you choose this weapon to shoot, roll 2D6 to set the Strength of all its attacks. On an 11+, each successful hit deals D3 mortal wounds to the target on top of the normal damage, and the bearer suffers 1 mortal wound."
+  },
+  "cdad96d2f1e6": {
+    "name": "Deathskulls",
+    "kind": "ability",
+    "plain": "Units with this kultur:\n- can re-roll one hit roll or one wound roll for their attacks each time they are chosen to shoot or fight.\n- roll a D6 each time one of their models would lose a wound because of a mortal wound: on a 5+, the wound is not lost.\n- gain the Objective Secured ability if they are INFANTRY units."
   },
   "ce51ab6fbe71": {
     "name": "Da Revolushun! (Aura)",

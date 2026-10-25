@@ -39,10 +39,20 @@
     "kind": "stratagem",
     "plain": "In your opponent's Charge phase, when one of your BATTLESUIT units is picked as the target of a charge: until the phase ends, any unit that declares a charge against that BATTLESUIT unit must subtract 2 from its charge rolls. This modifier doesn't stack with any other negative modifier to a unit's charge roll."
   },
+  "096a52e42678": {
+    "name": "Defensive Doctrines",
+    "kind": "ability",
+    "plain": "If a model with this tenet was charged this turn, melee attacks with AP -1 or AP -2 that are allocated to it have AP 0 instead."
+  },
   "0a23e792dcb4": {
     "name": "Bodyguard Contingent",
     "kind": "ability",
     "plain": "If your army is Battle-forged, each <SEPT> COMMANDER unit in a Detachment lets you add one <SEPT> CRISIS BODYGUARDS unit to that Detachment without using up a Battlefield Role slot."
+  },
+  "0b3a987fd672": {
+    "name": "Play Their Part",
+    "kind": "ability",
+    "plain": "For control of objective markers, BATTLESUIT models with this tenet count as:\n- 3 models each if their Wounds characteristic is 9 or less.\n- 5 models each if their Wounds characteristic is 10 or more."
   },
   "0b3c31659d87": {
     "name": "Set-up (Shieldline)",
@@ -89,6 +99,11 @@
     "name": "Hero of the Empire",
     "kind": "ability",
     "plain": "If your army is Battle-forged, you must choose this unit's COMMANDER SHADOWSUN model as your WARLORD. If several models in your army have a rule like this, one of them must be your WARLORD."
+  },
+  "150cbdbc255c": {
+    "name": "Calm Under Pressure",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots an Assault weapon at a unit within 12\", add 1 to that attack's Strength characteristic."
   },
   "1572e6e2d4d8": {
     "name": "Explodes (Ghostkeel)",
@@ -183,6 +198,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's COLDSTAR BATTLESUIT COMMANDER model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
   },
+  "2224f5ebe17e": {
+    "name": "Disengagement Protocols",
+    "kind": "ability",
+    "plain": "When an INFANTRY unit with this tenet is chosen to Fall Back, roll one D6 to try to deal mortal wounds to one enemy unit within its Engagement Range. On a 2-5, that unit suffers 1 mortal wound; on a 6, it suffers D3 mortal wounds."
+  },
   "2233606a1d67": {
     "name": "Supremacy Railgun",
     "kind": "weapon",
@@ -207,6 +227,11 @@
     "name": "Semi-automatic Grenade Launcher (EMP Grenade)",
     "kind": "weapon",
     "plain": "When an attack from this weapon scores a hit against a VEHICLE unit (other than a TITANIC unit) whose profile changes as it loses wounds, treat that unit as having half its remaining wounds when deciding which characteristics it uses. This lasts until the start of your next Shooting phase."
+  },
+  "293edf61b6cf": {
+    "name": "Reliable Weaponry",
+    "kind": "ability",
+    "plain": "Whenever a unit with this tenet is chosen to shoot, you can re-roll one of its wound rolls for those attacks."
   },
   "296b843f6d89": {
     "name": "Limited Parameters",
@@ -373,6 +398,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's CRISIS BATTLESUIT COMMANDER model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
   },
+  "405f9bbb4447": {
+    "name": "Rapid Retreat",
+    "kind": "ability",
+    "plain": "When a unit with this tenet Falls Back, each of its models can move 3\" further than normal."
+  },
   "41397ac95b21": {
     "name": "Firing Positions",
     "kind": "ability",
@@ -393,6 +423,11 @@
     "name": "Piranha Fusion Blaster",
     "kind": "weapon",
     "plain": "Against a target within half range, attacks from this weapon have a Damage characteristic of D6+4."
+  },
+  "448257b6b071": {
+    "name": "Strike Swiftly",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, each INFANTRY unit with this tenet that began wholly in your deployment zone may make a Normal Move of up to 6\". This happens before the first turn begins, and the move can't end within 9\" of the enemy deployment zone or of any enemy models."
   },
   "456e1299bfba": {
     "name": "Wall of Mirrors",
@@ -416,6 +451,11 @@
     "name": "Failure Is Not An Option (Aura)",
     "kind": "ability",
     "plain": "Aura: your T'AU EMPIRE CORE units (except FARSIGHT ENCLAVES and T'AU AUXILIARY units) can borrow this model's Leadership characteristic in place of their own while they are within 6\" of this unit's ETHEREAL model."
+  },
+  "4b5ae71ac742": {
+    "name": "Reinforced Armour",
+    "kind": "ability",
+    "plain": "Subtract 1 from the Strength of ranged attacks made against VEHICLE or BATTLESUIT units with this tenet by weapons with a Strength characteristic of 7 or less."
   },
   "4b5b6311411e": {
     "name": "Explodes (6/2D6\"/2D6)",
@@ -454,6 +494,14 @@
     "name": "Supersonic (Sun Shark)",
     "kind": "ability",
     "plain": "When this unit's SUN SHARK BOMBER model Advances, Falls Back or makes a Normal Move, first turn it on the spot by up to 90 degrees (the turn doesn't count toward how far it moves), then move it straight ahead. It can't pivot again after that first pivot."
+  },
+  "519384e25c4a": {
+    "name": "Sa'cea Sept Tenet: Masters of Urban Warfare",
+    "kind": "ability",
+    "plain": "Three effects:\n- VEHICLE units with this tenet get the benefits of Dense Cover against ranged attacks from attackers more than 18\" away.\n- INFANTRY units with this tenet get the benefits of Dense Cover against ranged attacks from attackers more than 12\" away.\n- VEHICLE and BATTLESUIT models with this tenet ignore the hit roll penalty for firing Heavy weapons at enemy units within Engagement Range of them.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
   },
   "52d89759f3d9": {
     "name": "A Trap Well Laid",
@@ -500,6 +548,11 @@
     "kind": "ability",
     "plain": "COMMANDER or CRISIS model only. Once per battle, if the bearer fails a saving throw, it may activate this Prototype System. If it does, roll one D6 whenever the bearer would lose a wound until the turn ends: on a 4+, the bearer doesn't lose it."
   },
+  "5bfe0932d0a5": {
+    "name": "T'au Sept Tenet: Coordinated Fire Arcs",
+    "kind": "ability",
+    "plain": "Three effects:\n- each time a unit with this tenet is chosen to shoot or fight, one hit roll or one wound roll for its attacks can be re-rolled.\n- models with this tenet add 3\" to the range of their aura abilities, to a maximum range of 12\".\n- models with this tenet add 3\" to the range of each invocation they intone that isn't an aura, and of each ability with a stated range that they use in your Command phase (to a maximum range of 12\")."
+  },
   "5dbedbf6d9ed": {
     "name": "Eclipse Shield Generator",
     "kind": "ability",
@@ -514,6 +567,14 @@
     "name": "Twin heavy fusion cannon",
     "kind": "weapon",
     "plain": "If the target of an attack from this weapon is within half range, that attack's Damage characteristic becomes D6+4."
+  },
+  "619cc595d25b": {
+    "name": "Camouflage Experts",
+    "kind": "ability",
+    "plain": "INFANTRY units with this tenet that are entirely on or within a terrain feature get the benefits of Dense Cover against ranged attacks from over 12\" away.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
   },
   "61c321ae0f72": {
     "name": "Novasurge Plasma Rifle",
@@ -611,6 +672,14 @@
     "kind": "ability",
     "plain": "When the bearer fires Overwatch, unmodified hit rolls of 5+ score hits, rather than only 6s. Also, whenever you use the Fire Overwatch Stratagem and the unit chosen to fire Overwatch is the bearer's unit, with the bearer on the battlefield, the Stratagem costs 1CP less (minimum 0CP). This reduction only applies to that one use; later uses cost the usual CP."
   },
+  "6f933a238cd9": {
+    "name": "Hardened Warheads",
+    "kind": "ability",
+    "plain": "Targets of ranged attacks made with missile weapons by models with this tenet don't get the benefits of cover against those attacks.",
+    "waive": {
+      "130": "page reference (pg 130) to where missile weapons are printed; not part of the rule"
+    }
+  },
   "70b0768ee094": {
     "name": "Master of War (Aura)",
     "kind": "ability",
@@ -679,6 +748,14 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
   },
+  "7cba91e1731c": {
+    "name": "Blocking Tactics",
+    "kind": "ability",
+    "plain": "When a CORE INFANTRY unit with this tenet makes a charge move, its CORE models have the Objective Secured ability until the start of your next Charge phase. Any such model that already has that ability counts as one additional model when working out control of an objective marker.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
+  },
   "7d5332bd95c0": {
     "name": "Embodiments of the Empire",
     "kind": "ability",
@@ -688,6 +765,11 @@
     "name": "Tactical Acumen",
     "kind": "ability",
     "plain": "In your Command phase, you may choose one <SEPT> CRISIS CORE unit from your army within 9\" of this unit's CRISIS BATTLESUIT COMMANDER model. For the rest of the turn: that unit can still shoot and declare a charge in a turn when it Fell Back; and for each ranged attack a CORE model in that unit makes, you can ignore any or all hit roll modifiers."
+  },
+  "7f5f4b73bb2d": {
+    "name": "Adherents to the Teachings",
+    "kind": "ability",
+    "plain": "Models with this tenet:\n- add 3\" to the range of their aura abilities, to a maximum range of 12\".\n- add 3\" to the range of each invocation they intone that isn't an aura, and of each ability with a stated range that they use in your Command phase (to a maximum range of 12\")."
   },
   "8040d0256f30": {
     "name": "Docked Drones",
@@ -728,6 +810,11 @@
     "name": "Manta Strike",
     "kind": "ability",
     "plain": "When you deploy, if all models in this unit have this ability, you can put the unit in a Manta hold instead of on the battlefield. A unit placed this way can arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield over 9\" from every enemy model."
+  },
+  "845252b1b32b": {
+    "name": "Loyal to the End",
+    "kind": "ability",
+    "plain": "Two effects:\n- models with this tenet add 1 to their Leadership characteristic.\n- you can re-roll Morale tests taken for units with this tenet."
   },
   "859b8b88649b": {
     "name": "Pulse Bombs",
@@ -779,6 +866,16 @@
     "kind": "ability",
     "plain": "Aura: while one of your T'AU SEPT CORE units (other than BATTLESUIT units) is within 6\" of this model, it can shoot in a turn in which it Fell Back."
   },
+  "8ba4ddb5d7fe": {
+    "name": "Bork'an Sept Tenet: Superior Craftsmanship",
+    "kind": "ability",
+    "plain": "Two effects:\n- models with this tenet add 4\" to the Range characteristic of their ranged weapons.\n- when a ranged attack is made against a VEHICLE or BATTLESUIT unit with this tenet using a weapon with a Strength characteristic of 7 or less, subtract 1 from that attack's Strength."
+  },
+  "8c3fadc29e9d": {
+    "name": "Vior'la Sept Tenet: Strike Fast",
+    "kind": "ability",
+    "plain": "Two effects:\n- at the start of your first turn, your units wholly within your deployment zone add 2\" to their models' Move characteristic until that turn ends.\n- you can re-roll Advance rolls and charge rolls for units with this tenet."
+  },
   "8c8f6b0db5f9": {
     "name": "Promising Pupil",
     "kind": "stratagem",
@@ -813,6 +910,11 @@
     "name": "Saviour Protocols",
     "kind": "ability",
     "plain": "Whenever an attack made against one of your <SEPT> INFANTRY or <SEPT> BATTLESUIT units wounds it while it is within 3\" of one of your <SEPT> DRONES units, you may roll one D6. On a 2+, the attack sequence ends and that DRONES unit suffers 1 mortal wound."
+  },
+  "920431c239aa": {
+    "name": "Defenders of the Cause",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever a model with this tenet (other than a DRONE model) would lose a wound to a mortal wound: on a 5+, it doesn't lose that wound."
   },
   "923da724e59b": {
     "name": "Airborne (Sun Shark)",
@@ -866,6 +968,14 @@
     "name": "Gunship Ace",
     "kind": "ability",
     "plain": "Add 1 to the wound roll of each ranged attack this unit's HAMMERHEAD model makes against a MONSTER or VEHICLE unit."
+  },
+  "a032c1ddf188": {
+    "name": "Fire Saturation",
+    "kind": "ability",
+    "plain": "Ranged attacks made with burst weapons by models with this tenet add 1 to their hit roll when they target a unit within 12\".",
+    "waive": {
+      "130": "page reference (pg 130) to where burst weapons are printed; not part of the rule"
+    }
   },
   "a03e458dbc9c": {
     "name": "Plunge from the Sky",
@@ -927,10 +1037,26 @@
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see. Targets of attacks from this weapon don't get the benefits of Light Cover against those attacks."
   },
+  "a7d8a5f9c5dd": {
+    "name": "Enriched Reactors",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots with a plasma weapon, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of any normal damage.",
+    "waive": {
+      "130": "page reference (pg 130) to where plasma weapons are printed; not part of the rule"
+    }
+  },
   "aa1b87fb49bb": {
     "name": "Twin Smart Missile System",
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see. Targets of attacks with this weapon don't get the benefits of Light Cover against them."
+  },
+  "aacd1b24e1ae": {
+    "name": "Farsight Enclaves Tenet: Devastating Counterstrike",
+    "kind": "ability",
+    "plain": "Two effects:\n- when a model with this tenet makes a ranged attack against a unit within 9\", treat the target as having a Markerlight token.\n- when a unit with this tenet is chosen to shoot or fight, you can re-roll one wound roll for its attacks.",
+    "waive": {
+      "93": "page reference (pg 93) to where Markerlight tokens are printed; not part of the rule"
+    }
   },
   "abea65db187e": {
     "name": "Concealed Booby Traps",
@@ -977,6 +1103,11 @@
     "kind": "ability",
     "plain": "If you picked the Mont'ka Tactical Philosophy when the battle began, then once the first battle round starts (before any turn has begun), this unit may move up to 9\" with a Normal Move. It can't finish that move within 9\" of any enemy model."
   },
+  "b2adb61639da": {
+    "name": "Turbo-Jets",
+    "kind": "ability",
+    "plain": "Models with this tenet that can FLY have their Move characteristic increased by 2\"."
+  },
   "b2c50e20edac": {
     "name": "Targeting Array (Sky Ray)",
     "kind": "ability",
@@ -1021,6 +1152,14 @@
     "name": "Explodes (6/9\"/D6)",
     "kind": "ability",
     "plain": "Roll a D6 if this model is reduced to 0 wounds, before it is removed from the battlefield. On a 6 it explodes, dealing D6 mortal wounds to every unit within 9\"."
+  },
+  "ba85fb4b5f8b": {
+    "name": "Fire Caste Marksmen",
+    "kind": "ability",
+    "plain": "When a model with this tenet shoots with a pulse weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1.",
+    "waive": {
+      "130": "page reference (pg 130) to where pulse weapons are printed; not part of the rule"
+    }
   },
   "bac237b3bc5a": {
     "name": "Rail Rifle",
@@ -1069,6 +1208,11 @@
     "name": "Tactical Disengagement",
     "kind": "ability",
     "plain": "At the end of your Movement phase, if you picked the Kauyon Tactical Philosophy at the start of the battle and the mission uses the Strategic Reserves rule, then if this unit is within 9\" of any battlefield edge you can take it off the battlefield and put it into Strategic Reserves."
+  },
+  "c357792c87a4": {
+    "name": "Pinpoint Targeting",
+    "kind": "ability",
+    "plain": "When a model with this tenet makes a ranged attack against a unit within 12\", the target doesn't get the benefits of Light Cover against it."
   },
   "c39492ce72f7": {
     "name": "Experimental pulse submunitions rifle (EMP)",
@@ -1144,6 +1288,11 @@
     "name": "Aerial Scanners",
     "kind": "ability",
     "plain": "Ranged attacks made by this unit's SKY RAY GUNSHIP model against an AIRCRAFT unit add 2 to their hit roll, and you can re-roll their damage roll."
+  },
+  "d013fe9dc367": {
+    "name": "Evasion Manoeuvres",
+    "kind": "ability",
+    "plain": "When a model with this tenet Advances, the FLY models in its unit get a 5+ invulnerable save against ranged attacks until your next Movement phase starts."
   },
   "d03a78369abb": {
     "name": "Velocity Tracker",
@@ -1235,6 +1384,15 @@
     "name": "Fail-safe Detonator",
     "kind": "stratagem",
     "plain": "In any phase, when one of your BATTLESUIT models is destroyed: before it is removed from play, skip any rules that its destruction would trigger (such as Explodes). Instead, roll a D6 for each unit within 3\" of the model; add 1 to each roll if the model's Wounds characteristic is 12 or more. On a 3-5, the unit being rolled for suffers D3 mortal wounds; on a 6+, it suffers 3 mortal wounds."
+  },
+  "dc4adfe6793b": {
+    "name": "Dal'yth Sept Tenet: Trading Partners",
+    "kind": "ability",
+    "plain": "Two effects:\n- INFANTRY units with this tenet get the benefits of Light Cover against ranged attacks from attackers not within Engagement Range of them.\n- if you chose a Tactical Philosophy at the start of the battle, T'AU AUXILIARY units in the same Detachment as units with this tenet also benefit from your army's chosen Tactical Philosophy.",
+    "waive": {
+      "92": "page reference (pg 92) to where the Tactical Philosophies are printed; not part of the rule",
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a reference, which the style guide says to leave out"
+    }
   },
   "dd3e024204f4": {
     "name": "Orbital Ion Beam",

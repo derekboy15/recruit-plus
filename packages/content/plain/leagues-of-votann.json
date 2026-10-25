@@ -14,6 +14,11 @@
     "kind": "stratagem",
     "plain": "In your Command phase, pick one VOTANN unit from your army that is within 9\" of one of your GRIMNYR models. Any psychic powers manifested by enemy units that are affecting that unit or its models stop affecting them. Also, until the start of your next Command phase, that unit and its models aren't affected by any Malediction psychic powers that are manifested."
   },
+  "02719a030b6f": {
+    "name": "Martial Cloneskins",
+    "kind": "ability",
+    "plain": "Models with this custom add 1 to the Strength characteristic of their melee attacks if their unit charged, was charged or made a Heroic Intervention this turn."
+  },
   "0611b4925975": {
     "name": "Kinbond",
     "kind": "stratagem",
@@ -28,6 +33,11 @@
     "name": "Eye of the Ancestors",
     "kind": "ability",
     "plain": "This only applies if every unit in your army is a VOTANN unit and all of them come from one League, not counting UNALIGNED units. Enemy units gain Judgement tokens, and an enemy unit can have no more than 3. An enemy unit gains 1 token whenever it destroys a VOTANN unit from your army, and 1 whenever it completes an action or a psychic action. In addition, when each of your opponent's turns ends, select one enemy unit within range of an objective marker controlled by your opponent; that unit gains 1 token. A unit keeps its tokens until the battle ends. Each time a VOTANN model that isn't a COG model attacks a unit that has tokens: if the target has 1 token, an unmodified hit roll of 6 automatically wounds; with 2 tokens, an unmodified hit roll of 5+ automatically wounds; with 3 tokens, an unmodified hit roll of 4+ automatically wounds. Following GW's errata of 29 September 2022, an automatic wound from this never counts as an unmodified wound roll of 6."
+  },
+  "0819db3ddafd": {
+    "name": "Warrior Pride",
+    "kind": "ability",
+    "plain": "Each time it is picked to shoot or fight, a unit with this custom may re-roll a single hit roll or a single wound roll among its attacks."
   },
   "0867e76572ed": {
     "name": "Grudge's End",
@@ -84,6 +94,11 @@
     "kind": "stratagem",
     "plain": "When the Reinforcements step of your opponent's Movement phase ends, choose a VOTANN SCANNER unit of yours that isn't within Engagement Range of any enemy units. It can shoot as though it were your Shooting phase, with one restriction: its models may only shoot at one eligible enemy unit, which must have been set up as Reinforcements this turn and must be within 12\" of their unit."
   },
+  "2bd33690ea6f": {
+    "name": "Close Quarters Prioritisation",
+    "kind": "ability",
+    "plain": "Add 2 to the charge roll of a unit with this custom if it declares a charge against only one target and that target has 1 or more Judgement tokens."
+  },
   "32f5edf458af": {
     "name": "Weavefield crest",
     "kind": "ability",
@@ -104,10 +119,25 @@
     "kind": "weapon",
     "plain": "The bearer can fire this weapon just once per battle, and it can target units the bearer can't see. Attacks with it against a VEHICLE unit have a Damage characteristic of 3, and successfully wound on an unmodified wound roll of 4+."
   },
+  "3c773ce9839b": {
+    "name": "Taking It Personally",
+    "kind": "ability",
+    "plain": "A unit with this custom has a chance to give 1 Judgement token to an enemy unit it damages but doesn't destroy. When it is picked to shoot or fight and all of its attacking models aim at the same enemy unit, then once those attacks are resolved, if that enemy unit took damage from them but survived, roll one D6, adding 1 if that enemy unit is now below Half-strength. On a 5+, it gains 1 Judgement token."
+  },
+  "3cfbfba12546": {
+    "name": "Superior Beam Capacitors",
+    "kind": "ability",
+    "plain": "With this custom:\n- beam weapons that models are equipped with get 1 added to their Strength characteristic.\n- the Core-Buster Fire Pattern Stratagem costs 0CP whenever a unit with this custom is selected for it."
+  },
   "40d6b4372cf4": {
     "name": "Overcharged Shield Crest",
     "kind": "stratagem",
     "plain": "In any phase, when one of your VOTANN SHIELD CREST units is selected as a ranged attack's target: for the rest of the phase, every ranged attack made against that unit fails on an unmodified wound roll of 1-3, whatever abilities the weapon or attacking model have. This Stratagem costs 1CP if that unit has 5 or fewer models, and 2CP otherwise."
+  },
+  "43b463eb73a7": {
+    "name": "Dour Survivalists",
+    "kind": "ability",
+    "plain": "Units with this custom:\n- have 1 added to the Toughness characteristic of their models.\n- can re-roll failed Morale tests.\nAncestral Judgement: whenever a model with this custom (other than a COG model) attacks a target with 0 Judgement tokens, treat that enemy unit as having 1 Judgement token when working out which bonuses that model's attacks get."
   },
   "449bbdd4b97e": {
     "name": "Blade of the Ancestors",
@@ -133,6 +163,11 @@
     "name": "CORV Support",
     "kind": "ability",
     "plain": "When this unit suffers Perils of the Warp and still has at least 1 CORV model, destroy 1 of its CORV models and ignore the Perils of the Warp effect(s). CORV models being destroyed are ignored for Morale tests. If this unit's GRIMNYR model is destroyed, every CORV model left in the unit is destroyed with it."
+  },
+  "5cdc09c03175": {
+    "name": "Vengeful",
+    "kind": "ability",
+    "plain": "Whenever an enemy unit destroys a unit with this custom, the enemy unit gains 2 Judgement tokens."
   },
   "5ce8b9b9a199": {
     "name": "Multispectral Visor",
@@ -169,10 +204,20 @@
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, once an enemy unit has resolved its attacks, if it had 1 or more Judgement tokens at the moment it was picked to shoot: pick one VOTANN CORE unit from your army that was hit by at least one of that enemy unit's attacks this phase and isn't within Engagement Range of any enemy units. It can shoot straight away as if it were your Shooting phase, but only at that enemy unit, and only if it is an eligible target. Afterwards, that VOTANN CORE unit can't shoot in your next Shooting phase. This Stratagem costs 1CP if the unit you picked is a unit of HEARTHKYN WARRIORS, and 2CP otherwise."
   },
+  "7430226c1bec": {
+    "name": "Quick to Judge",
+    "kind": "ability",
+    "plain": "An enemy unit that causes casualties to a unit with this custom without destroying it has a chance to gain 1 Judgement token. Whenever an enemy unit targets a unit with this custom with shooting or melee attacks, once the attacker has resolved all of its attacks: if your unit lost one or more models to them but wasn't destroyed, roll one D6, adding 1 if your unit is now below Half-strength. On a 4+, that attacking unit gains 1 Judgement token."
+  },
   "78389594fd44": {
     "name": "Multiwave comms array",
     "kind": "ability",
     "plain": "The bearer's unit gains the COMMS keyword. While it is within 24\" of one of your <LEAGUE> KÂHL models, the bearer's unit counts as being in range of that model's Kindred Hero aura ability."
+  },
+  "7ccc2ecb6d79": {
+    "name": "Honour the Ancestors",
+    "kind": "ability",
+    "plain": "Whenever a model with this custom attacks:\n- if its unit is below its Starting Strength, add 1 to the hit roll.\n- on an unmodified wound roll of 6, improve the attack's Armour Penetration characteristic by 1.\nAncestral Judgement: whenever a model with this custom (other than a COG model) attacks a target with one or more Judgement tokens, a wound roll of 1 is re-rolled."
   },
   "8040da5c2c48": {
     "name": "Concussion Blast",
@@ -183,6 +228,11 @@
     "name": "Wârpestryk",
     "kind": "ability",
     "plain": "During any Normal Move, Advance, Fall Back or charge move the bearer makes, it can pass horizontally through models and terrain features (though it can't finish that move on top of another model or that model's base). Once per battle, using the Site-to-Site Teleport Stratagem on the bearer's unit costs 0 CP. Enemy units arriving on the battlefield as Reinforcements can't be set up within 12\" of this model's unit."
+  },
+  "852d1cded945": {
+    "name": "War Songs",
+    "kind": "ability",
+    "plain": "A <LEAGUE> model with this custom can re-roll a melee hit roll if the target was in Engagement Range of 2 or more of your <LEAGUE> CORE units. This is checked at the moment the attacking unit was chosen to fight."
   },
   "86277e955b91": {
     "name": "Weavefield Crest",
@@ -219,10 +269,20 @@
     "kind": "stratagem",
     "plain": "At the start of your Shooting phase, choose a VOTANN INFANTRY or VOTANN BIKER unit of yours. For the rest of the phase, its models can attack with ranged weapons even while their unit is within Engagement Range of enemy units, but only against enemy units they are within Engagement Range of (a beam weapon attack made this way is resolved only against that target unit and can't hit any other unit). When doing this, they can target an enemy unit even if other friendly units are also within Engagement Range of it. A model in this unit with two or more ranged weapons may still pick targets that aren't within Engagement Range of its unit, but that weapon only gets to make its attacks if every enemy unit within Engagement Range of the model's unit has been destroyed by the time you resolve them. Also, when a model in this unit fires a Heavy weapon while any enemy units are within Engagement Range of its unit, subtract 1 from the hit rolls for that weapon's attacks."
   },
+  "93c37781c1cc": {
+    "name": "Brutal Efficiency",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this custom (not COG models) score 1 extra hit on an unmodified hit roll of 6 when the target has 1 or more Judgement tokens."
+  },
   "97302bcf5a02": {
     "name": "Multi-spectral Visor",
     "kind": "ability",
     "plain": "In your Command phase, if this unit has a BRÔKYR IRON-MASTER model, you can pick one of your <LEAGUE> CORE or <LEAGUE> VEHICLE models within 9\" of this unit. Until the start of your next Command phase, add 1 to the hit roll whenever a model in that friendly unit attacks with a ranged weapon."
+  },
+  "9b04600df5d0": {
+    "name": "Master Armourers",
+    "kind": "ability",
+    "plain": "With this custom:\n- every ranged weapon (other than Relics) that models are equipped with has 4\" added to its Range characteristic.\n- models with a Save characteristic of 2+ have a 4+ invulnerable save, and all other models have a 5+ invulnerable save.\nAncestral Judgement: whenever a model with this custom (other than a COG model) makes a ranged attack against a unit within half range that has one or more Judgement tokens, improve that attack's Armour Penetration characteristic by 1."
   },
   "9cc097ba2d3d": {
     "name": "Sagitaur Squadron",
@@ -239,6 +299,11 @@
     "kind": "weapon",
     "plain": "For each attack with this weapon, make 2 hit rolls rather than 1. When an attack from this weapon is allocated to an enemy model, that model can't use any rules that would let it ignore lost wounds."
   },
+  "9ddc6df7a0d7": {
+    "name": "Ruthless Efficiency",
+    "kind": "ability",
+    "plain": "With this custom:\n- models (not COG models) count as 2 models for controlling objective markers, or as 5 models if their Wounds characteristic is 10 or more.\n- whenever a unit with this custom is picked to shoot or fight, you may re-roll a single hit roll or a single wound roll among its attacks.\nAncestral Judgement: whenever a model with this custom (other than a COG model) attacks a target that has one or more Judgement tokens, treat that enemy unit as having 1 more Judgement token than it really has (up to a maximum of 3) when working out which bonuses that model's attacks get."
+  },
   "9f4d511a253d": {
     "name": "Cult of Veneration",
     "kind": "stratagem",
@@ -249,6 +314,11 @@
     "kind": "weapon",
     "plain": "Beam. When an attack with this weapon hits a unit that is wholly more than 15\" away from the firing model, score one extra hit against that unit."
   },
+  "a533566a551b": {
+    "name": "Unwavering Discipline",
+    "kind": "ability",
+    "plain": "Models with this custom (not COG models) can ignore modifiers when they attack a target with 1 or more Judgement tokens. For those attacks, you can ignore any or all modifiers to the hit roll, Weapon Skill and Ballistic Skill."
+  },
   "a53e7e5949d8": {
     "name": "The Might of the Einhyr",
     "kind": "stratagem",
@@ -258,6 +328,11 @@
     "name": "Rampart crest",
     "kind": "ability",
     "plain": "The bearer's unit gains the SHIELD CREST keyword, and the bearer gains this ability. Rampart Shield (Aura): while one of your <LEAGUE> INFANTRY or <LEAGUE> BIKER units is within 6\" of this model, that unit's models have a 5+ invulnerable save against ranged attacks. Nothing (Ancestral Bearing, for example) can increase this ability's range."
+  },
+  "a66148d28e7c": {
+    "name": "Void Hardened",
+    "kind": "ability",
+    "plain": "Attacks made against a unit with this custom always fail on an unmodified wound roll of 1-2, whatever abilities the attacking weapon or model has."
   },
   "a6f949cb8642": {
     "name": "Interface Echo",
@@ -309,6 +384,11 @@
     "kind": "psychic",
     "plain": "Powers: Smite, plus 2 of the powers from the Skeinwrought discipline."
   },
+  "b2c1f151e3f9": {
+    "name": "Weaponsmiths",
+    "kind": "ability",
+    "plain": "Ranged weapons that models with this custom are equipped with (other than Relics) get 4\" added to their Range characteristic."
+  },
   "baad2af1e931": {
     "name": "Accelerated Response",
     "kind": "stratagem",
@@ -328,6 +408,11 @@
     "name": "Huntr’s Mark",
     "kind": "stratagem",
     "plain": "In your Shooting phase, before you make a hit roll for an attack by one of your VOTANN models: if the target unit has 1 or more Judgement tokens, skip the hit roll, because the attack hits automatically."
+  },
+  "d24cb1ffe126": {
+    "name": "Honour in Toil",
+    "kind": "ability",
+    "plain": "While a unit with this custom is below its Starting Strength, add 1 to the hit roll of every attack its models make."
   },
   "d345961dc36c": {
     "name": "Brôkhyr Forge-master",
@@ -359,10 +444,20 @@
     "kind": "ability",
     "plain": "In each of your Psychic phases, this model can try to manifest one extra psychic power."
   },
+  "d7d4d03589d2": {
+    "name": "Battle Prowess",
+    "kind": "ability",
+    "plain": "If a unit with this custom charged, was charged or performed a Heroic Intervention this turn:\n- add 1 to its models' Attacks characteristic each time it fights. This lasts until that fight is resolved.\n- add 1 to the Strength characteristic of each melee attack its models make.\nAncestral Judgement: whenever a model with this custom (other than a COG model) makes a melee attack against a target with 2 or more Judgement tokens, improve that attack's Armour Penetration characteristic by 1."
+  },
   "dcf009fe1e51": {
     "name": "Site-to-site Transport",
     "kind": "stratagem",
     "plain": "At the start of your Movement phase, pick one VOTANN TELEPORTATION unit from your army and take it off the battlefield. In the Reinforcements step of this Movement phase, put it back on the battlefield anywhere more than 9\" from all enemy models. No unit can be picked for this Stratagem more than once per battle. It costs 1CP if the picked unit was a CHARACTER, and 2CP otherwise."
+  },
+  "dd4dd58d6fd9": {
+    "name": "Stoic",
+    "kind": "ability",
+    "plain": "Units with this custom can re-roll failed Morale tests."
   },
   "ddf061fc1ca1": {
     "name": "Null Vortex",
@@ -458,6 +553,11 @@
     "name": "Bloody Expectations",
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your KRONUS HEGEMONY units is chosen to fight: for the rest of the phase, melee attacks by its models score 1 extra hit on an unmodified hit roll of 6."
+  },
+  "f50396c6b8e7": {
+    "name": "Refined Power Cores",
+    "kind": "ability",
+    "plain": "Models with this custom that have the ACCELERATED or VEHICLE keyword get 2\" added to their Move characteristic."
   },
   "f55fee5ee551": {
     "name": "Luck Has. Need Keeps. Toil Earns.",
