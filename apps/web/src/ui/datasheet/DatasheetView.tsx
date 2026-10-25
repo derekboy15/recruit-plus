@@ -162,6 +162,8 @@ export function DatasheetView({ unit, taken, headingLevel = 2, hideName = false 
     unit.points != null && `${unit.points} pts`,
     unit.powerLevel != null && `${unit.powerLevel} PL`,
     base && (/base/i.test(base) ? base : `${base} base`),
+    // The army choices that reveal the unit in the builder; any one of them will do.
+    unit.needs?.length && `Needs ${unit.needs.join(' or ')}`,
   ]
     .filter(Boolean)
     .join(' · ');

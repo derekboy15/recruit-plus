@@ -74,6 +74,7 @@ a.chip { display: inline-flex; align-items: center; justify-content: center; min
 .faction-unit__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
 .faction-unit__name { font-weight: 600; overflow-wrap: anywhere; }
 .faction-unit__meta { font-size: 0.82rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.faction-unit__needs { font-size: 0.82rem; color: var(--brass-strong); }
 .faction-unit__pts { flex: none; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---------- Faction guide: key units as whole-card links; the full army rules folded away, as plain sections ---------- */

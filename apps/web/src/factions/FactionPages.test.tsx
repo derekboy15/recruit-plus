@@ -11,6 +11,7 @@ import { FactionGuidePage } from './FactionGuidePage';
 import { FactionPage } from './FactionPage';
 import { StratagemsPage } from './StratagemsPage';
 import { index, necronWarriors, necrons } from './__fixtures__/necrons';
+import { stubGeneratedData } from '../lists/__fixtures__/generatedData';
 
 const strat = (id: string, name: string, group: string, phases: string[], text: string, plain?: string): StratagemOut => ({
   id, name, cp: '1', group, kind: 'Battle Tactic', phases, text, ...(plain ? { plain } : {}),
@@ -235,4 +236,24 @@ test('faction page offline shows the offline notice', async () => {
   });
   renderAt('/factions/necrons');
   expect(await screen.findByRole('status')).toHaveTextContent("You're offline, and this hasn't been saved on this device yet.");
+});
+
+test('a unit that needs an army choice says so on its faction page: Imotekh needs the Sautekh dynasty', async () => {
+  stubGeneratedData();
+  renderAt('/factions/necrons');
+  expect(await screen.findByRole('link', { name: /^Imotekh the Stormlord/ })).toHaveTextContent('Needs Sautekh dynasty');
+  expect(screen.getByRole('link', { name: /^Necron Warriors/ })).not.toHaveTextContent('Needs');
+});
+
+test('the Ultramarines page lists no Open Play Land Raider Variant', async () => {
+  stubGeneratedData();
+  renderAt('/factions/imperium-adeptus-astartes-ultramarines');
+  await screen.findByRole('link', { name: /^Intercessor Squad/ });
+  expect(screen.queryByText(/Land Raider Variant/)).toBeNull();
+});
+
+test('the Chaos Space Marines page lists Vashtorr the Arkifane, whom BattleScribe stores as an upgrade', async () => {
+  stubGeneratedData();
+  renderAt('/factions/chaos-chaos-space-marines');
+  expect(await screen.findByRole('link', { name: /^Vashtorr the Arkifane/ })).toBeInTheDocument();
 });

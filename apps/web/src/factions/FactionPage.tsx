@@ -66,6 +66,7 @@ export function FactionPage() {
                         {u.forgeWorld && <span className="badge badge--fw">FW</span>}
                       </span>
                       <span className="faction-unit__meta">{unitMeta(u)}</span>
+                      {u.needs && <span className="faction-unit__needs">{`Needs ${u.needs.join(' or ')}`}</span>}
                     </span>
                     <span className="faction-unit__pts">{u.points != null ? `${u.points} pts` : ''}</span>
                   </Link>

@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ProfileOut, UnitOut } from '@recruit/data/model';
 import type { ReactElement } from 'react';
@@ -224,4 +224,12 @@ test('keywords list the faction and the unit keywords', () => {
   const kw = screen.getByRole('region', { name: 'Keywords' });
   expect(kw).toHaveTextContent('Faction: Necrons, <Dynasty>');
   expect(kw).toHaveTextContent('Unit: Core, Infantry, Necron Warriors');
+});
+
+test('the meta line ends with the army choices the unit needs, any one of them', () => {
+  show(<DatasheetView unit={{ ...warriors, needs: ['Sautekh dynasty'] }} />);
+  expect(screen.getByText('Troops · 10–20 models · 110 pts · 6 PL · 32mm base · Needs Sautekh dynasty')).toBeInTheDocument();
+  cleanup();
+  show(<DatasheetView unit={{ ...warriors, needs: ['Khorne', 'Chaos Undivided'] }} />);
+  expect(screen.getByText(/· Needs Khorne or Chaos Undivided$/)).toBeInTheDocument();
 });
