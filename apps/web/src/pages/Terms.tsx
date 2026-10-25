@@ -17,7 +17,7 @@ export function Terms() {
       <h2>Rules text</h2>
       <p>
         The plain-English rules are our own summaries. We check them carefully, but they can be wrong. For tournaments
-        and disputes, the official rules decide. If you spot a mistake, use "Report a rules error" on the rule.
+        and disputes, the official rules decide. If you spot a mistake, use “Report a problem” at the foot of the page and choose the rule.
       </p>
 
       <h2>No guarantees</h2>
