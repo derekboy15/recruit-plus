@@ -34,7 +34,7 @@ export function DatasheetPage() {
         text={unit.name}
         parts={[
           { name: unit.name, text: unit.name },
-          ...unit.abilities.map((a) => ({ name: a.name, text: wording === 'plain' && a.plain ? a.plain : a.text })),
+          ...unit.abilities.map((a) => ({ name: a.name, text: wording === 'plain' && a.plain ? a.plain : a.text, kind: 'ability' as const })),
         ]}
       />
     </>

@@ -4,7 +4,9 @@ import type { CatalogueOut } from '@recruit/data/model';
 import { Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { TestProviders } from '../rules/__fixtures__/TestProviders';
+import type { RulesReport } from '../rules/reports';
 import { openDb, type RecruitDb } from '../storage/db';
+import type { Doc } from '../storage/types';
 import { resetDataCache } from './dataClient';
 import { DatasheetPage } from './DatasheetPage';
 import { necronWarriors, necrons } from './__fixtures__/necrons';
@@ -85,6 +87,17 @@ test('a datasheet has one report button for the page', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }));
   const which = screen.getByRole('combobox', { name: 'Which part?' });
   expect(within(which).getAllByRole('option').map((o) => o.textContent)).toEqual(['Necron Warriors', 'Reanimation Protocols', 'Their Number Is Legion']);
+});
+
+test('a report about one of the abilities is saved as an ability report', async () => {
+  renderDatasheet(withPlain);
+  await userEvent.click(await screen.findByRole('button', { name: 'Report a problem' }));
+  await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Which part?' }), 'Reanimation Protocols');
+  await userEvent.click(screen.getByRole('button', { name: 'Send report' }));
+  await screen.findByText("Thanks. We've saved your report.");
+  const [saved] = (await db.docs.where('kind').equals('report').toArray()) as Doc<RulesReport>[];
+  expect(saved.data.target).toMatchObject({ kind: 'ability', name: 'Reanimation Protocols' });
+  expect(saved.data.text).toBe('Destroyed models can come back.');
 });
 
 test('an ability without plain English shows the official wording with a label', async () => {

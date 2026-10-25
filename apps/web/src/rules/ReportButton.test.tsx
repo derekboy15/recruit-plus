@@ -86,6 +86,25 @@ test('a page-level report saves the part chosen', async () => {
   expect(saved[0].data.text).toBe('B');
 });
 
+test('a part can name its own kind; without one the page target’s kind is used', async () => {
+  renderButton([
+    { name: 'Necron Warriors', text: 'Necron Warriors' },
+    { name: 'Reanimation Protocols', text: 'Destroyed models can come back.', kind: 'army-rule' },
+  ]);
+  await userEvent.click(await screen.findByRole('button', { name: 'Report a problem' }));
+  await userEvent.selectOptions(screen.getByRole('combobox', { name: 'Which part?' }), 'Reanimation Protocols');
+  await userEvent.click(screen.getByRole('button', { name: 'Send report' }));
+  await screen.findByText("Thanks. We've saved your report.");
+  await userEvent.click(screen.getByRole('button', { name: 'Report a problem' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Send report' }));
+  await waitFor(async () => expect(await reports()).toHaveLength(2));
+  const kinds = (await reports()).map((r) => [r.data.target.name, r.data.target.kind]).sort();
+  expect(kinds).toEqual([
+    ['Necron Warriors', 'ability'],
+    ['Reanimation Protocols', 'army-rule'],
+  ]);
+});
+
 test('with no parts there is no Which part question', async () => {
   renderButton();
   await userEvent.click(await screen.findByRole('button', { name: 'Report a problem' }));

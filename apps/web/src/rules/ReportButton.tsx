@@ -4,13 +4,13 @@ import { useAuth } from '../auth/AuthContext';
 import { getIndex } from '../factions/dataClient';
 import { useStorage } from '../storage/StorageContext';
 import { Sheet } from '../ui/Sheet';
-import { PROBLEM_LABELS, saveReport, type ReportProblem, type RulesReport } from './reports';
+import { PROBLEM_LABELS, saveReport, type ReportProblem, type ReportTargetKind, type RulesReport } from './reports';
 import { useWording } from './wording';
 
 const THANKS_MS = 3000;
 
-/** One item on a page that can be reported: its name and the text shown for it. */
-export interface ReportPart { name: string; text: string }
+/** One item on a page that can be reported: its name, the text shown for it, and its kind when it differs from the page's. */
+export interface ReportPart { name: string; text: string; kind?: ReportTargetKind }
 
 /**
  * "Report a problem", once per page: a sheet asking what's wrong (and, on a page of several items, which one), saved
@@ -57,7 +57,7 @@ export function ReportButton({ target, text, parts }: {
     const dataGeneratedAt = await getIndex().then((i) => i.generatedAt, () => 'unknown');
     try {
       await saveReport(repo, user.id, {
-        target: { ...target, name: chosen?.name ?? target.name, path: location.pathname + location.hash },
+        target: { kind: chosen?.kind ?? target.kind, name: chosen?.name ?? target.name, path: location.pathname + location.hash },
         problem,
         note: note.trim(),
         wording,

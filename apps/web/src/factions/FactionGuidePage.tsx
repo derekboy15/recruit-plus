@@ -35,7 +35,7 @@ export function FactionGuidePage() {
   const name = factionLabel(cat).name;
   const hasGuide = !!guide && guide !== 'offline';
   const shown = (r: CatalogueOut['rules'][number]) => (wording === 'plain' && r.plain ? r.plain : r.text);
-  const parts = [...(hasGuide ? [{ name: `${name} guide`, text: guide.title }] : []), ...ruleCats.flatMap((c) => c.rules.map((r) => ({ name: r.name, text: shown(r) })))];
+  const parts = [...(hasGuide ? [{ name: `${name} guide`, text: guide.title }] : []), ...ruleCats.flatMap((c) => c.rules.map((r) => ({ name: r.name, text: shown(r), kind: 'army-rule' as const })))];
   // Several catalogues: each one's rules under its name, one heading level down.
   const RuleHeading = ruleCats.length > 1 ? 'h4' : 'h3';
   return (
