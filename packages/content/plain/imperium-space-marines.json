@@ -48,6 +48,11 @@
     "kind": "ability",
     "plain": "Models with this tactic re-roll melee hit rolls of 1 against units with one Faction keyword you pick from a list.\nWhen you take this tactic, choose CHAOS KNIGHTS, TYRANIDS, AELDARI, ORK, HERETIC ASTARTES, NECRONS or T'AU EMPIRE."
   },
+  "28eeed8a861c": {
+    "name": "To Slay the Warmaster",
+    "kind": "ability",
+    "plain": "Instead of attacking in that fight, roll off with your opponent; if you win, one enemy model you pick suffers D3+3 mortal wounds. That model must be an enemy INFANTRY CHARACTER or MONSTER CHARACTER model in Engagement Range of this model, and you can only pick this Death Vision when at least one such model is in Engagement Range of it."
+  },
   "29fc57c95ec2": {
     "name": "Master of the Vanguard",
     "kind": "ability",
@@ -234,10 +239,20 @@
     "kind": "ability",
     "plain": "Your <CHAPTER> CORE and <CHAPTER> CHARACTER units can re-roll charge rolls while they are within 6\" of this WARLORD."
   },
+  "de30f46220ec": {
+    "name": "On the Bridge of the Vengeful Spirit",
+    "kind": "ability",
+    "plain": "Until that fight is resolved, this model gets 1 extra attack for every 5 enemy models within 6\" of it, and can re-roll its hit rolls. You can only pick this Death Vision when this model can see an enemy INFANTRY CHARACTER or MONSTER CHARACTER model."
+  },
   "e3cb874e7b3e": {
     "name": "Rites of War",
     "kind": "ability",
     "plain": "Your <CHAPTER> CORE and <CHAPTER> CHARACTER units have the Objective Secured ability while they are within 6\" of this WARLORD."
+  },
+  "e46ab1521a30": {
+    "name": "The Grace of the Angel",
+    "kind": "ability",
+    "plain": "Until the end of the turn, this model gets a 3+ invulnerable save. You can only pick this Death Vision when an enemy INFANTRY CHARACTER or MONSTER CHARACTER model is in Engagement Range of this model."
   },
   "e9d9955ac1f6": {
     "name": "Stealthy",

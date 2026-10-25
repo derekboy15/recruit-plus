@@ -3,9 +3,9 @@ import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, test } from 'vitest';
 import { loadGameData } from '../src/bsdata/gamedata';
-import { attachInfoPlain, emitInfoFile, infoTextKeys, type TierOf } from '../src/info';
-import type { DataIndex, InfoFile } from '../src/model/types';
-import { textKey } from '../src/plain/collect';
+import { attachInfoPlain, attachOptionStratagems, emitInfoFile, infoTextKeys, type OptionStratagem, type TierOf } from '../src/info';
+import type { CatalogueOut, DataIndex, InfoFile } from '../src/model/types';
+import { officialFor, textKey } from '../src/plain/collect';
 import type { CoverageReport, PlainStore } from '../src/plain/store';
 import { buildScope, resolve } from '../src/roster/scope';
 import type { RosterFile } from '../src/roster/types';
@@ -17,7 +17,9 @@ describe('info fixture', () => {
 
   test('the file is keyed by entry id', () => {
     expect(faction).toMatchObject({ schema: 1, slug: 'info-faction' });
-    expect(Object.keys(faction.entries).sort()).toEqual(['el-own', 'se-dyn', 'se-gun', 'se-trait', 'sg-traits']);
+    expect(Object.keys(faction.entries).sort()).toEqual(
+      ['el-aor', 'el-hero-wl', 'el-lib-marker', 'el-own', 'se-base', 'se-dc', 'se-dyn', 'se-gun', 'se-marker', 'se-other', 'se-own', 'se-trait', 'sg-traits'],
+    );
   });
 
   test('a rule in a linked library resolves, and a hidden rule or link is still read', () => {
@@ -51,6 +53,49 @@ describe('info fixture', () => {
   test('units, models, links to them and entries without info are left out; an empty rule is dropped', () => {
     for (const id of ['se-unit', 'se-model', 'el-unit', 'se-nothing', 'el-relic', 'el-dyn', 'sg-shared', 'se-honour']) expect(faction.entries[id]).toBeUndefined();
     expect(faction.entries['se-trait'].rules?.some((r) => r.name === 'Empty')).toBe(false);
+  });
+
+  // Plan F2: an option with no text of its own takes what its selection reveals (hidden while its count is 0).
+  const names = (id: string) => [...(faction.entries[id]?.profiles ?? []), ...(faction.entries[id]?.rules ?? [])].map((x) => x.name);
+
+  test('a marker option takes the weapon profile its selection reveals', () => {
+    expect(names('se-marker')).toContain('Marker gun');
+  });
+
+  test('the profile a relic hides is not attached to it', () => {
+    expect(names('se-marker')).not.toContain('Base gun');
+  });
+
+  test('a reveal inside a condition group attaches', () => {
+    expect(names('se-marker')).toContain('Marker rule');
+  });
+
+  test('a reveal conditioned on another option does not attach', () => {
+    expect(names('se-marker')).not.toContain('Other rule');
+    expect(names('se-other')).toEqual(['Other rule']);
+  });
+
+  test('an option with text of its own gains nothing from reveals', () => {
+    expect(faction.entries['se-own']).toEqual({ rules: [{ name: 'Own rule', text: 'This option has a rule of its own.' }] });
+  });
+
+  test("a library marker revealed in the faction attaches to the faction's link, not twice", () => {
+    expect(names('el-lib-marker')).toEqual(['Library marker rule']);
+    expect(library.entries['se-lib-marker']).toBeUndefined();
+  });
+
+  test("a unit's own gift attaches to that unit's link, not to the shared option or to other units' links", () => {
+    expect(names('el-hero-wl')).toEqual(['Hero gift']);
+    expect(faction.entries['se-warlord']).toBeUndefined();
+    expect(faction.entries['el-knight-wl']).toBeUndefined();
+  });
+
+  test("a reveal that names a link's id attaches to that link, the rule named like the option first", () => {
+    expect(names('el-aor')).toEqual(['Pact', 'Aaa other']);
+  });
+
+  test('revealed abilities come before other kinds of profile', () => {
+    expect(names('se-dc')).toEqual(['Rage', 'A vision']);
   });
 
   test("a library's own options are in its own file", () => {
@@ -121,6 +166,31 @@ describe('attachInfoPlain', () => {
   });
 });
 
+describe('attachOptionStratagems', () => {
+  const cats = [
+    { slug: 'aeldari-craftworlds', stratagems: [{ id: 's1', name: 'Treasures of the Aeldari', text: 'Use this Stratagem before the battle.', amended: 'It costs 2CP.' }] },
+  ] as unknown as CatalogueOut[];
+  const override: OptionStratagem = {
+    catalogueName: 'Aeldari - Aeldari Library',
+    entryId: 'm1',
+    stratagem: { catalogue: 'aeldari-craftworlds', name: 'Treasures of the Aeldari' },
+    source: 'test',
+  };
+  const slugOf = (name: string) => (name === 'Aeldari - Aeldari Library' ? 'aeldari-aeldari-library' : `no file for ${name}`);
+  const file = (): InfoFile => ({ schema: 1, slug: 'aeldari-aeldari-library', entries: {} });
+
+  test("gives a marker option the text of the Stratagem it buys, amendment included", () => {
+    const f = file();
+    attachOptionStratagems([f], [override], cats, slugOf);
+    expect(f.entries.m1).toEqual({ rules: [{ name: 'Treasures of the Aeldari', text: officialFor('Use this Stratagem before the battle.', 'It costs 2CP.') }] });
+  });
+
+  test('throws on an unknown Stratagem or catalogue', () => {
+    expect(() => attachOptionStratagems([file()], [{ ...override, stratagem: { catalogue: 'aeldari-craftworlds', name: 'Nope' } }], cats, slugOf)).toThrow(/Nope/);
+    expect(() => attachOptionStratagems([file()], [{ ...override, catalogueName: 'Unknown' }], cats, slugOf)).toThrow(/Unknown/);
+  });
+});
+
 describe('generated info files', () => {
   const GEN = join(__dirname, '..', 'generated');
   const INFO = join(GEN, 'info');
@@ -186,6 +256,41 @@ describe('generated info files', () => {
     }
   });
 
+  test('options that show only a name take the text their selection reveals', () => {
+    const has = (slug: string, id: string, name: string | null) => {
+      const e = info(slug).entries[id];
+      const all = [...(e?.profiles ?? []), ...(e?.rules ?? [])].map((x) => x.name);
+      return name === null ? all.length > 0 : all.includes(name);
+    };
+    const expected: [string, string, string | null][] = [
+      ['chaos-chaos-knights', '253c-8df9-6fb9-8cee', 'The Diamonas'],
+      ['chaos-chaos-knights', '20f6-3a9c-732b-72a7', 'The Teeth That Hunger'],
+      ['chaos-chaos-knights', '058d-e731-d4bd-092c', 'The Gauntlet of Ascension'],
+      ['chaos-death-guard', 'e06c-eb49-b5e6-f07a', 'Torrent of Putrefaction'],
+      ['chaos-chaos-space-marines', '2eb6-087d-4893-3167', 'Techinfernal Loci'],
+      // Speed Freeks Speed Mob is defined in the game system; Orks links to it, so its revealed text is under the link.
+      ['orks', 'd7bd-1e4a-7ce9-0234', 'Adrenaline Junkies'],
+      // Death Company upgrades reveal their rules inside each character, so they sit on that character's own link.
+      ['imperium-space-marines', '4315-8d89-cec2-0d76', 'Death Visions'],
+    ];
+    for (const [slug, id, name] of expected) expect(has(slug, id, name), `${slug} ${id} ${name ?? '(any text)'}`).toBe(true);
+    // A Warlord gift sits in one unit: Imotekh's Grand Strategist is on his own Warlord link, not on every Necron's.
+    expect(info('necrons').entries['8056-ce75-9ad4-f269']).toBeUndefined();
+    expect(has('necrons', 'd4bc-5c63-9182-ef69', 'Grand Strategist')).toBe(true);
+    // A reveal naming the link's id: AdMech's Skitarii Veteran Cohort Army of Renown.
+    expect(has('imperium-adeptus-mechanicus', '7967-3985-9e3c-e265', 'Stealth Optimisation')).toBe(true);
+    // The rule named like the option leads (the builder's summary); abilities lead other profile kinds.
+    expect(info('orks').entries['d7bd-1e4a-7ce9-0234'].rules?.[0].name).toBe('Speed Freeks Speed Mob');
+    expect(info('imperium-space-marines').entries['4315-8d89-cec2-0d76'].profiles?.[0].name).toBe('Death Visions');
+    const diamonas = info('chaos-chaos-knights').entries['253c-8df9-6fb9-8cee'].profiles!.find((p) => p.name === 'The Diamonas')!;
+    expect(diamonas.type).toBe('Weapon');
+  });
+
+  test("the Treasures of the Aeldari relic shows the Stratagem it buys, in plain English", () => {
+    const rule = info('aeldari-aeldari-library').entries['8ca6-6aeb-178c-207e']?.rules?.find((r) => r.name === 'Treasures of the Aeldari');
+    expect(rule?.plain).toEqual(expect.any(String));
+  });
+
   test('every info file is within 150 kB gzip', () => {
     for (const f of readdirSync(INFO)) expect(gzipSync(readFileSync(join(INFO, f))).length, f).toBeLessThanOrEqual(150_000);
   });
@@ -197,8 +302,10 @@ describe('generated info files', () => {
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
     // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
     expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
-    // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts).
-    expect(sum(report.options)).toEqual({ total: 3416, written: 3416 });
+    // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
+    // gave marker options the text their selection reveals (3,416 -> 3,431) and the Treasures of the Aeldari relic its
+    // Stratagem (3,434 once AdMech's Army of Renown and per-unit links were added in review).
+    expect(sum(report.options)).toEqual({ total: 3434, written: 3434 });
     expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

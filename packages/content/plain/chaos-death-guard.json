@@ -442,7 +442,7 @@
   "7b8485562d08": {
     "name": "Torrent of Putrefaction",
     "kind": "ability",
-    "plain": "Whenever this model successfully manifests a psychic power, look at its Psychic test: if it was 7 or more, D3 mortal wounds are inflicted on the nearest enemy unit within 12\"; if it was lower, 1 mortal wound is inflicted on the nearest enemy unit within 6\" instead."
+    "plain": "Each time this model successfully manifests a psychic power with a Psychic test of 7 or more, the nearest enemy unit within 12\" takes D3 mortal wounds. If it manifests a power on a lower result, the nearest enemy unit within 6\" takes 1 mortal wound instead."
   },
   "7c7d32eb2e25": {
     "name": "Raiment of Atrophy",

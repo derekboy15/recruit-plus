@@ -4,6 +4,7 @@
     <catalogueLink id="cl-i" name="Info Library" targetId="cat-ilib" type="catalogue" importRootEntries="false"/>
   </catalogueLinks>
   <entryLinks>
+    <entryLink id="el-aor" name="Army of Renown - Pact" hidden="false" targetId="se-lib-aor" type="selectionEntry"/>
     <entryLink id="el-unit" name="Lords" hidden="false" targetId="se-unit" type="selectionEntry">
       <infoLinks>
         <infoLink id="il-el-unit" name="Combi Weapon" hidden="false" targetId="rule-sys" type="rule"/>
@@ -74,6 +75,104 @@
       <infoLinks>
         <infoLink id="il-dyn" name="Novokh" hidden="false" targetId="ig-dyn" type="infoGroup"/>
       </infoLinks>
+    </selectionEntry>
+    <!-- Plan F2: options with no text of their own take the text their selection reveals. -->
+    <selectionEntry id="se-knight" name="Knight" hidden="false" type="unit">
+      <rules>
+        <rule id="r-marker" name="Marker rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditionGroups><conditionGroup type="or"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/><condition field="selections" scope="roster" value="1.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-other" type="atLeast"/></conditions></conditionGroup></conditionGroups></modifier></modifiers>
+          <description>The bearer re-rolls hit rolls of 1.</description>
+        </rule>
+        <rule id="r-other" name="Other rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-other" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Only with the other option.</description>
+        </rule>
+        <rule id="r-own-reveal" name="Own reveal" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-own" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Revealed by an option that has text of its own.</description>
+        </rule>
+        <rule id="r-lib-reveal" name="Library marker rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-lib-marker" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Revealed in the faction by a library marker.</description>
+        </rule>
+      </rules>
+      <selectionEntries>
+        <selectionEntry id="se-base" name="Laser destructor" hidden="false" type="upgrade">
+          <profiles>
+            <profile id="p-base" name="Base gun" hidden="false" typeId="pt-weapon" typeName="Weapon">
+              <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="1.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/></conditions></modifier></modifiers>
+              <characteristics>
+                <characteristic name="Range" typeId="c-r">72&quot;</characteristic>
+                <characteristic name="S" typeId="c-s">14</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="p-marker-gun" name="Marker gun" hidden="false" typeId="pt-weapon" typeName="Weapon">
+              <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/></conditions></modifier></modifiers>
+              <characteristics>
+                <characteristic name="Range" typeId="c-r">72&quot;</characteristic>
+                <characteristic name="S" typeId="c-s">16</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <entryLinks>
+        <entryLink id="el-lib-marker" name="Relic: The Library Marker" hidden="false" targetId="se-lib-marker" type="selectionEntry"/>
+        <entryLink id="el-knight-wl" name="Warlord" hidden="false" targetId="se-warlord" type="selectionEntry"/>
+      </entryLinks>
+    </selectionEntry>
+    <selectionEntry id="se-hero" name="Lord Hero" hidden="false" type="unit">
+      <profiles>
+        <profile id="p-hero-gift" name="Hero gift" hidden="false" typeId="pt-abilities" typeName="Abilities">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="parent" value="1.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="se-warlord" type="lessThan"/></conditions></modifier></modifiers>
+          <characteristics>
+            <characteristic name="Description" typeId="c-desc">If this model is your WARLORD, you gain 2 Command points.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule id="r-aor-other" name="Aaa other" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="el-aor" type="equalTo"/></conditions></modifier></modifiers>
+          <description>A unit rule the Army of Renown also reveals.</description>
+        </rule>
+        <rule id="r-aor-pact" name="Pact" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="el-aor" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Every unit in your army gains the PACT keyword.</description>
+        </rule>
+      </rules>
+      <entryLinks>
+        <entryLink id="el-hero-wl" name="Warlord" hidden="false" targetId="se-warlord" type="selectionEntry"/>
+      </entryLinks>
+      <infoGroups>
+        <infoGroup id="ig-dc" name="Death Company Rules" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="se-dc" type="equalTo"/></conditions></modifier></modifiers>
+          <profiles>
+            <profile id="p-dc-vision" name="A vision" hidden="false" typeId="pt-vision" typeName="Death Vision">
+              <characteristics>
+                <characteristic name="Description" typeId="c-desc">Once per battle, this model fights twice.</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="p-dc-rage" name="Rage" hidden="false" typeId="pt-abilities" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="c-desc">This model gains the DEATH COMPANY keyword.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </infoGroup>
+      </infoGroups>
+      <selectionEntries>
+        <selectionEntry id="se-dc" name="Death Company Hero" hidden="false" type="upgrade"/>
+      </selectionEntries>
+    </selectionEntry>
+    <selectionEntry id="se-warlord" name="Warlord" hidden="false" type="upgrade"/>
+    <selectionEntry id="se-marker" name="Relic: The Marker" hidden="false" type="upgrade"/>
+    <selectionEntry id="se-other" name="Other option" hidden="false" type="upgrade"/>
+    <selectionEntry id="se-own" name="Army of Renown: Own" hidden="false" type="upgrade">
+      <rules>
+        <rule id="r-own" name="Own rule" hidden="false">
+          <description>This option has a rule of its own.</description>
+        </rule>
+      </rules>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>

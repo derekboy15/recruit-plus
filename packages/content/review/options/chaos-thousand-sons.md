@@ -16,3 +16,11 @@ Sample: 10 option texts (seed options:chaos-thousand-sons)
 
 Reviewer: a fresh subagent that drafted none of these texts. 2 of 10 fixed.
 Separately, a scan with the builder's own summary logic flagged 15 more summaries in this shard (psychic powers that only picked a target); they were rewritten and read by a further fresh reviewer.
+
+## Plan F2 additions (25 Oct)
+
+Plan F2 gave the Warpmeld Pact Army of Renown its revealed text, which put this text in the shard's sample. Reviewer: a fresh subagent.
+
+| Key | Name | Tier | Verdict | Note |
+|---|---|---|---|---|
+| 3aeed7bed3c6 | Touched by Tzeentch | 1 | FIXED | first bullet was the official wording word for word, so the builder labelled the Army of Renown's summary "Official wording"; reworded (meaning unchanged) |

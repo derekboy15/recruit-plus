@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { BattlefieldRole, FactionGroup, UnitOut } from '../model/types';
 import type { CoreStratagem, StratagemDetail, StratagemExclusion, StratagemFaction } from '../extract/stratagems';
+import type { OptionStratagem } from '../info';
 import type { AddedConstraint, ConstraintOverride, CostOverride, FactionKeywordOverride, ModifierRemoval } from '../roster/emit';
 import { htmlToText, normalizeName } from '../text';
 import type { Row, Wahapedia } from '../wahapedia/load';
@@ -41,6 +42,8 @@ export interface Overrides {
   stratagemDetails: StratagemDetail[];
   /** The core stratagems, in order (overrides/core-stratagems.json). */
   coreStratagems: CoreStratagem[];
+  /** Options BattleScribe leaves without text, given the Stratagem they buy (overrides/option-stratagems.json). */
+  optionStratagems: OptionStratagem[];
 }
 
 export function loadOverrides(dir: string): Overrides {
@@ -59,6 +62,7 @@ export function loadOverrides(dir: string): Overrides {
     excludedStratagems: read('stratagems.json'),
     stratagemDetails: read('stratagem-details.json'),
     coreStratagems: read('core-stratagems.json'),
+    optionStratagems: read('option-stratagems.json'),
   };
 }
 

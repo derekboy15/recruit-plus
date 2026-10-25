@@ -1,0 +1,12 @@
+[
+  {
+    "catalogueName": "Aeldari - Aeldari Library",
+    "entryId": "8ca6-6aeb-178c-207e",
+    "entryName": "Treasures of the Aeldari Relic",
+    "stratagem": {
+      "catalogue": "aeldari-craftworlds",
+      "name": "Treasures of the Aeldari"
+    },
+    "source": "BSData v9.8.0's Treasures of the Aeldari Relic is a marker with no profile or rule; the Stratagem it buys is Wahapedia's Treasures of the Aeldari (Craftworlds and Harlequins, the same text)."
+  }
+]
