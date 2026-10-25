@@ -109,6 +109,11 @@
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the NECRONS keyword: pick one NECRONS CHARACTER model in your army (not a C'TAN SHARD model) and give it one Warlord Trait it is allowed to have. That model counts as your WARLORD only for that Warlord Trait. Every Warlord Trait in your army must be different (re-roll duplicates if generating them at random), and this Stratagem can't give a model a second Warlord Trait. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
+  "2067bc06a367": {
+    "name": "Blood-Fuelled Fury",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the attack's normal damage."
+  },
   "209301605138": {
     "name": "Death Descending",
     "kind": "ability",
