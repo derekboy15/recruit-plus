@@ -43,4 +43,7 @@ test('every option spot-check record covers its sample with no failures', () => 
   expect(problems).toEqual([]);
 });
 
-test.todo('every shard with option texts has an option spot-check record (Plan F Task 9 turns this on)');
+test('every shard with option texts has an option spot-check record', () => {
+  const owners = [...new Set(texts.map((t) => t.shard))].sort();
+  expect(owners.filter((shard) => !existsSync(join(REVIEW, `${shard}.md`)))).toEqual([]);
+});
