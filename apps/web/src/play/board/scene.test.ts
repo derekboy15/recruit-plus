@@ -92,11 +92,13 @@ describe('objective names', () => {
     return { ...s, setup: { ...s.setup, objectives: objectives.map((o, i) => ({ ...o, pos: { x: 5 + i, y: 5 } })) } };
   };
 
-  test('objectives without a label show their id', () => {
-    expect(buildScene(withObjectives([{ id: 'nw' }]), ui).objectives.map((o) => o.name)).toEqual(['nw']);
+  test('objectives with only an id are numbered 1–n in setup order (LE9)', () => {
+    expect(buildScene(withObjectives([{ id: 'a' }, { id: 'b' }]), ui).objectives.map((o) => o.name)).toEqual(['1', '2']);
+    expect(buildScene(withObjectives([{ id: 'n1', label: 'North' }, { id: 'n2' }]), ui).objectives.map((o) => o.name)).toEqual(['North', '2']);
   });
 
-  test('a labelled objective shows its label', () => {
-    expect(buildScene(withObjectives([{ id: 'nw', label: 'ne' }]), ui).objectives.map((o) => o.name)).toEqual(['ne']);
+  test('a labelled objective shows its label; a compass code from a turned map is numbered', () => {
+    expect(buildScene(withObjectives([{ id: 'nw', label: 'Relic' }]), ui).objectives.map((o) => o.name)).toEqual(['Relic']);
+    expect(buildScene(withObjectives([{ id: 'a' }, { id: 'nw', label: 'ne' }]), ui).objectives.map((o) => o.name)).toEqual(['1', '2']);
   });
 });

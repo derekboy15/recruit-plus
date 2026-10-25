@@ -1,6 +1,7 @@
 /** The Morale phase: units that lost models this turn test (the engine runs the roll and Combat Attrition). */
 import { leadership, needsMoraleTest, type Problem } from '@recruit/engine';
 import type { PanelProps } from './types';
+import { PinAction } from '../game/actionBar';
 
 export function MoralePanel({ sb, ui }: PanelProps) {
   const s = sb.state;
@@ -30,9 +31,11 @@ export function MoralePanel({ sb, ui }: PanelProps) {
           </div>
         );
       })}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: s.active }))}>
-        End Morale phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: s.active }))}>
+          End Morale phase
+        </button>
+      </PinAction>
     </section>
   );
 }

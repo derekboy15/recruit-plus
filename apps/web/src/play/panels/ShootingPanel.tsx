@@ -16,6 +16,7 @@ import { useEffect, useState } from 'react';
 import type { Ring } from '../board/scene';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
+import { PinAction } from '../game/actionBar';
 
 /** One weapon of the unit (all its profiles, R-16) and the models that carry it. */
 export interface WeaponGroup { key: string; name: string; profiles: string[]; modelIds: string[]; first: WeaponProfile }
@@ -167,14 +168,18 @@ export function ShootingPanel({ sb, ui }: PanelProps) {
               </div>
             );
           })}
-          <button type="button" className="btn btn--primary" disabled={!assignmentsFor(groups, choices, s).length} onClick={shoot}>
-            Shoot
-          </button>
+          <PinAction slot="main">
+            <button type="button" className="btn btn--primary" disabled={!assignmentsFor(groups, choices, s).length} onClick={shoot}>
+              Shoot
+            </button>
+          </PinAction>
         </div>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: player }))}>
-        End Shooting phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endPhase', by: player }))}>
+          End Shooting phase
+        </button>
+      </PinAction>
     </section>
   );
 }

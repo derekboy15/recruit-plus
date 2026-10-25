@@ -1,7 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
 /**
- * A short sandbox game at phone and desktop sizes: build a list, start a game with it on both sides, deploy, move,
+ * A short sandbox game at phone and desktop sizes: seed a list, start a game with it on both sides, deploy, move,
  * shoot, play out the turns, undo, reload (the game is saved) and concede. The board is a canvas, so the test finds
  * models and places through the DEV-only `window.__sandbox` hook.
  */
@@ -53,23 +53,24 @@ async function touchTargets(page: Page) {
   expect(small).toEqual([]);
 }
 
-async function buildList(page: Page) {
-  await page.goto('/build/new');
+/** Signs in (dev) and saves a one-unit Necrons Combat Patrol list through the DEV-only `window.__practice` hook. */
+async function seedList(page: Page) {
+  await page.goto('/play');
   await page.getByRole('button', { name: 'Continue (dev)' }).click();
-  await page.getByRole('button', { name: /^Necrons/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: /^Combat Patrol/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: /^Patrol Detachment/ }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: 'Decide later' }).click();
-  await expect(page).toHaveURL(/\/build\/[0-9a-f-]{36}$/);
-  await page.getByRole('button', { name: '+ Add unit' }).first().click();
-  const picker = page.getByRole('dialog', { name: 'Add a unit' });
-  await picker.getByRole('searchbox', { name: 'Search units' }).fill('warriors');
-  await picker.getByRole('button', { name: /^Necron Warriors/ }).click();
-  await page.getByRole('dialog', { name: 'Necron Warriors' }).getByRole('button', { name: 'Done' }).click();
-  await expect(page.getByRole('meter', { name: 'Points' })).toContainText(/^1\d\d \/ 500 pts/);
+  await expect(page).toHaveURL(/\/play$/);
+  await expect
+    .poll(() => page.evaluate(() => typeof (window as unknown as { __practice?: unknown }).__practice))
+    .toBe('object');
+  await page.evaluate(() =>
+    (window as unknown as { __practice: { seedList(spec: unknown): Promise<string> } }).__practice.seedList({
+      catalogue: 'necrons',
+      name: 'Necrons Combat Patrol',
+      size: 'combat-patrol',
+      units: ['Necron Warriors'],
+    }),
+  );
+  await page.reload();
+  await expect(page.getByRole('link', { name: 'New game' })).toBeVisible();
 }
 
 /** Ends phases and steps (passing the device and taking Morale tests) until it is the other player's turn. */
@@ -102,7 +103,7 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
   test.setTimeout(240_000);
   page.setDefaultTimeout(15_000);
   const project = testInfo.project.name;
-  await buildList(page);
+  await seedList(page);
 
   // A new game with the same list on both sides.
   await page.goto('/play');
@@ -134,11 +135,31 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
     }
     await deploy.click();
   }
+  // Little in the panel (who goes first, the faction rules folded away): the Actions bar still sits at the panel's
+  // bottom, not halfway up.
+  await handOver(page);
+  await page.locator('.game__panel summary', { hasText: 'Faction rules for this moment' }).click();
+  const barBox = (await page.getByRole('group', { name: 'Actions' }).boundingBox())!;
+  const panelBox = (await page.locator('.game__panel').boundingBox())!;
+  expect(Math.abs(barBox.y + barBox.height - (panelBox.y + panelBox.height))).toBeLessThanOrEqual(1);
+  await page.locator('.game__panel summary', { hasText: 'Faction rules for this moment' }).click();
   await press(page, 'Roll off');
   const chooser = page.locator('.game__panel').getByRole('button', { name: /goes first$/ });
   if (await chooser.first().isVisible()) await press(page, /\(Player 1\) goes first$/);
   await press(page, 'Start the battle');
   await expect(page.getByRole('banner', { name: 'Game status' })).toContainText('Round 1 · Command');
+
+  // The next step is on screen without scrolling (the pinned Actions bar), and on a phone the board has the map's shape.
+  await handOver(page);
+  const endCommand = page.getByRole('group', { name: 'Actions' }).getByRole('button', { name: 'End Command phase' });
+  const endBox = (await endCommand.boundingBox())!;
+  expect(endBox.y + endBox.height).toBeLessThanOrEqual(page.viewportSize()!.height);
+  if (project === 'mobile') {
+    const { board } = ((await state(page)) as SandboxState & { setup: { board: { w: number; h: number } } }).setup;
+    const boardBox = (await page.locator('.game__board').boundingBox())!;
+    expect(Math.abs(boardBox.width / boardBox.height / (board.w / board.h) - 1)).toBeLessThan(0.02);
+  }
+  await noSidewaysScroll(page);
 
   // The first player's turn: move the Warriors 4" towards the enemy and shoot.
   const first = (await state(page)).active;
@@ -215,7 +236,7 @@ test('play a short sandbox game: deploy, move, shoot, undo, reload and concede',
 test('a real mission from the table companion data sets the board: Strike Force, Recover the Relics', async ({ page }, testInfo) => {
   test.setTimeout(120_000);
   page.setDefaultTimeout(15_000);
-  await buildList(page);
+  await seedList(page);
   await page.goto('/play');
   await page.getByRole('link', { name: 'New game' }).click();
   for (const player of ['Player 1', 'Player 2']) await page.getByRole('group', { name: player }).getByRole('radio', { name: /Necrons Combat Patrol/ }).check();
@@ -237,4 +258,17 @@ test('a real mission from the table companion data sets the board: Strike Force,
   expect(Math.max(...ys('B')) <= 30 || Math.min(...ys('B')) >= 30).toBe(true);
   await handOver(page);
   await shot(page, 'real-mission', testInfo.project.name);
+
+  // The narrowest phones: the games list (with this game's card), the setup and the game screen fit 320px.
+  const game = page.url();
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto('/play');
+  await expect(page.getByRole('link', { name: /Necrons Combat Patrol/ }).first()).toBeVisible();
+  await noSidewaysScroll(page);
+  await page.goto('/play/new');
+  await expect(page.getByRole('group', { name: 'Player 1' })).toBeVisible();
+  await noSidewaysScroll(page);
+  await page.goto(game);
+  await expect(page.getByRole('banner', { name: 'Game status' })).toBeVisible();
+  await noSidewaysScroll(page);
 });

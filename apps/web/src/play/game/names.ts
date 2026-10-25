@@ -1,6 +1,7 @@
 import type { GameState, PlayerId } from '@recruit/engine';
 import type { BoardNames } from '../board/BoardSummary';
 import { PHASE_NAMES } from '../GamesPage';
+import { objectiveLabels } from './objectives';
 
 export const armyName = (s: GameState, p: PlayerId) => s.setup.armies.find((a) => a.player === p)?.name ?? `Player ${p === 'A' ? 1 : 2}`;
 
@@ -17,7 +18,11 @@ export function whereText(s: GameState): string {
 export { PHASE_NAMES };
 
 /** Names for the board's screen-reader description. */
-export const boardNames = (s: GameState): BoardNames => ({
-  unit: (id) => s.units[id]?.name ?? id,
-  army: (p) => armyName(s, p),
-});
+export const boardNames = (s: GameState): BoardNames => {
+  const labels = objectiveLabels(s.setup.objectives);
+  return {
+    unit: (id) => s.units[id]?.name ?? id,
+    army: (p) => armyName(s, p),
+    objective: (id) => labels.get(id) ?? id,
+  };
+};

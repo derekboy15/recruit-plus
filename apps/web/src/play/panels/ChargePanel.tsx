@@ -5,6 +5,7 @@ import type { Ring } from '../board/scene';
 import { PlanMove } from './PlanMove';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
+import { PinAction } from '../game/actionBar';
 
 export function ChargePanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -95,14 +96,18 @@ export function ChargePanel(props: PanelProps) {
       {unitId && (
         <div className="play-actions">
           <p className="muted">Tap each enemy unit to charge (within 12"). {targets.length ? `Targets: ${targets.map((t) => s.units[t].name).join(', ')}.` : ''}</p>
-          <button type="button" className="btn btn--primary" disabled={!targets.length} onClick={() => run(sb.act({ type: 'declareCharge', by: player, unitId, targetIds: targets })) && setTargets([])}>
-            Declare charge
-          </button>
+          <PinAction slot="main">
+            <button type="button" className="btn btn--primary" disabled={!targets.length} onClick={() => run(sb.act({ type: 'declareCharge', by: player, unitId, targetIds: targets })) && setTargets([])}>
+              Declare charge
+            </button>
+          </PinAction>
         </div>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player }))}>
-        End Charges
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player }))}>
+          End Charges
+        </button>
+      </PinAction>
     </section>
   );
 }

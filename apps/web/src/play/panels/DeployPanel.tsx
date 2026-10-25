@@ -9,6 +9,7 @@ import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
+import { PinAction } from '../game/actionBar';
 
 const waiting = (s: GameState, p: PlayerId) => unitsOf(s, p).filter((u) => u.location === 'deploying').map((u) => u.id);
 
@@ -80,9 +81,11 @@ export function DeployPanel(props: PanelProps) {
           )}
           {placed && <TurnButtons ui={ui} />}
           {dry && <Problems problems={dry} />}
-          <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && done(sb.act(cmd))}>
-            Deploy {name}
-          </button>
+          <PinAction slot="main">
+            <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && done(sb.act(cmd))}>
+              Deploy {name}
+            </button>
+          </PinAction>
           <div className="play-row">
             <button type="button" className="btn" onClick={() => reserve('strategic')}>
               Strategic Reserves

@@ -9,6 +9,7 @@ import { TurnButtons } from './TurnButtons';
 import type { PanelProps } from './types';
 import { UnitPicker } from './UnitPicker';
 import { useDryRun } from './useDryRun';
+import { PinAction } from '../game/actionBar';
 
 export function ReinforcementsPanel(props: PanelProps) {
   const { sb, ui } = props;
@@ -51,14 +52,18 @@ export function ReinforcementsPanel(props: PanelProps) {
           {!plan || !Object.keys(plan.positions).length ? <p className="muted">Tap where {s.units[unitId].name} should arrive, then drag to adjust.</p> : null}
           {cmd && <TurnButtons ui={ui} />}
           {dry && <Problems problems={dry} />}
-          <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && run(sb.act(cmd))}>
-            Set up {s.units[unitId].name}
-          </button>
+          <PinAction slot="main">
+            <button type="button" className="btn btn--primary" disabled={!dry || dry.length > 0} onClick={() => cmd && run(sb.act(cmd))}>
+              Set up {s.units[unitId].name}
+            </button>
+          </PinAction>
         </>
       )}
-      <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player }))}>
-        End Movement phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => run(sb.act({ type: 'endStep', by: player }))}>
+          End Movement phase
+        </button>
+      </PinAction>
     </section>
   );
 }

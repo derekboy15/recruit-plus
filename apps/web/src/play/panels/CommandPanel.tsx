@@ -2,6 +2,7 @@
 import type { Problem } from '@recruit/engine';
 import { armyName } from '../game/names';
 import type { PanelProps } from './types';
+import { PinAction } from '../game/actionBar';
 
 const possessive = (name: string) => (name.endsWith('s') ? `${name}'` : `${name}'s`);
 
@@ -14,9 +15,11 @@ export function CommandPanel({ sb, ui }: PanelProps) {
       {gained.map((l, i) => (
         <p key={i}>{l.text}</p>
       ))}
-      <button type="button" className="btn btn--primary" onClick={() => ui.setProblems((sb.act({ type: 'endPhase', by: s.active }) as Problem[] | null) ?? [])}>
-        End Command phase
-      </button>
+      <PinAction slot="end">
+        <button type="button" className="btn btn--primary" onClick={() => ui.setProblems((sb.act({ type: 'endPhase', by: s.active }) as Problem[] | null) ?? [])}>
+          End Command phase
+        </button>
+      </PinAction>
     </section>
   );
 }
