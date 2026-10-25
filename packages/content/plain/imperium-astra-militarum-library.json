@@ -1,17 +1,425 @@
 {
+  "030a323bdee2": {
+    "name": "Demolition Charge",
+    "kind": "weapon",
+    "plain": "This weapon has the Blast ability and can be used only once."
+  },
+  "05f2a55f0510": {
+    "name": "Show Them Setel, Show Them Contempt",
+    "kind": "ability",
+    "plain": "Until the start of your next Command phase, this unit's models add 1 to their Leadership and can shrug off mortal wounds on a 5+. Each time one of its models would lose a wound because of a mortal wound, roll a D6: on a 5+, that wound isn't lost."
+  },
+  "074d89f28064": {
+    "name": "Legacy of Kalladius",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's chainsword and uses its own weapon profile. Only a model with a chainsword can take this."
+  },
+  "07f22eabd916": {
+    "name": "Shock and Awe!",
+    "kind": "ability",
+    "plain": "This unit has the Objective Secured ability until your next Command phase ends."
+  },
+  "0b891cc899ad": {
+    "name": "Superior Tactical Training",
+    "kind": "ability",
+    "plain": "The bearer learns one extra type of Orders: when you pick this Enhancement, choose Regimental or Prefectus Orders that it doesn't already know. It then knows those Orders on top of any others it knows."
+  },
+  "0bbdb4d7b536": {
+    "name": "Full Throttle!",
+    "kind": "ability",
+    "plain": "This unit's models get 2\" more Move, and the unit can count as having Remained Stationary when it shoots after Advancing. In detail: their Move characteristic is 2\" higher until your next Movement phase ends; and until your next Shooting phase ends, if this unit Advanced in your previous Movement phase, then when it is picked to shoot, it is treated as having Remained Stationary for the rest of that phase."
+  },
+  "0d2eb4601e33": {
+    "name": "Crassus",
+    "kind": "ability",
+    "plain": "This model can carry up to 35 ASTRA MILITARUM INFANTRY models, though some take extra room. A Heavy Weapon Team or Veteran Heavy Weapon Team model fills the space of 2 models, and an OGRYN model fills the space of 3."
+  },
+  "0eab9afaf6b5": {
+    "name": "Relic of Lost Cadia",
+    "kind": "ability",
+    "plain": "Once per battle, in any Command phase, this Relic can be activated to boost your CADIAN INFANTRY units near the bearer until the end of the turn. When it is, the bearer gains this ability until the turn ends: RELIC OF LOST CADIA (Aura): while one of your CADIAN INFANTRY units is within 6\" of this model, its models' Weapon Skill and Ballistic Skill characteristics are improved by 1, and their Attacks and Leadership characteristics go up by 1. Only a CADIAN model can take this."
+  },
+  "0f08d9bc9953": {
+    "name": "Take Cover!",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, this unit gets Light Cover against each attack allocated to its models, plus Dense Cover if it already has Light Cover. That is, if it is already receiving the benefits of Light Cover against an attack, it gets the benefits of Dense Cover against that attack as well."
+  },
+  "1008a4a56fc0": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "This model knows Regimental Orders and can issue up to two Orders in your Command phase."
+  },
+  "178a861129e4": {
+    "name": "Relic: Refractor Field Generator",
+    "kind": "ability",
+    "plain": "The bearer gains the REFRACTOR FIELD GENERATOR aura: your MILITARUM TEMPESTUS INFANTRY units within 6\" of this model have a 5+ invulnerable save. Only a TEMPESTOR PRIME model can take this."
+  },
+  "1bb15109f706": {
+    "name": "Kurov's Aquila",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can make one of your opponent's Stratagems cost 1 more Command point for the rest of the battle. Use this Relic after your opponent uses a Stratagem other than Command Re-roll; until the battle ends, each later use of that Stratagem costs them 1 extra Command point."
+  },
+  "21a776fc5157": {
+    "name": "Move! Move! Move!",
+    "kind": "ability",
+    "plain": "Until your next Movement phase ends, this unit's models add 2\" to their Move if it makes a Normal Move, and 6\" if it Advances. When it Advances, don't make an Advance roll; the 6\" is added to its models' Move characteristic instead, until the end of the phase."
+  },
+  "23b4ba1739c3": {
+    "name": "Drill Commander (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your MILITARUM TEMPESTUS INFANTRY units is within 6\" of this WARLORD, its models double their Rapid Fire attacks at any range. This replaces the usual Rapid Fire rule: for example, a Rapid Fire 1 weapon makes 2 attacks whatever the distance to the target."
+  },
+  "25315fd16cce": {
+    "name": "Subterranean Assault",
+    "kind": "ability",
+    "plain": "During deployment, you can place this unit underground rather than on the battlefield, and one COMBAT ENGINEER SQUAD unit can go underground alongside it. Later, in the Reinforcements step of any one of your Movement phases, you can bring this unit and any unit that went underground with it onto the battlefield: set them up within 3\" of each other, anywhere more than 9\" from enemy models."
+  },
+  "28706bf0493c": {
+    "name": "Relic: The Emperor's Fury",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's plasma pistol and uses its own weapon profile. Only a model with a plasma pistol can take this."
+  },
+  "2a66fbbf12a3": {
+    "name": "The Emperor's Benediction",
+    "kind": "ability",
+    "plain": "This Relic replaces a COMMISSAR's bolt pistol and uses its own weapon profile. Only a COMMISSAR with a bolt pistol can take this."
+  },
+  "2c69d988baf0": {
+    "name": "Arvus Lighter",
+    "kind": "ability",
+    "plain": "This model has room for 12 RENEGADES AND HERETICS INFANTRY models, but it can't carry OGRYNS. Every Heavy Weapon Team takes up the space of two other models."
+  },
+  "308583e7830f": {
+    "name": "Order of the Bastium Stellaris",
+    "kind": "ability",
+    "plain": "Attacks made against the bearer's unit always fail on an unmodified wound roll of 1-3, whatever abilities the attacking weapon or model has. Only an INFANTRY model can take this."
+  },
+  "30d0e60bbda8": {
+    "name": "Null Coat",
+    "kind": "ability",
+    "plain": "The bearer can try to deny one psychic power in your opponent's Psychic phase, just as a PSYKER would, and you add 1 to Deny the Witch tests taken for it. Only a TEMPESTOR PRIME or COMMISSAR model can take this."
+  },
   "33a13406517d": {
     "name": "Vehicle Squadron",
     "kind": "rule",
     "plain": "When this unit is first set up, every model in it must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit for all rules purposes."
+  },
+  "42eca9b66c7c": {
+    "name": "Armour of Graf Toschenko",
+    "kind": "ability",
+    "plain": "The bearer's Wounds characteristic goes up by 1, and it has a Save characteristic of 2."
+  },
+  "45dc9b43ad24": {
+    "name": "Death Mask of Ollanius",
+    "kind": "ability",
+    "plain": "Every model in the bearer's unit gets a 4+ invulnerable save."
+  },
+  "4aa663552508": {
+    "name": "At All Costs!",
+    "kind": "ability",
+    "plain": "This unit gains the Objective Secured ability until the end of your next Command phase. If it already had that ability, then until the end of your next Command phase, its models count as one additional model when working out who controls an objective marker."
+  },
+  "4c8da5a50644": {
+    "name": "54th Psian Jackals",
+    "kind": "ability",
+    "plain": "In your Shooting phase, every model destroyed by an attack from a model with this doctrine counts as 2 destroyed models for the Morale phase that follows."
+  },
+  "4d390cdf0c51": {
+    "name": "Blitz Them!",
+    "kind": "ability",
+    "plain": "Until the end of your next Charge phase, this unit adds 1 to its charge rolls and can inflict D3 mortal wounds on an enemy unit after charging. If it makes a charge move this turn, pick one enemy unit within its Engagement Range and roll a D6, with 1 added to the roll when this unit has the Dozer Blade keyword. On a 4+, the picked unit suffers D3 mortal wounds."
+  },
+  "509078b4f9f5": {
+    "name": "The Barbicant's Key",
+    "kind": "ability",
+    "plain": "Once per battle, in your Movement phase, the bearer can lift its unit off the battlefield and set it back up anywhere more than 9\" away from all enemy models. If it does, you can re-roll charge rolls for the bearer's unit until that turn ends. Only an INFANTRY model can take this."
+  },
+  "5140041e685f": {
+    "name": "Remain Vigilant!",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, enemy units arriving as Reinforcements can't be placed within 12\" of this unit, and it can Hold steady when charged. When an enemy unit declares a charge against this unit, it can Hold steady as long as it isn't within Engagement Range of any other enemy units. If it does, then for the rest of that phase, its models' Overwatch attacks hit on an unmodified roll of 5+, not just 6."
+  },
+  "55a7b5111fc1": {
+    "name": "Old Grudges",
+    "kind": "ability",
+    "plain": "Pick an enemy unit at the start of the first battle round; your PLATOON or BATTLE TANK SQUADRON units within 6\" of this WARLORD add 1 to wound rolls against it. For the rest of the battle, this WARLORD has this ability: OLD GRUDGES (Aura): while one of your PLATOON or BATTLE TANK SQUADRON units is within 6\" of this WARLORD, each time one of its models attacks the picked enemy unit, add 1 to the wound roll."
+  },
+  "573bdce6b14c": {
+    "name": "Storm Troopers",
+    "kind": "ability",
+    "plain": "When a model with this doctrine shoots a target at half range or less, every hit roll of 6+ you make for it earns an extra shot at that target with that weapon. Those bonus shots can't themselves earn any more extra shots."
+  },
+  "5a2cad9fc851": {
+    "name": "Melta Cutter Drill",
+    "kind": "weapon",
+    "plain": "This weapon automatically hits a BUILDING, and its attacks that target a VEHICLE unit have a Damage characteristic of 6."
+  },
+  "5ad7139646c3": {
+    "name": "Precision Targeting (Aura)",
+    "kind": "ability",
+    "plain": "Aura: targets of ranged attacks by your MILITARUM TEMPESTUS INFANTRY units within 6\" of this WARLORD get no benefit of cover against those attacks."
+  },
+  "5ce20832c55d": {
+    "name": "32nd Thetoid Eagles",
+    "kind": "ability",
+    "plain": "Ranged attacks by models with this doctrine against a unit within half range score 1 extra hit on an unmodified hit roll of 6."
+  },
+  "5df658d41180": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "This model knows Regimental Orders and can issue one Order in your Command phase, but only to CATACHAN JUNGLE FIGHTERS units. Through the Regimental Tactics ability, the only other units you can pick to also be affected by that Order are your CATACHAN JUNGLE FIGHTERS units within 6\" of the unit the Order was first issued to."
+  },
+  "61d78a9e1553": {
+    "name": "Born Soldiers",
+    "kind": "ability",
+    "plain": "Ranged attacks by models with this doctrine wound automatically on an unmodified hit roll of 6, and its Officers lend their Leadership to nearby Platoons. Units with this doctrine also get the Born Soldiers keyword, and every Officer with this doctrine has this aura: Born Soldiers (Aura): while one of your Platoon units is within 6\" of this model, its models use this Officer's Leadership characteristic rather than their own."
+  },
+  "639597eb9606": {
+    "name": "Power Klaw",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for every attack made with this weapon."
+  },
+  "672193f5511e": {
+    "name": "Psychic Augment",
+    "kind": "psychic",
+    "plain": "If manifested, pick one of your ASTRA MILITARUM INFANTRY units within 12\" of the psyker: add 1 to its hit rolls until the start of your next Psychic phase."
+  },
+  "7321bd7e952a": {
+    "name": "Gunners, Kill on Sight!",
+    "kind": "ability",
+    "plain": "Until your next Shooting phase ends, this unit's models re-roll hit rolls of 1 for their ranged attacks."
   },
   "743ef35db02c": {
     "name": "Disembarking Officers",
     "kind": "rule",
     "plain": "In your Movement phase, when an OFFICER from your army disembarks from a TRANSPORT model, it can issue Orders as though it were your Command phase once its unit is set up. Orders issued this way never benefit from Regimental Tactics, even if every model in your army has the ASTRA MILITARUM keyword. An OFFICER cannot do this if the TRANSPORT it disembarked from was destroyed."
   },
+  "7a76bed79b1b": {
+    "name": "Brood Brothers",
+    "kind": "ability",
+    "plain": "Units with this Regimental Doctrine add 2 to their models' Leadership characteristic, and INFANTRY units with it also gain the Unquestioning Loyalty ability."
+  },
+  "7b4c9b671dd0": {
+    "name": "Inferno Bombs",
+    "kind": "ability",
+    "plain": "Once per turn, the bearer can drop one of its remaining inferno bombs, which can deal mortal wounds to units within 9\" of a point it moved over. Right after the bearer has moved, you can pick one point on the battlefield that it crossed this phase. Roll one D6 for every unit within 9\" of that point, subtracting 1 from the roll for a CHARACTER unit (excluding VEHICLE and MONSTER units). On a 4+, the unit rolled for suffers D3 mortal wounds. No inferno bomb can be dropped more than once per battle."
+  },
+  "7b8c08e53736": {
+    "name": "Forwards, for the Emperor!",
+    "kind": "ability",
+    "plain": "This unit can shoot as though it had Remained Stationary even after making a Normal Move or Advancing. Until the end of your next Shooting phase, whenever this unit is picked to shoot after it made a Normal Move or Advanced in your last Movement phase, it counts as having Remained Stationary until that Shooting phase ends."
+  },
+  "7ca54bd6ff9b": {
+    "name": "Front-Line Combatant",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, add 1 to the wound roll, and each unmodified hit roll of 6 scores 2 extra hits."
+  },
   "7e88594eeb43": {
     "name": "Designer's Note (forgeworld)",
     "kind": "rule",
     "plain": "When you add this unit to your army, pick the forgeworld it comes from. Use that name wherever the <FORGEWORLD> keyword appears on this datasheet."
+  },
+  "81b3853c250b": {
+    "name": "Heavy Bombs",
+    "kind": "ability",
+    "plain": "Once per turn, the bearer can drop one of its remaining heavy bombs, which can deal mortal wounds to units within 6\" of a point it moved over. Right after the bearer has moved, you can pick one point on the battlefield that it crossed this phase. Roll one D6 for every unit within 6\" of that point, subtracting 1 from the roll for a CHARACTER unit (excluding VEHICLE and MONSTER units). A roll of 4-5 deals D3 mortal wounds to the unit rolled for, and a 6 deals D6 mortal wounds. No heavy bomb can be dropped more than once per battle."
+  },
+  "83ab02033341": {
+    "name": "Tactical Auto-Reliquary of Tyberius",
+    "kind": "ability",
+    "plain": "In your Command phase, the bearer can issue one extra Order that it knows. Only an OFFICER model can take this."
+  },
+  "8bd7f6fb07b4": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "This model knows Regimental Orders and can issue up to three Orders in your Command phase."
+  },
+  "8d205febd841": {
+    "name": "Get Back in the Fight!",
+    "kind": "ability",
+    "plain": "This unit can shoot or charge (not both) in a turn in which it Fell Back, until your next Command phase starts."
+  },
+  "8faeae2dad1e": {
+    "name": "Uncompromising Prosecution",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your MILITARUM TEMPESTUS units within 9\" of the bearer to get better Armour Penetration at half range. When a model in that unit shoots at a unit within half range, that attack's Armour Penetration improves by 1. Only a MILITARUM TEMPESTUS model can take this."
+  },
+  "8faf7f3ea621": {
+    "name": "Clarion Proclamatus",
+    "kind": "ability",
+    "plain": "When an OFFICER in the bearer's unit issues an Order, you can ignore that Order type's range limit, but the target must then have the VOX-CASTER keyword. Every other rule for issuing Orders still applies. Only a COMMAND SQUAD model with a master vox can take this."
+  },
+  "9200ac4f4f50": {
+    "name": "Whirling Blades",
+    "kind": "ability",
+    "plain": "Against melee attacks, this model gets a 4+ invulnerable save."
+  },
+  "9651a386a358": {
+    "name": "Huge Knife",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 1 extra attack with this weapon."
+  },
+  "9d5c4c519755": {
+    "name": "Artillery and Crew (Rapier Laser Destroyer)",
+    "kind": "ability",
+    "plain": "Each Rapier Laser Destroyer and its crew count as one model for all rules purposes, and the crew must stay within 1\" of their Rapier Laser Destroyer. The crew can't be targeted or attacked on their own, and visibility and every range are measured to and from the Rapier Laser Destroyer model rather than its crew. This unit can't Advance, can never charge or perform a Heroic Intervention, and can't make pile-in or consolidation moves."
+  },
+  "9db0a7eb484e": {
+    "name": "First Rank, Fire! Second Rank, Fire!",
+    "kind": "ability",
+    "plain": "Until your next Shooting phase ends, the lasguns and hot-shot lasguns carried by this unit's models have the Type Heavy 3."
+  },
+  "9e51b3ca140d": {
+    "name": "Lead by Example",
+    "kind": "ability",
+    "plain": "The bearer can give Orders to its own unit, despite the usual rule that OFFICER units can't be picked to receive Orders."
+  },
+  "9f1634120b9a": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "The COLONEL-COMMISSAR IBRAM GAUNT model can issue up to two Orders in your Command phase; it knows both Regimental and Prefectus Orders."
+  },
+  "a40923160a1d": {
+    "name": "Arvus Lighter",
+    "kind": "ability",
+    "plain": "This model has room for 12 ASTRA MILITARUM INFANTRY models, but it can't carry OGRYNS. Every Heavy Weapon Team or Veteran Heavy Weapon Team takes up the space of two other models."
+  },
+  "a4661c1c2797": {
+    "name": "Pinning Fire!",
+    "kind": "ability",
+    "plain": "In your next Shooting phase, this unit can lock its fire onto one visible enemy Infantry unit and pin it by scoring 5 or more hits. The first time this unit is picked to shoot that phase, you can choose one enemy Infantry unit it can see. If you do, this unit's models can only target that enemy unit during the phase, and only while it is an eligible target for them. Should this unit score 5 or more hits against it, the enemy unit becomes pinned until your opponent's next turn ends: while it is pinned, its models' Move characteristic is reduced by 2\"."
+  },
+  "a918b4d53c88": {
+    "name": "Claw of the Desert Tigers",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's power sword or power sabre and uses its own weapon profile. Only a model with a power sword or power sabre can take this."
+  },
+  "aa949e67870b": {
+    "name": "Fix Bayonets!",
+    "kind": "ability",
+    "plain": "Until your next Fight phase ends, this unit's melee attacks add 1 to their hit rolls and improve their Armour Penetration by 1."
+  },
+  "af095aefcdc3": {
+    "name": "Death Mask of Ollanius",
+    "kind": "ability",
+    "plain": "Every model in the bearer's unit gets a 4+ invulnerable save. Only an INFANTRY model can take this."
+  },
+  "b4ad0f8b66e0": {
+    "name": "The Laurels of Command",
+    "kind": "ability",
+    "plain": "Once per battle, when any phase of your opponent's turn begins, the bearer can issue one Order, as if it were your Command phase. The Order must be one the bearer knows and hasn't already issued this battle round, and it must be one of these: Take Cover!, Fix Bayonets!, Remain Vigilant!, At All Costs!, Shock and Awe! or Show Them Steel, Show Them Contempt! Only an OFFICER model can take this."
+  },
+  "b77626f58c21": {
+    "name": "Specialist Operators",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, each Detachment can include at most one of this unit for every COMBAT ENGINEER SQUAD unit in that Detachment."
+  },
+  "bc3aa06a7205": {
+    "name": "Demolition charge",
+    "kind": "weapon",
+    "plain": "The bearer can shoot this weapon just once per battle."
+  },
+  "bcd9de67c426": {
+    "name": "Psy-Sigil of Sanction",
+    "kind": "ability",
+    "plain": "The bearer knows one more psychic power from the Psykana discipline, and it can attempt to manifest one more psychic power in your Psychic phase. Only a PSYKER model can take this."
+  },
+  "bd773d412e4c": {
+    "name": "43rd Iotan Dragons",
+    "kind": "ability",
+    "plain": "Rapid Fire weapons that models with this doctrine are equipped with get 6\" extra Range."
+  },
+  "c183cc2f0886": {
+    "name": "Superior Tactical Training",
+    "kind": "ability",
+    "plain": "This WARLORD learns one extra type of Orders: when you pick this trait, choose Regimental, Prefectus or Mechanized Orders that it doesn't already know. It then knows those Orders on top of any others it knows."
+  },
+  "c37983e144d6": {
+    "name": "Master Tactician",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, you can redeploy up to three of your ASTRA MILITARUM units (but no TITANIC units) wholly within your deployment zone. Take the chosen units off the battlefield, then set them up anywhere on the battlefield wholly within your deployment zone. If your mission uses the Strategic Reserves rules, you can put any of them into Strategic Reserves instead."
+  },
+  "c7fbddeca3d9": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "This model knows Prefectus Orders and can issue one Order in your Command phase. As well as the usual units, it can give Prefectus Orders to your INFANTRY OFFICER and ABHUMAN units, but the Regimental Tactics ability doesn't apply to those Orders."
+  },
+  "c9669e84a0eb": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "The COMMANDER model knows Regimental Orders and can issue one Order in your Command phase."
+  },
+  "c9cbdb1c3cb8": {
+    "name": "Duty and Honour",
+    "kind": "ability",
+    "plain": "Until your next Command phase starts, this unit can perform actions in a turn it Fell Back or Advanced, and can shoot without its actions failing."
+  },
+  "ce012cc9ea11": {
+    "name": "Gatekeeper",
+    "kind": "ability",
+    "plain": "This Relic replaces a TANK COMMANDER's Leman Russ battle cannon and uses its own weapon profile. Only a TANK COMMANDER with a Leman Russ battle cannon can take this."
+  },
+  "cf0bf54a1dac": {
+    "name": "133rd Lambdan Lions",
+    "kind": "ability",
+    "plain": "Weapons carried by models with this doctrine have their Armour Penetration improved by 1, so AP 0 becomes AP -1, for example."
+  },
+  "d1d1e939846b": {
+    "name": "Pound Them to Dust!",
+    "kind": "ability",
+    "plain": "This unit's Blast weapons work out their number of attacks as if the target had twice as many models, until the end of your next Shooting phase. This applies every time this unit is picked to shoot during that time."
+  },
+  "d8432bbfa886": {
+    "name": "Grand Strategist",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, roll a D6 for each Command point you spend on a Stratagem; on a 5+, you get that Command point back."
+  },
+  "dca8c96dc42f": {
+    "name": "Uncompromising Prosectuion (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your MILITARUM TEMPESTUS INFANTRY units within 6\" of this WARLORD get 1 better Armour Penetration on ranged attacks at half range. Each time one of their models shoots at a unit within half range, improve that attack's Armour Penetration characteristic by 1."
+  },
+  "dfc3ace31ff2": {
+    "name": "Lead by Example",
+    "kind": "ability",
+    "plain": "This WARLORD can give Orders to its own unit, despite the usual rule that OFFICER units can't be picked to receive Orders."
+  },
+  "dff83c83483e": {
+    "name": "Commanding Authority",
+    "kind": "ability",
+    "plain": "This model knows Mechanised Orders and can issue one Order in your Command phase."
+  },
+  "e3a01b1cacdc": {
+    "name": "Finial of the Nemrodesh 1st",
+    "kind": "ability",
+    "plain": "The bearer gains the FINIAL OF THE NEMRODESH 1ST aura: enemy models can't ignore wounds lost to ranged attacks by your nearby ASTRA MILITARUM CORE units. While one of your ASTRA MILITARUM CORE units is within 6\" of this model's unit, whenever one of its models makes a ranged attack that is allocated to an enemy model, that enemy model can't use any rules to ignore the wounds it loses. Only a COMMAND SQUAD model with a regimental standard can take this.",
+    "waive": {
+      "FINIAL OF THE NEMRODESH ST": "tokeniser artefact: the checker reads \"1ST\" as the number 1 plus \"ST\"; the plain text keeps the full ability name FINIAL OF THE NEMRODESH 1ST, and the 1 token is matched"
+    }
+  },
+  "ebee1abd9755": {
+    "name": "Take Aim!",
+    "kind": "ability",
+    "plain": "Until your next Shooting phase ends, this unit's ranged attacks add 1 to their hit rolls and improve their Armour Penetration by 1."
+  },
+  "eccfefac0e8e": {
+    "name": "9th Iotan Gorgonnes",
+    "kind": "ability",
+    "plain": "Ranged attacks by INFANTRY models with this doctrine against the closest enemy unit score 1 extra hit on an unmodified hit roll of 6."
+  },
+  "ed6a4601f951": {
+    "name": "Suppression Fire!",
+    "kind": "ability",
+    "plain": "In your next Shooting phase, this unit can lock its fire onto one visible enemy Infantry unit and suppress it by scoring 5 or more hits. The first time this unit is picked to shoot that phase, you can choose one enemy Infantry unit it can see. If you do, this unit's models can only target that enemy unit during the phase, and only while it is an eligible target for them. Should this unit score 5 or more hits against it, the enemy unit becomes suppressed until your opponent's next turn ends: while it is suppressed, each attack its models make has 1 subtracted from its hit roll."
+  },
+  "f28e45180325": {
+    "name": "55th Kappic Eagles",
+    "kind": "ability",
+    "plain": "Models with this doctrine add 1 to hit rolls in a turn they disembarked from a TRANSPORT, and its INFANTRY ignore the Heavy weapon move-and-fire penalty. In detail: INFANTRY models with this doctrine aren't penalised for moving and firing Heavy weapons, and when a model with this doctrine makes an attack in a turn in which it disembarked from a TRANSPORT, you add 1 to that attack's hit roll."
+  },
+  "fa5ad39ed78d": {
+    "name": "Leading from the Front",
+    "kind": "ability",
+    "plain": "As long as this model is within 1\" of any enemy model, every one of your ASTRA MILITARUM units within 6\" of it passes Morale tests automatically."
   }
 }

@@ -1,4 +1,9 @@
 {
+  "01029b0c1989": {
+    "name": "Hacking Advance",
+    "kind": "ability",
+    "plain": "In the Fight phase, every unmodified hit roll of 6 for Gotfret de Montbard's attacks scores 2 hits rather than 1."
+  },
   "035405e2c7a9": {
     "name": "Stonetooth",
     "kind": "ability",
@@ -7,12 +12,17 @@
   "0501e1e1b66c": {
     "name": "Deathstrike Missile",
     "kind": "ability",
-    "plain": "In the Muster Armies step, once you've seen your opponent's army roster, pick one warhead for this model (godspear warhead, plasma barrage warhead or vortex warhead) and note your choice on your army roster."
+    "plain": "In the Muster Armies step, after seeing your opponent's army roster, pick a warhead for this model: godspear, plasma barrage or vortex warhead. Note your choice on your army roster."
   },
   "07cedde59045": {
     "name": "Flanking Manoeuvres",
     "kind": "ability",
     "plain": "During deployment, you can have this unit ride around the flanks rather than placing it on the battlefield. It can then join the battle at the end of any of your Movement phases: set it up with all its models within 7\" of a battlefield edge you choose and more than 9\" from all enemy models."
+  },
+  "087db1d06021": {
+    "name": "Grinding Advance",
+    "kind": "ability",
+    "plain": "This model can fire its turret weapon twice in the following Shooting phase if it Remained Stationary or moved under half speed in its Movement phase. Moving under half speed means moving fewer inches than half its current Move characteristic. Both times, the turret weapon must target the same unit. Turret weapons are the battle cannon, the Conqueror battle cannon, the demolisher cannon, the Eradicator nova cannon, the Executioner plasma cannon, the Exterminator autocannon, the Punisher gatling cannon, the Stygies Vanquisher battle cannon, the twin lascannon and the Vanquisher battle cannon."
   },
   "0bdeb1a97836": {
     "name": "Tanith Camo-cloak",
@@ -47,12 +57,12 @@
   "14394694c6e6": {
     "name": "Defense Searchlight",
     "kind": "ability",
-    "plain": "Whenever this model is chosen to shoot, pick one enemy unit visible to it and within 48\" of it, then pick one of your <REGIMENT> INFANTRY or <REGIMENT> SABRE WEAPONS BATTERY units that hasn't been picked for this ability this turn. Until the end of the phase, ranged attacks made by models in that unit against that enemy unit add 1 to their hit roll."
+    "plain": "Whenever this model is chosen to shoot, pick an enemy unit within 48\"; one of your units adds 1 to its ranged hit rolls against that enemy unit this phase. The enemy unit must be visible to this model and within 48\" of it. The unit that gets the bonus is one you pick from your <REGIMENT> INFANTRY and <REGIMENT> SABRE WEAPONS BATTERY units, and it can't be one already picked for this ability this turn. The bonus lasts until the end of the phase and applies to each ranged attack a model in that unit makes against that enemy unit."
   },
   "198609c8f7dc": {
     "name": "Death Korps Medi-pack",
     "kind": "ability",
-    "plain": "The bearer gains the MEDIC keyword. Once per turn, when a model in the bearer's unit fails a saving throw for the first time that turn, the Damage characteristic of that attack becomes 0."
+    "plain": "Once per turn, the first time a model in the bearer's unit fails a saving throw, change that attack's Damage characteristic to 0. The bearer also gains the MEDIC keyword."
   },
   "1afb23ef39f2": {
     "name": "Stormblade plasma blastgun – supercharge",
@@ -127,7 +137,7 @@
   "309450bbe553": {
     "name": "Brute Shield",
     "kind": "ability",
-    "plain": "The bearer has a 4+ invulnerable save."
+    "plain": "The bearer has an invulnerable save of 4+."
   },
   "3204b0599290": {
     "name": "Aerial Drop",
@@ -137,7 +147,7 @@
   "327174f26bf8": {
     "name": "Explodes (6+/3\"/1)",
     "kind": "ability",
-    "plain": "When this model is reduced to 0 wounds, roll a D6 before you remove it and before any embarked models disembark. On a 6+, every unit within 3\" of it suffers 1 mortal wound as it explodes."
+    "plain": "When this model is reduced to 0 wounds, roll a D6: on a 6+ it explodes, and every unit within 3\" of it suffers 1 mortal wound. Make this roll before you remove the model from the battlefield and before any embarked models disembark."
   },
   "33696ca1ce3f": {
     "name": "Naturally Stealthy",
@@ -184,6 +194,11 @@
     "kind": "ability",
     "plain": "If Colonel-Commissar Ibram Gaunt is in this unit, it automatically passes every Morale test it takes."
   },
+  "4636137aa287": {
+    "name": "Shield of Faith",
+    "kind": "ability",
+    "plain": "In each enemy Psychic phase, Gotfret de Montbard can try to deny one psychic power like a PSYKER, but he rolls a single D6 instead of 2D6. The power is resisted if that roll beats the result of the Psychic test that manifested it."
+  },
   "47084438d0de": {
     "name": "Grav-chute Insertion",
     "kind": "ability",
@@ -193,6 +208,11 @@
     "name": "Colonel Colm Corbec",
     "kind": "ability",
     "plain": "Once per battle round, if Colonel Colm Corbec is in this unit and this unit uses an Astra Militarum or Core Stratagem, that Stratagem costs 1 CP less to use (minimum 0 CP). The reduction applies only to that one use; later uses cost the normal amount."
+  },
+  "47c4078dcb88": {
+    "name": "Emergency Plasma Vents",
+    "kind": "ability",
+    "plain": "Hit rolls of 1 with this model's supercharged plasma cannon don't automatically destroy it; instead it suffers 1 mortal wound for each 1 rolled. Those mortal wounds are suffered once all of the weapon's shots have been resolved."
   },
   "4982dbd2529d": {
     "name": "Explodes (4+/6\"/D6)",
@@ -224,6 +244,11 @@
     "kind": "ability",
     "plain": "Whenever this model would lose a wound, roll a D6; on a 5+, it doesn't lose that wound."
   },
+  "4ea458d7480b": {
+    "name": "Ecclesiarchy Battle Conclave",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, this unit takes up no slots in a Detachment that includes any MINISTORUM PRIESTS."
+  },
   "546b420dc935": {
     "name": "Compact",
     "kind": "ability",
@@ -247,7 +272,7 @@
   "5b7fed736f81": {
     "name": "Master Vox",
     "kind": "ability",
-    "plain": "The bearer gains the VOX-CASTER keyword. When an OFFICER in the bearer's unit issues an order, you can extend that order's range to 24\", but only if the order goes to one of your VOX-CASTER units. All other rules for issuing orders still apply."
+    "plain": "When an OFFICER in the bearer's unit issues an order to one of your VOX-CASTER units, you can extend that order's range to 24\". The bearer also gains the VOX-CASTER keyword. All other rules for issuing orders still apply."
   },
   "5d8eace182f8": {
     "name": "Artillery Commander",
@@ -260,9 +285,9 @@
     "plain": "If Master Sniper Hlaine Larkin is in this unit, whenever a model in this unit makes a ranged attack, the target gets no benefit of cover against it."
   },
   "5e5e53fbd6e4": {
-    "name": "Track guards",
+    "name": "Track Guards",
     "kind": "ability",
-    "plain": "A vehicle with track guards always uses its starting number of Wounds to determine its Move characteristic, so that characteristic doesn't drop as the vehicle suffers wounds."
+    "plain": "A vehicle with track guards always uses its starting number of Wounds to determine its Move characteristic. As a result, its Move characteristic doesn't drop as it suffers wounds."
   },
   "5ff1b0b8caaf": {
     "name": "Implacable Officer (Aura)",
@@ -287,7 +312,7 @@
   "63c86c3c3896": {
     "name": "Artillery Battery",
     "kind": "ability",
-    "plain": "When this unit is first set up on the battlefield, every model must be placed within 6\" of each other. Once set up, each model counts as a separate unit. Any crew this model has are ignored for all rules purposes."
+    "plain": "When this unit is first set up on the battlefield, all its models must be within 6\" of each other; after that, each model counts as a separate unit. Any crew this model has are ignored for all rules purposes."
   },
   "6561d2053ec8": {
     "name": "Catachan Sergeant",
@@ -307,7 +332,7 @@
   "6cd7a89d0312": {
     "name": "Medi-pack",
     "kind": "ability",
-    "plain": "The bearer gains the MEDIC keyword. Whenever a model in the unit is about to lose a wound, roll a D6; on a 5+, the wound isn't lost."
+    "plain": "Roll a D6 whenever a model in the bearer's unit would lose a wound; on a 5+, that wound isn't lost. The bearer also gains the MEDIC keyword."
   },
   "6d5e13c97193": {
     "name": "Mindlock",
@@ -364,6 +389,11 @@
     "kind": "ability",
     "plain": "In your Command phase, pick one of your ASTRA MILITARUM CORE or ASTRA MILITARUM INFANTRY CHARACTER units within 6\" of this model and roll a D6. On a 3+, choose one of these effects, which lasts until the start of your next Command phase: (a) add 1 to that unit's charge rolls, and you can re-roll the hit roll for melee attacks made by its models; or (b) the unit's models have a 6+ invulnerable save and can't be affected by Malediction psychic powers; any Malediction powers already affecting them stop applying to those models straight away."
   },
+  "803a29d8ae9f": {
+    "name": "Servant of the Imperium",
+    "kind": "ability",
+    "plain": "Putting Gotfret de Montbard in an ASTRA MILITARUM Detachment doesn't stop the other units in it from gaining a Regimental Doctrine. Gotfret de Montbard himself can never benefit from a Regimental Doctrine."
+  },
   "81b4336adc86": {
     "name": "Scything Momentum",
     "kind": "ability",
@@ -385,12 +415,16 @@
   "8606fcdbe198": {
     "name": "Summary Execution",
     "kind": "ability",
-    "plain": "Once per turn, this model can use this ability when one of your ASTRA MILITARUM CORE units within 6\" of it fails a Morale test. If it does, any Combat Attrition test taken for that unit automatically passes until the end of the phase."
+    "plain": "Once per turn, if one of your ASTRA MILITARUM CORE units within 6\" fails a Morale test, this model can make it pass every Combat Attrition test that phase. That unit must be within 6\" of this model when it fails the test, and every Combat Attrition test taken for it is then passed automatically until the end of the phase."
   },
   "86e246a9e555": {
     "name": "Voice of Command",
     "kind": "ability",
-    "plain": "In your Command phase, ASTRA MILITARUM OFFICERS in your army can issue Orders. Orders come in three types: Regimental, Prefectus and Mechanised. Each OFFICER's datasheet says, in its Commanding Authority section, which types of Orders that OFFICER knows and how many it can issue each turn. Whenever an OFFICER issues an Order, pick one of the Orders it knows. You may pick an Order that another of your OFFICERS has already issued this turn, but a single OFFICER can't try to issue the same Order more than once in a battle round. Then pick the unit that receives it: for a Regimental or Prefectus Order, one of your PLATOON units within 6 of that OFFICER'S unit; for a Mechanised Order, one of your SQUADRON units within 12 of that OFFICER'S unit. That unit is now affected by the Order. A unit can be affected by only one Order at a time; if a unit already affected by an Order is picked for another one, the new Order replaces the old one straight away."
+    "plain": "In your Command phase, ASTRA MILITARUM OFFICERS in your army can issue Orders. Orders come in three types: Regimental, Prefectus and Mechanised. Each OFFICER's datasheet says, in its Commanding Authority section, which types of Orders that OFFICER knows and how many it can issue each turn. Whenever an OFFICER issues an Order, pick one of the Orders it knows. You may pick an Order that another of your OFFICERS has already issued this turn, but a single OFFICER can't try to issue the same Order more than once in a battle round. Then pick the unit that receives it: for a Regimental or Prefectus Order, one of your PLATOON units within 6\" of that OFFICER'S unit; for a Mechanised Order, one of your SQUADRON units within 12\" of that OFFICER'S unit. That unit is now affected by the Order. A unit can be affected by only one Order at a time; if a unit already affected by an Order is picked for another one, the new Order replaces the old one straight away.",
+    "waive": {
+      "6\"": "the official text drops the inch mark (\"within 6 of that OFFICER'S unit\"); the range is 6\", as the Library's range-extending text (\"instead of within 6\\\"\") confirms",
+      "12\"": "the official text drops the inch mark (\"within 12 of that OFFICER'S unit\"); the range is 12\", as the Library's range-extending text (\"instead of within 12\\\"\") confirms"
+    }
   },
   "8c2b551f7d6c": {
     "name": "Engineer Weapons Team",
@@ -407,6 +441,11 @@
     "kind": "weapon",
     "plain": "You can ignore the Look Out, Sir rule when picking a target for this weapon. On an unmodified wound roll of 6, attacks made with it inflict a mortal wound on top of any normal damage."
   },
+  "965179ab285e": {
+    "name": "Acts of Faith (Gotfret)",
+    "kind": "rule",
+    "plain": "Your army gets Faith Points to spend on Acts of Faith, special effects that units with this ability can attempt by passing a D6 Test of Faith.\nYou start the battle with 3 Faith Points if your army has any models with this ability, plus 1 more for every 10 such models in it (round down). Every attempt costs one Faith Point, so with none left you can't attempt any, and each Act of Faith below can be attempted only once per battle round. To attempt one, pick a unit from your army that has the Acts of Faith ability, choose which Act of Faith it is attempting, and roll a D6 for its Test of Faith. The test fails, with no effect, if the roll is an unmodified 1 or is lower than that Act's devotion value; otherwise the Act of Faith succeeds.\nHand of the Emperor (attempt it as your Movement phase begins; devotion value 4): if it succeeds, the unit adds 3\" to its Move characteristic until that phase ends.\nSpirit of the Martyr (attempt it as your Movement phase begins; devotion value 3): if it succeeds, one model in the unit regains D3 lost wounds. Or, if none of its models are wounded but some have been slain, one slain model can rejoin the unit with 1 wound remaining: set it up in unit coherency and not within 1\" of any enemy models, and if it can't be placed, it doesn't return.\nAegis of the Emperor (attempt it as your opponent's Psychic phase begins; devotion value 3): if it succeeds, then until that phase ends, roll a D6 whenever the unit suffers a mortal wound, ignoring that mortal wound on a 4+.\nDivine Guidance (attempt it as your Shooting phase begins; devotion value 4): if it succeeds, then until that phase ends, add 1 to hit rolls for the unit's ranged weapon attacks.\nThe Passion (attempt it as your Fight phase begins; devotion value 5): if it succeeds, the unit can be picked to fight twice that phase rather than only once.\nLight of the Emperor (attempt it as the Morale phase begins; devotion value 3): if it succeeds, the unit automatically passes Morale tests that phase."
+  },
   "98f490d01889": {
     "name": "Explodes (Cyclops)",
     "kind": "ability",
@@ -420,7 +459,7 @@
   "9d276a30f779": {
     "name": "Regimental Standard",
     "kind": "ability",
-    "plain": "The bearer gains the REGIMENTAL STANDARD keyword and this ability: Regimental Standard (Aura): while one of your ASTRA MILITARUM CORE units is within 6\" of the bearer's unit, models in that ASTRA MILITARUM CORE unit re-roll wound rolls of 1 when making attacks."
+    "plain": "The bearer gains the REGIMENTAL STANDARD keyword and an aura: your ASTRA MILITARUM CORE units within 6\" of the bearer's unit re-roll wound rolls of 1. The aura ability is called Regimental Standard (Aura), and the re-roll applies to each attack a model in such a unit makes."
   },
   "9d9e1aec8693": {
     "name": "Hunting Lance",
@@ -454,7 +493,7 @@
   "ac75826ad369": {
     "name": "Airborne",
     "kind": "ability",
-    "plain": "This model can't charge. It can be charged only by units that can FLY, and in the Fight phase it can attack, or be attacked by, only units that can FLY."
+    "plain": "This model can't charge, only units that can FLY can charge it, and in the Fight phase it can only attack, and be attacked by, units that can FLY."
   },
   "ac75a7aba24d": {
     "name": "Jungle Fighters",
@@ -527,7 +566,7 @@
   "cb2e35a7221b": {
     "name": "Medi-pack (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your KRIEG INFANTRY units is within 3\" of this model, roll a D6 whenever a model in that unit would lose a wound; on a 6, the wound isn't lost."
+    "plain": "Aura: while one of your KRIEG INFANTRY units is within 3\" of this model, roll a D6 whenever one of its models would lose a wound; on a 6, the wound isn't lost."
   },
   "cbda430d2d31": {
     "name": "Inferno Bombs",
@@ -548,6 +587,11 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "When this model is destroyed, roll a D6 before any embarked models disembark and before you remove it from play. On a 6+, every unit within 6\" of it suffers D3 mortal wounds as it explodes."
+  },
+  "ceb100c36637": {
+    "name": "Knight Commander",
+    "kind": "ability",
+    "plain": "In each of your turns, Knight Commander Pask can use the Tank Orders ability twice. Resolve the first order's effects before you issue the second."
   },
   "d1fe1699eea0": {
     "name": "Storm Eagle Rockets",
@@ -593,6 +637,11 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "When a model in this unit is destroyed, roll a D6 before you remove it from play. On a 6, every unit within 3\" of it suffers 1 mortal wound as it explodes."
+  },
+  "dfa8b8bc9265": {
+    "name": "Zealot",
+    "kind": "ability",
+    "plain": "In a turn in which Gotfret de Montbard charged, was charged by an enemy unit or performed a Heroic Intervention, you can re-roll his failed hit rolls."
   },
   "e041d72dcca3": {
     "name": "Battlefield Repairs",

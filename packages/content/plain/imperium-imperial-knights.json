@@ -9,10 +9,55 @@
     "kind": "stratagem",
     "plain": "Once per battle, in any phase, when one of your HOUSE TARANIS CHARACTER models is destroyed without exploding: mark the centre of where its base was with a marker on the battlefield. At the end of the phase, you may roll one D6 in place of any rules that trigger when that model is destroyed (apart from Explodes, which you must roll for first). If you do, on a 4+ put the model back on the battlefield as near as possible to the marker, within 6\" of it but outside Engagement Range of all enemy models, with 3 wounds left. If the model can't be placed, it is destroyed. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
   },
+  "02040b019f64": {
+    "name": "Protect Those in Need",
+    "kind": "ability",
+    "plain": "Selfless Heroes: this model can perform Heroic Interventions as if it were a CHARACTER, and with more range and a longer move if it is one.\n- If this model is a CHARACTER, it can perform a Heroic Intervention while within 6\" horizontally and 5\" vertically of any enemy units, rather than 3\" horizontally and 5\" vertically, and each of its Heroic Intervention moves can be up to 6\".\n- Every other Heroic Intervention rule still applies."
+  },
+  "068843aa7dc3": {
+    "name": "The Knight's Faith (Aura)",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, roll one D6 whenever a <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 6\" of this MENTOR would lose a wound: on a 6, it isn't lost.\n- While that ARMIGER-CLASS model is affected by a Bondsman ability, the wound is saved on a 5+ instead."
+  },
+  "07eb61b553cb": {
+    "name": "Veteran of Gryphonne IV",
+    "kind": "ability",
+    "plain": "Melee attacks allocated to this WARLORD have their Damage characteristic reduced by 1 (to a minimum of 1).\n- This doesn't stack with other rules that reduce an attack's Damage characteristic."
+  },
+  "0852aef5b6b8": {
+    "name": "Lay Low The Tyrants",
+    "kind": "ability",
+    "plain": "Martial Pride: when this model is chosen to shoot or fight, you can re-roll a single hit roll or a single wound roll for it."
+  },
+  "08bb92e686de": {
+    "name": "Exalted Court: Master Tactician",
+    "kind": "ability",
+    "plain": "This model gains one extra Questor Mechanicus Martial Tradition that no model in your army has, on top of any it already has.\n- Choose it when you select this upgrade; you can't choose Fealty to the Cog."
+  },
+  "09c6d4fa51eb": {
+    "name": "Revered Knight",
+    "kind": "ability",
+    "plain": "This WARLORD can fight first if it starts the Fight phase within Engagement Range of any enemy units, and can bring you 1 extra Honour point.\n- Also, if this WARLORD is in your army and every unit in it has the IMPERIAL KNIGHTS keyword (not counting AGENTS OF THE IMPERIUM or UNALIGNED units), you begin the battle with 1 extra Honour point, but lose 1 Honour point if this WARLORD is destroyed."
+  },
   "0a628740be6c": {
     "name": "Pack Tactics",
     "kind": "stratagem",
     "plain": "At the start of the Fight phase, choose an enemy unit that has 2 or more of your ARMIGER-CLASS models within Engagement Range of it. For the rest of the phase, each of your ARMIGER-CLASS models that was in Engagement Range of that unit when the phase started gets 1 added to its Attacks characteristic."
+  },
+  "0ffa4409c130": {
+    "name": "Fury of Mars",
+    "kind": "ability",
+    "plain": "One meltagun, twin meltagun, thermal spear or thermal cannon that this model has becomes a Relic with 1 more Strength, 2 more Damage and no abilities.\n- The chosen weapon counts as a Relic for all rules purposes, gets 1 added to its Strength characteristic and 2 added to its Damage characteristic, and has its abilities deleted."
+  },
+  "1330a00da5a2": {
+    "name": "Ion Bulwark",
+    "kind": "ability",
+    "plain": "Against ranged attacks, this WARLORD has a 4+ invulnerable save."
+  },
+  "134cc7291a35": {
+    "name": "The Virtue of Courage (Aura)",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, a <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 6\" of this MENTOR scores one extra hit on each unmodified hit roll of 6."
   },
   "13fb11e09a27": {
     "name": "A Squire’s Duty",
@@ -24,10 +69,20 @@
     "kind": "stratagem",
     "plain": "In your Command phase, choose one of your QUESTOR MECHANICUS models. Up to the start of your next Command phase, when working out which characteristics on its profile to use, treat it as if it had all of its wounds left. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
   },
+  "149e290c556a": {
+    "name": "Exalted Court: Monarchsward",
+    "kind": "ability",
+    "plain": "An ARMIGER-CLASS model affected by this model's Bondsman ability can fight first if it starts the Fight phase within Engagement Range of any enemy units."
+  },
   "16bf0f034d36": {
     "name": "Survivors of Strife",
     "kind": "stratagem",
     "plain": "In any phase, when one of your ARMIGER-CLASS models is chosen as the target of an attack: for the rest of the phase, any attack made against that model fails to wound on an unmodified wound roll of 1-3, whatever abilities the attacking model or its weapon has."
+  },
+  "177c0270b642": {
+    "name": "Mysterious Guardian",
+    "kind": "ability",
+    "plain": "When a model with this Martial Tradition is in Strategic Reserves, treat the battle round as one higher for when it can arrive, whatever the mission rules say.\n- It can then arrive in the Reinforcements step of any of your Movement phases."
   },
   "192500686b9b": {
     "name": "Chainbreaker",
@@ -39,30 +94,95 @@
     "kind": "ability",
     "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Until your next Command phase starts, that ARMIGER-CLASS model can declare a charge in a turn when it Advanced, and Advance and charge rolls made for it get 1 added."
   },
+  "19c10d21da99": {
+    "name": "Exalted Court: Gatekeeper",
+    "kind": "ability",
+    "plain": "While this model is wholly within your deployment zone, attacks against it fail on an unmodified wound roll of 1-3.\n- This applies whatever abilities the attacking model or its weapon has."
+  },
   "1b21634634b9": {
     "name": "Staunch Allies",
     "kind": "stratagem",
     "plain": "In the Heroic Interventions step of your opponent's Charge phase, before any other Heroic Interventions are made: choose one of your HOUSE HAWKSHROUD models, plus one enemy unit that made a charge move this phase and is within 12\" horizontally and 5\" vertically of your model. Your model is eligible to perform a Heroic Intervention, and when it makes a Heroic Intervention move this phase it can move up to 6+D6\", as long as it finishes within Engagement Range of the chosen enemy unit. Every other Heroic Intervention rule still applies. If your model does perform a Heroic Intervention, it can fight first in the following Fight phase."
+  },
+  "1bc61b57e258": {
+    "name": "Honour's Bite - Strike",
+    "kind": "weapon",
+    "plain": "An unmodified wound roll of 6 for an attack with this profile also inflicts 3 mortal wounds on the target, on top of the normal damage."
+  },
+  "1e23f59dc6e5": {
+    "name": "Cunning Commander",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, roll one D6 at the start of each of your Command phases: on a 5+, gain 1 Command point."
+  },
+  "207251d3a591": {
+    "name": "Heirloom (Freeblade): Bringer of Justice",
+    "kind": "ability",
+    "plain": "This replaces the bearer's Reaper Chainsword, and the bearer makes one extra attack with it each time it fights.\n- For each attack made with this weapon, choose which of its profiles to use."
+  },
+  "21c08eee0a5d": {
+    "name": "Refuse No Challenge",
+    "kind": "ability",
+    "plain": "Noble Display: add 1 to the hit rolls of this model's melee attacks in a turn in which it made a charge move, was charged or made a Heroic Intervention."
+  },
+  "22c58a8ba2cb": {
+    "name": "Ravager - Sweep",
+    "kind": "weapon",
+    "plain": "Every attack with this profile makes 3 hit rolls rather than 1."
   },
   "252c9868c03d": {
     "name": "Benevolence of the Machine God",
     "kind": "stratagem",
     "plain": "In any phase, when one of your QUESTOR MECHANICUS models would lose a wound because of a mortal wound: for the rest of the phase, roll one D6 each time that model would lose a wound to a mortal wound; on a 5+, the wound is not lost."
   },
+  "266d52d83633": {
+    "name": "Traitor's Pyre",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit the target automatically, and invulnerable saves can't be taken against an attack that has an unmodified wound roll of 6."
+  },
+  "26a55ab4e3b1": {
+    "name": "Champion of the Household",
+    "kind": "ability",
+    "plain": "Advance and charge rolls for this WARLORD can be re-rolled."
+  },
   "26f5fd7264a1": {
     "name": "Strength from Exile",
     "kind": "stratagem",
     "plain": "When one of your FREEBLADE LANCE models is chosen to shoot in your Shooting phase, or chosen to fight in the Fight phase: for the rest of the phase, as long as no friendly models are within 12\" of it, you re-roll a hit roll of 1 and a wound roll of 1 each time it attacks."
+  },
+  "28a58fec2a92": {
+    "name": "Hunters of the Foe",
+    "kind": "ability",
+    "plain": "Melee attacks by a model with this tradition re-roll wound rolls of 1, unless the target contains any VEHICLE or MONSTER models.\n- If the target contained 6 or more models when this model was chosen to fight, you can re-roll the attack's wound roll."
   },
   "29d6ca53b73a": {
     "name": "Rolling Thunder",
     "kind": "stratagem",
     "plain": "In your Charge phase, once one of your HOUSE RAVEN models (other than an ARMIGER CLASS model) has finished a charge move: until the turn ends, any enemy model within 3\" of that HOUSE RAVEN model subtracts 1 from the hit roll of each attack it makes."
   },
+  "2c9ccfd73d6c": {
+    "name": "Steel-sinewed Aim",
+    "kind": "ability",
+    "plain": "When a model with this Martial Tradition makes a ranged attack against an enemy unit within Engagement Range of its own unit, add 1 to that attack's roll."
+  },
+  "2ca35fdb3454": {
+    "name": "Machine Focus",
+    "kind": "ability",
+    "plain": "When a model with this Martial Tradition is chosen to shoot, you can re-roll a single wound roll or a single Damage roll for it."
+  },
+  "2cab6bd26aff": {
+    "name": "The Folly of Mercy",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, one <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 12\" of this MENTOR can make a Normal Move and shoot while performing an action.\n- Pick the model; making that Normal Move and shooting doesn't make its action fail."
+  },
   "2d18d3b736ed": {
     "name": "Brothers and Sisters in Burden",
     "kind": "stratagem",
     "plain": "In your Command phase, if your army is Dishonoured, choose one of your FREEBLADE LANCE CHARACTER models. It has the following ability until your next Command phase starts. Brothers and Sisters in Burden (Aura): the Honoured Chivalric ability of your chosen Oaths stays active for this WARLORD while any friendly FREEBLADE LANCE model is within 12\" of this CHARACTER. As a result, the Chivalric abilities active for these models may differ from those active for your other IMPERIAL KNIGHTS models."
+  },
+  "2d7b126567b5": {
+    "name": "Blessed Arms",
+    "kind": "ability",
+    "plain": "A model with this Martial Tradition adds 6\" to the Range characteristic of its ranged weapons and upgrades its Cognis heavy stubbers.\n- Each Cognis heavy stubber it is equipped with becomes Assault 6, and its Armour Penetration characteristic is improved by 1."
   },
   "2dc975b81e10": {
     "name": "Siege Claw",
@@ -74,10 +194,55 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when a melee attack is allocated to one of your HOUSE RAVEN CHARACTER models, the saving throw against it is not rolled; it is treated as a 6 automatically."
   },
+  "2f9b68c6f113": {
+    "name": "Knight Seneschal",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Attacks characteristic; it also keeps the Honoured Chivalric abilities of your chosen Oaths even while your army is Dishonoured.\n- So this WARLORD may have different Chivalric abilities active than your other IMPERIAL KNIGHTS models."
+  },
+  "3017ffc6e352": {
+    "name": "Omnissiah's Grace",
+    "kind": "ability",
+    "plain": "Roll one D6 for each wound a model with this tradition loses, except wounds lost to mortal wounds; on a 6, that wound isn't lost."
+  },
+  "3373cc5fd42f": {
+    "name": "Defend the Realm",
+    "kind": "ability",
+    "plain": "Duty and Honour: this model gains Objective Secured, or if it already has it, counts as 3 extra models when working out control of an objective marker."
+  },
+  "341f29b07da7": {
+    "name": "Sacristan Pledge",
+    "kind": "ability",
+    "plain": "A model with this Questor Allegiance Oath adds 1 to its Wounds characteristic (2 if TITANIC) and regains 1 lost wound at the start of your Command phases."
+  },
+  "35027232e339": {
+    "name": "Angel's Grace",
+    "kind": "ability",
+    "plain": "When the bearer, or a friendly HOUSE HAWKSHROUD ARMIGER-CLASS model within 6\" of it, would lose a wound to a mortal wound, roll a D6; on a 5+ it isn't lost.\n- The part covering those ARMIGER-CLASS models is the bearer's ANGEL'S GRACE (AURA) ability."
+  },
   "3662dddf30f1": {
     "name": "Knight of the Iron Cog",
     "kind": "ability",
     "plain": "This unit has the Canticles of the Omnissiah ability, and counts as having the ADEPTUS MECHANICUS keyword for that ability."
+  },
+  "369365974f16": {
+    "name": "Exalted Court: Master Tactician",
+    "kind": "ability",
+    "plain": "Once per battle, an Imperial Knights Battle Tactic Stratagem costs 0 Command points if you pick a model affected by any Bondsman ability for it."
+  },
+  "373614d65714": {
+    "name": "The Banner Inviolate",
+    "kind": "ability",
+    "plain": "BANNER INVIOLATE (AURA): friendly HOUSE RAVEN ARMIGER-CLASS models within 6\" of this model re-roll hit rolls of 1 for their attacks."
+  },
+  "38a463d5cdea": {
+    "name": "Endless Fury",
+    "kind": "weapon",
+    "plain": "This weapon takes the place of the bearer's Avenger Gatling Cannon."
+  },
+  "39243cf66b0d": {
+    "name": "Exalted Court: Forge Master",
+    "kind": "ability",
+    "plain": "While this model is in your Crusade force, the Relic Requisition and the Repair and Recuperate Requisition each cost you 1 fewer Requisition point."
   },
   "3bcd911818ae": {
     "name": "Bondsman Abilities",
@@ -94,15 +259,80 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when an enemy unit is chosen to fight while it is within Engagement Range of one of your HOUSE RAVEN models: for the rest of the phase, the only models in that unit that can make close combat attacks against your HOUSE RAVEN model are those within Engagement Range of it. For example, models in that unit that aren't in Engagement Range of your model but are within 1/2\" of a model that is within 1/2\" can't attack it in close combat, though they may still attack other eligible targets in close combat."
   },
+  "4043b5f30435": {
+    "name": "Exalted Court: Princeps",
+    "kind": "ability",
+    "plain": "Once per Command phase, this model can use its Bondsman ability on a <NOBLE HOUSEHOLD> QUESTORIS-CLASS model (not itself) instead of an ARMIGER-CLASS model."
+  },
+  "4142947e8b4a": {
+    "name": "Exalted Court: Master of Vox",
+    "kind": "ability",
+    "plain": "This model's Bondsman ability can be used on any <NOBLE HOUSEHOLD> ARMIGER-CLASS model, anywhere on the battlefield."
+  },
+  "443ed72750c4": {
+    "name": "Mark of the Lance",
+    "kind": "ability",
+    "plain": "When the bearer finishes a charge move, pick an enemy unit within Engagement Range of it, then roll one D6 to see how many mortal wounds that unit suffers.\n- On a 2-3, it suffers D3 mortal wounds; on a 4-5, 3 mortal wounds; on a 6, D3+3 mortal wounds."
+  },
+  "48187f7e6198": {
+    "name": "Exalted Court: Master of Lore",
+    "kind": "ability",
+    "plain": "If this model is a KNIGHT PRECEPTOR, it can recount one extra teaching in your Command phase; if not, it becomes a MENTOR and can recount one teaching.\n- KNIGHT PRECEPTOR: in your Command phase, it can recount one more teaching it knows, as long as no friendly model has recounted that teaching this turn.\n- Any other model: it gains the MENTOR keyword and knows one teaching from the Knightly Teachings. In your Command phase, while it is on the battlefield, it may recount one teaching it knows that no friendly model has recounted this turn. Roll one D6: on a 3+, that teaching is inspiring and lasts until your next Command phase starts."
+  },
+  "499dfbb7728b": {
+    "name": "Vow of Honour",
+    "kind": "ability",
+    "plain": "A model with this Questor Allegiance Oath adds 1 to its Advance and charge rolls and can ignore any or all modifiers to them.\n- Each time it makes a pile-in move or consolidation move, it can move 1\" further."
+  },
+  "49b45ee47eb1": {
+    "name": "Exalted Court: Princeps",
+    "kind": "ability",
+    "plain": "While this model is in your Crusade force, using the Exalted Court Requisition costs you 1 fewer Requisition point."
+  },
+  "4a8a128c21ea": {
+    "name": "Legacy of the Black Pall",
+    "kind": "ability",
+    "plain": "Ranged attacks against this WARLORD by an attacker more than 18\" away subtract 1 from their hit rolls."
+  },
+  "4adea4d4bed7": {
+    "name": "Refuse No Challenge",
+    "kind": "ability",
+    "plain": "Gain 1 Honour point at the end of each battle round in which melee attacks by your IMPERIAL KNIGHTS units destroyed 2 or more enemy units."
+  },
   "4b723fdc31df": {
     "name": "Rotate Ion Shields",
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when one of your IMPERIAL KNIGHTS VEHICLE models is chosen as the target of a ranged attack: for the rest of the phase, that model gets a 4+ invulnerable save against ranged attacks. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
   },
+  "4f1036d7b8ce": {
+    "name": "Noble Combatants",
+    "kind": "ability",
+    "plain": "When a model with this Martial Tradition fights and aims all its attacks at one enemy unit, none with a Sweep profile, it gets extra attacks against that unit.\n- It gets one extra attack for each of its attacks in that fight that didn't reach the Inflict Damage step.\n- The extra attacks are made once all of its other attacks have been resolved, and they can't use a melee weapon's Sweep profile either."
+  },
+  "4fa0b1df860d": {
+    "name": "Ravager - Strike",
+    "kind": "weapon",
+    "plain": "This weapon takes the place of the bearer's Reaper Chainsword."
+  },
+  "5400e6f62598": {
+    "name": "Defend the Realm",
+    "kind": "ability",
+    "plain": "At the end of the battle round, you gain 1 Honour point if you controlled more objective markers than your opponent did when your turn ended."
+  },
+  "5452137decab": {
+    "name": "Exalted Court: Master of Vox",
+    "kind": "ability",
+    "plain": "If this unit is in your Crusade force, you can halve the Command point cost of placing units into Strategic Reserves (round fractions down).\n- This applies when you are using the Strategic Reserves rule."
+  },
   "57e520eae895": {
     "name": "Dragon Slayer",
     "kind": "stratagem",
     "plain": "When one of your HOUSE GRIFFITH models is chosen to shoot in your Shooting phase or to fight in the Fight phase: for the rest of the phase, add 1 to the wound roll of each attack that model makes against a target containing any VEHICLE or MONSTER models."
+  },
+  "5b0d5ae7f432": {
+    "name": "Refuse No Challenge",
+    "kind": "ability",
+    "plain": "Mighty Display: you may re-roll this model's Advance rolls and charge rolls."
   },
   "5d3dc58ddd26": {
     "name": "Crushed",
@@ -119,20 +349,73 @@
     "kind": "ability",
     "plain": "During your Command phase, choose one friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 12\" of this model. Its Ballistic Skill characteristic is improved by 1 until your next Command phase starts."
   },
+  "635f95e518d7": {
+    "name": "Banner of Macharius Triumphant",
+    "kind": "ability",
+    "plain": "The bearer has the Objective Secured ability and can bring you 1 extra Honour point, at the risk of losing 1 if it is destroyed.\n- If every unit in your army has the IMPERIAL KNIGHTS keyword (not counting units with the AGENTS OF THE IMPERIUM or UNALIGNED keywords), you start the battle with 1 extra Honour point, but you lose 1 Honour point if the bearer is destroyed."
+  },
+  "641b5950e47e": {
+    "name": "Exalted Court: Herald",
+    "kind": "ability",
+    "plain": "While this model is in your Crusade force, the Specialist Reinforcement and Warlord Trait Requisitions each cost you 1 fewer Requisition point."
+  },
+  "64a7500e435d": {
+    "name": "Exalted Court: Master of Vox",
+    "kind": "ability",
+    "plain": "While this model is on the battlefield, you can roll one D6 for each Command point you spend on a Stratagem; on a 5+, you get that Command point back."
+  },
+  "6556d6e014d8": {
+    "name": "Exalted Court: Gatekeeper",
+    "kind": "ability",
+    "plain": "An ARMIGER-CLASS model affected by this model's Bondsman ability adds 1 to its Toughness characteristic while it is in range of an objective marker."
+  },
+  "6704cc2f2927": {
+    "name": "Close-Quarters Killers",
+    "kind": "ability",
+    "plain": "Re-roll a hit roll of 1 for every melee attack made by a model with this tradition."
+  },
   "698b736fdfe3": {
     "name": "Twin Icarus Autocannon",
     "kind": "weapon",
     "plain": "Add 1 to the hit roll of each attack made against an AIRCRAFT unit."
+  },
+  "6a3fd39ec8fa": {
+    "name": "The Bastard's Helm",
+    "kind": "ability",
+    "plain": "Add 1 to the wound roll of the bearer's attacks; it can't be affected by any Bondsman abilities or Knightly Teachings, but it has its own Bondsman ability.\n- The bearer gains this ability. THE BASTARD'S HELM (BONDSMAN): in your Command phase, you can pick one other friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 12\" of this model. Until your next Command phase starts, add 1 to the wound roll of each attack that ARMIGER-CLASS model makes.",
+    "waive": {
+      "<NOBLE HOUSEHOLD": "the official text misprints the keyword as \"<NOBLE HOUSEHOLD)\"; the plain text keeps the full keyword <NOBLE HOUSEHOLD>, which the checker cannot match against the misprint"
+    }
   },
   "6b4f9a01cdcd": {
     "name": "Honour Inviolate",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HOUSE RAVEN models is chosen to shoot: for the rest of the phase, as long as it did not Advance, its ranged weapons get 1 added to their Strength characteristic. This costs 3CP for an ACASTUS CLASS or DOMINUS CLASS model and 2CP for any other model."
   },
+  "6d649350a14b": {
+    "name": "Peerless Warrior",
+    "kind": "ability",
+    "plain": "Once per battle, an Imperial Knights Epic Deed Stratagem costs 0 Command points if you pick a model with this Martial Tradition for it."
+  },
+  "6d68325e5ca8": {
+    "name": "Glorified History",
+    "kind": "ability",
+    "plain": "Pick House Terryn, House Griffith, House Cadmus, House Mortan or House Hawkshroud, and use its Household Tradition and Noble Household Stratagems.\n- If a CHARACTER model with this Martial Tradition is given a Warlord Trait, it can take a Noble Household Warlord Trait from the household you picked."
+  },
   "6de8c00c0d9e": {
     "name": "Saturation Bombardment",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HOUSE VULKER models is chosen to shoot: for the rest of the phase, each unmodified hit roll of 6 for its ranged attacks scores one additional hit. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "6ebbe85b4e7f": {
+    "name": "Exalted Court: Herald",
+    "kind": "ability",
+    "plain": "A friendly <NOBLE HOUSEHOLD> model within 9\" of this Herald can use a Bondsman ability on one <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 9\" of this Herald."
+  },
+  "6f6e5bd44a88": {
+    "name": "Master of the Trial",
+    "kind": "ability",
+    "plain": "When an attack with an Armour Penetration characteristic of -1 or -2 is allocated to this WARLORD, reduce that attack's Armour Penetration characteristic by 1."
   },
   "6fd171431903": {
     "name": "Skyfire Protocols",
@@ -154,30 +437,135 @@
     "kind": "weapon",
     "plain": "Subtract 1 from the hit roll of attacks made with this weapon. If such an attack targets a VEHICLE or MONSTER unit, add 2 to its Damage characteristic."
   },
+  "71b20f1d250c": {
+    "name": "Protect Those in Need",
+    "kind": "ability",
+    "plain": "Gain 1 Honour point at the end of a battle round in which your IMPERIAL KNIGHTS made a Heroic Intervention or charged an enemy already fighting your units. In detail, either or both of these must have happened that round:\n- One of your IMPERIAL KNIGHTS models performed a Heroic Intervention.\n- One of your IMPERIAL KNIGHTS models made a charge move against an enemy unit that was already within Engagement Range of another friendly unit at the start of the Charge phase."
+  },
   "71f2493a44c7": {
     "name": "Order of Companions",
     "kind": "stratagem",
     "plain": "Use before the battle while mustering your army, if your WARLORD has the HOUSE RAVEN keyword. Pick one HOUSE RAVEN QUESTORIS-CLASS model from your army; it gains this ability. Order of Companions: each time this model is chosen to shoot or fight, while resolving its attacks you can re-roll a single hit roll, wound roll or damage roll. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "73ae94c38aaf": {
+    "name": "Last of Their Line",
+    "kind": "ability",
+    "plain": "A model with this Martial Tradition can re-roll the hit roll for attacks against units of 11 or more models, or 6 or more models if it is ARMIGER-CLASS."
   },
   "73e440b8a45a": {
     "name": "Point Blank Barrage",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your IMPERIAL KNIGHTS models is chosen to shoot: for the rest of the phase, it can make attacks with Blast weapons against units within its Engagement Range, and for each such attack against a unit within its Engagement Range, an unmodified hit roll of 1 causes this model to suffer 1 mortal wound after all its attacks have been resolved."
   },
+  "752b42cf2e80": {
+    "name": "Exalted Court: High Monarch",
+    "kind": "ability",
+    "plain": "This model must be your WARLORD; also, roll one D6 each time your army gains an Honour point, and gain 1 extra Honour point on a 5+.\n- If several models in your army have a rule like this, one of those models must be your army's WARLORD."
+  },
+  "79921f410338": {
+    "name": "Front-line Fighters",
+    "kind": "ability",
+    "plain": "Ranged attacks made by a model with this Martial Tradition get 1 added to their Strength characteristic when the target is within 18\" of the model."
+  },
   "79955d52443a": {
     "name": "Pains of Old Night",
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models is chosen to fight: for the rest of the phase, you re-roll a wound roll of 1 for its attacks against CHAOS models."
+  },
+  "7ab260a17cb1": {
+    "name": "First Knight",
+    "kind": "ability",
+    "plain": "This WARLORD's Weapon Skill characteristic improves by 1 (but not past 2+), and while your army is Honoured it can gain a Virtuous Chivalric ability.\n- If your army is Honoured at the end of one of your Command phases, you can choose one Virtuous Chivalric ability from one of your chosen Oaths; it stays active for this WARLORD until your next Command phase ends.\n- So this WARLORD may have different Chivalric abilities active than your other IMPERIAL KNIGHTS models."
   },
   "83f3be23139e": {
     "name": "Chainsweep",
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your IMPERIAL KNIGHTS models carrying a reaper chainsword or reaper chain-cleaver (or a Relic that takes the place of one) is chosen to fight: for the rest of the phase, hit rolls for that model's attacks can never be re-rolled, but each attack it makes with the Sweep profile of one of those weapons (or of such a Relic) makes 1 extra hit roll."
   },
+  "84a387265c85": {
+    "name": "Relentless Advance",
+    "kind": "ability",
+    "plain": "After a Normal Move or Advance in your Movement phase, a model with this tradition shoots as if it had Remained Stationary until your Shooting phase ends.\n- Until then, it can also ignore any or all modifiers to its Move characteristic and its Advance rolls."
+  },
+  "86f471e61f22": {
+    "name": "Paragons of Honour",
+    "kind": "ability",
+    "plain": "In an army that is all IMPERIAL KNIGHTS, you must swear one extra Oath after your army's 2 Oaths, for your models with this Martial Tradition.\n- This applies if every unit in your army has the IMPERIAL KNIGHTS keyword (ignoring units with the AGENTS OF THE IMPERIUM or UNALIGNED keywords) and any of your models have this Martial Tradition. The extra Oath applies to every model in your army with this Martial Tradition."
+  },
+  "888b39345206": {
+    "name": "Exalted Court: Master of Justice",
+    "kind": "ability",
+    "plain": "Once per battle, an Imperial Knights Strategic Ploy Stratagem costs 0 Command points if you pick a model affected by this model's Bondsman ability for it."
+  },
+  "89b1a6ddb334": {
+    "name": "The Warrior's Hope",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, a <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 12\" of this MENTOR gains a Code Chivalric Oath your army doesn't have active.\n- Pick the model and the Oath. That Oath is active for that ARMIGER-CLASS model, which gains all of that Oath's Chivalric abilities for your army's level of Honour, but not its Pledge or Troth.\n- The Oath is active for it even if not every unit in your army has the IMPERIAL KNIGHTS keyword."
+  },
+  "89f7941f89a2": {
+    "name": "Honour's Bite - Sweep",
+    "kind": "weapon",
+    "plain": "Each attack with this profile makes 3 hit rolls instead of 1, and an unmodified wound roll of 6 also deals 1 mortal wound to the target on top of normal damage."
+  },
+  "8dcc489b1ef4": {
+    "name": "Blessed by the Sacristans",
+    "kind": "ability",
+    "plain": "When this WARLORD makes a ranged attack, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of normal damage.\n- No more than 6 mortal wounds per unit per phase can be inflicted this way."
+  },
+  "8e74c5a261a9": {
+    "name": "The Paragon Gauntlet - Sweep",
+    "kind": "weapon",
+    "plain": "Each attack with this profile makes 2 hit rolls instead of 1, and no invulnerable save can be taken against it on an unmodified wound roll of 6."
+  },
+  "915b03ccdc9f": {
+    "name": "Helm of the Nameless Warrior",
+    "kind": "ability",
+    "plain": "An unmodified wound roll of 6 for a melee attack by the bearer deals mortal wounds equal to the attack's Damage characteristic, and the attack sequence ends."
+  },
   "9169947238a1": {
     "name": "Thin Their Ranks",
     "kind": "stratagem",
     "plain": "At the start of the Shooting phase, choose up to 3 of your ARMIGER-CLASS models. For the rest of the phase, each unmodified hit roll of 6 for a ranged attack by one of those models wounds the target automatically."
+  },
+  "9341a07e6d6b": {
+    "name": "Heirloom: Ravager",
+    "kind": "ability",
+    "plain": "This replaces the bearer's Reaper Chainsword, and an unmodified hit roll of 6 for an attack with this profile scores one extra hit."
+  },
+  "93a46ce1b704": {
+    "name": "Exalted Court: Forge Master",
+    "kind": "ability",
+    "plain": "An ARMIGER-CLASS model affected by this model's Bondsman ability adds 1 to the hit roll and wound roll of its attacks against units within your deployment zone."
+  },
+  "93b7ef2f1f68": {
+    "name": "Order of Companions",
+    "kind": "ability",
+    "plain": "When this model is chosen to shoot or fight, you can re-roll a single hit roll, wound roll or damage roll while resolving its attacks."
+  },
+  "940894213906": {
+    "name": "Defend the Realm",
+    "kind": "ability",
+    "plain": "You lose 1 Honour point at the end of the battle round if you controlled fewer objective markers when your turn ended than when it began."
+  },
+  "94357566dc32": {
+    "name": "Exalted Court: Gatekeeper",
+    "kind": "ability",
+    "plain": "When you are the Defender and this unit is in your Crusade force, you begin the battle with 1 extra Command point."
+  },
+  "944b618862b0": {
+    "name": "Lay Low The Tyrants",
+    "kind": "ability",
+    "plain": "Martial Legacy: once per battle round, you can change one Advance roll, hit roll, wound roll or saving throw for one of your IMPERIAL KNIGHTS models to a 6."
+  },
+  "94a2e1625f7e": {
+    "name": "Exalted Court: Herald",
+    "kind": "ability",
+    "plain": "Any ARMIGER-CLASS model affected by this model's Bondsman ability has a 4+ invulnerable save while that effect lasts."
+  },
+  "95b2e1c99a2b": {
+    "name": "Knight of Mars",
+    "kind": "ability",
+    "plain": "Once per battle (or once per turn while your army is Virtuous), after any re-rolls, you can change one D6 rolled for this WARLORD to a 6, or one D3 to a 3.\n- This works for its Advance rolls, hit rolls, wound rolls, damage rolls, charge rolls and saving throws."
   },
   "9646633a9ac5": {
     "name": "Code Chivalric",
@@ -187,15 +575,60 @@
       "ARMY HONOUR NUMBER OF HONOUR POINTS": "a heading of the scoring table, not a keyword"
     }
   },
+  "967f3201c869": {
+    "name": "The Paragon Gauntlet - Strike",
+    "kind": "weapon",
+    "plain": "If an attack with this profile has an unmodified wound roll of 6, no invulnerable save can be taken against it."
+  },
+  "97b8f73126e6": {
+    "name": "Cold Fury",
+    "kind": "ability",
+    "plain": "A melee attack by a model with this tradition automatically wounds on an unmodified hit roll of 6, or on an unmodified hit roll of 5+ if the target is TITANIC."
+  },
   "985eaa4350af": {
     "name": "Exacting Charge",
     "kind": "stratagem",
     "plain": "In your Charge phase, once one of your IMPERIAL KNIGHTS VEHICLE models has finished a charge move, choose one enemy unit within Engagement Range of it and roll four D6s (six D6s if this model is TITANIC). That unit suffers 1 mortal wound for each result equal to or greater than its Toughness characteristic, or 2 mortal wounds instead for each unmodified 6. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
   },
+  "990fa292e445": {
+    "name": "Adamantine Knight",
+    "kind": "ability",
+    "plain": "Attacks against this WARLORD fail on an unmodified wound roll of 1-3, whatever abilities the attacking model or its weapon has."
+  },
+  "99dfcba8171e": {
+    "name": "Exalted Court: Monarchsward",
+    "kind": "ability",
+    "plain": "If this model is in your Crusade force and was not destroyed in the battle, you can ignore one failed Out of Action test afterwards.\n- At the end of the battle, pick one failed Out of Action test taken for a <NOBLE HOUSEHOLD> model from your Crusade force: it counts as passed instead."
+  },
   "9a4c37fdced3": {
     "name": "Recount the Virtues",
     "kind": "stratagem",
     "plain": "At the start of any of your phases except your Command phase, choose one of your MENTOR units that hasn't recounted a teaching this turn. It can recount one teaching that no friendly model has recounted yet this turn; that teaching is automatically inspiring (no roll is made) and lasts until your next Command phase starts."
+  },
+  "9bba5463f362": {
+    "name": "Indomitable Heroes",
+    "kind": "ability",
+    "plain": "A model with this Martial Tradition heals 1 lost wound at the start of your Command phases and can ignore any or all modifiers to its Advance and charge rolls."
+  },
+  "9d92e209855e": {
+    "name": "Gallant Warriors",
+    "kind": "ability",
+    "plain": "When you make an Advance roll or charge roll for a model with this tradition, roll one extra D6, then discard one of the dice."
+  },
+  "9e9f5a3028d5": {
+    "name": "Master of the Joust",
+    "kind": "ability",
+    "plain": "This WARLORD can still declare a charge after Advancing in the same turn."
+  },
+  "9ec4a67ffbd7": {
+    "name": "Strike and Shield",
+    "kind": "ability",
+    "plain": "Melee attacks against a model with this Martial Tradition always miss on an unmodified hit roll of 1-3, and their Armour Penetration of -1 becomes 0.\n- The 1-3 rule applies whatever abilities the attacking model or its weapon has.\n- The Armour Penetration change kicks in when such an attack is allocated to the model, and only attacks with -1 are changed."
+  },
+  "9ed69a07f386": {
+    "name": "Legendary Knight",
+    "kind": "rule",
+    "plain": "A FREEBLADE LANCE CHARACTER can take one Exalted Court upgrade, despite being a FREEBLADE."
   },
   "9f10dc7f1d01": {
     "name": "Lockstep Advance",
@@ -207,10 +640,25 @@
     "kind": "stratagem",
     "plain": "When one of your HOUSE MORTAN models is chosen to shoot in your Shooting phase or to fight in the Fight phase: for the rest of the phase, whenever that model attacks, you can ignore any or all modifiers to the hit roll, Ballistic Skill and Weapon Skill."
   },
+  "9fc13b903bc1": {
+    "name": "Exalted Court: Master of Lore",
+    "kind": "ability",
+    "plain": "If this model uses its Bondsman ability on a model already under a Bondsman ability, the new effect applies alongside the existing one rather than replacing it."
+  },
   "a07fc71c8558": {
     "name": "Flanking Manoeuvres",
     "kind": "stratagem",
     "plain": "At the start of your Movement phase, choose up to two of your ARMIGER-CLASS models that are within 6\" of any battlefield edge and more than 6\" away from every enemy model. If the mission you are playing uses the Strategic Reserves rule, put that unit into Strategic Reserves; it can't then arrive from Strategic Reserves in the turn it was put there."
+  },
+  "a2c7f3f5ba9a": {
+    "name": "Lay Low The Tyrants",
+    "kind": "ability",
+    "plain": "You lose 1 Honour point if your IMPERIAL KNIGHTS units destroyed fewer than 2 enemy units with their attacks during that battle round."
+  },
+  "a486e69c493f": {
+    "name": "Exalted Court: High Monarch",
+    "kind": "ability",
+    "plain": "While this model is in your Crusade force, the Exalted Court Requisition costs you 1 fewer Requisition point."
   },
   "a4876cf0fb79": {
     "name": "Sir Hekhtur",
@@ -242,15 +690,50 @@
     "kind": "stratagem",
     "plain": "In any phase, when one of your FREEBLADE LANCE models destroys an enemy VEHICLE, MONSTER or CHARACTER unit, choose one Chivalric ability. For the rest of the battle, this model has that ability and it is active for it whatever your army's current level of Honour. If you chose Martial Legacy, you can only use it to change a roll's result to a 6 when that roll was made for this model. You can use this Stratagem only once."
   },
+  "ab65e5f4ebda": {
+    "name": "Fealty to the Cog",
+    "kind": "ability",
+    "plain": "Pick House Raven, House Krast, House Taranis or House Vulker, and use its Household Tradition and Noble Household Stratagems.\n- If a CHARACTER model with this Martial Tradition is given a Warlord Trait, it can take a Noble Household Warlord Trait from the household you picked."
+  },
+  "abf7d37bb5d2": {
+    "name": "The Hunter's Eye",
+    "kind": "ability",
+    "plain": "Targets of the bearer's ranged attacks don't get the benefit of cover against those attacks."
+  },
+  "ac226d4f0396": {
+    "name": "The Wisdom of Nobility",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, a Bondsman ability used on one <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 12\" of this MENTOR can also affect another one.\n- Pick one such model. Each time it is chosen for a Bondsman ability, you can choose one other <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 6\" of it; both models are affected by that Bondsman ability."
+  },
   "ad39a83b7380": {
     "name": "Rad-Cleanser",
     "kind": "weapon",
     "plain": "Attacks made with this weapon hit the target automatically. Unless the target is a VEHICLE or TITANIC unit, a wound roll of 2+ always succeeds for these attacks."
   },
+  "ada2ae137541": {
+    "name": "Firestorm Protocols",
+    "kind": "ability",
+    "plain": "When a model with this tradition makes a ranged attack against the enemy unit closest to it, re-roll a hit roll of 1."
+  },
+  "ae4eb6db837a": {
+    "name": "Hunters of Beasts",
+    "kind": "ability",
+    "plain": "A model with this Martial Tradition adds 1 to hit rolls against MONSTER or VEHICLE units, and 1 to the Damage of its attacks allocated to TITANIC models.\n- With the Lay Low the Tyrants Oath sworn, that Oath's Pledge gives you 2 Honour points instead of 1 at the end of any battle round in which your models with this Martial Tradition destroyed one or more MONSTER or VEHICLE models."
+  },
   "af9799bfcdff": {
     "name": "Bio-scryer Cogitator Array",
     "kind": "stratagem",
     "plain": "When the Reinforcements step of your opponent's Movement phase ends, choose one of your HOUSE CADMUS models that isn't within Engagement Range of any enemy units. That unit may shoot as though it were your Shooting phase, but the only target its models may pick is one eligible enemy unit within 12\" of them that was set up as Reinforcements this turn. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
+  },
+  "afa9bfcfd57f": {
+    "name": "Exalted Court: Monarchsward",
+    "kind": "ability",
+    "plain": "Enemy models can't shoot another of your <NOBLE HOUSEHOLD> CHARACTER models within 3\" of this unit unless it is their closest eligible target."
+  },
+  "b005f4babb85": {
+    "name": "Lay Low The Tyrants",
+    "kind": "ability",
+    "plain": "Gain 1 Honour point at the end of a battle round in which your IMPERIAL KNIGHTS destroyed a WARLORD, CHARACTER, MONSTER or VEHICLE unit with a melee attack."
   },
   "b196bbb5578a": {
     "name": "Freedom's Hand - Sweep",
@@ -278,12 +761,17 @@
   "b5d142e80a78": {
     "name": "Exalted Court",
     "kind": "rule",
-    "plain": "An upgraded model can use its Noble Exemplar ability only while your army is Honoured or Virtuous; it can't use it if your army is Dishonoured or if the model has no Bondsman abilities. A bearer that has a Bondsman ability can use that Bondsman ability one extra time in each of your Command phases."
+    "plain": "An upgraded model gets an extra Bondsman ability use in each of your Command phases, but can use Noble Exemplar only while your army is Honoured or Virtuous. Its Noble Exemplar ability can't be used at all if your army is Dishonoured or if the model has no Bondsman abilities. A bearer that has a Bondsman ability can use that Bondsman ability one extra time in each of your Command phases."
   },
   "b87f09a5876e": {
     "name": "Full Tilt",
     "kind": "stratagem",
     "plain": "When one of your IMPERIAL KNIGHTS VEHICLE models Advances in your Movement phase, don't make an Advance roll for it. Instead, until the end of the phase, add 6\" to its Move characteristic (9\" instead if it is an ARMIGER-CLASS model)."
+  },
+  "b8ad00346298": {
+    "name": "Armour of the Sainted Ion",
+    "kind": "ability",
+    "plain": "For QUESTORIS-CLASS or ARMIGER-CLASS models only: the bearer's Save characteristic is 2+."
   },
   "bb94a0bdbc75": {
     "name": "Heirlooms of the Household",
@@ -300,6 +788,41 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase when an ARMIGER-CLASS model from your army is selected to fight. Until the end of the phase, an unmodified hit roll of 6 on its melee attacks scores one additional hit."
   },
+  "c0676ca53017": {
+    "name": "Judgement",
+    "kind": "weapon",
+    "plain": "The bearer can target units it cannot see with this weapon."
+  },
+  "c15d8f905762": {
+    "name": "Exalted Court: Master of Lore",
+    "kind": "ability",
+    "plain": "Using the Arts of War Duty Requisition costs you 0 Requisition points while this model is part of your Crusade force."
+  },
+  "c17ae5c7efef": {
+    "name": "Mythic Hero",
+    "kind": "ability",
+    "plain": "Models with this Martial Tradition count your army's Honour points as 2 higher than they really are for their Chivalric abilities.\n- This is used when working out which Chivalric abilities your IMPERIAL KNIGHTS models have active."
+  },
+  "c19dae3b9f38": {
+    "name": "Protect Those in Need",
+    "kind": "ability",
+    "plain": "Lose 1 Honour point at the end of a battle round in which your IMPERIAL KNIGHTS passed up a Heroic Intervention, or a charge on an enemy fighting your units. In detail, either or both of these must have happened that round:\n- One of your IMPERIAL KNIGHTS models was eligible to declare a Heroic Intervention in your opponent's Charge phase but did not do so.\n- In your Charge phase, one or more of your IMPERIAL KNIGHTS models were eligible to declare a charge against any enemy unit that was within Engagement Range of another unit from your army when the phase began, yet none of those models made a charge move against such an enemy unit in that phase."
+  },
+  "c2ac69f89dd5": {
+    "name": "Landstrider",
+    "kind": "ability",
+    "plain": "This WARLORD gets 2\" added to its Move characteristic, and each dice roll of 1-2 in its Advance and charge rolls counts as a 3."
+  },
+  "c44d8ce89233": {
+    "name": "Exalted Court: Princeps",
+    "kind": "ability",
+    "plain": "This model must be your WARLORD, and whenever your army would lose an Honour point, roll a D6: on a 5+, that point is not lost.\n- If several models in your army have a rule like this, one of those models must be your army's WARLORD."
+  },
+  "c5665c1ce075": {
+    "name": "Mentor's Seal",
+    "kind": "ability",
+    "plain": "The bearer knows one extra teaching from the Knightly Teachings, and adds 1 to the roll to see whether each teaching it recounts is inspiring."
+  },
   "c58fc5bded10": {
     "name": "Stormstriders",
     "kind": "stratagem",
@@ -315,10 +838,30 @@
     "kind": "weapon",
     "plain": "When an attack made with this weapon is allocated to a model whose Save characteristic is 3+ or better, the attack's Damage characteristic is 3."
   },
+  "cc4b4e05400b": {
+    "name": "The Heart of Ion",
+    "kind": "ability",
+    "plain": "At the end of your Command phase (once per turn), the bearer can suffer 1 mortal wound to boost its movement and one weapon until your next Command phase.\n- When it does, pick one weapon the bearer has. Until the start of your next Command phase:\n- The bearer's Move characteristic goes up by 1\".\n- Advance and charge rolls made for the bearer get 1\" added.\n- Attacks the bearer makes with the picked weapon add 1 to their wound rolls."
+  },
+  "cce081d9f3c8": {
+    "name": "The Oath of Justice (Aura)",
+    "kind": "ability",
+    "plain": "If this teaching is inspiring, a <NOBLE HOUSEHOLD> ARMIGER-CLASS model within 6\" of this MENTOR counts 2 extra Honour points for its Chivalric abilities.\n- This applies if that model is affected by any Chivalric abilities, and may mean different IMPERIAL KNIGHTS models in your army have different Chivalric abilities active."
+  },
+  "cd93fccd2bc7": {
+    "name": "Unremitting",
+    "kind": "ability",
+    "plain": "When a model with this Martial Tradition shoots, its Blast weapons work out their number of attacks as if the target unit had twice as many models."
+  },
   "ce506954ed54": {
     "name": "Freedom's Hand - Strike",
     "kind": "weapon",
     "plain": "Attacks made with this weapon inflict D3 mortal wounds on the target on an unmodified wound roll of 6, on top of their normal damage."
+  },
+  "ce87859fc7e0": {
+    "name": "Exalted Court: Master of Justice",
+    "kind": "ability",
+    "plain": "This model gains one extra Questor Imperialis Martial Tradition that no model in your army has, on top of any it already has.\n- Choose it when you select this upgrade; you can't choose Glorified History."
   },
   "d28cff67a87e": {
     "name": "Hammer Blow",
@@ -330,10 +873,25 @@
     "kind": "ability",
     "plain": "Once per battle round, you can re-roll a single roll made for CANIS REX, as long as it is a hit roll, wound roll, charge roll or saving throw."
   },
+  "d3f8bf8cb96e": {
+    "name": "Exalted Court: High Monarch",
+    "kind": "ability",
+    "plain": "When this model uses its Bondsman ability, the ability also affects each friendly <NOBLE HOUSEHOLD> ARMIGER-CLASS model that is within 6\" of this model."
+  },
+  "d49f30d04f2f": {
+    "name": "Echoes from the Past",
+    "kind": "ability",
+    "plain": "This WARLORD gets Glorified History as a Martial Tradition if it is QUESTOR IMPERIALIS, or Fealty to the Cog if it is QUESTOR MECHANICUS.\n- It gains only the Martial Tradition: it does not get access to the Noble Household Stratagem, Noble Household Warlord Trait or Noble Household Relic of the selected house."
+  },
   "d5c8333306ed": {
     "name": "Code Chivalric",
     "kind": "rule",
     "plain": "You begin the battle with 1 Honour point. During the battle you can gain Honour points (usually by fulfilling the Pledge of your chosen Oaths) and lose them (usually when the Troth of your chosen Oaths applies), but your total can't drop below 0 or rise above 6. At the start of each battle round, check your total to find your army's level of Honour: 0 points is Dishonoured, 1-4 is Honoured, and 5-6 is Virtuous. While Dishonoured, neither the Honoured nor the Virtuous Chivalric abilities of your chosen Oaths are active. While Honoured, the Honoured Chivalric ability of your chosen Oaths is active for every IMPERIAL KNIGHTS unit in your army, but the Virtuous ones are not. While Virtuous, both the Honoured and Virtuous Chivalric abilities of your chosen Oaths are active for every IMPERIAL KNIGHTS unit in your army."
+  },
+  "d6898f4f1227": {
+    "name": "Sanctuary",
+    "kind": "ability",
+    "plain": "Only for QUESTORIS-CLASS or ARMIGER-CLASS models: against melee attacks, the bearer has a 4+ invulnerable save."
   },
   "d6cb5cacfabb": {
     "name": "Trophy Claim",
@@ -354,6 +912,11 @@
     "name": "Noble Households",
     "kind": "rule",
     "plain": "In a Battle-forged army, a Detachment can't contain units from two different noble households, but it can contain any number of FREEBLADES."
+  },
+  "dac35d634ef8": {
+    "name": "The Headsman's Mark",
+    "kind": "ability",
+    "plain": "The bearer's attacks add 1 to their Damage characteristic when allocated to a MONSTER or VEHICLE model, and 1 to their wound roll against a TITANIC unit."
   },
   "dba75ca7961f": {
     "name": "Protection Protocols",
@@ -390,6 +953,51 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your QUESTOR IMPERIALIS models that hasn't been chosen to fight yet this phase is destroyed without exploding: don't remove it from play. It can fight once the attacking model's unit has finished its attacks, using the characteristics for having 1 wound remaining. After its attacks are resolved, remove it. This costs 1CP for an ARMIGER-CLASS model and 2CP for any other model."
   },
+  "dff0f375c188": {
+    "name": "Glory of the Charge",
+    "kind": "ability",
+    "plain": "A model with this tradition adds 1 to its Attacks when it fights in a turn in which it made a charge move, was charged or made a Heroic Intervention.\n- This lasts until that fight is resolved."
+  },
+  "e2c5bcfd38df": {
+    "name": "Oathkeepers",
+    "kind": "ability",
+    "plain": "Models with this tradition read damage tables as if they had twice the wounds left, and count Honour points as 1 higher unless your army is Dishonoured.\n- A model with this tradition whose characteristics change as it suffers damage counts as having twice the wounds it has left when you work out those characteristics.\n- When working out which Chivalric abilities your army's IMPERIAL KNIGHTS models have active, models with this tradition treat your army's current Honour points as 1 more than the real total, as long as your army is not Dishonoured. So these models may have different Chivalric abilities active than your other IMPERIAL KNIGHTS models."
+  },
+  "e44f604eb224": {
+    "name": "Duty of the Forsworn",
+    "kind": "ability",
+    "plain": "Add 1 to the hit roll of each attack this WARLORD makes against one unit from your opponent's army, which you pick at the start of your first Command phase."
+  },
+  "e49ae1caef77": {
+    "name": "The Auric Mask",
+    "kind": "ability",
+    "plain": "AURIC MASK (AURA): subtract 1 from the Leadership of models in enemy units within 12\" of the bearer, and another 1 (a total of -2) for units within 6\".\n- Each Combat Attrition test taken for an enemy unit within 6\" of the bearer also has 1 subtracted from it."
+  },
+  "e5d6296c3233": {
+    "name": "Mark of the Omnissiah",
+    "kind": "ability",
+    "plain": "This model is repaired at the start of each of your Command phases, regaining up to D3 lost wounds.\n- A model can only be repaired once per turn.\n- If this model has the Sacristan Pledge Questor Allegiance Oath, this means it regains D3+1 wounds at the start of each of your Command phases."
+  },
+  "e71bb13b3efe": {
+    "name": "Refuse No Challenge",
+    "kind": "ability",
+    "plain": "Lose 1 Honour point at the end of any battle round in which one or more of your IMPERIAL KNIGHTS units Fell Back."
+  },
+  "e9860f71cbe1": {
+    "name": "Protect Those in Need",
+    "kind": "ability",
+    "plain": "Inspiring Heroes: in each of your Command phases, this model can use its Bondsman ability (if it has one) one extra time."
+  },
+  "ec2617de9015": {
+    "name": "Exalted Court: Master of Justice",
+    "kind": "ability",
+    "plain": "If this model is in your Crusade force and you win the battle, roll one D6 at the end of the battle: on a 4+, gain 1 extra Requisition point."
+  },
+  "ecc713d292ea": {
+    "name": "The Helm Dominatus",
+    "kind": "ability",
+    "plain": "At the end of your Command phase, you can make the bearer's Bondsman ability last for the rest of the battle on one ARMIGER-CLASS model it affects.\n- At the end of each of your Command phases, you can choose one ARMIGER-CLASS model currently affected by the bearer's Bondsman ability. As long as the bearer is on the battlefield, the effect on that ARMIGER-CLASS model then lasts until the battle ends instead of until your next Command phase starts, or until another Bondsman ability affects that model, whichever happens sooner."
+  },
   "ed7c751cb362": {
     "name": "Ion Aegis",
     "kind": "stratagem",
@@ -400,10 +1008,30 @@
     "kind": "stratagem",
     "plain": "Once per battle, when an IMPERIAL KNIGHTS VEHICLE model from your army is destroyed: don't roll to see whether it explodes, because it explodes automatically. If it is a DOMINUS-CLASS model, roll one D6; on a 4+, the explosion's range is 3D6\". Costs 1CP for an ARMIGER-CLASS model, 2CP for a QUESTORIS-CLASS model, and 3CP for any other model."
   },
+  "f16a2c3759ef": {
+    "name": "Defend the Realm",
+    "kind": "ability",
+    "plain": "Duty and Wisdom: at the start of your Command phase, your Battle-forged CP bonus gives you 1 extra Command point, so you normally gain 2 CPs rather than 1."
+  },
+  "f49b31fdcd1a": {
+    "name": "Honoured Sacristans",
+    "kind": "ability",
+    "plain": "Add 1 to armour saving throws a model with this Martial Tradition takes against attacks with a Damage characteristic of 1."
+  },
+  "f94469505fa2": {
+    "name": "Exalted Court: Master Tactician",
+    "kind": "ability",
+    "plain": "When you are the Attacker and this unit is in your Crusade force, you begin the battle with 1 extra Command point."
+  },
   "fba9e61e981b": {
     "name": "Revered Paragon",
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate an IMPERIAL KNIGHTS CHARACTER model as your WARLORD: it can have one extra Warlord Trait. Every Warlord Trait in your army must be unique (re-roll duplicates if generating randomly). You can't use this Stratagem if your WARLORD is a named character."
+  },
+  "fe418a187642": {
+    "name": "Exalted Court: Forge Master",
+    "kind": "ability",
+    "plain": "While this model is wholly within your deployment zone, attacks whose wounds are allocated to it have their Damage reduced by 1 (to a minimum of 1).\n- This doesn't stack with other rules that reduce an attack's Damage characteristic."
   },
   "ff8dd7188501": {
     "name": "Cerastus Shock Lance (Melee - Charged)",
