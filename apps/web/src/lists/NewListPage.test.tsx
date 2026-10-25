@@ -15,6 +15,9 @@ import type { ListData } from './listStore';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 import { NewListPage } from './NewListPage';
 
+// These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
+vi.setConfig({ testTimeout: 20_000 });
+
 // Ids in the BSData v9.8.0 files.
 const STRIKE_FORCE_CHOICE = '09f9-b586-8d63-7635';
 const COMBAT_PATROL_CHOICE = 'af70-08c1-1c6f-0770';

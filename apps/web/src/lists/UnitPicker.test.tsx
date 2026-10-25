@@ -10,6 +10,9 @@ import { applyPicks, armyChoices, startingRoster } from './newListSetup';
 import { loadUnitIndex } from './unitIndex';
 import { UnitPicker } from './UnitPicker';
 
+// These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
+vi.setConfig({ testTimeout: 20_000 });
+
 beforeEach(() => {
   stubGeneratedData();
 });

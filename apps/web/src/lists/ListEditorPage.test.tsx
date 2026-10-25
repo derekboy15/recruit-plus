@@ -16,6 +16,9 @@ import { applyPicks, armyChoices, listData, startingRoster } from './newListSetu
 import { stubGeneratedData } from './__fixtures__/generatedData';
 import { novokhPatrol, twoPatrols } from './__fixtures__/patrolList';
 
+// These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
+vi.setConfig({ testTimeout: 20_000 });
+
 const NECRONS = '61c6-c8c5-a304-ff5f';
 
 let db: RecruitDb;

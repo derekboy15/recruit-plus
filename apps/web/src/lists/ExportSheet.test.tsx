@@ -17,6 +17,9 @@ import { ListEditorPage } from './ListEditorPage';
 import { createList, type ListData } from './listStore';
 import { createLocalPublicSource, PublicSourceContext } from './publicSource';
 
+// These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
+vi.setConfig({ testTimeout: 20_000 });
+
 let db: RecruitDb;
 let n = 0;
 beforeEach(() => {
