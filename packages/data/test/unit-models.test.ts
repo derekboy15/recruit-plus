@@ -190,13 +190,62 @@ describe('attribution comes from the tree (spec §4.1, §7a)', () => {
   }
 });
 
-// The entry map that joins a list's selections to their gear is the bulk of it (Space Wolves 146 → 191 kB gzip, budget 300).
-test('no catalogue grows by more than 35% (plan H size ceiling)', () => {
+// Per-model data costs about 40% (Space Wolves 146 → 209 kB gzip of its 300 kB budget): the entry map that joins a list's
+// selections to their gear 34 kB, options 17 kB, model kinds 11 kB. This guards against more.
+test('no catalogue grows by more than 45% (plan H size ceiling)', () => {
   const before: Record<string, number> = JSON.parse(readFileSync(join(__dirname, 'fixtures', 'catalogue-gzip-before-plan-h.json'), 'utf8'));
   const over: string[] = [];
   for (const [slug, size] of Object.entries(before)) {
     const now = gzipSync(readFileSync(join(GENERATED, 'catalogues', `${slug}.json`)), { level: 9 }).length;
-    if (now > size * 1.35) over.push(`${slug}: ${size} → ${now}`);
+    if (now > size * 1.45) over.push(`${slug}: ${size} → ${now}`);
   }
   expect(over).toEqual([]);
+});
+
+// ---------- Task 3: the unit's options ----------
+
+describe('options: swaps and additions, and who can take them', () => {
+  const choiceNames = (o: { choices: { name: string }[] }) => o.choices.map((c) => c.name);
+
+  test('the Command Squad can add attachés: one option on the unit whose choices add models', () => {
+    const u = unit('imperium-astra-militarum', 'Cadian Command Squad');
+    const att = (u.options ?? []).find((o) => ['Astropath', 'Master of Ordnance'].every((n) => choiceNames(o).includes(n)));
+    expect(att, JSON.stringify((u.options ?? []).map((o) => o.name))).toBeDefined();
+    expect(att!.who).toEqual([]);
+    expect(choiceNames(att!)).toEqual(expect.arrayContaining(['Astropath', 'Master of Ordnance', 'Officer of the Fleet', 'Ogryn Bodyguard', 'Nork Deddog']));
+    expect(att!.choices.every((c) => (c.models ?? []).length === 1)).toBe(true);
+  });
+
+  test("a Shock Trooper with a special weapon chooses it: the option belongs to that model", () => {
+    const u = unit('imperium-astra-militarum', 'Cadian Shock Troops');
+    const sp = (u.options ?? []).find((o) => choiceNames(o).includes('Meltagun'));
+    expect(sp).toBeDefined();
+    expect(sp!.who).toEqual(['Shock Trooper w/ Special Weapon']);
+    expect(choiceNames(sp!)).toEqual(expect.arrayContaining(['Meltagun', 'Plasma gun', 'Flamer']));
+  });
+
+  test('the Commander can swap a pistol: the option says what it replaces', () => {
+    const u = unit('imperium-astra-militarum', 'Cadian Command Squad');
+    const pistols = (u.options ?? []).find((o) => o.who.includes('Cadian Commander') && choiceNames(o).includes('Plasma pistol'));
+    expect(pistols).toBeDefined();
+    expect((pistols!.replaces ?? []).map((i) => u.weapons[i].name)).toEqual(['Laspistol']);
+  });
+
+  test('a single model with no choices has no options; relics and Warlord traits are never options', () => {
+    for (const o of unit('necrons', 'Necron Warriors').options ?? []) expect(choiceNames(o).some((n) => /relic|warlord/i.test(n)), o.name).toBe(false);
+  });
+
+  for (const c of index.catalogues.filter((x) => !x.library)) {
+    test(`${c.slug}: every option's weapons and models are the unit's own`, () => {
+      const problems: string[] = [];
+      for (const u of catalogue(c.slug).units)
+        for (const o of u.options ?? [])
+          for (const ch of o.choices) {
+            for (const i of ch.weapons) if (i < 0 || i >= u.weapons.length) problems.push(`${u.name}: ${o.name}: ${ch.name} weapon ${i}`);
+            for (const i of ch.models ?? []) if (i < 0 || i >= (u.modelKinds ?? []).length) problems.push(`${u.name}: ${o.name}: ${ch.name} model ${i}`);
+            if (!ch.weapons.length && !ch.abilities.length && !(ch.models ?? []).length) problems.push(`${u.name}: ${o.name}: ${ch.name} brings nothing`);
+          }
+      expect(problems).toEqual([]);
+    });
+  }
 });

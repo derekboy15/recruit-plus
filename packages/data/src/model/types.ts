@@ -71,6 +71,8 @@ export interface UnitOut {
   everyone?: number[];
   /** What each BSData entry in the unit's tree brings, by target id: joins a roster selection (merged.target.id) to its gear. */
   entries?: Record<string, EntryGear>;
+  /** The swaps and additions the unit can take, and who can take them (spec §3.1 Options and Can also take). */
+  options?: UnitOptionOut[];
   models: ProfileOut[];
   weapons: ProfileOut[];
   abilities: AbilityOut[];
@@ -197,6 +199,21 @@ export interface ModelKindOut {
   /** Its gear as the unit is added, and the abilities it and that gear grant (indexes into the unit's lists). */
   weapons: number[];
   abilities: number[];
+}
+
+/** One of a unit's options: a group of choices (or a single extra) on the unit or on one kind of model. */
+export interface UnitOptionOut {
+  /** As a player reads it ("Pistol", "Attachés and Bodyguards"). */
+  name: string;
+  /** The model kinds (by name) it belongs to; empty when it is the unit's. */
+  who: string[];
+  min: number;
+  /** -1 = no limit. */
+  max: number;
+  /** What each choice brings, by index into the unit's lists; `models`: the model kinds it adds (an attaché). */
+  choices: { name: string; weapons: number[]; abilities: number[]; models?: number[] }[];
+  /** The weapons a choice replaces: the group's default choice's, for a swap the unit must make one of. */
+  replaces?: number[];
 }
 
 /** What one BSData entry brings, by index into the unit's lists: weapons, abilities, psychic, its model stat line. */

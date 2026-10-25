@@ -3,12 +3,13 @@
  * worked out by the roster engine itself rather than re-implemented on the raw tree: how many of each kind of model it
  * has, what each model carries and the abilities that grants, and what sits on the unit rather than on a model.
  */
-import type { CatalogueOut, ModelKindOut, UnitOut } from '../model/types';
+import type { CatalogueOut, ModelKindOut, UnitOptionOut, UnitOut } from '../model/types';
+import { optionDisplay } from '../roster/names';
 import { addUnit, findSelView } from '../roster/edit';
 import { evaluate, type SelView } from '../roster/evaluate';
 import { createRoster, FORCE } from '../roster/policy';
-import { buildScope, resolve, rootEntriesFor } from '../roster/scope';
-import type { RosterFile } from '../roster/types';
+import { buildScope, resolve, rootEntriesFor, type Merged, type Scope } from '../roster/scope';
+import type { RNode, RosterFile } from '../roster/types';
 
 /** The ids a selection was made through: its entry (a link's id for a link) and the entry's target. */
 const idsOf = (s: SelView) => [...new Set([s.sel.entryId, s.merged?.target.id].filter((x): x is string => !!x))];
@@ -70,7 +71,99 @@ export function applyDefaultModels(out: CatalogueOut, files: RosterFile[]): void
     // A single model is the unit: everything on it is that model's.
     const a = single ? { models: [{ ids: u.modelKinds![0].entryIds, copies: v.sel.count, gear: [...idsOf(v), ...v.children.flatMap(function all(c: SelView): string[] { return [...idsOf(c), ...c.children.flatMap(all)]; })] }], unit: [], everyone: [] } : read(v);
     apply(u, a);
+    const options = optionsOf(scope, resolve(scope, scope.node(root)!), u);
+    if (options.length) u.options = options;
   }
+}
+
+/** A node's own selections limit (scope parent): its link's, else its target's. */
+const limitOf = (m: Merged, type: 'min' | 'max'): number | undefined =>
+  m.constraints.find((c) => c.type === type && c.field === 'selections' && c.scope === 'parent')?.value;
+
+/**
+ * The unit's options, read from its tree in the roster scope: each group of choices, or single optional extra, with the
+ * model kind it hangs under (none for the unit itself). A choice counts only when it brings weapons, abilities or a model;
+ * relics and Warlord traits are list-building extras ("Also available"), never options. A group whose choices are all
+ * models the unit as added has, or loadout variants of them, is the unit's make-up, not an option.
+ */
+function optionsOf(scope: Scope, unit: Merged, u: UnitOut): UnitOptionOut[] {
+  const entries = u.entries ?? {};
+  const kinds = u.modelKinds ?? [];
+  const kindOf = (m: Merged) => kinds.findIndex((k) => m.ids.some((id) => k.entryIds.includes(id)));
+  const below = (m: Merged, seen: Set<string>): string[] => {
+    if (seen.has(m.target.id)) return [];
+    seen.add(m.target.id);
+    return [m.target.id, ...m.children.flatMap((c) => below(resolve(scope, c), seen))];
+  };
+  const gather = (m: Merged, key: 'w' | 'a') => {
+    const all = [...new Set(below(m, new Set()).flatMap((id) => entries[id]?.[key] ?? []))];
+    return key === 'w' ? all.filter((i) => !u.weapons[i]?.extra) : all;
+  };
+  const choice = (m: Merged) => {
+    const k = kindOf(m);
+    const models = k >= 0 && kinds[k].optional ? [k] : undefined;
+    return { name: optionDisplay(m.name).name, weapons: gather(m, 'w'), abilities: gather(m, 'a'), ...(models && { models }) };
+  };
+  const brings = (c: ReturnType<typeof choice>) => c.weapons.length > 0 || c.abilities.length > 0 || !!c.models;
+  const out: UnitOptionOut[] = [];
+  const seen = new Set<string>();
+  const walk = (m: Merged, who: string[]) => {
+    if (seen.has(m.target.id)) return;
+    seen.add(m.target.id);
+    for (const c of m.children) {
+      if (c.hidden || c.extraKind) continue;
+      const cm = resolve(scope, c);
+      if (cm.hidden || cm.target.extraKind) continue;
+      if (cm.type === 'model') {
+        walk(cm, [cm.name]);
+        continue;
+      }
+      if (cm.target.kind === 'group') {
+        // A group's choices, with any group inside it opened up (the Command Squad's Attachés and Bodyguards).
+        const open = (g: Merged): Merged[] =>
+          g.children
+            .filter((x) => !x.hidden && !x.extraKind)
+            .map((x) => resolve(scope, x))
+            .filter((x) => !x.hidden)
+            .flatMap((x) => (x.target.kind === 'group' ? open(x) : [x]));
+        const members = open(cm);
+        const kindsIn = members.map(kindOf);
+        // The unit's make-up (Necron Warriors' models), not a choice: walk into each model.
+        if (members.length && kindsIn.every((k) => k >= 0 && !kinds[k].optional)) {
+          members.forEach((x) => walk(x, [x.name]));
+          continue;
+        }
+        const choices = members.map(choice).filter(brings);
+        if (choices.length) {
+          const min = limitOf(cm, 'min') ?? 0;
+          const def = cm.target.defaultId ?? c.defaultId;
+          const defaultChoice = min > 0 && def ? members.find((x) => x.ids.includes(def)) : undefined;
+          out.push({
+            name: optionDisplay(cm.name).name,
+            who,
+            min,
+            max: limitOf(cm, 'max') ?? -1,
+            choices,
+            ...(defaultChoice && { replaces: gather(defaultChoice, 'w') }),
+          });
+        }
+        // An attaché's own wargear choices are that model's.
+        members.filter((x) => x.type === 'model').forEach((x) => walk(x, [x.name]));
+        continue;
+      }
+      if (cm.type === 'unit') {
+        walk(cm, []);
+        continue;
+      }
+      const min = limitOf(cm, 'min') ?? 0;
+      if (min === 0) {
+        const ch = choice(cm);
+        if (brings(ch)) out.push({ name: ch.name, who, min: 0, max: limitOf(cm, 'max') ?? -1, choices: [ch] });
+      } else walk(cm, who);
+    }
+  };
+  walk(unit, kindOf(unit) >= 0 && kinds.length === 1 ? [kinds[0].name] : []);
+  return out;
 }
 
 function apply(u: UnitOut, added: Added): void {
