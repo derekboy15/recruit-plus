@@ -127,6 +127,7 @@ function buildLookups(w: Wahapedia) {
     abilityLinksByDatasheet: group(w.datasheetsAbilities, 'datasheet_id'),
     abilitiesById: new Map(w.abilities.map((a) => [a.id, a])),
     keywordsByDatasheet: group(w.datasheetsKeywords, 'datasheet_id'),
+    sourcesById: new Map(w.source.map((s) => [s.id, s])),
   };
 }
 
@@ -189,6 +190,8 @@ export function joinWahapedia(
       // Wahapedia's cost: the build replaces it with the builder's price wherever the roster engine can price the unit (join/points.ts).
       points: ds.cost_per_unit === 'true' && ds.Cost !== '' ? Number(ds.Cost) : minimumPoints(models, u.minModels),
       baseSize: models.find((m) => m.base_size)?.base_size ?? null,
+      // BSData tags most Legends units in the name; Wahapedia files the rest under a "Warhammer Legends: …" book.
+      legends: u.legends || /^Warhammer Legends/i.test(lk.sourcesById.get(ds.source_id)?.name ?? ''),
     };
   });
   return { units: out, unmatched };

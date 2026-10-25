@@ -1,4 +1,5 @@
 import { test, expect, describe } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadGameData, isPlayableCatalogue } from '../src/bsdata/gamedata';
 import { extractUnits } from '../src/extract/units';
@@ -95,4 +96,47 @@ test('every playable unit has at least one keyword besides its faction keywords'
   for (const c of [...gd.catalogues.values()].filter((x) => isPlayableCatalogue(x, overrides.playableCatalogues)))
     for (const u of joined(c.name).units) if (u.keywords.length === 0 && !allowed.has(`${c.name}: ${u.name}`)) empty.push(`${c.name}: ${u.name}`);
   expect(empty).toEqual([]);
+});
+
+describe('Legends from Wahapedia source books', () => {
+  const unitIn = (catalogueName: string, name: string) => {
+    const u = joined(catalogueName).units.find((x) => x.name === name);
+    if (!u) throw new Error(`${catalogueName} has no unit "${name}"`);
+    return u;
+  };
+
+  test('units Wahapedia files under a Warhammer Legends book are Legends', () => {
+    expect(unitIn('Imperium - Legion of the Damned', 'Damned Legionnaires').legends).toBe(true);
+    expect(unitIn('Chaos - Renegades & Heretics [LEGENDS]', 'Renegade Cultists').legends).toBe(true);
+    expect(unitIn('Aeldari - Drukhari', 'Kabalite Trueborn').legends).toBe(true);
+    expect(unitIn('Imperium - Adeptus Astartes - Ultramarines', 'Carnac Commodus').legends).toBe(true);
+  });
+
+  test('units from current books are not', () => {
+    expect(unitIn('Necrons', 'Necron Warriors').legends).toBe(false);
+    expect(unitIn('Imperium - Adeptus Astartes - Ultramarines', 'Intercessor Squad').legends).toBe(false);
+    // Added by overrides/added-units.json, so read from the build.
+    const we = JSON.parse(readFileSync(join(ROOT, 'generated', 'catalogues', 'chaos-world-eaters.json'), 'utf8'));
+    expect(we.units.find((u: { name: string }) => u.name === 'Khorne Berzerkers').legends).toBe(false);
+  });
+
+  test('exactly the audited units gain the badge (26 entries, 18 names; 25 Oct 2026)', () => {
+    const chapters = ['Blood Angels', 'Dark Angels', 'Imperial Fists', 'Iron Hands', 'Raven Guard', 'Salamanders', 'Space Wolves', 'Ultramarines', 'White Scars'];
+    const renegades = [
+      'Malefic Lord', 'Rogue Psyker Coven', 'Renegade Cultists', 'Renegade Militia Squad', 'Renegade Mutant Rabble', 'Renegade Command Squad',
+      'Renegade Disciple Squad', 'Renegade Enforcer', 'Renegade Marauder Squad', 'Renegade Ogryn Beast Handlers', 'Renegade Ogryn Brutes',
+      'Renegade Plague Ogryns', 'Renegade Chaos Spawn', 'Renegade Heavy Weapons Squad',
+    ];
+    const audited = [
+      'Aeldari - Drukhari: Hekatrix Bloodbrides',
+      'Aeldari - Drukhari: Kabalite Trueborn',
+      ...renegades.map((n) => `Chaos - Renegades & Heretics [LEGENDS]: ${n}`),
+      ...chapters.map((c) => `Imperium - Adeptus Astartes - ${c}: Carnac Commodus`),
+      'Imperium - Legion of the Damned: Damned Legionnaires',
+    ];
+    // Without a [Legends] tag in the name, the badge can only come from the Wahapedia source.
+    const gained = [...gd.catalogues.values()].flatMap((c) => joined(c.name).units.filter((u) => u.legends && !/\[legends\]/i.test(u.name)).map((u) => `${c.name}: ${u.name}`));
+    expect(gained.sort()).toEqual(audited.sort());
+    expect(new Set(gained.map((g) => g.split(': ')[1])).size).toBe(18);
+  });
 });
