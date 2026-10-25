@@ -432,6 +432,15 @@ describe('explain (real Necrons)', () => {
     expect(row.fixLabel).toBeUndefined();
   });
 
+  test('detachment-not-allowed names an allied detachment’s faction (an add-on kept after a change to an Arks of Omen size)', () => {
+    const scope = realScope('imperium-adeptus-astartes-ultramarines', 'imperium-legion-of-the-damned');
+    const um = realCatalogueId('imperium-adeptus-astartes-ultramarines');
+    const r = addForce(scope, createRoster(scope, { name: 'UM', catalogueId: um, battleSize: 'strike-force', forceId: FORCE.arksOfOmen }), FORCE.auxiliarySupport, realCatalogueId('imperium-legion-of-the-damned'));
+    expect(texts(of(explainPolicy(scope, r), 'detachment-not-allowed'))).toEqual([
+      "The Legion of the Damned Auxiliary Support Detachment isn't allowed at Strike Force. Remove it and pick from the detachments offered.",
+    ]);
+  });
+
   test('an Auxiliary Support Detachment reads without an empty category word', () => {
     let r = necronRoster('onslaught', FORCE.patrol);
     r = addForce(necronsScope, r, FORCE.auxiliarySupport, necrons);

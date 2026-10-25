@@ -76,7 +76,11 @@ export function UnitPicker({ scope, roster, forceSelId, only, role, preview: sho
     () =>
       options
         .filter((o) => !filtered || only!.includes(o.entryId))
-        .map((o) => ({ key: o.entryId, name: unitName(o.name), role: o.role ?? OTHER, legends: o.legends, unit: unitInfo(scope, units, o.entryId)?.unit, option: o })),
+        .map((o) => {
+          const unit = unitInfo(scope, units, o.entryId)?.unit;
+          // The name's [Legends] tag, or the datasheet's Warhammer Legends source (Wahapedia).
+          return { key: o.entryId, name: unitName(o.name), role: o.role ?? OTHER, legends: o.legends || !!unit?.legends, unit, option: o };
+        }),
     [options, filtered, only, scope, units],
   );
   // The faction's datasheets the army can't take now (a dynasty's named characters, say). Not while showing a fix's units.
@@ -110,6 +114,7 @@ export function UnitPicker({ scope, roster, forceSelId, only, role, preview: sho
             <Badges item={i} />
           </span>
           {statsLine(i.unit) && <span className="picker-row__stats">{statsLine(i.unit)}</span>}
+          {!i.option && i.unit?.needs && <span className="picker-row__needs">{`Needs ${i.unit.needs.join(' or ')}`}</span>}
         </span>
         {i.option && (
           <span className="picker-row__pts">

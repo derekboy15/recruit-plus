@@ -52,6 +52,8 @@ export function DetachmentSheet({ editor, onClose }: { editor: ReadyEditor; onCl
   const [adding, setAdding] = useState(false);
   const [confirming, setConfirming] = useState<string | null>(null);
   const factionName = (id: string) => factionDisplayName(catalogues.find((c) => c.id === id)?.name ?? scope.catalogue(id)?.name ?? 'Allies');
+  /** How a force that isn't an army on its own joins one (CatalogueSummary.addOn). */
+  const addOnHow = (id: string) => catalogues.find((c) => c.id === id)?.addOn?.how;
 
   const choices = useMemo(() => {
     if (!adding) return [];
@@ -120,7 +122,12 @@ export function DetachmentSheet({ editor, onClose }: { editor: ReadyEditor; onCl
           {allies.size > 0 && <h3 className="role-head">Allies</h3>}
           {[...allies].map(([id, list]) => (
             <details key={id} className="ally">
-              <summary>{factionName(id)}</summary>
+              <summary>
+                <span className="ally__head">
+                  <span className="ally__name">{factionName(id)}</span>
+                  {addOnHow(id) && <span className="ally__how">{addOnHow(id)}</span>}
+                </span>
+              </summary>
               <ul className="list">{list.map(button)}</ul>
             </details>
           ))}

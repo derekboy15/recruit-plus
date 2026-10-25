@@ -290,6 +290,8 @@ button.row:hover { border-color: var(--border-strong); }
 .army-setup__choices { width: 100%; display: grid; gap: 0.5rem; }
 .army-setup__size { display: grid; gap: 0.25rem; width: 100%; }
 .ally summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
+.ally__head { display: grid; gap: 0.15rem; padding: 0.35rem 0; }
+.ally__how { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); }
 
 /* Option controls in the unit editor. */
 .opt { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--touch); }

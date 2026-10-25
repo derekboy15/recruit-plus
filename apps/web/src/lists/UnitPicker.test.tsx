@@ -2,7 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { availableUnits, FORCE, type Roster, type Scope } from '@recruit/data/roster';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
-import { getRosterScope, resetDataCache } from '../factions/dataClient';
+import { getIndex, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { WordingProvider } from '../rules/wording';
 import { stubGeneratedData } from './__fixtures__/generatedData';
 import { NECRONS } from './__fixtures__/patrolList';
@@ -113,4 +113,24 @@ test('a fix’s suggestions come first; Show all units shows the rest', async ()
   expect(rows(dialog).map((r) => r.textContent)).toEqual([expect.stringMatching(/^Lord/)]);
   await u.click(within(dialog).getByRole('button', { name: 'Show all units' }));
   expect(rows(dialog).length).toBeGreaterThan(50);
+});
+
+test('a datasheet the army’s choices keep out says what it needs', async () => {
+  const { dialog } = await picker();
+  const hidden = within(dialog).getByRole('region', { name: 'Not available with this army’s current choices' });
+  expect(within(hidden).getByRole('button', { name: /^Imotekh the Stormlord/ })).toHaveTextContent('Needs Sautekh dynasty');
+});
+
+test('a unit Wahapedia files under Warhammer Legends shows the Legends badge: Damned Legionnaires', async () => {
+  const slug = 'imperium-legion-of-the-damned';
+  const [scope, index, units] = await Promise.all([getRosterScope([slug]), getIndex(), loadUnitIndex([slug])]);
+  const catalogueId = index.catalogues.find((c) => c.slug === slug)!.id;
+  const roster = startingRoster(scope, { name: 'x', catalogueId, sizeId: 'combat-patrol', forceId: FORCE.auxiliarySupport });
+  render(
+    <WordingProvider initial="plain">
+      <UnitPicker scope={scope} roster={roster} forceSelId={roster.forces[0].id} units={units} onAdd={vi.fn()} onClose={() => {}} />
+    </WordingProvider>,
+  );
+  const dialog = screen.getByRole('dialog', { name: 'Add a unit' });
+  expect(within(dialog).getByRole('button', { name: /^Damned Legionnaires/ })).toHaveTextContent('Legends');
 });

@@ -154,9 +154,13 @@ function textFor(ctx: Ctx): string {
       return "One item in this list isn't in the current rules data, so it was skipped. Remove it.";
     case 'detachment-count':
       return detachmentCount(ctx);
-    case 'detachment-not-allowed':
+    case 'detachment-not-allowed': {
       if (issue.subject.id === SPECIALIST_DETACHMENT_CATEGORY) return `Specialist Detachments aren't used in Arks of Omen games. Remove "${name}".`;
-      return `${forceName(ctx)} isn't allowed at ${sizeName(ctx)}. Remove it and pick from the detachments offered.`;
+      // An allied detachment is named with its faction: the army may have another detachment of that type.
+      const fv = forceView(ctx);
+      const ally = fv && fv.force.catalogueId !== ctx.view.roster.catalogueId ? ctx.scope.catalogue(fv.force.catalogueId)?.name : undefined;
+      return `${ally ? `The ${factionDisplayName(ally)} ${forceName(ctx)}` : forceName(ctx)} isn't allowed at ${sizeName(ctx)}. Remove it and pick from the detachments offered.`;
+    }
     case 'detachment-faction': {
       if (issue.detail) return issue.detail;
       const catalogue = forceView(ctx) && ctx.scope.catalogue(forceView(ctx)!.force.catalogueId)?.name;

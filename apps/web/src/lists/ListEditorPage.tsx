@@ -1,6 +1,7 @@
 import { findSelView } from '@recruit/data/roster';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { factionDisplayName } from '../factions/names';
 import { useAsync } from '../factions/useAsync';
 import { ArmyChoiceSheet } from './ArmyChoiceSheet';
 import { MoreOptionsSheet, useChoiceTargets } from './ArmyOptions';
@@ -243,6 +244,7 @@ function Editor({ listId, editor, params, open, close, openOver, closeOver, open
         <EditorHeader editor={editor} listId={listId} onOpen={open} />
         {saveError && <p role="alert">{`Couldn’t save your last change: ${saveError.message}. It will be saved with your next edit.`}</p>}
         {allyError && <p role="alert">{`Couldn’t add that detachment: ${allyError.message}`}</p>}
+        <AddOnArmyNote editor={editor} />
         {view.forces.map((fv, i) => (
           <DetachmentSection
             key={fv.force.id}
@@ -277,5 +279,21 @@ function Editor({ listId, editor, params, open, close, openOver, closeOver, open
       {aside && <div className="editor__aside">{aside}</div>}
       {sheet}
     </div>
+  );
+}
+
+/**
+ * A list whose army is a force that isn't an army on its own (saved before the wizard stopped offering them): how it's
+ * really used, and the way to do that.
+ */
+function AddOnArmyNote({ editor }: { editor: ReadyEditor }) {
+  const army = editor.catalogues.find((c) => c.id === editor.roster.catalogueId);
+  if (!army?.addOn) return null;
+  const faction = factionDisplayName(army.name);
+  return (
+    <p role="note" className="note note--update">
+      {`${faction} can’t be an army on its own. ${army.addOn.how} To use it, start a list for the army it joins and add ${faction} with Add detachment. `}
+      <Link to="/build/new">New list</Link>
+    </p>
   );
 }

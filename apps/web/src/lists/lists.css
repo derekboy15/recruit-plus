@@ -171,6 +171,7 @@
 .picker-row__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .picker-row__name { font-weight: 600; overflow-wrap: anywhere; }
 .picker-row__stats { font-size: 0.8125rem; color: var(--text-muted); }
+.picker-row__needs { font-size: 0.8125rem; color: var(--brass-strong); }
 .picker-row__pts { flex: none; font-size: 0.8125rem; color: var(--text-muted); white-space: nowrap; }
 .picker-row__num { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--text); }
 .picker-row__add { color: var(--brass-strong); }

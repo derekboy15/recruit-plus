@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { addChild, addUnit, armyOptions, availableUnits, childOptions, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster } from '@recruit/data/roster';
+import { addChild, addForce, addUnit, armyOptions, availableUnits, childOptions, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster, type Scope } from '@recruit/data/roster';
 import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
@@ -43,6 +43,16 @@ async function necronsList(size: BattleSizeId = 'strike-force', edit: (r: Roster
   const roster = edit(start, add);
   return createList(createRepository(db), 'user-1', listData(scope, policy, roster, index.catalogues.find((c) => c.id === NECRONS)!));
 }
+
+/** Saves a list of the first catalogue in `slugs` starting with `forceId` at `size`, after `edit`; returns its id. */
+async function factionList(slugs: string[], size: BattleSizeId, forceId: string, edit: (scope: Scope, r: Roster) => Roster = (_, r) => r) {
+  const [scope, policy, index] = await Promise.all([getRosterScope(slugs), getPolicy(), getIndex()]);
+  const catalogue = index.catalogues.find((c) => c.slug === slugs[0])!;
+  const roster = edit(scope, startingRoster(scope, { name: 'Test list', catalogueId: catalogue.id, sizeId: size, forceId }));
+  return createList(createRepository(db), 'user-1', listData(scope, policy, roster, catalogue));
+}
+const LEGION = 'imperium-legion-of-the-damned';
+const addOnHow = async (slug: string) => (await getIndex()).catalogues.find((c) => c.slug === slug)!.addOn!.how;
 
 /** The phone's Back button: one step back in the router's history. */
 function BrowserBack() {
@@ -245,7 +255,7 @@ test('a Necrons army is offered no Xenos allies at Onslaught (none shares a fact
   const sheet = screen.getByRole('dialog', { name: 'Detachments' });
   await u.click(within(sheet).getByRole('button', { name: 'Add detachment' }));
   expect(within(sheet).getByRole('heading', { name: 'Allies' })).toBeInTheDocument();
-  expect([...sheet.querySelectorAll('details.ally > summary')].map((s) => s.textContent)).toEqual(['Monsters and Gribblies']);
+  expect([...sheet.querySelectorAll('details.ally .ally__name')].map((s) => s.textContent)).toEqual(['Monsters and Gribblies']);
   expect(within(sheet).queryByText('Orks')).not.toBeInTheDocument();
 });
 
@@ -883,4 +893,51 @@ test('Delete list stays deleted even when the edit just before it could not be s
   expect(await screen.findByText('Your lists page')).toBeInTheDocument();
   await new Promise((r) => setTimeout(r, 900));
   expect((await createRepository(db).getDoc<ListData>(id))!.deleted).toBe(true);
+});
+
+test('a list saved with the Legion of the Damned as its army opens with a note on how to use it, and still saves edits', async () => {
+  const u = user();
+  const id = await factionList([LEGION], 'combat-patrol', FORCE.auxiliarySupport);
+  const before = (await createRepository(db).getDoc<ListData>(id))!.data.roster.forces[0].selections.length;
+  renderEditor(id);
+  await opened();
+  const note = screen.getByRole('note');
+  expect(note).toHaveTextContent(
+    `Legion of the Damned can’t be an army on its own. ${await addOnHow(LEGION)} To use it, start a list for the army it joins and add Legion of the Damned with Add detachment.`,
+  );
+  expect(within(note).getByRole('link', { name: 'New list' })).toHaveAttribute('href', '/build/new');
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.click(within(picker).getByRole('button', { name: 'Add Damned Legionnaires' }));
+  await waitFor(async () => expect((await createRepository(db).getDoc<ListData>(id))!.data.roster.forces[0].selections).toHaveLength(before + 1));
+});
+
+test('Add detachment shows how an add-on force is used, under its name (Ultramarines at Onslaught)', async () => {
+  const u = user();
+  renderEditor(await factionList(['imperium-adeptus-astartes-ultramarines'], 'onslaught', FORCE.patrol));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Patrol Detachment' }));
+  const sheet = screen.getByRole('dialog', { name: 'Detachments' });
+  await u.click(within(sheet).getByRole('button', { name: 'Add detachment' }));
+  const legion = within(sheet).getByText('Legion of the Damned').closest('summary')!;
+  expect(legion).toHaveTextContent(await addOnHow(LEGION));
+  expect(within(sheet).getByText('Astra Militarum').closest('summary')!.textContent).toBe('Astra Militarum'); // an army: no note
+});
+
+test('an add-on ally kept after a change to Strike Force is a problem that names it, and isn’t deleted', async () => {
+  const u = user();
+  const legionId = (await getIndex()).catalogues.find((c) => c.slug === LEGION)!.id;
+  const id = await factionList(['imperium-adeptus-astartes-ultramarines', LEGION], 'onslaught', FORCE.patrol, (scope, r) => addForce(scope, r, FORCE.auxiliarySupport, legionId));
+  renderEditor(id);
+  await opened();
+  expect(screen.getByRole('button', { name: '2 detachments' })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Onslaught · 3,000 pts' }));
+  const sizes = screen.getByRole('dialog', { name: 'Battle size' });
+  await u.click(within(sizes).getByRole('radio', { name: /Strike Force/ }));
+  await u.click(within(sizes).getByRole('button', { name: 'Done' }));
+  await u.click(await screen.findByRole('button', { name: /to fix$/ }));
+  const problems = screen.getByRole('dialog', { name: 'Problems' });
+  expect(within(problems).getByText(/^The Legion of the Damned Auxiliary Support Detachment isn't allowed at Strike Force\./)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: '2 detachments' })).toBeInTheDocument();
+  expect(screen.getByRole('region', { name: 'Auxiliary Support Detachment' })).toHaveTextContent('Legion of the Damned');
 });
