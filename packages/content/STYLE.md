@@ -49,6 +49,31 @@ Each shard is `packages/content/plain/<shard>.json`. It is an object keyed by th
 3. Re-run `npm run data:build && npm run content:todo -- <shard>` until it says `0 to do`.
 4. Run `npm test -w packages/data`.
 
+## Option texts
+
+Option texts are what the army builder says about each choice: sub-faction codes, Warlord traits, relics, stratagem upgrades, psychic powers and wargear abilities. Everything above applies to them, plus these rules:
+
+- **The first sentence is the summary.** The builder shows an option's first sentence under its name, cut at 160 characters, and the full text behind ⓘ. Make that sentence say what the option does. If the timing or a condition makes it long, split it ("Once per battle, in your Command phase: …"). `merge-plain-draft` warns about any first sentence over 160 characters.
+- **Never leave the summary as the official wording.** The builder labels an identical summary "Official wording".
+- **One text can serve several options**, such as a Warlord trait in a codex and a supplement, or a code shared by successor chapters. Keep the official text's subject ("this WARLORD", "the bearer", "units with this code") so it reads right for each one.
+- **Tiers set the order.** Write the most visible first:
+  1. army choices (sub-faction codes, Army of Renown);
+  2. Warlord traits;
+  3. relics;
+  4. unit options.
+
+  A text that several options share takes the tier of its most visible one.
+- **Each option text has one owner:** the shard that already holds its entry, otherwise the first info file it occurs in. The game system's texts go in `core`. Your to-do list only shows your own texts.
+
+The option loop:
+
+1. Run `npm run data:build`, then `npm run content:todo -- <shard> --tier <n>`.
+2. Write a draft file outside the content files: `{ "<key>": { "plain": "…" } }`, adding `"waive"` only when needed.
+3. Run `npx tsx packages/data/scripts/merge-plain-draft.ts <shard> <draft.json>`. It checks every entry and merges the passing ones into `packages/content/plain/<shard>.json`. Rewrite each failure and run it again until it says `0 failed`.
+4. Run `npm run data:build && npm run content:todo -- <shard> --tier <n>` until nothing is listed at that tier. Then run `npm test -w packages/data`.
+
+To rewrite an entry that already passes, list it by key: `npm run content:todo -- <shard> --keys <key> [...]`. Do this for a spot-check finding, or for a long first sentence you come back to. Then merge the new draft as in step 3; it replaces the old entry.
+
 ## Worked examples (real Necrons texts)
 
 **Ability: Lord of the Pyrrhian Legions (Aura)**
@@ -65,3 +90,12 @@ Each shard is `packages/content/plain/<shard>.json`. It is an object keyed by th
 - Official: Each time an attack is made with this weapon, invulnerable saving throws cannot be taken against this attack.
 - Plain: Your opponent can't use invulnerable saves against attacks made with this weapon.
 - Why it passes: there are no tokens to keep, and it says the same thing in fewer words.
+
+**Option text (Warlord trait): Blood-Fuelled Fury**
+- Official: Each time this WARLORD makes a melee attack, an unmodified wound roll of 6 inflicts 1 mortal wound on the target in addition to any normal damage.
+- Plain: When this WARLORD attacks in melee, each unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the attack's normal damage.
+- Why it passes:
+  - `WARLORD`, `6` and `1` survive, and so does "unmodified".
+  - The longest shared run is "unmodified wound roll of 6" (5 words).
+  - The whole text is one sentence of 146 characters, so the builder's one-line summary shows all of it.
+  - The Tyranids Behemoth trait Monstrous Hunger has the same text, so one entry serves both. Keeping "this WARLORD" makes it read right for each.

@@ -124,7 +124,7 @@ export function ruleKeys(cat: CatalogueOut): string[] {
 }
 
 /** A deterministic sample of `n` texts, ordered by a hash of seed and key (for the per-faction spot-check). */
-export function spotSample(texts: OfficialText[], seed: string, n: number): OfficialText[] {
+export function spotSample<T extends OfficialText>(texts: T[], seed: string, n: number): T[] {
   const rank = (t: OfficialText) => createHash('sha1').update(`${seed}:${t.key}`).digest('hex');
   return [...texts].sort((a, b) => rank(a).localeCompare(rank(b))).slice(0, n);
 }

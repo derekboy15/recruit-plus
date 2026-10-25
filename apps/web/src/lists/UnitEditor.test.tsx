@@ -10,7 +10,7 @@ import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
 import { ToastProvider } from '../ui/toast';
-import { stubGeneratedData } from './__fixtures__/generatedData';
+import { stubGeneratedData, withoutInfoPlain } from './__fixtures__/generatedData';
 import { addNamed, NECRONS, novokhPatrol, pickOption } from './__fixtures__/patrolList';
 import { ListEditorPage } from './ListEditorPage';
 import { createList } from './listStore';
@@ -88,6 +88,7 @@ test('weapon options show their profile lines, one per profile', async () => {
 });
 
 test('Warlord traits drop their prefix and sit under their kind; each says what it does', async () => {
+  withoutInfoPlain(stubGeneratedData(), 'necrons');
   const u = userEvent.setup();
   const editor = await openUnit(novokhPatrol, 'Overlord');
   const traits = within(editor).getByRole('group', { name: 'Warlord Trait' });

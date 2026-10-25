@@ -1,14 +1,14 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, info-plain-report.json, points-report.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, points-report.json, report.json}. */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { catalogueScope, isPlayableCatalogue, loadGameData } from './bsdata/gamedata';
 import type { RawCatalogue, RawNode } from './bsdata/types';
 import { coreStratagems, selectStratagems } from './extract/stratagems';
-import { applyPlain, loadPlainStore, type PlainReport } from './plain/store';
+import { applyPlain, loadPlainStore, type CoverageReport } from './plain/store';
 import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
-import { attachInfoPlain, emitInfoFile, infoTextKeys, type InfoPlainReport } from './info';
+import { attachInfoPlain, emitInfoFile, infoTextKeys, optionTierOf, TIER_NAMES, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
@@ -97,7 +97,7 @@ export interface InfoSummary {
   plain: InfoPlainReport;
 }
 
-export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: PlainReport; missions: MissionsReport; info: InfoSummary; points: PointsSummary } {
+export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record<string, ReportEntry>; plain: CoverageReport; missions: MissionsReport; info: InfoSummary; points: PointsSummary } {
   const gd = loadGameData(join(opts.rawDir, 'bsdata'));
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
@@ -171,7 +171,6 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const infoFiles = rosterSources.map((cat) => emitInfoFile(gd, cat, rosterSlug(cat)));
   const plain = applyPlain(outs, core, plainStore, infoTextKeys(infoFiles));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
-  writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(plain, null, 2));
   const missions = writeMissions(opts, w);
   // Rules Reference and faction guides (none without a content directory).
   const content = opts.contentDir
@@ -206,9 +205,12 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   rmSync(join(opts.outDir, 'info'), { recursive: true, force: true });
   mkdirSync(join(opts.outDir, 'info'), { recursive: true });
-  const infoPlain = attachInfoPlain(infoFiles, plainStore);
+  const infoPlain = attachInfoPlain(infoFiles, plainStore, optionTierOf(rosterFiles));
   for (const f of infoFiles) writeFileSync(join(opts.outDir, 'info', `${f.slug}.json`), JSON.stringify(f));
-  writeFileSync(join(opts.outDir, 'info-plain-report.json'), JSON.stringify(infoPlain, null, 2));
+  // One coverage report: the pages' texts, then the option texts by owning shard (info-plain-report.json, Plan D's, is gone).
+  const coverage: CoverageReport = { ...plain, options: infoPlain.shards };
+  writeFileSync(join(opts.outDir, 'plain-report.json'), JSON.stringify(coverage, null, 2));
+  rmSync(join(opts.outDir, 'info-plain-report.json'), { force: true });
   const info: InfoSummary = { files: infoFiles.length, entries: infoFiles.reduce((n, f) => n + Object.keys(f.entries).length, 0), plain: infoPlain };
   for (const summary of index.catalogues) summary.factions = catalogueFactions(rosterFiles, summary.rosterScope, summary.id);
 
@@ -227,7 +229,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
 
   writeFileSync(join(opts.outDir, 'index.json'), JSON.stringify(index, null, 2));
   writeFileSync(join(opts.outDir, 'report.json'), JSON.stringify(report, null, 2));
-  return { index, report, plain, missions, info, points };
+  return { index, report, plain: coverage, missions, info, points };
 }
 
 /**
@@ -502,6 +504,11 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const p = Object.values(plain.shards).reduce((a, r) => ({ t: a.t + r.total, w: a.w + r.written, f: a.f + r.flagged.length + r.copied.length }), { t: 0, w: 0, f: 0 });
   console.log(`Plain English: ${p.w} of ${p.t} texts written, ${p.f} flagged, ${plain.orphans.length} orphaned (see generated/plain-report.json)`);
   console.log(`Missions: plain English ${missions.written} of ${missions.total} written, ${missions.flagged.length} flagged, ${missions.orphans.length} orphaned; faction secondaries ${missions.faction.written} of ${missions.faction.total} (see generated/missions-report.json)`);
-  console.log(`Info: ${info.files} files, ${info.entries} entries, ${info.plain.written} of ${info.plain.total} texts in plain English (see generated/info-plain-report.json)`);
+  console.log(`Info: ${info.files} files, ${info.entries} entries`);
+  const tiers = ([1, 2, 3, 4] as const).map((t) => {
+    const c = Object.values(info.plain.shards).reduce((a, r) => ({ total: a.total + r.tiers[t].total, written: a.written + r.tiers[t].written }), { total: 0, written: 0 });
+    return `${TIER_NAMES[t]} ${c.written}/${c.total}`;
+  });
+  console.log(`Option texts: ${info.plain.written} of ${info.plain.total} written, ${info.plain.flagged} flagged (${tiers.join(' · ')}) (see generated/plain-report.json)`);
   console.log(`Points: ${points.priced} units priced by the engine, ${points.differ} differ from Wahapedia (see generated/points-report.json)`);
 }

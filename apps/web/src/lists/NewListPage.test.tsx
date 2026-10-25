@@ -12,7 +12,7 @@ import { StorageProvider } from '../storage/StorageContext';
 import { WordingProvider } from '../rules/wording';
 import { createList } from './listStore';
 import type { ListData } from './listStore';
-import { stubGeneratedData } from './__fixtures__/generatedData';
+import { stubGeneratedData, withoutInfoPlain } from './__fixtures__/generatedData';
 import { NewListPage } from './NewListPage';
 
 // These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
@@ -217,6 +217,7 @@ async function toArmyOptions(size: RegExp, detachment: RegExp) {
 }
 
 test('the dynasty step says what each dynasty does, with ⓘ for the full text', async () => {
+  withoutInfoPlain(stubGeneratedData(), 'necrons');
   renderWizard();
   await toArmyOptions(/Strike Force/, /Arks of Omen Detachment/);
   const novokh = await screen.findByRole('radio', { name: 'Novokh' });

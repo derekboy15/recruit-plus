@@ -1,16 +1,20 @@
 /** Info files (generated/info/<slug>.json) and their plain English. */
 import { TEXT_CHARS, type InfoFile, type InfoProfile } from '../model/types';
-import { checkPlain } from '../plain/check';
-import { textKey } from '../plain/collect';
-import type { PlainStore } from '../plain/store';
+import { checkPlain, type PlainVerdict } from '../plain/check';
+import { CORE_SHARD, spotSample, textKey, type OfficialText, type TextKind } from '../plain/collect';
+import type { OptionShardReport, PlainStore } from '../plain/store';
+import type { OptionTier, TierOf } from './tiers';
 
 export { emitInfoFile } from './extract';
+export { optionTierOf, TIER_NAMES, type OptionTier, type TierOf } from './tiers';
 
-/** generated/info-plain-report.json: distinct option texts, how many have plain English, and the first entry of each that hasn't (for Plan F). */
+/** The option texts' plain-English coverage: totals, flagged or copied entries, and each owning shard's report. */
 export interface InfoPlainReport {
   total: number;
   written: number;
-  missing: { slug: string; entryId: string; name: string; key: string }[];
+  /** Entries that fail the checks: missing or invented tokens, or copied wording. */
+  flagged: number;
+  shards: Record<string, OptionShardReport>;
 }
 
 const wordCount = (s: string) => s.trim().split(/\s+/).length;
@@ -36,38 +40,109 @@ export function infoTextKeys(files: InfoFile[]): Set<string> {
   return keys;
 }
 
+/** An option text: its owning shard (where its plain English goes) and its tier (how early a player meets it). */
+export interface OptionText extends OfficialText {
+  tier: OptionTier;
+}
+
+/** The shard that owns a roster file's option texts: the game system's go in `core`. */
+export function optionShard(slug: string): string {
+  return slug === 'system' ? CORE_SHARD : slug;
+}
+
+const profileKind = (p: InfoProfile): TextKind => (p.type === 'Weapon' ? 'weapon' : /psychic/i.test(p.type) ? 'psychic' : 'ability');
+/** Slug order (by code point, so hyphens count), the game system last. */
+const fileOrder = (a: InfoFile, b: InfoFile) =>
+  Number(a.slug === 'system') - Number(b.slug === 'system') || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0);
+
+/**
+ * Every distinct option text, once: the texts attachInfoPlain looks up. Each is owned by the shard that already holds
+ * its entry, else by the first file it occurs in (slug order, the game system last), and ranked at its most visible use.
+ */
+export function collectOptionTexts(files: InfoFile[], store: PlainStore, tierOf: TierOf): OptionText[] {
+  const out = new Map<string, OptionText>();
+  const add = (slug: string, entryId: string, kind: TextKind, name: string, text: string) => {
+    const key = textKey(text);
+    const tier = tierOf(slug, entryId);
+    const seen = out.get(key);
+    if (seen) seen.tier = Math.min(seen.tier, tier) as OptionTier;
+    else out.set(key, { key, shard: store.get(key)?.shard ?? optionShard(slug), kind, name, text, tier });
+  };
+  for (const f of [...files].sort(fileOrder)) {
+    for (const [entryId, info] of Object.entries(f.entries)) {
+      for (const r of info.rules ?? []) add(f.slug, entryId, 'rule', r.name, r.text);
+      for (const p of info.profiles ?? []) for (const c of textChars(p)) add(f.slug, entryId, profileKind(p), p.name, p.chars[c]);
+    }
+  }
+  return [...out.values()];
+}
+
+/** A shard's option texts in content:todo's counts: how many it owns, how many are written, and the open ones by tier. */
+export function optionCounts(texts: OptionText[], shard: string, written: (t: OptionText) => boolean): { total: number; written: number; open: Record<OptionTier, number> } {
+  const own = texts.filter((t) => t.shard === shard);
+  const open: Record<OptionTier, number> = { 1: 0, 2: 0, 3: 0, 4: 0 };
+  for (const t of own) if (!written(t)) open[t.tier]++;
+  return { total: own.length, written: own.length - Object.values(open).reduce((a, b) => a + b, 0), open };
+}
+
+/** A shard's option spot-check sample: up to 5 army choices and 5 other texts, each half topping up the other (at most 10). */
+export function optionSample(texts: OptionText[], shard: string): OptionText[] {
+  const own = texts.filter((t) => t.shard === shard);
+  const army = own.filter((t) => t.tier === 1);
+  const rest = own.filter((t) => t.tier !== 1);
+  const nArmy = Math.min(army.length, Math.max(5, 10 - rest.length));
+  const seed = `options:${shard}`;
+  return [...spotSample(army, seed, nArmy), ...spotSample(rest, seed, Math.min(rest.length, 10 - nArmy))];
+}
+
 /**
  * Attaches plain English to the info files' rules and profile text characteristics (in place), as applyPlain does for
- * catalogues: only where the store has an entry for the text's key that passes checkPlain. These texts are not part of
- * the plain-English coverage of the pages (generated/plain-report.json).
+ * catalogues: only where the store has an entry for the text's key that passes checkPlain. Reports each option text
+ * (collectOptionTexts) once, under its owning shard and tier: written, flagged (missing or invented tokens) or copied.
+ * These counts are generated/plain-report.json's `options`, apart from the pages' coverage.
  */
-export function attachInfoPlain(files: InfoFile[], store: PlainStore): InfoPlainReport {
-  const verdicts = new Map<string, boolean>();
-  const missing: InfoPlainReport['missing'] = [];
-  const plainFor = (official: string, at: { slug: string; entryId: string; name: string }): string | undefined => {
+export function attachInfoPlain(files: InfoFile[], store: PlainStore, tierOf: TierOf): InfoPlainReport {
+  const verdicts = new Map<string, PlainVerdict | null>();
+  const plainFor = (official: string): string | undefined => {
     const key = textKey(official);
     if (!verdicts.has(key)) {
       const entry = store.get(key);
-      const ok = !!entry && checkPlain(official, entry.plain, entry.waive).ok;
-      verdicts.set(key, ok);
-      if (!ok) missing.push({ ...at, key });
+      verdicts.set(key, entry ? checkPlain(official, entry.plain, entry.waive) : null);
     }
-    return verdicts.get(key) ? store.get(key)!.plain : undefined;
+    return verdicts.get(key)?.ok ? store.get(key)!.plain : undefined;
   };
   for (const f of files) {
-    for (const [entryId, info] of Object.entries(f.entries)) {
+    for (const info of Object.values(f.entries)) {
       for (const r of info.rules ?? []) {
-        const plain = plainFor(r.text, { slug: f.slug, entryId, name: r.name });
+        const plain = plainFor(r.text);
         if (plain) r.plain = plain;
       }
       for (const p of info.profiles ?? []) {
         for (const c of textChars(p)) {
-          const plain = plainFor(p.chars[c], { slug: f.slug, entryId, name: p.name });
+          const plain = plainFor(p.chars[c]);
           if (plain) p.plain = { ...p.plain, [c]: plain };
         }
       }
     }
   }
-  const written = [...verdicts.values()].filter(Boolean).length;
-  return { total: verdicts.size, written, missing };
+
+  const shards: Record<string, OptionShardReport> = {};
+  const tally = { total: 0, written: 0, flagged: 0 };
+  const count = () => ({ total: 0, written: 0 });
+  for (const t of collectOptionTexts(files, store, tierOf)) {
+    const v = verdicts.get(t.key);
+    const r = (shards[t.shard] ??= { total: 0, written: 0, flagged: [], copied: [], tiers: { 1: count(), 2: count(), 3: count(), 4: count() } });
+    r.total++;
+    r.tiers[t.tier].total++;
+    tally.total++;
+    if (v?.ok) {
+      r.written++;
+      r.tiers[t.tier].written++;
+      tally.written++;
+    }
+    if (v && (v.missing.length || v.extra.length)) r.flagged.push({ key: t.key, name: t.name, missing: v.missing.map((x) => x.value), extra: v.extra.map((x) => x.value) });
+    if (v?.copy.copied) r.copied.push({ key: t.key, name: t.name, longestRun: v.copy.longestRun });
+    if (v && !v.ok) tally.flagged++;
+  }
+  return { ...tally, shards };
 }
