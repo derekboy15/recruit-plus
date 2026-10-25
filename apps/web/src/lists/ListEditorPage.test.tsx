@@ -941,3 +941,25 @@ test('an add-on ally kept after a change to Strike Force is a problem that names
   expect(screen.getByRole('button', { name: '2 detachments' })).toBeInTheDocument();
   expect(screen.getByRole('region', { name: 'Auxiliary Support Detachment' })).toHaveTextContent('Legion of the Damned');
 });
+
+test('a Legion of the Damned list on its old no-HQ Vanguard opens, keeps its units, says why the detachment is a problem, and saves', async () => {
+  const u = user();
+  const id = await factionList([LEGION], 'combat-patrol', FORCE.auxiliarySupport, (scope, r) => {
+    const legionnaires = availableUnits(scope, r, r.forces[0].id).find((o) => o.name === 'Damned Legionnaires')!;
+    const withUnit = addUnit(scope, r, r.forces[0].id, legionnaires.entryId).roster;
+    return { ...withUnit, forces: [{ ...withUnit.forces[0], forceId: '0383-bad5-390e-4cca' }] }; // the Vanguard force-removals.json dropped
+  });
+  renderEditor(id);
+  await opened();
+  expect(screen.getByRole('note')).toHaveTextContent('Legion of the Damned can’t be an army on its own.');
+  expect(screen.getByRole('button', { name: /^Damned Legionnaires/ })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: /to fix$/ }));
+  expect(within(screen.getByRole('dialog', { name: 'Problems' })).getByText(/^This detachment isn't in the current rules/)).toBeInTheDocument();
+  await u.click(within(screen.getByRole('dialog', { name: 'Problems' })).getByRole('button', { name: 'Close' }));
+  await u.click(screen.getByRole('button', { name: 'Combat Patrol · 500 pts' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'Battle size' })).getByRole('radio', { name: /Onslaught/ }));
+  await waitFor(async () => expect((await createRepository(db).getDoc<ListData>(id))!.data.roster.battleSize).toBe('onslaught'));
+  const saved = (await createRepository(db).getDoc<ListData>(id))!.data.roster;
+  expect(saved.forces[0].forceId).toBe('0383-bad5-390e-4cca');
+  expect(saved.forces[0].selections.length).toBeGreaterThan(0);
+});

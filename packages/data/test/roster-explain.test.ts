@@ -441,6 +441,16 @@ describe('explain (real Necrons)', () => {
     ]);
   });
 
+  test('detachment-not-allowed for a detachment the rules data no longer has (the Legion of the Damned’s old Vanguard)', () => {
+    const scope = realScope('imperium-legion-of-the-damned');
+    const lotd = realCatalogueId('imperium-legion-of-the-damned');
+    const r = createRoster(scope, { name: 'LotD', catalogueId: lotd, battleSize: 'combat-patrol', forceId: FORCE.auxiliarySupport });
+    const old: Roster = { ...r, forces: [{ ...r.forces[0], forceId: '0383-bad5-390e-4cca' }] };
+    expect(texts(of(explainPolicy(scope, old), 'detachment-not-allowed'))).toEqual([
+      "This detachment isn't in the current rules: it was an older rule that has been dropped. Add a detachment from the ones offered, add your units to it, then remove this one.",
+    ]);
+  });
+
   test('an Auxiliary Support Detachment reads without an empty category word', () => {
     let r = necronRoster('onslaught', FORCE.patrol);
     r = addForce(necronsScope, r, FORCE.auxiliarySupport, necrons);

@@ -78,8 +78,9 @@ export interface UnitOut {
   wahapediaId: string | null;
   legends: boolean;
   /**
-   * The army choices that reveal the unit in the builder ("Sautekh dynasty", "Blood Ravens"): any one of them will do.
-   * Absent when the unit is available without one.
+   * What reveals the unit in the builder, as alternatives: any one of them will do. Each is an army choice or a unit
+   * ("Sautekh dynasty", "Farseer"), or several needed together ("Archon and Ynnari: Strength From Death"). Absent when
+   * the unit is available without any.
    */
   needs?: string[];
   forgeWorld: boolean;

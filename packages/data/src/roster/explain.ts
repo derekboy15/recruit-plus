@@ -156,8 +156,12 @@ function textFor(ctx: Ctx): string {
       return detachmentCount(ctx);
     case 'detachment-not-allowed': {
       if (issue.subject.id === SPECIALIST_DETACHMENT_CATEGORY) return `Specialist Detachments aren't used in Arks of Omen games. Remove "${name}".`;
-      // An allied detachment is named with its faction: the army may have another detachment of that type.
+      // A detachment the rules data no longer has (the Legion of the Damned's dropped 8th-edition Vanguard) has no name.
       const fv = forceView(ctx);
+      if (fv && !fv.entry) {
+        return "This detachment isn't in the current rules: it was an older rule that has been dropped. Add a detachment from the ones offered, add your units to it, then remove this one.";
+      }
+      // An allied detachment is named with its faction: the army may have another detachment of that type.
       const ally = fv && fv.force.catalogueId !== ctx.view.roster.catalogueId ? ctx.scope.catalogue(fv.force.catalogueId)?.name : undefined;
       return `${ally ? `The ${factionDisplayName(ally)} ${forceName(ctx)}` : forceName(ctx)} isn't allowed at ${sizeName(ctx)}. Remove it and pick from the detachments offered.`;
     }

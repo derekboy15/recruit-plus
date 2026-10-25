@@ -105,27 +105,71 @@ const absent = (c: Cond) => isCount(c) && ((c.type === 'lessThan' && c.value ===
 /** "X is in the list": a reveal on it means the unit needs X. */
 const present = (c: Cond) => isCount(c) && ((c.type === 'atLeast' && c.value >= 1) || (c.type === 'greaterThan' && c.value === 0) || (c.type === 'equalTo' && c.value >= 1));
 
-/** The ids of the undecided conditions of one kind, in the branches of `g` that can still decide it. */
-function choices(g: CondGroup, kind: (c: Cond) => boolean): string[] {
-  if (knownGroup(g) !== undefined) return [];
-  return [...g.conds.filter((c) => known(c) === undefined && kind(c)).map((c) => c.childId), ...g.groups.flatMap((x) => choices(x, kind))];
+/**
+ * Ways past a condition: alternatives, each the set of choices it needs together ([[]]: nothing; []: no way). `null`
+ * when it holds only conditions of the other kind, an exclusion ("in an Annihilation Legion") or context ("a dynasty
+ * is chosen"): those add no requirement, and a condition of nothing else is left out.
+ */
+type Ways = string[][] | null;
+const NOTHING: string[][] = [[]];
+
+/** Every one of `parts` at once: each combination of one way from each. */
+function allOf(parts: Ways[]): Ways {
+  const real = parts.filter((p): p is string[][] => p !== null);
+  if (!real.length) return null;
+  return real.reduce<string[][]>((acc, p) => acc.flatMap((a) => p.map((b) => [...new Set([...a, ...b])])), NOTHING);
+}
+
+/** Any one of `parts`. */
+function anyOf(parts: Ways[]): Ways {
+  const real = parts.filter((p): p is string[][] => p !== null);
+  return real.length ? real.flat() : null;
 }
 
 /**
- * Whether a root entry can be fielded in a matched play list, and the army choices that reveal it. A hide whose
- * condition holds in every list (an Open Play- or Narrative-only unit), or hidden by default with nothing that can
- * reveal it, leaves it off. A hide on "X is not in the list" (Imotekh without the Sautekh dynasty) needs X; a hide on
- * "X is in the list" (Imotekh in an Annihilation Legion) only rules the unit out, so needs nothing.
+ * The choices that make `g` hold (a reveal, `want` true: its "X is in the list" conditions) or fail (a hide, `want`
+ * false: its "X is not in the list" conditions, met by taking X).
  */
-export function availability(mods: Mod[], hiddenByDefault: boolean): { fielded: boolean; needIds: string[] } {
+function ways(g: CondGroup, want: boolean): Ways {
+  const value = knownGroup(g);
+  if (value !== undefined) return value === want ? NOTHING : [];
+  const kind = want ? present : absent;
+  const leaf = (c: Cond): Ways => {
+    const v = known(c);
+    if (v !== undefined) return v === want ? NOTHING : [];
+    return kind(c) ? [[c.childId]] : null;
+  };
+  const parts = [...g.conds.map(leaf), ...g.groups.map((x) => ways(x, want))];
+  // Holding takes every part of an "and" and one of an "or"; failing, one part of an "and" and every part of an "or".
+  return (g.type === 'and') === want ? allOf(parts) : anyOf(parts);
+}
+
+/** The alternatives without repeats or supersets of another; none at all when one of them needs nothing. */
+function simplest(alternatives: string[][]): string[][] {
+  const out: string[][] = [];
+  for (const a of alternatives) {
+    if (out.some((o) => o.every((id) => a.includes(id)))) continue;
+    for (let i = out.length - 1; i >= 0; i--) if (a.every((id) => out[i].includes(id))) out.splice(i, 1);
+    out.push(a);
+  }
+  return out.some((a) => !a.length) ? [] : out;
+}
+
+/**
+ * Whether a root entry can be fielded in a matched play list, and what reveals it: alternatives, each the set of choices
+ * it needs together. A hide whose condition holds in every list (an Open Play- or Narrative-only unit), or hidden by
+ * default with nothing that can reveal it, leaves it off. A hide on "X is not in the list" (Imotekh without the Sautekh
+ * dynasty) needs X; a hide on "X is in the list" (Imotekh in an Annihilation Legion) only rules the unit out. Every hide
+ * must fail, and a unit hidden by default needs one of its reveals.
+ */
+export function availability(mods: Mod[], hiddenByDefault: boolean): { fielded: boolean; needIdSets: string[][] } {
   const hides = mods.filter((m) => m.field === 'hidden' && m.value === 'true');
   const reveals = mods.filter((m) => m.field === 'hidden' && m.value === 'false' && (!m.when || knownGroup(m.when) !== false));
-  if (!reveals.length && (hiddenByDefault || hides.some((m) => !m.when || knownGroup(m.when) === true))) return { fielded: false, needIds: [] };
-  const needIds = [
-    ...hides.flatMap((m) => (m.when ? choices(m.when, absent) : [])),
-    ...(hiddenByDefault ? reveals.flatMap((m) => (m.when ? choices(m.when, present) : [])) : []),
-  ];
-  return { fielded: true, needIds: [...new Set(needIds)] };
+  if (!reveals.length && (hiddenByDefault || hides.some((m) => !m.when || knownGroup(m.when) === true))) return { fielded: false, needIdSets: [] };
+  // A hide nothing can lift is left to the reveal that overrides it.
+  const parts: Ways[] = hides.map((m) => (m.when ? ways(m.when, false) : null)).filter((p) => p === null || p.length > 0);
+  if (hiddenByDefault) parts.push(anyOf(reveals.map((m) => (m.when ? (ways(m.when, true) ?? NOTHING) : NOTHING))));
+  return { fielded: true, needIdSets: simplest(allOf(parts) ?? NOTHING) };
 }
 
 const child = (n: RawNode, tag: string) => n.children.find((c) => c.tag === tag);
@@ -323,9 +367,9 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
     if (!isUnitLike(type, primaryName, name) || name.startsWith('[')) continue;
     if (type === 'upgrade' && !BATTLEFIELD_ROLES.includes(primaryName as BattlefieldRole) && holdsUnit(target, new Set([target.attrs.id]))) continue;
     const hiddenByDefault = root.attrs.hidden === 'true' || target.attrs.hidden === 'true';
-    const { fielded, needIds } = availability([...modifiersOf(root), ...(root === target ? [] : modifiersOf(target))], hiddenByDefault);
+    const { fielded, needIdSets } = availability([...modifiersOf(root), ...(root === target ? [] : modifiersOf(target))], hiddenByDefault);
     if (!fielded) continue;
-    const needs = [...new Set(needIds.map(needName))];
+    const needs = [...new Set(needIdSets.map((ids) => [...new Set(ids.map(needName))].join(' and ')))];
     const seen = byId.get(target.attrs.id);
     if (seen) {
       // Listed twice (a link per detachment type, say): it needs a choice only if every listing does.

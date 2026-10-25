@@ -6,8 +6,9 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
+import { availability } from '../src/extract/units';
 import type { CatalogueOut, DataIndex } from '../src/model/types';
-import { availableUnits, createRoster, resolve } from '../src/roster';
+import { availableUnits, createRoster, resolve, type Cond, type CondGroup, type Mod } from '../src/roster';
 import { FORCE } from '../src/roster/policy';
 import { realCatalogueId, realScope } from './helpers/realScope';
 
@@ -65,5 +66,42 @@ describe('the faction page and the builder agree on a fresh Strike Force list', 
     const pickerIds = new Set(picker.map((t) => t.id));
     expect(picker.filter((t) => !pageIds.has(t.id)).map((t) => t.name), 'in the builder, not on the page').toEqual([]);
     expect(page.filter((u) => !pickerIds.has(u.id) && !u.needs?.length && !u.legends).map((u) => u.name), 'on the page, not in the builder').toEqual([]);
+  });
+});
+
+describe('what a unit needs: one choice of several, or several at once', () => {
+  const c = (type: Cond['type'], childId: string, value: number): Cond => ({ type, field: 'selections', scope: 'force', childId, value });
+  const group = (type: CondGroup['type'], ...conds: Cond[]): CondGroup => ({ type, conds, groups: [] });
+  const hide = (when: CondGroup): Mod => ({ type: 'set', field: 'hidden', value: 'true', when });
+  const reveal = (when: CondGroup): Mod => ({ type: 'set', field: 'hidden', value: 'false', when });
+  const needs = (mods: Mod[], hiddenByDefault = false) => availability(mods, hiddenByDefault).needIdSets;
+
+  test('revealed by two choices together: both', () => {
+    expect(needs([reveal(group('and', c('greaterThan', 'A', 0), c('equalTo', 'B', 1)))], true)).toEqual([['A', 'B']]);
+  });
+  test('revealed by either of two choices: either', () => {
+    expect(needs([reveal(group('or', c('atLeast', 'A', 1), c('atLeast', 'B', 1)))], true)).toEqual([['A'], ['B']]);
+  });
+  test('hidden unless one of two choices: either (Skull Altar)', () => {
+    expect(needs([hide(group('and', c('equalTo', 'A', 0), c('equalTo', 'B', 0)))])).toEqual([['A'], ['B']]);
+  });
+  test('hidden unless both of two choices: both', () => {
+    expect(needs([hide(group('or', c('equalTo', 'A', 0), c('lessThan', 'B', 1)))])).toEqual([['A', 'B']]);
+  });
+  test('two hides that each need a choice: both', () => {
+    expect(needs([hide(group('and', c('equalTo', 'A', 0))), hide(group('and', c('equalTo', 'B', 0)))])).toEqual([['A', 'B']]);
+  });
+  test('exclusions and context add nothing (Imotekh)', () => {
+    const mods = [
+      hide(group('and', c('atLeast', 'Annihilation Legion', 1))),
+      hide(group('and', c('atLeast', 'Dynasty Choice', 1), c('lessThan', 'Sautekh', 1))),
+      hide(group('and', c('atLeast', 'Cult of the Cryptek', 1))),
+    ];
+    expect(needs(mods)).toEqual([['Sautekh']]);
+  });
+
+  test('on real data: Court of the Archon needs an Archon and Ynnari together; Skull Altar needs either god', () => {
+    expect(unit('aeldari-craftworlds', 'Court of the Archon').needs).toEqual(['Archon and Ynnari: Strength From Death']);
+    expect(unit('chaos-daemons', 'Skull Altar').needs).toEqual(['Khorne', 'Chaos Undivided']);
   });
 });
