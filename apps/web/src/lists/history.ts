@@ -37,8 +37,16 @@ export function redo(h: History): History {
   return { past: [...h.past, h.present], present: h.future[0], future: h.future.slice(1), lastKind: null, lastAt: 0 };
 }
 
-/** Whether a key press belongs to a text field or other control that has its own undo. */
-const isTyping = (t: EventTarget | null) => t instanceof Element && t.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])') !== null;
+/** Inputs with no text of their own to undo: Ctrl+Z on a ticked box still undoes the list edit. */
+const NOT_TEXT = new Set(['checkbox', 'radio', 'button', 'submit', 'reset', 'range', 'color', 'file', 'image']);
+
+/** Whether a key press belongs to a text field (or a select), which has its own undo. */
+function isTyping(t: EventTarget | null): boolean {
+  if (!(t instanceof Element)) return false;
+  if (t.closest('textarea, select, [contenteditable]:not([contenteditable="false"])')) return true;
+  const input = t.closest('input');
+  return input !== null && !NOT_TEXT.has(input.type);
+}
 
 /** Ctrl/Cmd+Z undoes; Ctrl/Cmd+Shift+Z and Ctrl+Y redo. Not while typing in a field. Pass null while there is no editor. */
 export function useEditorShortcuts(editor: { undo(): void; redo(): void } | null): void {

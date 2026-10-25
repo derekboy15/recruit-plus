@@ -301,6 +301,14 @@ test('Ctrl+Z undoes and Ctrl+Shift+Z or Ctrl+Y redoes, except while typing in a 
   expect(ready(result.current).roster.name).toBe('Renamed');
   input.remove();
 
+  // A ticked checkbox or radio has no undo of its own: Ctrl+Z still undoes the list edit.
+  const box = document.body.appendChild(Object.assign(document.createElement('input'), { type: 'checkbox' }));
+  key({ key: 'z', ctrlKey: true }, box);
+  expect(ready(result.current).roster.name).toBe('Necrons Strike Force');
+  key({ key: 'y', ctrlKey: true }, box);
+  expect(ready(result.current).roster.name).toBe('Renamed');
+  box.remove();
+
   key({ key: 'z', ctrlKey: true });
   expect(ready(result.current).roster.name).toBe('Necrons Strike Force');
   key({ key: 'Z', ctrlKey: true, shiftKey: true });
