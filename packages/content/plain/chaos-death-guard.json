@@ -29,10 +29,25 @@
     "kind": "stratagem",
     "plain": "During your Shooting phase, once a PLAGUEBURST CRAWLER model of yours is picked to shoot, these apply for the rest of the phase:\n- every attack it makes with a Plagueburst mortar has Damage 3;\n- after its shooting is done, pick one enemy unit that was hit this turn by at least one of its Plagueburst mortar attacks. For every other unit within 3\" of that enemy unit (not counting NURGLE units), roll a D6: on a 4+, the unit rolled for takes 1 mortal wound."
   },
+  "08b2624ea255": {
+    "name": "Vomix's Virulent Blight",
+    "kind": "ability",
+    "plain": "Enemy units hurt by the bearer's chosen plague weapon can be kept within range of one of its Contagion abilities for the rest of the battle. Only a model with a plague weapon can take this Relic. During deployment, pick one of the bearer's plague weapons. Each time the bearer shoots or fights, once its attacks are done, choose one enemy unit that lost any wounds to attacks with that weapon and one of the bearer's Contagion of Nurgle abilities. For the rest of the battle, that enemy unit always counts as within that ability's Contagion Range."
+  },
   "0af03949b878": {
     "name": "Sickly Corrosion",
     "kind": "stratagem",
     "plain": "During your Shooting phase or the Fight phase, when a plague weapon attack by one of your DEATH GUARD models scores a hit on an enemy unit: for the rest of the turn, whenever a DEATH GUARD model attacks that enemy unit, any wound roll of 1 is re-rolled."
+  },
+  "0d9287b957ee": {
+    "name": "Mark of the Terminus Est",
+    "kind": "ability",
+    "plain": "The bearer gets 1 added to its Strength characteristic, and your opponent can't re-roll wound rolls for attacks made against it. Also, once per battle, when the bearer fails a saving throw, you can use this ability to have that saving throw passed instead."
+  },
+  "0dd3f475e93d": {
+    "name": "Ironclot Furnace",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your POXMONGERS DAEMON ENGINE units within 6\" of the bearer to have a 4+ invulnerable save. Its models keep that save until your next Command phase starts."
   },
   "0e99310b40ed": {
     "name": "Tocsin of Misery (Aura)",
@@ -42,12 +57,22 @@
   "0f418a769152": {
     "name": "Sevenfold Blessings",
     "kind": "ability",
-    "plain": "Before the battle, while you muster your army, this Stratagem lets you pick a WRETCHED PSYKER model of yours.\n- It knows one more psychic power from the discipline it chose.\n- You may re-roll one of its Psychic tests per Psychic phase."
+    "plain": "This Stratagem gives one of your WRETCHED PSYKER models an extra psychic power and a Psychic test re-roll each Psychic phase. Use it before the battle, while you muster your army.\n- It knows one more psychic power from the discipline it chose.\n- You may re-roll one of its Psychic tests per Psychic phase."
+  },
+  "109bc7eb488c": {
+    "name": "Daemon's Toll",
+    "kind": "ability",
+    "plain": "Once per battle, when your opponent's Movement phase starts, the bearer can use this Relic to stop one enemy unit within 6\" from Falling Back on a 2+. For the rest of that phase, whenever that unit is picked to Fall Back, you roll one D6: on a 2+, it must Remain Stationary instead and can't Fall Back."
   },
   "1148128537cd": {
     "name": "Mutoid Infestation",
     "kind": "stratagem",
     "plain": "At the end of your Movement phase, choose a destroyed MUTOID VERMIN unit of yours. Place it back on the battlefield wholly within 12\" of one of your GELLERPOX INFECTED units and over 9\" away from every enemy model."
+  },
+  "11be57f43ab5": {
+    "name": "Reaper of Glorious Entropy",
+    "kind": "weapon",
+    "plain": "Plague Weapon: an unmodified wound roll of 6 for an attack with this weapon also deals 1 mortal wound to the target, on top of any normal damage."
   },
   "12e001c80a46": {
     "name": "Plagueburst Mortar",
@@ -77,7 +102,7 @@
   "1bb55d28ae51": {
     "name": "Plague Wind",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, choose an enemy unit within 18\" of this PSYKER that it can see. Roll a D6 for each of that unit's models; each 6 rolled inflicts 1 mortal wound on the unit. If the Psychic test result was 9+, each 5+ rolled inflicts 1 mortal wound instead."
+    "plain": "Witchfire: roll a D6 for each model in one enemy unit within 18\" of this PSYKER that it can see; each 6 inflicts 1 mortal wound on that unit. If the Psychic test result was 9+, each 5+ rolled inflicts 1 mortal wound instead."
   },
   "1c6173496198": {
     "name": "Diseased Effluents",
@@ -124,6 +149,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, during your Command phase, if your DEATH GUARD WARLORD is on the battlefield: put a marker on any point of the battlefield. When your next Command phase starts, roll a D6 for each unit within 6\" of that marker's centre; add 1 to the result for an INFANTRY unit and subtract 1 for a CHARACTER. A 2-6 means that unit takes D3 mortal wounds, and a 7+ means it takes D6 mortal wounds. The marker is then removed. Cost: 2CP if your WARLORD has the LORD OF VIRULENCE keyword, otherwise 3CP."
   },
+  "2b41198ac834": {
+    "name": "Eater Plague (Contagion)",
+    "kind": "ability",
+    "plain": "When a friendly WRETCHED model attacks an enemy unit that is within this unit's Contagion Range, an unmodified hit roll of 6 wounds the target automatically."
+  },
   "2bcab3f7f783": {
     "name": "Haze of Corruption",
     "kind": "stratagem",
@@ -137,7 +167,7 @@
   "2cd57f0acb1d": {
     "name": "Putrescent Vitality",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD INFANTRY unit within 18\" of this PSYKER. Its models get 1 added to their Strength and Toughness characteristics until your next Psychic phase starts."
+    "plain": "Blessing: one of your DEATH GUARD INFANTRY units within 18\" of this PSYKER adds 1 to its models' Strength and Toughness until your next Psychic phase starts."
   },
   "2db073d87043": {
     "name": "Putrid Detonation",
@@ -148,6 +178,16 @@
     "name": "Trench Fighters",
     "kind": "stratagem",
     "plain": "During the Fight phase, once a DEATH GUARD PLAGUE MARINES unit of yours is picked to fight: for the rest of the phase, whenever one of its models with any plague knives fights, it gets 1 bonus attack with one of those plague knives."
+  },
+  "2fb46800e505": {
+    "name": "Sanguous Flux (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get 1 subtracted from their models' Leadership characteristic and from Combat Attrition tests taken for them."
+  },
+  "2fcfddd7f24c": {
+    "name": "Plaguebringer",
+    "kind": "ability",
+    "plain": "Only a model armed with a balesword, daemonic plague blade, plague knife or power sword can take this Relic, and it takes the place of that weapon."
   },
   "302bc7a634bd": {
     "name": "Putrescent Fog (Aura)",
@@ -169,15 +209,30 @@
     "kind": "psychic",
     "plain": "This model knows Smite and two psychic powers from the Contagion discipline."
   },
+  "34fdb5584319": {
+    "name": "Harbinger of Death (Aura)",
+    "kind": "ability",
+    "plain": "Aura: if an enemy model with Leadership 7 or less is within 3\" of this WARLORD, its unit can't use Objective Secured or similar abilities, or perform actions. Also, while one or more enemy models are within range of this aura, this WARLORD's Attacks characteristic goes up by 1."
+  },
   "356c6089c74c": {
     "name": "Plentiful Pestilence",
     "kind": "ability",
     "plain": "If the bearer would lose a wound, roll a D6 each time; on a 5+, the bearer keeps that wound."
   },
+  "35ad5a0448dd": {
+    "name": "Filth Censers",
+    "kind": "ability",
+    "plain": "Psychic powers the bearer manifests have their range increased by 6\". If a power gives two ranges (Noxious Discharge, for example), the 6\" is added to the first range it lists."
+  },
   "37bbef97e148": {
     "name": "Deadly Pathogens",
     "kind": "ability",
     "plain": "Whenever you give a model a Deadly Pathogen, choose one of its plague weapons to upgrade; it can't be a Grenade weapon or a Relic. On top of the Deadly Pathogen's own effects, add 1 to that weapon's Strength characteristic. The Power Rating of the model's unit goes up by 1."
+  },
+  "39d9d830f401": {
+    "name": "Revoltingly Resilient",
+    "kind": "ability",
+    "plain": "Roll a D6 each time this WARLORD would lose a wound; on a 5+, it keeps that wound."
   },
   "3a0f188dbb56": {
     "name": "Dark Cravings",
@@ -192,7 +247,12 @@
   "4101d18e771a": {
     "name": "Gift of Contagion",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have their Strength characteristic reduced by 1. If the Psychic test result was 8+, reduce both their Strength and Attacks characteristics by 1 instead."
+    "plain": "Malediction: if manifested, pick one enemy unit within 18\" of this PSYKER: its models' Strength is reduced by 1 until your next Psychic phase starts. If the Psychic test result was 8+, reduce both their Strength and Attacks characteristics by 1 instead."
+  },
+  "437a4ddcd7e4": {
+    "name": "Warp Insect Hive",
+    "kind": "ability",
+    "plain": "You can re-roll both the hit roll and the wound roll for the bearer's melee attacks."
   },
   "438f27a462a7": {
     "name": "Twisted Blessings",
@@ -209,15 +269,35 @@
     "kind": "ability",
     "plain": "When the first battle round starts, choose one Warlord Trait from this list: Shamblerot, Ferric Blight, Gloaming Bloat, Eater Plague, Sanguous Flux, Nurgle's Fruit or The Droning. It can't be one that another model in your army already has. For the rest of the battle this model has the chosen trait as well as any others it has, even when it isn't your WARLORD."
   },
+  "45665dc14ccb": {
+    "name": "Gloaming Bloat (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range can't fire Overwatch or Set to Defend. Also, hit rolls and wound rolls for attacks by their models can't be re-rolled."
+  },
+  "4837366b0281": {
+    "name": "Revolting Stench (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of the bearer can't use rules that let them fight first, and never count as having made a charge move this turn. This applies whatever abilities they have."
+  },
   "4840816b3222": {
     "name": "Tainted Narthecium (Aura)",
     "kind": "ability",
     "plain": "Aura: if a model in one of your BUBONIC ASTARTES INFANTRY units within 3\" of this model would lose a wound, roll a D6 each time; on a 6, the model keeps that wound."
   },
+  "49f056572db8": {
+    "name": "Tollkeeper (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <PLAGUE COMPANY> CORE units is within 6\" of the bearer, each unmodified hit roll of 6 for its ranged attacks scores 1 extra hit."
+  },
   "49f778144bc0": {
     "name": "Explodes",
     "kind": "ability",
     "plain": "If this model is destroyed, roll a D6 before it is removed and before any embarked models get out. On a 6, it blows up: every unit within 6\" takes D3 mortal wounds."
+  },
+  "4b5e3e8f009c": {
+    "name": "Infected Remains",
+    "kind": "ability",
+    "plain": "Once per battle, when your Movement phase ends, you can pick an objective marker within 3\" of the bearer to share the bearer's Contagion abilities. While the bearer remains on the battlefield, that marker has the Contagions of Nurgle ability and counts as having all of the bearer's Contagion abilities."
   },
   "4bf8ecc19723": {
     "name": "Chimes of contagion",
@@ -232,17 +312,27 @@
   "4d49b29f4197": {
     "name": "Plague Skull of Glothila",
     "kind": "ability",
-    "plain": "Once per battle, when your Movement phase ends, the bearer may use this Enhancement. If it does, choose an enemy unit within 6\" of the bearer and roll seven D6s. Each 4+ inflicts 1 mortal wound on that unit, but a unit with the CHARACTER keyword can take no more than 3 mortal wounds this way."
+    "plain": "Once per battle, when your Movement phase ends, the bearer can use this Enhancement to roll for mortal wounds against one enemy unit within 6\" of it. Roll seven D6s: each 4+ inflicts 1 mortal wound on that unit, but a unit with the CHARACTER keyword can take no more than 3 mortal wounds this way."
   },
   "4f560009ca58": {
     "name": "Callous Disregard",
     "kind": "stratagem",
     "plain": "In your Shooting phase, choose a BUBONIC ASTARTES TERMINUS EST ASSAULT FORCE unit of yours that is eligible to shoot.\n- For the rest of the turn, its models may target enemy units that are in Engagement Range of your own POXWALKERS or PLAGUE FOLLOWERS units.\n- When one of its models attacks an enemy unit that is in Engagement Range of one of your POXWALKERS or PLAGUE FOLLOWERS units, subtract 1 from the hit roll; a failed hit roll means the attack hits that POXWALKERS or PLAGUE FOLLOWERS unit instead."
   },
+  "4f5d963a6ae5": {
+    "name": "Shamblerot (Contagion)",
+    "kind": "ability",
+    "plain": "When your opponent's Movement phase starts, each enemy unit (other than a VEHICLE unit) within this unit's Contagion Range can suffer mortal wounds. Roll one D6 for each of those units, subtracting 1 if that unit is a CHARACTER unit: on a 4+ it suffers 1 mortal wound, or D3 mortal wounds if the roll is a 6."
+  },
   "53d82eaacf3e": {
     "name": "Eruption of Filth",
     "kind": "stratagem",
     "plain": "In any phase, once a DEATH GUARD CHARACTER model of yours is destroyed, you may use this Stratagem rather than any other rules that trigger when a model is destroyed (for example, Putrid Explosion). Before that model is removed from play, roll a D6 for every other unit within 3\", apart from NURGLE units: a 2-5 means that unit takes 1 mortal wound, and a 6 means it takes D3 mortal wounds."
+  },
+  "56c22e7b2365": {
+    "name": "Hulking Physique",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 added to its Wounds characteristic, and an unmodified wound roll of 1-3 always fails for attacks made against it. That holds whatever abilities the attacking model or its weapon may have."
   },
   "56d98d047055": {
     "name": "Fire Fever",
@@ -259,6 +349,11 @@
     "kind": "ability",
     "plain": "Mortarion has an invulnerable save of 4+."
   },
+  "58897c3da01d": {
+    "name": "Nurgle's Fruit (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get no benefit from cover against attacks made by friendly MORTARION'S CHOSEN SONS models."
+  },
   "58acbbdb8c32": {
     "name": "Acidic Malady",
     "kind": "ability",
@@ -274,6 +369,11 @@
     "kind": "stratagem",
     "plain": "During your opponent's Shooting phase, once a DEATH GUARD SMOKESCREEN unit of yours is picked as an attack's target: for the rest of the phase, attacks against that unit have 1 subtracted from their hit rolls."
   },
+  "5e33c407f19b": {
+    "name": "Instrument of Chaos",
+    "kind": "ability",
+    "plain": "If a unit has any Instruments of Chaos, add 1 to its Advance and charge rolls."
+  },
   "61fb4e919160": {
     "name": "Bodyguard (Aura)",
     "kind": "ability",
@@ -282,7 +382,7 @@
   "65139263cf8c": {
     "name": "Accelerated Entropy",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy model within 12\" of this PSYKER that it can see. You and your opponent each roll one D6 and add the Toughness characteristic of your own model. If your total beats your opponent's, that enemy model suffers 3 mortal wounds. If your total is double your opponent's or more, that model's unit suffers D3+3 mortal wounds."
+    "plain": "Witchfire: one enemy model within 12\" of this PSYKER that it can see suffers 3 mortal wounds if your D6 plus Toughness beats your opponent's. You and your opponent each roll one D6 and add the Toughness characteristic of your own model. If your total beats your opponent's, that enemy model suffers 3 mortal wounds. If your total is double your opponent's or more, that model's unit suffers D3+3 mortal wounds."
   },
   "670bd9ef3bec": {
     "name": "Ferric Miasma",
@@ -344,6 +444,11 @@
     "kind": "ability",
     "plain": "Whenever this model successfully manifests a psychic power, look at its Psychic test: if it was 7 or more, D3 mortal wounds are inflicted on the nearest enemy unit within 12\"; if it was lower, 1 mortal wound is inflicted on the nearest enemy unit within 6\" instead."
   },
+  "7c7d32eb2e25": {
+    "name": "Raiment of Atrophy",
+    "kind": "ability",
+    "plain": "This model's Contagion of Nurgle abilities work out their Contagion Range as if the battle round were one higher than it really is. This can't be combined with any other rule that lets the bearer treat the battle round as higher than it is."
+  },
   "7ca2cad0dfb9": {
     "name": "Belching Fumes",
     "kind": "stratagem",
@@ -382,7 +487,7 @@
   "8a4ceeaca3b8": {
     "name": "Manreaper - Scythe",
     "kind": "weapon",
-    "plain": "Plague Weapon. For each attack made with this weapon profile, make 2 hit rolls rather than 1."
+    "plain": "Plague Weapon: for each attack made with this weapon profile, make 2 hit rolls rather than 1."
   },
   "8bff402f1e13": {
     "name": "Relaptic Assault",
@@ -394,6 +499,11 @@
     "kind": "ability",
     "plain": "Aura: while an enemy unit is within 6\" of this unit, models in that enemy unit have 1 subtracted from their Leadership characteristic."
   },
+  "8e72aef73a98": {
+    "name": "Suppurating Plate",
+    "kind": "ability",
+    "plain": "The bearer has a Save characteristic of 2+, and an enemy unit that makes it lose wounds in a fight can suffer a mortal wound. Whenever an enemy unit fights, once it has made its attacks, roll one D6 if those attacks made the bearer lose any wounds: on a 2+, that enemy unit suffers 1 mortal wound."
+  },
   "90e642f5fb40": {
     "name": "Gifts of Decay",
     "kind": "stratagem",
@@ -402,7 +512,7 @@
   "924a447745a0": {
     "name": "Curse of the Leper",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick the closest enemy unit that this PSYKER can see and that is within 18\" of it. Roll seven D6s: that unit suffers 1 mortal wound for each result higher than its Toughness characteristic."
+    "plain": "Witchfire: roll seven D6s for the closest visible enemy unit within 18\" of this PSYKER; each result above its Toughness inflicts 1 mortal wound."
   },
   "9261acbddd51": {
     "name": "Contagions of Nurgle",
@@ -424,6 +534,14 @@
     "kind": "ability",
     "plain": "When you roll to see how many attacks this weapon makes, you can re-roll that roll."
   },
+  "98130061e3e3": {
+    "name": "Nurgle's Fruit (Contagion)",
+    "kind": "ability",
+    "plain": "Enemy units within this unit's Contagion Range get no benefit from cover against attacks made by friendly MORTARION'S CHOSEN SONS models.",
+    "waive": {
+      "MORTARION'S CHOSENS SONS": "misprint in the official text for the MORTARION'S CHOSEN SONS keyword, which is written correctly here"
+    }
+  },
   "9a2f7c9d3822": {
     "name": "Attendant's claws and teeth",
     "kind": "weapon",
@@ -437,7 +555,12 @@
   "9bf9603eede3": {
     "name": "Pernicious Dose",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly unit within 6\" of this PSYKER. Until your next Psychic phase starts, hit rolls for that unit's plague weapon attacks can be re-rolled."
+    "plain": "Blessing: one of your units within 6\" of this PSYKER can re-roll hit rolls for its plague weapon attacks until your next Psychic phase starts."
+  },
+  "9c8a2b621d63": {
+    "name": "Foul Effluents (Aura)",
+    "kind": "ability",
+    "plain": "Aura: when your Movement phase ends, roll one D6 for every enemy unit within 6\" of this WARLORD; a 4+ means that unit takes 1 mortal wound."
   },
   "9e76f7277003": {
     "name": "Plague Weapon",
@@ -452,7 +575,7 @@
   "a27a83d8f027": {
     "name": "Lungrot",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- it can't Advance;\n- whenever it is picked to charge, only eligible units within 6\" may be chosen as its charge targets;\n- its charge rolls can't be re-rolled."
+    "plain": "Malediction: until your next Psychic phase, one enemy unit within 18\" of this PSYKER can't Advance, re-roll charge rolls or charge units more than 6\" away."
   },
   "a3511f3b39c9": {
     "name": "The Wrathful Dead",
@@ -463,6 +586,11 @@
     "name": "Pestilential Drop",
     "kind": "stratagem",
     "plain": "During the Reinforcements step of your Movement phase, when you place a TERMINUS EST ASSAULT FORCE unit of yours on the battlefield using its Outbreak Assault or Teleport Strike ability: choose one of its Contagion of Nurgle abilities. For the rest of the turn, that ability has a Contagion Range of 12\" for that unit. This doesn't stack with other abilities that raise Contagion Range."
+  },
+  "a4048bfe3f3c": {
+    "name": "Ferric Blight (Contagion)",
+    "kind": "ability",
+    "plain": "While an enemy unit is within this unit's Contagion Range, each attack by a friendly INEXORABLE model has its Armour Penetration characteristic improved by 1."
   },
   "a48b4e3155e8": {
     "name": "Explodes",
@@ -479,6 +607,11 @@
     "kind": "ability",
     "plain": "When your Movement phase ends, this model may heal a friendly BUBONIC ASTARTES INFANTRY model if that model's unit is within 3\" of it, restoring up to D3 of that model's lost wounds. A model can't be healed more than once in a turn."
   },
+  "a7f992025451": {
+    "name": "Putrid Periapt",
+    "kind": "ability",
+    "plain": "The bearer knows one more psychic power from any discipline it can use. Also, once per battle, when it successfully manifests a psychic power, it can then regain up to D3 lost wounds."
+  },
   "a9c61e155003": {
     "name": "Host of the Destroyer Hive",
     "kind": "ability",
@@ -487,7 +620,7 @@
   "aa5d727a6c70": {
     "name": "Rotwind",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, attacks by that unit's models have their Armour Penetration reduced by 2, though it can't go below AP 0 this way."
+    "plain": "Malediction: until your next Psychic phase, one enemy unit within 18\" of this PSYKER has its attacks' Armour Penetration reduced by 2, to a minimum of AP 0."
   },
   "aa889cbf631d": {
     "name": "On Droning Wings",
@@ -504,10 +637,25 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, choose up to three DEATH GUARD models of yours. For the rest of the phase, their plague weapons that have the Grenade type lose the Blast ability and become Pistol 6 weapons. Also, when one of those models uses one of those weapons to attack an enemy unit within Engagement Range, the attack hits the target automatically."
   },
+  "ace0566e1523": {
+    "name": "Rotten Constitution",
+    "kind": "ability",
+    "plain": "This WARLORD has 1 added to its Toughness characteristic, and attacks with AP -1 or -2 that are allocated to it are treated as AP 0 instead."
+  },
   "ae28849a236e": {
     "name": "Gellershift",
     "kind": "stratagem",
     "plain": "Before you move the VOX-SHAMBLERS in the Movement phase: rather than moving as normal, the unit may perform a Gellershift. Take it off the battlefield, and when the Movement phase ends, place it again anywhere over 9\" away from every enemy model."
+  },
+  "af1e35b600e1": {
+    "name": "The Leechspore Casket",
+    "kind": "ability",
+    "plain": "Whenever a melee attack by the bearer destroys an enemy model, pick one of your INEXORABLE VEHICLE models within 18\" of the bearer; it regains 1 lost wound. This Relic can't restore more than 3 wounds in a turn."
+  },
+  "af249a596ecc": {
+    "name": "Plague Skull of Glothila",
+    "kind": "ability",
+    "plain": "Once per battle, when your Movement phase ends, the bearer can use this Relic to roll for mortal wounds against one enemy unit within 6\" of it. Roll seven D6s: each 4-5 inflicts 1 mortal wound on that unit, and each 6 inflicts D3 mortal wounds."
   },
   "b0570cc2cc06": {
     "name": "Grandfatherly Influence",
@@ -537,6 +685,11 @@
     "kind": "psychic",
     "plain": "This model knows Smite and 1 psychic power from the Contagion discipline."
   },
+  "bb0846634907": {
+    "name": "Arch-Contaminator (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DEATH GUARD CORE units is within 6\" of this WARLORD, its models can re-roll wound rolls for melee attacks with plague weapons. They can also re-roll the wound roll for a ranged attack made with a plague weapon if its target is a unit within 12\"."
+  },
   "bb2267c252f6": {
     "name": "Pestilential Fallout",
     "kind": "ability",
@@ -551,6 +704,16 @@
     "name": "Lord of the Death Guard (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <PLAGUE COMPANY> CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "beeaf2565ce6": {
+    "name": "Plaguebringer",
+    "kind": "weapon",
+    "plain": "Plague Weapon: when an attack with this weapon destroys a model, that model counts as 2 destroyed models for Morale tests this turn."
+  },
+  "c1cb48fc660a": {
+    "name": "Living Plague (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 3\" of this WARLORD can't be affected by aura abilities from units in your opponent's army, apart from auras that are psychic powers."
   },
   "c594a2255dc1": {
     "name": "Plague-chosen",
@@ -570,7 +733,12 @@
   "c90d94a979b1": {
     "name": "Miasma of Pestilence",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD unit within 18\" of this PSYKER. Until your next Psychic phase starts, attacks against that unit have 1 subtracted from their hit rolls."
+    "plain": "Blessing: until your next Psychic phase starts, subtract 1 from the hit roll of attacks against one of your DEATH GUARD units within 18\" of this PSYKER."
+  },
+  "c9d59fe72dc3": {
+    "name": "The Droning (Contagion)",
+    "kind": "ability",
+    "plain": "When your opponent's Movement phase starts, halve the Move characteristic of every enemy unit within this unit's Contagion Range, for the rest of that phase."
   },
   "cb96f91b5ce3": {
     "name": "Rotting Tide",
@@ -598,7 +766,7 @@
   "d97bd6d8385e": {
     "name": "Noxious Discharge",
     "kind": "psychic",
-    "plain": "Witchfire: if manifested, pick one enemy unit within 12\" of this PSYKER that it can see.\n- That unit suffers 1 mortal wound.\n- Every unit within 3\" of that unit, other than NURGLE units, also suffers 1 mortal wound."
+    "plain": "Witchfire: if manifested, pick one enemy unit within 12\" of this PSYKER that it can see:\n- That unit suffers 1 mortal wound.\n- Every unit within 3\" of that unit, other than NURGLE units, also suffers 1 mortal wound."
   },
   "da1dd38ba0c1": {
     "name": "Malicious Calculation",
@@ -620,6 +788,11 @@
     "kind": "ability",
     "plain": "For attacks made with this weapon, each unmodified hit roll of 6 scores 1 extra hit. This doesn't stack with the Tollkeeper ability."
   },
+  "dc8e34f17f1a": {
+    "name": "Fugaris' Helm",
+    "kind": "ability",
+    "plain": "The bearer's aura abilities have their range increased by 3\", up to a maximum of 12\"."
+  },
   "df044b8bef85": {
     "name": "Plague belcher",
     "kind": "weapon",
@@ -639,6 +812,16 @@
     "name": "Insane Gibberines",
     "kind": "stratagem",
     "plain": "When the enemy Psychic phase starts: for the rest of the phase, enemy PSYKERS within 18\" of VULGRAR THRICE-CURSED have 1 subtracted from their Psychic tests."
+  },
+  "e31d2293d65b": {
+    "name": "Outbreak Assault",
+    "kind": "rule",
+    "plain": "The rules for Outbreak Assault aren't included in the army data this app uses. They're in The Book of Rust."
+  },
+  "e86df7c7abd0": {
+    "name": "Reaper of Misery",
+    "kind": "weapon",
+    "plain": "Plague Weapon: each attack with this weapon makes 2 hit rolls rather than 1."
   },
   "e91359e3cde7": {
     "name": "Fiery Demise",
@@ -668,12 +851,12 @@
   "f287120bb461": {
     "name": "Gift of Infection",
     "kind": "psychic",
-    "plain": "Malediction: if manifested, choose an enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, that unit's models have 1 subtracted from their Toughness characteristic. This doesn't stack with Toughness penalties caused by any Contagion of Nurgle abilities."
+    "plain": "Malediction: subtract 1 from the Toughness of models in one enemy unit within 18\" of this PSYKER until your next Psychic phase starts. This doesn't stack with Toughness penalties caused by any Contagion of Nurgle abilities."
   },
   "f40203926274": {
     "name": "Gift of Plagues",
     "kind": "psychic",
-    "plain": "Blessing: if manifested, choose a friendly DEATH GUARD unit within 18\" of this PSYKER. Until your next Psychic phase starts, every Contagion ability that unit has gets 6\" added to its range, but no more than 12\" in total."
+    "plain": "Blessing: one of your DEATH GUARD units within 18\" of this PSYKER adds 6\" to the range of its Contagion abilities, to a maximum of 12\". This lasts until your next Psychic phase starts."
   },
   "f40bb2d61c5a": {
     "name": "Bile spurt",
@@ -695,6 +878,11 @@
     "kind": "ability",
     "plain": "The bearer has the FLY keyword and a Move characteristic of 10\"."
   },
+  "f91305890143": {
+    "name": "Arch-Contaminator (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <PLAGUE COMPANY> CORE units is within 6\" of this WARLORD, its models can re-roll wound rolls for melee attacks with plague weapons. They can also re-roll the wound roll for a ranged attack made with a plague weapon if its target is a unit within 12\"."
+  },
   "face3d6516f7": {
     "name": "Primarch of the Death Guard",
     "kind": "ability",
@@ -708,11 +896,11 @@
   "fe1af2420b0f": {
     "name": "Unstable Sickness",
     "kind": "ability",
-    "plain": "Whenever an attack with this weapon destroys one or more enemy models, roll one D6. On a 4+, the destroyed model's unit suffers 1 mortal wound. No more than 3 mortal wounds can be inflicted this way per turn. The bearer can't be chosen for the Befouled Incubators Stratagem."
+    "plain": "Whenever an attack with this weapon destroys one or more enemy models, roll one D6: on a 4+, the destroyed model's unit suffers 1 mortal wound. No more than 3 mortal wounds can be inflicted this way per turn. The bearer can't be chosen for the Befouled Incubators Stratagem."
   },
   "ff7cd9c6aaf3": {
     "name": "Manreaper - Cleave",
     "kind": "weapon",
-    "plain": "Plague Weapon. Subtract 1 from the hit roll of each attack made with this weapon profile."
+    "plain": "Plague Weapon: subtract 1 from the hit roll of each attack made with this weapon profile."
   }
 }

@@ -13,6 +13,11 @@
       "D6": "stands for the official text's misprinted \"06\", which is a D6"
     }
   },
+  "06ee60dc719c": {
+    "name": "True Berserker",
+    "kind": "ability",
+    "plain": "Melee attacks allocated to this WARLORD have their Damage characteristic halved, rounding up."
+  },
   "08e9ac2af15f": {
     "name": "Relentless Rage",
     "kind": "ability",
@@ -48,6 +53,11 @@
     "kind": "stratagem",
     "plain": "Use this Stratagem during your opponent's Charge phase, in the Heroic Interventions step. Pick one of your WORLD EATERS CORE units. Until the end of the phase, it can perform a Heroic Intervention as though it were a CHARACTER unit, and it is also eligible to do so when any enemy units are within 6\" horizontally and 5\" vertically of it. When it performs a Heroic Intervention, each of its models can move up to 6\". All other Heroic Intervention rules still apply."
   },
+  "29f3b70c1b6d": {
+    "name": "Battle Lust",
+    "kind": "ability",
+    "plain": "This WARLORD can perform a Heroic Intervention when any enemy unit is within 6\" horizontally and 5\" vertically of it, moving up to 6\" when it does. All other Heroic Intervention rules still apply. Also, when the Fight phase starts, this WARLORD can fight first that phase if it is within Engagement Range of any enemy unit."
+  },
   "2afd47aa8b3a": {
     "name": "Wrathful Presence",
     "kind": "ability",
@@ -66,7 +76,7 @@
   "3bd3ce0f8654": {
     "name": "Jakhal icon",
     "kind": "ability",
-    "plain": "The bearer's unit gains the ICON keyword. Whenever the bearer's unit takes a Combat Attrition test, if it contains any models equipped with a Jakhal icon, add 1 to the test."
+    "plain": "The bearer's unit gains the ICON keyword, and while at least one of its models is equipped with a Jakhal icon, add 1 to its Combat Attrition tests."
   },
   "3ce423272bda": {
     "name": "Mutable Form",
@@ -88,6 +98,11 @@
     "kind": "stratagem",
     "plain": "Use this Stratagem in your opponent's Psychic phase, after an enemy PSYKER unit passes a Psychic test and after any Deny the Witch attempt has been made. If that enemy PSYKER unit is within 24\" of any of your WORLD EATERS units, roll one D6: on a 4+, the psychic power is denied."
   },
+  "4e2563594d5c": {
+    "name": "Talisman of Rage",
+    "kind": "ability",
+    "plain": "In your Command phase, pick a WORLD EATERS CORE unit that is within 9\" of the bearer; its melee attacks automatically wound on an unmodified hit roll of 6. This lasts until your next Command phase starts."
+  },
   "503044a43020": {
     "name": "Bloodscent",
     "kind": "ability",
@@ -98,20 +113,50 @@
     "kind": "ability",
     "plain": "Aura: while one of your WORLD EATERS CORE units is within 6\" of this model, each time that unit is chosen to make a Normal Move or Advance, its models add 2\" to their Move characteristic until the end of the phase."
   },
+  "5f4f62cb2399": {
+    "name": "Road of Eight Bloody Steps",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, this WARLORD's unit and up to 2 of your WORLD EATERS CORE units within 9\" of it can each make a Normal Move. This happens before the first turn begins."
+  },
+  "681701df11cc": {
+    "name": "Battle Lust (World Eaters)",
+    "kind": "ability",
+    "plain": "In each phase, when the bearer first destroys an enemy model, you gain 1 Blood Tithe point."
+  },
   "6f830711d94a": {
     "name": "Samni'arius and Spinegrinder",
     "kind": "weapon",
     "plain": "Each time an attack is made with this weapon, pick which of the profiles below to use for that attack."
+  },
+  "7314fd3b73a6": {
+    "name": "Helm of Brazen Ire",
+    "kind": "ability",
+    "plain": "Attacks made against the bearer have 1 subtracted from their wound rolls."
   },
   "7a14d9a1e80a": {
     "name": "Blood Fury (Aura)",
     "kind": "ability",
     "plain": "Aura: while an enemy unit (other than a VEHICLE unit) is within 6\" of this unit, roll a D6 each time that enemy unit is chosen to Fall Back or to perform an action. On a 4+, it can't Fall Back this turn, or the action automatically fails."
   },
+  "7c0d16317353": {
+    "name": "Arch-slaughterer",
+    "kind": "ability",
+    "plain": "When this WARLORD is chosen to fight, if 6 or more enemy models are within 3\" of it, add D3 to its Attacks characteristic until those attacks are resolved."
+  },
   "810d09d76c20": {
     "name": "Blood Frenzy",
     "kind": "stratagem",
     "plain": "Use this Stratagem in the Fight phase, once an enemy unit has been chosen to fight. Pick one of your WORLD EATERS CORE units that is within Engagement Range of that enemy unit. Until the enemy unit has resolved its attacks, whenever a model in your unit is destroyed by a melee attack, do not remove it yet if it has not fought this phase. Once the enemy unit's attacks are resolved, that model can fight, and it is then removed from play. This Stratagem costs 1CP if the chosen WORLD EATERS unit is a Troops unit, and 2CP otherwise."
+  },
+  "83bf2444b3f9": {
+    "name": "Mutable Form",
+    "kind": "ability",
+    "plain": "You can re-roll the bearer's Advance rolls and charge rolls, and no Overwatch attacks can be made against it."
+  },
+  "8665db2c57e8": {
+    "name": "The Skull of An'gr'ant",
+    "kind": "ability",
+    "plain": "In your Command phase, pick an enemy unit visible to the bearer: you can re-roll wound rolls for the bearer's melee attacks against it. This lasts until your next Command phase starts."
   },
   "8f9157775a94": {
     "name": "Bloodthirsty Determination",
@@ -128,6 +173,11 @@
     "kind": "weapon",
     "plain": "If the bearer has 2 Eightbound chainfists, add 1 to this weapon's Damage characteristic."
   },
+  "a5eda9132a08": {
+    "name": "Burning Plate (World Eaters)",
+    "kind": "ability",
+    "plain": "The bearer gets 1 added to its armour saving throws and to its Wounds characteristic."
+  },
   "a87930f5f13b": {
     "name": "Gory Dismemberment",
     "kind": "stratagem",
@@ -138,6 +188,11 @@
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save against melee attacks, and a 4+ invulnerable save against ranged attacks."
   },
+  "aa06e564e1b9": {
+    "name": "Soulburner",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon hit the target automatically. This Relic takes the place of an infernal cannon."
+  },
   "ab33445d89a3": {
     "name": "Icon of Wrath",
     "kind": "stratagem",
@@ -147,6 +202,11 @@
     "name": "Terrifying Assault",
     "kind": "stratagem",
     "plain": "Use this Stratagem in your Charge phase, when you choose one or more enemy units as targets of a charge by one of your WORLD EATERS units. Pick one of those enemy units. That unit can't fire Overwatch or Set to Defend against that charge, and in the following Fight phase, subtract 1 from the hit roll each time one of its models makes a melee attack."
+  },
+  "b5fadf31f88d": {
+    "name": "Favoured of Khorne",
+    "kind": "ability",
+    "plain": "You gain 1 Blood Tithe point in each of your Command phases, as long as this WARLORD is on the battlefield."
   },
   "ca0983fc2dc4": {
     "name": "The Blood Tithe",
@@ -177,6 +237,11 @@
     "name": "The Betrayer",
     "kind": "ability",
     "plain": "At the end of the Fight phase, if any other friendly units are within 3\" of this model, roll one D6. On a 1, pick one of those units: it suffers 2 mortal wounds.\n\nIn a Boarding Action, only friendly units that this model can see are affected by this ability."
+  },
+  "e98bba1d3c26": {
+    "name": "Berzerker Glaive",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 for an attack with this weapon scores 2 extra hits. This Relic takes the place of an exalted chainblade or axe of dismemberment."
   },
   "ea0ab1252c4e": {
     "name": "Diabolic Machines",

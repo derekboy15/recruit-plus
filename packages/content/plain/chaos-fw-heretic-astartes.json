@@ -1,0 +1,12 @@
+{
+  "2583fb3315f5": {
+    "name": "Infernal bomb",
+    "kind": "ability",
+    "plain": "Once per turn, right after the bearer moves, it can drop one of its remaining infernal bombs on a point it moved across this phase. Roll one D6 for every unit within 6\" of that point, subtracting 1 for a CHARACTER unit unless it is a VEHICLE or MONSTER: on a 4-5 the unit suffers D3 mortal wounds, and on a 6 it suffers D6 mortal wounds. Each infernal bomb can be dropped only once per battle."
+  },
+  "fa614275e677": {
+    "name": "Thunderhawk cluster bombs",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer moves, you can pick one unit it moved across and roll dice to inflict mortal wounds on it. Roll one D6 for each model in that unit, but six D6 for each VEHICLE or MONSTER model in it, to a maximum of 18 dice. Each 4+ inflicts 1 mortal wound on that unit."
+  }
+}

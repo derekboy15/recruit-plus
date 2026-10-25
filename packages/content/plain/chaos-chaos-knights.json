@@ -14,6 +14,16 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your INFERNAL HOUSEHOLD models is chosen to fight, you can use this Stratagem. For the rest of the phase, roll one D6 whenever a melee attack by that model destroys an enemy model. For each 4+, the INFERNAL HOUSEHOLD model gets back 1 lost wound after it has resolved all of its attacks (up to 6 regained wounds). The cost is 1CP for a WAR DOG-CLASS model, or 2CP for any other model."
   },
+  "072375c4e5f2": {
+    "name": "Dread Hunter",
+    "kind": "ability",
+    "plain": "Once per battle, this WARLORD can make a killing strike as your Shooting phase starts, giving one ranged weapon re-rolls and 1 extra Damage that phase. To do so, pick one ranged weapon this WARLORD has. Until the phase ends, you can re-roll the hit roll and the wound roll for each attack made with that weapon, and each of those attacks gets 1 added to its Damage characteristic."
+  },
+  "07386855a865": {
+    "name": "Aura of Corruption",
+    "kind": "ability",
+    "plain": "This model gets the Corruption of the Body (Aura) ability."
+  },
   "0746e1734d5e": {
     "name": "Skies of Fire",
     "kind": "stratagem",
@@ -24,20 +34,45 @@
     "kind": "weapon",
     "plain": "Each time an attack made with this weapon targets an AIRCRAFT, add 1 to its hit roll."
   },
+  "093b943c83bb": {
+    "name": "Loping Predators",
+    "kind": "ability",
+    "plain": "A model with this Fell Bond that Advanced this turn can shoot as if it had Remained Stationary. In your Shooting phase, once it is chosen to shoot, it counts as having Remained Stationary until that phase ends."
+  },
+  "0daddd3dd000": {
+    "name": "Gheists of Ruin",
+    "kind": "ability",
+    "plain": "A model with this Fell Bond gets the benefits of Light Cover against ranged attacks made by an attacker more than 18\" away."
+  },
   "0f4a32a152eb": {
     "name": "Wrathsurge",
     "kind": "stratagem",
     "plain": "In your opponent's Psychic phase, when a PSYKER unit fails a Psychic test while it is within 18\" of one of your CHAOS KNIGHTS KHORNE models, you can use this Stratagem. The PSYKER unit suffers Perils of the Warp."
+  },
+  "10b08539658f": {
+    "name": "Subjugator Machine Spirit",
+    "kind": "ability",
+    "plain": "If this model Advances or Falls Back in your Movement phase, it counts as having Remained Stationary until your Shooting phase ends."
   },
   "10c15b8f4bfe": {
     "name": "Daemonic Surge",
     "kind": "ability",
     "plain": "In each of your Command phases, every model with this Traitoris Ambition can use one Daemonic Surge. When a model does, you must pick one of these options:\n- The model suffers 1 mortal wound, and you roll one D3 on the table for this model to find out which rule applies to it until the start of your next Command phase.\n- The model suffers D3 mortal wounds, and you choose one result from that table to apply to it until the start of your next Command phase."
   },
+  "12cf25967e30": {
+    "name": "Profane Symbiosis",
+    "kind": "ability",
+    "plain": "When a model with this bond uses a Daemonic Surge, you can re-roll the D3 (if it took 1 mortal wound) or pick two results (if it took D3 mortal wounds). If you chose the 1 mortal wound option, you can re-roll the D3 that decides which Daemonic Surge result applies to this model until your next Command phase starts. If you chose the D3 mortal wounds option, pick two results from the Daemonic Surge table; both apply to this model until your next Command phase starts."
+  },
   "13005625be1c": {
     "name": "Fury of Surtr’s Wake",
     "kind": "stratagem",
     "plain": "In your Charge phase, when one of your HOUSE KHYMERE models finishes a charge move, you can use this Stratagem. Pick an enemy unit within Engagement Range of your model, then roll four D6, or six D6 if this model is TITANIC. For each dice that equals or beats that enemy unit's Toughness characteristic, the unit suffers 1 mortal wound; for each unmodified 6, it suffers 2 mortal wounds instead. The cost is 1CP for a WAR DOG-CLASS model, or 2CP for any other model."
+  },
+  "1430cbb9a307": {
+    "name": "Frenzied Invaders",
+    "kind": "ability",
+    "plain": "When a model with this Fell Bond attacks in melee, each unmodified hit roll of 6 scores 1 extra hit."
   },
   "16506224ff74": {
     "name": "Crushed Like Vermin",
@@ -48,6 +83,21 @@
     "name": "Bound Varadian Psychogheist",
     "kind": "ability",
     "plain": "- Each time the bearer makes an attack, an unmodified wound roll of 6 improves that attack's Armour Penetration by 2.\n- Each time the bearer is chosen to shoot or fight, you can re-roll one damage roll for that model's attacks."
+  },
+  "186f2268eaab": {
+    "name": "Beguiling Majesty",
+    "kind": "ability",
+    "plain": "Melee attacks made against this model subtract 1 from both their hit roll and their wound roll."
+  },
+  "1883091c5da4": {
+    "name": "Bow to None",
+    "kind": "ability",
+    "plain": "This WARLORD can ignore modifiers to its characteristics and to its hit, wound, damage, Advance and charge rolls. You can choose to ignore some or all modifiers to this WARLORD's characteristics, except the changes its datasheet shows for damage it has suffered. Whenever it attacks, you can ignore some or all modifiers to that attack's hit roll, wound roll and damage roll. Whenever it Advances or declares a charge, you can ignore some or all modifiers to that Advance roll or charge roll."
+  },
+  "18c76e4cfa31": {
+    "name": "Forged in Terror",
+    "kind": "ability",
+    "plain": "Once per battle, when a battle round starts, you can make a Harbinger ability from this or any earlier battle round active for your models with this bond. This works even if not every unit in your army has the CHAOS KNIGHTS keyword."
   },
   "1a9d3d817cbe": {
     "name": "Macro-extinction Protocols",
@@ -64,6 +114,11 @@
     "kind": "weapon",
     "plain": "For each attack made with this weapon, choose one of the profiles below to use. You can re-roll the hit roll for any attack made with this weapon. Each time an attack made with this weapon destroys an enemy CHARACTER model, add 1 to the bearer's Strength and Attacks characteristics until the end of the battle."
   },
+  "1e75df957ef2": {
+    "name": "Unhallowed Inscriptions",
+    "kind": "ability",
+    "plain": "A model with this Fell Bond can avoid losing wounds to mortal wounds on a 5+ (not Daemonic Surge ones), and a PSYKER with it adds 1 to Deny the Witch tests. Roll one D6 whenever a model with this Fell Bond would lose a wound to a mortal wound, unless the mortal wound came from using the Daemonic Surge Traitoris Ambition: on a 5+, it doesn't lose that wound."
+  },
   "209ac3b61764": {
     "name": "Explodes",
     "kind": "ability",
@@ -79,10 +134,25 @@
     "kind": "stratagem",
     "plain": "Use this Stratagem in your opponent's Command phase. Choose one of your TYRANT-CLASS models. It has this ability until the turn ends: 'Infernal Aegis (Aura): each <DREAD HOUSEHOLD> WAR DOG-CLASS model from your army gets a 4+ invulnerable save against ranged weapons while it is within 6\" of this model.'"
   },
+  "2b57ceb28b31": {
+    "name": "Mark of the Dread Knight",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever this model would take a wound: on a 6, it doesn't lose that wound."
+  },
+  "2c61c3f190f9": {
+    "name": "Infernal Quest",
+    "kind": "ability",
+    "plain": "This WARLORD gets the Objective Secured ability."
+  },
+  "320750c5869c": {
+    "name": "Pyrothrone",
+    "kind": "ability",
+    "plain": "This model gains psychic powers: it becomes a PSYKER unless it is a KNIGHT ABOMINANT, which instead gets an extra Warp Storm power and manifest attempt. A model that isn't a KNIGHT ABOMINANT gains the PSYKER keyword and knows Smite and one power from the Warp Storm discipline. In your Psychic phase it can try to manifest one psychic power, and in your opponent's Psychic phase it can try to deny one. A KNIGHT ABOMINANT instead knows one extra Warp Storm discipline power and can try to manifest one extra psychic power in your Psychic phase."
+  },
   "33330d6e6577": {
     "name": "The Traitor's Mark",
     "kind": "ability",
-    "plain": "Once per battle, at the start of a battle round other than the first: after you pick the Harbinger ability that is active for your army, you can also pick a second Harbinger ability from that battle round, whatever Harbinger ability was picked in the battle round before. For the rest of the battle, that second ability is active for the bearer. Using this doesn't change your choice of Harbinger ability in the next battle round."
+    "plain": "Once per battle, you can give the bearer a second Harbinger ability from the current battle round, which stays active for it until the battle ends. Use it at the start of a battle round after the first, once you have picked the Harbinger ability active for your army; the second one can be any other Harbinger ability from that battle round, whatever Harbinger ability was picked in the battle round before. This doesn't change which Harbinger ability you can pick in the next battle round."
   },
   "33900649eafe": {
     "name": "Hungry for Combat",
@@ -114,20 +184,30 @@
     "kind": "weapon",
     "plain": "Each time you make an attack with this weapon, choose which of the profiles below to use for that attack."
   },
+  "3d888fc4d51d": {
+    "name": "Merciless Tormentors",
+    "kind": "ability",
+    "plain": "When a model with this Fell Bond makes a ranged attack against a target within 18\" of it, hit rolls of 1 for that attack are re-rolled."
+  },
   "3ed6db42ee51": {
     "name": "The Storm Malevolent",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase ends, whenever a CHAOS KNIGHT model from your army makes a melee attack against that unit:\n- add 1 to the wound roll;\n- if the wound roll is an unmodified 6, the target also suffers 1 mortal wound on top of the normal damage.\nNo enemy unit can suffer more than 3 mortal wounds per phase from this psychic power."
+    "plain": "Malediction: until your next Psychic phase ends, your CHAOS KNIGHT models add 1 to melee wound rolls against one enemy unit within 18\" of this PSYKER. Also, each time one of those attacks has an unmodified wound roll of 6, it inflicts 1 mortal wound on the target on top of the normal damage. No enemy unit can suffer more than 3 mortal wounds per phase from this psychic power."
   },
   "3f8c30fe3dc8": {
     "name": "Taskmaster (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 9\" of this model, re-roll hit rolls of 1 for that model's ranged attacks."
   },
+  "3fa474f98deb": {
+    "name": "Titankin",
+    "kind": "ability",
+    "plain": "When a model with this bond is chosen to shoot, you can re-roll a single hit roll and a single wound roll made for its attacks."
+  },
   "417c2bb2d8ff": {
     "name": "Wreathed in Shades",
     "kind": "psychic",
-    "plain": "Blessing. If manifested, pick one of your DISCIPLES OF BE'LAKOR units within 12\" of this PSYKER (not a MONSTER or VEHICLE unit). Until the start of your next Psychic phase, enemy models can only target that unit with ranged weapons if it is the closest eligible target to the firing model or is within 12\" of the firing model."
+    "plain": "Blessing: enemy models can only target one of your DISCIPLES OF BE'LAKOR units with ranged weapons if it is within 12\" of them or their closest eligible target. Pick a unit within 12\" of this PSYKER that isn't a MONSTER or VEHICLE unit; the effect lasts until your next Psychic phase starts."
   },
   "4308ee7e6112": {
     "name": "War Dog Squadron",
@@ -142,7 +222,7 @@
   "43570e13d231": {
     "name": "Penumbral Curse",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts, melee attacks by models in that unit have 1 subtracted from their wound rolls and their Armour Penetration reduced by 1 as well."
+    "plain": "Malediction: melee attacks by one enemy unit within 18\" of this PSYKER have 1 subtracted from their wound rolls and their Armour Penetration reduced by 1. This lasts until your next Psychic phase starts."
   },
   "43e00aa6b74e": {
     "name": "Engine of Destruction",
@@ -154,6 +234,21 @@
     "kind": "stratagem",
     "plain": "Once per battle, when one of your CHAOS KNIGHTS PANTHEON UNDIVIDED models is destroyed without exploding, you can use this Stratagem. At the end of the phase, roll one D6. On a 4+, set the model up again as close as possible to where it was destroyed, with 3 wounds remaining, and not within Engagement Range of any enemy models. It costs 1CP if the model is a WAR DOG-CLASS model, or 2CP otherwise."
   },
+  "453663bbba54": {
+    "name": "Beguiling Majesty",
+    "kind": "ability",
+    "plain": "This model has the Beguiling Majesty (Aura) ability."
+  },
+  "4551f8c699ea": {
+    "name": "Warp Vision",
+    "kind": "ability",
+    "plain": "Targets of attacks made by a model with this Fell Bond don't get the benefits of Light Cover against those attacks."
+  },
+  "45bdb3307b02": {
+    "name": "Harbinger of Scrapcode",
+    "kind": "ability",
+    "plain": "In the Morale phase, pick an enemy VEHICLE unit within 18\" of this WARLORD to take a Dread test; on a fail, it suffers 3 mortal wounds and is weakened. The weakening lasts until the next Morale phase starts: when working out which characteristics on their profile to use, models in that unit count as having half the wounds they really have left. Models in that unit whose characteristics don't change as they take damage instead have their Ballistic Skill and Weapon Skill characteristics reduced by 1."
+  },
   "4689e229f6a2": {
     "name": "Pack Hunters",
     "kind": "stratagem",
@@ -162,12 +257,17 @@
   "492a82aead8d": {
     "name": "Cerastus shock lance (melee)",
     "kind": "ability",
-    "plain": "Pick one of the profiles below before you choose targets, and attack with it. The charged profile is only allowed if the bearer made a charge move this turn."
+    "plain": "Before choosing targets, pick which of the profiles below to attack with; the charged profile is only allowed if the bearer made a charge move this turn."
   },
   "49705e3aa251": {
     "name": "Spitesquall",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- The unit can't fire Overwatch or Set to Defend.\n- Track a Spitesquall tally for the unit: add one to it every time one of its models is destroyed. At the end of each phase, if the unit is still on the battlefield, roll one D6 for every mark on its tally; the unit suffers 1 mortal wound for each 5+ rolled. Then, at the end of every phase, its tally goes back to 0 once you've rolled."
+    "plain": "Malediction: one enemy unit within 18\" of this PSYKER can't fire Overwatch or Set to Defend, and risks 1 mortal wound for each model it loses in a phase. Until your next Psychic phase starts:\n- the unit can't fire Overwatch or Set to Defend;\n- it has a Spitesquall tally: add one to it every time one of its models is destroyed. At the end of each phase, if the unit is still on the battlefield, roll one D6 for every mark on its tally; the unit suffers 1 mortal wound for each 5+ rolled. The tally then goes back to 0 at the end of each phase."
+  },
+  "4b64ad040bfa": {
+    "name": "Army of Renown - Disciples of Be'lakor",
+    "kind": "ability",
+    "plain": "Every unit in your army gets the DISCIPLES OF BE'LAKOR keyword, except UNALIGNED and BUILDING units. Every unit in your army with the HERETIC ASTARTES Faction keyword, except CHAOS CULTIST units, also gets the LEGION DISCIPLES keyword."
   },
   "4c0d5b9db692": {
     "name": "Dread Dominion (Aura)",
@@ -194,20 +294,35 @@
     "kind": "ability",
     "plain": "This model gets a 5+ invulnerable save, which improves to 4+ against melee attacks. Whenever a TITANIC unit targets this model with a melee attack, subtract 1 from that attack's hit roll."
   },
+  "4e016a9ab425": {
+    "name": "Mirror of Fates",
+    "kind": "ability",
+    "plain": "Each Command point your opponent spends on a Stratagem while this model is on the battlefield lets you roll one D6, and on a 5+ you get 1 Command point."
+  },
   "4e4bcee2af57": {
     "name": "Cyclonic Lamentation",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested: all enemy units within 12\" of this PSYKER must each take a Dread test. Any that fail suffer 1 mortal wound each, or D3 mortal wounds each if your Psychic test result was 11+."
+    "plain": "Witchfire: every enemy unit within 12\" of this PSYKER takes a Dread test, and each that fails suffers 1 mortal wound (D3 instead if your Psychic test was 11+)."
   },
   "4f2c6f8dde95": {
     "name": "Tempest warblade",
     "kind": "weapon",
     "plain": "For each attack made with this weapon, you make 2 hit rolls rather than 1."
   },
+  "5210b24f00da": {
+    "name": "Quicksilver Throne",
+    "kind": "ability",
+    "plain": "When this model piles in or consolidates, it can move up to D3+3\" rather than up to 3\"."
+  },
+  "53d6fb7aa553": {
+    "name": "Rampant Cruelty",
+    "kind": "ability",
+    "plain": "A model with this bond adds 1 to the wound roll for attacks against a unit that was below Half-strength when the model was chosen to shoot or fight."
+  },
   "5459e84d2fff": {
     "name": "Rune of Nak'T'Graa",
     "kind": "ability",
-    "plain": "When you choose this Relic, also pick a Fell Bond that none of the models in your army have. The bearer gains it, on top of any Fell Bond it already has."
+    "plain": "When you choose this Relic, pick a Fell Bond that none of the models in your army have; the bearer gains it, on top of any Fell Bond it already has."
   },
   "54ea4dce57fa": {
     "name": "Diabolic Bulwark",
@@ -218,6 +333,21 @@
     "name": "Abominable Constitution",
     "kind": "stratagem",
     "plain": "Use this Stratagem in your Command phase. Choose a CHAOS KNIGHTS NURGLE model from your army. When working out which characteristics on its profile to use, treat it as having its full wounds remaining until your next Command phase starts. The cost is 1CP if that model is a WAR DOG-CLASS model, or 2CP otherwise."
+  },
+  "5a218cc7396f": {
+    "name": "Aura of Terror (Dreaded)",
+    "kind": "ability",
+    "plain": "Whenever an enemy unit within Dread range of this WARLORD takes a Morale or Dread test, your opponent rolls one extra D6 and discards the lowest result."
+  },
+  "5ab3241de491": {
+    "name": "Cursed Rune of Fate",
+    "kind": "ability",
+    "plain": "Each unmodified saving throw of 6 the bearer makes against a ranged attack inflicts 1 mortal wound on the attacker's unit (6 mortal wounds at most). These mortal wounds are inflicted after all of that unit's attacks have been resolved."
+  },
+  "5b317fd3d5fa": {
+    "name": "Dauntless",
+    "kind": "ability",
+    "plain": "Models with this bond get extra Wounds: 2 more for a WAR DOG-CLASS model, or 4 more for a TITANIC model."
   },
   "5be3736ca9fe": {
     "name": "Beguiling Majesty (Aura) - FAVOURED",
@@ -244,6 +374,21 @@
     "kind": "ability",
     "plain": "Against ranged weapons, models in this unit have a 5+ invulnerable save."
   },
+  "63b95888111c": {
+    "name": "2 - Daemonic Fortitude",
+    "kind": "ability",
+    "plain": "Attacks made against this model always fail on an unmodified wound roll of 1-3, whatever abilities the attacking weapon or model has."
+  },
+  "63fa9387487a": {
+    "name": "Bold Tyrants",
+    "kind": "ability",
+    "plain": "Ranged attacks made by a model with this Fell Bond against a target within 18\" of it have their Armour Penetration improved by 1."
+  },
+  "6583d385c1c8": {
+    "name": "Warp-borne Stalker",
+    "kind": "ability",
+    "plain": "Once per battle, you can take this model off the battlefield when your Movement phase starts, and bring it back in your next Movement phase. In the Reinforcements step of that next Movement phase, you can set it up again anywhere on the battlefield more than 9\" from all enemy models. If the battle ends while this unit is off the battlefield, it is destroyed."
+  },
   "66d55049c0f8": {
     "name": "Trample Them",
     "kind": "stratagem",
@@ -269,6 +414,16 @@
     "kind": "weapon",
     "plain": "Attacks made with this weapon hit automatically, so don't make hit rolls for them. Unless the target is a VEHICLE or TITANIC unit, these attacks wound on a 2+."
   },
+  "6ffe487e196d": {
+    "name": "Learned Idolators",
+    "kind": "ability",
+    "plain": "Attacks with an Armour Penetration of -1 count as having an Armour Penetration of 0 when they are allocated to a model with this Fell Bond."
+  },
+  "726c1b1a34ce": {
+    "name": "Maddened Cries (Aura)",
+    "kind": "ability",
+    "plain": "Aura: at the start of each Morale phase, every enemy unit within 9\" of this WARLORD must take a Dread test, and each one that fails suffers 1 mortal wound."
+  },
   "73a27c516164": {
     "name": "Unyielding Rage",
     "kind": "stratagem",
@@ -283,6 +438,11 @@
     "name": "Conquerors Without Mercy",
     "kind": "ability",
     "plain": "Each time a model with this Traitoris Ambition fights after making a charge move, being charged or performing a Heroic Intervention this turn, it gets two bonuses until that fight is over: add 1 to its Attacks characteristic, and its melee weapons have their Armour Penetration improved by 1."
+  },
+  "7578d8a48e0e": {
+    "name": "Warp-haunted Hull",
+    "kind": "ability",
+    "plain": "This WARLORD gets extra Deny the Witch attempts, and on a 5+ it ignores each wound it would lose in the Psychic phase. Once per turn, it can attempt to Deny the Witch as though it were a PSYKER; if it already is a PSYKER, it can instead attempt to Deny the Witch one extra time in each enemy Psychic phase. Roll one D6 each time it loses a wound during the Psychic phase; on a 5+, it doesn't lose that wound."
   },
   "760a773b4334": {
     "name": "Knights of Shade",
@@ -312,22 +472,47 @@
   "7c0bbf0ad808": {
     "name": "Betraying Shades",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy unit within 18\" of this PSYKER and visible to it. Choose up to 6 models in that unit and add up their unmodified Attacks characteristics. Roll that many D6 (for example, if five of the chosen models had an Attacks characteristic of 2 and one had 3, you would roll thirteen D6). If the Psychic test result was 11 or more, add 1 to each dice result. That unit suffers 1 mortal wound for each roll of 6+."
+    "plain": "Witchfire: roll one D6 per Attack of up to 6 models in a visible enemy unit within 18\" of this PSYKER; that unit suffers 1 mortal wound for each 6+. Pick the unit, choose up to 6 of its models and add up their unmodified Attacks characteristics. Roll that many D6 (for example, if five of the chosen models had an Attacks characteristic of 2 and one had 3, you would roll thirteen D6). If the Psychic test result was 11 or more, add 1 to each dice result."
+  },
+  "7c83dee32fab": {
+    "name": "Blood Shield",
+    "kind": "ability",
+    "plain": "Once per battle, the bearer can activate the Blood Shield: for one Fight phase, no invulnerable saves can be taken against melee attacks by or against it. It activates the Blood Shield at the start of a Fight phase. Until that phase ends, the bearer's melee attacks can't be saved with invulnerable saves, and the bearer can't take invulnerable saves against melee attacks."
+  },
+  "7ce15e7aa680": {
+    "name": "Blessing of the Dark Master",
+    "kind": "ability",
+    "plain": "Your opponent can't re-roll hit rolls, wound rolls or Damage rolls for attacks made against this model."
   },
   "7d9e874dcca3": {
     "name": "Serpentstrike Core",
     "kind": "ability",
-    "plain": "Choose one weapon this model is equipped with: a daemonbreath spear, daemonbreath meltagun, twin daemonbreath meltagun or daemonbreath thermal cannon. That weapon:\n- counts as a Relic for all rules purposes;\n- loses all of its abilities;\n- gets 1 added to its Strength;\n- gets 2 added to its Damage."
+    "plain": "One daemonbreath weapon this model has becomes a Relic for all rules purposes, loses its abilities, and gets 1 added to its Strength and 2 to its Damage. Pick which one: a daemonbreath spear, daemonbreath meltagun, twin daemonbreath meltagun or daemonbreath thermal cannon that it is equipped with."
   },
   "7ed0871559d5": {
     "name": "Soul-Raptor Swarm",
     "kind": "ability",
     "plain": "Each time the bearer loses a wound to a mortal wound, roll one D6 (unless the wound came from the Daemonic Surge ability): on a 4+, that wound is not lost."
   },
+  "7fcbf27626e3": {
+    "name": "Strike First, Strike Often",
+    "kind": "ability",
+    "plain": "If any enemy units are within Engagement Range of this WARLORD when the Fight phase starts, it can fight first that phase."
+  },
+  "807421378dc9": {
+    "name": "Collar of Infernal Brass",
+    "kind": "ability",
+    "plain": "Psychic powers can't target or affect this model."
+  },
+  "82257e54d5af": {
+    "name": "Eager for the Kill",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Advance and charge rolls; while it is within your opponent's deployment zone, it also gets 1 extra attack."
+  },
   "826f81578bc1": {
     "name": "Shrouded Step",
     "kind": "psychic",
-    "plain": "Blessing. If manifested, pick one of your DISCIPLES OF BE'LAKOR INFANTRY units within 18\" of this PSYKER. Take it off the battlefield and set it up again anywhere on the battlefield more than 9\" away from all enemy models. If that unit Remained Stationary this turn, it counts as having made a Normal Move this turn instead."
+    "plain": "Blessing: one of your DISCIPLES OF BE'LAKOR INFANTRY units within 18\" of this PSYKER is removed and set up anywhere more than 9\" from all enemy models. If that unit Remained Stationary this turn, it counts as having made a Normal Move this turn instead."
   },
   "8466d5ef7b49": {
     "name": "War Dog Squadron",
@@ -342,10 +527,20 @@
       "99": "page number of the book reference, not a rule value"
     }
   },
+  "868951dfceb5": {
+    "name": "Quicksilver Throne",
+    "kind": "ability",
+    "plain": "This model can make Heroic Interventions as if it were a CHARACTER, and can fight first if it starts the Fight phase within Engagement Range of any enemy units."
+  },
   "8a90689e08e9": {
     "name": "Winds of the Warp",
     "kind": "psychic",
-    "plain": "Blessing (Aura). If manifested, these effects last until your next Psychic phase starts:\n- Roll one D6 whenever this PSYKER loses a wound; on a 5+, it isn't lost.\n- If the Psychic test result was 8 or more, then while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 6\" of this PSYKER, roll one D6 whenever that model loses a wound; on a 6, it doesn't lose that wound."
+    "plain": "Blessing (Aura): until your next Psychic phase starts:\n- Roll one D6 whenever this PSYKER loses a wound; on a 5+, it isn't lost.\n- If the Psychic test result was 8 or more, then while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 6\" of this PSYKER, roll one D6 whenever that model loses a wound; on a 6, it doesn't lose that wound."
+  },
+  "8c0794ac5d9a": {
+    "name": "3 - Daemonic Power",
+    "kind": "ability",
+    "plain": "Pick one of this model's weapons: attacks made with it add 1 to their wound rolls."
   },
   "8c9f540b1c67": {
     "name": "Volkite combustor",
@@ -382,6 +577,11 @@
     "kind": "ability",
     "plain": "Each time a melee attack targets the bearer, subtract 1 from the hit roll for that attack."
   },
+  "9419a5e2b343": {
+    "name": "Knight Diabolus",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 extra attack, and you re-roll hit rolls of 1 for its melee attacks."
+  },
   "95cc7f39d5ac": {
     "name": "Tormented Wrath",
     "kind": "stratagem",
@@ -392,10 +592,30 @@
     "kind": "weapon",
     "plain": "When this weapon attacks an enemy within half range, that attack's Damage characteristic is D6+2."
   },
+  "968e65f0fd80": {
+    "name": "Biomechanical Fusion",
+    "kind": "ability",
+    "plain": "DREADBLADE models with this Fell Bond gain the Daemonic Surge Traitoris Ambition, and other models with it resist mortal wounds on a 4+ while using it. A DREADBLADE model gets it even though DREADBLADE units normally can't have a Traitoris Ambition. Roll one D6 for each mortal wound a model with this Fell Bond (other than a DREADBLADE model) suffers while it is using its Daemonic Surge Traitoris Ambition: on a 4+, it doesn't lose that wound."
+  },
+  "977c825a1740": {
+    "name": "Favour of the Dark Mechanicum",
+    "kind": "ability",
+    "plain": "This WARLORD gets extra Wounds (1 if WAR DOG-CLASS, 2 if TITANIC) and regains D3 lost wounds when each of your Command phases starts."
+  },
   "98272dbcdbac": {
     "name": "Corrupted Heirlooms",
     "kind": "stratagem",
     "plain": "Use this Stratagem before the battle, while mustering your army, if your WARLORD has the CHAOS KNIGHTS keyword. Choose one of your CHAOS KNIGHTS models; it can have one Relic of Tyranny even if it isn't a CHARACTER model (it must be a Relic that model could have). All Relics in your army must be different, and this Stratagem can't give a model two Relics. This Stratagem can be used once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "98644c3874dc": {
+    "name": "Blessing of a Thousand Poxes",
+    "kind": "ability",
+    "plain": "When this model attacks in melee, each unmodified hit roll of 6 wounds the target automatically."
+  },
+  "9a459f678649": {
+    "name": "Virtue through Strength",
+    "kind": "ability",
+    "plain": "When a model with this bond is chosen to fight, you can re-roll either a single hit roll or a single wound roll made for its attacks."
   },
   "9c8c0fc191d1": {
     "name": "Reap and Rend",
@@ -407,10 +627,15 @@
     "kind": "ability",
     "plain": "Each time a model flees from an enemy unit that is within Dread range of the bearer, the bearer gets back one lost wound. It can regain no more than 3 wounds per phase this way."
   },
+  "9dd65d405e40": {
+    "name": "Pyrothrone",
+    "kind": "ability",
+    "plain": "Once in each of your Psychic phases, you can re-roll a Psychic test taken for this model."
+  },
   "a080a7ff301f": {
     "name": "Voidslivers",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, pick one enemy model within 12\" of this PSYKER and visible to it. Draw a line from any part of this PSYKER's base to any part of the chosen model's base (or hull).\n- The chosen model's unit suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models.\n- Each other enemy unit that the line passes over or through suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models."
+    "plain": "Witchfire: pick a visible enemy model within 12\" of this PSYKER; that model's unit and each other enemy unit in between suffer 1 or D3 mortal wounds. Draw a line from any part of this PSYKER's base to any part of the chosen model's base (or hull):\n- The chosen model's unit suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models.\n- Each other enemy unit that the line passes over or through suffers 1 mortal wound, or D3 mortal wounds instead if it has 11 or more models."
   },
   "a15aa7a84b14": {
     "name": "Heretek Power Core",
@@ -420,12 +645,27 @@
   "a40473cabc38": {
     "name": "The Blasphemous Engine",
     "kind": "ability",
-    "plain": "- While the bearer is using its Daemonic Surge Traitoris Ambition, each time it would lose a wound because of a mortal wound, roll one D6: on a 2+, it doesn't lose that wound.\n- When working out which characteristics on its profile to use, treat the bearer as having twice as many wounds remaining as it really has."
+    "plain": "- While the bearer uses its Daemonic Surge Traitoris Ambition, roll one D6 each time it would lose a wound to a mortal wound: on a 2+, the wound isn't lost.\n- When working out which characteristics on its profile to use, treat the bearer as having twice as many wounds remaining as it really has."
+  },
+  "a5ac348ecebf": {
+    "name": "Blessing of a Thousand Poxes",
+    "kind": "ability",
+    "plain": "For this model's ranged attacks, each unmodified hit roll of 6 wounds the target automatically."
   },
   "a7676b5af620": {
     "name": "Ectoplasma decimator - Supercharge",
     "kind": "weapon",
     "plain": "Blast. The bearer suffers 2 mortal wounds for every unmodified hit roll of 1 rolled for this weapon profile's attacks, after it has finished shooting with this weapon."
+  },
+  "a7e4701bce00": {
+    "name": "Hellforged Construction",
+    "kind": "ability",
+    "plain": "Attacks with Strength 7 or less that are allocated to a model with this Fell Bond have their Damage reduced by 1, to a minimum of 1."
+  },
+  "a805e5491f1c": {
+    "name": "Collar of Infernal Brass",
+    "kind": "ability",
+    "plain": "This model has the Collar of Infernal Brass (Aura) ability."
   },
   "abf4b49255e7": {
     "name": "Unleash the Hounds",
@@ -437,15 +677,35 @@
     "kind": "psychic",
     "plain": "This model knows Smite plus two powers from the Warp Storm discipline."
   },
+  "afee2e7b1367": {
+    "name": "Aura of Corruption",
+    "kind": "ability",
+    "plain": "This model gets the Corruption of the Soul (Aura) ability."
+  },
   "b086d3775316": {
     "name": "Atrapos lascutter (shooting)",
     "kind": "weapon",
     "plain": "Each time this weapon targets a VEHICLE or MONSTER unit with an attack, you can re-roll that attack's wound roll."
   },
+  "b24aaf359fd8": {
+    "name": "Blessing of the Dark Master",
+    "kind": "ability",
+    "plain": "Attacks made against this model always fail on an unmodified hit roll of 1-3, whatever abilities the attacking weapon or model has."
+  },
   "b2b81dfab817": {
     "name": "Coruscating Hate",
     "kind": "psychic",
-    "plain": "Witchfire. If manifested, D3 mortal wounds are inflicted on the closest enemy unit within 12\" of this PSYKER that it can see. Then roll one D6. On a 2-3, 1 mortal wound is inflicted on the closest other enemy unit that is within 6\" of the first target and visible to it. On a 4+, that other unit suffers D3 mortal wounds instead."
+    "plain": "Witchfire: the closest enemy unit within 12\" of this PSYKER that it can see suffers D3 mortal wounds. Next, roll one D6. On a 2-3, 1 mortal wound is inflicted on the closest other enemy unit that is within 6\" of the first target and visible to it. On a 4+, that other unit suffers D3 mortal wounds instead."
+  },
+  "b48224c19dc7": {
+    "name": "Worthy Offerings",
+    "kind": "ability",
+    "plain": "A model with this Fell Bond adds 1 to its hit rolls against MONSTER, VEHICLE or CHARACTER units, and destroying such a unit can get its offering accepted. If the model has a Favour of the Dark Gods and destroys a MONSTER, VEHICLE or CHARACTER unit in a phase, its offering is accepted at the end of that phase, however many marks its Offering tally has."
+  },
+  "b69d43fc2c72": {
+    "name": "Subjugator Machine Spirit",
+    "kind": "ability",
+    "plain": "This model can declare a charge even in a turn when it Advanced or Fell Back."
   },
   "b787f97b9fd7": {
     "name": "Graviton crusher",
@@ -456,6 +716,11 @@
     "name": "Chosen by the Gods",
     "kind": "stratagem",
     "plain": "Use this Stratagem before the battle, while mustering your army. Choose one of your CHAOS KNIGHTS models that has no Favour of the Dark Gods. It gains one of these keywords: KHORNE, TZEENTCH, NURGLE, SLAANESH or PANTHEON UNDIVIDED. A KHORNE KNIGHT ABOMINANT model gets its Attacks characteristic increased by 1 and its Weapon Skill characteristic improved by 1, but it loses the PSYKER keyword and can't manifest psychic powers etc. This Stratagem can be used once, or twice in a Strike Force battle, or three times in an Onslaught battle. Each model can only be chosen for it once, and it can't add a keyword to any model that is part of a Crusade force."
+  },
+  "bc7ded0f167f": {
+    "name": "Mark of the Dread Knight",
+    "kind": "ability",
+    "plain": "Roll one D6 whenever this model would take a wound: on a 5+, it doesn't lose that wound."
   },
   "bca2c60d9b13": {
     "name": "Towering Foe",
@@ -475,7 +740,12 @@
   "bf6aa82887f8": {
     "name": "Vortex Terrors",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER. Until your next Psychic phase starts:\n- Models in that unit have 1 subtracted from their Leadership characteristic.\n- Whenever that unit is chosen to shoot or fight, it first has to take a Dread test. On a failed test, the Weapon Skill and Ballistic Skill characteristics of its models are reduced by 1 until the current phase ends."
+    "plain": "Malediction: until your next Psychic phase starts, one enemy unit within 18\" of this PSYKER loses 1 Leadership and takes a Dread test when it shoots or fights.\n- Models in that unit have 1 subtracted from their Leadership characteristic.\n- Whenever that unit is chosen to shoot or fight, it first has to take a Dread test. On a failed test, the Weapon Skill and Ballistic Skill characteristics of its models are reduced by 1 until the current phase ends."
+  },
+  "c06e49df94f8": {
+    "name": "Lord of Dread",
+    "kind": "ability",
+    "plain": "This WARLORD's Aura abilities and Dreaded abilities each have their range increased by 3\"."
   },
   "c210b5818bfd": {
     "name": "Panoply of the Cursed Knights",
@@ -487,10 +757,20 @@
     "kind": "stratagem",
     "plain": "When one of your CHAOS KNIGHTS models is destroyed, you can use this Stratagem. Don't roll to see if it explodes; it explodes automatically. If it is a TYRANT-CLASS model, roll one D6: on a 4+, the explosion's range is 3D6\". The cost is 1CP for a WAR DOG-CLASS model, 2CP for an ABHORRENT-CLASS model, and 3CP for any other model. You can only use this Stratagem once."
   },
+  "c5879b89d69e": {
+    "name": "Throne Mechanicum of Skulls",
+    "kind": "ability",
+    "plain": "You can re-roll this model's charge rolls."
+  },
   "c5f617ecb578": {
     "name": "Twin hellstorm autocannon",
     "kind": "weapon",
     "plain": "Each time an attack made with this weapon targets an AIRCRAFT unit, add 1 to its hit roll."
+  },
+  "c60d0d83fcf1": {
+    "name": "Precision Cruelty",
+    "kind": "ability",
+    "plain": "When a model with this Fell Bond makes a ranged attack, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1 and adds 1 to its Damage."
   },
   "c84137197cb6": {
     "name": "A Long Leash",
@@ -501,6 +781,11 @@
     "name": "Daemonbreath thermal cannon",
     "kind": "weapon",
     "plain": "Blast. When this weapon attacks an enemy within half range, that attack's Damage characteristic is D6+4."
+  },
+  "cab1202b5d0a": {
+    "name": "Warp-borne Stalker",
+    "kind": "ability",
+    "plain": "You can deploy this model in the warp instead of on the battlefield, and set it up later more than 9\" away from all enemy models. Decide this during deployment; if this model is a WAR DOG-CLASS model, the other models in its unit are set up as though they were a separate unit. Then, in one of your Movement phases, you can set this unit up during the Reinforcements step, anywhere on the battlefield more than 9\" from all enemy models."
   },
   "cba04ddb3b27": {
     "name": "Helm of Warpsight",
@@ -547,6 +832,11 @@
     "kind": "ability",
     "plain": "This model can declare a charge even in a turn when it Fell Back. Whenever it makes a Normal Move, Advances or Falls Back, it can move across other models as though they weren't there, except MONSTER and VEHICLE models."
   },
+  "df367af72b21": {
+    "name": "Blood Shield",
+    "kind": "ability",
+    "plain": "This model gets to activate its Blood Shield an extra time during the battle."
+  },
   "e0acb2534847": {
     "name": "Harrying Hunter",
     "kind": "stratagem",
@@ -555,12 +845,22 @@
   "e11d1486e585": {
     "name": "Warpshock harpoon",
     "kind": "weapon",
-    "plain": "Add 1 to the hit roll for attacks made with this weapon against a MONSTER or VEHICLE unit, unless it is an AIRCRAFT unit. Whenever an attack from this weapon is allocated to a model, the unit of that model suffers 3 mortal wounds on top of any normal damage."
+    "plain": "Each attack from this weapon that is allocated to a model deals 3 mortal wounds to that model's unit, on top of any normal damage. Against a MONSTER or VEHICLE unit, except an AIRCRAFT unit, add 1 to the hit roll for this weapon's attacks."
+  },
+  "e32b42330fbb": {
+    "name": "Dark Forging",
+    "kind": "ability",
+    "plain": "Ranged weapons on a model with this Fell Bond have 4\" more Range, and its diabolus heavy stubbers get 1 more Strength and Damage. When that model picks a target for a diabolus heavy stubber it has, you can ignore the Look Out, Sir rule."
   },
   "e3682bdfd4d5": {
     "name": "Volkite veuglaire",
     "kind": "weapon",
     "plain": "Each unmodified wound roll of 6 for an attack made with this weapon inflicts 1 mortal wound on the target on top of the normal damage."
+  },
+  "e39ebc12e913": {
+    "name": "Throne Mechanicum of Skulls",
+    "kind": "ability",
+    "plain": "When this model attacks in melee, each unmodified hit roll of 6 scores 1 extra hit on the target."
   },
   "e3bfb7e62144": {
     "name": "Protection Protocols",
@@ -570,12 +870,22 @@
   "e412c5c0d20f": {
     "name": "Traitor's Mark (Aura)",
     "kind": "ability",
-    "plain": "Aura: your opponent can't pick an enemy unit that is in Dread range of the bearer for the Insane Bravery Stratagem, and can't use any rule that would let that unit re-roll a Morale test."
+    "plain": "Aura: enemy units in Dread range of the bearer can't be picked for Insane Bravery and can't re-roll Morale tests. Your opponent can't use the Insane Bravery Stratagem on such a unit, or any rule that would let it re-roll a Morale test."
+  },
+  "ea5111f75a93": {
+    "name": "Mirror of Fates",
+    "kind": "ability",
+    "plain": "Once per battle round, after a hit roll, wound roll or saving throw is made for this model, it can use the Mirror of Fate to change the result to a 6."
   },
   "eb3e735f2e85": {
     "name": "Titanic Duel",
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your CHAOS KNIGHTS models is chosen to fight, you can use this Stratagem. Choose one enemy TITANIC unit within Engagement Range of that model. You and your opponent each secretly pick a number from 1 to 3 on a D6 (it's suggested you turn a D6 to that number and hide it behind your hand), then both reveal your choices at the same time. If the numbers are different, then until the end of that phase, add the number you picked to your CHAOS KNIGHTS model's Attacks characteristic, but that model's melee attacks can only target TITANIC units."
+  },
+  "ee1082116ff9": {
+    "name": "The Putrid Carapace",
+    "kind": "ability",
+    "plain": "Add 1 to armour saving throws taken for this model against attacks with a Damage characteristic of 1."
   },
   "ef38363d25ce": {
     "name": "Graviton singularity cannon - Singularity",
@@ -585,7 +895,7 @@
   "ef98d8775b69": {
     "name": "Pall of Despair",
     "kind": "psychic",
-    "plain": "Malediction. If manifested: choose one enemy unit within 18\" of this PSYKER that it can see, and roll 3D6. If the total beats that unit's Leadership characteristic, pick one of these effects; it applies to the unit until your next Psychic phase starts:\n- If the unit has any Aura abilities, choose one of them. The unit loses that ability until your next Psychic phase starts.\n- Until your next Psychic phase starts, the unit can't perform actions (if it is in the middle of an action, that action fails immediately).\n- Until your next Psychic phase starts, in the Fight phase the unit isn't eligible to fight that phase until every eligible unit from your army has fought."
+    "plain": "Malediction: one enemy unit within 18\" of this PSYKER loses an Aura ability, can't perform actions or fights last (you pick), if 3D6 beats its Leadership.\nPick an enemy unit within 18\" of this PSYKER that it can see, and roll 3D6. If the total beats that unit's Leadership characteristic, pick one of these effects; it applies to the unit until your next Psychic phase starts:\n- If the unit has any Aura abilities, choose one of them. The unit loses that ability until your next Psychic phase starts.\n- Until your next Psychic phase starts, the unit can't perform actions (if it is in the middle of an action, that action fails immediately).\n- Until your next Psychic phase starts, in the Fight phase the unit isn't eligible to fight that phase until every eligible unit from your army has fought."
   },
   "f016ecf49a1e": {
     "name": "Helm of Dogs (Aura)",
@@ -600,12 +910,17 @@
   "f2c96a6cc4a8": {
     "name": "Daemonic Shrike",
     "kind": "ability",
-    "plain": "At the start of each of your Shooting phases, pick an enemy unit within 18\" of the bearer. For the rest of the turn, the bearer's ranged attacks against that unit each have their Armour Penetration improved by 1."
+    "plain": "In each of your Shooting phases, the bearer's ranged attacks against one enemy unit within 18\" of it have their Armour Penetration improved by 1. Pick that unit at the start of the phase; the improvement lasts until the end of the turn."
   },
   "f6db2fa85483": {
     "name": "Sorcerous Ammunition",
     "kind": "stratagem",
     "plain": "In your Shooting phase, before the wound roll is made for an attack by one of your CHAOS KNIGHTS TZEENTCH models, you can use this Stratagem. Skip the wound roll: the attack automatically wounds the target. If this wound gets allocated to a PSYKER unit, that unit has to take a Dread test. On a failed test, the target suffers Perils of the Warp once this CHAOS KNIGHTS model's attacks have all been resolved."
+  },
+  "f6f8151eb4d7": {
+    "name": "The Putrid Carapace",
+    "kind": "ability",
+    "plain": "This model's Toughness is increased by 1."
   },
   "f7212a78a180": {
     "name": "The Tyrant's Banner",
@@ -626,6 +941,11 @@
     "name": "Frenzied Rampage (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <DREAD HOUSEHOLD> WAR DOG-CLASS models is within 9\" of this model, re-roll hit rolls of 1 for that model's melee attacks."
+  },
+  "fc6852604239": {
+    "name": "Prideful Wrath",
+    "kind": "ability",
+    "plain": "A model with this Fell Bond whose profile changes as it takes damage counts as having twice its remaining wounds when working out its characteristics."
   },
   "fd78607103fe": {
     "name": "Tyrannical Court",

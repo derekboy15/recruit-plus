@@ -1,8 +1,18 @@
 {
+  "0239851c99f1": {
+    "name": "War Engine",
+    "kind": "ability",
+    "plain": "This model can declare a charge in a turn when it Fell Back. When it makes a Normal Move, Advances or Falls Back, it can move over other models (except TITANIC models) as if they weren't there, and may pass within Engagement Range of them, but it can't end that move within Engagement Range of any of them."
+  },
   "05baaf678b75": {
     "name": "Warhound plasma blastgun",
     "kind": "weapon",
     "plain": "Before you pick targets, choose which one of the profiles below this weapon will attack with."
+  },
+  "0c9217a63aa5": {
+    "name": "Apocalypse missile launcher",
+    "kind": "weapon",
+    "plain": "You can shoot this weapon at units the bearer can't see."
   },
   "11c1261b724f": {
     "name": "Anvillus defence battery",
@@ -19,6 +29,11 @@
     "kind": "ability",
     "plain": "This model has 6 void shields, each with 3 shield points. As long as it still has at least one void shield, it gets a 5+ invulnerable save against ranged attacks.\n\nWhen a saving throw for this model against a ranged attack fails and it still has a void shield, it takes no damage. Instead, each point of damage removes 1 shield point from one of its void shields. Once a void shield has started losing shield points, all further damage must keep going to that shield until it collapses. When an attack brings a void shield down to 0 shield points, the shield collapses: this model loses it, and any damage left over from that attack is lost. Void shields never stop mortal wounds: each mortal wound inflicted on this model makes it lose 1 wound in the normal way.\n\nAt the start of your Command phase, any void shield on this model with fewer than 3 shield points left goes back up to 3 shield points."
   },
+  "3dced6d1872c": {
+    "name": "Void Shields",
+    "kind": "ability",
+    "plain": "This model has 8 void shields of 3 shield points each, and a 5+ invulnerable save against ranged attacks while any of them remain.\n\nEach time this model fails a saving throw against a ranged attack while it has a void shield, it takes no damage. Instead, for each point of damage, one void shield loses 1 shield point. After a void shield has lost any shield points, all further damage goes to that shield until it collapses. When an attack brings a void shield down to 0 shield points, it collapses: this model loses that shield, and any damage left over from that attack is lost. Void shields never stop mortal wounds: each mortal wound makes this model lose one wound as normal.\n\nWhen your Command phase starts, any void shield with fewer than 3 shield points left goes back up to 3."
+  },
   "3e6b56529a00": {
     "name": "Battle Titan",
     "kind": "ability",
@@ -28,6 +43,11 @@
     "name": "Void Shields",
     "kind": "ability",
     "plain": "This model has 4 void shields, each with 3 shield points. As long as it still has at least one void shield, it gets a 5+ invulnerable save against ranged attacks.\n\nWhen a saving throw for this model against a ranged attack fails and it still has a void shield, it takes no damage. Instead, each point of damage removes 1 shield point from one of its void shields. Once a void shield has started losing shield points, all further damage must keep going to that shield until it collapses. When an attack brings a void shield down to 0 shield points, the shield collapses: this model loses it, and any damage left over from that attack is lost. Void shields never stop mortal wounds: each mortal wound inflicted on this model makes it lose 1 wound in the normal way.\n\nAt the start of your Command phase, any void shield on this model with fewer than 3 shield points left goes back up to 3 shield points."
+  },
+  "72dcee621624": {
+    "name": "Reactor Meltdown",
+    "kind": "ability",
+    "plain": "If this model is destroyed, roll one D6 before taking it off the battlefield: on a 6+, it explodes and every unit within 4D6\" takes 3D6 mortal wounds."
   },
   "75ed33929231": {
     "name": "Reaver melta cannon",
