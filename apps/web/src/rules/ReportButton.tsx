@@ -2,21 +2,36 @@ import { useEffect, useId, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { getIndex } from '../factions/dataClient';
-import { Panel } from '../lists/Panel';
 import { useStorage } from '../storage/StorageContext';
-import { PROBLEM_LABELS, saveReport, type ReportProblem, type RulesReport } from './reports';
+import { Sheet } from '../ui/Sheet';
+import { PROBLEM_LABELS, saveReport, type ReportProblem, type ReportTargetKind, type RulesReport } from './reports';
 import { useWording } from './wording';
 
 const THANKS_MS = 3000;
 
-/** "Report a rules error": a sheet asking what's wrong, saved locally and synced with the user's documents. */
-export function ReportButton({ target, text }: { target: Omit<RulesReport['target'], 'path'>; text: string }) {
+/** One item on a page that can be reported: its name, the text shown for it, and its kind when it differs from the page's. */
+export interface ReportPart { name: string; text: string; kind?: ReportTargetKind }
+
+/**
+ * "Report a problem", once per page: a sheet asking what's wrong (and, on a page of several items, which one), saved
+ * locally and synced with the user's documents.
+ */
+export function ReportButton({ target, text, parts }: {
+  /** The kind of thing reported and the page's name. */
+  target: Omit<RulesReport['target'], 'path'>;
+  /** Used when there are no parts. */
+  text: string;
+  /** Several items on one page: the sheet asks "Which part?"; the saved target name and text are the chosen part's. */
+  parts?: ReportPart[];
+}) {
   const { user } = useAuth();
   const { repo } = useStorage();
   const { wording } = useWording();
   const location = useLocation();
   const noteId = useId();
+  const partId = useId();
   const [open, setOpen] = useState(false);
+  const [part, setPart] = useState(0);
   const [problem, setProblem] = useState<ReportProblem>('wrong');
   const [note, setNote] = useState('');
   const [thanks, setThanks] = useState(false);
@@ -28,10 +43,12 @@ export function ReportButton({ target, text }: { target: Omit<RulesReport['targe
     return () => clearTimeout(t);
   }, [thanks]);
 
-  if (!user) return null;
+  if (!user || parts?.length === 0) return null;
+  const chosen = parts ? parts[Math.min(part, parts.length - 1)] : null;
 
   const close = () => {
     setOpen(false);
+    setPart(0);
     setProblem('wrong');
     setNote('');
     setError(null);
@@ -40,11 +57,11 @@ export function ReportButton({ target, text }: { target: Omit<RulesReport['targe
     const dataGeneratedAt = await getIndex().then((i) => i.generatedAt, () => 'unknown');
     try {
       await saveReport(repo, user.id, {
-        target: { ...target, path: location.pathname + location.hash },
+        target: { kind: chosen?.kind ?? target.kind, name: chosen?.name ?? target.name, path: location.pathname + location.hash },
         problem,
         note: note.trim(),
         wording,
-        text,
+        text: chosen?.text ?? text,
         dataGeneratedAt,
       });
       close();
@@ -56,8 +73,8 @@ export function ReportButton({ target, text }: { target: Omit<RulesReport['targe
 
   return (
     <div className="report">
-      <button type="button" className="btn btn--quiet" onClick={() => setOpen(true)}>
-        Report a rules error
+      <button type="button" className="btn btn--tertiary" onClick={() => setOpen(true)}>
+        Report a problem
       </button>
       {thanks && (
         <p role="status" className="report__thanks">
@@ -65,8 +82,31 @@ export function ReportButton({ target, text }: { target: Omit<RulesReport['targe
         </p>
       )}
       {open && (
-        <Panel title="Report a rules error" kind="sheet" closeLabel="Cancel" onClose={close}>
-          <p className="muted">{target.name}</p>
+        <Sheet
+          title="Report a problem"
+          kind="sheet"
+          closeLabel="Cancel"
+          onClose={close}
+          footer={
+            <button type="button" className="btn btn--primary" onClick={() => void send()}>
+              Send report
+            </button>
+          }
+        >
+          {parts ? (
+            <div className="report__part">
+              <label htmlFor={partId}>Which part?</label>
+              <select id={partId} className="input" value={part} onChange={(e) => setPart(Number(e.target.value))}>
+                {parts.map((p, i) => (
+                  <option key={i} value={i}>
+                    {p.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <p className="muted">{target.name}</p>
+          )}
           <fieldset className="choices">
             <legend>What&apos;s wrong?</legend>
             {(Object.keys(PROBLEM_LABELS) as ReportProblem[]).map((p) => (
@@ -79,12 +119,7 @@ export function ReportButton({ target, text }: { target: Omit<RulesReport['targe
           <label htmlFor={noteId}>Tell us more (optional)</label>
           <textarea id={noteId} className="input" rows={4} value={note} onChange={(e) => setNote(e.target.value)} />
           {error && <p role="alert">{error}</p>}
-          <div className="report__actions">
-            <button type="button" className="btn btn--primary" onClick={() => void send()}>
-              Send report
-            </button>
-          </div>
-        </Panel>
+        </Sheet>
       )}
     </div>
   );

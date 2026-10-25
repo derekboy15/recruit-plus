@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { DISCLAIMER } from '../layout/Footer';
+import { PageHeader } from '../ui/PageHeader';
 
 export function Legal() {
   return (
     <section>
-      <h1>Legal &amp; credits</h1>
+      <PageHeader title="Legal & credits" back={{ to: '/', label: 'Home' }} />
       <div className="card">
         <p>{DISCLAIMER}</p>
         <p>

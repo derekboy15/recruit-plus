@@ -52,6 +52,12 @@ describe('Terms', () => {
     expect(screen.getByRole('heading', { name: 'Terms of use', level: 1 })).toBeInTheDocument();
     expect(screen.getByText(DISCLAIMER)).toBeInTheDocument();
   });
+
+  test('terms point to the page’s Report a problem button', () => {
+    inRouter(<Terms />);
+    expect(document.body.textContent).toContain('Report a problem');
+    expect(document.body.textContent).not.toContain('Report a rules error');
+  });
 });
 
 test('the full footer links Legal & credits, Privacy and Terms', () => {
@@ -72,4 +78,13 @@ test.each([
   );
   expect(screen.getByRole('heading', { name: title, level: 1 })).toBeInTheDocument();
   expect(screen.queryByText('Sign in first')).toBeNull();
+});
+
+test.each(['/legal', '/privacy', '/terms'])('%s has a Back link to Home', (path) => {
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <AppRoutes guard={() => <p>Sign in first</p>} />
+    </MemoryRouter>,
+  );
+  expect(screen.getByRole('link', { name: 'Back to Home' })).toHaveAttribute('href', '/');
 });

@@ -120,3 +120,23 @@ test('the reset page without a valid link says so and offers a new one', async (
   expect(screen.getByRole('link', { name: 'Send a new reset link' })).toHaveAttribute('href', '/sign-in?mode=forgot');
   await waitFor(() => expect(screen.queryByLabelText('New password')).not.toBeInTheDocument());
 });
+
+test('Google comes first, then email', async () => {
+  page(fakeAuthBackend());
+  const google = await screen.findByRole('button', { name: 'Continue with Google' });
+  expect(google.compareDocumentPosition(email()) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  expect(screen.getByText('or use your email')).toBeInTheDocument();
+  expect(google.querySelector('svg[aria-hidden="true"]')).not.toBeNull();
+});
+
+test('the reset form has no Google button', async () => {
+  page(fakeAuthBackend(), '/sign-in?mode=forgot');
+  expect(await screen.findByRole('heading', { name: 'Reset your password' })).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Continue with Google' })).toBeNull();
+  expect(screen.queryByText('or use your email')).toBeNull();
+});
+
+test('the sign-in and reset pages have a Back link to Home', async () => {
+  page(fakeAuthBackend());
+  expect(await screen.findByRole('link', { name: 'Back to Home' })).toHaveAttribute('href', '/');
+});

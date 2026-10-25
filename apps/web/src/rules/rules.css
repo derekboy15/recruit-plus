@@ -1,0 +1,86 @@
+/* Rules Reference, glossary and faction pages (imported by Blocks, so every page that renders rules content has it).
+   The faction pages bring this file into the app's first bundle, ahead of theme.css, so a rule that changes a theme
+   class (.btn, .report, table.stats) needs a more specific selector to win. */
+
+/* ---------- Tables that fit a phone: below 600px each row becomes a card, each cell labelled with its column ---------- */
+@media (max-width: 599px) {
+  table.stats.blocks__table, table.stats.blocks__table tbody, table.stats.blocks__table tr { display: block; width: 100%; }
+  /* The header row stays for screen readers; the cells show their column names instead. */
+  table.stats.blocks__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  table.stats.blocks__table tr { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); }
+  table.stats.blocks__table tr:last-child { border-bottom: 0; }
+  table.stats.blocks__table td,
+  table.stats.blocks__table td:first-child {
+    display: block; position: static; min-width: 0; padding: 0.15rem 0; border: 0; background: none; text-align: left; white-space: normal;
+  }
+  table.stats.blocks__table td:first-child { font-weight: 600; }
+  table.stats.blocks__table td[data-label]:not([data-label=''])::before {
+    content: attr(data-label); display: block; font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass-strong);
+  }
+}
+
+/* ---------- "On this page": a toggle on phones, a sticky column beside the article from 1024px ---------- */
+.article-contents { margin: 0 0 1rem; }
+.article-contents .article-contents__toggle { width: 100%; justify-content: space-between; }
+.article-contents__toggle[aria-expanded='true'] svg { transform: rotate(180deg); }
+.article-contents__label { display: none; margin: 0 0 0.5rem; }
+.article-contents__list {
+  list-style: none; margin: 0.5rem 0 0; padding: 0.25rem 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+}
+.article-contents__list a {
+  display: flex; align-items: center; min-height: var(--touch); padding: 0 0.9rem; color: var(--text); text-decoration: none;
+}
+.article-contents__list a:hover { color: var(--brass-strong); text-decoration: underline; }
+.rules-article__body { min-width: 0; max-width: 70ch; }
+@media (min-width: 1024px) {
+  .rules-article__layout { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem; align-items: start; }
+  .rules-article__layout > .article-contents { grid-column: 2; grid-row: 1; position: sticky; top: 5rem; margin: 0; }
+  .rules-article__layout > .rules-article__body { grid-column: 1; grid-row: 1; }
+  .article-contents .article-contents__toggle { display: none; }
+  .article-contents__label { display: block; }
+  .article-contents__list[hidden] { display: block; }
+  .article-contents__list { margin: 0; padding: 0; border: 0; background: none; border-left: 1px solid var(--border); }
+  .article-contents__list a { padding: 0 0.75rem; font-size: 0.9rem; color: var(--text-muted); }
+}
+
+/* ---------- Report a problem ---------- */
+div.report { margin-top: 1.5rem; }
+.report__part { display: grid; gap: 0.25rem; margin-bottom: 1rem; }
+
+/* ---------- One scrolling row of 44px chips: the glossary's A–Z jump, the stratagem phases ---------- */
+.rules-chips {
+  display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; margin: 0.75rem 0 1rem; padding-bottom: 2px; scrollbar-width: none;
+}
+.rules-chips::-webkit-scrollbar { display: none; }
+.rules-chips .chip { flex: none; }
+a.chip { display: inline-flex; align-items: center; justify-content: center; min-width: var(--touch); text-decoration: none; }
+.glossary__letter > h2 { margin: 1.5rem 0 0.25rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+.glossary__letter .rules-section h3 { margin-top: 0.75rem; }
+
+/* ---------- Faction rows: crest, name (and Legends), chapter and unit count ---------- */
+.list__link.faction-row { justify-content: flex-start; gap: 12px; }
+.faction-row__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
+.faction-row__name { font-weight: 600; overflow-wrap: anywhere; }
+.faction-row__meta { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---------- A faction's unit rows: name and badges, size and key stats, points on the right ---------- */
+.faction-unit__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
+.faction-unit__name { font-weight: 600; overflow-wrap: anywhere; }
+.faction-unit__meta { font-size: 0.82rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.faction-unit__pts { flex: none; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- Faction guide: key units as whole-card links; the full army rules folded away, as plain sections ---------- */
+.list__link.key-unit { display: grid; gap: 0.2rem; justify-content: stretch; }
+.key-unit__name { font-weight: 600; color: var(--brass-strong); }
+.key-unit__why { color: var(--text-soft); font-size: 0.9rem; }
+.faction-guide__full { margin: 1.5rem 0 0; border-top: 1px solid var(--border); }
+.faction-guide__full > summary {
+  display: flex; align-items: center; min-height: var(--touch); cursor: pointer;
+  font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; color: var(--brass-strong);
+}
+.faction-guide__full[open] > summary { margin-bottom: 0.5rem; }
+.faction-guide__full .rules-section h3, .faction-guide__full .rules-section h4 { margin: 1rem 0 0.3rem; }
+
+/* Stratagem cards, one under another (theme's .stack is the list editor's indented tree). */
+.stratagem-list { display: grid; gap: 0.75rem; margin-bottom: 1rem; }

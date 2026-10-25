@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { PageHeader } from '../ui/PageHeader';
 import { PROBLEM_LABELS, useReports } from './reports';
 
 /** The signed-in user's rules error reports, newest first. */
@@ -6,10 +6,7 @@ export function ReportsPage() {
   const { reports, loading } = useReports();
   return (
     <section>
-      <p>
-        <Link to="/rules">← Rules</Link>
-      </p>
-      <h1>Your rules reports</h1>
+      <PageHeader title="Your rules reports" back={{ to: '/rules', label: 'Rules' }} />
       {loading ? (
         <p className="muted">Loading…</p>
       ) : reports.length === 0 ? (

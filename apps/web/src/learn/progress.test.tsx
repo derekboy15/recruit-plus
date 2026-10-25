@@ -7,7 +7,7 @@ import type { AuthBackend } from '../auth/types';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository, type Repository } from '../storage/repository';
 import { StorageProvider } from '../storage/StorageContext';
-import { allDone, completeLesson, EMPTY_PROGRESS, isUnlocked, mergeProgress, nextLesson, useProgress, type ProgressData } from './progress';
+import { allDone, completeLesson, EMPTY_PROGRESS, mergeProgress, nextLesson, useProgress, type ProgressData } from './progress';
 
 const ORDER = ['what-is-40k', 'datasheets', 'attacks'];
 let db: RecruitDb;
@@ -26,18 +26,15 @@ afterEach(() => {
 const docs = () => repo.listDocs<ProgressData>('progress', 'user-1');
 
 describe('progress', () => {
-  test('with no doc progress is empty and only lesson 1 is unlocked', async () => {
+  test('with no doc progress the recommended lesson is the first', async () => {
     expect(await docs()).toEqual([]);
-    expect(isUnlocked(1, ORDER, EMPTY_PROGRESS)).toBe(true);
-    expect(isUnlocked(2, ORDER, EMPTY_PROGRESS)).toBe(false);
-    expect(nextLesson(ORDER, EMPTY_PROGRESS)).toBe('what-is-40k');
+    expect(nextLesson(ORDER, EMPTY_PROGRESS)).toBe(ORDER[0]);
   });
 
-  test('completing a lesson saves it and unlocks the next', async () => {
+  test('completing a lesson saves it and recommends the next', async () => {
     const p = await completeLesson(repo, 'user-1', 'what-is-40k', 1);
     expect(p.lessons['what-is-40k']).toMatchObject({ mistakes: 1 });
-    expect(isUnlocked(2, ORDER, p)).toBe(true);
-    expect(isUnlocked(3, ORDER, p)).toBe(false);
+    expect(nextLesson(ORDER, p)).toBe('datasheets');
     const saved = await docs();
     expect(saved).toHaveLength(1);
     expect(saved[0].kind).toBe('progress');

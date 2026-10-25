@@ -6,8 +6,9 @@ import { useAuth } from '../auth/AuthContext';
 import type { RendererFactory } from '../play/board/BoardCanvas';
 import { Blocks } from '../rules/Blocks';
 import { useStorage } from '../storage/StorageContext';
+import { PageHeader } from '../ui/PageHeader';
 import { completeLesson } from './progress';
-import { lockOf, useLearnData } from './useLessons';
+import { useLearnData } from './useLessons';
 import { LoadError } from '../layout/OfflineNotice';
 
 // The drills bring the engine and the board: they load only when a drill opens.
@@ -22,36 +23,18 @@ function useLesson() {
 
 const nextOf = (lessons: Lesson[], lesson: Lesson) => lessons[lessons.indexOf(lesson) + 1] ?? null;
 
-/** Shown for missing lessons, data errors and locked lessons; null when the lesson can be shown. */
+/** Shown while loading, for data errors and for missing lessons; null when the lesson can be shown. Every lesson is open. */
 function Gate({ data, lesson }: ReturnType<typeof useLesson>) {
   if (data.status === 'loading') return <p className="muted">Loading the lesson…</p>;
   if (data.status === 'error') return <LoadError error={data.error} what="the lesson" />;
-  const back = (
-    <p>
-      <Link to="/learn">← Learn</Link>
-    </p>
-  );
   if (!lesson)
     return (
       <section>
-        {back}
+        <PageHeader title="Lesson not found" back={{ to: '/learn', label: 'Learn' }} />
         <p role="alert">That lesson doesn&apos;t exist.</p>
       </section>
     );
-  const lock = lockOf(data.lessons, data.progress, lesson);
-  if (lock.open) return null;
-  return (
-    <section>
-      {back}
-      <h1>{lesson.title}</h1>
-      <p>Finish {lock.before.title} first.</p>
-      {lock.next && (
-        <Link to={`/learn/${lock.next.id}`} className="btn btn--primary learn-path__start">
-          Go to {lock.next.title}
-        </Link>
-      )}
-    </section>
-  );
+  return null;
 }
 
 export function LessonPage() {
@@ -64,13 +47,7 @@ export function LessonPage() {
   const next = nextOf(lessons, lesson);
   return (
     <article className="learn learn-lesson">
-      <p>
-        <Link to="/learn">← Learn</Link>
-      </p>
-      <p className="muted">
-        Lesson {lesson.order} of {lessons.length} · {lesson.minutes} minutes
-      </p>
-      <h1>{lesson.title}</h1>
+      <PageHeader back={{ to: '/learn', label: 'Learn' }} title={lesson.title} subtitle={`Lesson ${lesson.order} of ${lessons.length} · ${lesson.minutes} min`} />
       <Blocks blocks={lesson.intro} />
       {lesson.sections.map((s) => (
         <section key={s.id}>
@@ -87,9 +64,7 @@ export function LessonPage() {
               if (!term) return null;
               return (
                 <div key={id}>
-                  <dt>
-                    <Link to={`/rules/glossary#${id}`}>{term.term}</Link>
-                  </dt>
+                  <dt>{term.term}</dt>
                   <dd>
                     <Blocks blocks={term.blocks} />
                   </dd>
@@ -97,6 +72,9 @@ export function LessonPage() {
               );
             })}
           </dl>
+          <Link to="/rules/glossary" className="btn btn--tertiary learn-words__all">
+            All key words in the glossary
+          </Link>
         </section>
       )}
       {lesson.rules.length > 0 && (
@@ -114,12 +92,13 @@ export function LessonPage() {
         </section>
       )}
       {done && <p className="status status--ok learn-done">You&apos;ve finished this lesson</p>}
-      <div className="play-row">
-        <Link to={`/learn/${lesson.id}/drill`} className="btn btn--primary learn-path__start">
-          {done ? 'Do the drill again' : 'Start the drill'}
+      {/* Always on screen while the lesson scrolls: the drill is the point of the lesson. */}
+      <div className="learn-start-bar">
+        <Link to={`/learn/${lesson.id}/drill`} className="btn btn--primary">
+          {done ? 'Do the drill again' : `Start the drill · ${lesson.minutes} min`}
         </Link>
         {done && next && (
-          <Link to={`/learn/${next.id}`} className="btn learn-path__start">
+          <Link to={`/learn/${next.id}`} className="btn">
             Next lesson
           </Link>
         )}

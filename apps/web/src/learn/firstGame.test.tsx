@@ -79,6 +79,8 @@ describe('Your first game', () => {
     renderAt('/learn/first-game');
     expect(await screen.findByText('Finish all 15 lessons to unlock your first game.')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Back to Learn' })).toHaveAttribute('href', '/learn');
+    // The page header holds the title and the way back.
+    expect(screen.getByRole('heading', { name: 'Your first game', level: 1 }).closest('header.page-head')).not.toBeNull();
     expect(await games()).toHaveLength(0);
   });
 });

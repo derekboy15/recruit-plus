@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PageHeader } from '../ui/PageHeader';
 
 export const PRIVACY_UPDATED = '23 October 2026';
 
@@ -26,7 +27,7 @@ export function Privacy({
   );
   return (
     <article>
-      <h1>Privacy</h1>
+      <PageHeader title="Privacy" back={{ to: '/', label: 'Home' }} />
       <p className="muted">Last updated {PRIVACY_UPDATED}.</p>
       <p>Recruit+ is a free fan project. It keeps only what it needs to save your work and sync it between your devices.</p>
 
