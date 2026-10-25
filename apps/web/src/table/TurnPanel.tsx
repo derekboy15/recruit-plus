@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type { MissionOut, PackOut } from '@recruit/data/missions';
 import { prompts } from './checklist';
 import { CpPrompt } from './CpPrompt';
@@ -48,7 +48,15 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
     await write([{ t: 'end', reason: 'complete' }]);
     onEnded();
   };
-  const onNext = () =>
+  const blocked = cpNeeded.length > 0 || queue.length > 0;
+  // While a question is open, Next phase / End turn stays tappable but only points at the question: it writes nothing.
+  const promptRef = useRef<HTMLDivElement>(null);
+  const hintId = useId();
+  const onNext = () => {
+    if (blocked) {
+      promptRef.current?.querySelector('h2')?.focus();
+      return;
+    }
     void once(async () => {
       if (pos.phase === 'command') return proceed(dueScoring(mission, setup, pos, 'end-of-command-phase', data), advance);
       if (pos.phase !== 'morale') return advance();
@@ -60,6 +68,7 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
       ];
       return proceed(items, last ? finishGame : advance);
     });
+  };
   // One change at a time. A tap that can change the phase (Next phase, End turn, Undo, the last score of a turn) keeps
   // the buttons disabled until newer game data arrives from the database (its change, saved and drawn), or at once if it
   // wrote nothing: its events are worked out from the phase on screen. A score that leaves more prompts to answer only
@@ -85,6 +94,7 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
     }
   };
   const locked = waitingOn !== null;
+  const actionItems = dueScoring(mission, setup, pos, 'on-action');
   const resolveScore = (vp: number, detail: string) =>
     once(async () => {
       const [item, ...rest] = queue;
@@ -103,8 +113,6 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
       setThen(null);
       await saveChange(undo);
     });
-  const actionItems = dueScoring(mission, setup, pos, 'on-action');
-  const blocked = cpNeeded.length > 0 || queue.length > 0;
 
   return (
     <div className="turn">
@@ -113,20 +121,22 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
         <MissionMap map={mission.map} players={{ A: setup.players.A.name, B: setup.players.B.name }} />
         <MissionRules mission={mission} />
       </details>
-      {cpNeeded.length > 0 && (
-        <CpPrompt
-          key={`${pos.round}-${pos.turn}-${cpNeeded[0]}`}
-          mission={mission} pos={pos} player={cpNeeded[0]} active={active} name={setup.players[cpNeeded[0]].name} roll={roll}
-          onResolve={(events) => void write(events)}
-        />
-      )}
-      {cpNeeded.length === 0 && queue.length > 0 && (
-        <ScorePrompt
-          key={`${queue[0].player}-${queue[0].component.id}-${queue.length}`}
-          item={queue[0]} mission={mission} name={setup.players[queue[0].player].name} round={pos.round}
-          onResolve={(vp, d) => void resolveScore(vp, d)}
-        />
-      )}
+      <div ref={promptRef} className="turn__prompt">
+        {cpNeeded.length > 0 && (
+          <CpPrompt
+            key={`${pos.round}-${pos.turn}-${cpNeeded[0]}`}
+            mission={mission} pos={pos} player={cpNeeded[0]} active={active} name={setup.players[cpNeeded[0]].name} roll={roll}
+            onResolve={(events) => void write(events)}
+          />
+        )}
+        {cpNeeded.length === 0 && queue.length > 0 && (
+          <ScorePrompt
+            key={`${queue[0].player}-${queue[0].component.id}-${queue.length}`}
+            item={queue[0]} mission={mission} name={setup.players[queue[0].player].name} round={pos.round}
+            onResolve={(vp, d) => void resolveScore(vp, d)}
+          />
+        )}
+      </div>
       <ul className="checklist" aria-label="This phase">
         {prompts({ pack: pack.id, pos, mission }).map((p) => (
           <li key={p.id}>
@@ -141,8 +151,11 @@ export function TurnPanel({ data, pack, mission, state, append, update, roll, on
         <button type="button" className="btn" onClick={() => void proceed(actionItems, async () => {})}>Score an action</button>
       )}
       <div className="wizard-actions">
+        {blocked && <p id={hintId} className="turn__hint">Answer the question above first.</p>}
         <button type="button" className="btn" onClick={() => void onUndo()} disabled={locked || data.events.length <= 1}>Undo</button>
-        <button type="button" className="btn btn--primary" onClick={onNext} disabled={locked || blocked}>{pos.phase === 'morale' ? 'End turn' : 'Next phase'}</button>
+        <button type="button" className="btn btn--primary" onClick={onNext} disabled={locked} aria-describedby={blocked ? hintId : undefined}>
+          {pos.phase === 'morale' ? 'End turn' : 'Next phase'}
+        </button>
       </div>
     </div>
   );

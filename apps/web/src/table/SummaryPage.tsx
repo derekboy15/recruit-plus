@@ -6,6 +6,9 @@ import { getMissions, missionById } from './missionData';
 import { primaryByRound } from './ScoreSheet';
 import { useTableGame } from './tableStore';
 import { TableScroll } from '../layout/TableScroll';
+import { PageHeader } from '../ui/PageHeader';
+
+const BACK = { to: '/table', label: 'Table games' };
 
 /** "You win" / "Opponent wins": the app calls one player "You" by default. */
 const verb = (name: string, you: string, they: string) => `${name} ${name === 'You' ? you : they}`;
@@ -44,19 +47,17 @@ export function SummaryPage() {
   const missions = useAsync(getMissions, 'missions');
   if (loading || missions.status === 'loading') return <p className="muted">Loading the game…</p>;
   if (missions.status === 'error') return <p role="alert">Couldn’t load the missions: {missions.error.message}</p>;
-  if (!game) return <p role="alert">This game doesn’t exist on this device. <Link to="/table">Back to games</Link></p>;
+  if (!game) return <NotFound>This game doesn’t exist on this device.</NotFound>;
   const { setup } = game.data;
   const pack = missions.data.packs.find((p) => p.id === setup.pack);
   const mission = missionById(missions.data, setup.missionId);
-  if (!pack || !mission) return <p role="alert">This game’s mission isn’t in the app’s data.</p>;
+  if (!pack || !mission) return <NotFound>This game’s mission isn’t in the app’s data.</NotFound>;
   const s = summarise(game.data, pack);
   const secondaryName = (sid: string) => pack.secondaries.find((x) => x.id === sid)?.name ?? (mission.missionSecondary?.id === sid ? mission.missionSecondary.name : sid);
   const order: PlayerKey[] = [setup.firstTurn, other(setup.firstTurn)];
   return (
     <section className="summary">
-      <p className="muted">Summary</p>
-      <h1>{s.headline}</h1>
-      <p>{mission.name} · {pack.name}</p>
+      <PageHeader back={BACK} title={s.headline} subtitle={`${mission.name} · ${pack.name}`} />
       <TableScroll label="Primary VP by battle round">
         <table className="summary__rounds">
           <caption>Primary VP by battle round</caption>
@@ -84,9 +85,18 @@ export function SummaryPage() {
         );
       })}
       <div className="prompt__actions">
-        <Link className="btn btn--primary" to="/table">Back to games</Link>
         <Link className="btn" to={`/table/${id}?tab=Log`}>View log</Link>
+        <Link className="btn btn--primary" to="/table/new">New game</Link>
       </div>
+    </section>
+  );
+}
+
+function NotFound({ children }: { children: string }) {
+  return (
+    <section className="summary">
+      <PageHeader back={BACK} title="Game not found" />
+      <p role="alert">{children}</p>
     </section>
   );
 }

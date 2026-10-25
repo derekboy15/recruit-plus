@@ -2,9 +2,11 @@ import { useState } from 'react';
 import type { StratagemOut } from '@recruit/data/model';
 import type { PlayerKey } from '@recruit/data/missions';
 import { getCatalogue, getCoreStratagems } from '../factions/dataClient';
+import { factionDisplayName } from '../factions/names';
 import { useAsync } from '../factions/useAsync';
 import { RulesText } from '../rules/RulesText';
 import { WordingToggle } from '../rules/wording';
+import { defaultGroups } from './armyGroups';
 import { makeEvent, other, type TableEvent, type TableGameData, type TableState } from './game';
 import { CORE_GROUP, costOptions, phaseFilter, stratagemsFor } from './stratagemFilter';
 
@@ -21,6 +23,7 @@ export function StratagemPanel({ data, state, append }: { data: TableGameData; s
   if (loaded.status === 'error') return <p role="alert">Couldn’t load the stratagems: {loaded.error.message}</p>;
   const [a, b, core] = loaded.data;
   const own: Record<PlayerKey, StratagemOut[]> = { A: a.stratagems, B: b.stratagems };
+  const faction: Record<PlayerKey, string> = { A: factionDisplayName(a.name), B: factionDisplayName(b.name) };
   const pos = state.pos;
   const firstCommandOfRound = pos.turn === 1 && pos.phase === 'command';
   return (
@@ -34,6 +37,7 @@ export function StratagemPanel({ data, state, append }: { data: TableGameData; s
           side={p === state.active ? 'active' : 'reacting'}
           cp={state.players[p].cp}
           all={[...own[p], ...core]}
+          defaults={defaultGroups([...own[p], ...core], faction[p], setup.players[p].armyChoices)}
           filter={phaseFilter(pos.phase, p === state.active ? 'active' : 'reacting', { firstCommandOfRound })}
           usedThisPhase={state.stratagemsThisPhase.filter((u) => u.player === p).map((u) => u.name)}
           onUse={(s, cost) => append([
@@ -46,19 +50,37 @@ export function StratagemPanel({ data, state, append }: { data: TableGameData; s
   );
 }
 
-function PlayerStratagems({ name, side, cp, all, filter, usedThisPhase, onUse }: {
-  name: string; side: 'active' | 'reacting'; cp: number; all: StratagemOut[]; filter: ReturnType<typeof phaseFilter>;
-  usedThisPhase: string[]; onUse: (s: StratagemOut, cost: number) => Promise<void>;
+/** "a", "a and b", "a, b and c". */
+const listWords = (words: string[]) => (words.length < 2 ? words.join('') : `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`);
+
+function PlayerStratagems({ name, side, cp, all, defaults, filter, usedThisPhase, onUse }: {
+  name: string; side: 'active' | 'reacting'; cp: number; all: StratagemOut[]; defaults: Set<string>;
+  filter: ReturnType<typeof phaseFilter>; usedThisPhase: string[]; onUse: (s: StratagemOut, cost: number) => Promise<void>;
 }) {
+  const [showAll, setShowAll] = useState(false);
   const [group, setGroup] = useState<string | undefined>(undefined);
   const groups = [...new Set(all.map((s) => s.group).filter((g) => g !== CORE_GROUP))].sort();
-  const { main, reactions } = stratagemsFor(all, filter, group);
+  const hidesSome = groups.some((g) => !defaults.has(g));
+  const shown = !showAll ? defaults : group ? new Set([CORE_GROUP, group]) : undefined;
+  const { main, reactions } = stratagemsFor(all, filter, shown);
   const label = `${name} (${side === 'active' ? 'your turn' : 'reacting'})`;
   return (
     <section className="card" aria-label={label}>
       <h2>{label}</h2>
       <p className="muted">{name === 'You' ? 'You have' : `${name} has`} {cp} CP.</p>
-      {groups.length > 1 && (
+      <p className="muted">{shown ? `Showing ${listWords([...shown])} stratagems.` : 'Showing every stratagem.'}</p>
+      {hidesSome && (
+        <button
+          type="button" className="chip" aria-pressed={showAll}
+          onClick={() => {
+            setShowAll(!showAll);
+            setGroup(undefined);
+          }}
+        >
+          Show all stratagems
+        </button>
+      )}
+      {showAll && groups.length > 1 && (
         <div className="chips" aria-label="Show stratagems for">
           <button type="button" className="chip" aria-pressed={!group} onClick={() => setGroup(undefined)}>All</button>
           {groups.map((g) => <button key={g} type="button" className="chip" aria-pressed={group === g} onClick={() => setGroup(g)}>{g}</button>)}

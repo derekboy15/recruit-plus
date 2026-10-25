@@ -63,7 +63,7 @@ export function CpPrompt({ mission, pos, player, active, name, roll, onResolve }
   const lastRoll = rolls.at(-1);
   return (
     <section className="card prompt" aria-label={`Command phase CP: ${name}`}>
-      <h2>Command phase CP: {name}</h2>
+      <h2 tabIndex={-1}>Command phase CP: {name}</h2>
       {lastRoll && <p role="status">Rolled a {lastRoll.value}: {lastRoll.value <= 3 ? 'no Battle-forged CP bonus this phase.' : 'the bonus stands.'}</p>}
       {q && (
         <>

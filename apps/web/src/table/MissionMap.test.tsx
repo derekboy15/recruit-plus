@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { expect, test } from 'vitest';
 import { TestProviders } from '../rules/__fixtures__/TestProviders';
 import { openDb } from '../storage/db';
@@ -49,4 +49,31 @@ test('MissionRules shows the rules, the primary and Not confirmed notes', () => 
   expect(screen.getByRole('heading', { name: /Primary: Secure Landing Sites/ })).toBeInTheDocument();
   expect(screen.getAllByText(/^Not confirmed:/).length).toBeGreaterThanOrEqual(2);
   expect(screen.getByText(/Two objective markers are taken off the battlefield/)).toBeInTheDocument();
+});
+
+test('the key names each zone owner and the objectives', () => {
+  render(<MissionMap map={mission('aoo-desperate-raid').map} players={{ A: 'You', B: 'Opponent' }} />);
+  const key = screen.getByRole('list', { name: 'Map key' });
+  expect(within(key).getByText('You (Player A) deploys here')).toBeVisible();
+  expect(within(key).getByText('Opponent (Player B) deploys here')).toBeVisible();
+  expect(within(key).getByText('Objective marker')).toBeVisible();
+  expect(within(key).queryByText(/mission area/)).toBeNull();
+  expect(within(key).getAllByRole('listitem')).toHaveLength(3);
+});
+
+test('without names the key says Player A and Player B', () => {
+  render(<MissionMap map={mission('aoo-desperate-raid').map} />);
+  const key = screen.getByRole('list', { name: 'Map key' });
+  expect(within(key).getByText('Player A deployment zone')).toBeVisible();
+  expect(within(key).getByText('Player B deployment zone')).toBeVisible();
+});
+
+test('maps with named areas explain the dashed line', () => {
+  render(<MissionMap map={mission('cb-pathway-to-glory').map} />);
+  expect(screen.getByText('Dashed line: mission area')).toBeVisible();
+});
+
+test('the key can be left off', () => {
+  render(<MissionMap map={mission('aoo-desperate-raid').map} legend={false} />);
+  expect(screen.queryByRole('list', { name: 'Map key' })).toBeNull();
 });

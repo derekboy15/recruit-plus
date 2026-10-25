@@ -6,12 +6,17 @@ import { useAuth } from '../auth/AuthContext';
 import { getIndex } from '../factions/dataClient';
 import { useAsync } from '../factions/useAsync';
 import { useLists } from '../lists/listStore';
-import { RulesText } from '../rules/RulesText';
 import { useStorage } from '../storage/StorageContext';
+import { FactionBadge } from '../ui/FactionBadge';
+import { InfoButton } from '../ui/InfoButton';
+import { PageHeader } from '../ui/PageHeader';
+import { relativeTime } from '../ui/relativeTime';
+import { chosenNames } from './armyGroups';
 import { rollDice } from './dice';
 import type { PlayerSetup, TableSetup } from './game';
 import { getMissions, missionById } from './missionData';
 import { MissionMap } from './MissionMap';
+import { SECONDARY_TYPE, SecondaryText } from './SecondaryText';
 import { defaultSetup, missionForRoll, missionsFor, packFor, secondaryChoices, secondaryProblems } from './setupModel';
 import { createTableGame } from './tableStore';
 
@@ -72,11 +77,11 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
   const armyReady = (s: Side) => Boolean(armies[s].name.trim()) && Boolean(slugOf(s));
   const hasList = SIDES.some((s) => armies[s].source === 'list');
   const choices = (s: Side) => (pack && mission ? secondaryChoices(missions, pack.id, slugOf(s), mission.id) : null);
-  const allSecondaries = (s: Side): SecondaryOut[] => {
+  const allSecondaries = (s: Side): (SecondaryOut & { note?: string })[] => {
     const c = choices(s);
     return c ? [...c.universal, ...c.faction, ...(c.mission ? [c.mission] : [])] : [];
   };
-  const chosen = (s: Side) => secondaries[s].map((id) => allSecondaries(s).find((x) => x.id === id)).filter((x): x is SecondaryOut => Boolean(x));
+  const chosen = (s: Side) => secondaries[s].map((id) => allSecondaries(s).find((x) => x.id === id)).filter((x) => x !== undefined);
   const problems = (s: Side) => (pack ? secondaryProblems(pack, chosen(s)) : []);
 
   const pickSize = (id: BattleSizeId) => {
@@ -126,6 +131,18 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
     if (!size || !pack || !mission || !defender || !zone || !first || !user) return;
     setSaving(true);
     const zoneOf: Record<Side, PlayerKey> = { [defender]: zone, [otherSide(defender)]: otherZone(zone) } as Record<Side, PlayerKey>;
+    // What each list chose, worked out once now so the stratagem filter needn't run the roster engine every phase.
+    const choicesOf = async (s: Side): Promise<string[] | undefined> => {
+      const list = armies[s].source === 'list' ? lists.find((l) => l.id === armies[s].listId) : undefined;
+      if (!list) return undefined;
+      try {
+        return await chosenNames(list.data.roster, list.data.summary.catalogueSlug);
+      } catch (e) {
+        console.warn('Could not read the list’s choices', e);
+        return undefined;
+      }
+    };
+    const armyChoices: Record<Side, string[] | undefined> = { you: await choicesOf('you'), opp: await choicesOf('opp') };
     const player = (s: Side): PlayerSetup => ({
       name: armies[s].name.trim(),
       ...(armies[s].source === 'list' ? { listId: armies[s].listId } : {}),
@@ -133,6 +150,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
       secondaries: secondaries[s],
       battleReady: battleReady[s],
       startingCp: cp[s],
+      ...(armyChoices[s] ? { armyChoices: armyChoices[s] } : {}),
     });
     const setup: TableSetup = {
       battleSize: size,
@@ -147,10 +165,11 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
   };
 
   const board = (id: BattleSizeId) => missions.missions.find((m) => m.battleSize === id)?.map.board;
+  // Once the Defender has picked a zone, the map's key can say whose zone is whose.
+  const zoneNames = defender && zone ? ({ [zone]: armies[defender].name, [otherZone(zone)]: armies[otherSide(defender)].name } as Record<PlayerKey, string>) : undefined;
   return (
     <section className="new-game">
-      <h1>New game</h1>
-      <p className="muted" style={{ margin: '0 0 0.5rem' }}>{`Step ${step + 1} of ${STEPS.length}: ${STEPS[step]}`}</p>
+      <PageHeader back={{ to: '/table', label: 'Table games' }} title="New game" subtitle={`Step ${step + 1} of ${STEPS.length}: ${STEPS[step]}`} />
       <div className="steps steps--6" aria-hidden="true">
         {STEPS.map((s, i) => <span key={s} className={i <= step ? 'steps__bar steps__bar--done' : 'steps__bar'} />)}
       </div>
@@ -179,6 +198,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
               <li key={m.id}>
                 <button type="button" className="choice" aria-pressed={missionId === m.id} onClick={() => { setMissionId(m.id); setRolled(null); }}>
                   <span><strong>{m.roll}</strong> {m.name}</span>
+                  <span className="muted">Primary: {m.primary.name}</span>
                 </button>
               </li>
             ))}
@@ -202,13 +222,29 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
               ))}
               {armies[s].source === 'list' &&
                 (lists.length ? (
-                  <label className="choices__option">
-                    List
-                    <select className="input" aria-label="List" value={armies[s].listId} onChange={(e) => setArmies({ ...armies, [s]: { ...armies[s], listId: e.target.value } })}>
-                      <option value="">Choose a list</option>
-                      {lists.map((l) => <option key={l.id} value={l.id}>{`${l.data.roster.name} (${l.data.summary.faction})`}</option>)}
-                    </select>
-                  </label>
+                  <div role="radiogroup" aria-label="List" className="list-picks">
+                    {lists.map((l) => {
+                      const sum = l.data.summary;
+                      const sizeName = SIZES.find((z) => z.id === sum.battleSize)?.name ?? sum.battleSize;
+                      return (
+                        <label key={l.id} className="list-pick">
+                          <input
+                            type="radio" name={`list-${s}`} value={l.id} checked={armies[s].listId === l.id}
+                            onChange={() => setArmies({ ...armies, [s]: { ...armies[s], listId: l.id } })}
+                          />
+                          <FactionBadge slug={sum.catalogueSlug} name={sum.faction} size="sm" />
+                          <span className="list-pick__main">
+                            <strong className="list-pick__name">{l.data.roster.name}</strong>
+                            <span className="muted">{`${sum.faction} · ${sizeName} · ${sum.points.toLocaleString('en-GB')} / ${sum.pointsLimit.toLocaleString('en-GB')} pts`}</span>
+                            <span className="list-pick__meta">
+                              <span className={`status ${sum.issueCount ? 'status--warn' : 'status--ok'}`}>{sum.issueCount ? `${sum.issueCount} to fix` : 'Ready'}</span>
+                              <span className="muted">Edited {relativeTime(l.updatedAt)}</span>
+                            </span>
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
                 ) : (
                   <p className="muted">You have no saved lists yet. <Link to="/build">Build one</Link>, or pick a faction.</p>
                 ))}
@@ -234,7 +270,7 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
           {rollOff && <p role="status">{rollOff}</p>}
           <ChoiceGroup label="Who is the Defender?" options={SIDES.map((s) => ({ id: s, label: armies[s].name }))} value={defender} onPick={(v) => setDefender(v as Side)} />
           <ChoiceGroup label="Which deployment zone does the Defender pick?" options={[{ id: 'A', label: 'Player A' }, { id: 'B', label: 'Player B' }]} value={zone} onPick={(v) => setZone(v as PlayerKey)} />
-          <MissionMap map={mission.map} highlight={zone ?? undefined} />
+          <MissionMap map={mission.map} highlight={zone ?? undefined} players={zoneNames} />
           <p className="muted">
             {pack.firstTurn === 'winner-takes-first' ? 'Roll off for the first turn: the winner takes the first turn.' : 'Roll off for the first turn: the winner chooses who goes first.'}
           </p>
@@ -257,22 +293,34 @@ function Wizard({ missions, index, roll }: { missions: MissionsOut; index: DataI
                 {[...groups].map(([category, list]) => (
                   <fieldset key={category} className="choices">
                     <legend>{category === 'Mission' ? 'This mission' : category}</legend>
-                    <div className="chips">
+                    <div className="secondary-picks">
                       {list.map((x) => (
-                        <button key={x.id} type="button" className="chip" aria-pressed={secondaries[s].includes(x.id)} onClick={() => toggleSecondary(s, x.id)} title={x.note}>
-                          {x.name}
-                        </button>
+                        <span key={x.id} className="secondary-pick">
+                          <button type="button" className="chip" aria-pressed={secondaries[s].includes(x.id)} onClick={() => toggleSecondary(s, x.id)} title={x.note}>
+                            {x.name}
+                          </button>
+                          <InfoButton label={`About ${x.name}`} title={x.name}><SecondaryText s={x} /></InfoButton>
+                        </span>
                       ))}
                     </div>
                   </fieldset>
                 ))}
-                {chosen(s).map((x) => (
-                  <details key={x.id} className="secondary-text">
-                    <summary>{x.name}</summary>
-                    {'note' in x && x.note ? <p className="note">{String(x.note)}</p> : null}
-                    <RulesText official={x.text} plain={x.plain} amended={x.amended} />
-                  </details>
-                ))}
+                {chosen(s).length > 0 && (
+                  <>
+                    <h3 className="label-caps">Chosen</h3>
+                    <ul className="secondary-cards" aria-label={armies[s].name === 'You' ? 'Your secondaries' : `${armies[s].name}’s secondaries`}>
+                      {chosen(s).map((x) => (
+                        <li key={x.id} className="secondary-card">
+                          <span className="secondary-card__main">
+                            <strong>{x.name}</strong>
+                            <span className="muted">{x.category} · {SECONDARY_TYPE[x.type]}</span>
+                          </span>
+                          <InfoButton label={`About ${x.name}`} title={x.name}><SecondaryText s={x} /></InfoButton>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </section>
             );
           })}

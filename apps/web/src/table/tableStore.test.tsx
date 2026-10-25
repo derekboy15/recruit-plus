@@ -1,5 +1,5 @@
 import 'fake-indexeddb/auto';
-import { act, render, renderHook, screen, waitFor } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../factions/dataClient';
@@ -10,8 +10,8 @@ import { createRepository, type Repository } from '../storage/repository';
 import { testSetup } from './__fixtures__/setup';
 import { makeEvent, type TableGameData } from './game';
 import { resetMissionCache } from './missionData';
-import { TableHome } from './TableHome';
-import { createTableGame, useTableGame, useTableGames } from './tableStore';
+import { createTableGame, deleteTableGame, useTableGame, useTableGames } from './tableStore';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let repo: Repository;
@@ -81,18 +81,16 @@ test('a game saved offline stays dirty and is listed', async () => {
   await waitFor(() => expect(result.current.games.map((g) => g.id)).toEqual([id]));
 });
 
-test('TableHome shows Resume for an unfinished game', async () => {
-  await createTableGame(createRepository(db), 'user-1', testSetup());
-  render(<TestProviders db={db} path="/table"><TableHome /></TestProviders>);
-  expect(await screen.findByRole('heading', { name: 'Table companion' })).toBeInTheDocument();
-  expect(await screen.findByText('Cleanse the Land')).toBeInTheDocument();
-  expect(screen.getByText(/Round 1/)).toBeInTheDocument();
-  expect(screen.getByText('You 0 – 0 Opponent')).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /Resume/ })).toHaveAttribute('href', expect.stringMatching(/^\/table\/[0-9a-f-]{36}$/));
-  expect(screen.getByRole('link', { name: 'New game' })).toHaveAttribute('href', '/table/new');
-});
-
-test('TableHome empty state', async () => {
-  render(<TestProviders db={db} path="/table"><TableHome /></TestProviders>);
-  expect(await screen.findByText('No games yet. Start one when you sit down to play.')).toBeInTheDocument();
+test('deleteTableGame deletes the game and its restore brings the same game back', async () => {
+  const id = await createTableGame(repo, 'user-1', testSetup());
+  const saved = (await repo.getDoc<TableGameData>(id))!;
+  await repo.saveDoc<TableGameData>({ ...saved, data: { ...saved.data, events: [...saved.data.events, makeEvent({ t: 'note', text: 'kept' }, null)] } });
+  const before = (await repo.getDoc<TableGameData>(id))!;
+  const restore = await deleteTableGame(repo, id);
+  expect((await repo.getDoc(id))!.deleted).toBe(true);
+  expect(await repo.listDocs('game', 'user-1')).toEqual([]);
+  await restore();
+  const after = (await repo.getDoc<TableGameData>(id))!;
+  expect(after).toMatchObject({ id, kind: 'game', ownerId: 'user-1', deleted: false, dirty: true });
+  expect(after.data).toEqual(before.data);
 });

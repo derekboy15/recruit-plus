@@ -1,10 +1,12 @@
 import 'fake-indexeddb/auto';
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../factions/dataClient';
 import { stubGeneratedData } from '../lists/__fixtures__/generatedData';
+import { necronsListData } from '../lists/__fixtures__/necronsList';
+import { createList } from '../lists/listStore';
 import { TestProviders } from '../rules/__fixtures__/TestProviders';
 import { openDb, type RecruitDb } from '../storage/db';
 import { createRepository } from '../storage/repository';
@@ -12,6 +14,7 @@ import { testSetup } from './__fixtures__/setup';
 import { makeEvent, type EventBody, type Pos, type TableGameData, type TableSetup } from './game';
 import { GamePage } from './GamePage';
 import { resetMissionCache } from './missionData';
+import './__fixtures__/patience';
 
 let db: RecruitDb;
 let n = 0;
@@ -39,11 +42,15 @@ async function seed(setup: TableSetup, pos?: Pos, extra: [EventBody, Pos][] = []
   await createRepository(db).saveDoc({ id, kind: 'game', ownerId: 'user-1', data });
   return id;
 }
-function renderGame(id: string, roll?: (sides: 3 | 6) => number) {
+/** The URL's query string, so tests can see where the army drawer is kept. */
+function Where() {
+  return <output data-testid="where">{useLocation().search}</output>;
+}
+function renderGame(id: string, roll?: (sides: 3 | 6) => number, search = '') {
   render(
-    <TestProviders db={db} path={`/table/${id}`}>
+    <TestProviders db={db} path={`/table/${id}${search}`}>
       <Routes>
-        <Route path="/table/:id" element={<GamePage roll={roll} />} />
+        <Route path="/table/:id" element={<><GamePage roll={roll} /><Where /></>} />
         <Route path="/table/:id/summary" element={<p>Summary page</p>} />
       </Routes>
     </TestProviders>,
@@ -215,4 +222,196 @@ test('quick taps never act on a stale phase: Next phase and Undo stay disabled u
   await screen.findByText(/Round 1 · Your turn · Shooting phase/);
   const advances = (await doc(id)).data.events.filter((e) => e.t === 'advance');
   expect(advances.map((e) => (e as { to: Pos }).to.phase)).toEqual(['movement', 'psychic', 'shooting']);
+});
+
+test('the game has a header with Back to Table games and the mission name', async () => {
+  renderGame(await seed(testSetup()));
+  expect(await screen.findByRole('heading', { level: 1, name: 'Cleanse the Land' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+});
+
+test('a game that is not on this device says so under a header with Back', async () => {
+  renderGame(crypto.randomUUID());
+  expect(await screen.findByRole('heading', { level: 1, name: 'Game not found' })).toBeVisible();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+  expect(screen.getByRole('alert')).toHaveTextContent('This game doesn’t exist on this device.');
+});
+
+test('End the game lives in the menu and asks once', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup());
+  renderGame(id);
+  await screen.findByRole('heading', { level: 1, name: 'Cleanse the Land' });
+  expect(screen.queryByRole('button', { name: 'End the game' })).toBeNull();
+  await u.click(screen.getByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const sheet = screen.getByRole('dialog', { name: 'End the game' });
+  expect(within(sheet).getByRole('button', { name: 'We’ve finished all 5 rounds' })).toBeVisible();
+  await u.click(within(sheet).getByRole('button', { name: 'We agreed to stop early' }));
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  expect((await doc(id)).data.events.at(-1)).toMatchObject({ t: 'end', reason: 'agreed' });
+});
+
+test('closing the End the game sheet ends nothing', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup());
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  await u.click(within(screen.getByRole('dialog', { name: 'End the game' })).getByRole('button', { name: 'Close' }));
+  expect(screen.queryByRole('dialog')).toBeNull();
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
+
+test('a player concedes from the sheet', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'movement' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const sheet = screen.getByRole('dialog', { name: 'End the game' });
+  await u.click(within(sheet).getByRole('button', { name: 'A player concedes' }));
+  await u.click(within(sheet).getByRole('button', { name: 'Opponent concedes' }));
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  expect((await doc(id)).data.events.at(-1)).toMatchObject({ t: 'end', reason: 'concede', concededBy: 'B' });
+});
+
+test('an ended game offers the summary and Undo the end from the menu', async () => {
+  const u = userEvent.setup();
+  const pos: Pos = { round: 2, turn: 1, phase: 'movement' };
+  const id = await seed(testSetup(), pos, [[{ t: 'end', reason: 'agreed' }, pos]]);
+  renderGame(id);
+  expect(await screen.findByText(/This game is over\./)).toBeVisible();
+  await u.click(screen.getByRole('button', { name: 'Game actions' }));
+  expect(screen.queryByRole('menuitem', { name: 'End the game…' })).toBeNull();
+  expect(screen.getByRole('menuitem', { name: 'See the summary' })).toHaveAttribute('href', `/table/${id}/summary`);
+  await u.click(screen.getByRole('menuitem', { name: 'Undo the end' }));
+  await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
+
+test('Next phase stays enabled during the Warlord question, explains itself and focuses the question', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup({ missionId: 'aoo-ascension' }));
+  renderGame(id, () => 2);
+  const q = await screen.findByRole('region', { name: 'Command phase CP: You' });
+  const next = screen.getByRole('button', { name: 'Next phase' });
+  expect(next).toBeEnabled();
+  expect(next).toHaveAccessibleDescription('Answer the question above first.');
+  expect(screen.getByText('Answer the question above first.')).toBeVisible();
+  await u.click(next);
+  await u.click(next);
+  expect(within(q).getByRole('heading', { level: 2 })).toHaveFocus();
+  expect(screen.getByText('Round 1 · Your turn · Command phase')).toBeVisible();
+  expect((await doc(id)).data.events.filter((e) => e.t === 'advance')).toHaveLength(0);
+});
+
+test('End turn with a score prompt open focuses the prompt and writes nothing', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'command' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Next phase' }));
+  const prompt = await screen.findByRole('region', { name: /Score: You/ });
+  const before = (await doc(id)).data.events.length;
+  const next = screen.getByRole('button', { name: 'Next phase' });
+  await waitFor(() => expect(next).toBeEnabled());
+  expect(next).toHaveAccessibleDescription('Answer the question above first.');
+  await u.click(next);
+  expect(within(prompt).getByRole('heading', { level: 2 })).toHaveFocus();
+  expect((await doc(id)).data.events).toHaveLength(before);
+});
+
+test('with nothing to answer there is no hint', async () => {
+  renderGame(await seed(testSetup(), { round: 1, turn: 1, phase: 'movement' }));
+  expect(await screen.findByRole('button', { name: 'Next phase' })).not.toHaveAccessibleDescription();
+  expect(screen.queryByText('Answer the question above first.')).toBeNull();
+});
+
+test('a double tap on an End the game choice ends the game once', async () => {
+  const u = userEvent.setup();
+  const id = await seed(testSetup(), { round: 2, turn: 1, phase: 'movement' });
+  renderGame(id);
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const stop = within(screen.getByRole('dialog', { name: 'End the game' })).getByRole('button', { name: 'We agreed to stop early' });
+  // Two taps before the first save finishes.
+  fireEvent.click(stop);
+  fireEvent.click(stop);
+  expect(await screen.findByText('Summary page')).toBeVisible();
+  await new Promise((r) => setTimeout(r, 200));
+  expect((await doc(id)).data.events.filter((e) => e.t === 'end')).toHaveLength(1);
+});
+
+test('an ended game also offers Undo the end beside the summary link', async () => {
+  const u = userEvent.setup();
+  const pos: Pos = { round: 2, turn: 1, phase: 'movement' };
+  const id = await seed(testSetup(), pos, [[{ t: 'end', reason: 'agreed' }, pos]]);
+  renderGame(id);
+  expect(await screen.findByText(/This game is over\./)).toBeVisible();
+  await u.click(screen.getByRole('button', { name: 'Undo the end' }));
+  await waitFor(() => expect(screen.queryByText(/This game is over\./)).toBeNull());
+  expect((await doc(id)).data.events.some((e) => e.t === 'end')).toBe(false);
+});
+
+test('Your army opens the list read-only, and Close takes it away', async () => {
+  const u = userEvent.setup();
+  const listId = await createList(createRepository(db), 'user-1', await necronsListData());
+  const setup = testSetup();
+  setup.players.A.listId = listId;
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Your army' }));
+  const sheet = await screen.findByRole('dialog', { name: 'Necrons Strike Force' });
+  expect(screen.getByTestId('where')).toHaveTextContent('?army=A');
+  await u.click(within(sheet).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
+  expect(screen.getByTestId('where')).toBeEmptyDOMElement();
+});
+
+test('a game with no list offers no army button', async () => {
+  renderGame(await seed(testSetup()));
+  await screen.findByRole('heading', { level: 1 });
+  expect(screen.queryByRole('button', { name: /army$/ })).toBeNull();
+  expect(screen.queryByRole('button', { name: 'Armies' })).toBeNull();
+});
+
+test("a list deleted since the game started still opens the drawer's own message", async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone';
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Your army' }));
+  expect(await screen.findByText('This list isn’t on this device any more.')).toBeVisible();
+});
+
+test('two lists share an Armies menu', async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone-a';
+  setup.players.B.listId = 'gone-b';
+  setup.players.B.name = 'Sam';
+  renderGame(await seed(setup));
+  await u.click(await screen.findByRole('button', { name: 'Armies' }));
+  expect(screen.getByRole('menuitem', { name: 'Your army' })).toBeVisible();
+  await u.click(screen.getByRole('menuitem', { name: 'Sam’s army' }));
+  expect(await screen.findByText('This list isn’t on this device any more.')).toBeVisible();
+  expect(screen.getByTestId('where')).toHaveTextContent('?army=B');
+});
+
+test('a game opened with ?army= shows the drawer; closing it keeps the game and its tab', async () => {
+  const u = userEvent.setup();
+  const setup = testSetup();
+  setup.players.A.listId = 'gone';
+  renderGame(await seed(setup), undefined, '?tab=Log&army=A');
+  const sheet = await screen.findByRole('dialog', { name: 'Your army' });
+  await u.click(within(sheet).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
+  expect(screen.getByRole('heading', { level: 1, name: 'Cleanse the Land' })).toBeVisible();
+  expect(screen.getByTestId('where')).toHaveTextContent('?tab=Log');
+  expect(screen.getByRole('list', { name: 'Game log' })).toBeVisible();
+});
+
+test('?army= for a player without a list opens nothing', async () => {
+  renderGame(await seed(testSetup()), undefined, '?army=A');
+  await screen.findByRole('heading', { level: 1 });
+  expect(screen.queryByRole('dialog')).toBeNull();
 });

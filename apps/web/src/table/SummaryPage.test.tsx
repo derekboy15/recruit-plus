@@ -14,6 +14,7 @@ import { makeEvent, type EventBody, type Pos, type TableGameData, type TableSetu
 import { GamePage } from './GamePage';
 import { resetMissionCache } from './missionData';
 import { summarise, SummaryPage } from './SummaryPage';
+import './__fixtures__/patience';
 
 const packs = generatedMissions().packs;
 const pack = (id: 'arks-of-omen' | 'core-book') => packs.find((p) => p.id === id)!;
@@ -77,12 +78,14 @@ test('the summary page shows the result, the mission and each player', async () 
   const id = crypto.randomUUID();
   await createRepository(db).saveDoc({ id, kind: 'game', ownerId: 'user-1', data: game([vp('A', 8), vp('B', 3, 2, 'secondary'), [{ t: 'end', reason: 'agreed' }, null]]) });
   render(<TestProviders db={db} path={`/table/${id}/summary`}><Routes><Route path="/table/:id/summary" element={<SummaryPage />} /></Routes></TestProviders>);
-  expect(await screen.findByRole('heading', { name: 'You win, 8 to 3.' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'You win, 8 to 3.' })).toBeInTheDocument();
   expect(screen.getByText(/Cleanse the Land/)).toBeInTheDocument();
   const opp = screen.getByRole('region', { name: 'Opponent' });
   expect(within(opp).getByText('Grind Them Down')).toBeInTheDocument();
   expect(within(opp).getByText('3 / 15')).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'Back to games' })).toHaveAttribute('href', '/table');
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
+  expect(screen.getByRole('link', { name: 'New game' })).toHaveAttribute('href', '/table/new');
+  expect(screen.queryByRole('link', { name: 'Back to games' })).toBeNull();
   expect(screen.getByRole('link', { name: 'View log' })).toHaveAttribute('href', `/table/${id}?tab=Log`);
 });
 
@@ -99,10 +102,18 @@ test('End the game: a player concedes', async () => {
       </Routes>
     </TestProviders>,
   );
-  await u.click(await screen.findByRole('button', { name: 'End the game' }));
-  expect(screen.getByRole('button', { name: "We've finished all 5 rounds" })).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: 'We agreed to stop early' })).toBeInTheDocument();
-  await u.click(screen.getByRole('button', { name: 'A player concedes' }));
-  await u.click(screen.getByRole('button', { name: 'Opponent concedes' }));
-  expect(await screen.findByRole('heading', { name: 'Opponent conceded, so You win.' })).toBeInTheDocument();
+  await u.click(await screen.findByRole('button', { name: 'Game actions' }));
+  await u.click(screen.getByRole('menuitem', { name: 'End the game…' }));
+  const sheet = screen.getByRole('dialog', { name: 'End the game' });
+  expect(within(sheet).getByRole('button', { name: 'We’ve finished all 5 rounds' })).toBeInTheDocument();
+  expect(within(sheet).getByRole('button', { name: 'We agreed to stop early' })).toBeInTheDocument();
+  await u.click(within(sheet).getByRole('button', { name: 'A player concedes' }));
+  await u.click(within(sheet).getByRole('button', { name: 'Opponent concedes' }));
+  expect(await screen.findByRole('heading', { level: 1, name: 'Opponent conceded, so You win.' })).toBeInTheDocument();
+});
+
+test('a summary for a game not on this device has a header with Back', async () => {
+  render(<TestProviders db={db} path="/table/nope/summary"><Routes><Route path="/table/:id/summary" element={<SummaryPage />} /></Routes></TestProviders>);
+  expect(await screen.findByRole('heading', { level: 1, name: 'Game not found' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Back to Table games' })).toHaveAttribute('href', '/table');
 });

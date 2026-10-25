@@ -40,6 +40,19 @@ export async function createTableGame(repo: Repository, ownerId: string, setup: 
 }
 
 /**
+ * Deletes a game at once and returns `restore`, which saves the same game (id, owner, setup and events) back: the
+ * Undo on the "Game deleted" toast.
+ */
+export async function deleteTableGame(repo: Repository, id: string): Promise<() => Promise<void>> {
+  const doc = await repo.getDoc<TableGameData>(id);
+  if (!doc) throw new Error('That game no longer exists.');
+  await repo.deleteDoc(id);
+  return async () => {
+    await repo.saveDoc<TableGameData>({ id: doc.id, kind: doc.kind, ownerId: doc.ownerId, data: doc.data });
+  };
+}
+
+/**
  * One game, live from the local database. `append` adds events and `update` changes the data (undo); each runs as one
  * read-and-save transaction, so writes that overlap (quick taps, auto CP) queue up instead of overwriting each other.
  */

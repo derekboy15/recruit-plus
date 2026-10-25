@@ -43,10 +43,12 @@ describe('stratagemsFor', () => {
     expect(r.main.map((x) => x.name)).toEqual(['Shoot', 'Any', 'Both']);
     expect(r.reactions.map((x) => x.name)).toEqual(['Hit back']);
   });
-  test('a group narrows the faction stratagems but keeps the core ones', () => {
+  test('groups keep only their stratagems: a chip is its group plus the core ones', () => {
     const core = s('Command Re-roll', ['Any time'], 'Core Book');
-    const r = stratagemsFor([...all, core], phaseFilter('shooting', 'active', { firstCommandOfRound: false }), 'Nihilakh');
+    const r = stratagemsFor([...all, core], phaseFilter('shooting', 'active', { firstCommandOfRound: false }), new Set(['Nihilakh', 'Core Book']));
     expect(r.main.map((x) => x.name)).toEqual(['Any', 'Command Re-roll']);
+    const noCore = stratagemsFor([...all, core], phaseFilter('shooting', 'active', { firstCommandOfRound: false }), new Set(['Necrons']));
+    expect(noCore.main.map((x) => x.name)).toEqual(['Shoot', 'Both']);
   });
 });
 

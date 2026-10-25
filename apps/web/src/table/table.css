@@ -1,4 +1,5 @@
 /* Table companion (Milestone 7). Phone first: 375px wide, 44px touch targets. */
+.mission-map__figure { margin: 0; display: grid; gap: 0.5rem; }
 .mission-map { display: block; width: 100%; height: auto; max-height: 60vh; border-radius: var(--radius); background: var(--surface-2); }
 .map-board { fill: #8d877c; fill-opacity: 0.25; stroke: var(--border); stroke-width: 0.3; }
 .map-zone--A { fill: #4f6d7a; fill-opacity: 0.75; }
@@ -8,6 +9,12 @@
 .map-centre { fill: var(--text); }
 .map-objective { fill: var(--bg); stroke: var(--brass-strong); stroke-width: 0.35; }
 .map-label { fill: var(--text); font-size: 2px; font-weight: 700; }
+.map-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; font-size: 0.85rem; color: var(--text-muted); }
+.map-legend li { display: flex; align-items: center; gap: 0.4rem; min-width: 0; }
+.map-legend li span { min-width: 0; overflow-wrap: anywhere; }
+.map-legend__swatch { width: 14px; height: 14px; flex: none; }
+.map-legend__objective { stroke-width: 1.2; }
+.map-legend__area { stroke: var(--text); stroke-width: 1; stroke-dasharray: 2 1.5; }
 .mission-rules { display: grid; gap: 0.75rem; }
 .mission-rules h3 { margin: 0 0 0.25rem; }
 .steps--6 { grid-template-columns: repeat(6, 1fr); }
@@ -16,14 +23,22 @@
 .stepper { display: flex; align-items: center; gap: 0.6rem; margin: 0.5rem 0; }
 .stepper strong { min-width: 2.5ch; text-align: center; font-variant-numeric: tabular-nums; font-size: 1.15rem; }
 .stepper .btn { min-width: var(--touch); }
-.secondary-text { margin: 0.5rem 0; }
-.secondary-text summary, details.card summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
+details.card summary { min-height: var(--touch); display: flex; align-items: center; cursor: pointer; font-weight: 600; }
 .setup-steps { padding-left: 1.25rem; display: grid; gap: 0.4rem; }
 .new-game .card { margin-bottom: 0.75rem; }
-.new-game .mission-map { margin-top: 0.75rem; }
+.new-game .mission-map__figure { margin-top: 0.75rem; }
 /* Game screen */
-.game { display: grid; gap: 0.75rem; }
-.scoreboard { position: sticky; top: 0; /* the top bar scrolls away; the scoreboard sticks to the window top */ z-index: 4; background: var(--bg); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.game { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+/* The page header and the scoreboard stick together, so the score stays in view under Back and the menu. The wrapper
+   bleeds to the edges of .shell__main the way a lone page header does. */
+.game__top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--bg); }
+.game__top .page-head { position: static; margin: 0; }
+/* The army button (one list) or Armies menu (two) beside the game menu: a labelled button, its label cut short when a
+   long player name would crowd out the mission name. */
+.game__army { gap: 6px; padding: 0 0.7rem; max-width: 40vw; }
+.game__army span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.game__armies .menu__trigger { width: auto; gap: 6px; padding: 0 0.7rem; }
+.scoreboard { background: var(--bg); padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); }
 .scoreboard__players { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 .scoreboard__player { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0 0.5rem; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .scoreboard__player--active { border-color: var(--brass-strong); box-shadow: inset 0 -3px 0 var(--brass); }
@@ -35,6 +50,9 @@
 .game__tabs .seg__btn { flex: 1 1 auto; min-height: var(--touch); padding: 0 0.35rem; font-size: 0.85rem; }
 .game__tabs .seg__btn[aria-selected='true'] { background: var(--surface-2); color: var(--text); box-shadow: inset 0 -3px 0 var(--brass); }
 .turn { display: grid; gap: 0.75rem; }
+.turn__prompt:empty { display: none; }
+/* Why Next phase won't move yet: in the sticky action bar, over the buttons. */
+.turn__hint { flex: 1 1 100%; margin: 0; text-align: right; color: var(--warn); font-weight: 600; font-size: 0.9rem; }
 .prompt { border-color: var(--brass-strong); }
 .prompt h2 { margin: 0 0 0.25rem; font-size: 1.1rem; }
 .prompt__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
@@ -43,10 +61,12 @@
 .checklist .choices__option { align-items: flex-start; padding: 0.35rem 0; }
 .checklist .choices__option input { margin-top: 0.15rem; }
 .stepper__label { flex: 1; min-width: 0; }
-.score-sheet { display: grid; gap: 0.75rem; }
+.score-sheet { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
 .score-sheet h3 { margin: 0.75rem 0 0.25rem; font-size: 1rem; }
 .score-sheet__total { font-size: 1.4rem; font-weight: 700; margin: 0; font-variant-numeric: tabular-nums; }
 .score-sheet__secondary { border-top: 1px solid var(--border); padding-top: 0.35rem; }
+.score-sheet__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.score-sheet__controls { margin: 0.25rem 0 0.5rem; }
 .log { display: grid; gap: 0.75rem; }
 .log__note { display: flex; gap: 0.5rem; }
 .log__note .input { flex: 1; min-width: 0; }
@@ -61,12 +81,24 @@
 .dice__results { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .die { width: var(--touch); height: var(--touch); display: grid; place-items: center; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); font-weight: 700; font-size: 1.2rem; }
 .die--hit { border-color: var(--brass-strong); color: var(--brass-strong); }
-.odds__field { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--touch); }
-.odds__field .input { width: auto; min-width: 8rem; max-width: 60%; }
+/* Every odds control in one 11rem column, labels to their left, so the controls share one left edge. */
+.odds__grid { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; align-items: center; gap: 0.5rem 0.75rem; }
+.odds__grid > .input { width: 100%; }
+/* Each label is a 44px tap target for its control (the only one Blast's checkbox has). */
+.odds__label { display: flex; align-items: center; min-height: var(--touch); cursor: pointer; }
+.odds__grid > .odds__label, .odds__grid > .stepper__label { overflow-wrap: break-word; }
+/* The smallest phones: a narrower control column leaves room for one-word labels like "Invulnerable". */
+@media (max-width: 360px) { .odds__grid { grid-template-columns: minmax(0, 1fr) 9rem; } }
+.odds__check { display: flex; align-items: center; min-height: var(--touch); }
+.odds__check input { width: 22px; height: 22px; margin: 0; }
+.stepper--grid { justify-content: space-between; margin: 0; }
 .odds__result dl { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; margin: 0; }
 .odds__result dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
-.summary { display: grid; gap: 0.75rem; }
+/* minmax(0, 1fr): a page header's nowrap subtitle must truncate, not widen the page. */
+.summary { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
 .summary h1 { margin: 0; }
+/* The result is the page's title: it wraps rather than being cut short. */
+.summary .page-head__title { white-space: normal; }
 .summary__rounds { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .summary__rounds caption { text-align: left; padding: 0.4rem 0.6rem; color: var(--text-muted); }
 .summary__rounds th, .summary__rounds td { padding: 0.4rem 0.6rem; border-top: 1px solid var(--border); text-align: center; }
@@ -75,3 +107,41 @@
 .summary__row { display: flex; justify-content: space-between; gap: 1rem; }
 .summary__row dd { margin: 0; font-weight: 600; text-align: right; }
 .prompt__actions--stack { flex-direction: column; align-items: stretch; }
+/* The Table's home header: its title and one-line explanation wrap on small phones instead of being cut off. */
+.table-home .page-head__title, .table-home .page-head__sub { white-space: normal; }
+/* Saved games list */
+.game-row {
+  display: flex; align-items: center; gap: 4px; padding-right: 4px;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface);
+}
+.game-row:hover { border-color: var(--border-strong); }
+.game-row__main {
+  flex: 1; min-width: 0; display: grid; gap: 2px; min-height: 56px; padding: 0.6rem 0.4rem 0.6rem 0.9rem;
+  color: var(--text); text-decoration: none;
+}
+.game-row__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.game-row__score { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.game-row__meta { font-size: 0.85rem; }
+/* New game: the player's lists as cards */
+.list-picks { display: grid; gap: 0.5rem; margin: 0.25rem 0 0.5rem; }
+.list-pick {
+  display: flex; align-items: center; gap: 0.75rem; min-height: 56px; padding: 0.6rem 0.75rem; cursor: pointer;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface);
+}
+.list-pick:hover { border-color: var(--border-strong); }
+.list-pick:has(input:checked) { border-color: var(--brass); background: var(--surface-2); box-shadow: inset 3px 0 0 var(--brass); }
+.list-pick input { width: 22px; height: 22px; flex: none; margin: 0; }
+.list-pick__main { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.list-pick__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.list-pick__main > .muted { overflow-wrap: anywhere; }
+.list-pick__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; font-size: 0.85rem; }
+/* New game: secondaries, each with its rules a tap away */
+.secondary-picks { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+.secondary-pick { display: inline-flex; align-items: center; gap: 2px; max-width: 100%; }
+.secondary-pick .chip { min-width: 0; }
+.secondary-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.secondary-card {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2);
+}
+.secondary-card__main { flex: 1; min-width: 0; display: grid; gap: 2px; overflow-wrap: anywhere; }
