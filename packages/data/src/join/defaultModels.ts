@@ -5,11 +5,11 @@
  */
 import type { CatalogueOut, ModelKindOut, UnitOptionOut, UnitOut } from '../model/types';
 import { optionDisplay } from '../roster/names';
-import { addUnit, findSelView } from '../roster/edit';
-import { evaluate, type SelView } from '../roster/evaluate';
+import { addChild, addUnit, findSelView } from '../roster/edit';
+import { childIndex, evaluate, type SelView } from '../roster/evaluate';
 import { createRoster, FORCE } from '../roster/policy';
 import { buildScope, resolve, rootEntriesFor, type Merged, type Scope } from '../roster/scope';
-import type { RNode, RosterFile } from '../roster/types';
+import type { Roster, RNode, RosterFile } from '../roster/types';
 
 /** The ids a selection was made through: its entry (a link's id for a link) and the entry's target. */
 const idsOf = (s: SelView) => [...new Set([s.sel.entryId, s.merged?.target.id].filter((x): x is string => !!x))];
@@ -71,8 +71,40 @@ export function applyDefaultModels(out: CatalogueOut, files: RosterFile[]): void
     // A single model is the unit: everything on it is that model's.
     const a = single ? { models: [{ ids: u.modelKinds![0].entryIds, copies: v.sel.count, gear: [...idsOf(v), ...v.children.flatMap(function all(c: SelView): string[] { return [...idsOf(c), ...c.children.flatMap(all)]; })] }], unit: [], everyone: [] } : read(v);
     apply(u, a);
+    addedWith(scope, added, v, u);
     const options = optionsOf(scope, resolve(scope, scope.node(root)!), u);
     if (options.length) u.options = options;
+  }
+}
+
+/** Everything chosen below a selection, by id. */
+const allBelow = (s: SelView): string[] => s.children.flatMap((c) => [...idsOf(c), ...allBelow(c)]);
+
+/**
+ * Each kind the unit as added doesn't have gets the gear it is added with: the roster engine adds one to the unit (or the
+ * squad inside it that holds it), with its required choices, and reads what that model carries (an Attack Bike's heavy
+ * bolter, a Havoc's lascannon). The list is scratch: it is never validated or kept.
+ */
+function addedWith(scope: Scope, roster: Roster, v: SelView, u: UnitOut): void {
+  const entries = u.entries ?? {};
+  const gather = (ids: string[], key: 'w' | 'a') => [...new Set(ids.flatMap((id) => entries[id]?.[key] ?? []))];
+  const holders = (s: SelView): SelView[] => [s, ...s.children.filter((c) => c.type === 'unit').flatMap(holders)];
+  for (const k of u.modelKinds ?? []) {
+    if (k.defaultCount > 0 || (u.modelKinds?.length ?? 0) < 2) continue;
+    for (const h of holders(v)) {
+      const index = h.merged ? childIndex(scope, h.merged.children) : undefined;
+      const id = index && k.entryIds.find((x) => index.has(x));
+      if (!id) continue;
+      const before = new Set(h.children.map((c) => c.sel.id));
+      const view = evaluate(scope, addChild(scope, roster, h.sel.id, id, 1));
+      const model = findSelView(view, h.sel.id)?.children.find((c) => !before.has(c.sel.id));
+      if (model) {
+        const ids = [...idsOf(model), ...allBelow(model)];
+        k.weapons = gather(ids, 'w');
+        k.abilities = gather(ids, 'a');
+      }
+      break;
+    }
   }
 }
 
@@ -106,6 +138,26 @@ function optionsOf(scope: Scope, unit: Merged, u: UnitOut): UnitOptionOut[] {
   };
   const brings = (c: ReturnType<typeof choice>) => c.weapons.length > 0 || c.abilities.length > 0 || !!c.models;
   const out: UnitOptionOut[] = [];
+  const offered = new Set<number>();
+  /** Loadout variants the unit as added doesn't have, as an option of the models it has with their stat line. */
+  const variantOption = (name: string, among: number[]) => {
+    const variants = among.filter((k) => kinds[k].defaultCount === 0 && !kinds[k].optional && !offered.has(k));
+    const has = kinds.map((_, k) => k).filter((k) => kinds[k].defaultCount > 0 && variants.some((v) => kinds[v].profile === kinds[k].profile) && (among.includes(k) || among.length === variants.length));
+    if (!variants.length || !has.length) return;
+    const had = new Set(has.flatMap((k) => kinds[k].weapons));
+    const hadAbilities = new Set(has.flatMap((k) => kinds[k].abilities));
+    const choices = variants
+      .map((k) => ({
+        name: optionDisplay(kinds[k].name).name,
+        weapons: kinds[k].weapons.filter((i) => !had.has(i) && !u.weapons[i]?.extra),
+        abilities: kinds[k].abilities.filter((i) => !hadAbilities.has(i)),
+      }))
+      .filter(brings);
+    if (!choices.length) return;
+    variants.forEach((k) => offered.add(k));
+    const replaces = [...had].filter((i) => !variants.every((k) => kinds[k].weapons.includes(i)) && has.every((k) => kinds[k].weapons.includes(i)));
+    out.push({ name, who: has.map((k) => kinds[k].name), min: 0, max: -1, choices, ...(replaces.length && { replaces }) });
+  };
   const seen = new Set<string>();
   const walk = (m: Merged, who: string[]) => {
     if (seen.has(m.target.id)) return;
@@ -128,9 +180,11 @@ function optionsOf(scope: Scope, unit: Merged, u: UnitOut): UnitOptionOut[] {
             .flatMap((x) => (x.target.kind === 'group' ? open(x) : [x]));
         const members = open(cm);
         const kindsIn = members.map(kindOf);
-        // The unit's make-up (Necron Warriors' models), not a choice: walk into each model.
+        // The unit's make-up (Necron Warriors' models), not a choice: walk into each model. A loadout variant of a model
+        // the unit has is that model's option: "Havoc with heavy bolter can replace their Heavy bolter with one of: …".
         if (members.length && kindsIn.every((k) => k >= 0 && !kinds[k].optional)) {
           members.forEach((x) => walk(x, [x.name]));
+          variantOption(optionDisplay(cm.name).name, [...new Set(kindsIn)]);
           continue;
         }
         const choices = members.map(choice).filter(brings);
@@ -163,6 +217,8 @@ function optionsOf(scope: Scope, unit: Merged, u: UnitOut): UnitOptionOut[] {
     }
   };
   walk(unit, kindOf(unit) >= 0 && kinds.length === 1 ? [kinds[0].name] : []);
+  // A variant on its own, outside any group (a Chosen with a power fist).
+  for (const k of kinds.map((_, i) => i)) variantOption(optionDisplay(kinds[k].name).name, [k]);
   return out;
 }
 

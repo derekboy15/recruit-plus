@@ -222,3 +222,21 @@ test('options say who can replace what, with one row per weapon (Cadian Command 
   expect(within(swap).getByRole('rowgroup', { name: 'Plasma pistol' })).toBeInTheDocument();
   expect(within(swap).queryByRole('rowgroup', { name: 'Laspistol' })).toBeNull();
 });
+
+const realUnit = (slug: string, name: string): UnitOut =>
+  JSON.parse(readFileSync(join(__dirname, '..', '..', '..', '..', '..', 'packages', 'data', 'generated', 'catalogues', `${slug}.json`), 'utf8')).units.find((u: UnitOut) => u.name === name);
+
+test('a unit whose weapons are all choices opens its Options and says the choice must be made (Rhino, real data)', () => {
+  show(<DatasheetView unit={realUnit('imperium-adeptus-astartes-ultramarines', 'Rhino')} />);
+  expect(screen.queryByRole('heading', { name: 'Weapons' })).toBeNull();
+  const options = screen.getByText('Options').closest('details')!;
+  expect(options).toHaveAttribute('open');
+  expect(options).toHaveTextContent(/Rhino must take one of: /);
+});
+
+test("gear on the unit itself is a row without a count: 'Unit: …', never '0x Unit'", () => {
+  show(<DatasheetView unit={warriors} sheet={{ models: [{ count: 0, name: 'Unit', gear: ['Frag grenades'] }], stats: [], weapons: [], options: [], canAlsoTake: [], abilities: [], extras: { weapons: [], abilities: [] }, keywords: { faction: [], unit: [], perModel: [] } }} />);
+  const models = screen.getByRole('heading', { name: 'Models' }).closest('section')!;
+  expect(models).toHaveTextContent('Unit: Frag grenades');
+  expect(models).not.toHaveTextContent('0x');
+});

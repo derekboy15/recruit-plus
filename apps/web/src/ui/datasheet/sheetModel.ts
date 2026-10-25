@@ -122,8 +122,8 @@ export function optionLine(unit: UnitOptionOut, weapons: ProfileOut[]): { text: 
     const what = [...new Set([...replaced].map((i) => weapons[i]?.name).filter(Boolean).map((n) => baseName(n!)))].join(' and ');
     return { text: `${who} can replace their ${what} with one of: ${names}`, choices: rest };
   }
-  const how = unit.max === 1 ? 'one of' : 'any of';
-  return { text: `${who} can take ${how}: ${names}`, choices: rest };
+  const how = unit.min > 0 ? 'must take one of' : unit.max === 1 ? 'can take one of' : 'can take any of';
+  return { text: `${who} ${how}: ${names}`, choices: rest };
 }
 
 /** "Cadian Commander, 2 Veterans", or "Everyone" when every model of the unit carries it. */
@@ -205,11 +205,24 @@ export function factionSheet(unit: UnitOut): SheetModel {
   const rank = (w: string) => (w === 'Unit' ? 0 : w === 'Everyone' ? 1 : /\((option|if taken)\)/.test(w) ? 3 : 2);
   abilities.sort((a, b) => rank(a.who) - rank(b.who));
 
+  // Last resort (final review): a stat line or weapon the per-model data doesn't place still shows, uncounted.
+  const stats = statRows(unit, shown.map((k) => ({ profile: k.profile, ...(counted && { count: k.defaultCount }) })));
+  const options = unit.options ?? [];
+  const placed = new Set([
+    ...weaponEntries.map((e) => e.index),
+    ...options.flatMap((o) => [...o.choices.flatMap((c) => c.weapons), ...(o.replaces ?? [])]),
+    ...kinds.filter((k) => k.optional).flatMap((k) => k.weapons),
+  ]);
+  const unplaced = unit.weapons.map((w, i) => i).filter((i) => !placed.has(i) && !isExtra(unit.weapons[i]));
+  const other: UnitOptionOut[] = unplaced.length
+    ? [{ name: 'Other wargear', who: [], min: 0, max: -1, choices: [...new Set(unplaced.map((i) => baseName(unit.weapons[i].name)))].map((name) => ({ name, weapons: unplaced.filter((i) => baseName(unit.weapons[i].name) === name), abilities: [] })) }]
+    : [];
+
   return {
     models: [],
-    stats: statRows(unit, shown.map((k) => ({ profile: k.profile, ...(counted && { count: k.defaultCount }) }))),
+    stats: stats.length ? stats : statRows(unit, unit.models.map((_, i) => ({ profile: i }))),
     weapons: weaponRows(unit, weaponEntries),
-    options: unit.options ?? [],
+    options: [...options, ...other],
     canAlsoTake: kinds.filter((k) => k.optional),
     abilities,
     extras,

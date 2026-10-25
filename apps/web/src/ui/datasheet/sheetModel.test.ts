@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { CatalogueOut, UnitOut } from '@recruit/data/model';
 import { describe, expect, test } from 'vitest';
@@ -75,4 +75,36 @@ test('a unit without per-model data still shows every stat line and weapon (olde
   const sheet = factionSheet({ ...u, modelKinds: undefined, entries: undefined, unitGear: undefined, options: undefined });
   expect(sheet.stats.map((s) => s.label)).toEqual(['Necron Warrior']);
   expect(sheet.weapons.length).toBeGreaterThan(0);
+});
+
+describe('final review: every faction sheet', () => {
+  const catalogues = readdirSync(join(GENERATED, 'catalogues')).map((f) => JSON.parse(readFileSync(join(GENERATED, 'catalogues', f), 'utf8')) as CatalogueOut).filter((c) => !c.library);
+
+  test('has a stats row whenever the unit has a stat line', () => {
+    const blank = catalogues.flatMap((c) => c.units.filter((u) => u.models.length && !factionSheet(u).stats.length).map((u) => `${c.name}: ${u.name}`));
+    expect(blank).toEqual([]);
+  });
+
+  test("shows each of the unit's own weapons somewhere: in Weapons, in Options or on a model it can also take", () => {
+    const lost: string[] = [];
+    for (const c of catalogues)
+      for (const u of c.units) {
+        const sheet = factionSheet(u);
+        const shown = new Set([
+          ...sheet.weapons.flatMap((w) => w.profiles.map((p) => p.name)),
+          ...sheet.options.flatMap((o) => [...o.choices.flatMap((ch) => ch.weapons), ...(o.replaces ?? [])]).map((i) => u.weapons[i]?.name),
+          ...sheet.canAlsoTake.flatMap((k) => k.weapons).map((i) => u.weapons[i]?.name),
+        ]);
+        u.weapons.forEach((w) => !w.extra && !shown.has(w.name) && lost.push(`${c.name}: ${u.name}: ${w.name}`));
+      }
+    expect(lost.length, lost.slice(0, 20).join('\n')).toBe(0);
+  });
+});
+
+test('Tactical Squad: the stat lines BSData keeps on the unit, counted', () => {
+  const sheet = factionSheet(unit('imperium-adeptus-astartes-ultramarines', 'Tactical Squad'));
+  expect(sheet.stats.map((s) => [s.label, s.count])).toEqual([
+    ['Space Marine', 4],
+    ['Space Marine Sergeant', 1],
+  ]);
 });

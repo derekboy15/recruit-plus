@@ -164,7 +164,7 @@ export function DatasheetView({ unit, sheet: given, headingLevel = 2, hideName =
           <ul className="ds-models">
             {sheet.models.map((m) => (
               <li key={`${m.name}|${m.gear.join('|')}`}>
-                <span className="ds-models__name">{`${m.count}x ${m.name}`}</span>
+                <span className="ds-models__name">{`${m.count ? `${m.count}x ` : ''}${m.name}`}</span>
                 {m.gear.length > 0 && `: ${m.gear.join(', ')}`}
               </li>
             ))}
@@ -191,7 +191,8 @@ export function DatasheetView({ unit, sheet: given, headingLevel = 2, hideName =
       )}
 
       {sheet.options.length > 0 && (
-        <details className="ds__more ds-options">
+        // Open when the unit's weapons are all choices, so the page never looks unarmed (final review).
+        <details className="ds__more ds-options" open={weapons.length === 0}>
           <summary>Options</summary>
           <ul className="ds-options__list">
             {sheet.options.map((o, i) => {

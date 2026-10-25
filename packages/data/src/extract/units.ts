@@ -162,6 +162,55 @@ function simplest(alternatives: string[][]): string[][] {
  * dynasty) needs X; a hide on "X is in the list" (Imotekh in an Annihilation Legion) only rules the unit out. Every hide
  * must fail, and a unit hidden by default needs one of its reveals.
  */
+const statNorm = (s: string) => s.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
+/** A name without its loadout: "Havoc w/ lascannon", "Storm Guardian - Aeldari Flamer", "Mutant with Autogun (x2)" → the model. */
+const statBase = (s: string) =>
+  statNorm(s)
+    .replace(/\s*\[[^\]]*\]/g, '')
+    .replace(/\s*\([^)]*\)/g, '')
+    .replace(/\s+-\s.*$/, '')
+    .replace(/\s+(with|and|&)\s.*$/, '')
+    .replace(/\s*(\/w|w\/).*$/, '')
+    .trim();
+const singular = (s: string) => s.replace(/ies$/, 'y').replace(/s$/, '');
+const LEADER = /\b(sergeant|champion|nob|exarch|superior|leader|sword brother|acothyst|aspiring|boss|alpha|shas'ui|shas'vre|hekatrix|sybarite|kaptin|lieutenant)\b/;
+
+/**
+ * The unit stat line a model entry with none of its own uses, by the names BSData gives both (Plan H final review): the
+ * same name, with or without its loadout or plural; a stat line named at the start or end of the model's name ("Assault
+ * Terminator w/THSS" → "Terminator"); a leader by their title or a trooper by the word both names end with ("Devastator
+ * Marine Sergeant" → "Space Marine Sergeant"); else the one stat line no other model of the unit uses. -1 when none.
+ */
+export function statLineByName(name: string, models: ProfileOut[], used: Set<number>): number {
+  if (!models.length) return -1;
+  const names = models.map((p) => statNorm(p.name));
+  const base = names.map(statBase);
+  const n = statNorm(name);
+  const b = statBase(name);
+  for (const c of [n, b, singular(b)]) {
+    const i = names.indexOf(c);
+    if (i >= 0) return i;
+  }
+  for (const c of [b, singular(b)]) {
+    const i = base.findIndex((x) => x === c || singular(x) === c);
+    if (i >= 0) return i;
+  }
+  const affix = (pred: (x: string) => boolean) =>
+    base.map((x, i) => ({ x, i })).filter(({ x }) => x && pred(x)).sort((p, q) => q.x.length - p.x.length)[0]?.i;
+  const inName = affix((x) => b.startsWith(x + ' ') || b.endsWith(' ' + x));
+  if (inName !== undefined) return inName;
+  const named = affix((x) => x.endsWith(' ' + b) || x.startsWith(b + ' '));
+  if (named !== undefined) return named;
+  const lead = LEADER.exec(b)?.[1];
+  const hits = lead
+    ? base.flatMap((x, i) => (x.includes(lead) ? [i] : []))
+    : base.flatMap((x, i) => (!LEADER.test(x) && singular(x.split(' ').pop() ?? '') === singular(b.split(' ').pop() ?? '') ? [i] : []));
+  if (hits.length === 1) return hits[0];
+  const free = models.map((_, i) => i).filter((i) => !used.has(i));
+  if (free.length === 1) return free[0];
+  return models.length === 1 ? 0 : -1;
+}
+
 export function availability(mods: Mod[], hiddenByDefault: boolean): { fielded: boolean; needIdSets: string[][] } {
   const hides = mods.filter((m) => m.field === 'hidden' && m.value === 'true');
   const reveals = mods.filter((m) => m.field === 'hidden' && m.value === 'false' && (!m.when || knownGroup(m.when) !== false));
@@ -286,6 +335,10 @@ export function extractUnits(gd: GameData, catalogueId: string): UnitOut[] {
       weapons: [],
       abilities: [],
     }));
+    // A model entry BSData gives no stat line of its own (the Tactical Squad's: "Space Marine" sits on the unit) takes
+    // the unit's stat line its name names.
+    const used = new Set(found.map((k) => k.profile).filter((i) => i >= 0));
+    for (const k of found) if (k.profile < 0) k.profile = statLineByName(k.name, models, used);
     // A single model BattleScribe stores as an upgrade (Vashtorr, the Chaos Warlord Titan) is one kind too.
     return !found.length && target.attrs.type === 'upgrade' && profile(target) >= 0 ? single() : found;
   }
