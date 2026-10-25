@@ -1,7 +1,7 @@
 /** Info files (generated/info/<slug>.json) and their plain English. */
-import { TEXT_CHARS, type InfoFile, type InfoProfile } from '../model/types';
+import { TEXT_CHARS, type CatalogueOut, type InfoFile, type InfoProfile } from '../model/types';
 import { checkPlain, type PlainVerdict } from '../plain/check';
-import { CORE_SHARD, spotSample, textKey, type OfficialText, type TextKind } from '../plain/collect';
+import { CORE_SHARD, officialFor, spotSample, textKey, type OfficialText, type TextKind } from '../plain/collect';
 import type { OptionShardReport, PlainStore } from '../plain/store';
 import type { OptionTier, TierOf } from './tiers';
 
@@ -38,6 +38,31 @@ export function infoTextKeys(files: InfoFile[]): Set<string> {
     }
   }
   return keys;
+}
+
+/** An option BattleScribe leaves without text, given the text of the Stratagem it buys (overrides/option-stratagems.json). */
+export interface OptionStratagem {
+  /** The BattleScribe file that defines the option. */
+  catalogueName: string;
+  entryId: string;
+  /** The catalogue (slug) whose Stratagem it buys, and the Stratagem's name as the catalogue has it. */
+  stratagem: { catalogue: string; name: string };
+  source: string;
+}
+
+/**
+ * Adds each override's Stratagem text (its amendment included, so the Stratagem's plain English matches by key) to the
+ * option's rules, in place. Throws on a catalogue with no info file or a Stratagem the catalogue doesn't have.
+ */
+export function attachOptionStratagems(files: InfoFile[], overrides: OptionStratagem[], cats: CatalogueOut[], slugOf: (catalogueName: string) => string): void {
+  for (const o of overrides) {
+    const file = files.find((f) => f.slug === slugOf(o.catalogueName));
+    if (!file) throw new Error(`option-stratagems.json names unknown catalogue "${o.catalogueName}"`);
+    const s = cats.find((c) => c.slug === o.stratagem.catalogue)?.stratagems.find((x) => x.name === o.stratagem.name);
+    if (!s) throw new Error(`option-stratagems.json: no Stratagem "${o.stratagem.name}" in ${o.stratagem.catalogue}`);
+    const info = (file.entries[o.entryId] ??= {});
+    info.rules = [...(info.rules ?? []), { name: s.name, text: officialFor(s.text, s.amended) }];
+  }
 }
 
 /** An option text: its owning shard (where its plain English goes) and its tier (how early a player meets it). */

@@ -3,9 +3,9 @@ import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, test } from 'vitest';
 import { loadGameData } from '../src/bsdata/gamedata';
-import { attachInfoPlain, emitInfoFile, infoTextKeys, type TierOf } from '../src/info';
-import type { DataIndex, InfoFile } from '../src/model/types';
-import { textKey } from '../src/plain/collect';
+import { attachInfoPlain, attachOptionStratagems, emitInfoFile, infoTextKeys, type OptionStratagem, type TierOf } from '../src/info';
+import type { CatalogueOut, DataIndex, InfoFile } from '../src/model/types';
+import { officialFor, textKey } from '../src/plain/collect';
 import type { CoverageReport, PlainStore } from '../src/plain/store';
 import { buildScope, resolve } from '../src/roster/scope';
 import type { RosterFile } from '../src/roster/types';
@@ -150,6 +150,31 @@ describe('attachInfoPlain', () => {
   });
 });
 
+describe('attachOptionStratagems', () => {
+  const cats = [
+    { slug: 'aeldari-craftworlds', stratagems: [{ id: 's1', name: 'Treasures of the Aeldari', text: 'Use this Stratagem before the battle.', amended: 'It costs 2CP.' }] },
+  ] as unknown as CatalogueOut[];
+  const override: OptionStratagem = {
+    catalogueName: 'Aeldari - Aeldari Library',
+    entryId: 'm1',
+    stratagem: { catalogue: 'aeldari-craftworlds', name: 'Treasures of the Aeldari' },
+    source: 'test',
+  };
+  const slugOf = (name: string) => (name === 'Aeldari - Aeldari Library' ? 'aeldari-aeldari-library' : `no file for ${name}`);
+  const file = (): InfoFile => ({ schema: 1, slug: 'aeldari-aeldari-library', entries: {} });
+
+  test("gives a marker option the text of the Stratagem it buys, amendment included", () => {
+    const f = file();
+    attachOptionStratagems([f], [override], cats, slugOf);
+    expect(f.entries.m1).toEqual({ rules: [{ name: 'Treasures of the Aeldari', text: officialFor('Use this Stratagem before the battle.', 'It costs 2CP.') }] });
+  });
+
+  test('throws on an unknown Stratagem or catalogue', () => {
+    expect(() => attachOptionStratagems([file()], [{ ...override, stratagem: { catalogue: 'aeldari-craftworlds', name: 'Nope' } }], cats, slugOf)).toThrow(/Nope/);
+    expect(() => attachOptionStratagems([file()], [{ ...override, catalogueName: 'Unknown' }], cats, slugOf)).toThrow(/Unknown/);
+  });
+});
+
 describe('generated info files', () => {
   const GEN = join(__dirname, '..', 'generated');
   const INFO = join(GEN, 'info');
@@ -236,6 +261,11 @@ describe('generated info files', () => {
     expect(diamonas.type).toBe('Weapon');
   });
 
+  test("the Treasures of the Aeldari relic shows the Stratagem it buys, in plain English", () => {
+    const rule = info('aeldari-aeldari-library').entries['8ca6-6aeb-178c-207e']?.rules?.find((r) => r.name === 'Treasures of the Aeldari');
+    expect(rule?.plain).toEqual(expect.any(String));
+  });
+
   test('every info file is within 150 kB gzip', () => {
     for (const f of readdirSync(INFO)) expect(gzipSync(readFileSync(join(INFO, f))).length, f).toBeLessThanOrEqual(150_000);
   });
@@ -248,8 +278,9 @@ describe('generated info files', () => {
     // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
     expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
     // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
-    // gave 15 marker options the text their selection reveals (3,416 -> 3,431).
-    expect(sum(report.options)).toEqual({ total: 3431, written: 3431 });
+    // gave marker options the text their selection reveals (3,416 -> 3,431) and the Treasures of the Aeldari relic its
+    // Stratagem (3,432).
+    expect(sum(report.options)).toEqual({ total: 3432, written: 3432 });
     expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

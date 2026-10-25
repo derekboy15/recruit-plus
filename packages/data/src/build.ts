@@ -8,7 +8,7 @@ import { coreStratagems, selectStratagems } from './extract/stratagems';
 import { applyPlain, loadPlainStore, type CoverageReport } from './plain/store';
 import { buildContent } from './content/build';
 import { extractUnits } from './extract/units';
-import { attachInfoPlain, emitInfoFile, infoTextKeys, optionTierOf, TIER_NAMES, type InfoPlainReport } from './info';
+import { attachInfoPlain, attachOptionStratagems, emitInfoFile, infoTextKeys, optionTierOf, TIER_NAMES, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
@@ -169,6 +169,12 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   // English entries from being reported as orphans.
   const rosterSources = [...catalogues, gd.system];
   const infoFiles = rosterSources.map((cat) => emitInfoFile(gd, cat, rosterSlug(cat)));
+  // Marker options with no text anywhere in BattleScribe get the Stratagem they buy (before plain English is matched).
+  attachOptionStratagems(infoFiles, overrides.optionStratagems, outs, (name) => {
+    const cat = rosterSources.find((c) => c.name === name);
+    if (!cat) throw new Error(`option-stratagems.json names unknown catalogue "${name}"`);
+    return rosterSlug(cat);
+  });
   const plain = applyPlain(outs, core, plainStore, infoTextKeys(infoFiles));
   writeFileSync(join(opts.outDir, 'core-stratagems.json'), JSON.stringify(core));
   const missions = writeMissions(opts, w);
