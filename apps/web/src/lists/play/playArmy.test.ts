@@ -4,7 +4,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { resetDataCache } from '../../factions/dataClient';
 import { stubGeneratedData } from '../__fixtures__/generatedData';
 import { datasheet, novokhIncursionData, unitNamed, viewOf } from './__fixtures__/playList';
-import { playArmy, takenWeapons } from './playArmy';
+import { playArmy } from './playArmy';
 
 beforeEach(() => {
   stubGeneratedData();
@@ -20,26 +20,15 @@ test('the fixture: Novokh Incursion with an Overlord Warlord', async () => {
   expect(view.roster.battleSize).toBe('incursion');
 });
 
-test('taken weapons match profiles by name, by "name (mode)", ignoring case and apostrophes', async () => {
-  const { view, units } = await viewOf(await novokhIncursionData());
-  const warriors = unitNamed(view, 'Necron Warriors');
-  // The count the unit carries comes along, so the weapon card reads ×10 (DatasheetView parses "10x ").
-  expect(takenWeapons(warriors, datasheet(units, 'Necron Warriors'))).toEqual(['10x Gauss Flayer']);
-  // A unit-wide choice is one selection every model carries: counted per model, as the export counts it.
-  expect(takenWeapons(unitNamed(view, 'Immortals'), datasheet(units, 'Immortals'))).toEqual(['5x Gauss Blaster']);
-  const fake = (names: string[]): SelView => ({
-    ...warriors,
-    children: names.map((name) => ({ ...warriors.children[0], name, children: [], sel: { ...warriors.children[0].sel, count: 1 } })),
-  });
-  const overlordSheet = datasheet(units, 'Overlord');
-  expect(takenWeapons(fake(['staff of light']), overlordSheet)).toEqual(['Staff of Light (Shooting)', 'Staff of Light (Melee)']);
-  expect(takenWeapons(fake(['  Staff  of   Light ']), overlordSheet)).toEqual(['Staff of Light (Shooting)', 'Staff of Light (Melee)']);
-  expect(takenWeapons(fake(['Nothing That Matches']), overlordSheet)).toBeUndefined();
-  // A relic is chosen as "Relic (Novokh): Blood Scythe" but its datasheet profile is just "Blood Scythe".
-  expect(takenWeapons(fake(['Relic (Novokh): Blood Scythe', 'Staff of Light']), overlordSheet)).toEqual(
-    expect.arrayContaining(['Blood Scythe', 'Staff of Light (Shooting)']),
-  );
-  expect(takenWeapons(fake(['Relic (Novokh): Blood Scythe']), overlordSheet)).toEqual(['Blood Scythe']);
+test('each unit carries its datasheet as listed: only the weapons it has, how many, and who', async () => {
+  const data = await novokhIncursionData();
+  const { view, scope, units } = await viewOf(data);
+  const army = playArmy(view, scope, units);
+  const weapons = (name: string) => army.units.find((u) => u.name === name)!.sheet!.weapons.map((w) => [w.name, w.count ?? 1, w.carriedBy]);
+  expect(weapons('Necron Warriors')).toEqual([['Gauss Flayer', 10, 'Everyone']]);
+  // A unit-wide choice is one selection every model carries: counted per model.
+  expect(weapons('Immortals')).toContainEqual(['Gauss Blaster', 5, 'Everyone']);
+  expect(army.units.find((u) => u.name === 'Necron Warriors')!.sheet!.models.map((m) => `${m.count}x ${m.name}`)).toEqual(['10x Necron Warrior (Gauss Flayer)']); // BSData's model entry, as New Recruit names it
 });
 
 test('the army: totals, choices, roles in rulebook order, and a flat order for Previous and Next', async () => {
@@ -52,7 +41,8 @@ test('the army: totals, choices, roles in rulebook order, and a flat order for P
   expect(army.roles.map((r) => r.role)).toEqual(['HQ', 'Troops', 'Elites']);
   expect(army.units.map((u) => u.name)).toEqual(['Overlord', 'Royal Warden', 'Necron Warriors', 'Immortals', 'Skorpekh Destroyers']);
   const warriors = army.units[2];
-  expect(warriors).toMatchObject({ models: 10, points: 110, wargear: ['10x Gauss Flayer'], warlord: false, warlordTrait: null, taken: ['10x Gauss Flayer'] });
+  expect(warriors).toMatchObject({ models: 10, points: 110, wargear: ['10x Gauss Flayer'], warlord: false, warlordTrait: null });
+  expect(warriors.sheet).not.toBeNull();
   expect(warriors.unit?.name).toBe('Necron Warriors');
   expect(army.units[0]).toMatchObject({ warlord: true, warlordTrait: null }); // Arks of Omen: no trait without the requisition
   const s = unitSummary(unitNamed(view, 'Overlord'));
@@ -70,7 +60,7 @@ test('a unit with no datasheet is still listed', async () => {
   const { view, scope } = await viewOf(await novokhIncursionData());
   const army = playArmy(view, scope, null); // no unit index: no datasheets at all
   expect(army.units).toHaveLength(5);
-  expect(army.units.every((u) => u.unit === null && u.taken === undefined)).toBe(true);
+  expect(army.units.every((u) => u.unit === null && u.sheet === null)).toBe(true);
 });
 
 test('an item the rules data no longer has is listed by name and points, with no datasheet', async () => {
@@ -79,11 +69,5 @@ test('an item the rules data no longer has is listed by name and points, with no
   data.roster = { ...data.roster, forces: [{ ...force, selections: [...force.selections, { id: 'gone-1', entryId: 'no-such-entry', count: 1, children: [] }] }] };
   const { view, scope, units } = await viewOf(data);
   const gone = playArmy(view, scope, units).units.find((u) => u.selId === 'gone-1');
-  expect(gone).toMatchObject({ name: 'Unknown item', role: 'Other', points: 0, unit: null, taken: undefined, wargear: [] });
-});
-
-test('curly and straight apostrophes match each other', () => {
-  const unit = { weapons: [{ name: "Tesla Lord's Staff", chars: {} }, { name: 'Other Gun', chars: {} }] } as never;
-  const v = { children: [{ name: 'Tesla Lord’s Staff', sel: { count: 1 }, children: [] }] } as never;
-  expect(takenWeapons(v, unit)).toEqual(["Tesla Lord's Staff"]);
+  expect(gone).toMatchObject({ name: 'Unknown item', role: 'Other', points: 0, unit: null, sheet: null, wargear: [] });
 });

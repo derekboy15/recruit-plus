@@ -12,11 +12,6 @@ export interface DatasheetViewProps {
   unit: UnitOut;
   /** What to show (a unit in a list: listSheet); without it, the unit as added (factionSheet). */
   sheet?: SheetModel;
-  /**
-   * Weapon names this unit has ("Gauss Flayer", or "10x Gauss Flayer" for a count): shown first, the rest collapsed.
-   * Until the list views pass a `sheet` (Plan H Task 5).
-   */
-  taken?: string[];
   /** The level of the unit's name heading: 1 on the datasheet page, 2 inside sheets. Sections sit one level below. */
   headingLevel?: 1 | 2;
   /** Inside a Sheet already titled with the unit's name: no repeated name heading (the badges and meta line stay). */
@@ -30,14 +25,6 @@ export interface DatasheetViewProps {
 const isExtra = (x: ProfileOut | AbilityOut) => (x as { extra?: true }).extra === true;
 
 const TEXT_KEYS: readonly string[] = TEXT_CHARS;
-
-/** "10x Gauss Flayer" → name "gauss flayer", count 10. */
-function parseTaken(taken: string[]) {
-  return taken.map((t) => {
-    const m = /^(\d+)\s*x\s+(.+)$/i.exec(t.trim());
-    return m ? { name: m[2].trim().toLowerCase(), count: Number(m[1]) } : { name: t.trim().toLowerCase(), count: undefined };
-  });
-}
 
 const heading = (level: number) => `h${Math.min(level, 6)}` as 'h2';
 
@@ -127,32 +114,16 @@ function Abilities({ abilities, level }: { abilities: SheetAbility[]; level: num
   );
 }
 
-/** The legacy list path (until Task 5): the unit's taken weapons with their counts, and the rest. */
-function takenRows(unit: UnitOut, taken: string[]): { rows: SheetWeaponRow[]; other: SheetWeaponRow[] } {
-  const picks = parseTaken(taken);
-  const takenOf = (w: ProfileOut) => {
-    const name = w.name.toLowerCase();
-    return picks.find((t) => name === t.name || name.startsWith(`${t.name} (`));
-  };
-  const row = (w: ProfileOut): SheetWeaponRow => ({ name: w.name, profiles: [w], carriedBy: '', ...(takenOf(w)?.count !== undefined && { count: takenOf(w)!.count }) });
-  return {
-    rows: unit.weapons.filter((w) => takenOf(w)).map(row),
-    other: unit.weapons.filter((w) => !takenOf(w) && !isExtra(w)).map(row),
-  };
-}
-
 /**
  * A unit's datasheet (spec §3, layout B): every stat line, weapon and ability says which model it belongs to. It has no
  * report button: the page that shows it places one (R3).
  */
-export function DatasheetView({ unit, sheet: given, taken, headingLevel = 2, hideName = false }: DatasheetViewProps) {
+export function DatasheetView({ unit, sheet: given, headingLevel = 2, hideName = false }: DatasheetViewProps) {
   const section = headingLevel + 1;
   const Name = heading(headingLevel);
   const sheet = given ?? factionSheet(unit);
-  const legacy = !given && taken ? takenRows(unit, taken) : null;
-  const weapons = legacy ? legacy.rows : sheet.weapons;
-  const otherWeapons = legacy ? legacy.other : [];
-  const extraWeapons = legacy ? sheet.extras.weapons.filter((w) => !legacy.rows.some((r) => r.profiles.includes(w))) : sheet.extras.weapons;
+  const { weapons } = sheet;
+  const extraWeapons = sheet.extras.weapons;
 
   const base = unit.baseSize && !/^use model$/i.test(unit.baseSize.trim()) ? unit.baseSize.trim() : null;
   const meta = [
@@ -213,19 +184,13 @@ export function DatasheetView({ unit, sheet: given, taken, headingLevel = 2, hid
         </Section>
       )}
 
-      {(weapons.length > 0 || otherWeapons.length > 0) && (
+      {weapons.length > 0 && (
         <Section title="Weapons" level={section}>
           <WeaponTable rows={weapons} />
-          {otherWeapons.length > 0 && (
-            <details className="ds__more">
-              <summary>Other wargear options</summary>
-              <WeaponTable rows={otherWeapons} />
-            </details>
-          )}
         </Section>
       )}
 
-      {!legacy && sheet.options.length > 0 && (
+      {sheet.options.length > 0 && (
         <details className="ds__more ds-options">
           <summary>Options</summary>
           <ul className="ds-options__list">
@@ -256,7 +221,7 @@ export function DatasheetView({ unit, sheet: given, taken, headingLevel = 2, hid
         </Section>
       )}
 
-      {!legacy && sheet.canAlsoTake.length > 0 && (
+      {sheet.canAlsoTake.length > 0 && (
         <Section title="Can also take" level={section}>
           <ul className="ds-models">
             {sheet.canAlsoTake.map((k) => (

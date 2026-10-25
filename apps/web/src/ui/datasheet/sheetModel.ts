@@ -3,6 +3,7 @@
  * weapons with who carries them, abilities with who has them. Pure: the view renders it as it comes.
  */
 import type { AbilityOut, ModelKindOut, ProfileOut, UnitOptionOut, UnitOut } from '@recruit/data/model';
+import { optionDisplay, type SelView } from '@recruit/data/roster';
 import { woundBracket, woundTracks } from './format';
 
 export interface Bracket {
@@ -211,6 +212,119 @@ export function factionSheet(unit: UnitOut): SheetModel {
     canAlsoTake: kinds.filter((k) => k.optional),
     abilities,
     extras,
+    keywords: keywordsOf(unit),
+  };
+}
+
+/** The ids a selection was made through: its entry (a link's id for a link) and the entry's target. */
+const idsOf = (s: SelView) => [...new Set([s.sel.entryId, s.merged?.target.id].filter((x): x is string => !!x))];
+/** Everything chosen below a selection, with how many of each per copy of it. */
+const below = (s: SelView, per = 1): { v: SelView; n: number }[] =>
+  s.children.filter((c) => c.sel.count > 0).flatMap((c) => [{ v: c, n: per * c.sel.count }, ...below(c, per * c.sel.count)]);
+/** A choice as New Recruit lists it: "2x Frag grenades"; one that wraps others with them in brackets. */
+const gearName = (v: SelView, n: number): string => {
+  const inner = v.children.filter((c) => c.sel.count > 0).map((c) => gearName(c, c.sel.count));
+  return `${n > 1 ? `${n}x ` : ''}${optionDisplay(v.name).name}${inner.length ? ` (${inner.join(', ')})` : ''}`;
+};
+
+/**
+ * A unit in a list (spec §3.2, New Recruit's order), from the player's own selections: each model, or group of
+ * identical models, with what it carries; stats for the models it has; only the weapons carried, with how many and who;
+ * the abilities that apply. Gear on the unit itself is a "Unit" row; a unit-wide choice goes on every model.
+ */
+export function listSheet(unit: UnitOut, v: SelView): SheetModel {
+  const entries = unit.entries ?? {};
+  const kinds = unit.modelKinds ?? [];
+  const kindOf = (s: SelView) => kinds.find((k) => idsOf(s).some((id) => k.entryIds.includes(id)));
+  const gather = (ids: string[], key: 'w' | 'a') => [...new Set(ids.flatMap((id) => entries[id]?.[key] ?? []))];
+
+  // Read the unit: its models (in a squad inside the squad too), unit-wide choices, and gear on the unit.
+  type Model = { v: SelView; copies: number; kind: ModelKindOut | undefined; gear: { v: SelView; n: number }[] };
+  const models: Model[] = [];
+  const everyone: { v: SelView; n: number }[] = [];
+  const onUnit: { v: SelView; n: number }[] = [];
+  /** The choices made on the unit itself (outside any model), for the Unit row; and the squads' own entries. */
+  const unitChoices: { v: SelView; n: number }[] = [];
+  const containers: SelView[] = [v];
+  const single = v.type !== 'unit' || (kinds.length === 1 && !!kindOf(v));
+  if (single) models.push({ v, copies: Math.max(1, v.sel.count), kind: kinds[0], gear: below(v) });
+  else {
+    const walk = (s: SelView, copies: number) => {
+      for (const c of s.children.filter((x) => x.sel.count > 0)) {
+        if (c.type === 'model') models.push({ v: c, copies: copies * c.sel.count, kind: kindOf(c), gear: below(c) });
+        else if (c.type === 'unit') {
+          containers.push(c);
+          walk(c, copies * c.sel.count);
+        } else {
+          if (!c.merged?.node.perModel) unitChoices.push({ v: c, n: c.sel.count });
+          (c.merged?.node.perModel ? everyone : onUnit).push({ v: c, n: c.sel.count }, ...below(c, c.sel.count));
+        }
+      }
+    };
+    walk(v, 1);
+  }
+  const total = models.reduce((n, m) => n + m.copies, 0);
+
+  // Models: grouped when the same kind carries the same gear.
+  const rows: SheetModelRow[] = [];
+  for (const m of models) {
+    const name = m.kind?.name ?? optionDisplay(m.v.name).name;
+    const own = m.v === v ? v.children : m.v.children;
+    const gear = [
+      ...own.filter((c) => c.sel.count > 0).map((c) => gearName(c, c.sel.count)),
+      ...everyone.filter((e) => e.v.merged?.node.perModel && e.v.parent === v).map((e) => gearName(e.v, 1)),
+    ].sort((a, b) => a.localeCompare(b));
+    const row = rows.find((r) => r.name === name && r.gear.join('|') === gear.join('|'));
+    if (row) row.count += m.copies;
+    else rows.push({ count: m.copies, name, gear });
+  }
+  // The unit's own gear: choices on it, and what its entry (or a squad inside it) carries without a choice.
+  const ownWeapons = single ? [] : gather(containers.flatMap(idsOf), 'w');
+  const unitRow = [...unitChoices.map((g) => gearName(g.v, g.n)), ...ownWeapons.map((i) => unit.weapons[i]?.name).filter((x): x is string => !!x)];
+  if (unitRow.length) rows.push({ count: 0, name: 'Unit', gear: [...new Set(unitRow)].sort((a, b) => a.localeCompare(b)) });
+
+  // Weapons: how many of each, and who carries it.
+  const carriedBy = new Map<number, Map<string, number>>();
+  const counts = new Map<number, number>();
+  const label = (m: Model) => (m.kind && unit.models[m.kind.profile]?.name) || optionDisplay(m.v.name).name;
+  for (const m of models) {
+    for (const i of gather([...idsOf(m.v), ...m.gear.flatMap((g) => idsOf(g.v))], 'w')) {
+      const g = carriedBy.get(i) ?? new Map<string, number>();
+      g.set(label(m), (g.get(label(m)) ?? 0) + m.copies);
+      carriedBy.set(i, g);
+      counts.set(i, (counts.get(i) ?? 0) + m.copies);
+    }
+  }
+  const weaponEntries: { index: number; carriedBy: string; count?: number }[] = [];
+  for (const i of gather(everyone.flatMap((e) => idsOf(e.v)), 'w')) weaponEntries.push({ index: i, carriedBy: single ? '' : 'Everyone', count: total });
+  for (const g of onUnit) for (const i of gather(idsOf(g.v), 'w')) if (!weaponEntries.some((e) => e.index === i)) weaponEntries.push({ index: i, carriedBy: single ? '' : 'Unit', count: g.n });
+  for (const i of ownWeapons) if (!weaponEntries.some((e) => e.index === i)) weaponEntries.push({ index: i, carriedBy: 'Unit' });
+  for (const [i, groups] of carriedBy) if (!weaponEntries.some((e) => e.index === i)) weaponEntries.push({ index: i, carriedBy: single ? '' : carriers(groups, total), count: counts.get(i) });
+  weaponEntries.sort((a, b) => a.index - b.index);
+
+  // Abilities: the unit's own, those its models and their gear grant, and any the data gives no entry (the datasheet's).
+  const attributed = new Set(Object.values(entries).flatMap((e) => e.a ?? []));
+  const who = new Map<number, string[]>();
+  const give = (i: number, l: string) => who.set(i, [...new Set([...(who.get(i) ?? []), l])]);
+  for (const i of unit.unitGear?.abilities ?? []) give(i, 'Unit');
+  for (const i of gather([...onUnit, ...everyone].flatMap((g) => idsOf(g.v)), 'a')) give(i, 'Unit');
+  for (const m of models) for (const i of gather([...idsOf(m.v), ...m.gear.flatMap((g) => idsOf(g.v))], 'a')) give(i, single ? '' : (m.kind ? m.kind.name : optionDisplay(m.v.name).name).replace(/\s+w\/\s+/gi, ' with '));
+  unit.abilities.forEach((a, i) => !isExtra(a) && !attributed.has(i) && give(i, 'Unit'));
+  const abilities: SheetAbility[] = [...who].map(([i, given]) => {
+    const labels = given.length > 1 ? given.filter((l) => l !== 'Unit') : given;
+    return { ability: unit.abilities[i], who: labels.filter(Boolean).join(', ') };
+  }).filter((a) => a.ability);
+  const rank = (w: string) => (w === 'Unit' ? 0 : 1);
+  abilities.sort((a, b) => rank(a.who) - rank(b.who));
+
+  return {
+    models: rows,
+    stats: kinds.length ? statRows(unit, models.filter((m) => m.kind).map((m) => ({ profile: m.kind!.profile, count: m.copies }))) : factionSheet(unit).stats,
+    weapons: weaponRows(unit, weaponEntries),
+    options: [],
+    canAlsoTake: [],
+    abilities,
+    extras: { weapons: [], abilities: [] },
     keywords: keywordsOf(unit),
   };
 }

@@ -14,6 +14,7 @@ import {
   type Scope,
   type SelView,
 } from '@recruit/data/roster';
+import { listSheet, type SheetModel } from '../../ui/datasheet';
 import { isArmyOption, isAutoManaged, unitName, unitsByRole } from '../editorView';
 import { unitInfo, type UnitIndex } from '../unitIndex';
 
@@ -29,8 +30,8 @@ export interface PlayUnit {
   warlordTrait: string | null;
   /** Its datasheet; null when the rules data has none (or no longer has the item at all). */
   unit: UnitOut | null;
-  /** The datasheet's weapons it carries (takenWeapons); undefined: show them all. */
-  taken: string[] | undefined;
+  /** Its datasheet as listed (each model with what it carries); null without one. */
+  sheet: SheetModel | null;
 }
 /** An army-wide choice the player made: { heading: 'Dynasty', name: 'Novokh', entryId }. */
 export interface PlayChoice { heading: string; name: string; entryId: string }
@@ -47,42 +48,6 @@ export interface PlayArmy {
   roles: { role: string; units: PlayUnit[] }[];
   /** The same units, flat, in the order shown (for Previous and Next). */
   units: PlayUnit[];
-}
-
-/** For matching names: lower case, trimmed, single spaces, curly apostrophes straight. */
-const norm = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'").replace(/\s+/g, ' ').trim();
-
-/** Every selection under `v` with its number of copies (the product of the counts down to it), none of them zero. */
-function counted(children: SelView[], copies = 1): { name: string; qty: number }[] {
-  return children.flatMap((c) => {
-    const qty = copies * c.sel.count;
-    // By its display name: a relic chosen as "Relic (Novokh): Blood Scythe" has the profile "Blood Scythe".
-    return qty > 0 ? [{ name: norm(optionDisplay(c.name).name), qty }, ...counted(c.children, qty)] : [];
-  });
-}
-
-/**
- * The datasheet's weapon profiles this unit carries: a profile matches a selection by name, or as one of its modes
- * ("Staff of Light" → "Staff of Light (Shooting)" and "(Melee)"), ignoring case, spacing and apostrophes. A weapon the
- * unit has several of reads "10x Gauss Flayer", which DatasheetView shows as ×10. Undefined when nothing matches, so
- * the datasheet shows every weapon rather than none.
- */
-export function takenWeapons(v: SelView, unit: UnitOut): string[] | undefined {
-  const held = new Map<string, number>();
-  for (const { name, qty } of counted(v.children)) held.set(name, (held.get(name) ?? 0) + qty);
-  // The summary counts a unit-wide choice once per model ("5x Gauss Blaster"), which the plain walk above can't know.
-  for (const g of unitSummary(v).gear) {
-    const m = /^([\d,]+)x (.+)$/.exec(g);
-    const name = norm(m ? m[2] : g);
-    if (held.has(name)) held.set(name, m ? Number(m[1].replace(/,/g, '')) : 1);
-  }
-  const out: string[] = [];
-  for (const p of unit.weapons) {
-    const name = norm(p.name);
-    const qty = [...held].find(([h]) => name === h || name.startsWith(`${h} (`))?.[1];
-    if (qty !== undefined) out.push(qty > 1 ? `${qty}x ${p.name}` : p.name);
-  }
-  return out.length ? out : undefined;
 }
 
 const OTHER = 'Other';
@@ -105,7 +70,7 @@ function playUnit(scope: Scope, units: UnitIndex | null, v: SelView, role: strin
     warlord: s?.warlord ?? false,
     warlordTrait: s?.traits[0] ?? null,
     unit,
-    taken: unit ? takenWeapons(v, unit) : undefined,
+    sheet: unit ? listSheet(unit, v) : null,
   };
 }
 

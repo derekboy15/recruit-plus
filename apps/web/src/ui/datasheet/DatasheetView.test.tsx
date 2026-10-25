@@ -45,30 +45,7 @@ test('weapons are rows with the five numbers', () => {
   expect(within(row).queryByText('-')).toBeNull();
 });
 
-test('taken weapons come first; the rest wait, closed, under Other wargear options', () => {
-  show(<DatasheetView unit={warriors} taken={['Gauss Flayer']} />);
-  const other = screen.getByText('Other wargear options').closest('details')!;
-  expect(other).not.toHaveAttribute('open');
-  expect(within(other).getByRole('rowgroup', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
-  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Gauss Flayer' }));
-});
-
-test('taken matches every profile of a multi-profile weapon', () => {
-  const shooting: ProfileOut = { name: 'Staff of Light (Shooting)', chars: { Range: '18"', Type: 'Assault 3', S: '5', AP: '-2', D: '1' } };
-  const melee: ProfileOut = { name: 'Staff of Light (Melee)', chars: { Range: 'Melee', Type: 'Melee', S: 'User', AP: '-2', D: '1' } };
-  show(<DatasheetView unit={{ ...warriors, weapons: [shooting, melee, reaper] }} taken={['Staff of Light']} />);
-  const other = screen.getByText('Other wargear options').closest('details')!;
-  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Staff of Light (Shooting)' }));
-  expect(other).not.toContainElement(screen.getByRole('rowgroup', { name: 'Staff of Light (Melee)' }));
-  expect(within(other).getByRole('rowgroup', { name: 'Gauss Reaper', hidden: true })).toBeInTheDocument();
-});
-
-test('a taken count shows on the weapon card', () => {
-  show(<DatasheetView unit={warriors} taken={['10x Gauss Flayer']} />);
-  expect(within(screen.getByRole('rowgroup', { name: 'Gauss Flayer' })).getByText('×10')).toBeInTheDocument();
-});
-
-test('without taken, every weapon of the unit is listed, and nothing is under Other wargear options', () => {
+test('every weapon of a unit without per-model data is listed, and nothing is under Other wargear options', () => {
   show(<DatasheetView unit={warriors} />);
   expect(screen.getByRole('rowgroup', { name: 'Gauss Reaper' }).closest('details')).toBeNull();
   expect(screen.queryByText('Other wargear options')).toBeNull();

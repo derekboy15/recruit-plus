@@ -119,7 +119,7 @@ function UnitSheetBody({ u }: { u: PlayUnit }) {
       <p className="play-sheet__sub">{`${u.role} · ${plural(u.models, 'model', 'models')} · ${fmt(u.points)} pts`}</p>
       {u.wargear.length > 0 && <p className="play-sheet__gear">{u.wargear.join(' · ')}</p>}
       {u.unit ? (
-        <DatasheetView unit={u.unit} taken={u.taken} headingLevel={2} hideName />
+        <DatasheetView unit={u.unit} sheet={u.sheet ?? undefined} headingLevel={2} hideName />
       ) : (
         <p className="muted">This unit has no datasheet in the rules data.</p>
       )}
