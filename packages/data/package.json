@@ -6,6 +6,7 @@
   "exports": {
     "./model": "./src/model/types.ts",
     "./roster": "./src/roster/index.ts",
+    "./names": "./src/roster/names.ts",
     "./missions": "./src/missions/index.ts"
   },
   "scripts": {

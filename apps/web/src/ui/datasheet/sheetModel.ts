@@ -3,7 +3,8 @@
  * weapons with who carries them, abilities with who has them. Pure: the view renders it as it comes.
  */
 import type { AbilityOut, ModelKindOut, ProfileOut, UnitOptionOut, UnitOut } from '@recruit/data/model';
-import { optionDisplay, type SelView } from '@recruit/data/roster';
+import { optionDisplay } from '@recruit/data/names';
+import type { SelView } from '@recruit/data/roster';
 import { woundBracket, woundTracks } from './format';
 
 export interface Bracket {
