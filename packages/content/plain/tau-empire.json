@@ -221,6 +221,11 @@
     "kind": "ability",
     "plain": "Aura: models in your KROOT units can use this model's Leadership characteristic in place of their own while their unit is within 6\" of this model."
   },
+  "1fc6904cd9a5": {
+    "name": "Stratagem: Promising Pupil",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering, if your WARLORD has the T'AU EMPIRE keyword, give one of your T'AU EMPIRE CHARACTER models a Warlord Trait it can have. That model counts as your Warlord for that Warlord Trait only. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly), and this Stratagem can't give a model 2 Warlord Traits. You can use it only once, or twice in a Strike Force battle, or 3 times in an Onslaught battle."
+  },
   "20aac66831c4": {
     "name": "Grav-Inhibitor Field",
     "kind": "ability",
@@ -303,6 +308,11 @@
     "name": "Master of War (Aura) (Shadowsun)",
     "kind": "ability",
     "plain": "Aura: while one of your T'AU EMPIRE CORE units is within 6\" of this unit's COMMANDER SHADOWSUN model, re-roll a hit roll of 1 whenever a CORE model in this unit makes an attack."
+  },
+  "2e434d5f857a": {
+    "name": "Stratagem: Emergency Dispensation",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering, if your WARLORD has the T'AU EMPIRE keyword, give one of your T'AU EMPIRE CHARACTER models a Relic it can have. Every Relic in your army must be different, and this Stratagem can't give a model 2 Relics. You can use it only once, or twice in a Strike Force battle, or 3 times in an Onslaught battle."
   },
   "2eaede62f619": {
     "name": "Hover Drone",
@@ -525,6 +535,11 @@
     "kind": "ability",
     "plain": "Roll a D6 when this model is destroyed, before any embarked models disembark and before it is removed from play. On a 6 it explodes, dealing 2D6 mortal wounds to every unit within 2D6\"."
   },
+  "4baa7b333bea": {
+    "name": "3. Zephyr's Grace",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: subtract 1 from the hit roll of ranged attacks against it. This only applies if the unit didn't Remain Stationary in your previous Movement phase. You can't pick a FARSIGHT ENCLAVES unit."
+  },
   "4dec80ba77df": {
     "name": "Wide-Spectrum Scanners",
     "kind": "ability",
@@ -629,6 +644,11 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save, and you add 1 to its armour saving throws."
   },
+  "5dfa24cca593": {
+    "name": "Tiger Shark (Transport)",
+    "kind": "ability",
+    "plain": "This model can transport up to 14 <SEPT> TACTICAL DRONES models."
+  },
   "5e84cfcda9fb": {
     "name": "Submunitions",
     "kind": "stratagem",
@@ -705,6 +725,11 @@
     "kind": "weapon",
     "plain": "For each unmodified hit roll of 1 made for an attack with this profile, the bearer's unit suffers 1 mortal wound once it has finished shooting with this weapon."
   },
+  "6a17f4d76d57": {
+    "name": "1. Storm of Fire",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: it can make ranged attacks without its actions failing. You can't pick a FARSIGHT ENCLAVES unit."
+  },
   "6a96e3e81084": {
     "name": "Neuroweb System Jammer",
     "kind": "ability",
@@ -776,6 +801,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your FARSIGHT ENCLAVES CORE units is within 6\" of this model, re-roll a hit roll of 1 whenever a CORE model in that unit makes an attack."
   },
+  "70e173d7b82e": {
+    "name": "4. Power of Tides",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU AUXILIARY units within 6\" of this ETHEREAL: add 1 to the wound roll for every attack its models make."
+  },
   "71fe2e9d70df": {
     "name": "Tactical Acumen (Crisis)",
     "kind": "ability",
@@ -800,6 +830,11 @@
     "name": "Advanced Guardian Shield Generator",
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save. A model can only pick this unit as a target for ranged attacks if this unit is the closest eligible target to that model."
+  },
+  "752da8e94cab": {
+    "name": "5. Unifying Mantra (Aura)",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, your T'AU EMPIRE CORE units (not FARSIGHT ENCLAVES units) within 6\" of this ETHEREAL:\n- can re-roll Morale tests taken for them.\n- add 1 to Combat Attrition tests taken for them."
   },
   "7908db0ea54c": {
     "name": "Remora Seeker Missile",
@@ -991,6 +1026,11 @@
     "name": "XV22 Stalker Battlesuit",
     "kind": "ability",
     "plain": "The COMMANDER SHADOWSUN model in this unit has a 5+ invulnerable save."
+  },
+  "8ed895724a72": {
+    "name": "6. Wisdom of the Guides",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, you receive 1 Command point."
   },
   "8f542c5d7784": {
     "name": "1. Master of the Hunt (Aura)",
@@ -1238,6 +1278,11 @@
     "name": "Ambushing Predators",
     "kind": "ability",
     "plain": "When the first battle round starts, models in this unit may move up to 7\" as a Normal Move. They must finish that move more than 9\" away from all enemy models."
+  },
+  "b51c2e13b710": {
+    "name": "2. Sense of Stone",
+    "kind": "ability",
+    "plain": "If this invocation is inspiring, pick one of your T'AU EMPIRE CORE units within 6\" of this ETHEREAL: its CORE models ignore lost wounds on a 5+. You can't pick a FARSIGHT ENCLAVES unit. Roll one D6 whenever a CORE model in that unit would lose a wound; on a 5+, that wound isn't lost."
   },
   "b7146478ea30": {
     "name": "Explodes",

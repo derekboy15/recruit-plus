@@ -114,6 +114,11 @@
     "kind": "ability",
     "plain": "Add 2 to the charge roll of a unit with this custom if it declares a charge against only one target and that target has 1 or more Judgement tokens."
   },
+  "2f1715b89f72": {
+    "name": "Sagitaur",
+    "kind": "ability",
+    "plain": "This model's Transport capacity is 5 <LEAGUE> INFANTRY models, but it can't carry EXO-ARMOUR or EXO-FRAME models."
+  },
   "2f44d440f97b": {
     "name": "Exactor",
     "kind": "weapon",
@@ -473,6 +478,11 @@
     "name": "Weaponsmiths",
     "kind": "ability",
     "plain": "Ranged weapons that models with this custom are equipped with (other than Relics) get 4\" added to their Range characteristic."
+  },
+  "b9b7764c6a74": {
+    "name": "Eye of the Ancestors",
+    "kind": "rule",
+    "plain": "The Eye of the Ancestors army rule (Judgement tokens) applies here, used as published together with its later updates and errata."
   },
   "baad2af1e931": {
     "name": "Accelerated Response",

@@ -39,6 +39,11 @@
     "kind": "ability",
     "plain": "When the Fight phase starts, roll a D6 for each enemy unit that is within 6\" of this model; each unit you roll a 4+ for takes 1 mortal wound."
   },
+  "0c74b9dc1e00": {
+    "name": "Command Protocols",
+    "kind": "ability",
+    "plain": "A summary of the Command Protocols appears at the bottom of the list output."
+  },
   "0ca828497593": {
     "name": "Voidreaper",
     "kind": "weapon",
@@ -113,6 +118,16 @@
     "name": "The Royal Court",
     "kind": "rule",
     "plain": "When you muster your army, your WARLORD must be chosen in this order of priority: THE SILENT KING model if your army has one; if not, a PHAERON model; if not, an OVERLORD model; if not, a LORD model. If your army has none of these models, pick your WARLORD in the normal way."
+  },
+  "1964d13cf27c": {
+    "name": "Cosmic Tyrant",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, if this model didn't Advance or Fall Back that phase, it can use 1 extra C'tan Power it knows. It can't use the same C'tan Power more than once per turn."
+  },
+  "1a3a5aa3ede6": {
+    "name": "Annihilation Protocols - Protocol of Perfect Destruction",
+    "kind": "rule",
+    "plain": "Directive 1: this unit adds 1 to its charge rolls.\nDirective 2: models in this unit can move up to an extra 3\" whenever they pile in or consolidate."
   },
   "1af90a895fe1": {
     "name": "Nano-Scarab Reanimation Beam (Aura)",
@@ -255,6 +270,11 @@
     "kind": "ability",
     "plain": "This unit can benefit from this ability, and the rules below apply, if every unit in your army (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units) comes from the same dynasty and your WARLORD is a NECRONS CHARACTER model.\n\nOnce both sides have deployed, and before you determine who takes the first turn, you must secretly assign a different command protocol to each of the first five battle rounds and write this on your army roster.\n\nAt the start of every battle round, if at least one NECRONS CHARACTER unit from your army is on the battlefield, the command protocol assigned to that round becomes active for your army until that round ends. Every command protocol has two directives. When one becomes active, show it to your opponent and choose one of its directives. For as long as that protocol stays active, each unit eligible for this ability that is on the battlefield gets the benefit of the chosen directive.\n\nAlso, if all your army's units are from the same dynasty (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units), pick one command protocol that wasn't assigned to any battle round (normally there is only one left). It is active in every battle round on top of that round's assigned protocol; at the start of each battle round, choose which of its directives your units benefit from. If this extra protocol is the one named in your dynasty's code, then both of its directives apply to every unit with this ability in your army in every battle round, on top of the protocol assigned to that round."
   },
+  "2f6fe3b865b4": {
+    "name": "Cosmic Insanity",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 12\" of this C'TAN SHARD that it can see; it suffers 1 mortal wound for each point by which your total beats your opponent's. To get the totals, you roll one D6 and add this C'TAN SHARD's Leadership characteristic, then your opponent rolls one D6 and adds that unit's Leadership characteristic."
+  },
   "2ffb2f94a978": {
     "name": "Nightcull Scythe",
     "kind": "weapon",
@@ -275,10 +295,20 @@
     "kind": "ability",
     "plain": "Models with this code add 3\" to the Range characteristic of their ranged weapons, except Pistols."
   },
+  "3126964d5af4": {
+    "name": "Seismic Assault",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 18\" of this C'TAN SHARD that it can see and roll one D6 per model in it: each 6+ inflicts 1 mortal wound on the unit (10 at most). If this C'TAN SHARD is a TESSERACT VAULT, add 1 to each of those rolls."
+  },
   "3221390a4a15": {
     "name": "The Triarch's Will",
     "kind": "ability",
     "plain": "If your WARLORD has this Warlord Trait, you can pick 4 command protocols instead of 5 when you assign them for the battle. You can then assign one of those protocols to 2 battle rounds instead of one."
+  },
+  "33024ceb3ec4": {
+    "name": "Gaze of Death",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 9\" of this C'TAN SHARD that it can see and roll 3 D6s: that unit suffers D3 mortal wounds for each 4+."
   },
   "3396719c0df2": {
     "name": "Phaeron of the Stars (Aura)",
@@ -300,6 +330,11 @@
     "kind": "ability",
     "plain": "Once per battle, when you use a Stratagem while your army is Battle-forged and this model is on the battlefield, this model can use its Predictive Strategy to make that Stratagem cost 1CP less (to a minimum of 0CP). This discount only applies to that single use; using the Stratagem again later costs the usual amount of CP."
   },
+  "35c1ed76a29d": {
+    "name": "Annihilation Protocols - Protocol of the Dread Strike",
+    "kind": "rule",
+    "plain": "Directive 1: melee attacks by models in this unit automatically wound the target on an unmodified hit roll of 6.\nDirective 2: add 1 to the wound roll of a ranged attack by a model in this unit when that attack has an unmodified hit roll of 6."
+  },
   "3678759ac787": {
     "name": "Inspiring Leader (Aura)",
     "kind": "ability",
@@ -314,6 +349,11 @@
     "name": "Adaptive Strategy",
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. For the rest of the turn, that unit can still shoot and declare a charge in a turn when it Fell Back."
+  },
+  "3b776d1fe5d3": {
+    "name": "Sky of Falling Stars",
+    "kind": "ability",
+    "plain": "Pick up to 3 enemy units within 24\" of this C'TAN SHARD and roll one D6 for each. On a 1-5, if the result is lower than the number of models in that unit, it suffers D3 mortal wounds, or 3 mortal wounds instead of D3 if this C'TAN SHARD is a TESSERACT VAULT."
   },
   "3c09cc9017d9": {
     "name": "Dimensional Sanctum",
@@ -425,6 +465,11 @@
     "kind": "ability",
     "plain": "If your army is Battle-forged, each CRYPTEK unit in a Detachment lets you include one CRYPTOTHRALLS unit in that Detachment without using up a Battlefield Role slot."
   },
+  "4db4c64c227e": {
+    "name": "Voltaic Storm",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 18\" of this C'TAN SHARD that it can see and roll one D6: on a 2+, it suffers D3 mortal wounds (D6 if it is a VEHICLE). An enemy CHARACTER unit whose Wounds characteristic is 9 or less can't be picked while it is within 3\" of any other enemy unit, unless it is the closest visible enemy unit. Also on a 2+, if the target is a VEHICLE with characteristics that change as it loses wounds, then until the start of your next turn it counts its remaining wounds as half their number when working out which characteristics it uses."
+  },
   "4dd69e1ed379": {
     "name": "Merciless Tyrant",
     "kind": "ability",
@@ -434,6 +479,11 @@
     "name": "Sempiternal Weave",
     "kind": "ability",
     "plain": "The bearer's Toughness and Wounds characteristics are each increased by 1."
+  },
+  "5136b1380842": {
+    "name": "Secondary Objective - Purge the Vermin",
+    "kind": "rule",
+    "plain": "Battlefield Supremacy: at the end of your turn, score 2 victory points per table quarter with no enemy units (except AIRCRAFT units) wholly within it. You can't score this objective in the first battle round."
   },
   "5218e93a1768": {
     "name": "Resurrection Orb",
@@ -520,10 +570,30 @@
     "kind": "ability",
     "plain": "You can add 1 to the hit roll of any attack a model with this code makes against a CHARACTER unit."
   },
+  "617281065d6c": {
+    "name": "Transdimensional Displacement",
+    "kind": "ability",
+    "plain": "This model also gets the Dimensional Translocation ability."
+  },
+  "633025defe9f": {
+    "name": "Command Protocols - Protocol of the Sudden Storm",
+    "kind": "rule",
+    "plain": "Directive 1: models in this unit add 1\" to their Move characteristic.\nDirective 2: this unit can make ranged attacks while performing an action without the action failing."
+  },
   "6526103295c9": {
     "name": "Fabricator Claw Array",
     "kind": "ability",
     "plain": "When your Movement phase ends, the bearer can repair one of your <DYNASTY> VEHICLE models within 3\" of it, which gets back up to D3 lost wounds. No model can be repaired more than once per turn."
+  },
+  "658750a3ef54": {
+    "name": "Time's Arrow",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 18\" of this C'TAN SHARD that it can see and roll one D6 (add 1 if this C'TAN SHARD is a TESSERACT VAULT). If the result is equal to or higher than the Wounds characteristic of any models in that unit, your opponent picks one of those models and it is destroyed."
+  },
+  "659faabfab93": {
+    "name": "Immune to Natural Law",
+    "kind": "ability",
+    "plain": "Attacks against this model always fail to wound on an unmodified wound roll of 1-3, whatever abilities the attacker's weapon has."
   },
   "66699eb017df": {
     "name": "Aetheric Interception",
@@ -534,6 +604,11 @@
     "name": "Fractured Personality (Instructions)",
     "kind": "ability",
     "plain": "Before the battle, choose one ability from the table for this model to keep for the whole battle. Or, instead, roll two D6 and look up both results to give this model two random abilities (if both dice show the same number, roll both again until they differ). On the table, 1 is Cosmic Tyrant, 2 is Immune to Natural Law, 3 is Sentient Necrodermis, 4 is Transdimensional Displacement, 5 is Untamed Power and 6 is Writhing Worldscape."
+  },
+  "67a0c23b0390": {
+    "name": "Transdimensional Thunderbolt",
+    "kind": "ability",
+    "plain": "Pick one enemy unit within 24\" of this C'TAN SHARD that it can see and roll one D6: on a 2+, the target suffers D3 mortal wounds. An enemy CHARACTER unit whose Wounds characteristic is 9 or less can't be picked while it is within 3\" of any other enemy unit, unless it is the closest visible enemy unit. Next, roll one D6 for every other enemy unit within 3\" of the target (6\" instead if this C'TAN SHARD is a TESSERACT VAULT); each one you roll a 4+ for suffers 1 mortal wound."
   },
   "69c41b52d3f6": {
     "name": "Harbinger of Despair",
@@ -595,10 +670,20 @@
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the NECRONS keyword: pick one NECRONS CHARACTER model in your army (not a C'TAN SHARD model) and give it one Relic it is allowed to have. Every Relic in your army must be different, and this Stratagem can't give a model a second Relic. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
+  "74b9b51fa54f": {
+    "name": "Secondary Objective - Ancient Machineries",
+    "kind": "rule",
+    "plain": "Shadow Operations secondary objective: score 3 victory points each time one of your units completes the Awaken Ancient Machinery action.\n\nAfter both sides have deployed, the players take turns, starting with your opponent, picking objective markers outside every player's deployment zone as Ancient Machinery objective markers until 3 are picked (if only 1 or 2 such markers exist, just those are Ancient Machinery objective markers).\n\nAwaken Ancient Machinery (Action): one or more of your NECRONS CORE or NECRONS CANOPTEK units can start this action at the end of your Movement phase. Each unit that starts it must be in range of a different Ancient Machinery objective marker, and no unit can start it while any enemy unit (other than AIRCRAFT) is in range of that same marker. It is completed at the end of your next Command phase, as long as the unit is still in range of its Ancient Machinery objective marker."
+  },
   "75cef71e4601": {
     "name": "Rites of Reanimation (Necrons)",
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your NECRONS CORE units that is within 6\" of this model. One of that unit's destroyed models is Reanimated, or D3 of them if it is a NECRON WARRIORS unit. No unit can be chosen for this ability more than once per phase."
+  },
+  "76236aa11426": {
+    "name": "Secondary Objective - Code of Combat",
+    "kind": "rule",
+    "plain": "No Mercy, No Respite secondary objective: at the end of the battle, score 3 victory points for every enemy unit destroyed by one of your NECRONS NOBLE units."
   },
   "768b03fa2c1a": {
     "name": "Hyperdense Particle Beams",
@@ -625,10 +710,20 @@
     "kind": "ability",
     "plain": "Whenever this model makes a Normal Move, Advances or Falls Back, first turn it on the spot by up to 90 degrees (this doesn't count toward the distance it moves), then move it straight forwards. After that first pivot, it can't pivot again."
   },
+  "7917829d5c10": {
+    "name": "Annihilation Protocols - Protocol of the Killing Surge",
+    "kind": "rule",
+    "plain": "Directive 1: models in this unit add 2\" to their Move characteristic.\nDirective 2: this unit can charge in a turn in which it Fell Back."
+  },
   "7a01fbdf2cee": {
     "name": "The Vargard's Duty (Aura)",
     "kind": "ability",
     "plain": "Aura: enemy models can't target a NEMESOR ZAHNDREKH unit of yours with ranged attacks while it is within 3\" of this model."
+  },
+  "7e5228d250fa": {
+    "name": "Annihilation Protocols - Protocol of the Immortal Warrior",
+    "kind": "rule",
+    "plain": "Directive 1: add 1 to the Toughness characteristic of this unit's models.\nDirective 2: improve the Save characteristic of this unit's models by 1, to no better than 2+. This doesn't affect invulnerable saves."
   },
   "7f4a86db2a5b": {
     "name": "Reanimation Protocols",
@@ -660,6 +755,11 @@
     "kind": "ability",
     "plain": "While Szarekh has 8 or fewer wounds left, it can't attack with its Staff of Stars and it loses the Phaeron of the Stars ability. While it has 4 or fewer wounds left, it also can't attack with its Scythe of Dust and it loses the Phaeron of the Blades ability."
   },
+  "886f3c6f42f2": {
+    "name": "Secondary Objective - Code of Combat",
+    "kind": "rule",
+    "plain": "Purge the Enemy: when the battle ends, score:\n- 3 victory points per enemy unit destroyed during the battle by a ranged attack from your NECRONS NOBLE units.\n- 4 victory points per enemy unit destroyed during the battle by a melee attack from your NECRONS NOBLE units.\n\nAlso, each time a melee attack by one of your NECRONS NOBLE units destroys an enemy CHARACTER unit, you gain 1 Command point."
+  },
   "89592a22eb81": {
     "name": "Guardian Protocols",
     "kind": "ability",
@@ -669,6 +769,11 @@
     "name": "Canoptek Control Node",
     "kind": "ability",
     "plain": "The bearer gains this ability: 'Control Node (Aura): while one of your <DYNASTY> CANOPTEK units is within 6\" of this model, add 1 to the hit roll of every attack made by a model in that unit.'"
+  },
+  "8adabc7a0dce": {
+    "name": "Secondary Objective - Purge the Vermin",
+    "kind": "rule",
+    "plain": "Battlefield Supremacy: when your turn ends, score:\n- 1 victory point per table quarter with no enemy units (other than AIRCRAFT units) wholly within it.\n- 1 victory point if no enemy units (other than AIRCRAFT units) are wholly within your deployment zone."
   },
   "8b7cfb1acf0c": {
     "name": "Convergence of Dominion",
@@ -700,6 +805,11 @@
     "kind": "weapon",
     "plain": "Blast. Your opponent can't use invulnerable saves against attacks made with this weapon."
   },
+  "9214531fefce": {
+    "name": "Secondary Objective - The Treasures of Aeons",
+    "kind": "rule",
+    "plain": "No Mercy, No Respite secondary objective: score victory points at the end of your turn for controlling objective markers your opponent chose. After both sides have deployed, your opponent picks 3 objective markers on the battlefield. At the end of your turn, if you control 1 or more of them, score:\n- 2 victory points for 1 marker.\n- 3 victory points for 2 markers.\n- 5 victory points for 3 markers."
+  },
   "92bbcdd32884": {
     "name": "Thrall of the Silent King",
     "kind": "ability",
@@ -724,6 +834,11 @@
     "name": "The Lord's Will",
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
+  },
+  "99e8dab98d9b": {
+    "name": "Command Protocols - Protocol of the Hungry Void",
+    "kind": "rule",
+    "plain": "Directive 1: an unmodified wound roll of 6 for a melee attack by a model in this unit improves that attack's Armour Penetration characteristic by 1.\nDirective 2: add 1 to the Strength characteristic of melee attacks made by this unit's models if the unit has made a charge move, been charged or performed a Heroic Intervention this turn."
   },
   "9b3cca5e24af": {
     "name": "Blood Scythe",
@@ -810,6 +925,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, pick one enemy unit (not a VEHICLE unit) within 18\" of the bearer and roll 3D6. If the total equals or beats that unit's Leadership characteristic, it takes D3 mortal wounds."
   },
+  "a62f07facb26": {
+    "name": "Command Protocols - Protocol of the Vengeful Stars",
+    "kind": "rule",
+    "plain": "Directive 1: an unmodified wound roll of 6 for a ranged attack by a model in this unit improves that attack's Armour Penetration characteristic by 1.\nDirective 2: when a model in this unit makes a ranged attack against a unit within half range, the target gets no benefit from cover to its saving throw against that attack."
+  },
   "a69270ad44c0": {
     "name": "Interplanetary Invaders",
     "kind": "ability",
@@ -859,6 +979,11 @@
     "name": "Relentlessly Expansionist",
     "kind": "ability",
     "plain": "Units with this code can each make a Normal Move of up to 6\" when the first battle round starts, before any turn has begun."
+  },
+  "ac3f4cd70e6b": {
+    "name": "Command Protocols - Protocol of the Undying Legions",
+    "kind": "rule",
+    "plain": "Directive 1: whenever this unit uses its Living Metal ability, each of its models gets back 1 extra lost wound.\nDirective 2: when making Reanimation Protocol rolls for this unit, you may re-roll one of the dice."
   },
   "ad0c5c197a71": {
     "name": "Fluid Necrodermis",
@@ -988,6 +1113,11 @@
     "kind": "stratagem",
     "plain": "When a TRIARCH unit is picked to shoot in your Shooting phase, or picked to fight in the Fight phase: until the phase ends, add 1 to the hit roll of every attack made by a model in that unit."
   },
+  "c15ac64f0662": {
+    "name": "Sentient Necrodermis",
+    "kind": "ability",
+    "plain": "This model's Save characteristic is 3+."
+  },
   "c1642ab8c8c7": {
     "name": "Burrowing Nightmares",
     "kind": "stratagem",
@@ -1002,6 +1132,16 @@
     "name": "Arkana: Atomiser Stave",
     "kind": "ability",
     "plain": "PLASMANCER model only. Whenever you use the bearer's Harbinger of Destruction ability, you roll 6 D6 instead of the usual 3 dice."
+  },
+  "c394f872e5ab": {
+    "name": "Secondary Objective - Ancient Machineries",
+    "kind": "rule",
+    "plain": "Shadow Operations secondary objective: score 4 victory points each time one of your units completes the Awaken Ancient Machinery action.\n\nAwaken Ancient Machinery (Action): one of your NECRONS CORE or NECRONS CANOPTEK units can start this action at the end of your Movement phase, if it is in range of an objective marker that you control, that is outside your deployment zone and that your army has not already awakened. A unit with the Objective Secured ability completes the action at the end of your turn; any other unit completes it at the start of your next Command phase or when the battle ends, whichever comes first. Either way, it is only completed if the unit is still in range of the same objective marker. Once the action is completed, your army has awakened that objective marker."
+  },
+  "c41590f64152": {
+    "name": "Antimatter Meteor",
+    "kind": "ability",
+    "plain": "Roll one D6 and deal mortal wounds to the closest enemy unit within 24\" that this C'TAN SHARD can see: 3 on a 3-5, or D3+3 on a 6+. If this C'TAN SHARD is a TESSERACT VAULT, add 1 to the roll."
   },
   "c4936808a8cb": {
     "name": "Noctilith Beacons",
@@ -1028,6 +1168,11 @@
     "kind": "ability",
     "plain": "Besides the Voltaic Storm C'tan Power, this model knows one more power chosen from the Powers of the C'tan. If it neither Advanced nor Fell Back during your Movement phase, it can use two different C'tan Powers it knows at the end of that phase; it can't use any one C'tan Power more than once per turn."
   },
+  "c7c0522e28b9": {
+    "name": "Writhing Worldscape",
+    "kind": "ability",
+    "plain": "When your Movement phase starts, roll one D6 for every enemy unit in Engagement Range of this model; each one you roll a 4+ for suffers 1 mortal wound. Also, whenever a unit declares a charge against this model, subtract 2 from that unit's charge rolls until the end of the phase."
+  },
   "c81f971c54c3": {
     "name": "Hyperphase Impalement",
     "kind": "stratagem",
@@ -1037,6 +1182,11 @@
     "name": "Talent for Annihilation",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your MEPHRIT units is picked to shoot: until the phase ends, whenever a model in it attacks, an unmodified wound roll of 6 deals 1 mortal wound to the target on top of any normal damage (no more than 3 mortal wounds per phase can be dealt through this Stratagem)."
+  },
+  "ca61d23f5258": {
+    "name": "Annihilation Protocols",
+    "kind": "ability",
+    "plain": "A summary of the Annihilation Protocols appears at the bottom of the list output."
   },
   "cb27f3797dcf": {
     "name": "The Unmerciful Horde",
@@ -1091,6 +1241,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your SAUTEKH CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
   },
+  "ceae3510c727": {
+    "name": "Untamed Power",
+    "kind": "ability",
+    "plain": "This model's Attacks characteristic is 6 and its Strength characteristic is 7."
+  },
   "cec4a8a22490": {
     "name": "Arkana: Entropic Chronoshackle",
     "kind": "ability",
@@ -1105,6 +1260,11 @@
     "name": "Weaponised Bodies",
     "kind": "stratagem",
     "plain": "In your Charge phase, when one of your DESTROYER CULT units finishes a charge move: pick one enemy unit within Engagement Range of it. For every model of that DESTROYER CULT unit within Engagement Range of the chosen enemy unit, roll as many D6 as its Wounds characteristic. Each 5+ inflicts 1 mortal wound on the enemy unit, up to a maximum of 6 mortal wounds."
+  },
+  "cf1222997b27": {
+    "name": "Command Protocols - Protocol of the Conquering Tyrant",
+    "kind": "rule",
+    "plain": "Directive 1: this unit's aura abilities, and its Lord's Will, My Will Be Done and Rites of Reanimation abilities, get 3\" more range (to a maximum of 12\").\nDirective 2: this unit can shoot in a turn in which it Fell Back; if it does, subtract 1 from the hit rolls of its models' ranged attacks until the end of the turn."
   },
   "cfdba9bf3a2b": {
     "name": "Ghostwalk Mantle",
@@ -1130,6 +1290,16 @@
     "name": "Warrior Nobles",
     "kind": "ability",
     "plain": "NOBLE models with this code re-roll hit rolls of 1 and wound rolls of 1 for their melee attacks."
+  },
+  "d593609e13e0": {
+    "name": "Cosmic Fire",
+    "kind": "ability",
+    "plain": "Each enemy unit within 9\" of this C'TAN SHARD suffers D3 mortal wounds on a D6 roll of 4+ (roll separately for each unit). If this C'TAN SHARD is a TESSERACT VAULT, those units suffer 3 mortal wounds instead of D3."
+  },
+  "d5f4338590c1": {
+    "name": "Necron Secondary Objectives",
+    "kind": "ability",
+    "plain": "A summary of the Necron secondary objectives appears at the bottom of the list output."
   },
   "d667afde1265": {
     "name": "Reanimation Prioritisation",
@@ -1296,10 +1466,23 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save."
   },
+  "ea3a016325e0": {
+    "name": "Annihilation Protocols - Protocol of the Undying Gaze",
+    "kind": "rule",
+    "plain": "Directive 1: when a model in this unit makes a ranged attack against a unit within half range, the target gets no benefit from cover against that attack.\nDirective 2: this unit can make ranged attacks while performing an action without the action failing."
+  },
   "eb193eb725ca": {
     "name": "Command-wave Amplifier (Aura)",
     "kind": "ability",
     "plain": "Aura: your SZAREKHAN units within 9\" of the bearer get the active command protocol's selected directive within 9\" (not 6\") of a friendly NECRONS CHARACTER. C'TAN SHARD models don't count for this."
+  },
+  "eb2faa5d1ff7": {
+    "name": "Annihilation Protocols - Protocol of the Swift Murder",
+    "kind": "rule",
+    "plain": "Directive 1: if this unit did not Remain Stationary this battle round, it gets the benefits of light cover against every attack made against it.\nDirective 2: this unit can perform Heroic Interventions as if it were a CHARACTER unit.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\"; the plain text leaves out the book reference"
+    }
   },
   "ec2016adad95": {
     "name": "Self-destruction",
@@ -1315,6 +1498,14 @@
     "name": "Relentless March (Silent King) (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "f10465352701": {
+    "name": "Command Protocols - Protocol of the Eternal Guardian",
+    "kind": "rule",
+    "plain": "Directive 1: if this unit hasn't made a Normal Move, Advance or Fall Back this battle round, it has light cover against every attack made against it.\nDirective 2: if no enemy units are within Engagement Range of this unit when an enemy unit declares a charge against it, this unit can choose to Hold Steady or Set to Defend:\n- Hold Steady: until the end of the phase, Overwatch attacks by its models hit on unmodified rolls of 5+ instead of 6.\n- Set to Defend: it can't fire Overwatch until the end of the phase, but until the next Fight phase ends, add 1 to the hit roll of each melee attack its models make.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\"; the plain text leaves out the book reference"
+    }
   },
   "f16af1352d0c": {
     "name": "Synthetic Cortex Enhancer (Aura)",
