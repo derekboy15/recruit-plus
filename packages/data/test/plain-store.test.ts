@@ -201,7 +201,7 @@ test('spotSample is deterministic and seeded', () => {
 test("STYLE.md's worked examples pass the checks", () => {
   const style = readFileSync(join(__dirname, '..', '..', 'content', 'STYLE.md'), 'utf8');
   const pairs = [...style.matchAll(/^- Official: (.+)\n- Plain: (.+)$/gm)];
-  expect(pairs).toHaveLength(3);
+  expect(pairs).toHaveLength(4);
   for (const [, official, plain] of pairs) expect(checkPlain(official, plain), plain).toMatchObject({ ok: true });
 });
 
