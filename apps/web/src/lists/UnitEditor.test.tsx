@@ -2,7 +2,7 @@ import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { evaluate, FORCE, type Roster, type Scope } from '@recruit/data/roster';
-import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { WordingProvider } from '../rules/wording';
@@ -31,6 +31,16 @@ afterEach(() => {
   db.close();
 });
 
+/** The phone's Back button: one step back in the router's history. */
+function BrowserBack() {
+  const navigate = useNavigate();
+  return (
+    <button type="button" onClick={() => navigate(-1)}>
+      Browser back
+    </button>
+  );
+}
+
 function Where() {
   const location = useLocation();
   return <output aria-label="Path">{location.pathname}</output>;
@@ -48,6 +58,7 @@ async function openUnit(build: (scope: Scope) => Roster, unit: string) {
         <MemoryRouter initialEntries={[`/build/${id}?unit=${selId}`]}>
           <ToastProvider>
             <Where />
+            <BrowserBack />
             <Routes>
               <Route path="/build/:id" element={<ListEditorPage />} />
             </Routes>
@@ -139,4 +150,14 @@ test('Duplicate unit adds a copy, says so, and keeps the original open', async (
   expect(screen.getByText('Duplicated Immortals')).toBeInTheDocument();
   expect(screen.getAllByRole('button', { name: /^Immortals/ })).toHaveLength(2);
   expect(screen.getByRole('dialog', { name: 'Immortals' })).toBe(editor);
+});
+
+test('Back from a datasheet opened in a unit goes back to the unit, not the list', async () => {
+  const u = userEvent.setup();
+  const editor = await openUnit(novokhPatrol, 'Overlord');
+  await u.click(await within(editor).findByRole('button', { name: 'View datasheet' }));
+  await waitFor(() => expect(screen.getAllByRole('dialog', { name: 'Overlord' })).toHaveLength(2));
+  await u.click(screen.getByRole('button', { name: 'Browser back' }));
+  await waitFor(() => expect(screen.getAllByRole('dialog', { name: 'Overlord' })).toHaveLength(1));
+  expect(screen.getByRole('dialog', { name: 'Overlord' })).toHaveTextContent('View datasheet');
 });

@@ -16,6 +16,9 @@ interface Props {
   only?: string[];
   /** The role chip selected at first (a role section's +). */
   role?: string;
+  /** The unit whose datasheet is open over the picker (its row's key), and how to open or close it. */
+  preview?: string | null;
+  onPreview?: (key: string | null) => void;
   units: UnitIndex | null;
   onAdd: (entryId: string) => void;
   onClose: () => void;
@@ -52,15 +55,18 @@ function Badges({ item }: { item: Item }) {
 }
 
 /** Search, role chips, then units with their key stats: tap one for its datasheet, or + to add it at once. */
-export function UnitPicker({ scope, roster, forceSelId, only, role, units, onAdd, onClose }: Props) {
+export function UnitPicker({ scope, roster, forceSelId, only, role, preview: shownKey, onPreview, units, onAdd, onClose }: Props) {
   // Prices are worked out when the picker opens, not on every render.
   const [options] = useState(() => availableUnits(scope, roster, forceSelId));
   const [query, setQuery] = useState('');
   const [showAll, setShowAll] = useState(false);
   const [chip, setChip] = useState(role ?? ALL);
-  const [preview, setPreview] = useState<Item | null>(null);
   const filtered = !!only?.length && !showAll;
   const hiddenId = useId();
+  // The editor keeps the preview in the URL (so Back closes it); on its own the picker keeps it here.
+  const [ownKey, setOwnKey] = useState<string | null>(null);
+  const previewKey = onPreview ? (shownKey ?? null) : ownKey;
+  const setPreview = onPreview ?? setOwnKey;
 
   const force = roster.forces.find((f) => f.id === forceSelId);
   const catalogue = force ? scope.catalogue(force.catalogueId) : undefined;
@@ -88,6 +94,8 @@ export function UnitPicker({ scope, roster, forceSelId, only, role, units, onAdd
     return [...counts];
   }, [available]);
 
+  const preview = previewKey ? (available.find((i) => i.key === previewKey) ?? unavailable.find((i) => i.key === previewKey) ?? null) : null;
+
   const q = query.trim().toLowerCase();
   const matches = (i: Item) => (chip === ALL || i.role === chip) && (!q || i.name.toLowerCase().includes(q));
   const shown = available.filter(matches);
@@ -95,7 +103,7 @@ export function UnitPicker({ scope, roster, forceSelId, only, role, units, onAdd
 
   const row = (i: Item) => (
     <li key={i.key} className="picker-row">
-      <button type="button" className="picker-row__open" aria-haspopup="dialog" onClick={() => setPreview(i)}>
+      <button type="button" className="picker-row__open" aria-haspopup="dialog" onClick={() => setPreview(i.key)}>
         <span className="picker-row__text">
           <span className="picker-row__name">
             {i.name}

@@ -2,7 +2,7 @@ import 'fake-indexeddb/auto';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { addChild, addUnit, armyOptions, availableUnits, childOptions, evaluate, FORCE, removeSelection, setBattleSize, type BattleSizeId, type Roster } from '@recruit/data/roster';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { MemoryRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { getIndex, getPolicy, getRosterScope, resetDataCache } from '../factions/dataClient';
 import { openDb, type RecruitDb } from '../storage/db';
@@ -44,6 +44,16 @@ async function necronsList(size: BattleSizeId = 'strike-force', edit: (r: Roster
   return createList(createRepository(db), 'user-1', listData(scope, policy, roster, index.catalogues.find((c) => c.id === NECRONS)!));
 }
 
+/** The phone's Back button: one step back in the router's history. */
+function BrowserBack() {
+  const navigate = useNavigate();
+  return (
+    <button type="button" onClick={() => navigate(-1)}>
+      Browser back
+    </button>
+  );
+}
+
 /** A legal Necrons Strike Force: an Overlord as Warlord, three Necron Warriors and the Szarekhan dynasty. Returns its id. */
 async function legalList() {
   const scope = await getRosterScope(['necrons']);
@@ -64,6 +74,7 @@ function renderEditor(id: string, search = '') {
       <WordingProvider initial="plain">
         <MemoryRouter initialEntries={[`/build/${id}${search}`]}>
           <ToastProvider>
+            <BrowserBack />
             <Routes>
               <Route path="/build" element={<p>Your lists page</p>} />
               <Route path="/build/:id" element={<ListEditorPage />} />
@@ -789,4 +800,51 @@ test('Choose Dynasty in Problems opens the dynasty sheet', async () => {
   await u.click(within(sheet).getByRole('radio', { name: 'Szarekhan' }));
   expect(screen.getByRole('button', { name: 'Dynasty: Szarekhan' })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: '2 to fix' })).toBeInTheDocument();
+});
+
+test('Back from a unit’s preview goes back to the picker, where the player was', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.type(within(picker).getByRole('searchbox', { name: 'Search units' }), 'skorp');
+  await u.click(within(picker).getByRole('button', { name: /^Skorpekh Destroyers/ }));
+  expect(await screen.findByRole('dialog', { name: 'Skorpekh Destroyers' })).toBeInTheDocument();
+  await u.click(screen.getByRole('button', { name: 'Browser back' }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Skorpekh Destroyers' })).not.toBeInTheDocument());
+  const still = screen.getByRole('dialog', { name: 'Add a unit' });
+  expect(within(still).getByRole('searchbox', { name: 'Search units' })).toHaveValue('skorp');
+  await u.click(screen.getByRole('button', { name: 'Browser back' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+});
+
+test('closing a preview with its own button also goes back to the picker', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.click(within(picker).getByRole('button', { name: /^Lychguard/ }));
+  const preview = await screen.findByRole('dialog', { name: 'Lychguard' });
+  await u.click(within(preview).getByRole('button', { name: 'Close' }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Lychguard' })).not.toBeInTheDocument());
+  expect(screen.getByRole('dialog', { name: 'Add a unit' })).toBeInTheDocument();
+});
+
+test('adding from the preview opens the unit; Done goes back to the list, as adding with + does', async () => {
+  const u = user();
+  renderEditor(await necronsList());
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Add unit' }));
+  const picker = await screen.findByRole('dialog', { name: 'Add a unit' });
+  await u.click(within(picker).getByRole('button', { name: /^Lychguard/ }));
+  const preview = await screen.findByRole('dialog', { name: 'Lychguard' });
+  await u.click(within(preview).getByRole('button', { name: /^Add to list · \d+ pts$/ }));
+  const unit = await screen.findByRole('dialog', { name: 'Lychguard' });
+  expect(within(unit).getByRole('button', { name: 'Remove unit' })).toBeInTheDocument();
+  expect(screen.queryByRole('dialog', { name: 'Add a unit' })).not.toBeInTheDocument();
+  await u.click(within(unit).getByRole('button', { name: 'Done' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  expect(screen.getByRole('button', { name: /^Lychguard/ })).toBeInTheDocument();
 });

@@ -39,7 +39,8 @@ function useWideScreen(): boolean {
 
 /**
  * Which panel is open lives in the URL (?unit=, ?add=&only=, ?issues=1), so the phone's back button closes it.
- * Opening from the list adds a history entry; switching panels replaces it.
+ * Opening from the list adds a history entry; switching panels replaces it. A sheet over a panel (a unit's preview
+ * over the picker, a datasheet over a unit) adds its own entry, so Back closes just that one.
  */
 function usePanels() {
   const [params, setParams] = useSearchParams();
@@ -61,12 +62,42 @@ function usePanels() {
     if (inPanel) navigate(-1);
     else setParams({}, { replace: true });
   }, [inPanel, navigate, setParams]);
-  return { params, open, close };
+  const openOver = useCallback(
+    (extra: Record<string, string>) =>
+      setParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          for (const [k, v] of Object.entries(extra)) next.set(k, v);
+          return next;
+        },
+        { state: { panel: true } },
+      ),
+    [setParams],
+  );
+  /** Closes the sheet on top (`key`), leaving the panel under it open. */
+  const closeOver = useCallback(
+    (key: string) => {
+      if (closing.current) return;
+      closing.current = true;
+      if (inPanel) navigate(-1);
+      else
+        setParams(
+          (prev) => {
+            const next = new URLSearchParams(prev);
+            next.delete(key);
+            return next;
+          },
+          { replace: true },
+        );
+    },
+    [inPanel, navigate, setParams],
+  );
+  return { params, open, close, openOver, closeOver };
 }
 
 export function ListEditorPage() {
   const { id = '' } = useParams();
-  const { params, open, close } = usePanels();
+  const { params, open, close, openOver, closeOver } = usePanels();
   const ui = useMemo(
     () => ({
       openUnit: (selId: string) => open({ unit: selId }),
@@ -89,7 +120,7 @@ export function ListEditorPage() {
     );
   }
   if (editor.status === 'error') return <LoadError error={editor.error} what="this list" />;
-  return <Editor listId={id} editor={editor} params={params} open={open} close={close} openUnit={ui.openUnit} />;
+  return <Editor listId={id} editor={editor} params={params} open={open} close={close} openOver={openOver} closeOver={closeOver} openUnit={ui.openUnit} />;
 }
 
 interface EditorProps {
@@ -98,10 +129,12 @@ interface EditorProps {
   params: URLSearchParams;
   open: (next: Record<string, string>) => void;
   close: () => void;
+  openOver: (extra: Record<string, string>) => void;
+  closeOver: (key: string) => void;
   openUnit: (selId: string) => void;
 }
 
-function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) {
+function Editor({ listId, editor, params, open, close, openOver, closeOver, openUnit }: EditorProps) {
   const { roster, view, issues, scope, slugs, dispatch, flush, saveError, allyError } = editor;
   useEditorShortcuts(editor);
   const wide = useWideScreen();
@@ -111,6 +144,16 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
   const choiceFor = useChoiceTargets(editor);
   const onChoose = useCallback((key: string) => open({ choice: key }), [open]);
   const [collapsed, toggleCollapsed] = useCollapsed(listId);
+  // A unit added from its preview opens once the preview's own history step has gone, so Done returns to the list
+  // (as after adding with a row's +) rather than to the picker.
+  const pendingUnit = useRef<string | null>(null);
+  const previewParam = params.get('preview');
+  useEffect(() => {
+    if (!pendingUnit.current || previewParam) return;
+    const selId = pendingUnit.current;
+    pendingUnit.current = null;
+    openUnit(selId);
+  }, [previewParam, openUnit]);
 
   const unitParam = params.get('unit');
   const addParam = params.get('add');
@@ -132,21 +175,41 @@ function Editor({ listId, editor, params, open, close, openUnit }: EditorProps) 
 
   // One sheet at a time over the list (a drawer from 768px); on wide screens Problems also rests beside the list.
   let sheet: ReactNode = null;
-  if (openSel) sheet = <UnitEditor key={openSel.sel.id} editor={editor} selId={openSel.sel.id} units={units} info={info} onClose={close} />;
+  if (openSel) {
+    const selId = openSel.sel.id;
+    sheet = (
+      <UnitEditor
+        key={selId}
+        editor={editor}
+        selId={selId}
+        units={units}
+        info={info}
+        datasheet={datasheetParam === selId}
+        onDatasheet={(show) => (show ? openOver({ datasheet: selId }) : closeOver('datasheet'))}
+        onClose={close}
+      />
+    );
+  }
   else if (pickerForce) {
     const only = params.get('only')?.split(',').filter(Boolean);
     const onAdd = (entryId: string) => {
       const selId = dispatch({ type: 'add-unit', forceSelId: pickerForce.force.id, entryId });
-      if (selId) openUnit(selId);
+      if (!selId) return;
+      if (previewParam) {
+        pendingUnit.current = selId;
+        closeOver('preview');
+      } else openUnit(selId);
     };
     sheet = (
       <UnitPicker
-        key={params.toString()}
+        key={[addParam, params.get('only'), params.get('role')].join('|')}
         scope={scope}
         roster={roster}
         forceSelId={pickerForce.force.id}
         only={only}
         role={params.get('role') ?? undefined}
+        preview={previewParam}
+        onPreview={(key) => (key ? openOver({ preview: key }) : closeOver('preview'))}
         units={units}
         onAdd={onAdd}
         onClose={close}

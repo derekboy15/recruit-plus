@@ -1,5 +1,5 @@
 import { BATTLE_SIZES, childOptions, COST_PTS, findSelView, optionDisplay, unitSummary, type OptionNode, type SelView } from '@recruit/data/roster';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import type { EntryInfoIndex } from '../data/entryInfo';
 import { useWording } from '../rules/wording';
 import { Sheet } from '../ui/Sheet';
@@ -16,6 +16,9 @@ interface Props {
   selId: string;
   units: UnitIndex | null;
   info: EntryInfoIndex | null;
+  /** Whether the unit's datasheet is open over it, and how to open or close it (a URL step, so Back closes it). */
+  datasheet: boolean;
+  onDatasheet: (show: boolean) => void;
   onClose: () => void;
 }
 
@@ -31,11 +34,10 @@ const hasTraitRequisition = (v: SelView): boolean =>
   });
 
 /** One unit (or army choice): its models and wargear, its problems, its datasheet, and duplicate / remove. */
-export function UnitEditor({ editor, selId, units, info, onClose }: Props) {
+export function UnitEditor({ editor, selId, units, info, datasheet, onDatasheet, onClose }: Props) {
   const { scope, roster, view, issues, dispatch } = editor;
   const { wording } = useWording();
   const undoToast = useUndoToast(editor);
-  const [datasheet, setDatasheet] = useState(false);
   const v = findSelView(view, selId);
   // childOptions evaluates the roster, so each selection's options are worked out once per edit.
   const optionsOf = useMemo(() => {
@@ -96,7 +98,7 @@ export function UnitEditor({ editor, selId, units, info, onClose }: Props) {
       )}
       <div className="unit-actions">
         {sheet && (
-          <button type="button" className="btn" aria-haspopup="dialog" onClick={() => setDatasheet(true)}>
+          <button type="button" className="btn" aria-haspopup="dialog" onClick={() => onDatasheet(true)}>
             View datasheet
           </button>
         )}
@@ -111,7 +113,7 @@ export function UnitEditor({ editor, selId, units, info, onClose }: Props) {
           </button>
         )}
       </div>
-      {datasheet && <DatasheetSheet v={v} info={sheet} onClose={() => setDatasheet(false)} />}
+      {datasheet && <DatasheetSheet v={v} info={sheet} onClose={() => onDatasheet(false)} />}
     </Sheet>
   );
 }

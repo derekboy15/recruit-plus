@@ -103,6 +103,11 @@ test('add a unit through its preview, remove it and Undo; choose a dynasty from 
   const preview = page.getByRole('dialog', { name: 'Skorpekh Destroyers' });
   await expect(preview.getByRole('group', { name: /characteristics$/ }).first()).toBeVisible();
   await shot(page, 'picker-preview', testInfo.project.name);
+  // Back closes just the preview: the picker is still open on Elites.
+  await page.goBack();
+  await expect(preview).toHaveCount(0);
+  await expect(picker.getByRole('button', { name: /^Elites \d+$/ })).toHaveAttribute('aria-pressed', 'true');
+  await picker.getByRole('button', { name: /^Skorpekh Destroyers/ }).click();
   await preview.getByRole('button', { name: /^Add to list · \d+ pts$/ }).click();
   await page.getByRole('dialog', { name: 'Skorpekh Destroyers' }).getByRole('button', { name: 'Done' }).click();
   await expect(points).toContainText('90 / 2,000 pts');
