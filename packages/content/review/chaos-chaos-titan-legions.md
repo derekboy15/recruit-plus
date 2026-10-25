@@ -1,5 +1,5 @@
 # Spot-check: Chaos Titan Legions
-Sample: 15 texts (seed chaos-chaos-titan-legions) + 0 army rules + guide
+Sample: 20 texts (seed chaos-chaos-titan-legions) + 0 army rules + guide
 
 | Key | Name | Kind | Verdict | Note |
 |---|---|---|---|---|
@@ -18,5 +18,10 @@ Sample: 15 texts (seed chaos-chaos-titan-legions) + 0 army rules + guide
 | 0ce3afdb3d14 | Void Shields | ability | PASS | |
 | df8c5ddb042a | Tempest Launcher | weapon | PASS | |
 | 3e6b56529a00 | Battle Titan | ability | PASS | |
+| 057e47e36b47 | Reactor Meltdown | ability | PASS | Chaos Warlord Titan (added in Plan G) |
+| 02190f2c2bd0 | Warlord feet | weapon | PASS | |
+| 262f8609c337 | Sunfury plasma annihilator - Supercharge | weapon | PASS | |
+| 87e1176bf8b2 | War Engine | ability | PASS | |
+| 67e8f513b31e | Sunfury plasma annihilator | weapon | PASS | |
 
 Guide: PASS

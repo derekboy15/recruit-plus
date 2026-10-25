@@ -19,12 +19,12 @@ const unit = (slug: string, name: string): UnitOut => {
   return u;
 };
 
-/** A fresh roster of the catalogue's first own detachment at the size, its picker, and the scope. */
-function freshList(slug: string, size: Roster['battleSize']) {
+/** A fresh roster of the catalogue's first own detachment (or the one named) at the size, its picker, and the scope. */
+function freshList(slug: string, size: Roster['battleSize'], detachment?: string) {
   const scope = realScope(slug);
   const catalogueId = realCatalogueId(slug);
   const empty: Roster = { schema: 1, name: '', catalogueId, battleSize: size, forces: [] };
-  const own = detachmentChoices(scope, empty, realPolicy(), realCatalogues()).find((d) => !d.allied)!;
+  const own = detachmentChoices(scope, empty, realPolicy(), realCatalogues()).find((d) => !d.allied && (!detachment || d.name.startsWith(detachment)))!;
   const roster = createRoster(scope, { name: 'test', catalogueId, battleSize: size, forceId: own.forceId });
   return { scope, roster, forceSelId: roster.forces[0].id, picker: availableUnits(scope, roster, roster.forces[0].id) };
 }
@@ -104,5 +104,29 @@ describe('applyAddedUnits', () => {
       source: 'test',
     };
     expect(() => applyAddedUnits(gd, [bad])).toThrow(/added-units\.json.*nope/);
+  });
+});
+
+describe('Chaos Warlord Titan', () => {
+  test('Lords of War, 5,500 pts, Chaos keywords, the Warlord weapons', () => {
+    const u = unit('chaos-chaos-titan-legions', 'Chaos Warlord Titan');
+    expect(u).toMatchObject({ role: 'Lord of War', points: 5500, wahapediaId: '000002451' });
+    expect(u.factionKeywords).toEqual(expect.arrayContaining(['Titanicus Traitoris', 'Chaos']));
+    expect(u.factionKeywords).not.toContain('Imperium');
+    expect(u.weapons.map((w) => w.name)).toEqual(
+      // Wahapedia's spelling, as the other Chaos Titans' weapons have it.
+      expect.arrayContaining(['Apocalypse launcher', 'Ardex-defensor lascannon', 'Ardex-defensor maulers', 'Arioch power claw (melee)', 'Warlord feet', 'Belicosa volcano cannon']),
+    );
+    expect(u.abilities.map((a) => a.name)).toEqual(expect.arrayContaining(['Void Shields', 'Reactor Meltdown', 'War Engine']));
+  });
+
+  test('offered by the builder; in an Onslaught Super-Heavy Auxiliary its only problem is the points', () => {
+    const { scope, picker, forceSelId, roster: start } = freshList('chaos-chaos-titan-legions', 'onslaught', 'Super-Heavy Auxiliary Detachment');
+    const t = picker.find((o) => displayName(o.name) === 'Chaos Warlord Titan');
+    expect(t).toMatchObject({ role: 'Lord of War', points: 5500 });
+    const roster = addUnit(scope, start, forceSelId, t!.entryId).roster;
+    const { issues } = validate(scope, roster, realPolicy());
+    expect(issues.map((i) => i.rule)).toContain('points-over');
+    expect(issues.filter((i) => i.rule !== 'points-over')).toEqual([]);
   });
 });
