@@ -58,6 +58,20 @@ async function listAction(page: Page, item: string) {
   await page.getByRole('menuitem', { name: item }).click();
 }
 
+test('a Legion of the Damned list can’t be started: it’s an add-on force, with a link to its guide', async ({ page }) => {
+  await page.goto('/build');
+  await page.getByRole('button', { name: 'Continue (dev)' }).click();
+  await page.getByRole('link', { name: 'New list' }).click();
+  const addOns = page.getByRole('region', { name: 'Add-on forces' });
+  await expect(addOns).toContainText('These can’t be an army on their own.');
+  const legion = addOns.getByRole('listitem').filter({ hasText: 'Legion of the Damned' });
+  await expect(legion).toContainText('not an army');
+  await expect(page.getByRole('button', { name: /Legion of the Damned/ })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Next' })).toBeDisabled();
+  await legion.getByRole('link', { name: 'Read the guide' }).click();
+  await expect(page).toHaveURL(/\/factions\/imperium-legion-of-the-damned\/guide$/);
+});
+
 test('build a legal Necrons list from scratch, export it and open its share link signed out', async ({ page }, testInfo) => {
   const project = testInfo.project.name;
 

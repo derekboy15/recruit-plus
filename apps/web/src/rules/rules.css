@@ -63,6 +63,12 @@ a.chip { display: inline-flex; align-items: center; justify-content: center; min
 .faction-row__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
 .faction-row__name { font-weight: 600; overflow-wrap: anywhere; }
 .faction-row__meta { font-size: 0.85rem; color: var(--text-muted); }
+/* An add-on force in the new-list wizard: a card, not a button, with a link to its guide. */
+.faction-row--add-on {
+  display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0.6rem 0.9rem; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+}
+.faction-row__guide { display: inline-block; padding: 0.35rem 0; font-weight: 600; white-space: nowrap; }
 
 /* ---------- A faction's unit rows: name and badges, size and key stats, points on the right ---------- */
 .faction-unit__main { flex: 1; min-width: 0; display: grid; gap: 0.1rem; }
