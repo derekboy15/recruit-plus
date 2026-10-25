@@ -1,18 +1,48 @@
 {
+  "005950e98e27": {
+    "name": "Formidable Resolve",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Leadership characteristic, and its Unquestionable Wisdom ability has 6\" more range."
+  },
   "1501b2e8b901": {
     "name": "Hector Rex",
     "kind": "ability",
     "plain": "Psychic powers: Smite, plus 2 from the Telethesia discipline."
+  },
+  "452c7af9e61b": {
+    "name": "Esoteric Lore",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, you gain 1 Command Point on a D6 roll of 5+ each time your opponent uses a Stratagem."
+  },
+  "62a57a1a9815": {
+    "name": "Radical",
+    "kind": "ability",
+    "plain": "Once per battle round, you can re-roll one of this WARLORD's hit, wound or damage rolls, saving throws, Psychic tests or Deny the Witch tests."
   },
   "6ca704fa07c7": {
     "name": "The Sanctic Shield",
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save, adds 1 to its armour saving throws, and can avoid losing wounds to mortal wounds on a 5+. Each time a mortal wound would make this model lose a wound, roll one D6; on a 5+ it keeps that wound."
   },
+  "6d98172a6dff": {
+    "name": "Psychic Mastery",
+    "kind": "ability",
+    "plain": "This WARLORD knows one more Telethesia psychic power, and can attempt to manifest one more power in your Psychic phase and deny one more in your opponent's."
+  },
   "7fd4e90d22ae": {
     "name": "Stratagem: Arbiter of the Emperor's Will",
     "kind": "ability",
     "plain": "Before the battle, give a Warlord Trait to one INQUISITOR model in your army that isn't your Warlord, and possibly a Relic of the Inquisition as well. Determine one Warlord Trait for that model; it counts as your Warlord for the purposes of that trait. Then, if it isn't a named character or a VEHICLE, you can also give it one Relic of the Inquisition. Every Relic in your army must be different, and each must go to a different model. You can use this Stratagem only once per battle."
+  },
+  "930b66e7d303": {
+    "name": "Puritan",
+    "kind": "ability",
+    "plain": "This WARLORD's invulnerable save improves by 1, but it can't get better than 3+."
+  },
+  "b059b42b6865": {
+    "name": "No Escape",
+    "kind": "ability",
+    "plain": "This WARLORD can Heroically Intervene against enemies within 6\" instead of 3\", and can stop enemy units within 1\" of it from Falling Back on a 4+. It can make a Heroic Intervention if any enemy units are within 6\" of it rather than 3\", and when it does, it can move up to 6\" rather than 3\". When an enemy unit within 1\" of this WARLORD is picked to Fall Back, you can roll one D6: on a 4+ that unit can't Fall Back this turn, unless any of its models have a minimum Move characteristic."
   },
   "c86cc2f72399": {
     "name": "Arias",

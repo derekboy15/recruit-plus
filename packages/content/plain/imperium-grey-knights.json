@@ -69,6 +69,11 @@
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your GREY KNIGHTS TELEPORTER units Falls Back: until the end of the turn, it can still shoot and charge despite having Fallen Back."
   },
+  "0f2906fb7aa0": {
+    "name": "Divination",
+    "kind": "psychic",
+    "plain": "Psychic action: your Warlord can attempt this action in your Psychic phase, and if it is completed you gain 1 Command Point."
+  },
   "1181ae61e41d": {
     "name": "Symphonic Strike",
     "kind": "psychic",
@@ -113,6 +118,11 @@
     "name": "Powerful Adept",
     "kind": "stratagem",
     "plain": "In your Psychic phase, when one of your GREY KNIGHTS PSYKER units is chosen to manifest psychic powers: until the end of the phase, every psychic power it manifests has its range extended by 6\"."
+  },
+  "1fd7ba285a96": {
+    "name": "Radiant Exemplar",
+    "kind": "ability",
+    "plain": "This Warlord's aura abilities get 3\" more range, up to a maximum of 12\"."
   },
   "20239ba689d8": {
     "name": "Mental Focus",
@@ -179,6 +189,21 @@
     "kind": "ability",
     "plain": "Aura: while one of your WARDMAKERS CORE units is within 6\" of this model, re-roll wound rolls of 1 for attacks made by models in that unit."
   },
+  "356769552db2": {
+    "name": "Oath of Witness",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Leadership, and your EXTRACTORS CORE units automatically pass Morale tests while they are within 6\" of it."
+  },
+  "3b73056a9f35": {
+    "name": "Martial Perfection",
+    "kind": "ability",
+    "plain": "This WARLORD can fight first if it starts the Fight phase within Engagement Range of any enemy units, and you can re-roll its melee hit rolls."
+  },
+  "3c143bd09fbf": {
+    "name": "Rites of Protection",
+    "kind": "psychic",
+    "plain": "Psychic action: one of your SWORDBEARERS Vehicle models within 12\" of this Warlord gains a 4+ invulnerable save until your next Psychic phase starts. This Warlord can attempt this psychic action in your Psychic phase; if it is completed, pick that model."
+  },
   "3cb0162effe2": {
     "name": "Psyk-out Grenade",
     "kind": "stratagem",
@@ -188,6 +213,11 @@
     "name": "Knights of Titan",
     "kind": "ability",
     "plain": "This unit has the And They Shall Know No Fear, Bolter Discipline and Master of the Warp abilities."
+  },
+  "406af7d80d60": {
+    "name": "Loremaster",
+    "kind": "ability",
+    "plain": "If this Warlord's Psychic test is an unmodified 8+ and is also at least the power's warp charge value, your opponent can't try to deny that power."
   },
   "421757f96f34": {
     "name": "Nemesis Daemon Hammer",
@@ -419,6 +449,11 @@
     "kind": "psychic",
     "plain": "Blessing: if manifested, you can re-roll charge rolls for this PSYKER's unit until the start of your next Psychic phase."
   },
+  "7edbb6626da4": {
+    "name": "1: Daemon Slayer",
+    "kind": "ability",
+    "plain": "This Warlord gets 1 extra attack when it fights after charging, and Daemon units can't make Daemonic saving throws against its melee attacks.\n- If this Warlord made a charge move this turn, then each time it fights, it adds 1 to its Attacks characteristic until that fight is resolved.\n- Against this Warlord's melee attacks, Daemon units can't make Daemonic saving throws."
+  },
   "7fd8bbdd6e2a": {
     "name": "Sanctified Kill Zone",
     "kind": "stratagem",
@@ -443,6 +478,11 @@
     "name": "Psybolt Ammunition",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your GREY KNIGHTS units is chosen to shoot: for the rest of the phase, ranged attacks its models make with bolt weapons automatically wound the target on an unmodified hit roll of 6, and have their Armour Penetration characteristic improved by 1. This Stratagem costs 2CP if the unit has 6 or more models, or 1CP otherwise."
+  },
+  "8e151ac5cb21": {
+    "name": "3: Unyielding Anvil",
+    "kind": "ability",
+    "plain": "While one of your Grey Knights Core or Grey Knights Character units is within 6\" of this Warlord, that unit has Objective Secured. If a model in such a unit already has that ability, it counts as one extra model when working out who controls an objective marker."
   },
   "8ec086de7fcd": {
     "name": "Domina Liber Demonica (Aura)",
@@ -559,6 +599,11 @@
     "kind": "psychic",
     "plain": "Blessing: if manifested, pick one of your GREY KNIGHTS PSYKER units within 18\" of this PSYKER. Take that unit off the battlefield, then set it up again anywhere on the battlefield more than 9\" away from all enemy models."
   },
+  "af124722a20e": {
+    "name": "Inescapable Wrath",
+    "kind": "ability",
+    "plain": "This Warlord can declare a charge in a turn in which it Advanced."
+  },
   "b0aa6796305a": {
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
@@ -578,6 +623,11 @@
     "name": "Heroism's Favour",
     "kind": "ability",
     "plain": "Once per battle, when your opponent's Charge phase ends, you can pick one of your GREY KNIGHTS CORE units that is within 12\" of this model; it can make a Heroic Intervention as though it were a CHARACTER."
+  },
+  "b4bc1579b902": {
+    "name": "5: Nemesis Lord",
+    "kind": "ability",
+    "plain": "When this Warlord attacks in melee with a Nemesis weapon, each unmodified hit roll of 6 wounds the target automatically."
   },
   "b4f93573aa48": {
     "name": "Aegis Eternal",
@@ -664,6 +714,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your PALADIN CORE units is within 6\" of this model, its models get 1 added to their Leadership characteristic. Also, while one of your PALADIN CORE INFANTRY units is within 6\" of this model, its models get 1 added to their Attacks characteristic."
   },
+  "cbd85149ba7f": {
+    "name": "Vanguard Aggression",
+    "kind": "ability",
+    "plain": "After deployment, this Warlord and one of your BLADES OF VICTORY Core units within 9\" of it can each make a Normal Move of up to 6\"."
+  },
   "cce6fb0f745d": {
     "name": "Psychic Hood",
     "kind": "ability",
@@ -714,6 +769,11 @@
     "kind": "stratagem",
     "plain": "In the Fight phase, when one of your GREY KNIGHTS CHARACTER models (not CASTELLAN CROWE) that has not yet been selected to fight this phase is destroyed: don't remove it yet. It can fight once the attacking model's unit has finished its attacks, and is removed after its own attacks are resolved."
   },
+  "e6f2da15e958": {
+    "name": "2: Hammer of Righteousness",
+    "kind": "ability",
+    "plain": "In a turn in which this Warlord charged, was charged or made a Heroic Intervention, add 1 to the wound roll of each of its melee attacks."
+  },
   "ea7037d0d84f": {
     "name": "Deadly Efficacy",
     "kind": "stratagem",
@@ -754,9 +814,19 @@
     "kind": "ability",
     "plain": "Once per battle, you may use this gift when the bearer is chosen to manifest psychic powers. If so, until the phase ends, each time the bearer tries to manifest a Dominus discipline psychic power, add 2 to that Psychic test."
   },
+  "f956d304af40": {
+    "name": "4: First to the Fray",
+    "kind": "ability",
+    "plain": "Add 1 to this Warlord's Advance and charge rolls and, after it charges, to charges by your Grey Knights Core units against enemies it is fighting.\n- Add 1 to Advance rolls and charge rolls made for this Warlord.\n- If this Warlord made a charge move this turn, then until the turn ends, whenever one of your Grey Knights Core units declares a charge against an enemy unit within Engagement Range of this Warlord, add 1 to that unit's charge roll."
+  },
   "fd7ba17c7705": {
     "name": "Temporal Accuracy",
     "kind": "psychic",
     "plain": "Blessing: if manifested, this Psyker's unit treats its storm bolters as Pistol 4 weapons with a range of 12\" until your next Psychic phase starts. This covers storm bolters, master-crafted storm bolters and any Relics that replace either of them, carried by models in this Psyker's unit."
+  },
+  "ffd6c266bec5": {
+    "name": "6: Psychic Epitome",
+    "kind": "ability",
+    "plain": "In each of your Psychic phases, one of your Grey Knights Psyker units within 6\" of this Warlord deals 1 extra mortal wound with its Witchfire powers. Pick that unit at the start of the phase. Until the phase ends, whenever it manifests a Witchfire psychic power, each enemy unit that suffers any mortal wounds from that power suffers 1 more mortal wound."
   }
 }

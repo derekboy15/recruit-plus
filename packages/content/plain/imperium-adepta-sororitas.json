@@ -1,4 +1,9 @@
 {
+  "03512093e77f": {
+    "name": "Indomitable Belief (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your <ORDER> CORE INFANTRY units is within 6\" of this WARLORD, its models' Shield of Faith invulnerable save improves by 1 (maximum 4+)."
+  },
   "05d1b801694b": {
     "name": "Lead the Righteous - Martyred Lady (Aura)",
     "kind": "ability",
@@ -121,10 +126,25 @@
     "kind": "weapon",
     "plain": "Whenever the bearer fights, it makes 4 extra attacks with this weapon, and it can't make more than 4 attacks with this weapon."
   },
+  "1e13f1705b3f": {
+    "name": "Inspiring Orator",
+    "kind": "ability",
+    "plain": "This WARLORD's hymns and Command phase abilities can get 3\" more range, and its aura spares <ORDER> CORE units the Half-strength Combat Attrition penalty. When this WARLORD intones a hymn, or uses an ability during your Command phase, and that hymn or ability has a range, you can add 3\" to it. This doesn't change the Miracle range of any abilities. This WARLORD also has this ability: Inspiring Orator (Aura): while one of your <ORDER> CORE units is within 6\" of this WARLORD, that unit doesn't suffer the Combat Attrition penalty for being below Half-strength."
+  },
   "20419c7031f4": {
     "name": "Wanderers",
     "kind": "ability",
     "plain": "During deployment, you can place this unit in the webway rather than on the battlefield. If you do, then in the Reinforcements step of one of your Movement phases, it can be set up anywhere on the battlefield more than 9\" away from all enemy models."
+  },
+  "2145b7103483": {
+    "name": "Saintly Example",
+    "kind": "ability",
+    "plain": "This WARLORD also gets one random Adepta Sororitas Warlord Trait, and if it is destroyed, another ORDER OF OUR MARTYRED LADY CHARACTER can take over as WARLORD.\n- On top of this trait, this WARLORD has one Warlord Trait rolled at random on the Adepta Sororitas Warlord Traits table. Every Warlord Trait in your army must be unique, so re-roll any duplicates.\n- When this WARLORD is destroyed, you can at once pick another ORDER OF OUR MARTYRED LADY CHARACTER model in your army without a Warlord Trait, and give it a Warlord Trait not held by any model in your army (one that model can have, and not Saintly Example). For the rest of the battle, that model has that Warlord Trait and counts as your WARLORD for all rules purposes. Any mission objective, secondary objective or Agenda rules that trigger when your WARLORD is destroyed don't trigger until after the new WARLORD is destroyed."
+  },
+  "2152d56da59d": {
+    "name": "Pure of Will",
+    "kind": "ability",
+    "plain": "This WARLORD adds 3 to its Deny the Witch tests and can try to deny one extra psychic power in your opponent's Psychic phase. That extra attempt works as the Shield of Faith ability describes."
   },
   "220a62b49251": {
     "name": "1. Refrain of Blazing Piety",
@@ -161,6 +181,11 @@
     "kind": "stratagem",
     "plain": "At the end of your Movement phase: pick one HOSPITALLER unit from your army, then one friendly ADEPTUS MINISTORUM CORE INFANTRY unit within 3\" of it that is below its Starting Strength. Return up to D3 destroyed models to that unit, each with its full wounds remaining."
   },
+  "299e16a88aba": {
+    "name": "Beacon of Faith",
+    "kind": "ability",
+    "plain": "If this WARLORD is on the battlefield when your Command phase starts, you gain 1 Miracle dice that only it can use. Your WARLORD can spend it on an Act of Faith or a Miraculous ability, and it can be used for an Act of Faith even when a different unit in your army has already performed an Act of Faith this phase. If that dice hasn't been used by the start of your next Command phase, discard it."
+  },
   "2b817ef7e1b9": {
     "name": "Healing Tears",
     "kind": "ability",
@@ -179,6 +204,11 @@
       "91": "page reference (pg 91) to the codex, not rules content"
     }
   },
+  "2ec95a959b35": {
+    "name": "Fiery Example",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to wound rolls for its melee attacks against CHARACTER units, and you gain 2 Miracle dice each time it destroys an enemy CHARACTER unit."
+  },
   "2f6816cece27": {
     "name": "Word of the Emperor",
     "kind": "ability",
@@ -193,6 +223,11 @@
     "name": "Anchorite Sarcophagus",
     "kind": "ability",
     "plain": "The bearer's Save characteristic is 3+."
+  },
+  "35ae276cdc4f": {
+    "name": "Martyr's Strength",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Strength and Attacks characteristics for every wound it has lost, up to a maximum of +2 each."
   },
   "3712576c9455": {
     "name": "Holy Rage",
@@ -290,6 +325,11 @@
     "kind": "ability",
     "plain": "Models with this conviction re-roll hit rolls of 1 in melee against PSYKER units, and also re-roll wound rolls of 1 against PSYKER CHARACTER units."
   },
+  "521e31d57972": {
+    "name": "Incandescent Reprisal",
+    "kind": "ability",
+    "plain": "This WARLORD ignores each wound it would lose on a 5+, and once per phase it can shoot or fight back at an enemy unit whose attacks wounded it.\n- Roll one D6 whenever this WARLORD would lose a wound; on a 5+, that wound isn't lost.\n- Once per phase, after an enemy unit has shot or fought, if those attacks caused this WARLORD to suffer any wounds:\n  - if this WARLORD isn't within Engagement Range of any enemy units, it can shoot with one ranged weapon it is equipped with;\n  - if it is within Engagement Range of any enemy units and hasn't already been selected to fight this phase, it can be selected to fight straight away.\n  Either way, it can only target that enemy unit, and only if that unit is an eligible target."
+  },
   "523db8fe79bb": {
     "name": "Blessed Bolts",
     "kind": "stratagem",
@@ -329,6 +369,11 @@
     "name": "Angelic Saviour",
     "kind": "ability",
     "plain": "This unit may perform a Heroic Intervention when an enemy unit is within 6\" horizontally and 5\" vertically of it, instead of the usual 3\" horizontally and 5\" vertically. Its models can move up to 6\" instead of 3\" when it makes a Heroic Intervention move. Every other Heroic Intervention rule still applies."
+  },
+  "5a34a3290897": {
+    "name": "Warlord Trait: Light of the Divine",
+    "kind": "ability",
+    "plain": "Once per turn, 1 Miracle dice in this WARLORD's Act of Faith counts as a 6, and its aura lets ORDER OF THE SACRED ROSE CORE units shoot after Falling Back. The 6 applies whatever that dice's actual value. This WARLORD also has this ability: Light of the Divine (Aura): while one of your ORDER OF THE SACRED ROSE CORE units is within 6\" of this WARLORD, that CORE unit can Fall Back and still shoot this turn."
   },
   "5b9defdee42d": {
     "name": "Petals of the Bloody Rose",
@@ -399,6 +444,11 @@
     "name": "A Martyr’s Duty",
     "kind": "stratagem",
     "plain": "In any phase, when one of your ORDER OF OUR MARTYRED LADY CORE units is chosen as an attack's target: for the rest of the phase, roll one D6 whenever a model in that unit is destroyed. On a 4+, keep that model in play; once the attacking model's unit has finished its attacks, it may either shoot one of its ranged weapons as though it were your Shooting phase, or make a single attack with one of its melee weapons as though it were the Fight phase. Your model is treated as having 1 wound left while these attacks are resolved. If your army, or that unit, has the Spirit of the Martyr sacred rite active, resolve these attacks first, before that rite's effects. Afterwards, remove the destroyed model."
+  },
+  "621f3a137069": {
+    "name": "Righteous Rage",
+    "kind": "ability",
+    "plain": "You can re-roll the hit roll and the wound roll for each melee attack this WARLORD makes."
   },
   "626b4e0a2000": {
     "name": "Blinding Radiance: Miraculous ability",
@@ -638,6 +688,11 @@
     "kind": "ability",
     "plain": "Units with this conviction count as having Remained Stationary after a Normal Move or Advance, and can re-roll one hit or wound roll when they shoot or fight.\n- If a unit with this conviction Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until the end of your Shooting phase.\n- When a unit with this conviction is picked to shoot or fight, you may re-roll a single hit roll or a single wound roll made for its attacks."
   },
+  "92207f1c6ec0": {
+    "name": "Warlord Trait: Selfless Heroism",
+    "kind": "ability",
+    "plain": "This WARLORD can perform a Heroic Intervention from 6\" away and move up to 6\" doing so, and can fight first when it starts the Fight phase in Engagement Range. It is eligible to perform a Heroic Intervention while within 6\" horizontally and 5\" vertically of any enemy unit, rather than 3\" horizontally and 5\" vertically, and each Heroic Intervention move it makes can be up to 6\". All other Heroic Intervention rules still apply. If this WARLORD is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first that phase."
+  },
   "9346dd6b1b95": {
     "name": "Holy Wrath",
     "kind": "ability",
@@ -681,6 +736,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, at the start of a battle round, if your WARLORD is on the battlefield and has the ADEPTA SORORITAS keyword: roll one D6 to generate a random sacred rite (re-roll if it is one your army already has active). You may then replace one of your army's currently active sacred rites with the rolled one: the replaced one is no longer active, and the newly rolled one becomes active for your army."
   },
+  "9939d53d9382": {
+    "name": "Warlord Trait: Terrible Knowledge",
+    "kind": "ability",
+    "plain": "With this WARLORD on the battlefield, your Miracle dice from the start of the first battle round is a 6, and Stratagem Command points can be refunded on a 5+. Each time you spend a Command point on a Stratagem while this WARLORD is on the battlefield, you can roll one D6; on a 5+, you get that Command point back."
+  },
   "9ba384a8d0f4": {
     "name": "Purgator Mirabilis Warsuit",
     "kind": "ability",
@@ -700,6 +760,11 @@
     "name": "Zealot",
     "kind": "ability",
     "plain": "If, this turn, this unit made a charge move, was charged or made a Heroic Intervention, you can re-roll hit rolls for melee attacks by its models."
+  },
+  "a30c9edf2936": {
+    "name": "Warlord Trait: Blazing Ire",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Attacks characteristic and can declare a charge even in a turn in which it Advanced."
   },
   "a3e8cc0ce190": {
     "name": "The Pulpit of Saint Holline's Basillica (Aura)",
@@ -754,6 +819,11 @@
     "kind": "stratagem",
     "plain": "At the end of your opponent's Shooting phase: choose one of your ORDER OF OUR MARTYRED LADY units that has dropped below Half-strength during this phase (it was not below Half-strength when the phase started). That unit can shoot as though it were your Shooting phase."
   },
+  "b1d93afd905c": {
+    "name": "Executioner of Heretics (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this WARLORD have 1 subtracted from their models' Leadership characteristic and from their Combat Attrition tests."
+  },
   "b26bc5ae1c5e": {
     "name": "Acts of Faith",
     "kind": "ability",
@@ -787,6 +857,11 @@
     "name": "Holy Trinity",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your ADEPTA SORORITAS units is picked to shoot: choose one eligible target that is in range of and visible to at least one of its models with a bolt weapon, at least one with a flame weapon and at least one with a melta weapon. For the rest of the phase, that unit's models can attack only that enemy unit, but those attacks get 1 added to the wound roll when made with a bolt, flame or melta weapon."
+  },
+  "b86e4a2b8f74": {
+    "name": "Warlord Trait: Impervious to Pain",
+    "kind": "ability",
+    "plain": "This WARLORD regains 1 lost wound each time it performs an Act of Faith, and ignores each wound it would lose on a 5+. Roll one D6 each time it would lose a wound; on a 5+, that wound isn't lost."
   },
   "b9f29999587a": {
     "name": "Tale of the Stoic (Aura)",
@@ -941,6 +1016,11 @@
     "kind": "stratagem",
     "plain": "In your opponent's Shooting phase, when one of your ORDER OF THE BLOODY ROSE CORE units is chosen as a ranged attack's target: for the rest of the phase, roll one D6 whenever an enemy model's attack destroys a model in that unit. On a 4+, keep the destroyed model in play; once the attacking model's unit has finished its attacks, it can shoot one of its ranged weapons as though it were your Shooting phase. Remove it once those attacks are resolved. The cost is 2CP if the chosen ORDER OF THE BLOODY ROSE unit is a RETRIBUTOR SQUAD unit, or 1 CP if not."
   },
+  "d297b808aa77": {
+    "name": "Saint Katherine's Legacy",
+    "kind": "ability",
+    "plain": "This WARLORD also has Spirit of the Martyr active, and attackers suffer a mortal wound on a 5+ when nearby ORDER OF OUR MARTYRED LADY models with that rite die.\n- The Spirit of the Martyr sacred rite is active for this WARLORD, on top of any others active for your army.\n- This WARLORD has this ability: Saint Katherine's Legacy (Aura): while one of your ORDER OF OUR MARTYRED LADY units is within 6\" of this WARLORD, and your army or that unit has the Spirit of the Martyr sacred rite active, whenever a model in that unit is destroyed and you roll a D6 for it, on a 5+ the attacking model suffers a mortal wound."
+  },
   "d304537024c7": {
     "name": "Honour the Martyrs",
     "kind": "stratagem",
@@ -955,6 +1035,11 @@
     "name": "Recount the Deeds of the Saints",
     "kind": "ability",
     "plain": "In your Command phase, choose a friendly ADEPTA SORORITAS CHARACTER unit within 9\" of AGATHAE DOLAN. Until your next Command phase starts, each time that unit is selected to fight, you may re-roll a single hit roll, wound roll or damage roll when its attacks are resolved."
+  },
+  "d3331c26c6ce": {
+    "name": "Red-Handed Castigator",
+    "kind": "ability",
+    "plain": "This WARLORD can make Vengeance Miracle dice 6s, and can re-roll melee hit rolls in turns it charged, was charged or made a Heroic Intervention.\n- Whenever Vengeance gives you a Miracle dice at the end of a phase in which this WARLORD destroyed any enemy units, that dice is automatically a 6.\n- When this WARLORD makes a melee attack, you can re-roll the hit roll if, this turn, it was charged, made a charge move or performed a Heroic Intervention."
   },
   "d4819a0c9094": {
     "name": "Judgement of the Faithful",
@@ -1073,6 +1158,11 @@
     "name": "Thrice-blessed Hull",
     "kind": "stratagem",
     "plain": "At the start of your opponent's Psychic phase: choose one of your HALLOWED models. For the rest of the phase it has this ability: 'Thrice-Blessed Hull (Aura): while any enemy PSYKER unit is within 12\" of this model, that PSYKER unit suffers Perils of the Warp whenever it fails a psychic test.'"
+  },
+  "ebc1b8b8b1aa": {
+    "name": "Warlord Trait: Shield Bearer",
+    "kind": "ability",
+    "plain": "Attacks on this WARLORD lose 1 Damage (to a minimum of 1), and Miracle dice you gain from Vengeance or Sacrifice can become automatic 6s.\n- Whenever an attack is allocated to this WARLORD, subtract 1 from that attack's Damage characteristic (to a minimum of 1).\n- Whenever Vengeance gives you a Miracle dice at the end of a phase in which this WARLORD destroyed any enemy units, that dice is automatically a 6.\n- Whenever Sacrifice gives you a Miracle dice at the end of a phase, or if this WARLORD was destroyed during that phase, that dice is automatically a 6."
   },
   "ec655df17053": {
     "name": "The Redeemer",

@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "This model can carry up to 35 ASTRA MILITARUM INFANTRY models, though some take extra room. A Heavy Weapon Team or Veteran Heavy Weapon Team model fills the space of 2 models, and an OGRYN model fills the space of 3."
   },
+  "23b4ba1739c3": {
+    "name": "Drill Commander (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your MILITARUM TEMPESTUS INFANTRY units is within 6\" of this WARLORD, its models double their Rapid Fire attacks at any range. This replaces the usual Rapid Fire rule: for example, a Rapid Fire 1 weapon makes 2 attacks whatever the distance to the target."
+  },
   "25315fd16cce": {
     "name": "Subterranean Assault",
     "kind": "ability",
@@ -19,10 +24,20 @@
     "kind": "rule",
     "plain": "When this unit is first set up, every model in it must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit for all rules purposes."
   },
+  "55a7b5111fc1": {
+    "name": "Old Grudges",
+    "kind": "ability",
+    "plain": "Pick an enemy unit at the start of the first battle round; your PLATOON or BATTLE TANK SQUADRON units within 6\" of this WARLORD add 1 to wound rolls against it. For the rest of the battle, this WARLORD has this ability: OLD GRUDGES (Aura): while one of your PLATOON or BATTLE TANK SQUADRON units is within 6\" of this WARLORD, each time one of its models attacks the picked enemy unit, add 1 to the wound roll."
+  },
   "5a2cad9fc851": {
     "name": "Melta Cutter Drill",
     "kind": "weapon",
     "plain": "This weapon automatically hits a BUILDING, and its attacks that target a VEHICLE unit have a Damage characteristic of 6."
+  },
+  "5ad7139646c3": {
+    "name": "Precision Targeting (Aura)",
+    "kind": "ability",
+    "plain": "Aura: targets of ranged attacks by your MILITARUM TEMPESTUS INFANTRY units within 6\" of this WARLORD get no benefit of cover against those attacks."
   },
   "61d78a9e1553": {
     "name": "Born Soldiers",
@@ -38,6 +53,11 @@
     "name": "Brood Brothers",
     "kind": "ability",
     "plain": "Units with this Regimental Doctrine add 2 to their models' Leadership characteristic, and INFANTRY units with it also gain the Unquestioning Loyalty ability."
+  },
+  "7ca54bd6ff9b": {
+    "name": "Front-Line Combatant",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, add 1 to the wound roll, and each unmodified hit roll of 6 scores 2 extra hits."
   },
   "7e88594eeb43": {
     "name": "Designer's Note (forgeworld)",
@@ -68,6 +88,31 @@
     "name": "Specialist Operators",
     "kind": "ability",
     "plain": "In a Battle-forged army, each Detachment can include at most one of this unit for every COMBAT ENGINEER SQUAD unit in that Detachment."
+  },
+  "c183cc2f0886": {
+    "name": "Superior Tactical Training",
+    "kind": "ability",
+    "plain": "This WARLORD learns one extra type of Orders: when you pick this trait, choose Regimental, Prefectus or Mechanized Orders that it doesn't already know. It then knows those Orders on top of any others it knows."
+  },
+  "c37983e144d6": {
+    "name": "Master Tactician",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, you can redeploy up to three of your ASTRA MILITARUM units (but no TITANIC units) wholly within your deployment zone. Take the chosen units off the battlefield, then set them up anywhere on the battlefield wholly within your deployment zone. If your mission uses the Strategic Reserves rules, you can put any of them into Strategic Reserves instead."
+  },
+  "d8432bbfa886": {
+    "name": "Grand Strategist",
+    "kind": "ability",
+    "plain": "While this WARLORD is on the battlefield, roll a D6 for each Command point you spend on a Stratagem; on a 5+, you get that Command point back."
+  },
+  "dca8c96dc42f": {
+    "name": "Uncompromising Prosectuion (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your MILITARUM TEMPESTUS INFANTRY units within 6\" of this WARLORD get 1 better Armour Penetration on ranged attacks at half range. Each time one of their models shoots at a unit within half range, improve that attack's Armour Penetration characteristic by 1."
+  },
+  "dfc3ace31ff2": {
+    "name": "Lead by Example",
+    "kind": "ability",
+    "plain": "This WARLORD can give Orders to its own unit, despite the usual rule that OFFICER units can't be picked to receive Orders."
   },
   "fa5ad39ed78d": {
     "name": "Leading from the Front",
