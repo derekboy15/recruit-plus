@@ -24,6 +24,11 @@
     "kind": "stratagem",
     "plain": "Use when one of your RAVEN GUARD units destroys an enemy WARLORD with an attack. Until the battle ends, every enemy unit has its Leadership characteristic reduced by 1."
   },
+  "313f98aae630": {
+    "name": "Master of Vigilance",
+    "kind": "ability",
+    "plain": "When this Warlord attacks with a melee weapon, each unmodified hit roll of 6 also deals 1 mortal wound to the target, on top of any other damage."
+  },
   "36a5e2632f07": {
     "name": "Infiltrators",
     "kind": "stratagem",
@@ -53,6 +58,11 @@
     "name": "Token of Brotherhood",
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Raven Guard successor Chapter as your Warlord: one CHARACTER model in your army from a Raven Guard successor Chapter can have one Relic of the Ravenspire instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every RAVEN GUARD keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "7337c33632ca": {
+    "name": "Feigned Flight",
+    "kind": "ability",
+    "plain": "This Warlord can shoot and charge in a turn in which it Fell Back, and when it Falls Back it can move across models and terrain as if they weren't there."
   },
   "7537ebb93f0f": {
     "name": "Shadow Masters",
@@ -99,6 +109,11 @@
     "kind": "ability",
     "plain": "Aura: when you make a charge roll for a RAVEN GUARD JUMP PACK or RAVEN GUARD PHOBOS unit that is within 6\" of this model at the time, you can re-roll it."
   },
+  "ce6d4e2d747d": {
+    "name": "Swift and Deadly (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your RAVEN GUARD CORE or RAVEN GUARD CHARACTER units is within 6\" of this Warlord, it can declare a charge in a turn in which it Advanced."
+  },
   "dbed351cb146": {
     "name": "Ambushing Fire",
     "kind": "stratagem",
@@ -108,6 +123,11 @@
     "name": "Winged Deliverance",
     "kind": "ability",
     "plain": "When you make a charge roll for a RAVEN GUARD JUMP PACK unit that is within 6\" of this model at the time, you can re-roll it."
+  },
+  "eb0b7b6867d7": {
+    "name": "Master of Ambush",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, this Warlord can redeploy one other RAVEN GUARD INFANTRY unit from your army, and itself too if it is INFANTRY. This happens before the first turn begins, and only if this Warlord is on the battlefield; the other unit must also be on the battlefield and can't be a CENTURION unit. Take that unit, and this Warlord if it is INFANTRY, off the battlefield, then place them anywhere on the battlefield that is more than 9\" away from the enemy deployment zone and more than 9\" away from every enemy model. If each player has abilities that redeploy units before the first turn, roll off; the winner decides which player redeploys their units first."
   },
   "ecd5fa0c5d21": {
     "name": "Raven's Talons",

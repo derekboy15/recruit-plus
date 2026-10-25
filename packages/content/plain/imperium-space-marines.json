@@ -1,8 +1,23 @@
 {
+  "005927d4c145": {
+    "name": "Master of the Codex",
+    "kind": "ability",
+    "plain": "When your Command phase starts, roll one D6 if this WARLORD is on the battlefield; you gain 1 command point on a 4+."
+  },
+  "0b779ae36d63": {
+    "name": "Psychic Mastery",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Psychic tests."
+  },
   "0e08d8dfbc8c": {
     "name": "Duellists",
     "kind": "ability",
     "plain": "Melee attacks by models with this tactic automatically wound INFANTRY and BIKER units on an unmodified hit roll of 6.\nYou can't take this tactic if you've already chosen the Whirlwind of Rage tactic."
+  },
+  "2057540248a4": {
+    "name": "Selfless Healer",
+    "kind": "ability",
+    "plain": "This WARLORD heals more with Combat Restoratives and can use the Combat Revival Stratagem for free.\n• Each time it uses its Combat Restoratives ability, the model it heals gets back up to 3 lost wounds rather than D3.\n• Each time you pick it to bring a destroyed model back to a unit with the Combat Revival Stratagem, that Stratagem costs 0 command points."
   },
   "21c662c6e28c": {
     "name": "Master Artisans",
@@ -18,10 +33,30 @@
       "95": "page reference (\"as listed on page 94-95\") for the Chapter Tactics, not part of the rule"
     }
   },
+  "25c126a979cb": {
+    "name": "Fear Made Manifest (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while an enemy unit is within 6\" of this WARLORD, subtract 1 from the Leadership of its models and from each Combat Attrition test taken for it."
+  },
   "262bca5f1790": {
     "name": "Preferred Enemy",
     "kind": "ability",
     "plain": "Models with this tactic re-roll melee hit rolls of 1 against units with one Faction keyword you pick from a list.\nWhen you take this tactic, choose CHAOS KNIGHTS, TYRANIDS, AELDARI, ORK, HERETIC ASTARTES, NECRONS or T'AU EMPIRE."
+  },
+  "29fc57c95ec2": {
+    "name": "Master of the Vanguard",
+    "kind": "ability",
+    "plain": "Your <CHAPTER> PHOBOS units within 6\" of this WARLORD add 1 to their charge rolls and move 1\" further.\nEach time such a unit is picked to make a Normal Move, Advance or Fall Back, it gets 1\" extra Movement until the end of the turn."
+  },
+  "319512e3287a": {
+    "name": "Master Marksman",
+    "kind": "ability",
+    "plain": "This Warlord's ranged weapons, apart from Grenades and Relics, add 1 to their Damage characteristic."
+  },
+  "34b9cc0fe650": {
+    "name": "No Hiding from the Watchers",
+    "kind": "ability",
+    "plain": "In your opponent's Movement phase, pick one of your Dark Angels units within 9\" of this WARLORD: this turn, it can make Heroic Interventions like a CHARACTER.\nUntil the end of the turn, it can do so from up to 6\" away horizontally and 5\" vertically from an enemy unit, and each of its models can move up to 6\" when it does. All other Heroic Intervention rules still apply."
   },
   "35e669ceeb10": {
     "name": "Long-range Marksmen",
@@ -36,6 +71,16 @@
     "kind": "ability",
     "plain": "Whenever a mortal wound would make a model with this tactic lose a wound, roll one D6: on a 5+, the wound is not lost."
   },
+  "3a318de77e36": {
+    "name": "Champion of Humanity",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to its Attacks when in Engagement Range of enemy CHARACTER units, and to hit and wound rolls for its melee attacks against CHARACTER units.\nThe Attacks bonus applies each time it is within Engagement Range of any enemy CHARACTER units, and lasts until that fight is resolved."
+  },
+  "3bf3857a7721": {
+    "name": "Lord of Deceit",
+    "kind": "ability",
+    "plain": "Once both armies are deployed, you can pick up to 3 of your <CHAPTER> PHOBOS units and redeploy them.\nIf the mission uses Strategic Reserves, you can put any of those units into Strategic Reserves at no additional CP cost, no matter how many units are already there. If both players have abilities that redeploy units, roll off: the winner picks who redeploys first."
+  },
   "3e611bab0520": {
     "name": "Scions of the Forge",
     "kind": "ability",
@@ -46,10 +91,20 @@
     "kind": "ability",
     "plain": "Units with this tactic can still declare a charge in a turn in which they Fell Back."
   },
+  "4abd73b5ee6b": {
+    "name": "Storm of Fire",
+    "kind": "ability",
+    "plain": "When a model in one of your <CHAPTER> CORE units within 6\" of this WARLORD makes a ranged attack, an unmodified wound roll of 6 improves that attack's AP by 1."
+  },
   "595be0b30895": {
     "name": "Relentless Seekers",
     "kind": "rule",
     "plain": "Unmodified wound rolls of 1 or 2 against units with this tactic always fail, and its PSYKER models can re-roll 1s on Psychic and Deny the Witch tests.\n• The wound roll rule applies whatever abilities the weapon or the attacking model has.\n• For Psychic tests and Deny the Witch tests taken for those PSYKER models, you can re-roll any or all dice that show a 1."
+  },
+  "616c8bbdd2b9": {
+    "name": "Wise Orator",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to the roll to see if its litanies are inspiring, and can use the Commanding Oratory Stratagem for 1 command point.\nThat price applies each time you choose this WARLORD to use the Stratagem."
   },
   "7308c784d487": {
     "name": "Fearsome Aspect",
@@ -61,10 +116,25 @@
     "kind": "ability",
     "plain": "If their unit charged, was charged or made a Heroic Intervention this turn, models with this tactic score 1 extra hit on each unmodified melee hit roll of 6.\nYou can't take this tactic if you've already chosen the Duellists tactic."
   },
+  "9f8a3d86464f": {
+    "name": "Stealth Adept",
+    "kind": "ability",
+    "plain": "Enemy models can't target this WARLORD with ranged attacks unless it is the closest eligible target."
+  },
   "9fca103adaa9": {
     "name": "Stoic",
     "kind": "ability",
     "plain": "Models with this tactic add 1 to their Leadership characteristic."
+  },
+  "a2ca4935f6e3": {
+    "name": "Shoot and Fade",
+    "kind": "ability",
+    "plain": "Once per turn, after a <CHAPTER> PHOBOS unit within 6\" of this WARLORD shoots in your Shooting phase, it can make a Normal Move or Advance. If it does, it can't declare a charge this turn."
+  },
+  "a5194568fedc": {
+    "name": "Steadfast Example",
+    "kind": "ability",
+    "plain": "While one of your <CHAPTER> CORE units is within 6\" of this WARLORD, it has the Objective Secured ability. If a model in that unit already has that ability, it counts as one extra model when working out who controls an objective marker."
   },
   "a6242f20f071": {
     "name": "Hungry for Battle",
@@ -76,15 +146,35 @@
     "kind": "ability",
     "plain": "When a PSYKER unit with this tactic takes a Psychic test or Deny the Witch test, you can re-roll any or all of its dice that show a 1."
   },
+  "bfb86de90760": {
+    "name": "Warden of the Ancients",
+    "kind": "ability",
+    "plain": "While one of your <CHAPTER> DREADNOUGHTS is within 6\" of this WARLORD, add 1 to that DREADNOUGHT's Strength and Attacks characteristics."
+  },
   "c14b385cb2ab": {
     "name": "Born Heroes",
     "kind": "ability",
     "plain": "Models with this tactic add 1 to their melee hit rolls in a turn in which their unit made a charge move."
   },
+  "c1e588610ff5": {
+    "name": "The Imperium's Sword",
+    "kind": "ability",
+    "plain": "You can re-roll this WARLORD's charge rolls, and it adds 1 to its Strength and Attacks in fights after it charges or Heroically Intervenes.\nThe bonus applies each time it fights in a turn in which it made a charge move or performed a Heroic Intervention, and lasts until that Fight phase is resolved."
+  },
   "cd3d28459ecf": {
     "name": "Rapid Assault",
     "kind": "ability",
     "plain": "Models with this tactic ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced."
+  },
+  "d8ea87850499": {
+    "name": "Martial Exemplar",
+    "kind": "ability",
+    "plain": "Your <CHAPTER> CORE and <CHAPTER> CHARACTER units can re-roll charge rolls while they are within 6\" of this WARLORD."
+  },
+  "e3cb874e7b3e": {
+    "name": "Rites of War",
+    "kind": "ability",
+    "plain": "Your <CHAPTER> CORE and <CHAPTER> CHARACTER units have the Objective Secured ability while they are within 6\" of this WARLORD."
   },
   "e9d9955ac1f6": {
     "name": "Stealthy",
@@ -95,6 +185,11 @@
     "name": "Stalwart",
     "kind": "ability",
     "plain": "Unmodified wound rolls of 1 or 2 always fail for attacks against units with this tactic, whatever abilities the weapon or attacker has."
+  },
+  "f6b8791d209c": {
+    "name": "Target Priority",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your <CHAPTER> PHOBOS units within 6\" of this WARLORD to add 1 to the hit rolls of its ranged attacks. This lasts until the start of your next Command phase."
   },
   "fbd7435e3823": {
     "name": "Objective Secured",

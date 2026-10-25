@@ -4,6 +4,11 @@
     "kind": "stratagem",
     "plain": "Use in your Movement phase, when one of your DEATHWATCH BIKER units, or one of your KILL TEAM units with a Veteran Biker or Outrider in it, Falls Back. That unit can still charge this turn even though it Fell Back."
   },
+  "0148cb39a448": {
+    "name": "2. Paragon of their Chapter",
+    "kind": "ability",
+    "plain": "This WARLORD takes one of the Space Marines Chapter Warlord Traits, with DEATHWATCH put in place of every mention of that Chapter's keyword. If this WARLORD wears the heraldry of one of those Chapters, or of one of their successor Chapters (other than Crimson Fists, Black Templars and Flesh Tearers), you have to pick that Chapter's trait. A Chapter Warlord Trait from a Codex supplement can't be chosen."
+  },
   "0ab53c4f942f": {
     "name": "Kill Team Abilities",
     "kind": "ability",
@@ -39,10 +44,20 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when you choose one of your STRIKE FORCE KILL TEAM or STRIKE FORCE CHARACTER units to shoot. Until the end of the phase:\n• Every bolt weapon carried by the unit's models becomes Type Heavy 1.\n• For ranged attacks by its models with a Bolt weapon, an unmodified wound roll of 6 deals 1 mortal wound to the target as well as the normal damage. No more than 6 mortal wounds per phase can be caused this way."
   },
+  "0f176b0c9376": {
+    "name": "Adept of the Omnissiah",
+    "kind": "ability",
+    "plain": "This WARLORD can patch up IRON HANDS VEHICLE models, or heals more with its repairs if it is a TECHMARINE.\n• At the end of your Movement phase, if this WARLORD isn't a TECHMARINE, it can repair one of your IRON HANDS VEHICLE models within 1\" of it, which regains 1 lost wound. No model can be repaired more than once per turn.\n• If this WARLORD is a TECHMARINE, its Blessing of the Omnissiah ability restores up to D3+1 lost wounds to the model being repaired, instead of D3."
+  },
   "103ef6165951": {
     "name": "Deathwatch combi-plasma (Plasma Gun - Supercharge)",
     "kind": "weapon",
     "plain": "If any attack with this weapon profile has an unmodified hit roll of 1, the bearer is destroyed once it has finished shooting with this weapon."
+  },
+  "108bed1c5c67": {
+    "name": "Xenos Bane (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your STRIKE FORCE KILL TEAM or STRIKE FORCE CHARACTER units is within 6\" of this WARLORD, it has the Xenos Hunters Chapter Tactic. If that unit already has a Chapter Tactic or Successor Tactic you picked at the start of the battle round through the Veterans of the Long Vigil ability, it has both that tactic and Xenos Hunters."
   },
   "11c9a7af616e": {
     "name": "Deathwatch Heavy Flamer (Hellfire)",
@@ -63,6 +78,11 @@
     "name": "Adaptive Tactics",
     "kind": "stratagem",
     "plain": "Once per battle, in your Command phase, if one of your WATCH MASTER units is on the battlefield: change which Battlefield Role your army has selected for the Xenos Hunters Chapter Tactic."
+  },
+  "24687a833685": {
+    "name": "3. Nowhere to Hide (Aura)",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick an enemy unit to lose cover against your DEATHWATCH CORE units within 6\" of this WARLORD until your next Command phase. The enemy unit can be anywhere on the battlefield. Until your next Command phase starts, while one of your DEATHWATCH CORE units is within 6\" of this WARLORD, the chosen unit gets no benefit of cover to its saving throws against attacks by models in that DEATHWATCH CORE unit."
   },
   "26f00530ec27": {
     "name": "Purgatus",
@@ -89,15 +109,35 @@
     "kind": "ability",
     "plain": "If a ranged attack from an AIRCRAFT model is allocated to the bearer, add 1 to the bearer's armour saving throw against it."
   },
+  "350a61959466": {
+    "name": "Beastslayer",
+    "kind": "ability",
+    "plain": "This WARLORD fights better against MONSTER and VEHICLE units.\n• Add 1 to its Attacks characteristic while it is within Engagement Range of one or more enemy MONSTER or VEHICLE units.\n• Its attacks against a MONSTER or VEHICLE unit add 1 to both the hit roll and the wound roll."
+  },
   "3fca467576b8": {
     "name": "Kill Team Keywords",
     "kind": "ability",
     "plain": "• As long as every model in an INDOMITOR KILL TEAM unit is an Inceptor, the unit gains the FLY keyword."
   },
+  "4600fe3535ce": {
+    "name": "Echo of the Ravenspire",
+    "kind": "ability",
+    "plain": "Once per battle, at the end of your Movement phase, if this Warlord is more than 6\" from every enemy model, it can vanish: remove it from the battlefield. At the end of your next Movement phase, set it up again anywhere more than 9\" from every enemy model. If the battle ends while this Warlord is off the battlefield, it is destroyed."
+  },
+  "4660620ed76e": {
+    "name": "Deadly Hunter",
+    "kind": "ability",
+    "plain": "Once this Warlord has made a charge move, you can choose an enemy unit within 1\" of it and roll one D6. On a 2+, that unit suffers 1 mortal wound."
+  },
   "4698117fda17": {
     "name": "Malleus",
     "kind": "ability",
     "plain": "• Models in this unit re-roll wound rolls of 1 for attacks against enemy units with the Heavy Support, Lord of War or Dedicated Transport Battlefield Role.\n• If the Heavy Support, Lord of War or Dedicated Transport Battlefield Role is the one you picked for the Xenos Hunters Chapter Tactic, models in this unit can re-roll the wound roll for attacks against enemy units with that Battlefield Role."
+  },
+  "47f828be03d2": {
+    "name": "1. Vigilance Incarnate",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your DEATHWATCH CORE units within 6\" of this WARLORD to re-roll wound rolls of 1 against one Battlefield Role. When you do, choose a Battlefield Role. Until your next Command phase starts, each time a model in that unit attacks an enemy unit with that Battlefield Role, re-roll a wound roll of 1."
   },
   "4ac89b60ebaa": {
     "name": "Inspired Retribution (Aura)",
@@ -276,6 +316,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, before the battle while you are mustering your army, if your army's WARLORD is a DEATHWATCH model (has that keyword): choose one DEATHWATCH model in your army whose profile includes the word 'Sergeant'. Even though it isn't a CHARACTER, it can take one of these Relics of the Watch Fortresses: Artificer Armour, Master-crafted Weapon, Digital Weapons, Banebolts of Eryxia or Artificer Bolt Cache. No two Relics in your army can be the same, and this Stratagem can't give a model a second Relic."
   },
+  "8ca3b7f64e8a": {
+    "name": "Crimson Fists: Refuse to Die",
+    "kind": "ability",
+    "plain": "The first time this WARLORD is destroyed, you can roll one D6 at the end of the phase; on a 4+, it returns with D3 wounds remaining. If you choose to roll, you do so instead of using any rules that trigger when a model is destroyed (for example, the Only in Death Does Duty End Stratagem). On a 4+, set this WARLORD up again as close as possible to where it was destroyed and more than 1\" from all enemy models."
+  },
   "8dedf3e64b89": {
     "name": "Acquittal",
     "kind": "weapon",
@@ -359,6 +404,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your DEATHWATCH CORE units is within 6\" of this model, its models may use this model's Leadership characteristic in place of their own."
   },
+  "be62ad14800e": {
+    "name": "Brilliant Strategist",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your DARK ANGELS units within 6\" of this WARLORD to change which doctrine its attacks use. Until your next Command phase starts, each time a model in that unit attacks:\n• if your army has the Tactical Doctrine active, treat the Devastator Doctrine as active for that attack instead;\n• if your army has the Assault Doctrine active, treat the Tactical Doctrine as active for that attack instead."
+  },
   "beda6c1b139d": {
     "name": "5. Mantle of Shadow",
     "kind": "psychic",
@@ -369,15 +419,35 @@
     "kind": "stratagem",
     "plain": "Use at the start of the first battle round: pick one of your CORVUS BLACKSTAR units. Until the end of that battle round, it can't be chosen as the target of ranged attacks unless it is the closest eligible target to the model that is shooting."
   },
+  "c18231126453": {
+    "name": "6. The Ties That Bind (Aura)",
+    "kind": "ability",
+    "plain": "Two benefits for your DEATHWATCH CORE units within 6\" of this WARLORD.\n• Aura: while one of your DEATHWATCH CORE units is within 6\" of this WARLORD, you can re-roll its Morale tests.\n• In your Command phase, you can pick one of your DEATHWATCH CORE units within 6\" of this WARLORD. Until your next Command phase starts, it has Objective Secured. Any model in it that already has that ability counts as one extra model when working out who controls an objective marker."
+  },
+  "c3848214478f": {
+    "name": "Imperial Fists: Architect of War (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your IMPERIAL FISTS CORE units within 6\" of this WARLORD has the benefits of cover, AP-1 attacks allocated to its models count as AP 0."
+  },
   "c52bfa1756af": {
     "name": "Unflinching",
     "kind": "ability",
     "plain": "This unit passes Morale tests automatically."
   },
+  "c8fe542c5c9f": {
+    "name": "5. Castellan of the Black Vault",
+    "kind": "ability",
+    "plain": "While mustering your army, you can give this WARLORD one extra Relic: Adamantine Mantle, Artificer Armour, Master-crafted Weapon or Digital Weapons. This comes on top of any other Relics it has, and every Relic in your army must still be unique."
+  },
   "ca994a54cf65": {
     "name": "Synaptic Severance",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when one of your DEATHWATCH units is chosen to shoot or fight. Until the end of the phase, when a model in that unit attacks a TYRANIDS SYNAPSE unit, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "cd08b5cc58e4": {
+    "name": "4. Optimised Priority (Aura)",
+    "kind": "ability",
+    "plain": "Aura: a DEATHWATCH CORE or DEATHWATCH CHARACTER unit of yours within 6\" of this WARLORD can make ranged attacks while performing an action without failing it."
   },
   "cd1d96f5441f": {
     "name": "Tome of Malcador",
@@ -393,6 +463,11 @@
     "name": "The Primarch's Wrath",
     "kind": "ability",
     "plain": "Only for a model carrying a boltgun, master-crafted boltgun or special issue bolt carbine. This Relic takes that weapon's place and uses its own weapon profile."
+  },
+  "d0b62ba8c5f3": {
+    "name": "Oathkeeper",
+    "kind": "ability",
+    "plain": "This Warlord can Heroically Intervene from further away, and move further when it does.\n• It can perform a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it.\n• Its Heroic Intervention moves can be up to 6\" instead of 3\". The other Heroic Intervention rules all still apply."
   },
   "d194cd1349a6": {
     "name": "The Burning Blade",

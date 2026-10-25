@@ -270,6 +270,11 @@
     "name": "Cult Demagogue (Aura)",
     "plain": "Aura: while one of your <CULT> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "47bf113fc4ce": {
+    "name": "Single-minded Obsession (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your BLADED COG CORE units within 6\" of this WARLORD can re-roll wound rolls for attacks against one enemy unit, which you pick before the battle."
+  },
   "49ee14d9f945": {
     "name": "Explodes",
     "kind": "ability",
@@ -289,6 +294,11 @@
     "kind": "ability",
     "name": "Sacred Cult Banner (Action)",
     "plain": "Action: once the Move Units step of your Movement phase ends, one of your ACOLYTE ICONWARD models can begin this action; it is completed when your Charge phase starts. If it succeeds, the model that did it gets this aura for the rest of the turn: 'Sacred Cult Banner (Aura): add 1 to charge rolls for any of your <CULT> INFANTRY, <CULT> BIKER or <CULT> CHARACTER units (GENESTEALER units excluded) while they are within 6\" of this model.'"
+  },
+  "4c5cdcce1e09": {
+    "name": "Biomorph Adaptation",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to both its Attacks and its Toughness characteristics."
   },
   "50ebc21a786d": {
     "kind": "weapon",
@@ -325,6 +335,11 @@
     "kind": "ability",
     "plain": "Before the first turn of the first battle round begins, this unit can make a Normal Move of up to 9\", as though it were your Movement phase, unless it was set up in ambush. It must finish that move more than 9\" from any enemy models. If both players have units able to do this, the player taking the first turn moves theirs first."
   },
+  "56116bd9c190": {
+    "name": "Prowling Agitant",
+    "kind": "ability",
+    "plain": "Once per turn, when this WARLORD is chosen as a charge target, it can make a Normal Move of up to 6\" after any Overwatch is fired and before the charge roll. Your opponent can then pick new targets for that charge if they want."
+  },
   "571b91d04735": {
     "name": "Deploy Explosives",
     "kind": "ability",
@@ -334,6 +349,11 @@
     "name": "Rapid Advance",
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your GENESTEALER CULTS GENESTEALER, GENESTEALER CULTS BIKER or GENESTEALER CULTS VEHICLE units Advances, don't make an Advance roll. Instead, models in that unit add 6\" to their Move characteristic until the end of the phase."
+  },
+  "5a7c25115af5": {
+    "name": "Preternatural Speed",
+    "kind": "ability",
+    "plain": "This WARLORD can re-roll its melee hit rolls, and can fight first in a Fight phase if it starts that phase within Engagement Range of any enemy units."
   },
   "5c0a69b38903": {
     "name": "Heroic Deeds, Heroic Inspiration (Aura)",
@@ -395,10 +415,20 @@
     "name": "Web Pistol",
     "plain": "Attacks made with this weapon skip the hit roll. Roll one D6 instead, then the attack sequence ends: if the roll beats the highest Strength characteristic among models in the target unit, 1 mortal wound is inflicted on that unit."
   },
+  "6c6847dd84da": {
+    "name": "Augur of the Insurgent",
+    "kind": "ability",
+    "plain": "Advance and charge rolls for your DELIVERANCE BROODSURGE units can be re-rolled if, at the time of the roll, those units are within 6\" of your Warlord."
+  },
   "6d214a669865": {
     "name": "Meticulous Uprising",
     "kind": "stratagem",
     "plain": "When you would reveal your ambush markers: in a Combat Patrol or Incursion battle, you may take away one of your ambush markers; in a Strike Force or Onslaught battle, you may take away up to two. Place each marker taken away anywhere on the battlefield wholly within your deployment zone and more than 9\" from any enemy models. Then reveal all your ambush markers as normal."
+  },
+  "6e555b438c45": {
+    "name": "Alien Majesty",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities, and its Meticulous Planner and Priority Target abilities if it has them, each get 3\" more range. For aura abilities, the range can't go above 9\"."
   },
   "6e6e5b3809c5": {
     "name": "Alien Fury",
@@ -570,6 +600,11 @@
     "name": "Dagger of Swift Sacrifice",
     "plain": "Whenever the bearer is chosen to fight, you can re-roll one wound roll for its attacks. After the bearer has fought, pick one enemy model that lost any wounds to an attack from the bearer's Magus bio-dagger or Sanctus bio-dagger but wasn't destroyed, and roll one D6. On a 3+ it suffers D3 mortal wounds; if this destroys it, ignore any leftover mortal wounds."
   },
+  "99e668f08827": {
+    "name": "Entropic Touch",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for this WARLORD's melee attacks scores 2 extra hits, and its melee weapons (except Relics) improve their Armour Penetration by 1."
+  },
   "99efe0d87071": {
     "name": "Gestalt Consciousness",
     "kind": "stratagem",
@@ -666,6 +701,11 @@
     "kind": "ability",
     "plain": "Units with this creed ignore any or all modifiers to their Combat Attrition tests."
   },
+  "a9ea6552b670": {
+    "name": "Focus of Adoration",
+    "kind": "ability",
+    "plain": "While within 6\" of this WARLORD, your <CULT> CORE and <CULT> PURESTRAIN GENESTEALERS units can perform Heroic Interventions as if they were CHARACTER units."
+  },
   "aa6572ae3d97": {
     "name": "Insurrectionists",
     "kind": "ability",
@@ -675,6 +715,11 @@
     "kind": "psychic",
     "name": "Undermine",
     "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it (it can't be a unit that can FLY). Until the start of your next Psychic phase, models in that unit have their Move characteristic reduced by 3\" (to no less than 0\"), charge rolls for that unit subtract 2, and Advance rolls for that unit are halved."
+  },
+  "ac0c21f41b5f": {
+    "name": "Insidious Mindwyrm",
+    "kind": "ability",
+    "plain": "Add 1 to each charge roll made for your Warlord, or for one of your ANOINTED THRONG units within 6\" of your Warlord at the time of the roll."
   },
   "adc56266b463": {
     "kind": "ability",
@@ -706,6 +751,15 @@
     "name": "Creeping Shadow",
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save. Subtract 1 from the hit roll of every attack made against this model."
+  },
+  "b4449f253096": {
+    "name": "Xenoprophet",
+    "kind": "ability",
+    "plain": "Unquestioning Loyalty tests for this WARLORD pass automatically and reach 6\", and nearby PAUPER PRINCES CORE units can use its Leadership.\n• When you take an Unquestioning Loyalty test after this WARLORD fails a saving throw, don't roll: the test passes automatically.\n• When this WARLORD fails a saving throw, the Unquestioning Loyalty ability lets you pick another of your PAUPER PRINCES or BROOD BROTHERS models with that ability within 6\" of this WARLORD, rather than within 3\".\n• While one of your PAUPER PRINCES CORE units is within 6\" of this WARLORD, each model in that unit can use this WARLORD's Leadership characteristic in place of its own.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text",
+      "PAUPER PRICES": "misspelling of PAUPER PRINCES in the official text; PAUPER PRINCES is used"
+    }
   },
   "b469b557e2fa": {
     "name": "Remote Explosives",
@@ -830,6 +884,11 @@
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, choose one of your BLADED COG INFANTRY or BLADED COG BIKER units. Models in that unit have a 5+ invulnerable save. This Stratagem costs 1CP if that unit's Power Rating is 6 or less, and 2CP otherwise."
   },
+  "e25f32e95a23": {
+    "name": "Hivelord (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your HIVECULT CORE units is within 6\" of this WARLORD, each unmodified hit roll of 6 for its models' ranged attacks scores 1 extra hit."
+  },
   "e355ac8ed73f": {
     "name": "Fanatical Devotion",
     "kind": "stratagem",
@@ -903,6 +962,19 @@
     "waive": {
       "ABERANTS": "misspelling of ABERRANTS in the official text; ABERRANTS is used"
     }
+  },
+  "eec476372fac": {
+    "name": "Inscrutable Cunning",
+    "kind": "ability",
+    "plain": "Once per battle round, you can cut the CP cost of one Genestealer Cults Strategic Ploy or Battle Tactic Stratagem by 1CP (to a minimum of 0CP). That Stratagem must be used on a CULT OF THE FOUR-ARMED EMPEROR unit within 12\" of this WARLORD. The saving applies only to that use; later uses of the Stratagem cost the normal CP. You can use this ability only once on each Stratagem.",
+    "waive": {
+      "CULT OF THE FOUR-AMRED EMPEROR": "misspelling of CULT OF THE FOUR-ARMED EMPEROR in the official text; CULT OF THE FOUR-ARMED EMPEROR is used"
+    }
+  },
+  "f150bd78c55f": {
+    "name": "Bio-alchemist",
+    "kind": "ability",
+    "plain": "Each melee weapon this WARLORD has, except Relics, adds 1 to its Damage characteristic."
   },
   "f218c37f0ce7": {
     "kind": "ability",

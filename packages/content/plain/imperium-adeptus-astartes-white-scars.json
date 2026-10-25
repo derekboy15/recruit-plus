@@ -39,6 +39,11 @@
     "kind": "stratagem",
     "plain": "Use before one of your WHITE SCARS units (excluding ARTILLERY) consolidates. This phase, it consolidates D3+3\" instead of 3\", or D6+6\" if every model in it has a Move characteristic of 10\" or more."
   },
+  "4758fc6e9211": {
+    "name": "Hunter's Instincts",
+    "kind": "ability",
+    "plain": "This Warlord adds 1 to both its hit rolls and its wound rolls when attacking enemy MONSTER or VEHICLE units."
+  },
   "48113247fca3": {
     "name": "Hunters’ Fusillade",
     "kind": "stratagem",
@@ -54,6 +59,11 @@
     "kind": "stratagem",
     "plain": "Use when one of your WHITE SCARS BIKER units Advances. It can still shoot this turn."
   },
+  "6810b9e31b3b": {
+    "name": "Master of Snares",
+    "kind": "ability",
+    "plain": "Each time an enemy unit within Engagement Range of this Warlord is picked to Fall Back, you can roll one D6; on a 4+, it can't Fall Back this turn. This doesn't work on a unit that includes a model with a minimum Move characteristic."
+  },
   "76797505e22f": {
     "name": "Chogorian Thunderbolts",
     "kind": "stratagem",
@@ -63,6 +73,11 @@
     "name": "Ride Hard, Ride Fast",
     "kind": "stratagem",
     "plain": "Use after one of your WHITE SCARS units Advances. Until the start of your next Movement phase, subtract 1 from hit rolls for ranged attacks that target that unit."
+  },
+  "7e6c29d7ce28": {
+    "name": "Chogorian Storm",
+    "kind": "ability",
+    "plain": "Each time this Warlord makes a charge move or a Heroic Intervention, its Attacks characteristic goes up by D3 until the turn ends."
   },
   "89c0a7e49568": {
     "name": "Encirclement",
@@ -128,6 +143,11 @@
     "name": "Anzuq",
     "kind": "ability",
     "plain": "When this model is chosen to shoot in your Shooting phase, you can pick one enemy unit within 12\" of it that is not a VEHICLE and roll one D6. On a 4+, it suffers 1 mortal wound."
+  },
+  "f76e630a5899": {
+    "name": "Master Rider",
+    "kind": "ability",
+    "plain": "BIKER only: you can re-roll this Warlord's charge rolls, and attacks against it subtract 1 from the hit roll if it Advanced in your previous Movement phase. If you roll your Warlord Trait at random and your Warlord isn't a BIKER, keep re-rolling this result until you get a different trait."
   },
   "f89037a8c82f": {
     "name": "For the Khan!",

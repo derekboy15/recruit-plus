@@ -1,4 +1,9 @@
 {
+  "11bb4c8f411c": {
+    "name": "Will of Iron",
+    "kind": "ability",
+    "plain": "In your opponent's Psychic phase, this Warlord can take a Deny the Witch test like a PSYKER against one power manifested by an enemy model within 24\" of it. A LIBRARIAN Warlord can instead attempt to deny one more psychic power than usual in your opponent's Psychic phase."
+  },
   "12ea3f2cf2e6": {
     "name": "Wrathful Machine Spirit",
     "kind": "stratagem",
@@ -9,10 +14,20 @@
     "kind": "stratagem",
     "plain": "Once per battle, before the battle, after you nominate your WARLORD: pick one of your IRON HANDS DREADNOUGHT models. It gains the CHARACTER keyword, and you add 1 to its Attacks and Leadership characteristics."
   },
+  "291e664abc4e": {
+    "name": "Merciless Logic",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for this Warlord's attacks lets you make 1 additional attack with the same weapon against the same unit. That extra attack can't generate any further attacks."
+  },
   "41a71da197af": {
     "name": "Signum Array",
     "kind": "ability",
     "plain": "In your Command phase: pick one of your IRON HANDS units within 3\" of this model. Add 1 to hit rolls for ranged attacks by its models until your next Command phase starts."
+  },
+  "47f650b9c3a5": {
+    "name": "All Flesh is Weakness",
+    "kind": "ability",
+    "plain": "Roll one D6 each time this Warlord would lose a wound: on a 5+, it doesn't lose that wound."
   },
   "5631c8cdf85d": {
     "name": "Rites of Tempering",
@@ -83,6 +98,11 @@
     "name": "Souls of Iron",
     "kind": "stratagem",
     "plain": "Use in your opponent's Psychic phase, after any Deny the Witch attempt, when an enemy PSYKER model manifests a power within 24\" of one of your IRON HANDS units. Roll one D6: on a 4+, the power is resisted."
+  },
+  "dea3db450e8c": {
+    "name": "Target Protocols",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, pick one of your IRON HANDS units within 6\" of this Warlord: it gets a hit, a wound and a damage re-roll that phase. Each can be used once that phase, on a ranged weapon attack by a model from that unit."
   },
   "e93ec1cb7a28": {
     "name": "Blessing of the Omnissiah",

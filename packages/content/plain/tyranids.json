@@ -9,6 +9,11 @@
     "name": "Voracious Ammunition",
     "plain": "After this model finishes making its attacks each time it shoots, choose one unit that at least one of those attacks hit, then roll one D6: on a 2+, that unit takes D3 mortal wounds."
   },
+  "01d1b950bfc9": {
+    "name": "Insidious Threat",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your JORMUNGANDR units within Synaptic Link range of this WARLORD to ignore cover with its attacks. Until your next Command phase starts, targets of its models' attacks get no benefit from cover against them."
+  },
   "046694e37b14": {
     "name": "Rarefied Enhancements",
     "kind": "stratagem",
@@ -61,6 +66,11 @@
     "name": "Hypertoxic Poison Cloud",
     "kind": "ability",
     "plain": "At the end of the Fight phase, for each enemy model within Engagement Range of this model, roll one D6: on a 5+, the unit that model belongs to takes 1 mortal wound."
+  },
+  "1003bf96bfa8": {
+    "name": "Endless Regeneration",
+    "kind": "ability",
+    "plain": "At the start of the Command phase, this WARLORD may regenerate, getting back up to D3 lost wounds. It can't do this more than once per turn."
   },
   "116c07214d5b": {
     "kind": "ability",
@@ -156,6 +166,11 @@
     "name": "Vicious Devourers",
     "kind": "ability",
     "plain": "Re-roll hit rolls of 1 for melee attacks by this unit's models, as long as the attacking model has no ranged weapons."
+  },
+  "2010e251d19a": {
+    "name": "Lethal Miasma",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, roll one D6 per enemy unit within 3\" of this WARLORD: a 2-5 deals 1 mortal wound to that unit, and a 6 deals D3 mortal wounds."
   },
   "2058c383c88a": {
     "kind": "ability",
@@ -301,10 +316,20 @@
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your LEVIATHAN MONSTER models (excluding TITANIC models) is destroyed. If it has an ability triggered by a dice roll on its destruction (such as Death Throes), skip that roll: the ability triggers automatically."
   },
+  "38f37c8939ff": {
+    "name": "One Step Ahead",
+    "kind": "ability",
+    "plain": "If this WARLORD is on the battlefield when your opponent uses a Stratagem, roll one D6; a 5+ gives you 1 Command point."
+  },
   "3a17dba2b2d8": {
     "name": "*Designers Note",
     "kind": "ability",
     "plain": "If this model has no base, both players must agree on the footprint of its 'base' before deployment, the same way they would for an Area Terrain feature. The suggested method is to imagine straight lines drawn from each point of the model that would touch the battlefield if it stood on a flat surface; the area inside those lines is treated as the model's 'base'. If the model is posed with one or more legs raised, agree with your opponent where each raised leg would touch the battlefield, and use those points to help define the shape of the model's 'base'."
+  },
+  "3a3be2e4e24b": {
+    "name": "Heightened Senses",
+    "kind": "ability",
+    "plain": "You can re-roll this WARLORD's hit rolls, and it can fight first in the Fight phase if within Engagement Range of any enemy units as the phase starts."
   },
   "3a7500a819fd": {
     "name": "Floating Death",
@@ -325,6 +350,11 @@
     "kind": "psychic",
     "name": "Broodlord",
     "plain": "This model knows Smite and 1 psychic power from the Hive Mind discipline."
+  },
+  "3f801ceffdb0": {
+    "name": "Soul Hunger (Aura)",
+    "kind": "ability",
+    "plain": "Aura: an enemy PSYKER unit within 18\" of this WARLORD suffers Perils of the Warp on any double in a Psychic test, not just a double 1 or double 6."
   },
   "3fe1ab765b63": {
     "name": "Airborne",
@@ -591,6 +621,19 @@
       "PSTKER": "misspelling of PSYKER in the official text; written correctly as PSYKER"
     }
   },
+  "6e0222c84a0e": {
+    "name": "Synaptic Lynchpin",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities and Synaptic Imperative abilities get 3\" more range. In addition, whenever it uses an ability with a stated range in your Command phase, that ability's range is 3\" longer until the end of the phase.",
+    "waive": {
+      "88": "page reference (\"pg 88\") to where the Synaptic Imperative abilities are printed; not part of the rule"
+    }
+  },
+  "6e9058c5f439": {
+    "name": "Savage Intimidation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this WARLORD subtract 1 from their melee hit rolls and 1 from their Combat Attrition tests."
+  },
   "6f9519be6ee3": {
     "name": "Synaptic Domination",
     "kind": "stratagem",
@@ -745,6 +788,11 @@
     "name": "Aggressive Surge",
     "plain": "Blessing: pick one of your CRUSHER STAMPEDE models within 18\" of this PSYKER. Until your next Psychic phase starts, that model's Attacks characteristic is increased by D3."
   },
+  "86f4abebcf1c": {
+    "name": "Gestalt Commander",
+    "kind": "ability",
+    "plain": "At the start of each battle round, pick a Hive Fleet Warlord Trait for this WARLORD; it has that trait until the next battle round starts. You can't pick Perfectly Adapted, or any Warlord Trait a model in your army already has. Replace any hive fleet keyword in the chosen trait with LEVIATHAN."
+  },
   "8804109824fe": {
     "name": "Hive Mind Imperative",
     "kind": "stratagem",
@@ -789,6 +837,11 @@
     "kind": "ability",
     "name": "Infrasonic Roar",
     "plain": "When your Movement phase ends, choose an enemy unit within 12\" of the bearer, then roll 3D6. If the total is at least that unit's Leadership characteristic, it can't perform actions until your next Movement phase begins, and any action it is in the middle of fails at once."
+  },
+  "8e4defea1153": {
+    "name": "Swarm Leader",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your LEVIATHAN INFANTRY, LEVIATHAN BEAST or LEVIATHAN SWARM units within 9\" of this WARLORD to re-roll hit rolls. The re-roll is available for every attack its models make until your next Command phase starts."
   },
   "8e5737b219b5": {
     "kind": "weapon",
@@ -926,6 +979,14 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your EXOCRINE models is chosen to shoot. For the rest of the phase, whenever it makes an attack, the target gets no benefit of cover against it, and an unmodified hit roll of 6 scores 1 extra hit."
   },
+  "a386d80f86ff": {
+    "name": "Strategic Adaptation",
+    "kind": "ability",
+    "plain": "After both armies deploy and before the first battle round, you can redeploy up to two of your LEVIATHAN units in your deployment zone (not this WARLORD). If the mission uses the Strategic Reserves rules, you can put any of those units into Strategic Reserves at no extra CP cost, however many units are already there. If both players have abilities that redeploy units, roll off, and the winner decides who redeploys first.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a cross-reference, which the style guide says to leave out"
+    }
+  },
   "a6e7439b4447": {
     "name": "Instinctive Rampage",
     "kind": "stratagem",
@@ -965,6 +1026,11 @@
     "kind": "ability",
     "name": "Prey Adaption",
     "plain": "When an enemy model is destroyed within 3\" of this model, this model gains the following ability at the end of that phase, for the remainder of the battle: 'Prey Adaption (Aura): your <HIVE FLEET> units within 6\" of this model re-roll wound rolls of 1 for their models' attacks.'"
+  },
+  "b014bd1b3f97": {
+    "name": "Direct Guidance",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this WARLORD to add 1 to its hit rolls. This lasts until your next Command phase starts and applies to every attack its models make."
   },
   "b0ca630f0412": {
     "name": "Floating Death",
@@ -1100,6 +1166,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your HIVE TENDRIL CHARACTER models that hasn't yet been chosen to fight this phase is destroyed, instead of using any rules triggered by its destruction (such as the Death Throes ability). Don't remove it from play: it can fight once the attacking model's unit has finished making attacks. For those attacks, if the destroyed model's characteristics change as it suffers damage, treat it as having all its wounds remaining when working out those characteristics. After its attacks are resolved, remove it."
   },
+  "c59da82fd17f": {
+    "name": "Perfectly Adapted",
+    "kind": "ability",
+    "plain": "Once per battle round, you can re-roll a single roll made for this WARLORD: a hit, wound, damage, Advance or charge roll, a Psychic test or a saving throw."
+  },
   "c5b402709c67": {
     "name": "Opportunistic Advance",
     "kind": "stratagem",
@@ -1127,6 +1198,11 @@
       "61": "page reference (\"pages 60-61\") to where the rules for creating an adaptation are printed; not part of the rule"
     }
   },
+  "cb7846b3316b": {
+    "name": "Synaptic Tendrils",
+    "kind": "ability",
+    "plain": "In your Command phase, this WARLORD can use one of the abilities listed here an extra time that phase, if it has that ability. Listed abilities: Alpha Warrior, Bio-impulses, Brood Progenitor, Vicious Insight, Warp Siphon or Will of the Hive Mind."
+  },
   "ccadc6f45f40": {
     "kind": "ability",
     "name": "Vicious Insight",
@@ -1134,6 +1210,11 @@
     "waive": {
       "87": "page reference to the codex, not part of the rule"
     }
+  },
+  "d03226103574": {
+    "name": "Rampaging Beast",
+    "kind": "ability",
+    "plain": "Once per turn, when this WARLORD is picked to fight, it can use this trait: this WARLORD's Attacks characteristic goes up by D3 for the rest of the phase."
   },
   "d0cd283d8ad7": {
     "kind": "ability",
@@ -1189,6 +1270,11 @@
     "name": "Unparalleled Ferocity",
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your BEHEMOTH INFANTRY units (excluding CHARACTER units) that hasn't fought yet this phase is chosen as the target of a melee attack. Until the unit making that attack finishes its attacks, whenever a model in that BEHEMOTH unit is destroyed, don't use any rules triggered by its destruction and don't remove it from play; once that attacking unit is done, the destroyed model can attack as if its unit had been chosen to fight. After those attacks are resolved, remove the destroyed model. Cost: 1CP if that BEHEMOTH INFANTRY unit has the ENDLESS MULTITUDE keyword, otherwise 2CP."
+  },
+  "dadd7f4a37b5": {
+    "name": "Alien Cunning",
+    "kind": "ability",
+    "plain": "This WARLORD has Objective Secured, counts as 5 models when controlling objective markers, and can start an action in a turn it Advanced or Fell Back."
   },
   "db09bc97e2d1": {
     "kind": "ability",
@@ -1370,6 +1456,11 @@
     "name": "Wreathed in the Shadow",
     "kind": "ability",
     "plain": "Enemy units targeted by a charge from a unit with this adaptation can't fire Overwatch or Set to Defend in response to that charge."
+  },
+  "f96a339a5451": {
+    "name": "Raging Influence (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your CRUSHER STAMPEDE MONSTER units within 6\" of this WARLORD score 1 extra hit on each unmodified melee hit roll of 6."
   },
   "fa0d6381d0cb": {
     "name": "Unstoppable Swarm",

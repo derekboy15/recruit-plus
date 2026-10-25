@@ -172,6 +172,11 @@
     "kind": "ability",
     "plain": "During the Morale phase, any SPACE WOLVES unit of yours that is within 6\" of this model may use this model's Leadership in place of its own."
   },
+  "5f2ee0c639ad": {
+    "name": "Aura of Majesty",
+    "kind": "ability",
+    "plain": "This WARLORD's litanies and four of its abilities reach 3\" further, to a maximum of 9\".\n• Its Rites of Battle, Tactical Precision, Chapter Master and Spiritual Leaders abilities each get 3\" more range (up to 9\" at most).\n• Any litany it recites gets 3\" more range (up to 9\" at most)."
+  },
   "5f53f96d90b5": {
     "name": "Warrior of Legend",
     "kind": "stratagem",
@@ -191,6 +196,11 @@
     "name": "Wolf Standard",
     "kind": "ability",
     "plain": "When a unit with a Wolf Standard Advances or makes a charge move, you can re-roll any dice that show a 1 for that move."
+  },
+  "6d8a83eb58f2": {
+    "name": "Resolve of the Bear",
+    "kind": "ability",
+    "plain": "This WARLORD can shrug off lost wounds on a 6, and enemies can't re-roll wound or damage rolls against it.\n• Roll one D6 whenever this WARLORD would lose a wound: on a 6, it doesn't lose that wound.\n• For attacks made against this WARLORD, your opponent can't re-roll the wound roll or the damage roll."
   },
   "6dd5c612f69e": {
     "name": "Stalker Pack",
@@ -290,6 +300,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your SPACE WOLVES CORE units is within 9\" of this model, the models in that unit can use this model's Leadership instead of their own."
   },
+  "8d440edd440f": {
+    "name": "Howling Beast",
+    "kind": "ability",
+    "plain": "Add 2 to this WARLORD's Attacks characteristic while it is within Engagement Range of any enemy models whose Leadership characteristic is 7 or lower."
+  },
   "8e530ff2705e": {
     "name": "Turbo-boost",
     "kind": "ability",
@@ -363,6 +378,11 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when you select a WOLFSPEAR CORE unit of yours to shoot or fight. For the rest of the phase, add 1 to the wound roll of an attack by one of its models if, at the moment the target was chosen, that target was below Half Strength, or had a Starting Strength of 1 and no more than half its wounds left."
   },
+  "b0eee602d4ff": {
+    "name": "Strike for the Throat",
+    "kind": "ability",
+    "plain": "For each melee attack this WARLORD makes, you can re-roll the hit roll, and the attack's Armour Penetration characteristic improves by 1."
+  },
   "b437c3549559": {
     "name": "Hunters Beyond Death",
     "kind": "ability",
@@ -408,6 +428,11 @@
     "kind": "ability",
     "plain": "While another SPACE WOLVES unit from your army is within 3\" of this model, subtract 1 from the Leadership of that unit's models."
   },
+  "cbd952255964": {
+    "name": "Beastslayer",
+    "kind": "ability",
+    "plain": "This WARLORD fights better against MONSTER and VEHICLE units.\n• Add 1 to its Attacks characteristic while it is within Engagement Range of one or more enemy MONSTER or VEHICLE units.\n• Its attacks against a MONSTER or VEHICLE unit add 1 to both the hit roll and the wound roll."
+  },
   "cd204adafccd": {
     "name": "Cunning of the Wolf",
     "kind": "stratagem",
@@ -438,6 +463,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, this Wolf Priest can attempt to heal one model. Choose a unit within 3\" of him that is SPACE WOLVES INFANTRY, BIKER or CAVALRY; if there is a wounded model in it, that model is healed, regaining up to D3 lost wounds immediately. No unit can be the target of Healing Balms more than once per turn."
   },
+  "dad1268edd7f": {
+    "name": "Wolfkin",
+    "kind": "ability",
+    "plain": "For Shock Assault, this WARLORD always counts as having made a charge move, and it gets D3 extra attacks from that ability instead of 1."
+  },
   "dd23b048fab1": {
     "name": "Savage Killers",
     "kind": "ability",
@@ -448,10 +478,20 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase. Choose an enemy INFANTRY or MONSTER unit that has lost models, or that has a model with fewer wounds left than it started with. For the rest of that phase, STALKER PACK units from your army add 1 to wound rolls for their attacks against that enemy unit."
   },
+  "e05adf973f87": {
+    "name": "Hunter",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Advance and charge rolls, and it can charge in a turn in which it Advanced or Fell Back."
+  },
   "e06f835533b7": {
     "name": "Tempest hammer",
     "kind": "weapon",
     "plain": "Subtract 1 from hit rolls for this weapon's attacks. Roll a D6 whenever a model takes unsaved wounds from this weapon but isn't slain; on a 6, the target suffers a mortal wound."
+  },
+  "e07dadb0593b": {
+    "name": "Hunt from Afar",
+    "kind": "ability",
+    "plain": "When this WARLORD makes a ranged attack against a unit that is neither a VEHICLE nor a MONSTER, unmodified hit and wound rolls of 2+ both succeed."
   },
   "e95327c52315": {
     "name": "Savage Fury",

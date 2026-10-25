@@ -1,4 +1,9 @@
 {
+  "0524ed00f235": {
+    "name": "Lord of Terror",
+    "kind": "ability",
+    "plain": "When your opponent takes a Morale test for a unit within 6\" of your Warlord, they must roll one extra dice and keep the highest result."
+  },
   "0ac551802ab0": {
     "name": "Gift of Chaos",
     "kind": "psychic",
@@ -19,15 +24,30 @@
     "kind": "ability",
     "plain": "Once per battle, you can take this model off the battlefield at the end of any Fight phase or Shooting phase and put it into Strategic Reserves. If it isn't on the battlefield when the battle ends, it is destroyed."
   },
+  "14c92df4a75e": {
+    "name": "Eternal Vendetta",
+    "kind": "ability",
+    "plain": "In the Fight phase, your Warlord can re-roll failed wound rolls for its attacks against targets that have the ADEPTUS ASTARTES keyword."
+  },
   "15cbf70a0db2": {
     "name": "Blazing Weapons",
     "kind": "ability",
     "plain": "Cypher can shoot his pistols in your Shooting phase even if he Advanced or Fell Back earlier that turn."
   },
+  "1693b4ec13a7": {
+    "name": "Unholy Fortitude",
+    "kind": "ability",
+    "plain": "Your Warlord adds 1 to its Wounds characteristic, and each time it loses a wound, roll a dice: on a 6, it shrugs off the damage and keeps that wound."
+  },
   "1afe2285c1a2": {
     "name": "Diabolic Strength",
     "kind": "psychic",
     "plain": "If manifested, choose a HERETIC ASTARTES model within 12\" of the psyker. Its Strength goes up by 2 and its Attacks go up by 1 until your next Psychic phase starts."
+  },
+  "2be946dfae02": {
+    "name": "Hatred Incarnate",
+    "kind": "ability",
+    "plain": "Your Warlord's attacks can re-roll wound rolls of 1."
   },
   "3c2a79ca5e33": {
     "name": "Malicious Volleys",
@@ -69,10 +89,20 @@
     "kind": "rule",
     "plain": "Lets your army include one Fallen Angels Specialist Detachment: a Vanguard Detachment made up only of FALLEN, Sorcerer and Chaos Rhino units.\nUse this Stratagem before the battle, while you are mustering your army.\n• Sorcerer units and Chaos Rhinos in this Detachment lose their <MARK OF CHAOS>, HERETIC ASTARTES and <LEGION> Faction keywords and gain the IMPERIUM and FALLEN Faction keywords instead.\n• Sorcerer units also swap their Death to the False Emperor ability for the Fallen Angels ability.\n• Chaos Rhinos get a new Transport section: each can carry 10 FALLEN INFANTRY models, and can't carry JUMP PACK models.\n• Every unit in this Detachment gains the FALLEN ANGELS keyword."
   },
+  "88c7e5e8a19f": {
+    "name": "Flames of Spite",
+    "kind": "ability",
+    "plain": "Each wound roll of 6+ for a melee weapon attack by your Warlord also deals 1 mortal wound to the target, on top of any other damage."
+  },
   "8ff564ae0bfd": {
     "name": "Jump Pack Assault",
     "kind": "ability",
     "plain": "When you deploy, if this model has a jump pack, you can keep it high in the skies rather than putting it on the battlefield. It can then assault from above at the end of any of your Movement phases: place it anywhere on the battlefield over 9\" away from every enemy model."
+  },
+  "99ae1d1c7555": {
+    "name": "Exalted Champion",
+    "kind": "ability",
+    "plain": "Your Warlord adds 1 to its Attacks characteristic."
   },
   "9ab6d609bc53": {
     "name": "The Murder Sword",

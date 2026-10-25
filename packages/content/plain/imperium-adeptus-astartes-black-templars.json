@@ -585,6 +585,11 @@
     "kind": "stratagem",
     "plain": "Use in your Command phase. Pick one enemy unit within 18\" of one of your VOXBREAKER AUSPEX units. Until the start of your next turn:\n• Subtract 1 from the hit roll of each ranged attack made by a model in that enemy unit.\n• If that enemy unit declares a charge, you can pick one of your units targeted by that charge; that unit can Hold Steady or Set to Defend."
   },
+  "4c39b5d457f5": {
+    "name": "Oathkeeper",
+    "kind": "ability",
+    "plain": "This Warlord can perform Heroic Interventions from further away, and moves further when it does.\n• It can perform a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it.\n• Its Heroic Intervention moves can be up to 6\" rather than 3\". The other Heroic Intervention rules still apply as normal."
+  },
   "4c60f1449bc9": {
     "name": "Liberators",
     "kind": "stratagem",
@@ -1166,6 +1171,11 @@
     "kind": "ability",
     "plain": "You can declare that this model will hover before it moves in your Movement phase. If you do, it has a Move characteristic of 20\" for the rest of the phase, and it loses its Airborne, Hard to Hit and Supersonic abilities until your next Movement phase begins."
   },
+  "98fe3367c66c": {
+    "name": "Inspirational Fighter [Aura]",
+    "kind": "ability",
+    "plain": "Aura: melee attacks by your BLACK TEMPLARS CORE units within 6\" of this Warlord get 1 better Armour Penetration on an unmodified wound roll of 6.\nThis stacks with the Assault Doctrine bonus when that doctrine is active for your army."
+  },
   "9962da5bfc0a": {
     "name": "Artificer Armour",
     "kind": "ability",
@@ -1278,6 +1288,11 @@
     "name": "Commanding Oratory",
     "kind": "stratagem",
     "plain": "Use at the start of any of your phases except the Command phase. Pick one of your ADEPTUS ASTARTES CHAPLAIN units that hasn't recited a litany this turn. It can recite one litany no friendly model has recited this turn yet; that litany is automatically inspiring (don't roll) and lasts until the start of your next Command phase."
+  },
+  "a484129a07cb": {
+    "name": "Paragon of Fury",
+    "kind": "ability",
+    "plain": "After this Warlord finishes a charge move, it gains Strength and can deal mortal wounds to enemies within Engagement Range of it.\n• Until the end of the turn, its Strength characteristic goes up by 1.\n• For each enemy model in Engagement Range of it, roll one D6; on a 5+, the unit that model belongs to suffers 1 mortal wound."
   },
   "a4a51e09614c": {
     "name": "1. Litany of Faith (Aura)",
@@ -1819,6 +1834,11 @@
     "name": "Shock and Awe",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your ADEPTUS ASTARTES SHOCK GRENADES or LAND SPEEDER STORM units is chosen to shoot. Pick one enemy unit within 6\" of it. Until the start of your next turn, that enemy unit can't fire Overwatch or Set to Defend, and subtract 1 from the hit roll of each attack its models make."
+  },
+  "efc35b3d4260": {
+    "name": "Master of Arms",
+    "kind": "ability",
+    "plain": "This Warlord adds 1 to its Attacks and can fight first if it begins the Fight phase within Engagement Range of an enemy unit.\n• If this Warlord is within Engagement Range of any enemy units when the Fight phase starts, it can fight first that phase.\n• Its Attacks characteristic goes up by 1."
   },
   "efdbc5437d6c": {
     "name": "6. Oath of Glory",

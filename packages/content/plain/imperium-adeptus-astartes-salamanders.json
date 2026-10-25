@@ -14,6 +14,11 @@
     "kind": "stratagem",
     "plain": "At the start of the Fight phase: pick one of your SALAMANDERS units. Until the end of the phase, models in that unit add 1 to their Strength characteristic, and each time one of them attacks with a melee weapon, an unmodified wound roll of 6 doubles that weapon's Damage characteristic for that attack."
   },
+  "0bd381a20704": {
+    "name": "Patient and Determined",
+    "kind": "ability",
+    "plain": "Once per Shooting phase and once per Fight phase, one attack made by this Warlord skips its hit roll and hits automatically."
+  },
   "1906331d61bc": {
     "name": "Master Artisans",
     "kind": "stratagem",
@@ -64,10 +69,23 @@
     "kind": "ability",
     "plain": "Aura: while their unit is within 6\" of this Warlord, you can re-roll the dice that set how many attacks your SALAMANDERS models make with flame weapons."
   },
+  "5bf068b4d772": {
+    "name": "Never Give Up",
+    "kind": "ability",
+    "plain": "At the end of your Command phase, you can pick one of your SALAMANDERS CORE or SALAMANDERS CHARACTER units within 6\" of this Warlord to gain Objective Secured. It keeps that ability until the end of your next Command phase.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\", not part of the rule"
+    }
+  },
   "5c9f10322af8": {
     "name": "Rites of Vulkan",
     "kind": "stratagem",
     "plain": "Once per battle, use at the start of your Movement phase while the Tactical Doctrine is active. From then until the start of the next battle round, when one of your SALAMANDERS models attacks with a Rapid Fire or Assault weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "6113e796d2bc": {
+    "name": "Forge Master",
+    "kind": "ability",
+    "plain": "Increase this Warlord's Toughness characteristic by 2."
   },
   "7532b20d08a2": {
     "name": "Born Protectors",
@@ -108,6 +126,11 @@
     "name": "Anvil of Strength",
     "kind": "ability",
     "plain": "Add 2 to this Warlord's Strength characteristic."
+  },
+  "b3df88993165": {
+    "name": "Miraculous Constitution",
+    "kind": "ability",
+    "plain": "Each time this Warlord would lose a wound, roll one D6 and on a 6 it isn't lost; this Warlord also gets back 1 lost wound as your Movement phase starts."
   },
   "bc550af4a029": {
     "name": "Bloodfire",

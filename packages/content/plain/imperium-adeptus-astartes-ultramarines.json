@@ -27,10 +27,20 @@
     "kind": "ability",
     "plain": "If this model gets a Warlord Trait, that trait has to be Iron Resolve. No other model in your army can take the Benediction of Fury Relic."
   },
+  "0d5013c406af": {
+    "name": "Bloodied but Unbroken",
+    "kind": "ability",
+    "plain": "Add 1 to this Warlord's Attacks characteristic, and add another 1 while it has fewer wounds left than its starting number."
+  },
   "131cd06c6419": {
     "name": "Exemplar of the Chapter",
     "kind": "stratagem",
     "plain": "Once per battle, after you choose an ULTRAMARINES model that isn't a named character as your WARLORD: give it one extra Warlord Trait, taken from the Ultramarines Warlord Traits table. Every Warlord Trait in your army has to be different (re-roll any duplicates you roll randomly)."
+  },
+  "14794d5ac1c4": {
+    "name": "Exemplar of the Chapter",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 extra attack, and attacks against it always fail on an unmodified wound roll of 1-3. That applies whatever abilities the weapon or the attacker has."
   },
   "1579ff6ef93c": {
     "name": "Defensive Focus",
@@ -67,6 +77,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your ULTRAMARINES CORE units is within 6\" of this model, its models re-roll hit rolls of 1 on every attack they make."
   },
+  "1fcdfb74cc69": {
+    "name": "Spiritual Synergy",
+    "kind": "ability",
+    "plain": "Pick one non-Relic weapon this Warlord has: each unmodified wound roll of 6 for its attacks with that weapon also deals 1 mortal wound, on top of normal damage. That mortal wound is inflicted on the target of the attack."
+  },
   "2104f5347cd1": {
     "name": "Rapid Redeployment",
     "kind": "stratagem",
@@ -91,6 +106,11 @@
     "name": "Psyker",
     "kind": "psychic",
     "plain": "This model knows Smite plus 3 powers from the Librarius or Indomitus discipline."
+  },
+  "265158ab7408": {
+    "name": "Tribal Heritage",
+    "kind": "ability",
+    "plain": "This Warlord fights first in the Fight phase, and can perform a Heroic Intervention from further away, moving up to 6\".\n• This Warlord can perform a Heroic Intervention when any enemy unit is within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically.\n• Its Heroic Intervention moves can be up to 6\" rather than 3\". All other Heroic Intervention rules still apply.\n• This Warlord fights first in the Fight phase."
   },
   "272874727638": {
     "name": "Chapter Master",
@@ -117,6 +137,11 @@
     "kind": "psychic",
     "plain": "This model knows Smite plus 2 powers from the Librarius or Indomitus discipline."
   },
+  "34339a37287a": {
+    "name": "Tip of the Sword",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick an enemy unit within 12\" of this WARLORD that it can see; your CASTELLANS OF THE RIFT CORE units get bonuses against it.\nUntil the end of the turn:\n• Each time one of your CASTELLANS OF THE RIFT CORE units declares a charge, if that enemy unit is among the charge's targets, you can re-roll the charge roll.\n• Each time one of your CASTELLANS OF THE RIFT CORE models makes a melee attack against that enemy unit, add 1 to that attack's Strength characteristic."
+  },
   "34de3b7054e0": {
     "name": "Honoured Sergeant",
     "kind": "stratagem",
@@ -136,6 +161,11 @@
     "name": "Paragon of War",
     "kind": "ability",
     "plain": "Each time this Warlord attacks, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the attack's normal damage."
+  },
+  "469c3c82f74d": {
+    "name": "Precision Commander",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your SILVER TEMPLARS PRIMARIS CORE units within 6\" of this Warlord to get hit and wound re-rolls. Until your next Command phase starts, whenever that unit is chosen to shoot or fight, you can re-roll one hit roll and one wound roll for its attacks."
   },
   "50928db44597": {
     "name": "Chapter Master (Calgar)",
@@ -407,6 +437,11 @@
     "kind": "ability",
     "plain": "In your Command phase, choose one of your ULTRAMARINES CORE units within 6\" of this model. Its models add 1 to the hit roll of their melee attacks until your next Command phase starts."
   },
+  "ef1febad38e2": {
+    "name": "Sentinel of the Veil",
+    "kind": "ability",
+    "plain": "Once per battle, this Warlord gets a free re-roll, and once per battle, if your army is Battle-forged, it can be the target of a free Epic Deed Stratagem.\n• Once per battle, you can re-roll one of this Warlord's failed hit rolls, wound rolls or saving throws.\n• Once per battle, if your army is Battle-forged, you can use one Epic Deed Stratagem on this Warlord for free (no Command points spent)."
+  },
   "ef876ed36609": {
     "name": "Captain of the Third Company",
     "kind": "ability",
@@ -417,6 +452,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, before an attack by one of your ULTRAMARINES models is resolved: skip the hit roll for that attack; it hits automatically."
   },
+  "f04ddd78edfa": {
+    "name": "Hit-and-Run Master",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your CASTELLANS OF THE RIFT units within 9\" of this WARLORD: this turn, it can shoot even if it Fell Back."
+  },
   "f2e192f187a5": {
     "name": "Regroup and Strike",
     "kind": "stratagem",
@@ -426,6 +466,11 @@
     "name": "Ultima Storm Shield",
     "kind": "ability",
     "plain": "This model has a 3+ invulnerable save."
+  },
+  "f3f49878789e": {
+    "name": "Accomplished Duellist",
+    "kind": "ability",
+    "plain": "This Warlord can fight first if it starts the Fight phase in Engagement Range, and re-roll melee wound rolls in a turn it charged, was charged or intervened.\n• If this model is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first in that phase.\n• Each time this Warlord makes a melee attack in a turn in which it made a charge move, performed a Heroic Intervention or was charged, you can re-roll the wound roll."
   },
   "f826077b9369": {
     "name": "Battle-forged Heroes",

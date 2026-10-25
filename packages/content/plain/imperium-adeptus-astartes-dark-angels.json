@@ -77,6 +77,11 @@
     "kind": "ability",
     "plain": "If a Detachment contains a DEATHWING TERMINATOR CAPTAIN unit, you can add one DEATHWING COMMAND SQUAD unit to it, and that unit doesn't use up a Battlefield Role slot."
   },
+  "39ea3ae8057a": {
+    "name": "3. Calibanite Knight",
+    "kind": "ability",
+    "plain": "Each melee attack this WARLORD makes against an INFANTRY or BIKER unit always wounds on an unmodified wound roll of 2+."
+  },
   "3a14c4a54f36": {
     "name": "Command Squad",
     "kind": "ability",
@@ -117,6 +122,11 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase. Choose an enemy unit within 18\" of and visible to one of your RAVENWING LAND SPEEDER or RAVENWING STORM SPEEDER units. For the rest of the phase, whenever a model in one of your DARK ANGELS units makes a ranged attack against the chosen unit, add 1 to that hit roll."
   },
+  "4c5c0b044650": {
+    "name": "1-3. Watched",
+    "kind": "ability",
+    "plain": "Once per battle, in your opponent's Psychic phase, this WARLORD can try to deny one more psychic power, and it passes that Deny the Witch test automatically. It can do this even if it isn't a PSYKER, and even if it isn't within 24\" of the enemy model manifesting that power. Don't roll any dice for that test."
+  },
   "4cb8f6a5e8d6": {
     "name": "Marked for Command",
     "kind": "stratagem",
@@ -151,6 +161,11 @@
     "name": "Paragon of the Chapter",
     "kind": "stratagem",
     "plain": "Once per battle, after you choose a DARK ANGELS CHARACTER model that isn't a named character as your WARLORD: generate one extra Warlord Trait for it, which must come from the Dark Angels Warlord Traits table. Every Warlord Trait in your army must be unique (if you generate them randomly, re-roll duplicates)."
+  },
+  "6ff78d163b39": {
+    "name": "6. Honour of the First Legion",
+    "kind": "ability",
+    "plain": "This WARLORD can Heroically Intervene from further away, and move further when it does.\n• It can perform a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it.\n• Its Heroic Intervention moves can be up to 6\", as long as each one ends closer to the closest enemy model. The other Heroic Intervention rules all still apply."
   },
   "71ee512cbf94": {
     "name": "Litany of Hate",
@@ -267,6 +282,11 @@
     "kind": "weapon",
     "plain": "Each attack with this weapon that is allocated to a PSYKER or DAEMON model has Damage 3."
   },
+  "a510a73750b5": {
+    "name": "5. Decisive Tactician (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this WARLORD, add 1 to that unit's Advance and charge rolls."
+  },
   "a727faa27f47": {
     "name": "Intractable Will",
     "kind": "ability",
@@ -309,6 +329,11 @@
     "name": "Attack Squadron",
     "kind": "stratagem",
     "plain": "Use when choosing your army. Choose one of your DARK ANGELS Detachments; it becomes a Ravenwing Attack Squadron Specialist Detachment, and its RAVENWING units gain the ATTACK SQUADRON keyword."
+  },
+  "baf89f9b4742": {
+    "name": "1-3. Lightning-fast Reactions",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack made against this WARLORD."
   },
   "bd0915f74550": {
     "name": "Implacable",

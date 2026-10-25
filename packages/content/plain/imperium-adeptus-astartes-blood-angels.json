@@ -199,6 +199,11 @@
     "kind": "ability",
     "plain": "This model gets 1 extra attack if it has 2 Furioso fists or 2 blood talons."
   },
+  "58e02edd1d6d": {
+    "name": "Artisan of War",
+    "kind": "ability",
+    "plain": "This WARLORD can take one extra Special-issue Wargear Relic: Adamantine Mantle, Artificer Armour, Master-crafted Weapon or Digital Weapons.\nThis is on top of any other Relics it has, and every Relic in your army must still be different."
+  },
   "5a208fc219e0": {
     "name": "Orison Cult",
     "kind": "stratagem",
@@ -484,6 +489,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your BLOOD ANGELS units is picked to fight. For the rest of the phase, its models can re-roll both the hit roll and the wound roll for melee attacks against BLACK LEGION units."
   },
+  "cc5ee438c241": {
+    "name": "3. Cretacian Born",
+    "kind": "ability",
+    "plain": "Enemy units targeted by a charge this WARLORD declares can't fire Overwatch or Set to Defend against that charge. You can also re-roll charge rolls made for this WARLORD."
+  },
   "d344451aa053": {
     "name": "Battle Alchemistry",
     "kind": "ability",
@@ -563,6 +573,11 @@
     "name": "Red Rampage",
     "kind": "stratagem",
     "plain": "Once per battle, in your Command phase, if your army has the Assault Doctrine active: until your next Command phase, whenever a BLOOD ANGELS model from your army attacks with a Pistol or melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1. This stacks with the Combat Doctrines ability."
+  },
+  "eb8b7c1a0f3f": {
+    "name": "2. Of Wrath and Rage",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, each unmodified hit roll of 6 scores 1 extra hit."
   },
   "ec2b0389fa3b": {
     "name": "Tenebrous Curse",
