@@ -87,5 +87,17 @@ export function initialState(setup: GameSetup): GameState {
   return s;
 }
 
-/** What players call an objective: its label, or its id when it has none (games saved before labels existed). */
-export const objectiveName = (o: { id: string; label?: string }): string => o.label ?? o.id;
+/** A map's compass codes ("nw", "se2"): ids, or the label a turned map gets from its id, never a name a player would use. */
+const COMPASS_CODE = /^(nw|ne|sw|se|n|e|s|w)\d*$/i;
+
+/**
+ * What players call an objective: its label when the mission gives it a real one ("A", "Relic"); otherwise (an id such
+ * as "n1", a compass code, or a game saved before labels existed) its place in setup order, 1–n, as the Practice
+ * screens number it (objectiveLabels in apps/web). An id not in the setup is named by the id.
+ */
+export function objectiveName(objectives: readonly { id: string; label?: string }[], id: string): string {
+  const at = objectives.findIndex((o) => o.id === id);
+  const label = objectives[at]?.label;
+  if (label && !COMPASS_CODE.test(label)) return label;
+  return at >= 0 ? String(at + 1) : id;
+}

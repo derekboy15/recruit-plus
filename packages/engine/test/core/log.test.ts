@@ -118,14 +118,18 @@ export { guardsmen };
 
 describe('objective names in the log', () => {
   const base = stateOf(newTestGame({}));
-  const withObjective = (o: { id: string; label?: string }) => ({ ...base, setup: { ...base.setup, objectives: [{ ...o, pos: { x: 1, y: 1 } }] } });
-  const event = { type: 'objectiveSet', objectiveId: 'nw', owner: null, sticky: false } as never;
+  const withObjectives = (...os: { id: string; label?: string }[]) => ({ ...base, setup: { ...base.setup, objectives: os.map((o) => ({ ...o, pos: { x: 1, y: 1 } })) } });
+  const event = (objectiveId: string) => ({ type: 'objectiveSet', objectiveId, owner: null, sticky: false }) as never;
 
-  test('an objective with a label is named by its label', () => {
-    expect(describeEvent(event, withObjective({ id: 'nw', label: 'ne' }))).toBe("Objective ne is now nobody's.");
+  test('an objective with a real label is named by its label', () => {
+    expect(describeEvent(event('x'), withObjectives({ id: 'c', label: 'Centre' }, { id: 'x', label: 'Relic' }))).toBe("Objective Relic is now nobody's.");
   });
 
-  test('an objective without a label is named by its id', () => {
-    expect(describeEvent(event, withObjective({ id: 'nw' }))).toBe("Objective nw is now nobody's.");
+  test('an objective with only an id is numbered in setup order, as the Practice screens show it', () => {
+    expect(describeEvent(event('n1'), withObjectives({ id: 'a' }, { id: 'b' }, { id: 'n1' }))).toBe("Objective 3 is now nobody's.");
+  });
+
+  test("a turned map's compass-code label is numbered too", () => {
+    expect(describeEvent(event('nw'), withObjectives({ id: 'a' }, { id: 'nw', label: 'ne' }))).toBe("Objective 2 is now nobody's.");
   });
 });
