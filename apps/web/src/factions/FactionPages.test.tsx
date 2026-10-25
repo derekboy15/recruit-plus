@@ -2,6 +2,7 @@ import 'fake-indexeddb/auto';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { CatalogueOut, FactionGuide, StratagemOut } from '@recruit/data/model';
+import { unitList } from '@recruit/data/unit-list';
 import { Route, Routes } from 'react-router-dom';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { TestProviders } from '../rules/__fixtures__/TestProviders';
@@ -61,6 +62,7 @@ beforeEach(() => {
     vi.fn(async (url: string) => {
       if (url.endsWith('/index.json')) return new Response(JSON.stringify(index));
       if (url.endsWith('/catalogues/necrons.json')) return new Response(JSON.stringify(catalogue));
+      if (url.endsWith('/units/necrons.json')) return new Response(JSON.stringify(unitList(catalogue)));
       if (url.endsWith('/guides/necrons.json')) return withGuide ? new Response(JSON.stringify(guide)) : new Response('', { status: 404 });
       return new Response('', { status: 404 });
     }),
@@ -137,6 +139,14 @@ test('the units page has Back to Factions and key stats on each unit', async () 
   expect(screen.getByRole('heading', { name: 'Necrons', level: 1 })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: /Necron Warriors/ })).toHaveTextContent('10–20 models · M5" T4 W1 Sv4+');
   expect(screen.getByRole('link', { name: /Necron Warriors/ })).toHaveTextContent('110 pts');
+});
+
+test('the units page loads the short unit list, never the whole catalogue', async () => {
+  renderAt('/factions/necrons');
+  await screen.findByRole('link', { name: /Necron Warriors/ });
+  const urls = vi.mocked(fetch).mock.calls.map(([u]) => String(u));
+  expect(urls).toContain('/data/units/necrons.json');
+  expect(urls.some((u) => u.includes('/catalogues/'))).toBe(false);
 });
 
 test("phase chips follow the game's order in one row", async () => {

@@ -57,6 +57,11 @@ describe('evaluateBudgets', () => {
     expect(failed(r).join()).toContain('data/catalogues/huge.json');
   });
 
+  test('flags a unit list over 40 kB gzip: the faction page loads it on a phone', () => {
+    const r = evaluateBudgets([...baseline, { path: 'data/units/huge.json', bytes: 400 * kB, gzip: 41 * kB }], STARTUP, 0);
+    expect(failed(r).join()).toContain('data/units/huge.json');
+  });
+
   test('flags a roster over 250 kB gzip and rules over 100 kB gzip', () => {
     const r = evaluateBudgets(
       [...baseline.filter((f) => f.path !== 'data/rules.json'), { path: 'data/roster/huge.json', bytes: 2000 * kB, gzip: 251 * kB }, { path: 'data/rules.json', bytes: 900 * kB, gzip: 101 * kB }],

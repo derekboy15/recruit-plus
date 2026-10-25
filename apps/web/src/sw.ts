@@ -3,7 +3,7 @@
  * The service worker. After one online visit:
  * - the app's code, the page shell and the shell data (rules, lessons, missions, core stratagems, faction index) are
  *   precached, so every route opens offline;
- * - faction data (catalogues, rosters, guides, option info) is kept as it is used, so the factions you have opened work
+ * - faction data (catalogues, unit lists, rosters, guides, option info) is kept as it is used, so the factions you have opened work
  *   offline;
  * - a page request that can't be answered at all gets /offline.html, kept in its own cache.
  */
@@ -30,7 +30,7 @@ precacheAndRoute(self.__WB_MANIFEST);
 registerRoute(new NavigationRoute(createHandlerBoundToURL('/index.html'), { denylist: [/^\/data\//, /^\/offline\.html$/] }));
 
 registerRoute(
-  ({ url }) => url.origin === self.location.origin && /^\/data\/(catalogues|roster|guides|info)\//.test(url.pathname),
+  ({ url }) => url.origin === self.location.origin && /^\/data\/(catalogues|units|roster|guides|info)\//.test(url.pathname),
   new StaleWhileRevalidate({ cacheName: 'recruit-faction-data', plugins: [new ExpirationPlugin({ maxEntries: 200 })] }),
 );
 registerRoute(

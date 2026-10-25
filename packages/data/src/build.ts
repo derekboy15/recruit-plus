@@ -1,4 +1,4 @@
-/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, points-report.json, report.json}. */
+/** CLI + library: BSData + Wahapedia (+ packages/content plain English) -> generated/{index.json, catalogues/<slug>.json, core-stratagems.json, plain-report.json, missions.json, missions-report.json, rules.json, lessons.json, guides/<slug>.json, units/<slug>.json, roster/<slug>.json, roster/policy.json, info/<slug>.json, points-report.json, report.json}. */
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -11,6 +11,7 @@ import { extractUnits } from './extract/units';
 import { attachInfoPlain, attachOptionStratagems, emitInfoFile, infoTextKeys, optionTierOf, TIER_NAMES, type InfoPlainReport } from './info';
 import { writeMissions, type MissionsReport } from './missions/build';
 import { applyDefaultModels } from './join/defaultModels';
+import { unitList } from './model/unitList';
 import { applyEnginePoints, type PointsDisagreement } from './join/points';
 import { joinWahapedia, loadOverrides, type Overrides } from './join/wahapedia';
 import { emitRosterFile, gearIds } from './roster/emit';
@@ -130,6 +131,7 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
   const w = loadWahapedia(join(opts.rawDir, 'wahapedia'));
   const overrides = loadOverrides(opts.overridesDir);
   mkdirSync(join(opts.outDir, 'catalogues'), { recursive: true });
+  mkdirSync(join(opts.outDir, 'units'), { recursive: true });
 
   const index: DataIndex = {
     generatedAt: new Date().toISOString(),
@@ -265,6 +267,8 @@ export function buildAll(opts: BuildOptions): { index: DataIndex; report: Record
     priced += p.priced;
     pointsReport.push(...p.disagreements);
     writeFileSync(join(opts.outDir, 'catalogues', `${out.slug}.json`), JSON.stringify(out));
+    // The faction page's list: a fraction of the catalogue's size, for a fast first load on a phone.
+    writeFileSync(join(opts.outDir, 'units', `${out.slug}.json`), JSON.stringify(unitList(out)));
   }
   writeFileSync(join(opts.outDir, 'points-report.json'), JSON.stringify(pointsReport, null, 2));
   const points: PointsSummary = { priced, differ: pointsReport.filter((r) => r.engine !== null).length };

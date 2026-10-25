@@ -12,6 +12,8 @@ export const BUDGETS = {
   // is compressed, so a phone fetches about a third of this (0.81 MB for 2.73 MB after the UI overhaul).
   precacheBytes: 3.0 * 1024 * 1024,
   catalogueGzip: 300 * kB,
+  /** The faction page's unit list: on a phone's 1.6 Mbps, 40 kB is about 0.2 s (perf.spec's Space Wolves cold load). */
+  unitListGzip: 40 * kB,
   rosterGzip: 250 * kB,
   rulesGzip: 100 * kB,
   infoGzip: 150 * kB,
@@ -64,6 +66,7 @@ export function evaluateBudgets(files, startup, precacheBytes) {
     if (list[0] && list[0].gzip <= limit) check(`largest ${label} (${list[0].path})`, list[0].gzip, limit);
   };
   each('catalogue', /^data\/catalogues\//, BUDGETS.catalogueGzip);
+  each('unit list', /^data\/units\//, BUDGETS.unitListGzip);
   each('roster', /^data\/roster\//, BUDGETS.rosterGzip);
   each('rules', /^data\/rules\.json$/, BUDGETS.rulesGzip);
   each('info', /^data\/info\//, BUDGETS.infoGzip);

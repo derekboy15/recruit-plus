@@ -7,6 +7,7 @@
     "./model": "./src/model/types.ts",
     "./roster": "./src/roster/index.ts",
     "./names": "./src/roster/names.ts",
+    "./unit-list": "./src/model/unitList.ts",
     "./missions": "./src/missions/index.ts"
   },
   "scripts": {

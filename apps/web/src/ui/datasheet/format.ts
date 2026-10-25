@@ -59,13 +59,13 @@ const INVULNERABLE = /(\d)\+ invulnerable save/i;
  * The numbers a list row or unit card shows, from the first model profile — or, for a degrading model, its top
  * bracket, which the data doesn't always list first. A missing stat is '-', never undefined.
  */
-export function keyStats(unit: UnitOut): { M: string; T: string; Sv: string; W: string; inv: string | null } {
+export function keyStats(unit: Pick<UnitOut, 'models'> & Partial<Pick<UnitOut, 'abilities'>>): { M: string; T: string; Sv: string; W: string; inv: string | null } {
   const first = unit.models[0];
   const base = first ? woundBracket(first.name)?.base : undefined;
   const track = base === undefined ? undefined : woundTracks(unit.models).get(base);
   const chars = (track ? track[0].profile : first)?.chars ?? {};
   let inv: string | null = null;
-  for (const a of unit.abilities) {
+  for (const a of unit.abilities ?? []) {
     const m = INVULNERABLE.exec(a.plain ?? '') ?? INVULNERABLE.exec(a.text);
     if (m) {
       inv = `${m[1]}+`;
@@ -76,7 +76,7 @@ export function keyStats(unit: UnitOut): { M: string; T: string; Sv: string; W: 
 }
 
 /** "1 model", "5 models", "5–10 models"; null when the data has no size. */
-export function sizeLabel(unit: UnitOut): string | null {
+export function sizeLabel(unit: Pick<UnitOut, 'minModels' | 'maxModels'>): string | null {
   const { minModels: min, maxModels: max } = unit;
   if (min == null) return null;
   if (max == null || max === min) return `${min} ${min === 1 ? 'model' : 'models'}`;

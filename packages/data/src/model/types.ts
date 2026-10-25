@@ -120,6 +120,18 @@ export interface StratagemOut {
   plain?: string;
 }
 
+/** One unit as the faction page lists it (generated/units/<slug>.json, see model/unitList.ts). */
+export type UnitListItem = Pick<UnitOut, 'id' | 'slug' | 'name' | 'role' | 'legends' | 'forgeWorld' | 'needs' | 'points' | 'minModels' | 'maxModels' | 'models'>;
+
+/** A faction's unit list: what its faction page shows, without the whole catalogue. */
+export interface UnitListOut {
+  id: string;
+  slug: string;
+  name: string;
+  library: boolean;
+  units: UnitListItem[];
+}
+
 export interface CatalogueOut {
   id: string;
   slug: string;

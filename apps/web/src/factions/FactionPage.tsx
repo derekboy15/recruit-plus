@@ -1,24 +1,24 @@
-import { BATTLEFIELD_ROLES, type UnitOut } from '@recruit/data/model';
+import { BATTLEFIELD_ROLES, type UnitListItem } from '@recruit/data/model';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LoadError } from '../layout/OfflineNotice';
 import '../rules/rules.css';
 import { keyStats, sizeLabel } from '../ui/datasheet';
 import { PageHeader } from '../ui/PageHeader';
-import { getCatalogue } from './dataClient';
+import { getUnitList } from './dataClient';
 import { factionLabel } from './factionSearch';
 import { FACTIONS_BACK, FactionTabs } from './FactionTabs';
 import { useAsync } from './useAsync';
 
 /** "10–20 models · M5" T4 W1 Sv4+": a unit's size and the stats a player checks first. */
-function unitMeta(u: UnitOut): string {
+function unitMeta(u: UnitListItem): string {
   const { M, T, W, Sv } = keyStats(u);
   return [sizeLabel(u), `M${M} T${T} W${W} Sv${Sv}`].filter(Boolean).join(' · ');
 }
 
 export function FactionPage() {
   const { slug = '' } = useParams();
-  const state = useAsync(() => getCatalogue(slug), slug);
+  const state = useAsync(() => getUnitList(slug), slug);
   const [showLegends, setShowLegends] = useState(true);
   const [query, setQuery] = useState('');
   if (state.status === 'loading') return <p className="muted">Loading units…</p>;

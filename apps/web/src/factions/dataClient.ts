@@ -1,4 +1,4 @@
-import type { CatalogueOut, DataIndex, FactionGuide, InfoFile, LessonsData, RulesData, StratagemOut } from '@recruit/data/model';
+import type { CatalogueOut, DataIndex, FactionGuide, InfoFile, LessonsData, RulesData, StratagemOut, UnitListOut } from '@recruit/data/model';
 import type { PolicyData, RosterFile, Scope } from '@recruit/data/roster';
 
 const cache = new Map<string, Promise<unknown>>();
@@ -18,6 +18,8 @@ function getJson<T>(url: string): Promise<T> {
 
 export const getIndex = () => getJson<DataIndex>('/data/index.json');
 export const getCatalogue = (slug: string) => getJson<CatalogueOut>(`/data/catalogues/${slug}.json`);
+/** A faction's units as its faction page lists them: far smaller than the catalogue. */
+export const getUnitList = (slug: string) => getJson<UnitListOut>(`/data/units/${slug}.json`);
 export const getRules = () => getJson<RulesData>('/data/rules.json');
 export const getLessons = () => getJson<LessonsData>('/data/lessons.json');
 export const getCoreStratagems = () => getJson<StratagemOut[]>('/data/core-stratagems.json');
