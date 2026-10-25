@@ -33,6 +33,7 @@ Recruit+ is built for phones first. This page records what was measured, the bud
 | All CSS | ≤ 25 kB gzip |
 | Service-worker precache | ≤ 3.0 MB raw |
 | Any catalogue | ≤ 300 kB gzip |
+| Any unit list (`data/units/`, what a faction page loads) | ≤ 40 kB gzip |
 | Any roster | ≤ 250 kB gzip |
 | `rules.json` | ≤ 100 kB gzip |
 | Any option info file (`data/info/`) | ≤ 150 kB gzip |
@@ -66,7 +67,7 @@ Changing a budget needs a line in the change log below saying why.
 
 **Nothing broke a budget,** so no rendering or parsing fix was needed.
 
-**Space Wolves is the closest to its limit** (3.66 s of 4.0 s on a busy machine). Its time is mostly the 4× slowed CPU parsing and rendering a 2 MB catalogue, since the data itself arrives gzipped. If this budget starts failing in CI, split the catalogue: load datasheet details on demand instead of with the faction page.
+**Space Wolves is the closest to its limit** (3.66 s of 4.0 s on a busy machine). Its time is mostly the 4× slowed CPU parsing and rendering a 2 MB catalogue, since the data itself arrives gzipped. If this budget starts failing in CI, split the catalogue: load datasheet details on demand instead of with the faction page. *(Done 2026-10-25: see the change log.)*
 
 ## Change log
 - 2026-10-23: budgets set (Milestone 8).
@@ -75,3 +76,4 @@ Changing a budget needs a line in the change log below saying why.
 - 2026-10-24: the 110 kB "main entry" budget became a 150 kB "startup JS" budget: the entry plus every chunk `index.html` modulepreloads. Rolldown's `mergeCommonChunks` folds the shared storage/auth chunk (already preloaded at startup) into the entry once `lists/Panel` stops importing it, so the entry jumped 92 to 120 kB while startup JS only grew 129 to 134 kB. Startup JS measures what a first visit downloads, however the bundler splits it. It is 129 kB on `main` after Plans A and D.
 - 2026-10-25: precache raised from 2.75 MB to 3.0 MB raw after the UI overhaul's wave 2 (builder, Play mode, content pages, Practice and Table screens) added about 170 kB of code: 2.73 MB raw in 92 files, 0.81 MB compressed, which is what a phone downloads. Nothing was dropped from offline use.
 - 2026-10-25: the crowded-board frame test slows the CPU by a calibrated rate instead of a flat 4×: 4× the reference PC's time for a fixed benchmark over this host's (at most 4×, at least 1×). GitHub's runners are 1.7–2.4× slower than the PC the budgets were set on and vary run to run, so a flat 4× there measured a much slower phone (p95 50 ms on one run, 67 ms on the next, same code). The limit (p95 ≤ 50 ms) is unchanged, and on the reference PC the rate stays 4×.
+- 2026-10-25: `unitListGzip` (40 kB per unit list) added, and the faction page loads `data/units/<slug>.json` instead of the catalogue. Plan H's per-model data grew the Space Wolves catalogue from 149 to 209 kB gzip (1.49 to 1.78 MB raw). On a first visit (no service worker yet) that took 1.2 s to arrive at 1.6 Mbps, and CI's first attempt measured 4.3 s against the 4.0 s limit. The unit list carries only what the page shows (name, role, badges, points, size, stat lines): Space Wolves is 12.5 kB gzip. Measured with the service worker blocked, the page went from 3.93 s to 2.95 s at 4× CPU and from 4.86 s to 3.48 s at 8×. Datasheets still load the full catalogue.
