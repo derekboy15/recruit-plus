@@ -37,6 +37,8 @@
 
 /* ---------- List editor ---------- */
 .editor__main { max-width: 760px; }
+/* Grid items may shrink below their content (the header's title ellipsizes), so nothing pushes the page sideways. */
+.editor__main > * { min-width: 0; }
 @media (min-width: 768px) {
   .editor { grid-template-columns: minmax(0, 760px) minmax(280px, 340px); }
 }
@@ -45,8 +47,8 @@
 .editor-top { position: sticky; top: 0; z-index: 6; margin: -1rem -1rem 0; background: var(--surface); border-bottom: 1px solid var(--border); }
 .editor-top .page-head { position: static; margin: 0; border-bottom: 1px solid var(--border); }
 .editor-top__play { gap: 6px; min-height: 40px; height: 40px; padding: 0 14px 0 11px; margin-left: 4px; }
-@media (max-width: 359px) {
-  /* A 320px phone keeps the title readable: Play shows its icon only (the name stays for screen readers). */
+@media (max-width: 419px) {
+  /* A phone keeps room for the list name beside Undo, Redo and ⋯: Play shows its icon only (its name stays for screen readers). */
   .editor-top__play { width: var(--touch); padding: 0; }
   .editor-top__play-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }

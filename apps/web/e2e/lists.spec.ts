@@ -21,7 +21,7 @@ async function newPatrol(page: Page) {
 }
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 
 test('build a Necrons Strike Force list with the wizard and find it on the lists page', async ({ page }, testInfo) => {

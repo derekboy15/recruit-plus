@@ -31,7 +31,7 @@ const shot = async (page: Page, name: string, project: string) => {
 };
 
 async function noSidewaysScroll(page: Page) {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth)).toBeLessThanOrEqual(0);
 }
 
 /** The wizard's Next button is on screen without scrolling, and not under the bottom tab bar. */

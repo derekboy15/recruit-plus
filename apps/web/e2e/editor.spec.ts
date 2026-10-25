@@ -5,7 +5,7 @@ const shot = async (page: Page, name: string, project: string) => {
 };
 
 async function noSidewaysScroll(page: Page, what = 'page') {
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth), `${what}: sideways scroll`).toBeLessThanOrEqual(0);
+  expect(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth), `${what}: sideways scroll`).toBeLessThanOrEqual(0);
 }
 
 /** Signs in (dev) and makes a Necrons Strike Force with the wizard, no army options picked; ends in the editor. */
