@@ -485,7 +485,7 @@
     "plain": "Aura: while one of your BUBONIC ASTARTES units is within 6\" of this model, any blight grenades its models carry have Damage 2 and Armour Penetration -1."
   },
   "8a4ceeaca3b8": {
-    "name": "Master-crafted manreaper - Scythe",
+    "name": "Manreaper - Scythe",
     "kind": "weapon",
     "plain": "Plague Weapon: for each attack made with this weapon profile, make 2 hit rolls rather than 1."
   },
@@ -899,7 +899,7 @@
     "plain": "Whenever an attack with this weapon destroys one or more enemy models, roll one D6: on a 4+, the destroyed model's unit suffers 1 mortal wound. No more than 3 mortal wounds can be inflicted this way per turn. The bearer can't be chosen for the Befouled Incubators Stratagem."
   },
   "ff7cd9c6aaf3": {
-    "name": "Master-crafted manreaper - Cleave",
+    "name": "Manreaper - Cleave",
     "kind": "weapon",
     "plain": "Plague Weapon: subtract 1 from the hit roll of each attack made with this weapon profile."
   }

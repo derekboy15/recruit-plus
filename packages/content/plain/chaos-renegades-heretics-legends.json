@@ -455,7 +455,7 @@
     "plain": "This model can still declare a charge in a turn when it has Fallen Back. When it is picked to shoot while within Engagement Range of enemy units, it can make attacks against eligible enemy units outside its Engagement Range, as though no enemy models were within Engagement Range of it."
   },
   "75e1e02674b0": {
-    "name": "Heavy Mortar",
+    "name": "Medusa Siege Cannon",
     "kind": "weapon",
     "plain": "This Blast weapon can shoot at units the bearer can't see."
   },

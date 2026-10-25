@@ -706,7 +706,7 @@
     "plain": "In your Command phase, this model may start hovering. If it does, it loses the Airborne Predator, Hard to Hit and Supersonic abilities and has a Move characteristic of 20\" until your next Command phase begins."
   },
   "4d4508addb18": {
-    "name": "Icon of Slaanesh",
+    "name": "Chaos Icon",
     "kind": "ability",
     "plain": "The bearer's unit adds 1 to every Combat Attrition test taken for it, and it gains the ICON keyword."
   },
@@ -817,7 +817,7 @@
   },
   "57ed0a0f64f7": {
     "name": "Balefire tome",
-    "kind": "ability",
+    "kind": "psychic",
     "plain": "For this unit's psychic powers, psychic actions and Deny the Witch tests, measure distances and line of sight from the model carrying the balefire tome. If an enemy unit has an ability that needs distance or line of sight measured to a PSYKER unit, measure to that same model."
   },
   "57f50c1cc8e1": {
