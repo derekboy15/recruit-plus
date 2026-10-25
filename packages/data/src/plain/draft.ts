@@ -1,7 +1,7 @@
 /** Drafted plain-English entries: checking them against a to-do list and merging the passing ones into a shard. Pure. */
 import type { OptionTier } from '../info/tiers';
-import { checkPlain } from './check';
-import type { TextKind } from './collect';
+import { checkPlain, extractTokens } from './check';
+import type { OfficialText, TextKind } from './collect';
 import type { PlainShard } from './store';
 
 /** One item of a content to-do list (packages/content/todo/<shard>.json): option texts carry their tier. */
@@ -24,6 +24,32 @@ export interface MergeResult {
   failed: { key: string; reason: string }[];
   /** Merged entries whose first sentence is longer than the builder's 160-character one-line summary. */
   longSummaries: { key: string; length: number }[];
+}
+
+/** A to-do list item as written: the tokens to keep, and the problem when an entry exists but fails. */
+export interface TodoListItem extends TodoItem {
+  tokens: string[];
+  problem?: { missing: string[]; extra: string[]; copied: boolean };
+}
+
+/**
+ * A text's to-do item: null when its entry passes the checks, unless `revise` (the text was asked for by key, so a
+ * passing entry can be rewritten, such as after a spot-check finding).
+ */
+export function todoItem(t: OfficialText & { tier?: OptionTier }, entry: DraftEntry | undefined, revise = false): TodoListItem | null {
+  const verdict = entry ? checkPlain(t.text, entry.plain, entry.waive) : null;
+  if (verdict?.ok && !revise) return null;
+  return {
+    key: t.key,
+    kind: t.kind,
+    name: t.name,
+    official: t.text,
+    tokens: extractTokens(t.text).map((x) => x.value),
+    ...(t.tier !== undefined ? { tier: t.tier } : {}),
+    ...(verdict && !verdict.ok
+      ? { problem: { missing: verdict.missing.map((x) => x.value), extra: verdict.extra.map((x) => x.value), copied: verdict.copy.copied } }
+      : {}),
+  };
 }
 
 /** The builder's one-line summary is cut at this many characters (apps/web/src/data/entryInfo.ts). */

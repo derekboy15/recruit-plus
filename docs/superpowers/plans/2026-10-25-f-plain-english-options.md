@@ -36,11 +36,11 @@
 
 **Measured on `main` at 5f75e9b (24 Oct 2026):**
 - 3,416 distinct option texts; 1,662 are written and 1,754 are not (about 79,000 words of official text).
-- Rough split of the 1,754 by tier, from a throwaway classifier (Task 1 makes this exact):
-  - army choices about 690;
-  - Warlord traits about 390;
-  - relics about 440;
-  - unit options about 230.
+- Split of the 1,754 by tier, as Task 1 computes it (reference copies skipped):
+  - army choices 426;
+  - Warlord traits 451;
+  - relics 438;
+  - unit options 439.
 
 ## Global Constraints
 
@@ -155,6 +155,7 @@ export function optionSample(texts: OptionText[], shard: string): OptionText[];
   3. Otherwise, tier 4 if any node in the chain is a `unit` or `model` entry, or a link whose target is one. Targets are resolved across all files.
   4. Otherwise, if the chain starts in the file's `rootEntries`, tier 1.
   5. Otherwise (the chain starts in `shared`), the best tier among the links, in any file, that target the top shared node, found recursively with a visited set. With no such link, tier 4.
+  6. BattleScribe's reference copies (`[Reference] …`, `… (Reference)`), and everything under them, are skipped. The builder never shows them (`apps/web/src/lists/editorView.ts` `HELPER_NAMES`), so they give no tier. *(Added after the review.)*
 - **The tier of an entry** is the best tier among its nodes with that id in that slug's file (or in any file if the slug's file has none). An unknown id is tier 4.
 - **`collectOptionTexts`:**
   - **Which texts:** it collects exactly the texts `attachInfoPlain` looks up: rules, then each profile's `textChars`. It walks files sorted by slug, with `system` last.
@@ -281,7 +282,8 @@ export function firstSentenceLength(plain: string): number;  // first line, to t
 
 - **CLI:**
   - `npx tsx packages/data/scripts/merge-plain-draft.ts <shard> <draft.json>` reads `packages/content/todo/<shard>.json` and writes `packages/content/plain/<shard>.json` (creating it if needed). It prints one line per failure and per long summary, then `N merged, M failed`, and exits 1 if anything failed.
-  - `npm run content:todo -- <shard> [--tier <1-4>]` now also lists the shard's open option texts, each with `tier`. `--tier` limits the option to-dos to that tier. Its summary line becomes `<shard>: P texts, W written, T to do; options: O to do (army choices a, Warlord traits b, relics c, unit options d)`.
+  - `npm run content:todo -- <shard> [--tier <1-4>]` now also lists the shard's open option texts, each with `tier`. `--tier` limits the option to-dos to that tier. Its summary line becomes `<shard>: P texts, W written, T to do; options: N texts, M written, O to do (army choices a, Warlord traits b, relics c, unit options d)`. The per-tier figures are open texts.
+  - `npm run content:todo -- <shard> --keys <key> [...]` lists those texts of the shard even when their entries pass, so `merge-plain-draft` can replace an entry (a spot-check fix). *(Added after the review.)*
   - `--all` prints that line for every shard.
   - `--show <key>` also finds option texts.
   - `--sample-options <shard>` prints `optionSample`'s keys, one per line (`key\ttier\tname`).
@@ -339,7 +341,7 @@ Three builder tests read the real generated data, and they assert that Novokh's 
 
 Each group is one session in its own worktree (see Branches and order), following the same method. The groups reuse M3's split, with one change for balance: Tyranids and Genestealer Cults move from the Imperium group to Group 1. Grouped as in M3, the sizes would be 317 / 579 / 371 / 487. With the move they are 441 / 455 / 371 / 487.
 
-| Task | Group | Shards (every shard of the group with option to-dos; `content:todo -- --all` is the authority) | About |
+| Task | Group | Shards (every shard of the group that owns option texts; `content:todo -- --all` is the authority) | About |
 |---|---|---|---|
 | 5 | Space Marines, core, Fallen, Tyranids, GSC | `core` (the `.gst`'s texts), `imperium-space-marines`, the 11 `imperium-adeptus-astartes-*`, `imperium-fw-adeptus-astartes`, `imperium-legion-of-the-damned`, `fallen`, `tyranids`, `tyranids-genestealer-cults` | 441 texts, 20,300 words |
 | 6 | Rest of the Imperium | every other `imperium-*`, including the new `imperium-agents-of-the-imperium` and `imperium-death-korps-of-krieg` | 455 texts, 21,200 words |
@@ -355,14 +357,15 @@ Each group is one session in its own worktree (see Branches and order), followin
 - [ ] **Steps 2–5: One step per tier, in order: 1 army choices, 2 Warlord traits, 3 relics, 4 unit options.** For tier *t*:
   1. Run `npm run content:todo -- <shard> --tier t` for each group shard with open tier-*t* texts.
   2. **Draft.** The session writes the drafts itself, or dispatches one drafting subagent per shard, or per 150 texts in a big shard (split by key order). Each drafter gets `STYLE.md` and its to-do JSON. It writes a draft file `{ "<key>": { "plain": "…", "waive"?: {…} } }` in the scratchpad and may check it with `npx tsx packages/data/scripts/check-plain-file.ts <todo> <draft>`. No drafter writes a shard file.
-  3. **Merge** each draft with `npx tsx packages/data/scripts/merge-plain-draft.ts <shard> <draft>`. Rewrite every failure and re-merge until it prints `0 failed`. Shorten every long-summary warning unless the rule truly can't be split, and note any that are kept in the ledger.
+  3. **Merge** each draft with `npx tsx packages/data/scripts/merge-plain-draft.ts <shard> <draft>`. Rewrite every failure and re-merge until it prints `0 failed`. Shorten every long-summary warning unless the rule truly can't be split, and note any that are kept in the ledger. To rewrite an entry that already merged, list its key with `npm run content:todo -- <shard> --keys <key>` first.
   4. Run `npm run data:build`, then the tier-*t* to-do again for each shard. Expected: `options: 0 to do` at tier *t* for every group shard. Then run `npm test -w @recruit/data`. Expected: PASS (0 flagged, 0 copied, waivers under 2%).
   5. **Commit** with `content(options): plain English for <group>: <tier name>`. The body gives each shard's texts written and waived tokens with their reasons, and the group's waiver share.
 - [ ] **Step 6: Spot-check every group shard that owns option texts.**
   - `npm run content:todo -- --sample-options <shard>` gives up to 10 keys. A fresh reviewer subagent per shard (never the one that drafted it) compares each sampled plain text with its official text (`--show <key>`). It checks:
     - meaning: effects, conditions, timing, limits, targets (friendly or enemy), numbers and keywords;
     - whether the first sentence works as the one-line summary.
-  - Each finding is fixed in the shard through `merge-plain-draft`.
+  - Each finding is fixed in the shard: list its key with `npm run content:todo -- <shard> --keys <key>`, then merge the rewrite with `merge-plain-draft`, which replaces the entry.
+  - Some shards own option texts but have none to do (for example `aeldari-craftworlds`, whose options are mostly written already). They still get a record: `--all` shows each shard's `options: N texts`.
   - **The record** is `packages/content/review/options/<shard>.md`:
 
 ```

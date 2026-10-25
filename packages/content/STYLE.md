@@ -72,6 +72,8 @@ The option loop:
 3. Run `npx tsx packages/data/scripts/merge-plain-draft.ts <shard> <draft.json>`. It checks every entry and merges the passing ones into `packages/content/plain/<shard>.json`. Rewrite each failure and run it again until it says `0 failed`.
 4. Run `npm run data:build && npm run content:todo -- <shard> --tier <n>` until nothing is listed at that tier. Then run `npm test -w packages/data`.
 
+To rewrite an entry that already passes, list it by key: `npm run content:todo -- <shard> --keys <key> [...]`. Do this for a spot-check finding, or for a long first sentence you come back to. Then merge the new draft as in step 3; it replaces the old entry.
+
 ## Worked examples (real Necrons texts)
 
 **Ability: Lord of the Pyrrhian Legions (Aura)**
@@ -96,4 +98,4 @@ The option loop:
   - `WARLORD`, `6` and `1` survive, and so does "unmodified".
   - The longest shared run is "unmodified wound roll of 6" (5 words).
   - The whole text is one sentence of 146 characters, so the builder's one-line summary shows all of it.
-  - The Novokh dynasty carries the same text, so it is an army-choice (tier 1) text, written once for both.
+  - The Tyranids Behemoth trait Monstrous Hunger has the same text, so one entry serves both. Keeping "this WARLORD" makes it read right for each.

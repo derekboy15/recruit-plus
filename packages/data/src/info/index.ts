@@ -77,6 +77,14 @@ export function collectOptionTexts(files: InfoFile[], store: PlainStore, tierOf:
   return [...out.values()];
 }
 
+/** A shard's option texts in content:todo's counts: how many it owns, how many are written, and the open ones by tier. */
+export function optionCounts(texts: OptionText[], shard: string, written: (t: OptionText) => boolean): { total: number; written: number; open: Record<OptionTier, number> } {
+  const own = texts.filter((t) => t.shard === shard);
+  const open: Record<OptionTier, number> = { 1: 0, 2: 0, 3: 0, 4: 0 };
+  for (const t of own) if (!written(t)) open[t.tier]++;
+  return { total: own.length, written: own.length - Object.values(open).reduce((a, b) => a + b, 0), open };
+}
+
 /** A shard's option spot-check sample: up to 5 army choices and 5 other texts, each half topping up the other (at most 10). */
 export function optionSample(texts: OptionText[], shard: string): OptionText[] {
   const own = texts.filter((t) => t.shard === shard);

@@ -21,11 +21,14 @@ interface Occurrence {
 
 const best = (tiers: OptionTier[]): OptionTier => (tiers.length ? (Math.min(...tiers) as OptionTier) : 4);
 const heading = (n: RNode) => optionDisplay(n.name).heading ?? '';
+/** BattleScribe's reference copies ("[Reference] Warlord Traits (All)"), which the builder never shows (apps/web lists/editorView.ts). */
+const REFERENCE = /\(Reference\)|\[Reference\]/i;
 
 /**
  * A node's tier, from the node and the nodes above it: a trait (marker or "Warlord trait" heading) is 2, a relic 3;
  * anything under a unit or model is 4; anything else under a root entry is an army choice. A shared node has no context
  * of its own, so it takes the best tier of the links (in any file) that reach its top shared node; none reach it: 4.
+ * Reference copies and everything under them are left out: a use no player sees gives no tier.
  */
 export function optionTierOf(files: RosterFile[]): TierOf {
   const byId = new Map<string, Occurrence[]>();
@@ -33,6 +36,7 @@ export function optionTierOf(files: RosterFile[]): TierOf {
   const push = (m: Map<string, Occurrence[]>, id: string, o: Occurrence) => m.set(id, [...(m.get(id) ?? []), o]);
   for (const f of files) {
     const visit = (node: RNode, chain: RNode[], root: Occurrence['root']) => {
+      if (REFERENCE.test(node.name)) return;
       const o = { slug: f.slug, node, chain, root };
       push(byId, node.id, o);
       if (node.kind === 'link' && node.targetId) push(linksTo, node.targetId, o);

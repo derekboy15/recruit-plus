@@ -3,6 +3,8 @@
  *   npm run content:todo -- <shard> [--tier <1-4>] writes packages/content/todo/<shard>.json and prints its counts
  *                                              (shard "missions": the faction secondaries, in content/missions/plain.json).
  *                                              Option texts (info files) carry their tier; --tier lists only that tier's.
+ *   npm run content:todo -- <shard> --keys <key> [...] writes a to-do of those texts of the shard even if their entries
+ *                                              pass, so merge-plain-draft can replace them (a spot-check fix)
  *   npm run content:todo -- --all              prints the counts for every shard
  *   npm run content:todo -- --sample <slug> <n> prints a deterministic spot-check sample of a catalogue's texts
  *                                              ("missions": of the faction secondaries)
@@ -12,11 +14,11 @@
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { collectOptionTexts, optionSample, optionTierOf, TIER_NAMES, type OptionText, type OptionTier } from '../src/info';
+import { collectOptionTexts, optionCounts, optionSample, optionTierOf, TIER_NAMES, type OptionTier } from '../src/info';
 import type { CatalogueOut, DataIndex, InfoFile, StratagemOut } from '../src/model/types';
-import { checkPlain, extractTokens } from '../src/plain/check';
 import type { MissionsOut } from '../src/missions/types';
 import { collectOfficialTexts, officialFor, ruleKeys, spotSample, textKey, textsInCatalogue, type OfficialText } from '../src/plain/collect';
+import { todoItem } from '../src/plain/draft';
 import { loadPlainStore } from '../src/plain/store';
 import type { RosterFile } from '../src/roster/types';
 
@@ -48,29 +50,14 @@ texts.push(...factionSecondaries);
 const pageKeys = new Set(texts.map((t) => t.key));
 const entryFor = (t: OfficialText) => (t.shard === MISSIONS ? missionsStore.get(t.key) : store.get(t.key));
 
-function todo(t: OfficialText | OptionText) {
-  const entry = entryFor(t);
-  const verdict = entry ? checkPlain(t.text, entry.plain, entry.waive) : null;
-  if (verdict?.ok) return null;
-  return {
-    key: t.key,
-    kind: t.kind,
-    name: t.name,
-    official: t.text,
-    tokens: extractTokens(t.text).map((x) => x.value),
-    ...('tier' in t ? { tier: t.tier } : {}),
-    ...(verdict
-      ? { problem: { missing: verdict.missing.map((x) => x.value), extra: verdict.extra.map((x) => x.value), copied: verdict.copy.copied } }
-      : {}),
-  };
-}
+const todo = (t: OfficialText, revise = false) => todoItem(t, entryFor(t), revise);
 
 function line(shard: string): string {
   const own = texts.filter((t) => t.shard === shard);
-  const open = own.map(todo).filter(Boolean).length;
-  const openOptions = options.filter((t) => t.shard === shard && todo(t));
-  const byTier = ([1, 2, 3, 4] as const).map((tier) => `${TIER_NAMES[tier]} ${openOptions.filter((t) => t.tier === tier).length}`);
-  return `${shard}: ${own.length} texts, ${own.length - open} written, ${open} to do; options: ${openOptions.length} to do (${byTier.join(', ')})`;
+  const open = own.map((t) => todo(t)).filter(Boolean).length;
+  const c = optionCounts(options, shard, (t) => !todo(t));
+  const byTier = ([1, 2, 3, 4] as const).map((tier) => `${TIER_NAMES[tier]} ${c.open[tier]}`);
+  return `${shard}: ${own.length} texts, ${own.length - open} written, ${open} to do; options: ${c.total} texts, ${c.written} written, ${c.total - c.written} to do (${byTier.join(', ')})`;
 }
 
 const [arg, ...rest] = process.argv.slice(2);
@@ -106,15 +93,31 @@ if (arg === '--all') {
   for (const t of optionSample(options, rest[0])) console.log(`${t.key}\t${t.tier}\t${t.name}`);
 } else if (arg) {
   if (![...texts, ...options].some((t) => t.shard === arg)) throw new Error(`No shard "${arg}". Run with --all to list them.`);
-  const tier = rest[0] === '--tier' ? Number(rest[1]) : null;
-  if (tier !== null && ![1, 2, 3, 4].includes(tier)) throw new Error('Usage: content:todo -- <shard> --tier <1-4>');
-  // With --tier, only that tier's option texts; an option text that is also a page text is listed with the page texts.
-  const pageItems = tier === null ? texts.filter((t) => t.shard === arg) : [];
-  const optionItems = options.filter((t) => t.shard === arg && !pageKeys.has(t.key) && (tier === null || t.tier === tier));
-  const items = [...pageItems, ...optionItems].map(todo).filter(Boolean);
+  const [flag, ...values] = rest;
+  const tier = flag === '--tier' ? Number(values[0]) : null;
+  const usage = 'Usage: content:todo -- <shard> [--tier <1-4> | --keys <key> [...]]';
+  if (flag !== undefined && flag !== '--tier' && flag !== '--keys') throw new Error(usage);
+  if (flag === '--tier' && (values.length !== 1 || ![1, 2, 3, 4].includes(tier!))) throw new Error(usage);
+  if (flag === '--keys' && !values.length) throw new Error(usage);
+  let items;
+  if (flag === '--keys') {
+    // Listed whatever their state, so merge-plain-draft can replace a passing entry. Only the shard's own texts.
+    const own = new Map([...texts, ...options].filter((t) => t.shard === arg).map((t) => [t.key, t]));
+    items = values.map((key) => {
+      const t = own.get(key);
+      if (!t) throw new Error(`${key} is not one of ${arg}'s texts`);
+      return todo(t, true);
+    });
+  } else {
+    // With --tier, only that tier's option texts; an option text that is also a page text is listed with the page texts.
+    const pageItems = tier === null ? texts.filter((t) => t.shard === arg) : [];
+    const optionItems = options.filter((t) => t.shard === arg && !pageKeys.has(t.key) && (tier === null || t.tier === tier));
+    items = [...pageItems, ...optionItems].map((t) => todo(t)).filter(Boolean);
+  }
   mkdirSync(join(contentDir, 'todo'), { recursive: true });
   writeFileSync(join(contentDir, 'todo', `${arg}.json`), JSON.stringify(items, null, 2));
-  console.log(`${line(arg)}${tier === null ? '' : `; listed: ${items.length} at tier ${tier}`}`);
+  const listed = flag === undefined ? '' : `; listed: ${items.length}${tier === null ? ' by key' : ` at tier ${tier}`}`;
+  console.log(`${line(arg)}${listed}`);
 } else {
-  throw new Error('Usage: content:todo -- <shard> [--tier <1-4>] | --all | --sample <catalogue-slug> <n> | --sample-options <shard> | --rules <slug> | --show <key>');
+  throw new Error('Usage: content:todo -- <shard> [--tier <1-4> | --keys <key> [...]] | --all | --sample <catalogue-slug> <n> | --sample-options <shard> | --rules <slug> | --show <key>');
 }

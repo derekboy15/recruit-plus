@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { firstSentenceLength, mergeDraft, type TodoItem } from '../src/plain/draft';
+import { firstSentenceLength, mergeDraft, todoItem, type TodoItem } from '../src/plain/draft';
 import type { PlainShard } from '../src/plain/store';
 
 const MOVE = 'aaaaaaaaaaaa';
@@ -57,5 +57,30 @@ describe('firstSentenceLength', () => {
 
   test('reads the first line, run on while it ends with a colon, without list bullets', () => {
     expect(firstSentenceLength('Pick one:\n• Move 6".\n• Shoot.')).toBe(18);
+  });
+});
+
+describe('todoItem', () => {
+  const text = { key: HITS, shard: 'necrons', kind: 'rule' as const, name: 'Hits', text: 'Add 1 to hit rolls made for this unit.', tier: 2 as const };
+
+  test('a text with no entry is listed with its tokens and tier', () => {
+    expect(todoItem(text, undefined)).toEqual({ key: HITS, kind: 'rule', name: 'Hits', official: text.text, tokens: ['1'], tier: 2 });
+  });
+
+  test('a failing entry is listed with its problem', () => {
+    expect(todoItem(text, { plain: 'This unit adds 2 to its hit rolls.' })?.problem).toEqual({ missing: ['1'], extra: [], copied: false });
+  });
+
+  test('a passing entry is left off, unless it is listed by key to revise it', () => {
+    const passing = { plain: 'This unit adds 1 to its hit rolls.' };
+    expect(todoItem(text, passing)).toBeNull();
+    expect(todoItem(text, passing, true)).toEqual({ key: HITS, kind: 'rule', name: 'Hits', official: text.text, tokens: ['1'], tier: 2 });
+  });
+
+  test('a revised entry replaces the old one when merged', () => {
+    const shard: PlainShard = { [HITS]: { name: 'Hits', kind: 'rule', plain: 'This unit adds 1 to its hit rolls.' } };
+    const r = mergeDraft(shard, [todoItem(text, shard[HITS], true)!], { [HITS]: { plain: 'Your unit adds 1 to every hit roll it makes.' } });
+    expect(r.failed).toEqual([]);
+    expect(r.shard[HITS].plain).toBe('Your unit adds 1 to every hit roll it makes.');
   });
 });

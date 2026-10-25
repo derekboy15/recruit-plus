@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { collectOptionTexts, infoTextKeys, optionSample, optionShard, type OptionText } from '../src/info';
+import { collectOptionTexts, infoTextKeys, optionCounts, optionSample, optionShard, type OptionText } from '../src/info';
 import { optionTierOf } from '../src/info/tiers';
 import type { InfoFile } from '../src/model/types';
 import { textKey } from '../src/plain/collect';
@@ -11,6 +11,7 @@ const file = (slug: string, rootEntries: RNode[], shared: RNode[] = []): RosterF
 const necrons = file('necrons', [
   { id: 'dyn', kind: 'entry', type: 'upgrade', name: 'Dynasty Choice', children: [{ id: 'novokh', kind: 'entry', type: 'upgrade', name: 'Dynasty: Novokh' }] },
   { id: 'army-wt', kind: 'group', name: 'Warlord Traits', children: [{ id: 'army-trait', kind: 'entry', type: 'upgrade', name: 'Enduring Will', extraKind: 'trait' }] },
+  { id: 'ref', kind: 'entry', type: 'upgrade', name: '[Reference] Warlord Traits (All)', children: [{ id: 'ref-fury', kind: 'entry', type: 'upgrade', name: 'Blood-Fuelled Fury' }] },
   { id: 'overlord', kind: 'entry', type: 'unit', name: 'Overlord', children: [
     { id: 'fury', kind: 'entry', type: 'upgrade', name: 'Warlord Trait (Novokh): Blood-Fuelled Fury', extraKind: 'trait' },
     { id: 'rod-link', kind: 'link', name: 'The Burning Rod', targetId: 'rod', targetKind: 'entry', extraKind: 'relic' },
@@ -46,6 +47,11 @@ describe('optionTierOf', () => {
     expect(tierOf('necrons-library', 'rod')).toBe(3);
   });
 
+  test('a [Reference] entry the builder never shows gives no tier: its options are tier 4 on their own', () => {
+    expect(tierOf('necrons', 'ref-fury')).toBe(4);
+    expect(tierOf('necrons', 'ref')).toBe(4);
+  });
+
   test('a shared entry no link reaches, or an unknown id, is tier 4', () => {
     expect(tierOf('necrons-library', 'lost')).toBe(4);
     expect(tierOf('necrons', 'nope')).toBe(4);
@@ -65,6 +71,12 @@ describe('collectOptionTexts', () => {
     const orbOnly = info('necrons', { orb: { rules: [{ name: 'Code', text: T }] } });
     expect(collectOptionTexts([orbOnly], new Map(), tierOf)[0].tier).toBe(4);
     expect(collectOptionTexts([necInfo], new Map(), tierOf)[0].tier).toBe(1);
+  });
+
+  test('a text a [Reference] entry repeats keeps the tier of the option the builder shows', () => {
+    const F = 'Each time this WARLORD makes a melee attack, an unmodified wound roll of 6 inflicts 1 mortal wound.';
+    const files = [info('necrons', { 'ref-fury': { rules: [{ name: 'Fury', text: F }] }, fury: { rules: [{ name: 'Fury', text: F }] } })];
+    expect(collectOptionTexts(files, new Map(), tierOf)[0].tier).toBe(2);
   });
 
   test('a text only in system is owned by core', () => {
@@ -111,5 +123,20 @@ describe('optionSample', () => {
     expect(sample).toHaveLength(10);
     expect(sample.filter((t) => t.tier === 1)).toHaveLength(2);
     expect(optionSample([text(0, 1), text(100, 4)], 'necrons')).toHaveLength(2);
+  });
+});
+
+describe('optionCounts', () => {
+  const text = (i: number, tier: OptionText['tier'], shard = 'necrons'): OptionText =>
+    ({ key: `k${String(i).padStart(11, '0')}`, shard, kind: 'rule', name: `Text ${i}`, text: `Text ${i}`, tier });
+  const texts = [text(1, 1), text(2, 2), text(3, 4), text(4, 1, 'orks')];
+
+  test('a shard that owns option texts but has none open still shows them', () => {
+    expect(optionCounts(texts, 'necrons', () => true)).toEqual({ total: 3, written: 3, open: { 1: 0, 2: 0, 3: 0, 4: 0 } });
+  });
+
+  test('open texts are counted by tier', () => {
+    expect(optionCounts(texts, 'necrons', (t) => t.tier !== 1)).toEqual({ total: 3, written: 2, open: { 1: 1, 2: 0, 3: 0, 4: 0 } });
+    expect(optionCounts(texts, 'tau-empire', () => false)).toEqual({ total: 0, written: 0, open: { 1: 0, 2: 0, 3: 0, 4: 0 } });
   });
 });
