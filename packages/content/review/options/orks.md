@@ -24,3 +24,11 @@ The session then scanned every Orks option summary for the patterns the spot-che
 | 1de3e95d5627 | Fight Detecta | 4 | FIXED | summary cut (277) |
 | 9ede23ff7b74 | Noise Box | 4 | FIXED | summary cut (247) |
 | 2df430e547fb | Roar of Mork | 4 | FIXED | summary was only the label "MALEDICTION (AURA)." |
+
+## Plan F2 additions (25 Oct)
+
+Plan F2 gave the Speed Freeks Speed Mob Army of Renown its revealed text, which put this text in the shard's sample. Reviewer: a fresh subagent.
+
+| Key | Name | Tier | Verdict | Note |
+|---|---|---|---|---|
+| 0701677a1054 | Speed Freeks Speed Mob | 1 | PASS |  |

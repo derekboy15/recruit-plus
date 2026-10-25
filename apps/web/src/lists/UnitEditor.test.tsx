@@ -87,6 +87,14 @@ test('weapon options show their profile lines, one per profile', async () => {
   expect(within(editor).getByRole('radio', { name: 'Warscythe' })).toHaveAccessibleDescription('Melee · S +2 · AP -4 · D2');
 });
 
+test('the Warlord option says what being Warlord gives, in plain English', async () => {
+  // Plan F2: the Warlord option has no text of its own; choosing it reveals the Overlord's Grand Strategist ability.
+  const editor = await openUnit(novokhPatrol, 'Overlord');
+  const warlord = within(editor).getByRole('checkbox', { name: 'Warlord' });
+  await waitFor(() => expect(warlord).toHaveAccessibleDescription(/\S/));
+  expect(warlord).not.toHaveAccessibleDescription(/^Official wording/);
+});
+
 test('Warlord traits drop their prefix and sit under their kind; each says what it does', async () => {
   withoutInfoPlain(stubGeneratedData(), 'necrons');
   const u = userEvent.setup();

@@ -17,7 +17,7 @@ describe('info fixture', () => {
 
   test('the file is keyed by entry id', () => {
     expect(faction).toMatchObject({ schema: 1, slug: 'info-faction' });
-    expect(Object.keys(faction.entries).sort()).toEqual(['el-own', 'se-dyn', 'se-gun', 'se-trait', 'sg-traits']);
+    expect(Object.keys(faction.entries).sort()).toEqual(['el-lib-marker', 'el-own', 'se-base', 'se-dyn', 'se-gun', 'se-marker', 'se-other', 'se-own', 'se-trait', 'sg-traits']);
   });
 
   test('a rule in a linked library resolves, and a hidden rule or link is still read', () => {
@@ -51,6 +51,35 @@ describe('info fixture', () => {
   test('units, models, links to them and entries without info are left out; an empty rule is dropped', () => {
     for (const id of ['se-unit', 'se-model', 'el-unit', 'se-nothing', 'el-relic', 'el-dyn', 'sg-shared', 'se-honour']) expect(faction.entries[id]).toBeUndefined();
     expect(faction.entries['se-trait'].rules?.some((r) => r.name === 'Empty')).toBe(false);
+  });
+
+  // Plan F2: an option with no text of its own takes what its selection reveals (hidden while its count is 0).
+  const names = (id: string) => [...(faction.entries[id]?.profiles ?? []), ...(faction.entries[id]?.rules ?? [])].map((x) => x.name);
+
+  test('a marker option takes the weapon profile its selection reveals', () => {
+    expect(names('se-marker')).toContain('Marker gun');
+  });
+
+  test('the profile a relic hides is not attached to it', () => {
+    expect(names('se-marker')).not.toContain('Base gun');
+  });
+
+  test('a reveal inside a condition group attaches', () => {
+    expect(names('se-marker')).toContain('Marker rule');
+  });
+
+  test('a reveal conditioned on another option does not attach', () => {
+    expect(names('se-marker')).not.toContain('Other rule');
+    expect(names('se-other')).toEqual(['Other rule']);
+  });
+
+  test('an option with text of its own gains nothing from reveals', () => {
+    expect(faction.entries['se-own']).toEqual({ rules: [{ name: 'Own rule', text: 'This option has a rule of its own.' }] });
+  });
+
+  test("a library marker revealed in the faction attaches to the faction's link, not twice", () => {
+    expect(names('el-lib-marker')).toEqual(['Library marker rule']);
+    expect(library.entries['se-lib-marker']).toBeUndefined();
   });
 
   test("a library's own options are in its own file", () => {
@@ -186,6 +215,27 @@ describe('generated info files', () => {
     }
   });
 
+  test('options that show only a name take the text their selection reveals', () => {
+    const has = (slug: string, id: string, name: string | null) => {
+      const e = info(slug).entries[id];
+      const all = [...(e?.profiles ?? []), ...(e?.rules ?? [])].map((x) => x.name);
+      return name === null ? all.length > 0 : all.includes(name);
+    };
+    const expected: [string, string, string | null][] = [
+      ['chaos-chaos-knights', '253c-8df9-6fb9-8cee', 'The Diamonas'],
+      ['chaos-chaos-knights', '20f6-3a9c-732b-72a7', 'The Teeth That Hunger'],
+      ['chaos-chaos-knights', '058d-e731-d4bd-092c', 'The Gauntlet of Ascension'],
+      ['chaos-death-guard', 'e06c-eb49-b5e6-f07a', 'Torrent of Putrefaction'],
+      ['chaos-chaos-space-marines', '2eb6-087d-4893-3167', 'Techinfernal Loci'],
+      // Speed Freeks Speed Mob is defined in the game system; Orks links to it, so its revealed text is under the link.
+      ['orks', 'd7bd-1e4a-7ce9-0234', 'Adrenaline Junkies'],
+      ['imperium-space-marines', '4ad6-eb88-f4b3-590e', null],
+    ];
+    for (const [slug, id, name] of expected) expect(has(slug, id, name), `${slug} ${id} ${name ?? '(any text)'}`).toBe(true);
+    const diamonas = info('chaos-chaos-knights').entries['253c-8df9-6fb9-8cee'].profiles!.find((p) => p.name === 'The Diamonas')!;
+    expect(diamonas.type).toBe('Weapon');
+  });
+
   test('every info file is within 150 kB gzip', () => {
     for (const f of readdirSync(INFO)) expect(gzipSync(readFileSync(join(INFO, f))).length, f).toBeLessThanOrEqual(150_000);
   });
@@ -197,8 +247,9 @@ describe('generated info files', () => {
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
     // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
     expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
-    // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts).
-    expect(sum(report.options)).toEqual({ total: 3416, written: 3416 });
+    // Plan F wrote the option texts' plain English (1662 of them existed before it, shared with datasheet texts); Plan F2
+    // gave 15 marker options the text their selection reveals (3,416 -> 3,431).
+    expect(sum(report.options)).toEqual({ total: 3431, written: 3431 });
     expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

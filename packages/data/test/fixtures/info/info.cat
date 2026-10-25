@@ -75,6 +75,59 @@
         <infoLink id="il-dyn" name="Novokh" hidden="false" targetId="ig-dyn" type="infoGroup"/>
       </infoLinks>
     </selectionEntry>
+    <!-- Plan F2: options with no text of their own take the text their selection reveals. -->
+    <selectionEntry id="se-knight" name="Knight" hidden="false" type="unit">
+      <rules>
+        <rule id="r-marker" name="Marker rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditionGroups><conditionGroup type="or"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/><condition field="selections" scope="roster" value="1.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-other" type="atLeast"/></conditions></conditionGroup></conditionGroups></modifier></modifiers>
+          <description>The bearer re-rolls hit rolls of 1.</description>
+        </rule>
+        <rule id="r-other" name="Other rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-other" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Only with the other option.</description>
+        </rule>
+        <rule id="r-own-reveal" name="Own reveal" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-own" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Revealed by an option that has text of its own.</description>
+        </rule>
+        <rule id="r-lib-reveal" name="Library marker rule" hidden="false">
+          <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-lib-marker" type="equalTo"/></conditions></modifier></modifiers>
+          <description>Revealed in the faction by a library marker.</description>
+        </rule>
+      </rules>
+      <selectionEntries>
+        <selectionEntry id="se-base" name="Laser destructor" hidden="false" type="upgrade">
+          <profiles>
+            <profile id="p-base" name="Base gun" hidden="false" typeId="pt-weapon" typeName="Weapon">
+              <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="1.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/></conditions></modifier></modifiers>
+              <characteristics>
+                <characteristic name="Range" typeId="c-r">72&quot;</characteristic>
+                <characteristic name="S" typeId="c-s">14</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="p-marker-gun" name="Marker gun" hidden="false" typeId="pt-weapon" typeName="Weapon">
+              <modifiers><modifier type="set" field="hidden" value="true"><conditions><condition field="selections" scope="roster" value="0.0" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="se-marker" type="equalTo"/></conditions></modifier></modifiers>
+              <characteristics>
+                <characteristic name="Range" typeId="c-r">72&quot;</characteristic>
+                <characteristic name="S" typeId="c-s">16</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <entryLinks>
+        <entryLink id="el-lib-marker" name="Relic: The Library Marker" hidden="false" targetId="se-lib-marker" type="selectionEntry"/>
+      </entryLinks>
+    </selectionEntry>
+    <selectionEntry id="se-marker" name="Relic: The Marker" hidden="false" type="upgrade"/>
+    <selectionEntry id="se-other" name="Other option" hidden="false" type="upgrade"/>
+    <selectionEntry id="se-own" name="Army of Renown: Own" hidden="false" type="upgrade">
+      <rules>
+        <rule id="r-own" name="Own rule" hidden="false">
+          <description>This option has a rule of its own.</description>
+        </rule>
+      </rules>
+    </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>
     <selectionEntryGroup id="sg-honours" name="Battle Honours" hidden="false">

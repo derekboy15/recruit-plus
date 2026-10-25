@@ -157,7 +157,7 @@
   "3aeed7bed3c6": {
     "name": "Touched by Tzeentch",
     "kind": "rule",
-    "plain": "- Models in this unit have a 5+ invulnerable save.\n- Whenever a model in this unit would lose a wound because of a mortal wound, roll one D6: on a 5+ the wound isn't lost.\n- When the first battle round starts, before either player takes a turn, this unit's models may each make a Normal Move of up to 6\", but can't end it within 9\" of any enemy models. When both players have units able to do this, whoever takes the first turn moves their models first."
+    "plain": "- Every model in this unit gets a 5+ invulnerable save.\n- Whenever a model in this unit would lose a wound because of a mortal wound, roll one D6: on a 5+ the wound isn't lost.\n- When the first battle round starts, before either player takes a turn, this unit's models may each make a Normal Move of up to 6\", but can't end it within 9\" of any enemy models. When both players have units able to do this, whoever takes the first turn moves their models first."
   },
   "3c3b61b0516b": {
     "name": "The Blade of Magnus",

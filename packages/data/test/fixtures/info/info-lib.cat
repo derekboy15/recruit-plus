@@ -50,5 +50,6 @@
         </profile>
       </profiles>
     </selectionEntry>
+    <selectionEntry id="se-lib-marker" name="Relic: The Library Marker" hidden="false" type="upgrade"/>
   </sharedSelectionEntries>
 </catalogue>
