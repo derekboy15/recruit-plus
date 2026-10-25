@@ -13,7 +13,7 @@ import { ToastProvider } from '../ui/toast';
 import { ListEditorPage } from './ListEditorPage';
 import { createList, type ListData } from './listStore';
 import { applyPicks, armyChoices, listData, startingRoster } from './newListSetup';
-import { stubGeneratedData } from './__fixtures__/generatedData';
+import { stubGeneratedData, withoutInfoPlain } from './__fixtures__/generatedData';
 import { novokhPatrol, twoPatrols } from './__fixtures__/patrolList';
 
 // These drive the whole editor over the real rules data; a busy machine needs more than the default 5 s.
@@ -295,7 +295,8 @@ async function withDynasty(name: string) {
   });
 }
 
-test('each dynasty says what its code does; Novokh’s code has no plain English yet, so it is labelled Official wording', async () => {
+test('each dynasty says what its code does; without plain English for Novokh’s code, it is labelled Official wording', async () => {
+  withoutInfoPlain(stubGeneratedData(), 'necrons');
   const u = user();
   renderEditor(await withDynasty('Novokh'));
   await opened();
