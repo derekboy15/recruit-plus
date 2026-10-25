@@ -35,6 +35,31 @@ describe('musterFromRoster', () => {
     expect(warriors.models.every((m) => m.weapons.includes('Gauss Flayer'))).toBe(true);
   });
 
+  /** A Strike Force list for the catalogue with the named unit added, mustered. */
+  const musterOne = (slug: string, name: string) => {
+    const scope = realScope(slug);
+    let roster = createRoster(scope, { name: 'Test', catalogueId: realCatalogueId(slug), battleSize: 'strike-force', forceId: FORCE.arksOfOmen });
+    const entry = availableUnits(scope, roster, roster.forces[0].id).find((u) => u.name === name)!;
+    roster = addUnit(scope, roster, roster.forces[0].id, entry.entryId).roster;
+    const { army, problems } = musterFromRoster(evaluate(scope, roster), units, 'A');
+    return { unit: army.units.find((u) => u.datasheet.name === name)!, problems };
+  };
+
+  test('a Cadian Command Squad musters all 5 models, the Veterans in the squad inside it included, each with its own gear', () => {
+    const { unit, problems } = musterOne('imperium-astra-militarum', 'Cadian Command Squad');
+    expect(problems).toEqual([]);
+    const count = (profile: string) => unit.models.filter((m) => m.profile === profile).reduce((a, m) => a + m.count, 0);
+    expect(unit.models.reduce((a, m) => a + m.count, 0)).toBe(5);
+    expect(count('Cadian Commander')).toBe(1);
+    expect(count('Veteran')).toBe(4);
+    // The Medi-pack and Standard Veterans carry a lasgun and frag grenades, nothing else.
+    expect(unit.models.find((m) => m.profile === 'Veteran' && [...m.weapons].sort().join('|') === 'Frag grenades|Lasgun')?.count).toBe(2);
+    // The Commander has their own pistol and sword: no lasgun.
+    const commander = unit.models.find((m) => m.profile === 'Cadian Commander')!;
+    expect(commander.weapons).toEqual(expect.arrayContaining(['Laspistol', 'Chainsword', 'Frag grenades']));
+    expect(commander.weapons).not.toContain('Lasgun');
+  });
+
   test.each([
     ['a Patrol Detachment', true, FORCE.patrol],
     ['an Auxiliary Support Detachment', false, FORCE.auxiliarySupport],

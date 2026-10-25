@@ -1,7 +1,8 @@
 /**
  * A saved army-builder list → an engine army (R-20). The list's units are matched to their datasheets by BattleScribe
- * id; model and weapon selections are matched to profiles by name. Anything that doesn't match is reported, never
- * guessed: the player fixes it in the sandbox.
+ * id; each model's stat line and weapons come from the entries it was chosen through (UnitOut.entries), so every model
+ * fights with its own gear. Selections the data has no entry for (older data) are matched to profiles by name. Anything
+ * that doesn't match is reported, never guessed: the player fixes it in the sandbox.
  */
 import type { UnitOut } from '@recruit/data/model';
 import type { RosterView, SelView } from '@recruit/data/roster';
@@ -33,22 +34,31 @@ function weaponsFor(ds: Datasheet, upgrade: string): string[] {
   return [...out];
 }
 
-function* upgrades(views: SelView[]): Generator<SelView> {
-  for (const v of views) {
-    if (v.sel.count <= 0) continue;
-    if (v.type === 'upgrade') yield v;
-    yield* upgrades(v.children.filter((c) => c.type === 'upgrade'));
-  }
-}
+/** The ids a selection was made through: its entry (a link's id for a link) and the entry's target. */
+const idsOf = (s: SelView) => [...new Set([s.sel.entryId, s.merged?.target.id].filter((x): x is string => !!x))];
+/** Everything chosen below a selection. */
+const below = (s: SelView): SelView[] => s.children.filter((c) => c.sel.count > 0).flatMap((c) => [c, ...below(c)]);
 
-function weaponsOf(ds: Datasheet, views: SelView[], unitName: string, problems: MusterProblem[], seen: Set<string>): string[] {
+/**
+ * The datasheet weapons a set of selections brings: from their entries; by name for a selection the data has no entry
+ * for (an unmatched weapon-like name is reported once per unit).
+ */
+function weaponsOf(ds: Datasheet, u: UnitOut, views: SelView[], problems: MusterProblem[], seen: Set<string>): string[] {
+  const entries = u.entries ?? {};
+  const onSheet = new Set(ds.weapons.map((w) => w.name));
   const out = new Set<string>();
-  for (const up of upgrades(views)) {
-    const found = weaponsFor(ds, up.name);
+  for (const v of views) {
+    const ids = idsOf(v).filter((id) => id in entries);
+    if (ids.length) {
+      for (const id of ids) for (const i of entries[id].w ?? []) if (onSheet.has(u.weapons[i]?.name)) out.add(u.weapons[i].name);
+      continue;
+    }
+    if (v.type !== 'upgrade') continue;
+    const found = weaponsFor(ds, v.name);
     found.forEach((w) => out.add(w));
-    if (!found.length && WEAPONISH.test(up.name) && !seen.has(up.name)) {
-      seen.add(up.name);
-      problems.push({ kind: 'unmatched-weapon', unit: unitName, detail: up.name });
+    if (!found.length && WEAPONISH.test(v.name) && !seen.has(v.name)) {
+      seen.add(v.name);
+      problems.push({ kind: 'unmatched-weapon', unit: ds.name, detail: v.name });
     }
   }
   return [...out];
@@ -68,14 +78,21 @@ function profileFor(ds: Datasheet, name: string): string | null {
   return ds.models.length === 1 ? ds.models[0].name : null;
 }
 
-function musterUnit(v: SelView, ds: Datasheet, id: string, problems: MusterProblem[]): UnitInput | null {
+/** The stat line a model selection uses: its entry's; else its kind's; else by name (older data). */
+function modelProfile(ds: Datasheet, u: UnitOut, m: SelView): string | null {
+  const entries = u.entries ?? {};
+  const fromEntry = idsOf(m).map((id) => entries[id]?.m).find((i) => i !== undefined);
+  const kind = u.modelKinds?.find((k) => idsOf(m).some((id) => k.entryIds.includes(id)));
+  const index = fromEntry ?? (kind && kind.profile >= 0 ? kind.profile : undefined);
+  return (index !== undefined ? profileFor(ds, u.models[index]?.name ?? '') : null) ?? profileFor(ds, m.name);
+}
+
+function musterUnit(v: SelView, ds: Datasheet, u: UnitOut, id: string, problems: MusterProblem[]): UnitInput | null {
   if (!ds.models.length) {
     problems.push({ kind: 'unmatched-model', unit: ds.name, detail: 'the datasheet has no model profiles' });
     return null;
   }
   const seen = new Set<string>();
-  const unitLevel = v.children.filter((c) => c.type === 'upgrade');
-  const shared = weaponsOf(ds, unitLevel, ds.name, problems, seen);
   const stacks = new Map<string, { profile: string; weapons: string[]; count: number }>();
   const add = (profile: string, weapons: string[], count: number) => {
     const key = `${profile}|${[...weapons].sort().join('|')}`;
@@ -83,21 +100,38 @@ function musterUnit(v: SelView, ds: Datasheet, id: string, problems: MusterProbl
     if (s) s.count += count;
     else stacks.set(key, { profile, weapons, count });
   };
-  const models = v.children.filter((c) => c.type === 'model' && c.sel.count > 0);
-  if (!models.length) {
-    // A unit that is itself one model (characters, vehicles): its own name, or the first profile.
-    const profile = profileFor(ds, v.name) ?? ds.models[0].name;
-    add(profile, [...new Set([...shared])], 1);
-  }
-  for (const m of models) {
-    let profile = profileFor(ds, m.name);
-    if (!profile) {
-      problems.push({ kind: 'unmatched-model', unit: ds.name, detail: m.name });
-      profile = ds.models[0].name;
+  // Read the unit: its models at any depth (a squad inside the squad too), with how many of each; and the choices made
+  // on the unit itself, which every model carries.
+  const models: { m: SelView; count: number }[] = [];
+  const unitLevel: SelView[] = [v];
+  const walk = (s: SelView, copies: number) => {
+    for (const c of s.children.filter((x) => x.sel.count > 0)) {
+      if (c.type === 'model') models.push({ m: c, count: copies * c.sel.count });
+      else if (c.type === 'unit') {
+        unitLevel.push(c);
+        walk(c, copies * c.sel.count);
+      } else unitLevel.push(c, ...below(c));
     }
-    add(profile, [...new Set([...shared, ...weaponsOf(ds, m.children, ds.name, problems, seen)])], m.sel.count);
+  };
+  const kinds = u.modelKinds ?? [];
+  const single = v.type !== 'unit' || (kinds.length === 1 && idsOf(v).some((x) => kinds[0].entryIds.includes(x)));
+  if (!single) walk(v, 1);
+  if (!models.length) {
+    // A unit that is itself one model (characters, vehicles): its own stat line and everything chosen on it.
+    const profile = modelProfile(ds, u, v) ?? ds.models[0].name;
+    add(profile, weaponsOf(ds, u, [v, ...below(v)], problems, seen), 1);
+  } else {
+    const shared = weaponsOf(ds, u, unitLevel, problems, seen);
+    for (const { m, count } of models) {
+      let profile = modelProfile(ds, u, m);
+      if (!profile) {
+        problems.push({ kind: 'unmatched-model', unit: ds.name, detail: m.name });
+        profile = ds.models[0].name;
+      }
+      add(profile, [...new Set([...shared, ...weaponsOf(ds, u, [m, ...below(m)], problems, seen)])], count);
+    }
   }
-  const warlord = [...upgrades(v.children)].some((u) => u.name.trim() === 'Warlord');
+  const warlord = below(v).some((s) => s.type === 'upgrade' && s.name.trim() === 'Warlord');
   return { id, datasheet: ds, models: [...stacks.values()], ...(warlord ? { warlord: true } : {}) };
 }
 
@@ -124,7 +158,7 @@ export function musterFromRoster(view: RosterView, units: UnitLookup, player: Pl
         sheets.set(key, ds);
       }
       for (let copy = 0; copy < v.sel.count; copy++) {
-        const u = musterUnit(v, ds, v.sel.count > 1 ? `${v.sel.id}#${copy + 1}` : v.sel.id, problems);
+        const u = musterUnit(v, ds, found.unit, v.sel.count > 1 ? `${v.sel.id}#${copy + 1}` : v.sel.id, problems);
         if (u) out.push(u);
       }
     }
