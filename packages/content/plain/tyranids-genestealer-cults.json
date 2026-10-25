@@ -1,4 +1,12 @@
 {
+  "006c0bcc5767": {
+    "name": "Gene-sire's Gifts",
+    "kind": "ability",
+    "plain": "Before the battle, if your WARLORD has the GENESTEALER CULTS keyword, you can give one of your GENESTEALER CULTS CHARACTER models a Sacred Relic of the Cult. Do this while mustering your army, and choose a Relic that model could have. Every Relic in your army must be unique, and you can't give any model two Relics. You can only use this Stratagem once, or twice in a Strike Force battle, or three times in an Onslaught battle.",
+    "waive": {
+      "GENESTEALER CULTS CHARCTER": "misspelling of GENESTEALER CULTS CHARACTER in the official text; GENESTEALER CULTS CHARACTER is used"
+    }
+  },
   "00a51eac583c": {
     "name": "Monstrous Vigour",
     "kind": "stratagem",
@@ -27,7 +35,7 @@
   "0d46dad6a825": {
     "kind": "ability",
     "name": "A Trap Sprung",
-    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, then until the end of the turn, whenever you make a charge roll for it, roll one extra dice and discard one of the dice.",
+    "plain": "This unit rolls one extra dice for its charge rolls, and discards one of the dice, in the turn it arrives from underground. This lasts until the end of the turn in which it is set up on the battlefield as Reinforcements because it was set up underground.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text"
     }
@@ -47,10 +55,28 @@
     "kind": "stratagem",
     "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments an Anointed Throng Specialist Detachment. In that Detachment, ABOMINANTS and ABERRANTS gain the ANOINTED THRONG keyword."
   },
+  "130cd44ea921": {
+    "name": "Symbiotic Broodmind",
+    "kind": "ability",
+    "plain": "A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends."
+  },
+  "13a33b7676c4": {
+    "name": "Industrial Affinity",
+    "kind": "ability",
+    "plain": "When a model with this creed attacks with an industrial weapon, you can ignore any or all modifiers to its hit roll, Ballistic Skill and Weapon Skill.",
+    "waive": {
+      "107": "page reference; pages are not mentioned in plain text"
+    }
+  },
   "1558d0cdbf30": {
     "kind": "ability",
     "name": "Hand of Aberrance",
     "plain": "The bearer's toxin injector claw is swapped for this Relic."
+  },
+  "161157e1bf0c": {
+    "name": "The Heart of the Creed",
+    "kind": "ability",
+    "plain": "Once per battle, before the battle: choose one <CULT> PRIMUS model from your army; its Meticulous Planner ability can pick one extra enemy unit. You can pick that extra unit when the model is set up on the battlefield for the first time."
   },
   "16f3a6265058": {
     "kind": "ability",
@@ -60,7 +86,7 @@
   "174751ef9954": {
     "name": "Brood Brothers",
     "kind": "rule",
-    "plain": "When mustering a Battle-forged army, for each GENESTEALER CULTS Detachment in it you may also include one ASTRA MILITARUM Detachment, even though its units share no Faction keywords with the rest of your army; this doesn't stop your army being Battle-forged. These ASTRA MILITARUM Detachments are called BROOD BROTHER Detachments, and these rules apply to them. Only units with the <REGIMENT> or UNALIGNED keyword can go in a BROOD BROTHERS Detachment. When you put an ASTRA MILITARUM unit in one, every instance of the IMPERIUM and <REGIMENT> keywords on its datasheet becomes the BROOD BROTHERS keyword. BROOD BROTHERS models can't be your WARLORD, can't have a Warlord Trait and can't be given any Relics. Having BROOD BROTHERS units in your army doesn't stop your GENESTEALER CULTS units using the Crossfire ability, as long as your BROOD BROTHERS units make up no more than 25% of your army's total Power Rating (or of its points, if the game uses points). BROOD BROTHERS units in a BROOD BROTHERS Detachment gain the Loyalty to the Cult Regimental Doctrine: models in a unit with this doctrine add 2 to their Leadership characteristic, and INFANTRY units with it gain the Unquestioning Loyalty ability.",
+    "plain": "When mustering a Battle-forged army, you may include one ASTRA MILITARUM Detachment for each GENESTEALER CULTS Detachment in it. This is allowed even though its units share no Faction keywords with the rest of your army, and it doesn't stop your army being Battle-forged. These ASTRA MILITARUM Detachments are called BROOD BROTHER Detachments, and these rules apply to them. Only units with the <REGIMENT> or UNALIGNED keyword can go in a BROOD BROTHERS Detachment. When you put an ASTRA MILITARUM unit in one, every instance of the IMPERIUM and <REGIMENT> keywords on its datasheet becomes the BROOD BROTHERS keyword. BROOD BROTHERS models can't be your WARLORD, can't have a Warlord Trait and can't be given any Relics. Having BROOD BROTHERS units in your army doesn't stop your GENESTEALER CULTS units using the Crossfire ability, as long as your BROOD BROTHERS units make up no more than 25% of your army's total Power Rating (or of its points, if the game uses points). BROOD BROTHERS units in a BROOD BROTHERS Detachment gain the Loyalty to the Cult Regimental Doctrine: models in a unit with this doctrine add 2 to their Leadership characteristic, and INFANTRY units with it gain the Unquestioning Loyalty ability.",
     "waive": {
       "89": "page number in a cross-reference to the Crossfire ability",
       "BROOD BROTEHRS": "misspelling of BROOD BROTHERS in the official text; BROOD BROTHERS is used"
@@ -79,12 +105,22 @@
   "1a17bc7050b5": {
     "kind": "ability",
     "name": "Alchemicus Familiar",
-    "plain": "Once per battle, when this model begins the Twisted Experiment action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
+    "plain": "Once per battle, this model can perform the Twisted Experiment action on a unit within 18\" of it instead of within 3\". When it begins the action, you can pick one of your <CULT> CORE or <CULT> ABERRANT units within 18\" of this model that doesn't have a genomic enhancement, rather than one within 3\". If you do, that unit counts as being within 3\" of this model when checking whether the action is completed."
+  },
+  "1cf2237f3a39": {
+    "name": "Cold-eyed Killers",
+    "kind": "ability",
+    "plain": "When a model with this creed makes a melee attack, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "1daa7936d85c": {
+    "name": "Nomadic Survivalists",
+    "kind": "ability",
+    "plain": "Attacks with AP -1 or -2 are worsened by 1 AP against models with this creed, and its units can make a Normal Move or Advance yet count as Remained Stationary.\n• When an attack with an Armour Penetration characteristic of -1 or -2 is allocated to a model with this creed, worsen that attack's Armour Penetration characteristic by 1.\n• If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary until your Shooting phase ends."
   },
   "1def79cee03c": {
     "kind": "ability",
     "name": "From Every Angle",
-    "plain": "If the mission uses the Strategic Reserves rules, then at the start of the first battle round you can put this unit into Strategic Reserves without paying any extra CPs, no matter how many units are already there. When you set this unit up from Strategic Reserves, treat the battle round number as one higher than it is, so it can arrive from Strategic Reserves in the first battle round."
+    "plain": "This unit can be put into Strategic Reserves without paying extra CPs, and can arrive from them a battle round early. If the mission uses the Strategic Reserves rules, then at the start of the first battle round you can put this unit into Strategic Reserves without paying any extra CPs, no matter how many units are already there. When you set this unit up from Strategic Reserves, treat the battle round number as one higher than it is, so it can arrive from Strategic Reserves in the first battle round."
   },
   "1e66784abdee": {
     "kind": "psychic",
@@ -136,6 +172,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your ATALAN or ACHILLES RIDGERUNNERS units is chosen to shoot: until the end of the phase, whenever a model in that unit attacks a target that has a crossfire marker and was Exposed when it was chosen as the target, you can re-roll the hit roll. The target must be Exposed through the Crossfire rule, not by some other means such as the Priority Target ability."
   },
+  "285364a7e364": {
+    "name": "Eradicator Nova Cannon",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and units in cover get no bonus to their saving throws against wounds it causes."
+  },
   "2d0f6ba021b3": {
     "kind": "ability",
     "name": "Unquestioning Loyalty",
@@ -172,7 +213,7 @@
   "31214fcfeb74": {
     "kind": "ability",
     "name": "The Crouchling",
-    "plain": "The bearer's psychic familiar loses its usual ability and gets this one instead: 'The Crouchling: you can re-roll one Psychic test taken for this model, once per Psychic phase. When this model passes a Psychic test and every dice in that test shows the same result, that psychic power or psychic action can't be denied.'"
+    "plain": "The bearer's psychic familiar gets this ability instead of its usual one: a Psychic test re-roll, and passes that can't be denied when all the dice match.\n'The Crouchling: you can re-roll one Psychic test taken for this model, once per Psychic phase. When this model passes a Psychic test and every dice in that test shows the same result, that psychic power or psychic action can't be denied.'"
   },
   "3190dbfcd4c7": {
     "kind": "ability",
@@ -204,6 +245,21 @@
     "kind": "ability",
     "plain": "The bearer's ranged weapons get 12\" added to their Range characteristic."
   },
+  "39935acb94c2": {
+    "name": "Metamorph Talon",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it can make 1 extra attack with this weapon, and every attack with this weapon adds 1 to its hit roll."
+  },
+  "3acf171fb330": {
+    "name": "Deep Supplies",
+    "kind": "ability",
+    "plain": "When a unit with this creed is picked to shoot or fight, one wound roll for its attacks can be re-rolled."
+  },
+  "3bb0f6acb4a3": {
+    "name": "Lasgun Array",
+    "kind": "weapon",
+    "plain": "You can fire this weapon only while a unit is embarked on the vehicle that has it."
+  },
   "3c24348cc078": {
     "name": "Open-topped",
     "kind": "ability",
@@ -212,7 +268,7 @@
   "3cb96d68b920": {
     "kind": "ability",
     "name": "They Came From Below",
-    "plain": "If this unit is set up in ambush, then when ambush markers are revealed you can do one of these: remove one ambush marker from the battlefield and set this unit up underground instead; or, after this unit is set up from an ambush marker, let it make a Normal Move as if it were your Movement phase, ending that move more than 9\" from every enemy model.",
+    "plain": "If this unit is set up in ambush, it can go underground instead, or make a Normal Move after it is set up from an ambush marker. When ambush markers are revealed, you can do one of these:\n• remove one ambush marker from the battlefield and set this unit up underground instead; or\n• after this unit is set up from an ambush marker, let it make a Normal Move as if it were your Movement phase, ending that move more than 9\" from every enemy model.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text"
     }
@@ -242,6 +298,11 @@
     "name": "Cult Demagogue (Aura)",
     "plain": "Aura: while one of your <CULT> CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "47bf113fc4ce": {
+    "name": "Single-minded Obsession (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your BLADED COG CORE units within 6\" of this WARLORD can re-roll wound rolls for attacks against one enemy unit, which you pick before the battle."
+  },
   "49ee14d9f945": {
     "name": "Explodes",
     "kind": "ability",
@@ -262,6 +323,11 @@
     "name": "Sacred Cult Banner (Action)",
     "plain": "Action: once the Move Units step of your Movement phase ends, one of your ACOLYTE ICONWARD models can begin this action; it is completed when your Charge phase starts. If it succeeds, the model that did it gets this aura for the rest of the turn: 'Sacred Cult Banner (Aura): add 1 to charge rolls for any of your <CULT> INFANTRY, <CULT> BIKER or <CULT> CHARACTER units (GENESTEALER units excluded) while they are within 6\" of this model.'"
   },
+  "4c5cdcce1e09": {
+    "name": "Biomorph Adaptation",
+    "kind": "ability",
+    "plain": "This WARLORD adds 1 to both its Attacks and its Toughness characteristics."
+  },
   "50ebc21a786d": {
     "kind": "weapon",
     "name": "Sword of the Four-armed Emperor",
@@ -272,6 +338,11 @@
     "kind": "ability",
     "plain": "If this model has a cult sniper rifle (or a weapon replacing one), it gains the Crossfire ability and the CROSSFIRE keyword. Whenever it attacks with that weapon against a unit that has a crossfire marker, treat the target as Exposed for that attack."
   },
+  "5243abe892c0": {
+    "name": "Subterranean Ambushers",
+    "kind": "ability",
+    "plain": "You can re-roll charge rolls for units with this creed, and they get the benefits of Light Cover against ranged attacks from attackers more than 12\" away."
+  },
   "5361bbc27baf": {
     "kind": "weapon",
     "name": "Blessed Sledgehammer",
@@ -280,7 +351,7 @@
   "541b6ffafc39": {
     "name": "Flare Launcher",
     "kind": "ability",
-    "plain": "The bearer has a 6+ invulnerable save against ranged attacks. Whenever the bearer's unit is chosen as a charge target, subtract 2 from the charge roll, as long as the bearer isn't within Engagement Range of any enemy units."
+    "plain": "The bearer has a 6+ invulnerable save against ranged attacks, and charge rolls made against its unit are reduced by 2. The charge penalty applies whenever the bearer's unit is chosen as a charge target, as long as the bearer isn't within Engagement Range of any enemy units."
   },
   "547786175fef": {
     "name": "Rigged to Blow",
@@ -292,15 +363,30 @@
     "kind": "ability",
     "plain": "Before the first turn of the first battle round begins, this unit can make a Normal Move of up to 9\", as though it were your Movement phase, unless it was set up in ambush. It must finish that move more than 9\" from any enemy models. If both players have units able to do this, the player taking the first turn moves theirs first."
   },
+  "56116bd9c190": {
+    "name": "Prowling Agitant",
+    "kind": "ability",
+    "plain": "Once per turn, when this WARLORD is chosen as a charge target, it can make a Normal Move of up to 6\" after any Overwatch is fired and before the charge roll. Your opponent can then pick new targets for that charge if they want."
+  },
   "571b91d04735": {
     "name": "Deploy Explosives",
     "kind": "ability",
     "plain": "This model can perform the Plant Explosives action. One REDUCTUS SABOTEUR model from your army can begin it in your Command phase, and it is completed at the end of your Movement phase. On a successful completion, put a Reductus Explosives marker within 1\" of the model; this model can't perform the action again. If this model is destroyed, take its Reductus Explosives marker off the battlefield."
   },
+  "5803f5cc72cc": {
+    "name": "Purestrain Talons",
+    "kind": "weapon",
+    "plain": "You can re-roll hit rolls of 1 for attacks made with this weapon."
+  },
   "58d192f77f7b": {
     "name": "Rapid Advance",
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your GENESTEALER CULTS GENESTEALER, GENESTEALER CULTS BIKER or GENESTEALER CULTS VEHICLE units Advances, don't make an Advance roll. Instead, models in that unit add 6\" to their Move characteristic until the end of the phase."
+  },
+  "5a7c25115af5": {
+    "name": "Preternatural Speed",
+    "kind": "ability",
+    "plain": "This WARLORD can re-roll its melee hit rolls, and can fight first in a Fight phase if it starts that phase within Engagement Range of any enemy units."
   },
   "5c0a69b38903": {
     "name": "Heroic Deeds, Heroic Inspiration (Aura)",
@@ -332,6 +418,16 @@
     "name": "Spiritual Leader (Aura)",
     "plain": "Aura: in the Psychic phase, while one of your <CULT> INFANTRY or <CULT> BIKER units is within 6\" of this model, whenever a model in that unit would lose a wound to a mortal wound, roll one D6: on a 5+ that wound is not lost."
   },
+  "670ca845b0b5": {
+    "name": "Disciplined Militants",
+    "kind": "ability",
+    "plain": "Units with this creed can shoot after Falling Back (subtracting 1 from hit rolls) and perform actions after Falling Back or Advancing, shooting while they do.\n• A unit with this creed can shoot in a turn in which it Fell Back, but its ranged attacks then subtract 1 from their hit rolls until the turn ends.\n• A unit with this creed can perform actions in a turn in which it Fell Back or Advanced, and it can shoot while performing an action without that action failing."
+  },
+  "672ae36cabcc": {
+    "name": "Stratagem: Xenoform Bionics",
+    "kind": "ability",
+    "plain": "Before the battle, choose one of your BLADED COG INFANTRY or BLADED COG BIKER units: its models have a 5+ invulnerable save. Use this while mustering your army. It costs 1CP if that unit's Power Rating is 6 or less, and 2CP otherwise."
+  },
   "6753deb3e71f": {
     "kind": "ability",
     "name": "Blessed Sledgehammer",
@@ -341,6 +437,11 @@
     "kind": "ability",
     "name": "Wyrmtooth Rounds",
     "plain": "Whenever the bearer shoots, you can pick any number of its liberator autostubs to fire a liberator wyrmtooth round. If you do, each picked autostub uses the liberator wyrmtooth round profile until that shooting is resolved. A wyrmtooth round doesn't get the liberator autostub's abilities."
+  },
+  "67c14dcb0e33": {
+    "name": "Ambush Markers",
+    "kind": "rule",
+    "plain": "Ambush markers aren't units: they can't be targeted, attacked or destroyed, and you always measure to and from the centre of a marker. In a mission using Concealed Deployment, those rules apply only to units without the Cult Ambush ability. In a mission using Sentries, Sentry models can't be set up in ambush, even with the Cult Ambush ability.\nIf you take the first turn, you must reveal all your ambush markers one by one at the start of your Movement phase, before any units move. To reveal a marker, choose one of your units that was set up in ambush and set up one of its models within 1\" of the marker. Then remove the marker and set up the rest of that unit wholly within 6\" of that first model and wholly within your deployment zone, more than 9\" away from all enemy models; any models you can't place are destroyed. If it is your turn, the unit can still move and shoot normally in the turn it arrives; but if it is a TRANSPORT, any units that disembark from it that turn can't be set up within 9\" of any enemy models. Unless these units actually move in this Movement phase, they don't count as having moved in it for any rules purpose, such as firing Heavy weapons.\nIf your opponent takes the first turn, none of their units can be set up within 9\" of any of your ambush markers, nor can they end a move that close. At the end of their first Movement phase, once they have set up any units arriving as reinforcements, reveal all your ambush markers in the same way, then carry on with the turn."
   },
   "6a196ed0cc55": {
     "kind": "psychic",
@@ -357,10 +458,39 @@
     "name": "Web Pistol",
     "plain": "Attacks made with this weapon skip the hit roll. Roll one D6 instead, then the attack sequence ends: if the roll beats the highest Strength characteristic among models in the target unit, 1 mortal wound is inflicted on that unit."
   },
+  "6c6847dd84da": {
+    "name": "Augur of the Insurgent",
+    "kind": "ability",
+    "plain": "Advance and charge rolls for your DELIVERANCE BROODSURGE units can be re-rolled if, at the time of the roll, those units are within 6\" of your Warlord."
+  },
   "6d214a669865": {
     "name": "Meticulous Uprising",
     "kind": "stratagem",
     "plain": "When you would reveal your ambush markers: in a Combat Patrol or Incursion battle, you may take away one of your ambush markers; in a Strike Force or Onslaught battle, you may take away up to two. Place each marker taken away anywhere on the battlefield wholly within your deployment zone and more than 9\" from any enemy models. Then reveal all your ambush markers as normal."
+  },
+  "6e555b438c45": {
+    "name": "Alien Majesty",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities, and its Meticulous Planner and Priority Target abilities if it has them, each get 3\" more range. For aura abilities, the range can't go above 9\"."
+  },
+  "6e6e5b3809c5": {
+    "name": "Alien Fury",
+    "kind": "ability",
+    "plain": "When a unit with this creed piles in or consolidates, its models can move 1\" further."
+  },
+  "6ef4208b39b6": {
+    "name": "Myriad Cults",
+    "kind": "ability",
+    "plain": "If your chosen cult has no Cult Creed of its own, you must build one by choosing Myriad Cult Creeds whose combined value is 4 or less. Each Myriad Cult Creed shows its value. When you choose a Myriad Cult Creed, swap every <CULT> keyword (if any) for your Myriad Cult's name.",
+    "waive": {
+      "56": "page reference; pages are not mentioned in plain text",
+      "61": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "7470cf69af22": {
+    "name": "Mortar",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and it can target units that aren't visible to the model firing it."
   },
   "75905cadf9fb": {
     "kind": "ability",
@@ -380,15 +510,28 @@
   "7b1cf5f5f3d0": {
     "kind": "ability",
     "name": "Alchemist Supreme",
-    "plain": "When a unit is given this ability, choose one <CULT> CORE or <CULT> ABERRANT unit from your army; that unit gains one genomic enhancement of your choice (as described in the Genomic Enhancement ability).",
+    "plain": "When a unit is given this ability, choose one <CULT> CORE or <CULT> ABERRANT unit from your army to gain a genomic enhancement of your choice. The enhancements are described in the Genomic Enhancement ability.",
     "waive": {
       "102": "page reference; pages are not mentioned in plain text"
+    }
+  },
+  "7e336a02d18d": {
+    "name": "Martial",
+    "kind": "ability",
+    "plain": "Each ranged attack by a CROSSFIRE INFANTRY model with this creed treats the target as having a crossfire marker, unless the model's unit has moved this turn. You can't take this creed together with the Agile Guerrillas creed.",
+    "waive": {
+      "89": "page reference; pages are not mentioned in plain text"
     }
   },
   "7f6e80786b13": {
     "kind": "ability",
     "name": "Vockor's Talisman",
-    "plain": "When the bearer makes a melee attack and the unmodified wound roll is 5+, no saving throw of any kind (invulnerable saves included) can be made against that attack."
+    "plain": "When the bearer makes a melee attack with an unmodified wound roll of 5+, no saving throw of any kind (invulnerable saves included) can be made against it."
+  },
+  "81ff69309950": {
+    "name": "Devoted Zealots",
+    "kind": "ability",
+    "plain": "Units with this creed hit more easily in melee after charging, being charged or making a Heroic Intervention, and can ignore Combat Attrition modifiers.\n• In a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each melee attack by a model with this creed adds 1 to its hit roll.\n• Units with this creed can ignore any or all modifiers to their Combat Attrition tests."
   },
   "823e5799f0f3": {
     "kind": "ability",
@@ -420,6 +563,11 @@
     "name": "Sword of the Four-armed Emperor",
     "plain": "The model's cult bonesword or Locus blades are swapped for this relic."
   },
+  "862d994dcfaa": {
+    "name": "Vanquisher Battle Cannon",
+    "kind": "weapon",
+    "plain": "Each time this weapon inflicts damage, roll two dice and discard the lower result."
+  },
   "863ee0b19fda": {
     "kind": "ability",
     "name": "Sacred Cult Banner",
@@ -429,6 +577,16 @@
     "kind": "ability",
     "name": "Nexus of Devotion",
     "plain": "In your Command phase, one of your <CULT> CORE units that is within 6\" of this model can summon the cult."
+  },
+  "8b3a394ae2ca": {
+    "name": "Agile Guerrillas",
+    "kind": "ability",
+    "plain": "If a unit with this creed Advances or makes a Normal Move in your Movement phase, it counts as having Remained Stationary in your Shooting phase that follows. You can't take this creed together with the Martial creed."
+  },
+  "8c429aa4104f": {
+    "name": "Toxin Agents",
+    "kind": "ability",
+    "plain": "When a model with this creed attacks in melee, an unmodified hit roll of 6 wounds the target automatically, unless the target is a VEHICLE or MONSTER unit."
   },
   "8c7370f51051": {
     "name": "One with the Shadows",
@@ -495,6 +653,11 @@
     "name": "Dagger of Swift Sacrifice",
     "plain": "Whenever the bearer is chosen to fight, you can re-roll one wound roll for its attacks. After the bearer has fought, pick one enemy model that lost any wounds to an attack from the bearer's Magus bio-dagger or Sanctus bio-dagger but wasn't destroyed, and roll one D6. On a 3+ it suffers D3 mortal wounds; if this destroys it, ignore any leftover mortal wounds."
   },
+  "99e668f08827": {
+    "name": "Entropic Touch",
+    "kind": "ability",
+    "plain": "Each unmodified hit roll of 6 for this WARLORD's melee attacks scores 2 extra hits, and its melee weapons (except Relics) improve their Armour Penetration by 1."
+  },
   "99efe0d87071": {
     "name": "Gestalt Consciousness",
     "kind": "stratagem",
@@ -535,15 +698,30 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you select secondary objectives or Agendas: pick one of your selections and keep it secret from your opponent. Reveal it the first time you score victory points or experience points for it. You still have to record the selection; writing it down and keeping it hidden until it is revealed is recommended."
   },
+  "a3c569f50e4b": {
+    "name": "The Cult's Psyche",
+    "kind": "ability",
+    "plain": "Once per battle, before the battle: choose one <CULT> MAGUS unit from your army; it can try to manifest one extra psychic power in your Psychic phase. Whenever that unit takes a Psychic test, add 1 to the result for each of your other <CULT> PSYKER units within 3\" (up to a maximum of +3)."
+  },
   "a3cdc60473b8": {
     "name": "Neural Overload",
     "kind": "stratagem",
     "plain": "In your Shooting phase or the Fight phase, after one of your SANCTUS models makes an attack: if an enemy model lost any wounds from that attack but wasn't destroyed, roll 3D6. If the total is higher than that enemy model's Leadership characteristic, that model's unit loses any aura abilities it has until the start of your next Shooting phase; and if that model is a PSYKER, Perils of the Warp is suffered by its unit. No enemy unit can be affected by this Stratagem more than once."
   },
+  "a48e9db444fe": {
+    "name": "Hunter's Instincts",
+    "kind": "ability",
+    "plain": "Units with this creed can re-roll their charge rolls."
+  },
   "a4f17c6767e0": {
     "name": "Vengeance for the Martyred",
     "kind": "stratagem",
     "plain": "When one of your PAUPER PRINCES CHARACTER models is destroyed by an enemy unit: for the rest of the battle, whenever a friendly PAUPER PRINCES model makes a melee attack against that enemy unit, add 1 to that attack's wound roll."
+  },
+  "a507ed7fdff5": {
+    "name": "Deliverance Broodsurge",
+    "kind": "ability",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments a Deliverance Broodsurge Specialist Detachment. In that Detachment, ACOLYTE ICONWARDS, NEOPHYTE HYBRIDS, ACOLYTE HYBRIDS and GOLIATH TRUCKS gain the DELIVERANCE BROODSURGE keyword."
   },
   "a5c6e6d15e98": {
     "name": "Coordinated Assault",
@@ -558,6 +736,11 @@
       "89": "page reference; pages are not mentioned in plain text"
     }
   },
+  "a900ce5983b3": {
+    "name": "Impassioned",
+    "kind": "ability",
+    "plain": "In a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each melee attack by a model with this creed adds 1 to its hit roll."
+  },
   "a97ae90199cf": {
     "name": "A Plan Generations in the Making",
     "kind": "stratagem",
@@ -571,15 +754,35 @@
       "VEHICLER": "typo for VEHICLE in the official text; written as VEHICLE"
     }
   },
+  "a9cd566f33cb": {
+    "name": "Thralls of the Patriarch",
+    "kind": "ability",
+    "plain": "Units with this creed ignore any or all modifiers to their Combat Attrition tests."
+  },
+  "a9ea6552b670": {
+    "name": "Focus of Adoration",
+    "kind": "ability",
+    "plain": "While within 6\" of this WARLORD, your <CULT> CORE and <CULT> PURESTRAIN GENESTEALERS units can perform Heroic Interventions as if they were CHARACTER units."
+  },
+  "aa6572ae3d97": {
+    "name": "Insurrectionists",
+    "kind": "ability",
+    "plain": "In a Battle-forged army, Troops units in GENESTEALER CULTS and BROOD BROTHERS Detachments control objective markers even if more enemy models are in range. Each of those Troops units gains this ability: while it is in range of an objective marker (range as the mission sets it), it controls that marker even if more enemy models are in range of it. If an enemy unit in range of that marker has a similar ability, the player with the most models in range controls it, as normal."
+  },
   "ab568b940bfd": {
     "kind": "psychic",
     "name": "Undermine",
     "plain": "Malediction: pick one enemy unit that is visible to this PSYKER and within 18\" of it (it can't be a unit that can FLY). Until the start of your next Psychic phase, models in that unit have their Move characteristic reduced by 3\" (to no less than 0\"), charge rolls for that unit subtract 2, and Advance rolls for that unit are halved."
   },
+  "ac0c21f41b5f": {
+    "name": "Insidious Mindwyrm",
+    "kind": "ability",
+    "plain": "Add 1 to each charge roll made for your Warlord, or for one of your ANOINTED THRONG units within 6\" of your Warlord at the time of the roll."
+  },
   "adc56266b463": {
     "kind": "ability",
     "name": "Crossfire",
-    "plain": "This unit can use this ability, and the rules below apply, if every unit in your army has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units) and every unit in your army that belongs to a cult belongs to the same one. Some other rules boost or interact with these Crossfire rules; whatever their source, you can only use them if your army meets that same condition: every unit has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units), and all units that belong to a cult belong to the same one.",
+    "plain": "This unit can use this ability, and the rules below apply, only if your army is all GENESTEALER CULTS from a single cult. That means every unit in your army has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units) and every unit in your army that belongs to a cult belongs to the same one. Some other rules boost or interact with these Crossfire rules; whatever their source, you can only use them if your army meets that same condition: every unit has the GENESTEALER CULTS keyword (not counting UNALIGNED units and the allowed share of BROOD BROTHERS units), and all units that belong to a cult belong to the same one.",
     "waive": {
       "54": "page reference; pages are not mentioned in plain text"
     }
@@ -607,6 +810,15 @@
     "kind": "ability",
     "plain": "This model has a 5+ invulnerable save. Subtract 1 from the hit roll of every attack made against this model."
   },
+  "b4449f253096": {
+    "name": "Xenoprophet",
+    "kind": "ability",
+    "plain": "Unquestioning Loyalty tests for this WARLORD pass automatically and reach 6\", and nearby PAUPER PRINCES CORE units can use its Leadership.\n• When you take an Unquestioning Loyalty test after this WARLORD fails a saving throw, don't roll: the test passes automatically.\n• When this WARLORD fails a saving throw, the Unquestioning Loyalty ability lets you pick another of your PAUPER PRINCES or BROOD BROTHERS models with that ability within 6\" of this WARLORD, rather than within 3\".\n• While one of your PAUPER PRINCES CORE units is within 6\" of this WARLORD, each model in that unit can use this WARLORD's Leadership characteristic in place of its own.",
+    "waive": {
+      "88": "page reference; pages are not mentioned in plain text",
+      "PAUPER PRICES": "misspelling of PAUPER PRINCES in the official text; PAUPER PRINCES is used"
+    }
+  },
   "b469b557e2fa": {
     "name": "Remote Explosives",
     "kind": "weapon",
@@ -632,10 +844,24 @@
     "kind": "stratagem",
     "plain": "At the end of your Movement phase, choose one of your DELIVERANCE BROODSURGE GOLIATH TRUCK units. Any DELIVERANCE BROODSURGE units embarked within that GOLIATH TRUCK that didn't embark this turn can disembark straight away. If any do, roll a D6 for every disembarking model; for each 1, one model that disembarked (you choose which) is slain. Models disembarking this way can't move that phase, and they must be set up more than 9\" from any enemy models."
   },
+  "ba6aedd8dd7d": {
+    "name": "Synaptic Resonance",
+    "kind": "ability",
+    "plain": "When a unit with this creed takes a Psychic test, you can re-roll any or all of its dice that show 1-2."
+  },
   "bb16bec9ba0f": {
     "kind": "ability",
     "name": "Conceal",
     "plain": "During deployment, instead of placing this unit on the battlefield, you can set it up in ambush. If it is an INFANTRY or BIKER unit, you can instead set it up underground, rather than on the battlefield or in ambush."
+  },
+  "bc40b90fe263": {
+    "name": "Cult Creed",
+    "kind": "ability",
+    "plain": "GENESTEALER CULTS units with this ability, and all their models, gain their cult's Cult Creed if every cult unit in their Detachment is from the same cult. If your cult has no Cult Creed of its own, it is a Myriad Cult, and you must build a Cult Creed for it yourself instead. Either way, record each Detachment's Cult Creed on your army roster.",
+    "waive": {
+      "62": "page reference; pages are not mentioned in plain text",
+      "63": "page reference; pages are not mentioned in plain text"
+    }
   },
   "c37ddd8b8145": {
     "kind": "ability",
@@ -662,6 +888,11 @@
     "name": "Cult Icon",
     "plain": "In your Command phase, if a model in this unit is equipped with a cult icon, this unit can summon the cult."
   },
+  "c84387f38d8d": {
+    "name": "War Convoy",
+    "kind": "ability",
+    "plain": "Each time one of your VEHICLE or BIKER models with this creed is about to lose a wound, roll one D6: on a 6, it doesn't lose that wound."
+  },
   "c84c56178bb9": {
     "name": "Massed Firearms",
     "kind": "stratagem",
@@ -675,11 +906,31 @@
   "ca91d7ce75a5": {
     "kind": "ability",
     "name": "A Perfect Ambush",
-    "plain": "When this unit is set up on the battlefield as Reinforcements because it was set up underground, you can use this ability: pick an enemy unit that is within 12\" of it. For the rest of the turn, that enemy unit counts as Exposed and as having a crossfire marker for every ranged attack that models in this unit make against it.",
+    "plain": "When this unit arrives from underground, you can make an enemy unit within 12\" of it count as Exposed and as having a crossfire marker for this unit's shots. This works when this unit is set up on the battlefield as Reinforcements because it was set up underground. The effect lasts for the rest of the turn and applies to every ranged attack that models in this unit make against that enemy unit.",
     "waive": {
       "88": "page reference; pages are not mentioned in plain text",
       "89": "page reference; pages are not mentioned in plain text"
     }
+  },
+  "cabe959be31d": {
+    "name": "Metamorph Whip",
+    "kind": "weapon",
+    "plain": "If the bearer is slain during the Fight phase before making its attacks, leave it in place rather than removing it. It can still fight as normal when its unit is chosen to fight that phase, and is removed from the battlefield afterwards."
+  },
+  "cec9435c135a": {
+    "name": "Leaders of the Cult",
+    "kind": "ability",
+    "plain": "Before the battle, if your WARLORD is a <CULT> PATRIARCH, up to two other <CULT> models in your army with the HQ Battlefield Role can each get a Warlord Trait. Do this while mustering your army; each must be a Warlord Trait that model could have. Those models count as your WARLORD only for the purposes of those Warlord Traits. Every Warlord Trait in your army must be unique (if you roll them randomly, re-roll duplicates). You can only use this Stratagem once."
+  },
+  "d1cc86ff539e": {
+    "name": "Cyborgised Hybrids",
+    "kind": "ability",
+    "plain": "Models with this creed get a 6+ invulnerable save, a wound re-roll each time their unit shoots or fights, and 3\" more range on most ranged weapons.\n• Each model with this creed has a 6+ invulnerable save.\n• When a unit with this creed is picked to shoot or fight, one wound roll for its attacks can be re-rolled.\n• Ranged weapons that models with this creed have get 3\" added to their Range characteristic, except Grenades and cache of demolition charges."
+  },
+  "d4891e9646b2": {
+    "name": "Cult Vox-caster",
+    "kind": "ability",
+    "plain": "While a unit includes a model with a cult vox-caster, you can re-roll its Morale tests."
   },
   "d55c4e5ac519": {
     "kind": "psychic",
@@ -689,17 +940,32 @@
   "da61a6d02315": {
     "kind": "psychic",
     "name": "Broodvolt Surge (Aura)",
-    "plain": "Blessing (Aura): until the start of your next Psychic phase, while one of your BLADED COG units is within 3\" of this PSYKER, armour saving throws against attacks with a Damage characteristic of 1 that are allocated to models in that unit get 1 added to them."
+    "plain": "Blessing (Aura): your BLADED COG units within 3\" of this PSYKER add 1 to armour saving throws against attacks with a Damage characteristic of 1. This lasts until the start of your next Psychic phase, and applies to each such attack allocated to a model in a BLADED COG unit of yours while that unit is within 3\" of this PSYKER."
   },
   "dc9f2b5076b8": {
     "kind": "weapon",
     "name": "Hand of Aberrance",
     "plain": "Whenever the bearer fights, it makes 1 extra attack with this weapon. For attacks made with this weapon against a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of 2+ always succeeds."
   },
+  "dd985d8a4a08": {
+    "name": "Enhanced Musculature",
+    "kind": "ability",
+    "plain": "Melee attacks made by models in this unit improve their Armour Penetration characteristic by 1."
+  },
   "dee491b9226e": {
     "name": "Xenoform Bionics",
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, choose one of your BLADED COG INFANTRY or BLADED COG BIKER units. Models in that unit have a 5+ invulnerable save. This Stratagem costs 1CP if that unit's Power Rating is 6 or less, and 2CP otherwise."
+  },
+  "df4b94b5ee4b": {
+    "name": "Dozer Blade",
+    "kind": "ability",
+    "plain": "A model with a dozer blade that charges in the Charge phase adds 1 to its hit rolls until the end of the Fight phase that follows."
+  },
+  "e25f32e95a23": {
+    "name": "Hivelord (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your HIVECULT CORE units is within 6\" of this WARLORD, each unmodified hit roll of 6 for its models' ranged attacks scores 1 extra hit."
   },
   "e355ac8ed73f": {
     "name": "Fanatical Devotion",
@@ -716,6 +982,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HIVECULT CORE CROSSFIRE units is chosen to shoot, choose one enemy unit that has no crossfire marker; give it one before resolving any attacks against it. For the rest of the phase, that enemy unit is the only unit that models in that CROSSFIRE unit can target."
   },
+  "e44647cf7105": {
+    "name": "Accustomed to Toil",
+    "kind": "ability",
+    "plain": "Attacks against a unit with this creed always fail on an unmodified wound roll of 1 or 2, whatever abilities the weapon or the attacker has."
+  },
   "e68a6f23f495": {
     "name": "Summon Familiar",
     "kind": "stratagem",
@@ -725,6 +996,21 @@
     "name": "Devoted Crew",
     "kind": "stratagem",
     "plain": "In your Command phase, choose one of your GENESTEALER CULTS VEHICLE models. Until the start of your next Command phase, use the characteristics on its profile as if it had its full wounds remaining."
+  },
+  "e9c3161a56f9": {
+    "name": "Experimental Subjects",
+    "kind": "ability",
+    "plain": "Models with this creed get 1 extra Strength and 1\" extra Move, and attacks against their units fail to wound on an unmodified 1-2.\n• Models with this creed have 1 added to their Strength characteristic.\n• Models with this creed have 1\" added to their Move characteristic.\n• Attacks against a unit with this creed always fail on an unmodified wound roll of 1-2, whatever abilities the weapon or attacker has."
+  },
+  "ea0e828df161": {
+    "name": "Splinter Cult",
+    "kind": "ability",
+    "plain": "Pick one of these cults and use its rules: Cult of the Four-armed Emperor, Hivecult, Bladed Cog, Rusted Claw, Pauper Princes or Twisted Helix.\n• Use the chosen cult's Cult Creed.\n• When a CHARACTER model with this Myriad Cult Creed gets a Warlord Trait, it can take the chosen cult's Cult Warlord Trait instead of a normal Warlord Trait. If it does, swap each <CULT> keyword on that Warlord Trait (such as TWISTED HELIX), if there are any, for the name of that CHARACTER's Myriad Cult.\n• You get access to the chosen cult's Cult Stratagem, unless your only units with this Myriad Cult are in Auxiliary Support, Super-heavy Auxiliary and/or Fortification Network Detachments. When you use it, swap each <CULT> keyword on it (such as TWISTED HELIX), if there are any, for the Myriad Cult of the units that have this Myriad Cult Creed.\n• With the same exception, <CULT> PSYKER models with this Myriad Cult Creed also know the chosen cult's psychic power, on top of their other psychic powers. When they use it, swap each <CULT> keyword on it (such as TWISTED HELIX), if there are any, for the Myriad Cult of the units that have this Myriad Cult Creed.",
+    "waive": {
+      "56": "page reference; pages are not mentioned in plain text",
+      "61": "page reference; pages are not mentioned in plain text",
+      "70": "page reference; pages are not mentioned in plain text"
+    }
   },
   "ebbf7c7cf824": {
     "kind": "ability",
@@ -746,6 +1032,27 @@
     "name": "Booby Trap",
     "kind": "stratagem",
     "plain": "At the end of your turn, choose one objective marker you control that has one of your REDUCTUS SABOTEUR or GENESTEALER CULTS CORE units in range of it. Roll one D6 the next time any enemy unit (excluding AIRCRAFT units) finishes any kind of move in range of that marker: on a 2-4, that unit suffers D3 mortal wounds; on a 5+, it suffers 3 mortal wounds. Each objective marker can only be chosen for this Stratagem once."
+  },
+  "ed97c5b3c5b0": {
+    "name": "Anointed Throng",
+    "kind": "ability",
+    "plain": "When you choose your army, you can make one of your GENESTEALER CULTS Detachments an Anointed Throng Specialist Detachment. In that Detachment, ABOMINANTS and ABERRANTS gain the ANOINTED THRONG keyword.",
+    "waive": {
+      "ABERANTS": "misspelling of ABERRANTS in the official text; ABERRANTS is used"
+    }
+  },
+  "eec476372fac": {
+    "name": "Inscrutable Cunning",
+    "kind": "ability",
+    "plain": "Once per battle round, you can cut the CP cost of one Genestealer Cults Strategic Ploy or Battle Tactic Stratagem by 1CP (to a minimum of 0CP). That Stratagem must be used on a CULT OF THE FOUR-ARMED EMPEROR unit within 12\" of this WARLORD. The saving applies only to that use; later uses of the Stratagem cost the normal CP. You can use this ability only once on each Stratagem.",
+    "waive": {
+      "CULT OF THE FOUR-AMRED EMPEROR": "misspelling of CULT OF THE FOUR-ARMED EMPEROR in the official text; CULT OF THE FOUR-ARMED EMPEROR is used"
+    }
+  },
+  "f150bd78c55f": {
+    "name": "Bio-alchemist",
+    "kind": "ability",
+    "plain": "Each melee weapon this WARLORD has, except Relics, adds 1 to its Damage characteristic."
   },
   "f218c37f0ce7": {
     "kind": "ability",
@@ -809,6 +1116,11 @@
     "kind": "ability",
     "name": "The Chosen One",
     "plain": "Aura: while one of your <CULT> ABERRANT units is within 6\" of this model, models in that unit can re-roll hit rolls for their melee attacks."
+  },
+  "fdce396f9a1e": {
+    "name": "Augur Array",
+    "kind": "ability",
+    "plain": "Once per battle, in the Shooting phase, you can re-roll one failed hit roll made for a model that has an augur array."
   },
   "feb53a4d70fa": {
     "name": "Hypersensory Abilities",

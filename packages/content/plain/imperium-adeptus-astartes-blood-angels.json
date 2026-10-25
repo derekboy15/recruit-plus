@@ -7,12 +7,17 @@
   "0330093c0222": {
     "name": "Selfless Valour",
     "kind": "ability",
-    "plain": "If an enemy unit is within 6\" horizontally of this WARLORD, it can perform a Heroic Intervention. When it does, its move can be up to 6\" rather than the usual 3\". Apart from that, the normal Heroic Intervention restrictions apply."
+    "plain": "This WARLORD can perform a Heroic Intervention if an enemy unit is within 6\" horizontally of it, and can move up to 6\" instead of 3\" when it does. All the other Heroic Intervention restrictions still apply."
   },
   "0588d3d06f8c": {
     "name": "Wings of Sanguinius",
     "kind": "psychic",
-    "plain": "If it is manifested, this PSYKER can Fall Back or make a Normal Move as though it were your Movement phase. For the rest of the phase it also gains the FLY keyword and its Move becomes 12\"."
+    "plain": "If manifested, this PSYKER can Fall Back or make a Normal Move as if in your Movement phase, and has the FLY keyword and a Move of 12\" until the phase ends."
+  },
+  "06c8e52c562e": {
+    "name": "Strategem: Lucifer-Pattern Engines",
+    "kind": "ability",
+    "plain": "Before the battle, one BLOOD ANGELS VEHICLE model from your army (not a DREADNOUGHT model or a model that can FLY) gains the Overcharged Engines ability."
   },
   "099e6543533c": {
     "name": "Death-hold",
@@ -22,7 +27,7 @@
   "0c8238a0b194": {
     "name": "Mass of Doom",
     "kind": "ability",
-    "plain": "If this litany is inspiring, pick one of your BLOOD ANGELS CORE or BLOOD ANGELS CHARACTER units (not VEHICLE units) within 6\" of this PRIEST model. Roll one D6:\n• 1, Merciful Execution: one model in that unit is destroyed, and you add 1 to the hit roll of each melee attack the unit's models make.\n• 2-5, Dark Wrath: add 1 to the hit roll of each melee attack the unit's models make.\n• 6, Vessel of Sanguinius: the unit's models have a 4+ invulnerable save, and you add 1 to the hit roll of each melee attack they make."
+    "plain": "If this litany is inspiring, one of your units adds 1 to its melee hit rolls; roll one D6, and on a 1 it loses a model, on a 6 it gains a 4+ invulnerable save.\nPick one of your BLOOD ANGELS CORE or BLOOD ANGELS CHARACTER units (not VEHICLE units) within 6\" of this PRIEST model and roll one D6:\n• 1, Merciful Execution: one model in that unit is destroyed, and you add 1 to the hit roll of each melee attack the unit's models make.\n• 2-5, Dark Wrath: add 1 to the hit roll of each melee attack the unit's models make.\n• 6, Vessel of Sanguinius: the unit's models have a 4+ invulnerable save, and you add 1 to the hit roll of each melee attack they make."
   },
   "0e0ac2886449": {
     "name": "Forlorn Fury",
@@ -42,12 +47,12 @@
   "18f01880798f": {
     "name": "The Blood Lance",
     "kind": "psychic",
-    "plain": "If it is manifested, pick one enemy model within 18\" of this PSYKER that it can see. Draw the shortest line you can from this PSYKER's base to that model's base (or hull). For each model the centre of that line crosses, roll one D6: on a 5+, that model's unit suffers 1 mortal wound."
+    "plain": "If manifested, draw a line to an enemy model within 18\" that this PSYKER can see; each model the line crosses gives its unit 1 mortal wound on a D6 roll of 5+.\nIf it is manifested, pick one enemy model within 18\" of this PSYKER that it can see. Draw the shortest line you can from this PSYKER's base to that model's base (or hull). For each model the centre of that line crosses, roll one D6: on a 5+, that model's unit suffers 1 mortal wound."
   },
   "1d3d965076e6": {
     "name": "2) Might of Heroes",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If it is manifested, pick one of your <CHAPTER> CORE or <CHAPTER> CHARACTER models within 12\" of this Psyker. That model adds 1 to its Strength, 1 to its Toughness and 1 to its Attacks until the start of your next Psychic phase. (When a unit has more than one Toughness value, every rule uses the lowest one.)"
+    "plain": "Blessing, warp charge 6: one of your <CHAPTER> CORE or <CHAPTER> CHARACTER models within 12\" of this Psyker adds 1 to its Strength, Toughness and Attacks.\nIf it is manifested, pick one of your <CHAPTER> CORE or <CHAPTER> CHARACTER models within 12\" of this Psyker. That model adds 1 to its Strength, 1 to its Toughness and 1 to its Attacks until the start of your next Psychic phase. (When a unit has more than one Toughness value, every rule uses the lowest one.)"
   },
   "1dde88016b38": {
     "name": "Upon Wings of Fire",
@@ -72,7 +77,7 @@
   "20915aab7473": {
     "name": "Soul Sight",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If it is manifested, pick one of your <CHAPTER> PHOBOS units within 18\" of this Psyker. Its models can re-roll the hit roll for their ranged attacks, and targets of those attacks get no benefit from cover. This lasts until the start of your next Psychic phase."
+    "plain": "Blessing, warp charge 6: one of your <CHAPTER> PHOBOS units within 18\" can re-roll ranged hit rolls, and its targets get no benefit from cover.\nIf it is manifested, pick one of your <CHAPTER> PHOBOS units within 18\" of this Psyker. Its models can re-roll the hit roll for their ranged attacks, and targets of those attacks get no benefit from cover. This lasts until the start of your next Psychic phase."
   },
   "239f96d3ec3c": {
     "name": "Chapter Master",
@@ -94,10 +99,15 @@
     "kind": "ability",
     "plain": "Aura: while one of your BLOOD ANGELS DEATH COMPANY units is within 6\" of this model, it automatically passes every Morale test it takes."
   },
+  "2da854a84b77": {
+    "name": "Icon of The Angel",
+    "kind": "ability",
+    "plain": "The bearer gains the Icon of the Angel (Aura) ability: while one of your BLOOD ANGELS units is within 6\" of this model, you can re-roll its charge rolls."
+  },
   "35e6d4ef777a": {
     "name": "5) Fury of the Ancients",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 6. If it is manifested, pick one enemy model within 18\" of this Psyker that it can see. Draw a line from any part of this Psyker's base to any part of that model's base (or hull). The picked model's unit, plus every other enemy unit the line goes over or through, suffers 1 mortal wound."
+    "plain": "Witchfire, warp charge 6: draw a line to a visible enemy model within 18\"; its unit and each other enemy unit the line crosses suffers 1 mortal wound.\nIf it is manifested, pick one enemy model within 18\" of this Psyker that it can see. Draw a line from any part of this Psyker's base to any part of that model's base (or hull). The picked model's unit, plus every other enemy unit the line goes over or through, suffers 1 mortal wound."
   },
   "36e8fb2920c6": {
     "name": "Fury of the Minotaurs",
@@ -107,7 +117,7 @@
   "37e43eab870d": {
     "name": "6) Psychic Fortress (Aura)",
     "kind": "psychic",
-    "plain": "Blessing (Aura), warp charge 6. If it is manifested, until the start of your next Psychic phase, while one of your <CHAPTER> units is within 6\" of this Psyker, its models have a 5+ invulnerable save."
+    "plain": "Blessing (Aura), warp charge 6: if manifested, until your next Psychic phase starts, your <CHAPTER> units within 6\" of this Psyker have a 5+ invulnerable save."
   },
   "3a201ac26bca": {
     "name": "Epic Hero of the Imperium",
@@ -137,7 +147,7 @@
   "41812a803f52": {
     "name": "Soulwarden (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your BLOOD ANGELS units is within 6\" of this WARLORD, each time one of its models would lose a wound because of a mortal wound, roll one D6. On a 5+, it keeps that wound."
+    "plain": "Aura: roll one D6 each time a model in your BLOOD ANGELS units within 6\" of this WARLORD would lose a wound to a mortal wound; on a 5+, the wound isn't lost."
   },
   "43149994322c": {
     "name": "Master of the Forge",
@@ -152,7 +162,7 @@
   "46acedb45d2c": {
     "name": "4) Psychic Scourge",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 6. If it is manifested, pick one enemy unit within 18\" of this Psyker that it can see. You roll one D6 and add this Psyker's Leadership; your opponent rolls one D6 and adds that unit's Leadership. If your total is higher, the unit suffers D3 mortal wounds. If the totals are equal, it suffers 1 mortal wound. If your total is lower, nothing happens."
+    "plain": "Witchfire, warp charge 6: roll one D6 plus this Psyker's Leadership against an enemy unit's D6 plus Leadership; win for D3 mortal wounds on it, tie for 1.\nIf it is manifested, pick one enemy unit within 18\" of this Psyker that it can see. You roll one D6 and add this Psyker's Leadership; your opponent rolls one D6 and adds that unit's Leadership. If your total is higher, the unit suffers D3 mortal wounds. If the totals are equal, it suffers 1 mortal wound. If your total is lower, nothing happens."
   },
   "492baf3e8ccf": {
     "name": "Chief Librarian",
@@ -172,12 +182,12 @@
   "5102efbbcc71": {
     "name": "Magna-grapple",
     "kind": "ability",
-    "plain": "When an enemy VEHICLE unit (not AIRCRAFT) is picked to Fall Back while it is within Engagement Range of the bearer, you can use the magna-grapple. If you do, roll 2D6. If the total is lower than that enemy unit's Strength, it Falls Back as normal; if not, it can't Fall Back this phase and must Remain Stationary."
+    "plain": "When an enemy VEHICLE unit (not AIRCRAFT) within Engagement Range of the bearer is picked to Fall Back, you can use the magna-grapple to try to stop it. If you do, roll 2D6: if the total is lower than that enemy unit's Strength, it Falls Back as normal; if not, it can't Fall Back this phase and must Remain Stationary."
   },
   "512cf86595dd": {
     "name": "Temporal Corridor",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 5. If it is manifested, pick one of your <CHAPTER> PHOBOS units within 6\" of this Psyker.\n• That unit can't shoot or fight this turn.\n• If it isn't within Engagement Range of any enemy models, it can make a Normal Move or Advance as though it were your Movement phase. If it Advances, skip the Advance roll; instead, its models add 6\" to their Move until the end of the phase."
+    "plain": "Blessing, warp charge 5: one of your <CHAPTER> PHOBOS units within 6\" of this Psyker can make a Normal Move or Advance now, but can't shoot or fight this turn.\nIf it is manifested, pick one of your <CHAPTER> PHOBOS units within 6\" of this Psyker.\n• That unit can't shoot or fight this turn.\n• If it isn't within Engagement Range of any enemy models, it can make a Normal Move or Advance as though it were your Movement phase. If it Advances, skip the Advance roll; instead, its models add 6\" to their Move until the end of the phase."
   },
   "515bb6630a40": {
     "name": "The Red Grail (Aura)",
@@ -199,6 +209,16 @@
     "kind": "ability",
     "plain": "This model gets 1 extra attack if it has 2 Furioso fists or 2 blood talons."
   },
+  "58e02edd1d6d": {
+    "name": "Artisan of War",
+    "kind": "ability",
+    "plain": "This WARLORD can take one extra Special-issue Wargear Relic: Adamantine Mantle, Artificer Armour, Master-crafted Weapon or Digital Weapons.\nThis is on top of any other Relics it has, and every Relic in your army must still be different."
+  },
+  "58f2fc706185": {
+    "name": "Visage of Death",
+    "kind": "ability",
+    "plain": "Melee attacks against this unit subtract 1 from their hit rolls, and enemy units within 3\" of the bearer lose Objective Secured.\n• Subtract 1 from the hit roll of each melee attack made against this unit.\n• The bearer gains the Visage of Death (Aura) ability: any enemy unit within 3\" of this model loses Objective Secured, along with any similar ability that would let it control an objective marker however many enemy models are in range of that marker."
+  },
   "5a208fc219e0": {
     "name": "Orison Cult",
     "kind": "stratagem",
@@ -208,6 +228,11 @@
     "name": "God-splitter, Mighty Strikes",
     "kind": "weapon",
     "plain": "Subtract 1 from the hit roll of attacks made with this profile. Also, an unmodified wound roll of 6 for this weapon deals 1 mortal wound to the target, on top of the normal damage."
+  },
+  "5e42c6905ebe": {
+    "name": "The Crimson Plate",
+    "kind": "ability",
+    "plain": "The bearer moves faster, can charge after Advancing, and piles in and consolidates further.\n• Add 1\" to its Move characteristic.\n• It can declare a charge in a turn in which it Advanced.\n• Its pile-in and consolidation moves can be up to 4\"."
   },
   "61934d7c406f": {
     "name": "Psychic Hood",
@@ -232,7 +257,7 @@
   "6db718f24266": {
     "name": "Unleash Rage",
     "kind": "psychic",
-    "plain": "Pick one of your BLOOD ANGELS units within 12\" of the PSYKER. When a model in that unit makes a melee attack and rolls an unmodified 6 to hit, that attack scores 1 extra hit. This lasts until the start of your next Psychic phase."
+    "plain": "Pick one of your BLOOD ANGELS units within 12\" of the PSYKER: until your next Psychic phase, each unmodified 6 it rolls to hit in melee scores 1 extra hit."
   },
   "6dd10cbc0ad9": {
     "name": "The Magister's axe",
@@ -247,7 +272,7 @@
   "72e8a025abf9": {
     "name": "1) Veil of Time",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If it is manifested, pick one of your <CHAPTER> units within 18\" of this Psyker. These effects last until the start of your next Psychic phase:\n• you can re-roll its Advance rolls and charge rolls;\n• it fights first in the Fight phase if it starts that phase within Engagement Range of an enemy unit."
+    "plain": "Blessing, warp charge 6: until your next Psychic phase, one of your <CHAPTER> units within 18\" can re-roll Advance and charge rolls and fights first.\nIf it is manifested, pick one of your <CHAPTER> units within 18\" of this Psyker. These effects last until the start of your next Psychic phase:\n• you can re-roll its Advance rolls and charge rolls;\n• it fights first in the Fight phase if it starts that phase within Engagement Range of an enemy unit."
   },
   "739efc9dec36": {
     "name": "Savage Echoes",
@@ -262,7 +287,7 @@
   "78081b8a544a": {
     "name": "Shield of Sanguinius",
     "kind": "psychic",
-    "plain": "Pick one of your BLOOD ANGELS units within 12\" of the psyker. It has a 5+ invulnerable save until the start of your next Psychic phase."
+    "plain": "Pick one of your BLOOD ANGELS units within 12\" of the psyker: it gets a 5+ invulnerable save, lasting until your next Psychic phase begins."
   },
   "78e9161f7a2e": {
     "name": "Light in the Dark (Aura)",
@@ -277,7 +302,7 @@
   "7a14b7b64d70": {
     "name": "Shrouding",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 6. If it is manifested, pick one of your <CHAPTER> PHOBOS units within 18\" of this Psyker. Enemy models can only target that unit with ranged attacks if it is the closest eligible target. This lasts until the start of your next Psychic phase."
+    "plain": "Blessing, warp charge 6: one of your <CHAPTER> PHOBOS units within 18\" can't be targeted by enemy ranged attacks unless it is the closest eligible target.\nIf it is manifested, pick one of your <CHAPTER> PHOBOS units within 18\" of this Psyker. Enemy models can only target that unit with ranged attacks if it is the closest eligible target. This lasts until the start of your next Psychic phase."
   },
   "817a61d10330": {
     "name": "Blade of the Scorpion",
@@ -312,7 +337,7 @@
   "8fc2acaab405": {
     "name": "Mind Raid",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 6. If it is manifested, pick one enemy model within 18\" of this Psyker that it can see.\n• That model's unit suffers 1 mortal wound.\n• If the model is a Character, roll 3D6. If the total equals or beats its Leadership, you gain 1 Command Point."
+    "plain": "Witchfire, warp charge 6: pick an enemy model within 18\"; its unit suffers 1 mortal wound, and if it is a Character, roll 3D6 to try to gain 1 Command Point.\nIf it is manifested, pick one enemy model within 18\" of this Psyker that it can see.\n• That model's unit suffers 1 mortal wound.\n• If the model is a Character, roll 3D6. If the total equals or beats its Leadership, you gain 1 Command Point."
   },
   "9331674da291": {
     "name": "Refusal to Die",
@@ -322,12 +347,17 @@
   "94bfbe876d3a": {
     "name": "Blood Boil",
     "kind": "psychic",
-    "plain": "If it is manifested, pick one enemy unit within 18\" of this PSYKER that it can see, and roll 2D6. If the total beats the highest Toughness in that unit, the unit suffers D3 mortal wounds. If the total is more than twice that highest Toughness, it suffers 3 mortal wounds instead."
+    "plain": "If manifested, roll 2D6 for one enemy unit within 18\" that this PSYKER can see: beat its highest Toughness for D3 mortal wounds, or more than double it for 3.\nIf it is manifested, pick one enemy unit within 18\" of this PSYKER that it can see, and roll 2D6. If the total beats the highest Toughness in that unit, the unit suffers D3 mortal wounds. If the total is more than twice that highest Toughness, it suffers 3 mortal wounds instead."
   },
   "94d9270d20b2": {
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your BLOOD ANGEL CORE units is within 6\" of this model, its models re-roll hit rolls of 1 for their attacks."
+  },
+  "96d54085085e": {
+    "name": "Frag cannon",
+    "kind": "weapon",
+    "plain": "Every attack with this Blast weapon hits its target automatically."
   },
   "973129ac5427": {
     "name": "Rage unto Death",
@@ -337,7 +367,7 @@
   "9735b07f67a3": {
     "name": "Heroic Bearing",
     "kind": "ability",
-    "plain": "• This WARLORD's abilities Rites of Battle, Tactical Precision, Chapter Master and Spiritual Leaders each get 3\" more range (but no more than 9\").\n• This WARLORD also gains this ability: Heroic Bearing (Aura): while one of your BLOOD ANGELS CORE units is within 9\" of this WARLORD, its models add 1 to their Leadership."
+    "plain": "Some of this WARLORD's abilities get 3\" more range, and it gains an aura that adds 1 to the Leadership of your BLOOD ANGELS CORE units within 9\" of it.\n• This WARLORD's abilities Rites of Battle, Tactical Precision, Chapter Master and Spiritual Leaders each get 3\" more range (but no more than 9\").\n• This WARLORD also gains this ability: Heroic Bearing (Aura): while one of your BLOOD ANGELS CORE units is within 9\" of this WARLORD, its models add 1 to their Leadership."
   },
   "9a6a42b0e6fe": {
     "name": "Stampeding Fury",
@@ -374,10 +404,20 @@
     "kind": "ability",
     "plain": "This model knows one extra psychic power from its chosen discipline, and in your opponent's Psychic phase it can try to deny one extra psychic power."
   },
+  "9e7103f51e2b": {
+    "name": "Invocation of Destruction",
+    "kind": "ability",
+    "plain": "If this litany is inspiring, one of your BLOOD ANGELS units within 6\" of this model gets Armour Penetration -4 on melee attacks with an unmodified 6 to wound.\nYou choose which unit."
+  },
   "a001977917b5": {
     "name": "Chapter Banner",
     "kind": "ability",
     "plain": "In your Command phase, pick one of your BLOOD ANGELS CORE units within 6\" of this model. Until your next Command phase starts, add 1 to the hit roll of each melee attack its models make."
+  },
+  "a283c94185e6": {
+    "name": "Severer",
+    "kind": "ability",
+    "plain": "Only for a model with a chainsword: this Relic replaces its chainsword and uses the profile below."
   },
   "a3561354dc08": {
     "name": "Artificer flamer",
@@ -437,7 +477,7 @@
   "b3009e474bd9": {
     "name": "The Red Thirst",
     "kind": "ability",
-    "plain": "In any turn in which this model's unit was charged, made a charge move or performed a Heroic Intervention, add 1 to the wound roll for this model's melee attacks. Also, add 1 to the Advance roll or charge roll whenever a unit with this ability Advances or makes a charge move."
+    "plain": "Units with this ability add 1 to Advance and charge rolls, and to melee wound rolls in any turn they charged, were charged or made a Heroic Intervention.\nIn any turn in which this model's unit was charged, made a charge move or performed a Heroic Intervention, add 1 to the wound roll for this model's melee attacks. Also, add 1 to the Advance roll or charge roll whenever a unit with this ability Advances or makes a charge move."
   },
   "b378f047b086": {
     "name": "Cut Them Down (Aura)",
@@ -453,6 +493,11 @@
     "name": "Chief Librarian",
     "kind": "stratagem",
     "plain": "Once per battle, before the battle: pick one BLOOD RAVENS LIBRARIAN model from your army. It gains the CHIEF LIBRARIAN keyword and this ability: Chief Librarian: this model knows one extra psychic power from its chosen discipline, and in your opponent's Psychic phase it can try to deny one extra psychic power."
+  },
+  "bb30494a5cb5": {
+    "name": "Gallian's Staff",
+    "kind": "ability",
+    "plain": "Add 1 to every Psychic test this model takes to manifest a power from the Sanguinary discipline."
   },
   "bbaaecae65d2": {
     "name": "Chapter Master",
@@ -484,6 +529,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your BLOOD ANGELS units is picked to fight. For the rest of the phase, its models can re-roll both the hit roll and the wound roll for melee attacks against BLACK LEGION units."
   },
+  "cc5ee438c241": {
+    "name": "3. Cretacian Born",
+    "kind": "ability",
+    "plain": "You can re-roll charge rolls for this WARLORD, and enemy units it declares a charge against can't fire Overwatch or Set to Defend against that charge."
+  },
   "d344451aa053": {
     "name": "Battle Alchemistry",
     "kind": "ability",
@@ -497,7 +547,7 @@
   "d798a5068510": {
     "name": "3) Null Zone (Aura)",
     "kind": "psychic",
-    "plain": "Blessing (Aura), warp charge 7. If it is manifested, until the start of your next Psychic phase:\n• attacks against any unit within 6\" of this Psyker can't be saved with invulnerable saves;\n• any enemy Psyker unit within 6\" of this Psyker halves the total of each Psychic test it takes."
+    "plain": "Blessing (Aura), warp charge 7: no unit within 6\" of this Psyker can use invulnerable saves, and enemy Psyker units there halve their Psychic test totals.\nIf it is manifested, until the start of your next Psychic phase:\n• attacks against any unit within 6\" of this Psyker can't be saved with invulnerable saves;\n• any enemy Psyker unit within 6\" of this Psyker halves the total of each Psychic test it takes."
   },
   "d8391bf4dd69": {
     "name": "And They Shall Know No Fear",
@@ -512,7 +562,7 @@
   "dbca417c2386": {
     "name": "1. Merciless Butcher",
     "kind": "ability",
-    "plain": "Whenever this WARLORD is picked to fight, it makes 1 extra attack with one of its melee weapons for each five enemy models within 3\" of it, up to a maximum of 3 extra attacks."
+    "plain": "Whenever this WARLORD is picked to fight, it makes 1 extra attack with one of its melee weapons for each five enemy models within 3\" of it. It can get at most 3 extra attacks this way."
   },
   "e0c6f738c3bc": {
     "name": "Aggressive Onslaught",
@@ -532,7 +582,7 @@
   "e35dc67a15f8": {
     "name": "Hallucination",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 6. If it is manifested, pick one enemy unit within 18\" of this Psyker that it can see. Until the start of your next Psychic phase, that unit's models:\n• get 1 subtracted from their Leadership;\n• subtract 1 from the hit roll of every attack they make."
+    "plain": "Malediction, warp charge 6: until your next Psychic phase, an enemy unit within 18\" that this Psyker can see has 1 subtracted from its Leadership and hit rolls.\nIf it is manifested, pick one enemy unit within 18\" of this Psyker that it can see. Until the start of your next Psychic phase, that unit's models:\n• get 1 subtracted from their Leadership;\n• subtract 1 from the hit roll of every attack they make."
   },
   "e5ec9b92da46": {
     "name": "Descent of Angels",
@@ -564,10 +614,15 @@
     "kind": "stratagem",
     "plain": "Once per battle, in your Command phase, if your army has the Assault Doctrine active: until your next Command phase, whenever a BLOOD ANGELS model from your army attacks with a Pistol or melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1. This stacks with the Combat Doctrines ability."
   },
+  "eb8b7c1a0f3f": {
+    "name": "2. Of Wrath and Rage",
+    "kind": "ability",
+    "plain": "When this WARLORD attacks in melee, each unmodified hit roll of 6 scores 1 extra hit."
+  },
   "ec2b0389fa3b": {
     "name": "Tenebrous Curse",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 7. If it is manifested, pick one enemy unit within 18\" of this Psyker that it can see and that can't Fly.\n• That unit suffers 1 mortal wound.\n• Halve that unit's Move characteristic, and subtract 2 from its Advance rolls and charge rolls."
+    "plain": "Malediction, warp charge 7: one enemy unit within 18\" that can't Fly suffers 1 mortal wound, halves its Move and takes 2 off its Advance and charge rolls.\nIf it is manifested, pick one enemy unit within 18\" of this Psyker that it can see and that can't Fly.\n• That unit suffers 1 mortal wound.\n• Halve that unit's Move characteristic, and subtract 2 from its Advance rolls and charge rolls."
   },
   "f1222dcad0ab": {
     "name": "God-splitter",
@@ -584,6 +639,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Blood Angels successor Chapter as your WARLORD: one CHARACTER model in your army from a Blood Angels successor Chapter can take one Relic of the Angels, in place of a Special-issue Wargear Relic or a Chapter Relic. If you do, every BLOOD ANGELS keyword on that Relic (if it has any) becomes that model's successor Chapter keyword."
   },
+  "f4e4d382feb3": {
+    "name": "Wrath of Baal",
+    "kind": "ability",
+    "plain": "Sanguinary Ancient model only: the bearer gains an aura that gives your BLOOD ANGELS JUMP PACK units within 6\" an extra 2\" of Move.\n• Wrath of Baal (Aura): while one of your BLOOD ANGELS JUMP PACK units is within 6\" of this model, each time it is picked to make a Normal Move, Advance or Fall Back, its Move characteristic goes up by 2\" until the phase ends."
+  },
   "f59f3911597b": {
     "name": "Blood Chalice",
     "kind": "ability",
@@ -593,6 +653,11 @@
     "name": "Miraculous Saviour",
     "kind": "ability",
     "plain": "At the end of the Heroic Interventions step in your opponent's Charge phase, if this model is not yet on the battlefield and any enemy units ended a charge move this phase within Engagement Range of any of your BLOOD ANGELS units, you can place this model within Engagement Range of one of those enemy units. In that turn, it counts as having performed a Heroic Intervention."
+  },
+  "f821957e0be5": {
+    "name": "Severer",
+    "kind": "weapon",
+    "plain": "Each unmodified wound roll of 5+ for an attack with this weapon also deals 1 mortal wound to the target, on top of any normal damage."
   },
   "fba41ba55983": {
     "name": "Blood Biter",

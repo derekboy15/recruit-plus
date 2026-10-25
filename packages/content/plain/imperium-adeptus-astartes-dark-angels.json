@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "Aura: models in any of your DARK ANGELS CORE units within 6\" of this model add 1 to their Leadership. Also, whenever an enemy model's attack destroys a model in such a unit, roll one D6. On a 4+, leave the destroyed model in play for now: once the attacker's unit has finished all its attacks, it can either fire one of its ranged weapons as though it were your Shooting phase, or make a single attack with one of its melee weapons as though it were the Fight phase. Remove it once those attacks are resolved."
   },
+  "054f72becadf": {
+    "name": "Pennant of Remembrance",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your DEATHWING INFANTRY CORE units within 6\" of the bearer to take less damage until your next Command phase. Until that phase starts, each attack allocated to a model in that unit has its Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
   "0b7b09bafc74": {
     "name": "Weapons from the Dark Age",
     "kind": "stratagem",
@@ -12,7 +17,7 @@
   "0ce80778548d": {
     "name": "4) Trephination",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 5. If manifested, the nearest enemy unit that is within 18\" of and visible to this PSYKER suffers D3 mortal wounds. If your Psychic test result was higher than that enemy unit's Leadership, it suffers 3 mortal wounds instead."
+    "plain": "Witchfire, warp charge 5: if manifested, the nearest enemy unit that is within 18\" of and visible to this PSYKER suffers D3 mortal wounds. If your Psychic test result was higher than that enemy unit's Leadership, it suffers 3 mortal wounds instead."
   },
   "0d2e15327c2b": {
     "name": "Air Superiority",
@@ -65,7 +70,7 @@
   "298c76b11a00": {
     "name": "6) Mind Wipe",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 7. If manifested, pick one enemy unit within 18\" of this PSYKER and one aura ability it has. That unit loses that aura ability until the start of your next Psychic phase."
+    "plain": "Malediction, warp charge 7: one enemy unit within 18\" of this PSYKER loses one of its aura abilities until the start of your next Psychic phase. If manifested, pick that unit and one aura ability it has."
   },
   "2d226e2b3796": {
     "name": "Crash and Burn",
@@ -76,6 +81,21 @@
     "name": "Command Squad",
     "kind": "ability",
     "plain": "If a Detachment contains a DEATHWING TERMINATOR CAPTAIN unit, you can add one DEATHWING COMMAND SQUAD unit to it, and that unit doesn't use up a Battlefield Role slot."
+  },
+  "3544123852de": {
+    "name": "Mace of Redemption",
+    "kind": "weapon",
+    "plain": "When this weapon attacks a FALLEN or HERETIC ASTARTES unit, each unmodified wound roll of 4+ deals 2 mortal wounds to the target, and that attack sequence ends."
+  },
+  "3949b948b143": {
+    "name": "Reliquary of the Repentant",
+    "kind": "ability",
+    "plain": "While an enemy unit is within 3\" of the bearer, its models with a 4+ or better invulnerable save pass invulnerable saving throws only on an unmodified 5+."
+  },
+  "39ea3ae8057a": {
+    "name": "3. Calibanite Knight",
+    "kind": "ability",
+    "plain": "Each melee attack this WARLORD makes against an INFANTRY or BIKER unit always wounds on an unmodified wound roll of 2+."
   },
   "3a14c4a54f36": {
     "name": "Command Squad",
@@ -117,6 +137,11 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase. Choose an enemy unit within 18\" of and visible to one of your RAVENWING LAND SPEEDER or RAVENWING STORM SPEEDER units. For the rest of the phase, whenever a model in one of your DARK ANGELS units makes a ranged attack against the chosen unit, add 1 to that hit roll."
   },
+  "4c5c0b044650": {
+    "name": "1-3. Watched",
+    "kind": "ability",
+    "plain": "Once per battle, in your opponent's Psychic phase, this WARLORD can try to deny one more psychic power, and it passes that Deny the Witch test automatically. It can do this even if it isn't a PSYKER, and even if it isn't within 24\" of the enemy model manifesting that power. Don't roll any dice for that test."
+  },
   "4cb8f6a5e8d6": {
     "name": "Marked for Command",
     "kind": "stratagem",
@@ -126,6 +151,11 @@
     "name": "Plasma storm battery (supercharge)",
     "kind": "weapon",
     "plain": "Blast. For each unmodified hit roll of 1 made for an attack with this profile, the bearer suffers 1 mortal wound after it has finished shooting with this weapon."
+  },
+  "4f9fcbb152d0": {
+    "name": "Shroud of Heroes",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack made against the bearer."
   },
   "53e34808854c": {
     "name": "Speed of the Raven",
@@ -152,6 +182,16 @@
     "kind": "stratagem",
     "plain": "Once per battle, after you choose a DARK ANGELS CHARACTER model that isn't a named character as your WARLORD: generate one extra Warlord Trait for it, which must come from the Dark Angels Warlord Traits table. Every Warlord Trait in your army must be unique (if you generate them randomly, re-roll duplicates)."
   },
+  "6ff78d163b39": {
+    "name": "6. Honour of the First Legion",
+    "kind": "ability",
+    "plain": "This WARLORD can Heroically Intervene from further away, and move further when it does.\n• It can perform a Heroic Intervention if an enemy unit is within 6\" horizontally and 5\" vertically of it.\n• Its Heroic Intervention moves can be up to 6\", as long as each one ends closer to the closest enemy model. The other Heroic Intervention rules all still apply."
+  },
+  "71bb93ee59a9": {
+    "name": "Monster Slayer of Caliban",
+    "kind": "weapon",
+    "plain": "When this weapon's attacks target an enemy MONSTER or enemy VEHICLE, add 1 to their wound rolls."
+  },
   "71ee512cbf94": {
     "name": "Litany of Hate",
     "kind": "ability",
@@ -170,7 +210,7 @@
   "7eeb4352225e": {
     "name": "2) Aversion",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 6. If it is manifested, choose an enemy unit within 24\" of this PSYKER. These effects last until your next Psychic phase starts:\n• while that unit is within 6\" of this PSYKER, the Attacks characteristic of its models drops by 1;\n• every attack made by a model in that unit has 1 subtracted from its hit roll."
+    "plain": "Malediction, warp charge 6: an enemy unit within 24\" of this PSYKER subtracts 1 from its hit rolls, and from its Attacks while within 6\" of this PSYKER.\nIf it is manifested, choose that enemy unit. These effects last until your next Psychic phase starts:\n• while that unit is within 6\" of this PSYKER, the Attacks characteristic of its models drops by 1;\n• every attack made by a model in that unit has 1 subtracted from its hit roll."
   },
   "80be96386a21": {
     "name": "Enmity's Edge",
@@ -180,7 +220,7 @@
   "814d8aea4810": {
     "name": "1) Mind Worm",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 6. If it is manifested, choose an enemy unit within 18\" of this PSYKER. It suffers 1 mortal wound, and until your next Psychic phase starts, it isn't eligible to fight in the Fight phase until every other eligible unit in your army has fought."
+    "plain": "Malediction, warp charge 6: an enemy unit within 18\" of this PSYKER suffers 1 mortal wound and must wait to fight until your eligible units have fought.\nIf it is manifested, choose that enemy unit. It suffers 1 mortal wound, and until your next Psychic phase starts, it isn't eligible to fight in the Fight phase until every other eligible unit in your army has fought."
   },
   "82af76acdf06": {
     "name": "Command Squad",
@@ -195,7 +235,7 @@
   "860b50e83af0": {
     "name": "3) Righteous Repugnance",
     "kind": "psychic",
-    "plain": "Blessing, warp charge 7. If manifested, pick one of your DARK ANGELS units within 12\" of this PSYKER. Until your next Psychic phase starts, models in that unit can re-roll both the hit roll and the wound roll for each melee attack they make."
+    "plain": "Blessing, warp charge 7: one of your DARK ANGELS units within 12\" of this PSYKER can re-roll hit and wound rolls for its melee attacks.\nIf manifested, pick that unit. Until your next Psychic phase starts, models in that unit can re-roll both the hit roll and the wound roll for each melee attack they make."
   },
   "89a4da4a2d1f": {
     "name": "Plasma Talon (overcharge)",
@@ -210,7 +250,7 @@
   "8d380cb52566": {
     "name": "2. Fury if the Lion (Aura)",
     "kind": "ability",
-    "plain": "Aura: if this WARLORD made a charge move, performed a Heroic Intervention or was charged this turn, models in any of your DARK ANGELS units within 6\" of it add 1 to their Strength."
+    "plain": "Aura: models in your DARK ANGELS units within 6\" of this WARLORD add 1 to their Strength. This only works in a turn in which this WARLORD made a charge move, performed a Heroic Intervention or was charged."
   },
   "8de27a5a0bed": {
     "name": "Tactical Appraisal",
@@ -267,6 +307,11 @@
     "kind": "weapon",
     "plain": "Each attack with this weapon that is allocated to a PSYKER or DAEMON model has Damage 3."
   },
+  "a510a73750b5": {
+    "name": "5. Decisive Tactician (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this WARLORD, add 1 to that unit's Advance and charge rolls."
+  },
   "a727faa27f47": {
     "name": "Intractable Will",
     "kind": "ability",
@@ -275,7 +320,12 @@
   "a7a611659c0c": {
     "name": "4. Stubborn Tenacity",
     "kind": "ability",
-    "plain": "When this WARLORD is destroyed without exploding, you can use this Warlord Trait instead of any other ability that would take effect because it was destroyed (Astartes Banner, for example). If you do, leave this WARLORD in play until the next turn starts or the battle ends, whichever is first. Until then it still counts as in play, but any more wounds it would lose are not lost."
+    "plain": "When this WARLORD is destroyed without exploding, you can leave it in play until the next turn starts or the battle ends, whichever is first. If you use this Warlord Trait, you do so instead of any other ability that would take effect because it was destroyed (Astartes Banner, for example). Until it is removed, it still counts as in play, but any more wounds it would lose are not lost."
+  },
+  "a8a247c1ceae": {
+    "name": "Honoured by the Rock",
+    "kind": "ability",
+    "plain": "You use this Stratagem after choosing a model from a DARK ANGELS successor Chapter as your WARLORD."
   },
   "a95758d0cdf3": {
     "name": "Stasis bomb",
@@ -305,6 +355,11 @@
     "kind": "stratagem",
     "plain": "Use when choosing your army. Choose one of your DARK ANGELS Detachments; it becomes a Ravenwing Attack Squadron Specialist Detachment, and its RAVENWING units gain the ATTACK SQUADRON keyword."
   },
+  "baf89f9b4742": {
+    "name": "1-3. Lightning-fast Reactions",
+    "kind": "ability",
+    "plain": "Subtract 1 from the hit roll of every attack made against this WARLORD."
+  },
   "bd0915f74550": {
     "name": "Implacable",
     "kind": "rule",
@@ -330,6 +385,11 @@
     "kind": "ability",
     "plain": "Aura: in your Command phase, you can choose an enemy unit this model can see. Until your next Command phase starts, while any of your DARK ANGELS RAVENWING CORE units is within 6\" of this model, attacks made by models in that RAVENWING unit ignore the benefits of cover for the chosen enemy unit's saving throws."
   },
+  "c37674ead61f": {
+    "name": "Cup of Retribution",
+    "kind": "ability",
+    "plain": "Once per battle, instead of reciting one of the litanies it knows, the bearer can recite the Feast of Malediction litany. If it does, don't roll for it: that litany is automatically inspiring."
+  },
   "c3e58496ede3": {
     "name": "1. Brilliant Strategist",
     "kind": "ability",
@@ -339,6 +399,11 @@
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your DARK ANGELS CORE units is within 6\" of this model, re-roll hit rolls of 1 for attacks made by models in that unit."
+  },
+  "c7d367f544b4": {
+    "name": "Feast of Malediction",
+    "kind": "ability",
+    "plain": "While one of your DARK ANGELS CORE units is within 6\" of this PRIEST, each model in that unit has its Attacks characteristic increased by 1."
   },
   "c8b3a41ca4da": {
     "name": "Chapter Master",
@@ -368,7 +433,7 @@
   "d8d1e5324c00": {
     "name": "5) Engulfing Fear",
     "kind": "psychic",
-    "plain": "Malediction, warp charge 7. If it is manifested, choose an enemy unit within 24\" of this PSYKER. These effects last until your next Psychic phase starts:\n• its models' Leadership characteristic is reduced by 1;\n• it can't use Objective Secured, or any similar ability letting it control an objective marker however many enemy models are in range of that marker;\n• if your Psychic test result was equal to or greater than its Leadership, it can't perform actions (an action it is performing right now fails immediately)."
+    "plain": "Malediction, warp charge 7: one enemy unit within 24\" of this PSYKER loses 1 Leadership and Objective Secured, and may be unable to perform actions.\nIf it is manifested, choose an enemy unit within 24\" of this PSYKER. These effects last until your next Psychic phase starts:\n• its models' Leadership characteristic is reduced by 1;\n• it can't use Objective Secured, or any similar ability letting it control an objective marker however many enemy models are in range of that marker;\n• if your Psychic test result was equal to or greater than its Leadership, it can't perform actions (an action it is performing right now fails immediately)."
   },
   "da9f816bf7af": {
     "name": "Rift cannon",
@@ -424,6 +489,11 @@
     "name": "Assault Doctrine",
     "kind": "rule",
     "plain": "This model's Pistol and melee weapons get 1 better Armour Penetration while this combat doctrine is active."
+  },
+  "f432e6706262": {
+    "name": "Eye of the Unseen",
+    "kind": "ability",
+    "plain": "The bearer gains a Fear aura and holds back enemy CHARACTER units that are in combat with it.\n• Fear (Aura): enemy units within 6\" of the bearer have their models' Leadership characteristic reduced by 1.\n• At the start of the Fight phase, any enemy CHARACTER unit in Engagement Range of the bearer can't fight until every other eligible unit from your army has fought."
   },
   "f4b3a2f61f70": {
     "name": "2nd Company",

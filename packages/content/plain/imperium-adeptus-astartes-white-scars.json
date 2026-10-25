@@ -1,4 +1,9 @@
 {
+  "0b2fdaea5c53": {
+    "name": "Banner of the Eagle",
+    "kind": "ability",
+    "plain": "Aura (ANCIENT model only): while one of your WHITE SCARS CORE units is within 6\" of the bearer, its models add 1 to their Strength characteristic."
+  },
   "0c2dfeca6e91": {
     "name": "For the Khan!",
     "kind": "ability",
@@ -24,6 +29,11 @@
     "kind": "stratagem",
     "plain": "Use in your Movement phase, after one of your WHITE SCARS units (excluding ARTILLERY) has made a Normal Move or Fallen Back. That unit can now make an Advance move as well. Until the end of the turn, that unit can't shoot, declare a charge or attempt to manifest psychic powers."
   },
+  "259ffd88dc6d": {
+    "name": "The Hunter's Eye",
+    "kind": "ability",
+    "plain": "At the start of your Shooting phase, you can pick one of your WHITE SCARS units within 6\" of the model with this Relic to ignore cover this phase. Until the end of the phase, the targets of ranged attacks by models in that unit don't get the benefit of cover to their saving throws."
+  },
   "28b324a49f49": {
     "name": "The Eternal Hunt",
     "kind": "stratagem",
@@ -34,10 +44,20 @@
     "kind": "stratagem",
     "plain": "Use in your Movement phase, after one of your WHITE SCARS TRANSPORT units without the Flyer Battlefield Role moves. WHITE SCARS units embarked within it can disembark right away, but any that do can't make a charge move this turn."
   },
+  "38f34d864e44": {
+    "name": "3) Ride the Winds",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your WHITE SCARS units within 12\" of this psyker; until your next Psychic phase starts, add 2 to its Advance and charge rolls."
+  },
   "4409278a5b8b": {
     "name": "Strike for the Heart",
     "kind": "stratagem",
     "plain": "Use before one of your WHITE SCARS units (excluding ARTILLERY) consolidates. This phase, it consolidates D3+3\" instead of 3\", or D6+6\" if every model in it has a Move characteristic of 10\" or more."
+  },
+  "4758fc6e9211": {
+    "name": "Hunter's Instincts",
+    "kind": "ability",
+    "plain": "This Warlord adds 1 to both its hit rolls and its wound rolls when attacking enemy MONSTER or VEHICLE units."
   },
   "48113247fca3": {
     "name": "Hunters’ Fusillade",
@@ -54,15 +74,30 @@
     "kind": "stratagem",
     "plain": "Use when one of your WHITE SCARS BIKER units Advances. It can still shoot this turn."
   },
+  "6810b9e31b3b": {
+    "name": "Master of Snares",
+    "kind": "ability",
+    "plain": "Each time an enemy unit within Engagement Range of this Warlord is picked to Fall Back, you can roll one D6; on a 4+, it can't Fall Back this turn. This doesn't work on a unit that includes a model with a minimum Move characteristic."
+  },
   "76797505e22f": {
     "name": "Chogorian Thunderbolts",
     "kind": "stratagem",
     "plain": "Use when one of your WHITE SCARS BIKER units finishes a charge move. Each model in the unit can pick one enemy unit within 1\" of it and roll one D6; each 6 inflicts 1 mortal wound on that enemy unit."
   },
+  "76947b280582": {
+    "name": "2) Lightning Call",
+    "kind": "psychic",
+    "plain": "Warp charge 7: the closest enemy unit within 18\" of this psyker takes D3 mortal wounds, and may then suffer more from a series of D6 rolls. If it survives, roll one D6: on a 4+, it suffers 1 more mortal wound. If it is still not destroyed, roll again: on a 5+, it suffers 1 more. If it is still not destroyed after that, roll once more: on a 6, it suffers 1 more."
+  },
   "7a79fc0d2c21": {
     "name": "Ride Hard, Ride Fast",
     "kind": "stratagem",
     "plain": "Use after one of your WHITE SCARS units Advances. Until the start of your next Movement phase, subtract 1 from hit rolls for ranged attacks that target that unit."
+  },
+  "7e6c29d7ce28": {
+    "name": "Chogorian Storm",
+    "kind": "ability",
+    "plain": "Each time this Warlord makes a charge move or a Heroic Intervention, its Attacks characteristic goes up by D3 until the turn ends."
   },
   "89c0a7e49568": {
     "name": "Encirclement",
@@ -84,10 +119,25 @@
     "kind": "ability",
     "plain": "Add 1 to saving throws against melee weapon attacks made against this model. This doesn't affect invulnerable saves."
   },
+  "98296ed07b81": {
+    "name": "Lightning Assault",
+    "kind": "rule",
+    "plain": "Units with this tactic can charge after Advancing or Falling Back, and can shoot Assault weapons after Advancing without the usual hit penalty.\n• Units with this tactic can declare a charge in a turn in which they Advanced or Fell Back.\n• Models with this tactic ignore the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
+  },
   "af6f98020805": {
     "name": "Butchered Quarry",
     "kind": "stratagem",
     "plain": "Use when an enemy unit Falls Back from within 1\" of any of your WHITE SCARS INFANTRY or WHITE SCARS BIKER units, before it moves. From those WHITE SCARS units, pick one that is not within 1\" of any other enemy units: each of its models can make one melee weapon attack against that enemy unit as if it were within 1\" of it. After these attacks, if the enemy unit has not been destroyed, it can then make its Fall Back move; once it has moved, each model in the picked unit can move up to 3\", as long as it ends nearer to that enemy unit and more than 1\" away from every enemy unit."
+  },
+  "b1b7d67b7dca": {
+    "name": "5) Spirits of Chogoris",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one enemy unit within 18\" of this psyker that it can see subtracts 1 from its models' Leadership and from their hit rolls. Both penalties last until the start of your next Psychic phase."
+  },
+  "b33f54caa817": {
+    "name": "4) Storm-wreathed",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one of your WHITE SCARS units within 12\" of this psyker can't be targeted by Overwatch and can deal mortal wounds after it charges. Until your next Psychic phase starts: enemy units can't fire Overwatch at it, and once it ends a charge move, each of its models lets you pick an enemy unit within 1\" of that model and roll one D6, with a 6 inflicting 1 mortal wound on that enemy unit."
   },
   "bd9cdaeea454": {
     "name": "Moonfang",
@@ -109,20 +159,58 @@
     "kind": "weapon",
     "plain": "If the target is a CHARACTER, this weapon has double Strength (x2)."
   },
+  "dc4c0c5216fe": {
+    "name": "6) Eye of the Storm",
+    "kind": "psychic",
+    "plain": "Warp charge 6: each enemy unit within 12\" of this psyker suffers 1 mortal wound on a D6 roll of 4+; add 1 to the roll for a unit that can FLY."
+  },
+  "dff3df37d7f7": {
+    "name": "1) Blasting Gale",
+    "kind": "psychic",
+    "plain": "Warp charge 7: an enemy unit within 18\" of this psyker that it can see can't Advance and rolls one fewer D6 to charge, until your next Psychic phase starts. Its charge rolls can't drop below one D6, so it will usually roll one D6 rather than 2D6."
+  },
   "e20351fb0560": {
     "name": "Khan's spear",
     "kind": "weapon",
-    "plain": "In any turn in which the bearer charged or performed a Heroic Intervention, the Strength characteristic of this weapon is doubled (x2) for its attacks."
+    "plain": "If the bearer made a charge move or a Heroic Intervention this turn, this weapon's attacks have a Strength characteristic of x2 (twice the bearer's Strength)."
+  },
+  "e2315ce7369a": {
+    "name": "Scimitar of the Great Khan",
+    "kind": "weapon",
+    "plain": "If an attack with this weapon gets an unmodified wound roll of 6, its Damage characteristic is 4 for that attack."
   },
   "e4c35d9489de": {
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your WHITE SCARS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "e72ca43b6247": {
+    "name": "Wrath of the Heavens",
+    "kind": "ability",
+    "plain": "BIKER model only: the bearer has a Move of 16\" and, in the Movement phase, can pass through other models and terrain features as if they weren't there."
+  },
+  "f01ab4f16411": {
+    "name": "Plume of the Plainsrunner",
+    "kind": "ability",
+    "plain": "Aura: while one of your WHITE SCARS INFANTRY units is within 6\" of the bearer, add 1 to that unit's Advance and charge rolls."
+  },
   "f0485d210d22": {
     "name": "Anzuq",
     "kind": "ability",
     "plain": "When this model is chosen to shoot in your Shooting phase, you can pick one enemy unit within 12\" of it that is not a VEHICLE and roll one D6. On a 4+, it suffers 1 mortal wound."
+  },
+  "f1de06ad8cee": {
+    "name": "Mantle of the Stormseer",
+    "kind": "ability",
+    "plain": "PSYKER model only: add 1 to the total of each Psychic test the model with this Relic takes to manifest a power from the Stormspeaking discipline.",
+    "waive": {
+      "62": "page reference (pg 62) for the Stormspeaking discipline, not part of the rule"
+    }
+  },
+  "f76e630a5899": {
+    "name": "Master Rider",
+    "kind": "ability",
+    "plain": "BIKER only: you can re-roll this Warlord's charge rolls, and attacks against it subtract 1 from the hit roll if it Advanced in your previous Movement phase. If you roll your Warlord Trait at random and your Warlord isn't a BIKER, keep re-rolling this result until you get a different trait."
   },
   "f89037a8c82f": {
     "name": "For the Khan!",

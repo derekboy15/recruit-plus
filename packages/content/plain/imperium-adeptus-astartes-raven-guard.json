@@ -4,6 +4,11 @@
     "kind": "ability",
     "plain": "During deployment, you can put this unit high in the skies instead of on the battlefield. If you do, it can arrive in the Reinforcements step of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
   },
+  "119d6bf91fa9": {
+    "name": "The Raven Skull of Korvaad",
+    "kind": "ability",
+    "plain": "Once per turn, you can re-roll one hit roll, wound roll or damage roll for an attack made by the model with this Relic. If the model with this Relic is destroyed by an enemy unit's attack, then for the rest of the battle, add 1 to hit rolls for attacks by your RAVEN GUARD units against that enemy unit."
+  },
   "12506b8b627b": {
     "name": "Shadowmaster",
     "kind": "ability",
@@ -23,6 +28,11 @@
     "name": "Decapitating Blow",
     "kind": "stratagem",
     "plain": "Use when one of your RAVEN GUARD units destroys an enemy WARLORD with an attack. Until the battle ends, every enemy unit has its Leadership characteristic reduced by 1."
+  },
+  "313f98aae630": {
+    "name": "Master of Vigilance",
+    "kind": "ability",
+    "plain": "When this Warlord attacks with a melee weapon, each unmodified hit roll of 6 also deals 1 mortal wound to the target, on top of any other damage."
   },
   "36a5e2632f07": {
     "name": "Infiltrators",
@@ -44,6 +54,11 @@
     "kind": "ability",
     "plain": "When this model has finished a charge move, you can roll one D6 against one enemy unit in its Engagement Range: on a 4+, that unit suffers 1 mortal wound."
   },
+  "521db414067b": {
+    "name": "Raven's Fury",
+    "kind": "ability",
+    "plain": "The model with this Relic can charge in a turn in which it Advanced, can re-roll its charge rolls, and can inflict a mortal wound after charging. After that model finishes a charge move, you can pick one enemy unit within 1\" of it and roll one D6: on a 4+, that unit suffers 1 mortal wound. Only a JUMP PACK model can take this Relic."
+  },
   "5dc3bb45149a": {
     "name": "Malice",
     "kind": "weapon",
@@ -53,6 +68,41 @@
     "name": "Token of Brotherhood",
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a model from a Raven Guard successor Chapter as your Warlord: one CHARACTER model in your army from a Raven Guard successor Chapter can have one Relic of the Ravenspire instead of a Special-issue Wargear Relic or a Chapter Relic. If it does, every RAVEN GUARD keyword on that Relic (if any) is swapped for that model's <CHAPTER> keyword."
+  },
+  "61e3c432c2a0": {
+    "name": "The Armor of Shadows",
+    "kind": "ability",
+    "plain": "Weapons with AP -1 count as AP 0 when attacking the model with this Relic, and attacks against it always fail on an unmodified hit roll of 1, 2 or 3."
+  },
+  "7337c33632ca": {
+    "name": "Feigned Flight",
+    "kind": "ability",
+    "plain": "This Warlord can shoot and charge in a turn in which it Fell Back, and when it Falls Back it can move across models and terrain as if they weren't there."
+  },
+  "7537ebb93f0f": {
+    "name": "Shadow Masters",
+    "kind": "rule",
+    "plain": "Units with this tactic count as being in cover against ranged attacks from far away.\n• Against a ranged attack from an attacker more than 18\" away, a unit with this tactic gets the benefits of light cover.\n• Against a ranged attack from an attacker more than 12\" away, an INFANTRY unit with this tactic that is entirely on or within a terrain feature gets the benefits of dense cover."
+  },
+  "784e3266e24e": {
+    "name": "2) Enveloping Darkness",
+    "kind": "psychic",
+    "plain": "Warp charge 7: one enemy unit within 18\" of and visible to this psyker can't fire Overwatch and subtracts 1 from its hit rolls. This lasts until the start of your next Psychic phase."
+  },
+  "8d40dea8bb5d": {
+    "name": "5) The Abyss",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll three D6 for one enemy unit within 18\" of and visible to this psyker; it suffers 1 mortal wound for each 4+. If this power destroys any models in that unit, its models have 1 subtracted from their Leadership characteristic until this turn ends."
+  },
+  "917d5a6d0b23": {
+    "name": "Ex Tenebris",
+    "kind": "weapon",
+    "plain": "When picking targets for this weapon, you can ignore the Look Out, Sir rule, and you can add 1 to its hit rolls. Targets of its attacks don't get the benefit of cover to their saving throws."
+  },
+  "930726aab29d": {
+    "name": "6) The Darkness Within",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick up to 3 enemy units within 18\" of this psyker and roll one D6 for each; on a 4+, that unit suffers 1 mortal wound. Add 1 to each of those rolls if the Psychic test result was more than 10."
   },
   "ab6253e7ec20": {
     "name": "Master of the Trifold Path",
@@ -94,6 +144,26 @@
     "kind": "ability",
     "plain": "Aura: when you make a charge roll for a RAVEN GUARD JUMP PACK or RAVEN GUARD PHOBOS unit that is within 6\" of this model at the time, you can re-roll it."
   },
+  "ce29553e4300": {
+    "name": "The Ebonclaws",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 2 extra attacks with this weapon, and you can re-roll wound rolls for attacks with this weapon."
+  },
+  "ce6d4e2d747d": {
+    "name": "Swift and Deadly (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your RAVEN GUARD CORE or RAVEN GUARD CHARACTER units is within 6\" of this Warlord, it can declare a charge in a turn in which it Advanced."
+  },
+  "d318d9cffd5a": {
+    "name": "3) Spectral Blade",
+    "kind": "psychic",
+    "plain": "Warp charge 5: until the start of your next Psychic phase, this psyker's Strength equals its Leadership, and its melee attacks can have AP -4. For that time, any melee weapon attack this psyker makes against a unit whose highest Leadership characteristic is lower than its own has an Armour Penetration characteristic of -4."
+  },
+  "d52e70495931": {
+    "name": "1) Umbral Form",
+    "kind": "psychic",
+    "plain": "Warp charge 5: this psyker gets a 4+ invulnerable save until your next Psychic phase starts."
+  },
   "dbed351cb146": {
     "name": "Ambushing Fire",
     "kind": "stratagem",
@@ -104,6 +174,11 @@
     "kind": "ability",
     "plain": "When you make a charge roll for a RAVEN GUARD JUMP PACK unit that is within 6\" of this model at the time, you can re-roll it."
   },
+  "eb0b7b6867d7": {
+    "name": "Master of Ambush",
+    "kind": "ability",
+    "plain": "At the start of the first battle round, this Warlord can redeploy one other RAVEN GUARD INFANTRY unit from your army, and itself too if it is INFANTRY. This happens before the first turn begins, and only if this Warlord is on the battlefield; the other unit must also be on the battlefield and can't be a CENTURION unit. Take that unit, and this Warlord if it is INFANTRY, off the battlefield, then place them anywhere on the battlefield that is more than 9\" away from the enemy deployment zone and more than 9\" away from every enemy model. If each player has abilities that redeploy units before the first turn, roll off; the winner decides which player redeploys their units first."
+  },
   "ecd5fa0c5d21": {
     "name": "Raven's Talons",
     "kind": "weapon",
@@ -113,6 +188,16 @@
     "name": "Strike from the Shadows",
     "kind": "stratagem",
     "plain": "During the Declare Reserves and Transports step of your mission: pick one of your RAVEN GUARD INFANTRY units. You can place it in ambush rather than deploying it on the battlefield. If you do, it arrives at the end of any one of your Movement phases: set it up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "f05add8caaf2": {
+    "name": "Oppressor's End",
+    "kind": "weapon",
+    "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon, and attacks with this weapon against a CHARACTER unit have a Damage characteristic of 3."
+  },
+  "f42bb3acbbfc": {
+    "name": "4) Shadowstep",
+    "kind": "psychic",
+    "plain": "Warp charge 7: one of your RAVEN GUARD CHARACTER units within 18\" of this psyker is redeployed more than 9\" away from any enemy models. Take that unit off the battlefield, then set it up again anywhere on the battlefield that is more than 9\" away from any enemy models."
   },
   "f6783e9a566c": {
     "name": "See, But Remain Unseen",

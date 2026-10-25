@@ -19,6 +19,31 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when you pick one of your IMPERIAL FISTS CORE or IMPERIAL FISTS CHARACTER units to shoot. Until the end of the phase, each unmodified hit roll of 6 for a bolt weapon attack by a model in that unit scores 1 additional hit."
   },
+  "15cf9e9f642d": {
+    "name": "The Spartean",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's bolt pistol, and only an IMPERIAL FISTS model with a bolt pistol can take it."
+  },
+  "204364d6211e": {
+    "name": "Expulsiaris",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon also deal 1 mortal wound to the target on an unmodified wound roll of 6 (or 4+ against a CHAOS DAEMON unit), on top of normal damage."
+  },
+  "2043e09b1af1": {
+    "name": "The Banner of Staganda",
+    "kind": "ability",
+    "plain": "Aura: while one of your IMPERIAL FISTS CORE or IMPERIAL FISTS CHARACTER units is within 6\" of the bearer, add 1 to hit rolls for its models' melee attacks. Only an ANCIENT model can take this Relic."
+  },
+  "269b05001438": {
+    "name": "4) Fortify",
+    "kind": "psychic",
+    "plain": "Warp charge 4: one of your IMPERIAL FISTS INFANTRY or IMPERIAL FISTS BIKER models within 12\" of the psyker regains up to D3 lost wounds."
+  },
+  "28348701d01c": {
+    "name": "Architect of War",
+    "kind": "ability",
+    "plain": "Models in your IMPERIAL FISTS units within 6\" of this Warlord add a further 1 to armour saves against AP -1 ranged attacks while they get the benefits of cover."
+  },
   "2981ea33a205": {
     "name": "Bitter Enmity",
     "kind": "stratagem",
@@ -44,6 +69,21 @@
     "kind": "ability",
     "plain": "Aura: while one of your IMPERIAL FISTS CORE units is within 6\" of this model, models in that unit re-roll hit rolls of 1 for their attacks."
   },
+  "3db9aba53e24": {
+    "name": "Fleetmaster",
+    "kind": "ability",
+    "plain": "Once per battle, at the end of your Fight phase, this Warlord can call an orbital strike if it remained stationary and made no attacks this turn. If it does, choose a point on the battlefield; for every unit within D6\" of it, roll one D6, subtracting 1 for a CHARACTER unit. On a 4+, the unit rolled for suffers D3 mortal wounds."
+  },
+  "43707f9ffc3d": {
+    "name": "Refuse to Die",
+    "kind": "ability",
+    "plain": "If this Warlord is destroyed for the first time, roll one D6 when that phase ends: on a 4+, set it back up with D3 wounds remaining. Place it as close as possible to where it was before, and not within Engagement Range of any enemy units."
+  },
+  "476b04f21ebc": {
+    "name": "No Matter The Odds",
+    "kind": "rule",
+    "plain": "Models with this tactic add 1 to hit when shooting much larger units, and score extra hits with bolt weapons.\n• When a model with this tactic makes a ranged attack, add 1 to its hit roll if, at the time the attacker's unit was selected to shoot, the target unit had at least 5 more models than the attacker's unit. Each VEHICLE model counts as 5 models for this.\n• When a model with this tactic attacks with a bolt weapon, each unmodified hit roll of 6 scores 1 additional hit."
+  },
   "4801fac8beb3": {
     "name": "Tank Hunters",
     "kind": "stratagem",
@@ -54,15 +94,40 @@
     "kind": "ability",
     "plain": "Add 1 to the wound roll for attacks this Warlord makes against BUILDING or VEHICLE units."
   },
+  "4b5c14ed06f8": {
+    "name": "The Fist of Vengeance",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's power fist, and only a CRIMSON FISTS model with a power fist can take it."
+  },
   "511a7d695fa2": {
     "name": "Clearance Protocols",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your IMPERIAL FISTS units is chosen to shoot. This phase, up to 10 models in that unit that have Grenades can each throw a Grenade, instead of just one model."
   },
+  "557f49704d47": {
+    "name": "2) Wrack and Ruin",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll nine D6 to inflict mortal wounds on a BUILDING, or on an enemy unit in or on terrain. Pick either one BUILDING unit, or one enemy unit wholly within or on a terrain feature, that is visible to this psyker and within 18\" of it. Roll nine D6, adding 1 to each if you picked a BUILDING: that unit suffers 1 mortal wound for each 5+."
+  },
+  "57fc9ed72d3a": {
+    "name": "6) Chasm",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one enemy unit that can't FLY within 18\" of and visible to this psyker, and roll 2D6 against the lowest Move characteristic in it. If the roll is lower than that Move characteristic, the unit suffers 1 mortal wound; if it is equal, D3 mortal wounds; if it is higher, 3 mortal wounds."
+  },
+  "5e2c16f6c8ab": {
+    "name": "Hand of Dorn",
+    "kind": "ability",
+    "plain": "If your army is Battle-forged, roll one D3 before the battle: you gain that many Command Points."
+  },
   "64217598238e": {
     "name": "Slay the Tyrant",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when one of your CRIMSON FISTS units is chosen to shoot or fight. Until the end of the phase, add 1 to hit rolls for attacks made by models in that unit against CHARACTER units."
+  },
+  "65bac40229ab": {
+    "name": "Erudite in the Verses",
+    "kind": "ability",
+    "plain": "This Warlord can Deny the Witch, and can attempt a banishment that inflicts mortal wounds instead of shooting.\n• This Warlord can attempt to Deny the Witch as though it were a Psyker. If it is a Psyker, it can attempt to Deny the Witch one extra time in each of your opponent's Psychic phases.\n• In each of your Shooting phases, if this Warlord is not within Engagement Range of any enemy units, it can attempt a banishment instead of shooting. Roll one D6: on a 3+, the closest enemy unit that is visible to this Warlord and within 12\" of it suffers D3 mortal wounds."
   },
   "6a3f79629974": {
     "name": "Seismic Devastation",
@@ -119,6 +184,21 @@
     "kind": "ability",
     "plain": "While they are within 6\" of this Warlord, your CRIMSON FISTS units have the Defenders of Humanity ability. If a unit already has it, each of its models counts as two models for that ability."
   },
+  "8ba134002a01": {
+    "name": "1) Tectonic Purge",
+    "kind": "psychic",
+    "plain": "Warp charge 6: until the start of your next Psychic phase, subtract 2 from charge rolls made for enemy units within 12\" of this psyker."
+  },
+  "8c6661fac5ff": {
+    "name": "Stubborn Heroism",
+    "kind": "ability",
+    "plain": "This Warlord can't Fall Back, and the damage of each attack against it is halved (rounding up)."
+  },
+  "8dbb90fd280a": {
+    "name": "Siege Masters",
+    "kind": "rule",
+    "plain": "Models with this tactic ignore Light Cover with their ranged attacks, and score extra hits with bolt weapons.\n• Ranged attacks by models with this tactic deny the target the benefits of Light Cover.\n• When a model with this tactic attacks with a bolt weapon, each unmodified hit roll of 6 scores 1 additional hit."
+  },
   "93752f5832a5": {
     "name": "The Tyrant's Champion",
     "kind": "ability",
@@ -149,10 +229,25 @@
     "kind": "weapon",
     "plain": "Attacks with this weapon have a Damage characteristic of 3 when allocated to CHARACTER models."
   },
+  "ba5077bbb503": {
+    "name": "Know Thy Enemy",
+    "kind": "ability",
+    "plain": "Before the battle, pick one unit in your opponent's army; until the battle ends, this Warlord has an aura that adds 1 to hit rolls against that unit.\nKnow Thy Enemy (Aura): while one of your EXORCISTS CORE or EXORCISTS CHARACTER units is within 6\" of this Warlord, add 1 to the hit roll each time a model in that unit attacks the unit you picked."
+  },
+  "bf754a52ddcb": {
+    "name": "3) Iron Inferno",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick a spot within 18\" of this psyker that it can see; each enemy unit within 6\" of that spot suffers 1 mortal wound on a D6 roll of 4+. Roll separately for each of those units, and the spot must be on the battlefield."
+  },
   "c1802de5a2cc": {
     "name": "Paragons of Dorn",
     "kind": "stratagem",
     "plain": "At the end of an enemy Shooting phase: pick one of your LIBERATOR STRIKE FORCE units that was targeted by one or more attacks this phase. It can shoot straight away as if it were your Shooting phase."
+  },
+  "c29fc1e92c81": {
+    "name": "By My Will I Deny Thee",
+    "kind": "rule",
+    "plain": "Attacks against units with this tactic always fail to wound on an unmodified 1 or 2, and their models can shrug off mortal wounds.\n• Any attack against a unit with this tactic always fails to wound on an unmodified wound roll of 1 or 2, whatever abilities the weapon or the attacker has.\n• Each time a mortal wound would make a model with this tactic lose a wound, roll one D6: on a 5+, the model doesn't lose it."
   },
   "c4cd9afc8ffe": {
     "name": "Ænigmata Ferrum",
@@ -164,15 +259,41 @@
     "kind": "ability",
     "plain": "While one of your Imperial Fists units is within 6\" of this model, it automatically passes Combat Attrition tests."
   },
+  "cb6e466276b2": {
+    "name": "The Bones of Osrak",
+    "kind": "ability",
+    "plain": "You can re-roll Psychic tests taken for the model with this Relic when it attempts to manifest a power from the Geokinesis discipline. Only a LIBRARIAN can take this Relic.",
+    "waive": {
+      "62": "page reference (pg 62) to where the Geokinesis discipline is printed, not part of the rule"
+    }
+  },
   "d4b5105f91aa": {
     "name": "Heroes of Rynn’s World",
     "kind": "stratagem",
     "plain": "At the start of your Shooting phase: pick one of your LIBERATOR STRIKE FORCE units. Until the end of the phase, each unmodified hit roll of 6 for a ranged weapon attack by that unit scores 2 hits instead of 1."
   },
+  "d79d4048ec31": {
+    "name": "Enochian Guard",
+    "kind": "ability",
+    "plain": "Two once-per-battle boosts: set one roll for this Warlord to a 6, and use an Epic Deed Stratagem for free.\n• Once per battle, you can set a hit roll, wound roll or saving throw for this Warlord to a 6.\n• Once per battle, an Adeptus Astartes Epic Deed Stratagem costs you no CP, as long as this Warlord is the model named by that Stratagem's keyword."
+  },
+  "dc67e54b29f4": {
+    "name": "The Eye of Hypnoth",
+    "kind": "ability",
+    "plain": "Aura: while one of your IMPERIAL FISTS CORE units is within 6\" of the bearer, re-roll wound rolls of 1 for its models' ranged attacks."
+  },
   "e13c3dddebf3": {
     "name": "Sappers",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when one of your IMPERIAL FISTS units is chosen to shoot or fight. Until the end of the phase, add 1 to both the hit roll and the wound roll for attacks made by models in that unit against BUILDING units."
+  },
+  "eab38b42c6e8": {
+    "name": "Duty's Burden",
+    "kind": "ability",
+    "plain": "This Relic replaces the bearer's bolt rifle, master-crafted stalker bolt rifle or master-crafted auto bolt rifle. Only a CRIMSON FISTS model with one of those weapons can take it.",
+    "waive": {
+      "CRIMSONS FISTS": "misspelling of the CRIMSON FISTS keyword in the official text; the plain text spells the keyword correctly"
+    }
   },
   "ebf172a4d71f": {
     "name": "Indomitable",
@@ -189,6 +310,11 @@
     "kind": "ability",
     "plain": "In your Command phase: pick one of your IMPERIAL FISTS units within 3\" of this model. Add 1 to hit rolls for ranged attacks by its models until your next Command phase starts."
   },
+  "eec2bbf53279": {
+    "name": "5) Aspect of Stone",
+    "kind": "psychic",
+    "plain": "Warp charge 5: until your next Psychic phase starts, add 2 to both this psyker's Strength and its Toughness characteristics."
+  },
   "f02a452c7a0f": {
     "name": "Proud to Live, Proud to Die, Hard to Kill (Aura)",
     "kind": "ability",
@@ -199,9 +325,19 @@
     "kind": "weapon",
     "plain": "If the bearer made a charge move this turn, each time it fights it makes D3 additional attacks with this weapon."
   },
+  "fb5c147932b6": {
+    "name": "Tenacious Opponent",
+    "kind": "ability",
+    "plain": "When this Warlord is chosen to fight, if at least 5 enemy models are within 6\" of it, add D3 to its Attacks characteristic until the end of the phase."
+  },
   "fdcc72b4f130": {
     "name": "Sentinel of Terra",
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate an IMPERIAL FISTS CHARACTER model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Imperial Fists Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "ff11feffc4cd": {
+    "name": "Exile Plate",
+    "kind": "ability",
+    "plain": "The bearer gets a 2+ save, and makes invulnerable saves harder for enemy models within Engagement Range of it.\n• The bearer's Save characteristic is 2+.\n• Invulnerable saving throws for models in an enemy unit within Engagement Range of the bearer always fail on an unmodified roll of 1-4 (or 1-5 for a CHAOS DAEMON model)."
   }
 }

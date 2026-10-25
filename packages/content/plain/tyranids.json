@@ -7,7 +7,12 @@
   "00cf5d311d0e": {
     "kind": "ability",
     "name": "Voracious Ammunition",
-    "plain": "After this model finishes making its attacks each time it shoots, choose one unit that at least one of those attacks hit, then roll one D6: on a 2+, that unit takes D3 mortal wounds."
+    "plain": "Each time this model finishes shooting, choose one unit that at least one of its attacks hit, then roll one D6: on a 2+, that unit takes D3 mortal wounds."
+  },
+  "01d1b950bfc9": {
+    "name": "Insidious Threat",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your JORMUNGANDR units within Synaptic Link range of this WARLORD to ignore cover with its attacks. Until your next Command phase starts, targets of its models' attacks get no benefit from cover against them."
   },
   "046694e37b14": {
     "name": "Rarefied Enhancements",
@@ -19,6 +24,24 @@
     "name": "Chameleonic Skin",
     "plain": "Subtract 1 from the hit roll of every attack made against this model. While this model is receiving the benefits of cover, it can't be chosen as the target of a ranged attack by an attacker more than 12\" away. This model has a 5+ invulnerable save."
   },
+  "07700f91d989": {
+    "name": "Hyper-adaptation (Gorgon)",
+    "kind": "ability",
+    "plain": "You may replace this hive fleet's Adaptive rule with one of the Feed or Lurk Biomorphologies.",
+    "waive": {
+      "61": "page reference (\"page 61\") to where the biomorphologies are printed; not part of the rule"
+    }
+  },
+  "07f9803cd9a3": {
+    "name": "Benefits",
+    "kind": "ability",
+    "plain": "Your units gain the CRUSHER STAMPEDE keyword and one of two abilities, and you unlock the Crusher Stampede Warlord Traits, Stratagems and psychic powers.\n• Every unit in your army gains the CRUSHER STAMPEDE keyword.\n• Your units that lack the MONSTER keyword gain Shielded by the Hive Mind.\n• Your MONSTER units gain the Hulking Behemoths ability.\n• You can use the Crusher Stampede Warlord Traits and Stratagems.\n• Your CRUSHER STAMPEDE PSYKERS can take their psychic powers from the Mass Convergence discipline.",
+    "waive": {
+      "99": "page reference (\"pg 99\") to where the Crusher Stampede Warlord Traits are printed; not part of the rule",
+      "100": "page reference (\"pg 100\") to where the Crusher Stampede Stratagems are printed; not part of the rule",
+      "101": "page reference (\"pg 101\") to where the Mass Convergence discipline is printed; not part of the rule"
+    }
+  },
   "09ba15b53eb8": {
     "name": "Floating Death (Spore Mine)",
     "kind": "ability",
@@ -29,15 +52,40 @@
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your CRUSHER STAMPEDE units is chosen as the target of an attack. For the rest of the phase, attacks against that unit always fail to wound on an unmodified wound roll of 1-3, no matter what abilities the attacking model or its weapon has. Cost: 2CP if that unit has 5 or more models, or has any models with a Wounds characteristic of 10 or more; otherwise 1CP."
   },
+  "0a47a1695196": {
+    "name": "The Horror",
+    "kind": "psychic",
+    "plain": "This power's range is Synaptic Link range or 24\"."
+  },
+  "0a7add5ff31f": {
+    "name": "Relentless Hunger",
+    "kind": "ability",
+    "plain": "If a charge by a unit with this adaptation fails, that unit may make a Normal Move of up to 3\"."
+  },
+  "0bec7c29aa34": {
+    "name": "Stabilising Membranes",
+    "kind": "ability",
+    "plain": "When a model with this adaptation makes a ranged attack, an unmodified wound roll of 6 improves that attack's Armour Penetration by 1."
+  },
   "0d20245b77ab": {
     "name": "Hypertoxic Poison Cloud",
     "kind": "ability",
     "plain": "At the end of the Fight phase, for each enemy model within Engagement Range of this model, roll one D6: on a 5+, the unit that model belongs to takes 1 mortal wound."
   },
+  "1003bf96bfa8": {
+    "name": "Endless Regeneration",
+    "kind": "ability",
+    "plain": "At the start of the Command phase, this WARLORD may regenerate, getting back up to D3 lost wounds. It can't do this more than once per turn."
+  },
   "116c07214d5b": {
     "kind": "ability",
     "name": "Tyrant Goading",
     "plain": "Models in this unit get 1 added to their Attacks characteristic while the unit is within 3\" of any <HIVE FLEET> HIVE TYRANT models from your army."
+  },
+  "1309f4799547": {
+    "name": "Restrictions",
+    "kind": "ability",
+    "plain": "Your army must be all TYRANIDS from one <HIVE FLEET>, with no SWARM units, no models with 2 Wounds or fewer, and a MONSTER unit for every non-MONSTER unit.\n• No SWARM units, and no models whose Wounds characteristic is 2 or less.\n• For each unit in your army that lacks the MONSTER keyword, your army needs at least one MONSTER unit.\n• Every unit in your army needs the TYRANIDS keyword and must come from the same <HIVE FLEET>."
   },
   "132d594b82e7": {
     "kind": "ability",
@@ -47,7 +95,7 @@
   "137c95e01774": {
     "kind": "psychic",
     "name": "Hive Nexus",
-    "plain": "Blessing: choose one of your CORE LEVIATHAN units within Synaptic Link range of this PSYKER, and one of your LEVIATHAN SYNAPSE models that is also within Synaptic Link range of this PSYKER, then choose one of that model's Synaptic Imperative abilities. Until your next turn begins, the chosen unit benefits from that SYNAPSE model's Synaptic Imperative as if it were in effect for your army, in addition to the one your army already has active, and as if the unit and the model were within 6\" of each other."
+    "plain": "Blessing: until your next turn begins, one of your CORE LEVIATHAN units benefits from an extra Synaptic Imperative, on top of the one active for your army. Choose one of your CORE LEVIATHAN units within Synaptic Link range of this PSYKER, and one of your LEVIATHAN SYNAPSE models that is also within Synaptic Link range of this PSYKER, then choose one of that model's Synaptic Imperative abilities. Until your next turn begins, the chosen unit benefits from that SYNAPSE model's Synaptic Imperative as if it were in effect for your army, in addition to the one your army already has active, and as if the unit and the model were within 6\" of each other."
   },
   "148f1bd052e5": {
     "kind": "ability",
@@ -109,6 +157,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your FLESH HOOKS units is chosen to fight. For the rest of the phase, add 1 to the hit roll of each melee attack a FLESH HOOKS model in that unit makes against an enemy unit, unless that enemy unit is a VEHICLE or MONSTER unit."
   },
+  "1f4139f300da": {
+    "name": "Adaptive (Hydra)",
+    "kind": "ability",
+    "plain": "Models with this adaptation add 1\" to their Move characteristic, and their consolidation moves can go up to 3\" further than normal (to a maximum of 9\")."
+  },
   "1f778491c10b": {
     "kind": "ability",
     "name": "It's Out There (Aura)",
@@ -119,6 +172,11 @@
     "kind": "ability",
     "plain": "Re-roll hit rolls of 1 for melee attacks by this unit's models, as long as the attacking model has no ranged weapons."
   },
+  "2010e251d19a": {
+    "name": "Lethal Miasma",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, roll one D6 per enemy unit within 3\" of this WARLORD: a 2-5 deals 1 mortal wound to that unit, and a 6 deals D3 mortal wounds."
+  },
   "2058c383c88a": {
     "kind": "ability",
     "name": "Synaptic Enhancement",
@@ -126,6 +184,21 @@
     "waive": {
       "86": "page reference to the codex, not part of the rule"
     }
+  },
+  "2121eceb6ce6": {
+    "name": "Hulking Behemoths",
+    "kind": "ability",
+    "plain": "This unit gets a 5+ invulnerable save, takes less damage from each attack and counts as more models on objectives, but can never gain a Hive Fleet Adaptation.\n• It can never gain a Hive Fleet Adaptation.\n• Its models have a 5+ invulnerable save.\n• Whenever an attack is allocated to one of its models, that attack's Damage characteristic is reduced by 1 (to a minimum of 1).\n• When working out who controls an objective marker, each of its models counts as a number of models equal to its remaining wounds."
+  },
+  "22dffe632e23": {
+    "name": "Synaptic Control",
+    "kind": "ability",
+    "plain": "Some unmodified wound rolls against units with this adaptation always fail, whatever abilities the weapon or the attacker has.\n• Against SYNAPSE MONSTER units, an unmodified wound roll of 1-3 always fails.\n• Against non-SYNAPSE units that are within Synaptic Link range of any of your LEVIATHAN SYNAPSE units, an unmodified wound roll of 1-2 always fails."
+  },
+  "23088a1e90e5": {
+    "name": "Exoskeletal Reinforcement",
+    "kind": "ability",
+    "plain": "Attacks with an Armour Penetration of -1 that are allocated to models with this adaptation count as having an Armour Penetration of 0 instead."
   },
   "234229391f0d": {
     "kind": "ability",
@@ -145,7 +218,7 @@
   "26cddf5a464d": {
     "kind": "ability",
     "name": "Preceptic Node",
-    "plain": "Whenever an enemy unit is placed on the battlefield as Reinforcements within 18\" of the bearer during the Reinforcements step of your opponent's Movement phase, you can choose one of your LEVIATHAN CORE or LEVIATHAN CHARACTER units within 6\" of the bearer. That unit may then shoot as if it were your Shooting phase, targeting only that enemy Reinforcements unit. No unit can be chosen to shoot more than once per phase through this Relic."
+    "plain": "Whenever an enemy unit arrives as Reinforcements within 18\" of the bearer, one of your units within 6\" of the bearer can shoot at it. This works in the Reinforcements step of your opponent's Movement phase: choose one of your LEVIATHAN CORE or LEVIATHAN CHARACTER units within 6\" of the bearer. That unit may then shoot as if it were your Shooting phase, targeting only that enemy Reinforcements unit. No unit can be chosen to shoot more than once per phase through this Relic."
   },
   "2a94620fd6f9": {
     "kind": "ability",
@@ -156,6 +229,11 @@
     "name": "Death Throes (3\"/3)",
     "kind": "ability",
     "plain": "When this model is destroyed, before you remove it, roll one D6. On a 6+, the nearest enemy unit within 3\" takes 3 mortal wounds."
+  },
+  "2b507c0466e5": {
+    "name": "Rare Organisms",
+    "kind": "rule",
+    "plain": "Each HIVE TENDRIL Detachment in your army can include no more than one HIVE TYRANT model."
   },
   "2ce661cd231d": {
     "name": "Thunderous Impact",
@@ -171,6 +249,11 @@
     "kind": "psychic",
     "name": "Infused Energies",
     "plain": "Blessing: pick one of your CRUSHER STAMPEDE units within 18\" of this PSYKER, other than a SYNAPSE unit. Until your next Psychic phase starts, you can re-roll the hit roll whenever a model in that unit makes a melee attack."
+  },
+  "2eec8ccd43d4": {
+    "name": "Adaptive (Behemoth)",
+    "kind": "ability",
+    "plain": "Your units with this adaptation can re-roll their charge rolls."
   },
   "3017176fee2b": {
     "name": "Terror from the Deep",
@@ -210,6 +293,11 @@
     "kind": "stratagem",
     "plain": "Use in your Movement phase, when one of your HORMAGAUNTS units is chosen to Advance. Until the end of the turn: whenever that unit Advances, don't make an Advance roll; instead, its models add 6\" to their Move characteristic until the end of the phase. The unit can also still declare a charge this turn even though it Advanced. Cost: 1CP if the unit has 15 or fewer models, otherwise 2CP."
   },
+  "33557d7d90f7": {
+    "name": "Territorial Instincts",
+    "kind": "ability",
+    "plain": "Each MONSTER model with this adaptation has Objective Secured. If its Wounds characteristic is 10 or more, it also counts as 5 models when working out who controls an objective marker."
+  },
   "33929bbadf63": {
     "kind": "ability",
     "name": "Barbworm Infestation",
@@ -228,6 +316,11 @@
     "name": "Shadow in the Warp (Aura)",
     "plain": "Aura: for any enemy PSYKER unit within 18\" of this unit, Psychic tests it takes are reduced by 1, and every time it suffers Perils of the Warp it takes 1 more mortal wound than normal."
   },
+  "37c3a6ee874c": {
+    "name": "Synaptic Hive Blades",
+    "kind": "ability",
+    "plain": "Model with boneswords or monstrous boneswords only: your opponent can't make invulnerable saving throws against the bearer's melee attacks with those weapons."
+  },
   "37df11df9a3d": {
     "name": "Float Down",
     "kind": "ability",
@@ -238,10 +331,25 @@
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your LEVIATHAN MONSTER models (excluding TITANIC models) is destroyed. If it has an ability triggered by a dice roll on its destruction (such as Death Throes), skip that roll: the ability triggers automatically."
   },
+  "38efd11ff722": {
+    "name": "Adaptive Neural Lobe",
+    "kind": "ability",
+    "plain": "Whenever your opponent pays a Command Point for a Stratagem while the bearer is on the battlefield, you may roll one D6; a 5+ gets you 1 Command Point."
+  },
+  "38f37c8939ff": {
+    "name": "One Step Ahead",
+    "kind": "ability",
+    "plain": "If this WARLORD is on the battlefield when your opponent uses a Stratagem, roll one D6; a 5+ gives you 1 Command point."
+  },
   "3a17dba2b2d8": {
     "name": "*Designers Note",
     "kind": "ability",
     "plain": "If this model has no base, both players must agree on the footprint of its 'base' before deployment, the same way they would for an Area Terrain feature. The suggested method is to imagine straight lines drawn from each point of the model that would touch the battlefield if it stood on a flat surface; the area inside those lines is treated as the model's 'base'. If the model is posed with one or more legs raised, agree with your opponent where each raised leg would touch the battlefield, and use those points to help define the shape of the model's 'base'."
+  },
+  "3a3be2e4e24b": {
+    "name": "Heightened Senses",
+    "kind": "ability",
+    "plain": "You can re-roll this WARLORD's hit rolls, and it can fight first in the Fight phase if within Engagement Range of any enemy units as the phase starts."
   },
   "3a7500a819fd": {
     "name": "Floating Death",
@@ -253,10 +361,25 @@
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see, as long as a friendly <HIVE FLEET> SYNAPSE model can see them. If an attack with this weapon scores a hit, the target takes 1 mortal wound and the attack sequence ends."
   },
+  "3efe187509bd": {
+    "name": "Adaptive (Kronos)",
+    "kind": "ability",
+    "plain": "Ranged attacks by models with this adaptation improve their Armour Penetration by 1 against targets within half range."
+  },
   "3f5b5756910a": {
     "kind": "psychic",
     "name": "Broodlord",
     "plain": "This model knows Smite and 1 psychic power from the Hive Mind discipline."
+  },
+  "3f731e6d3c2a": {
+    "name": "Detachment Abilities",
+    "kind": "rule",
+    "plain": "HIVE TENDRIL Detachments gain Rare Organisms, their HIVE TENDRIL units gain Hive Fleet Adaptations, and their Troops units gain Objective Secured.\nA Detachment counts as a HIVE TENDRIL Detachment if every model in it has the HIVE TENDRIL keyword, not counting models with the UNALIGNED keyword."
+  },
+  "3f801ceffdb0": {
+    "name": "Soul Hunger (Aura)",
+    "kind": "ability",
+    "plain": "Aura: an enemy PSYKER unit within 18\" of this WARLORD suffers Perils of the Warp on any double in a Psychic test, not just a double 1 or double 6."
   },
   "3fe1ab765b63": {
     "name": "Airborne",
@@ -285,6 +408,11 @@
     "name": "Lesser Organisms",
     "kind": "ability",
     "plain": "If your army is Battle-forged, this unit can't fill a compulsory Battlefield Role slot in a Detachment."
+  },
+  "44620483cdf7": {
+    "name": "Exoskeletal Stabilisation",
+    "kind": "ability",
+    "plain": "Models with this adaptation ignore the hit roll penalty for firing Assault weapons in a turn their unit Advanced, and Heavy weapons in a turn it moved. MONSTER models with this adaptation also ignore the hit roll penalty for firing Heavy weapons at enemy units within Engagement Range of them."
   },
   "44fba35f1d3a": {
     "kind": "ability",
@@ -320,6 +448,11 @@
     "name": "Impaler Cannon",
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see, as long as a friendly <HIVE FLEET> SYNAPSE model can see the target. Targets of attacks made with this weapon get no benefit from Light Cover against those attacks."
+  },
+  "4da912fa485f": {
+    "name": "Adaptive (Jormungandr)",
+    "kind": "ability",
+    "plain": "When a Blast weapon targets a unit with this adaptation, count half the unit's models (rounding up) when working out how many attacks that weapon makes."
   },
   "4e445814182c": {
     "kind": "ability",
@@ -386,6 +519,11 @@
     "name": "Catalyst",
     "plain": "Blessing: pick one of your <HIVE FLEET> units within Synaptic Link range of this PSYKER. Until your next Psychic phase starts, whenever a model in that unit would lose a wound, roll one D6: the wound is not lost on a 5+, or only on a 6 if that model is TITANIC."
   },
+  "5ad4061f4a6b": {
+    "name": "Hyper-adaptations",
+    "kind": "ability",
+    "plain": "Every Hive Fleet Adaptation has an Adaptive part that you can swap for another rule at the start of the battle, once it's decided who has the first turn. Each hive fleet's Hyper-adaptations rule says which replacement rules you can pick from."
+  },
   "5b39f1d1b080": {
     "name": "Critical Mass",
     "kind": "stratagem",
@@ -431,6 +569,17 @@
     "kind": "stratagem",
     "plain": "When one of your <HIVE FLEET> TRYGON or <HIVE FLEET> TRYGON PRIME models is set up on the battlefield in the Reinforcements step of your Movement phase using its Death From Below ability, you can use this Stratagem. Pick a friendly <HIVE FLEET> unit in Strategic Reserves whose Battlefield Role is Troops, and set it up wholly within 9\" of the TRYGON or TRYGON PRIME model, anywhere on the battlefield but not within 9\" of an enemy model."
   },
+  "5e83859c04a2": {
+    "name": "Splinter Fleet",
+    "kind": "ability",
+    "plain": "Pick one of these hive fleets and use its Hive Fleet Adaptation and Hyper-adaptation: Behemoth, Kraken, Leviathan, Gorgon, Jormungandr, Kronos or Hydra.\nWarlord Trait: if a CHARACTER model with this adaptation gets a Warlord Trait, it can take the picked hive fleet's own Hive Fleet Warlord Trait instead of a normal Warlord Trait. If it does, every <HIVE FLEET> keyword on that trait (such as KRAKEN) becomes the name of the CHARACTER's own hive fleet.\nUnless all your units with this adaptation are in Auxiliary Support, Super-heavy Auxiliary or Fortification Network Detachments (in any mix):\n• You can use the picked hive fleet's Hive Fleet Stratagem. When you do, every <HIVE FLEET> keyword on it (such as KRAKEN) becomes the name of the hive fleet your units with this adaptation belong to.\n• Your HIVE TENDRIL PSYKER units with this adaptation know that hive fleet's Hive Fleet psychic power on top of their other powers. When it is manifested, every <HIVE FLEET> keyword on it (such as KRAKEN) becomes the name of the hive fleet your units with this adaptation belong to.",
+    "waive": {
+      "53": "page reference (\"pages 53-59\") to where the hive fleets' adaptations are printed; not part of the rule",
+      "59": "page reference (\"pages 53-59\") to where the hive fleets' adaptations are printed; not part of the rule",
+      "68": "page reference (\"page 68\") to the standard Warlord Traits table; not part of the rule",
+      "CHARCTER": "typo in the official text for CHARACTER; the plain text uses the correctly spelled CHARACTER keyword"
+    }
+  },
   "5f6d8b54e7f5": {
     "kind": "ability",
     "name": "Fear of the Unseen",
@@ -474,6 +623,11 @@
     "name": "Biostatic Rattle",
     "plain": "When the Fight phase starts, pick one enemy unit within Engagement Range of the bearer and roll 3D6. If the total is higher than that unit's Leadership characteristic, then until the phase ends, hit rolls and wound rolls can't be re-rolled for attacks made by models in that unit."
   },
+  "66deb495972c": {
+    "name": "Adaptive Toxins",
+    "kind": "ability",
+    "plain": "Attacks by models with this adaptation always wound on an unmodified wound roll of 4+, unless the target is a VEHICLE or TITANIC unit."
+  },
   "66f61ea0318a": {
     "kind": "ability",
     "name": "Scythes of Tyran",
@@ -491,6 +645,19 @@
     "waive": {
       "PSTKER": "misspelling of PSYKER in the official text; written correctly as PSYKER"
     }
+  },
+  "6e0222c84a0e": {
+    "name": "Synaptic Lynchpin",
+    "kind": "ability",
+    "plain": "This WARLORD's aura abilities and Synaptic Imperative abilities get 3\" more range. In addition, whenever it uses an ability with a stated range in your Command phase, that ability's range is 3\" longer until the end of the phase.",
+    "waive": {
+      "88": "page reference (\"pg 88\") to where the Synaptic Imperative abilities are printed; not part of the rule"
+    }
+  },
+  "6e9058c5f439": {
+    "name": "Savage Intimidation (Aura)",
+    "kind": "ability",
+    "plain": "Aura: enemy units within 6\" of this WARLORD subtract 1 from their melee hit rolls and 1 from their Combat Attrition tests."
   },
   "6f9519be6ee3": {
     "name": "Synaptic Domination",
@@ -526,6 +693,14 @@
     "name": "Bio-adapted Borer Grubs",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your LEVIATHAN units is chosen to shoot. For the rest of the phase, when a model in that unit attacks with a fleshborer or fleshborer hive, an unmodified wound roll of 6 inflicts 1 mortal wound on the target on top of the normal damage (no more than 6 mortal wounds per phase from this Stratagem). Cost: 2CP if that unit is a TYRANNOFEX, otherwise 1CP. You can't use both this Stratagem and the Scorch Bugs Stratagem on the same unit in the same phase."
+  },
+  "730585eb1c24": {
+    "name": "Tunnel Networks",
+    "kind": "ability",
+    "plain": "Units with this adaptation get the benefits of Dense Cover against ranged attacks from more than 12\" away, or from more than 18\" away for MONSTER units.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a cross-reference, which the style guide says to leave out"
+    }
   },
   "7405dc59a09d": {
     "name": "Floating Death (Meiotic Spores)",
@@ -576,17 +751,27 @@
   "798eb7145007": {
     "name": "Parasitic Infection",
     "kind": "ability",
-    "plain": "When an attack with this weapon wounds an enemy unit that isn't a VEHICLE unit, that unit takes 1 mortal wound in addition to any normal damage and is now infected with parasites. At the start of your opponent's Command phase, your opponent must roll a D6 for every enemy unit infected with parasites: on a 1-3, the unit takes D3 mortal wounds and stops being infected; on a 4-6, it takes D3 mortal wounds and is still infected. If a unit takes 2 or more mortal wounds from this ability in that phase, you set up a new <HIVE FLEET> RIPPER SWARMS unit of yours on the battlefield within 3\" of it but not within Engagement Range of any enemy units. That new RIPPER SWARMS unit has 1 model and, in games with a points limit, it costs no Reinforcement points."
+    "plain": "Each attack from this weapon that wounds an enemy unit (not a VEHICLE unit) also deals 1 mortal wound and infects that unit with parasites. The mortal wound is in addition to any normal damage. At the start of your opponent's Command phase, your opponent must roll a D6 for every enemy unit infected with parasites: on a 1-3, the unit takes D3 mortal wounds and stops being infected; on a 4-6, it takes D3 mortal wounds and is still infected. If a unit takes 2 or more mortal wounds from this ability in that phase, you set up a new <HIVE FLEET> RIPPER SWARMS unit of yours on the battlefield within 3\" of it but not within Engagement Range of any enemy units. That new RIPPER SWARMS unit has 1 model and, in games with a points limit, it costs no Reinforcement points."
   },
   "7a3b62f7d875": {
     "kind": "ability",
     "name": "Berserk Rampage",
     "plain": "Whenever this model fights in a turn in which it made a charge move or performed a Heroic Intervention, add D3+1 to its Attacks characteristic until that fight is resolved."
   },
+  "7cb13de4f10e": {
+    "name": "Adaptive (Gorgon)",
+    "kind": "ability",
+    "plain": "Each time a unit with this adaptation is chosen to shoot or fight, you may re-roll a single wound roll from that unit's attacks."
+  },
   "7d3f63f55dbf": {
     "name": "Vicious Hunter",
     "kind": "ability",
     "plain": "When this model makes a ranged attack, the target gets no benefit from Light Cover against it, and an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "7e726d2b3044": {
+    "name": "Augmented Ferocity",
+    "kind": "ability",
+    "plain": "Units with this adaptation add 1 to their charge rolls."
   },
   "7e9788a53504": {
     "kind": "ability",
@@ -628,6 +813,11 @@
     "name": "Aggressive Surge",
     "plain": "Blessing: pick one of your CRUSHER STAMPEDE models within 18\" of this PSYKER. Until your next Psychic phase starts, that model's Attacks characteristic is increased by D3."
   },
+  "86f4abebcf1c": {
+    "name": "Gestalt Commander",
+    "kind": "ability",
+    "plain": "At the start of each battle round, pick a Hive Fleet Warlord Trait for this WARLORD; it has that trait until the next battle round starts. You can't pick Perfectly Adapted, or any Warlord Trait a model in your army already has. Replace any hive fleet keyword in the chosen trait with LEVIATHAN."
+  },
   "8804109824fe": {
     "name": "Hive Mind Imperative",
     "kind": "stratagem",
@@ -642,6 +832,11 @@
     "name": "Shockcannon",
     "kind": "weapon",
     "plain": "When this weapon attacks a VEHICLE unit, an unmodified wound roll of 4+ always wounds and also inflicts 1 mortal wound on top of any normal damage."
+  },
+  "8b10b023c989": {
+    "name": "Adaptive (Leviathan)",
+    "kind": "ability",
+    "plain": "Each time a unit with this adaptation is chosen to shoot or fight, you may re-roll a single hit roll from that unit's attacks."
   },
   "8b9db01f3bd6": {
     "kind": "ability",
@@ -668,6 +863,11 @@
     "name": "Infrasonic Roar",
     "plain": "When your Movement phase ends, choose an enemy unit within 12\" of the bearer, then roll 3D6. If the total is at least that unit's Leadership characteristic, it can't perform actions until your next Movement phase begins, and any action it is in the middle of fails at once."
   },
+  "8e4defea1153": {
+    "name": "Swarm Leader",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your LEVIATHAN INFANTRY, LEVIATHAN BEAST or LEVIATHAN SWARM units within 9\" of this WARLORD to re-roll hit rolls. The re-roll is available for every attack its models make until your next Command phase starts."
+  },
   "8e5737b219b5": {
     "kind": "weapon",
     "name": "Grasping Tongue",
@@ -691,7 +891,7 @@
   "8f1222b7ddda": {
     "kind": "ability",
     "name": "The Ymgarl Factor",
-    "plain": "When the Fight phase starts, choose one of these effects for the bearer, lasting until the phase ends: add 2 to its Strength characteristic; add 1 to its Attacks characteristic; or add 1 to its Toughness characteristic."
+    "plain": "When the Fight phase starts, the bearer boosts its Strength, Attacks or Toughness until the phase ends. Pick one: add 2 to its Strength characteristic; add 1 to its Attacks characteristic; or add 1 to its Toughness characteristic."
   },
   "8fa1e54f780a": {
     "kind": "ability",
@@ -706,10 +906,25 @@
     "kind": "ability",
     "plain": "Once per turn, after this model moves in your Movement phase, you can pick one unit or one point on the battlefield that it moved across. If you pick a unit, roll a D6 for each model in it, but six D6s for each VEHICLE or MONSTER model in it (to a maximum of ten D6s in total); each 4+ inflicts 1 mortal wound on that unit. If you pick a point, set up a new SPORE MINES unit of yours with 3 models on the battlefield, within 1\" of that point and not within 6\" of any enemy units. As updated in January 2023: setting up a Spore Mines unit this way requires spending Reinforcement Points, and this ability only works if this aircraft is still on the battlefield when its move ends."
   },
+  "90343dc68bf9": {
+    "name": "Questing Tendrils",
+    "kind": "ability",
+    "plain": "When a unit with this adaptation fights after making a charge move this turn, its models' attacks improve their Armour Penetration by 1. This lasts until that fight is resolved."
+  },
+  "9099a244ae8b": {
+    "name": "Blinding Venom",
+    "kind": "weapon",
+    "plain": "If this weapon causes any unsaved wounds on a unit, your opponent subtracts 1 from that unit's hit rolls until the end of the turn."
+  },
   "919ccf9a7a3f": {
     "kind": "ability",
     "name": "Armoured Exoskeleton",
     "plain": "Whenever an attack is allocated to this model, reduce that attack's Damage characteristic by 1, to a minimum of 1. This doesn't stack with any other abilities that reduce an attack's Damage characteristic."
+  },
+  "922a7816444f": {
+    "name": "Distensible Jaws",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, exactly one of its attacks must use this weapon."
   },
   "927010b2f7a0": {
     "kind": "ability",
@@ -720,6 +935,11 @@
     "name": "Carapace Chitin Rams",
     "kind": "ability",
     "plain": "Whenever this model makes a charge move, you can pick one enemy unit within Engagement Range and roll a D6; on a 4+, that unit takes D3 mortal wounds, or D6 mortal wounds instead if it is a VEHICLE or MONSTER unit. Also, if this model made a charge move this turn, its melee attacks add 1 to their hit rolls."
+  },
+  "937eddb855d9": {
+    "name": "Rare Organisms (Matched Play)",
+    "kind": "rule",
+    "plain": "If your army has any HIVE TYRANT models, your WARLORD must be one of them."
   },
   "940581e1c024": {
     "name": "Living Bombs (Meiotic Spores)",
@@ -741,6 +961,11 @@
     "kind": "stratagem",
     "plain": "Use in any phase, when one of your HIVE TENDRIL MONSTER units is chosen as the target of an attack. For the rest of the phase, attacks against that unit always fail to wound on an unmodified wound roll of 1-3, no matter what abilities the attacking model or its weapon has."
   },
+  "9712d645c80f": {
+    "name": "Naturalised Camouflage",
+    "kind": "ability",
+    "plain": "While a model with this adaptation has the benefits of cover from a terrain feature, add a further 1 to its armour saves against ranged attacks allocated to it."
+  },
   "9ab1e1b14e5a": {
     "kind": "ability",
     "name": "Hypermorphic Biology",
@@ -753,6 +978,16 @@
     "waive": {
       "87": "page reference to the codex, not part of the rule"
     }
+  },
+  "9caecc208d72": {
+    "name": "Swarming Instincts",
+    "kind": "ability",
+    "plain": "Melee attacks by models with this adaptation add 1 to the hit roll when the target unit has fewer models than the attacker's unit. For this, each VEHICLE or MONSTER model counts as 5 models."
+  },
+  "9d184434ba4c": {
+    "name": "The Void Crown",
+    "kind": "ability",
+    "plain": "PSYKER model only: the bearer knows 1 extra Hive Mind power, can do a psychic action and still manifest a power, and can't be denied on an unmodified 9+.\n• The bearer knows one more psychic power from the Hive Mind discipline.\n• The bearer can attempt a psychic action in your Psychic phase and still try to manifest one psychic power in that same phase.\n• When the bearer takes a Psychic test and the unmodified result is 9+, the psychic power or psychic action can't be denied."
   },
   "9d8e91a50c9c": {
     "name": "The Deepest Shadow",
@@ -774,6 +1009,11 @@
     "kind": "ability",
     "plain": "Whenever this model destroys a model in an enemy unit, subtract 1 from the Leadership characteristic of that unit's models until the end of the turn (up to a total of -4)."
   },
+  "a1badf068cca": {
+    "name": "Adaptive (Kraken)",
+    "kind": "ability",
+    "plain": "When a unit with this adaptation Advances, it makes no Advance roll; instead its models add D3+3\" to their Move characteristic until the end of the phase. This doesn't apply while the unit is affected by the Opportunistic Advance Stratagem or the Bounding Advance Stratagem."
+  },
   "a206acb10cff": {
     "name": "Relentless Flurry",
     "kind": "stratagem",
@@ -783,6 +1023,22 @@
     "name": "Observer Organism",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your EXOCRINE models is chosen to shoot. For the rest of the phase, whenever it makes an attack, the target gets no benefit of cover against it, and an unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "a386d80f86ff": {
+    "name": "Strategic Adaptation",
+    "kind": "ability",
+    "plain": "After both armies deploy and before the first battle round, you can redeploy up to two of your LEVIATHAN units in your deployment zone (not this WARLORD). If the mission uses the Strategic Reserves rules, you can put any of those units into Strategic Reserves at no extra CP cost, however many units are already there. If both players have abilities that redeploy units, roll off, and the winner decides who redeploys first.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\" in a cross-reference, which the style guide says to leave out"
+    }
+  },
+  "a40a90e162c8": {
+    "name": "Alpha Leader-Beast",
+    "kind": "ability",
+    "plain": "Before the battle, while mustering your army: give your WARLORD one extra Warlord Trait from the Leviathan Warlord Traits table. Use this after picking a LEVIATHAN CHARACTER that isn't a named character as your WARLORD. Every Warlord Trait in your army must be different (if you roll randomly, re-roll duplicates). You can use this Stratagem only once.",
+    "waive": {
+      "88": "page reference (\"pg 88\") to where the Leviathan Warlord Traits table is printed; not part of the rule"
+    }
   },
   "a6e7439b4447": {
     "name": "Instinctive Rampage",
@@ -814,15 +1070,33 @@
     "kind": "stratagem",
     "plain": "Use at the start of the Fight phase. Pick an enemy unit that is within Engagement Range of any of your GARGOYLES units. For the rest of the phase, hit rolls for attacks made by models in that enemy unit can't be re-rolled, and subtract 1 from the hit roll of each melee attack they make."
   },
+  "aeef4f16de37": {
+    "name": "Heightened Reflexes",
+    "kind": "ability",
+    "plain": "Units with this adaptation can shoot in a turn they Fell Back, but if they do, their ranged attacks subtract 1 from the hit roll until the end of the turn."
+  },
   "afe3eb61a39e": {
     "kind": "ability",
     "name": "Prey Adaption",
     "plain": "When an enemy model is destroyed within 3\" of this model, this model gains the following ability at the end of that phase, for the remainder of the battle: 'Prey Adaption (Aura): your <HIVE FLEET> units within 6\" of this model re-roll wound rolls of 1 for their models' attacks.'"
   },
+  "b014bd1b3f97": {
+    "name": "Direct Guidance",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your <HIVE FLEET> CORE units within Synaptic Link range of this WARLORD to add 1 to its hit rolls. This lasts until your next Command phase starts and applies to every attack its models make."
+  },
   "b0ca630f0412": {
     "name": "Floating Death",
     "kind": "ability",
     "plain": "At the end of the Charge phase, any model in this unit that is within 3\" of any enemy units explodes. For each Meiotic Spore model that explodes, roll one D6: on a 2-3, the nearest of those enemy units takes D3 mortal wounds; on a 4+, the nearest of those enemy units takes 3 mortal wounds. That Meiotic Spore model is then destroyed."
+  },
+  "b211d9961480": {
+    "name": "Hyper-adaptation (Behemoth)",
+    "kind": "ability",
+    "plain": "You may replace this hive fleet's Adaptive rule with one of the Hunt or Lurk Biomorphologies.",
+    "waive": {
+      "61": "page reference (\"page 61\") to where the biomorphologies are printed; not part of the rule"
+    }
   },
   "b2b0e7ac5da6": {
     "name": "Invisible Hunter",
@@ -846,6 +1120,16 @@
     "waive": {
       "86": "page number in a cross-reference (\"pg 86\"), not part of the rule"
     }
+  },
+  "bad0de01819b": {
+    "name": "Synaptic Goading",
+    "kind": "ability",
+    "plain": "As the first battle round starts, before any turn is taken, your ENDLESS MULTITUDE units with this adaptation can make a Normal Move of up to 6\". Only units that started the battle wholly within your deployment zone can do this."
+  },
+  "bba51f991999": {
+    "name": "Ambush Predators",
+    "kind": "ability",
+    "plain": "Units with this adaptation can perform Heroic Interventions as though they were CHARACTER units."
   },
   "bbb4e84bd7ba": {
     "name": "Synaptic Legacy",
@@ -902,6 +1186,19 @@
     "name": "The Horror",
     "plain": "Malediction: pick one enemy unit that is either within Synaptic Link range of this PSYKER or within 24\" of this PSYKER. Until your next Psychic phase starts, subtract 2 from the Leadership characteristic of that unit's models and subtract 1 from Combat Attrition tests taken for that unit."
   },
+  "c3d9789e579d": {
+    "name": "Hyper-adaptation (Hydra)",
+    "kind": "ability",
+    "plain": "You may replace this hive fleet's Adaptive rule with one of the Feed or Hunt Biomorphologies.",
+    "waive": {
+      "61": "page reference (\"page 61\") to where the biomorphologies are printed; not part of the rule"
+    }
+  },
+  "c3fb9a03db91": {
+    "name": "Shielded by the Hive Mind",
+    "kind": "ability",
+    "plain": "This unit's models have a 5+ invulnerable save, but the unit can never gain a Hive Fleet Adaptation."
+  },
   "c44e3a82c56c": {
     "kind": "ability",
     "name": "Predator Instincts",
@@ -912,20 +1209,57 @@
     "name": "Infestation Node",
     "plain": "Each <HIVE FLEET> Infestation Node marker has the abilities below, and is never treated as a model for any rule. Hive Infestation: in your Command phase, choose a <HIVE FLEET> GENESTEALERS unit from your army within 3\" of this marker that hasn't been chosen for this ability yet this turn; up to D3 of its destroyed models return to it. Those models can't be placed within Engagement Range of enemy units, except enemy units already in Engagement Range of that Genestealers unit. Burn Them Out: when any phase ends, if there are enemy models within 3\" of this marker and no friendly models within 3\" of it, the marker is removed from the battlefield."
   },
+  "c4e3dec3e3fa": {
+    "name": "Unfeeling Resilience",
+    "kind": "ability",
+    "plain": "Models with this adaptation whose characteristics change as they take damage count their remaining wounds as double when working out those characteristics."
+  },
   "c51f910f0914": {
     "name": "Death Frenzy",
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your HIVE TENDRIL CHARACTER models that hasn't yet been chosen to fight this phase is destroyed, instead of using any rules triggered by its destruction (such as the Death Throes ability). Don't remove it from play: it can fight once the attacking model's unit has finished making attacks. For those attacks, if the destroyed model's characteristics change as it suffers damage, treat it as having all its wounds remaining when working out those characteristics. After its attacks are resolved, remove it."
+  },
+  "c59da82fd17f": {
+    "name": "Perfectly Adapted",
+    "kind": "ability",
+    "plain": "Once per battle round, you can re-roll a single roll made for this WARLORD: a hit, wound, damage, Advance or charge roll, a Psychic test or a saving throw."
   },
   "c5b402709c67": {
     "name": "Opportunistic Advance",
     "kind": "stratagem",
     "plain": "Use in your Movement phase, when one of your KRAKEN units is chosen to move. Until the end of the turn: whenever that unit Advances, don't make an Advance roll; instead, add 8\" to its models' Move characteristic until the end of the phase (a unit can't benefit from this Stratagem and from the Bounding Advance Stratagem in the same phase). Also, its models don't suffer the hit roll penalty for firing Assault weapons in a turn in which their unit Advanced."
   },
+  "c6161cd31ad9": {
+    "name": "Infinite Biomorphologies",
+    "kind": "ability",
+    "plain": "If your hive fleet has no Hive Fleet Adaptation, you must create one: take the Splinter Fleet adaptation, or pick two biomorphologies from the lists.\nWhen picking biomorphologies:\n• The two must come from different lists.\n• You must make one of them the Adaptive element of your adaptation; that is the part the Hyper-adaptations rule lets you swap out when the battle starts.\n• If you use the Hyper-adaptations rule at the start of the battle to change that Adaptive element, the replacement must be a biomorphology from the third list, the one you didn't use when creating the adaptation.",
+    "waive": {
+      "51": "page reference (\"pg 51\") to where the Hyper-adaptations rule is printed; not part of the rule"
+    }
+  },
   "c7074e894475": {
     "kind": "ability",
     "name": "Toxin Sacs",
     "plain": "The bearer gets the TOXIN SACS keyword. Whenever it makes a melee attack, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "c78fb34782e8": {
+    "name": "Hive Fleet Adaptations",
+    "kind": "ability",
+    "plain": "If your army is all from one hive fleet, your HIVE TENDRIL units with this ability, and every model in them, gain that hive fleet's Hive Fleet Adaptation.\nHIVE TENDRIL LIVING ARTILLERY and UNALIGNED units are ignored when checking whether your army is from one hive fleet. If your hive fleet has no Hive Fleet Adaptation of its own, you must create a new one for it instead. Either way, note every Detachment's Hive Fleet Adaptation on your army roster.",
+    "waive": {
+      "60": "page reference (\"pages 60-61\") to where the rules for creating an adaptation are printed; not part of the rule",
+      "61": "page reference (\"pages 60-61\") to where the rules for creating an adaptation are printed; not part of the rule"
+    }
+  },
+  "c9c3bf082ed0": {
+    "name": "Neuroparasite",
+    "kind": "psychic",
+    "plain": "This power's range is Synaptic Link range or 18\"."
+  },
+  "cb7846b3316b": {
+    "name": "Synaptic Tendrils",
+    "kind": "ability",
+    "plain": "In your Command phase, this WARLORD can use one of the abilities listed here an extra time that phase, if it has that ability. Listed abilities: Alpha Warrior, Bio-impulses, Brood Progenitor, Vicious Insight, Warp Siphon or Will of the Hive Mind."
   },
   "ccadc6f45f40": {
     "kind": "ability",
@@ -935,10 +1269,25 @@
       "87": "page reference to the codex, not part of the rule"
     }
   },
+  "d03226103574": {
+    "name": "Rampaging Beast",
+    "kind": "ability",
+    "plain": "Once per turn, when this WARLORD is picked to fight, it can use this trait: this WARLORD's Attacks characteristic goes up by D3 for the rest of the phase."
+  },
   "d0cd283d8ad7": {
     "kind": "ability",
     "name": "Acid Maw",
     "plain": "The bearer gets the ACID MAW keyword."
+  },
+  "d1e5da0629bf": {
+    "name": "Bio-barrage",
+    "kind": "ability",
+    "plain": "Ranged weapons carried by models with this adaptation get 4\" added to their Range characteristic."
+  },
+  "d21b16ba2464": {
+    "name": "Hyper-aggression",
+    "kind": "ability",
+    "plain": "A unit with this adaptation adds 1 to its models' Strength while fighting in a turn it made a charge move, was charged or made a Heroic Intervention. The bonus lasts until that fight is resolved."
   },
   "d3f4ab5c5666": {
     "kind": "ability",
@@ -980,6 +1329,11 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase, when one of your BEHEMOTH INFANTRY units (excluding CHARACTER units) that hasn't fought yet this phase is chosen as the target of a melee attack. Until the unit making that attack finishes its attacks, whenever a model in that BEHEMOTH unit is destroyed, don't use any rules triggered by its destruction and don't remove it from play; once that attacking unit is done, the destroyed model can attack as if its unit had been chosen to fight. After those attacks are resolved, remove the destroyed model. Cost: 1CP if that BEHEMOTH INFANTRY unit has the ENDLESS MULTITUDE keyword, otherwise 2CP."
   },
+  "dadd7f4a37b5": {
+    "name": "Alien Cunning",
+    "kind": "ability",
+    "plain": "This WARLORD has Objective Secured, counts as 5 models when controlling objective markers, and can start an action in a turn it Advanced or Fell Back."
+  },
   "db09bc97e2d1": {
     "kind": "ability",
     "name": "Hive Commander",
@@ -1013,6 +1367,11 @@
     "name": "Extended Carapace",
     "plain": "The bearer's Move characteristic is 7\" and its Save characteristic is 4+."
   },
+  "ddc5b0865b22": {
+    "name": "Adrenalised Onslaught",
+    "kind": "ability",
+    "plain": "Models with this adaptation can make consolidation moves of up to 3\" further than normal (to a maximum of 9\")."
+  },
   "dfc0adf115ac": {
     "kind": "ability",
     "name": "Ablative Brood",
@@ -1021,7 +1380,7 @@
   "e13e13dca761": {
     "name": "Hive Predator",
     "kind": "stratagem",
-    "plain": "Use before the battle, while mustering your army, if your WARLORD has the HIVE TENDRIL keyword. Pick one of your HIVE TENDRIL CHARACTER models and determine one Warlord Trait for it (one it is allowed to have); that model counts as your Warlord only for that Warlord Trait. Every Warlord Trait in your army must be unique (if rolling randomly, re-roll duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+    "plain": "If your WARLORD has the HIVE TENDRIL keyword, give one of your HIVE TENDRIL CHARACTER models a Warlord Trait it is allowed to have. Use this before the battle, while mustering your army. That model counts as your Warlord only for that Warlord Trait. Every Warlord Trait in your army must be unique (if rolling randomly, re-roll duplicates), and this Stratagem can't give a model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
   "e1591b30153f": {
     "kind": "psychic",
@@ -1111,6 +1470,11 @@
     "name": "Prehensile Pincer Tail",
     "plain": "When resolving the bearer's attacks each time it is chosen to fight, one hit roll or one wound roll may be re-rolled."
   },
+  "f55660015bc0": {
+    "name": "Synaptic Ganglia",
+    "kind": "ability",
+    "plain": "Units with this adaptation can re-roll their Deny the Witch tests, and psychic powers they manifest get 3\" more range. If a power gives more than one range, only the first range it lists gets the extra 3\"."
+  },
   "f578414aca15": {
     "name": "Breaking Through",
     "kind": "stratagem",
@@ -1145,6 +1509,21 @@
     "kind": "weapon",
     "name": "Toxinspike",
     "plain": "Each time the bearer fights, it makes 1 extra attack with this weapon, and it can't make more than 1 attack with this weapon in that fight."
+  },
+  "f959430341de": {
+    "name": "Wreathed in the Shadow",
+    "kind": "ability",
+    "plain": "Enemy units targeted by a charge from a unit with this adaptation can't fire Overwatch or Set to Defend in response to that charge."
+  },
+  "f96a339a5451": {
+    "name": "Raging Influence (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your CRUSHER STAMPEDE MONSTER units within 6\" of this WARLORD score 1 extra hit on each unmodified melee hit roll of 6."
+  },
+  "fa0d6381d0cb": {
+    "name": "Unstoppable Swarm",
+    "kind": "ability",
+    "plain": "Units with this adaptation can ignore any or all modifiers that apply to their Move characteristic, Advance rolls or charge rolls."
   },
   "faad8df61f28": {
     "name": "Hover",

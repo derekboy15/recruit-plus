@@ -9,6 +9,11 @@
     "kind": "weapon",
     "plain": "For every attack with this weapon, make 2 hit rolls instead of 1 hit roll."
   },
+  "0aaa977f37ab": {
+    "name": "Aura of Majesty",
+    "kind": "ability",
+    "plain": "Saga (Aura): Morale tests for your SPACE WOLVES CORE units within 6\" of this model are passed automatically.\nDeed: this model starts your Command phase within range of an objective marker more than 6\" away from your deployment zone."
+  },
   "0d2104998df0": {
     "name": "Thane of the Retinue",
     "kind": "stratagem",
@@ -72,6 +77,11 @@
     "kind": "stratagem",
     "plain": "Use in your opponent's Psychic phase, once an enemy PSYKER unit has passed a Psychic test. Choose a SPACE WOLVES unit of yours that is within 12\" of that PSYKER unit; it can take a Deny the Witch test to try to deny that power, as though it were a PSYKER."
   },
+  "2c890d268659": {
+    "name": "Dark Terror",
+    "kind": "ability",
+    "plain": "Units with this tactic move faster and get light cover against shots from more than 18\" away:\n• Add 1 to Advance and charge rolls for units with this tactic.\n• When a model more than 18\" away makes a ranged attack against a unit with this tactic, that unit counts as having the benefits of light cover against it."
+  },
   "2cd0e26321b0": {
     "name": "An Army of One",
     "kind": "ability",
@@ -82,10 +92,15 @@
     "kind": "ability",
     "plain": "This applies if this unit has the Hunters Unleashed Chapter Tactic, or if it has the Inheritors of the Primarch successor tactic and is using the Space Wolves Chapter Tactic. Whenever it fights, if it made a charge move this turn, add 1 to the Attacks characteristic of its models (excluding WOLF GUARD models) until that fight is resolved."
   },
+  "2f14036da6e1": {
+    "name": "Blacktooth",
+    "kind": "ability",
+    "plain": "Swaps a combat knife or paired combat blades for Blacktooth, which has its own weapon profile. Only a model equipped with one of those can take this Relic."
+  },
   "3362246a1efd": {
     "name": "Storm Caller",
     "kind": "psychic",
-    "plain": "Blessing (Aura), warp charge 6: if manifested, until the start of your next Psychic phase, SPACE WOLVES models from your army get the benefit of light cover while their unit is within 6\" of this PSYKER."
+    "plain": "Blessing (Aura), warp charge 6: if manifested, your SPACE WOLVES models get the benefit of light cover while their unit is within 6\" of this PSYKER. This lasts until the start of your next Psychic phase."
   },
   "3407e2095f5a": {
     "name": "The Fierce-eye (Aura)",
@@ -96,6 +111,16 @@
     "name": "Litany of Hate",
     "kind": "ability",
     "plain": "If this litany is inspiring: while a SPACE WOLVES unit from your army is within 6\" of this model, you can re-roll hit rolls for melee attacks made by its models."
+  },
+  "3946d19a5193": {
+    "name": "Beastslayer",
+    "kind": "ability",
+    "plain": "Saga (Aura): SPACE WOLVES CORE units within 6\" of this model add 1 to the wound roll of their melee attacks against VEHICLES or MONSTERS.\nDeed: one of this model's attacks destroys an enemy MONSTER or VEHICLE unit."
+  },
+  "3b618b838ee0": {
+    "name": "Black Death",
+    "kind": "ability",
+    "plain": "Swaps the bearer's master-crafted power axe or power axe for Black Death, which has its own weapon profile. Only a model with one of those axes can take it."
   },
   "3c9765bed75d": {
     "name": "Rites of Battle (Aura)",
@@ -117,6 +142,11 @@
     "kind": "stratagem",
     "plain": "Use in your Command phase, if your army has a combat doctrine active. Choose one unit from your army with the SPACE WOLVES INFANTRY, SPACE WOLVES CAVALRY or SPACE WOLVES BIKER keyword. Until the start of your next Command phase, that unit benefits from the Assault Doctrine rather than the active combat doctrine."
   },
+  "3e9415ceca47": {
+    "name": "Black Death",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it can make D6 extra attacks with this weapon."
+  },
   "3f2a9d17bf8c": {
     "name": "...Worthy of a Saga",
     "kind": "ability",
@@ -126,6 +156,11 @@
     "name": "Pack Hunters",
     "kind": "stratagem",
     "plain": "Use in your Charge phase. Choose an enemy unit that is within Engagement Range of any SPACE WOLVES units in your army. For the rest of the turn:\n• when a SPACE WOLVES BEAST or SPACE WOLVES CAVALRY unit of yours declares a charge targeting the chosen unit, roll one extra D6 and discard one of the dice;\n• when one of your SPACE WOLVES CAVALRY models attacks the chosen unit with its crushing teeth and claws, or one of your SPACE WOLVES BEAST models attacks it with its teeth and claws, you can re-roll the wound roll."
+  },
+  "42b88eab23bb": {
+    "name": "Wolfkin",
+    "kind": "ability",
+    "plain": "Saga (Aura): your SPACE WOLVES CORE units within 6\" of this model always count as having made a charge move for the Shock Assault ability.\nDeed: this model destroys an enemy model with a melee attack."
   },
   "4b32289fa6eb": {
     "name": "Lord of the Wolfkin (Aura)",
@@ -147,6 +182,11 @@
     "kind": "ability",
     "plain": "If, in the Fight phase, this model is killed by a melee attack from an enemy model, you and your opponent roll off. If you win, the attacking model's unit suffers D6 mortal wounds."
   },
+  "5cc170ac02f2": {
+    "name": "Stalker Pack",
+    "kind": "ability",
+    "plain": "When choosing your army, make one SPACE WOLVES Detachment from your army a Stalker Pack Specialist Detachment. That Detachment's BATTLELEADERS, BLOOD CLAWS and REIVERS get the STALKER PACK keyword."
+  },
   "5e7503560ebc": {
     "name": "Lord of Tempests",
     "kind": "ability",
@@ -161,6 +201,16 @@
     "name": "Spiritual Leader",
     "kind": "ability",
     "plain": "During the Morale phase, any SPACE WOLVES unit of yours that is within 6\" of this model may use this model's Leadership in place of its own."
+  },
+  "5f2ee0c639ad": {
+    "name": "Aura of Majesty",
+    "kind": "ability",
+    "plain": "This WARLORD's litanies and four of its abilities reach 3\" further, to a maximum of 9\".\n• Its Rites of Battle, Tactical Precision, Chapter Master and Spiritual Leaders abilities each get 3\" more range (up to 9\" at most).\n• Any litany it recites gets 3\" more range (up to 9\" at most)."
+  },
+  "5f3ee8f5c224": {
+    "name": "Warrior Born",
+    "kind": "ability",
+    "plain": "Saga (Aura): at the start of the Fight phase, your SPACE WOLVES CORE units within 6\" of this model and in Engagement Range of enemies fight first that phase.\nDeed: this model destroys an enemy CHARACTER model with a melee attack."
   },
   "5f53f96d90b5": {
     "name": "Warrior of Legend",
@@ -182,6 +232,11 @@
     "kind": "ability",
     "plain": "When a unit with a Wolf Standard Advances or makes a charge move, you can re-roll any dice that show a 1 for that move."
   },
+  "6d8a83eb58f2": {
+    "name": "Resolve of the Bear",
+    "kind": "ability",
+    "plain": "This WARLORD can shrug off lost wounds on a 6, and enemies can't re-roll wound or damage rolls against it.\n• Roll one D6 whenever this WARLORD would lose a wound: on a 6, it doesn't lose that wound.\n• For attacks made against this WARLORD, your opponent can't re-roll the wound roll or the damage roll."
+  },
   "6dd5c612f69e": {
     "name": "Stalker Pack",
     "kind": "stratagem",
@@ -191,6 +246,11 @@
     "name": "Blizzard shield",
     "kind": "ability",
     "plain": "A model with a blizzard shield has a 4+ invulnerable save."
+  },
+  "6fd3a9b98788": {
+    "name": "The Storm's Eye",
+    "kind": "ability",
+    "plain": "LIBRARIAN only: once per turn, after resolving a Tempestas power the bearer manifested in your Psychic phase, roll one D6 per enemy unit within 12\" of it. On a 4+, that enemy unit suffers 1 mortal wound."
   },
   "716a8634e55b": {
     "name": "Chapter Master",
@@ -250,12 +310,17 @@
   "873793484567": {
     "name": "Jaws of the World Wolf",
     "kind": "psychic",
-    "plain": "Witchfire, warp charge 7: if manifested, choose an enemy unit visible to this PSYKER and within 18\" of it. For each model in that unit, roll one D6, adding 1 to each roll if the Psychic test came to 9 or more. Each 6+ inflicts 1 mortal wound on that unit."
+    "plain": "Witchfire, warp charge 7: if manifested, roll one D6 per model in an enemy unit within 18\" of this PSYKER that it can see; the unit takes 1 mortal wound per 6+. Add 1 to each roll if the Psychic test came to 9 or more."
   },
   "87436e420686": {
     "name": "Savage Strike",
     "kind": "stratagem",
     "plain": "Use in your Fight phase, when you select a SPACE WOLVES unit of yours to fight. If that unit made a charge move this turn, add 1 to the wound roll for each of its models' melee attacks until that fight is resolved. Cost: 1CP if the unit has 5 or fewer models, or 2CP if it has more."
+  },
+  "87fc7e23a59a": {
+    "name": "Fireheart",
+    "kind": "ability",
+    "plain": "Swaps the bearer's plasma pistol for Fireheart, which has its own weapon profile. Only a model with a plasma pistol can take it."
   },
   "880f1f98bf5c": {
     "name": "Bestial Rage",
@@ -280,6 +345,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your SPACE WOLVES CORE units is within 9\" of this model, the models in that unit can use this model's Leadership instead of their own."
   },
+  "8d440edd440f": {
+    "name": "Howling Beast",
+    "kind": "ability",
+    "plain": "Add 2 to this WARLORD's Attacks characteristic while it is within Engagement Range of any enemy models whose Leadership characteristic is 7 or lower."
+  },
   "8e530ff2705e": {
     "name": "Turbo-boost",
     "kind": "ability",
@@ -300,6 +370,11 @@
     "kind": "ability",
     "plain": "Aura: you can re-roll charge rolls for any of your SPACE WOLVES INFANTRY, SPACE WOLVES BIKER or SPACE WOLVES CAVALRY units while they are within 6\" of this unit, and for any of your SPACE WOLVES BLOOD CLAWS units while they are within 12\" of this unit."
   },
+  "9c2ba52fb2ad": {
+    "name": "Resolve of the Bear",
+    "kind": "ability",
+    "plain": "Saga (Aura): roll one D6 whenever a model in one of your SPACE WOLVES CORE units within 6\" of this model would lose a wound; on a 6, that wound isn't lost.\nDeed: this model loses one or more wounds."
+  },
   "9d913f42ed89": {
     "name": "Jarl of Fenris",
     "kind": "ability",
@@ -315,6 +390,11 @@
     "kind": "ability",
     "plain": "This model can hover in your Command phase. If it does, it loses the Airborne, Hard to Hit and Supersonic abilities and has a Move characteristic of 20\" until your next Command phase starts."
   },
+  "9f73753a2888": {
+    "name": "Blacktooth",
+    "kind": "weapon",
+    "plain": "When the bearer fights, it makes 2 extra attacks with this weapon. Whenever an attack with this weapon wounds, the target suffers 1 mortal wound and the attack sequence ends."
+  },
   "a0f9e335dbe7": {
     "name": "Crushing teeth and claws",
     "kind": "weapon",
@@ -325,6 +405,11 @@
     "kind": "stratagem",
     "plain": "Once per battle, in your Command phase, if your army has the Assault Doctrine active, you can use this. Until your next Command phase, whenever a SPACE WOLVES model from your army attacks with a Pistol or a melee weapon and gets an unmodified wound roll of 6, improve that attack's Armour Penetration by 1, on top of any Combat Doctrine bonus."
   },
+  "a3b7ea92b4d0": {
+    "name": "Mountain-Breaker Helm",
+    "kind": "ability",
+    "plain": "After the bearer makes its close combat attacks, before it consolidates, you can pick one enemy unit within 3\" of it and roll one D6. On a 2+, it suffers D3 mortal wounds."
+  },
   "a4a211ce8956": {
     "name": "Slayer's Oath",
     "kind": "ability",
@@ -334,6 +419,11 @@
     "name": "Runic Totems",
     "kind": "ability",
     "plain": "Enemy psychic powers can target this unit only if it is the closest enemy unit to the model manifesting the power. Also, roll one D6 whenever this unit would lose a wound in the Psychic phase; on a 4+, the wound isn't lost."
+  },
+  "a96477c8d880": {
+    "name": "The Wulfen Stone",
+    "kind": "ability",
+    "plain": "The bearer gives charge re-rolls to SPACE WOLVES CORE units within 6\" of it and, once per battle, boosts a Savage Fury unit.\n• Bestial Charge (Aura): while one of your SPACE WOLVES CORE units is within 6\" of the bearer, you can re-roll its charge rolls.\n• Once per battle, the bearer can call on the spirits of the Wulfen at the start of the Fight phase. If it does, pick one of your SPACE WOLVES units within 6\" of it with the Savage Fury ability. Until the phase ends, for every attack made by a model in that unit, Savage Fury's extra hit triggers on an unmodified roll of 5+."
   },
   "ac7816ff72ed": {
     "name": "Murder-maker",
@@ -352,6 +442,11 @@
     "name": "Killing Blow",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when you select a WOLFSPEAR CORE unit of yours to shoot or fight. For the rest of the phase, add 1 to the wound roll of an attack by one of its models if, at the moment the target was chosen, that target was below Half Strength, or had a Starting Strength of 1 and no more than half its wounds left."
+  },
+  "b0eee602d4ff": {
+    "name": "Strike for the Throat",
+    "kind": "ability",
+    "plain": "For each melee attack this WARLORD makes, you can re-roll the hit roll, and the attack's Armour Penetration characteristic improves by 1."
   },
   "b437c3549559": {
     "name": "Hunters Beyond Death",
@@ -383,6 +478,11 @@
     "kind": "psychic",
     "plain": "Malediction, warp charge 6: if manifested, choose an enemy unit within 24\" of this PSYKER. Until your next Psychic phase starts, subtract 1 from the hit roll of each attack made by that unit's models."
   },
+  "c4210da5738c": {
+    "name": "Elemental Shroud",
+    "kind": "ability",
+    "plain": "Attacks against the bearer subtract 1 from their hit rolls, and it can't be shot from more than 18\" away until it moves.\n• Subtract 1 from the hit roll of every attack made against the bearer.\n• The bearer can't be targeted by ranged attacks from a model more than 18\" away. If the bearer makes any kind of move, it loses this second benefit until the start of your next Movement phase."
+  },
   "c57d587293f5": {
     "name": "Explodes (Dreadnought)",
     "kind": "ability",
@@ -397,6 +497,11 @@
     "name": "Rebellious Presence",
     "kind": "ability",
     "plain": "While another SPACE WOLVES unit from your army is within 3\" of this model, subtract 1 from the Leadership of that unit's models."
+  },
+  "cbd952255964": {
+    "name": "Beastslayer",
+    "kind": "ability",
+    "plain": "This WARLORD fights better against MONSTER and VEHICLE units.\n• Add 1 to its Attacks characteristic while it is within Engagement Range of one or more enemy MONSTER or VEHICLE units.\n• Its attacks against a MONSTER or VEHICLE unit add 1 to both the hit roll and the wound roll."
   },
   "cd204adafccd": {
     "name": "Cunning of the Wolf",
@@ -428,6 +533,11 @@
     "kind": "ability",
     "plain": "At the end of your Movement phase, this Wolf Priest can attempt to heal one model. Choose a unit within 3\" of him that is SPACE WOLVES INFANTRY, BIKER or CAVALRY; if there is a wounded model in it, that model is healed, regaining up to D3 lost wounds immediately. No unit can be the target of Healing Balms more than once per turn."
   },
+  "dad1268edd7f": {
+    "name": "Wolfkin",
+    "kind": "ability",
+    "plain": "For Shock Assault, this WARLORD always counts as having made a charge move, and it gets D3 extra attacks from that ability instead of 1."
+  },
   "dd23b048fab1": {
     "name": "Savage Killers",
     "kind": "ability",
@@ -438,20 +548,55 @@
     "kind": "stratagem",
     "plain": "Use in the Fight phase. Choose an enemy INFANTRY or MONSTER unit that has lost models, or that has a model with fewer wounds left than it started with. For the rest of that phase, STALKER PACK units from your army add 1 to wound rolls for their attacks against that enemy unit."
   },
+  "dfc2ddd7bc43": {
+    "name": "Hunter",
+    "kind": "ability",
+    "plain": "Saga (Aura): while one of your SPACE WOLVES CORE units is within 6\" of this model, it can declare a charge in a turn in which it Advanced. If that unit has the Swift Hunters ability, it can also declare a charge in a turn in which it Fell Back.\nDeed: this model makes a successful charge against an enemy unit."
+  },
+  "e05adf973f87": {
+    "name": "Hunter",
+    "kind": "ability",
+    "plain": "Add 1 to this WARLORD's Advance and charge rolls, and it can charge in a turn in which it Advanced or Fell Back."
+  },
   "e06f835533b7": {
     "name": "Tempest hammer",
     "kind": "weapon",
     "plain": "Subtract 1 from hit rolls for this weapon's attacks. Roll a D6 whenever a model takes unsaved wounds from this weapon but isn't slain; on a 6, the target suffers a mortal wound."
+  },
+  "e07dadb0593b": {
+    "name": "Hunt from Afar",
+    "kind": "ability",
+    "plain": "When this WARLORD makes a ranged attack against a unit that is neither a VEHICLE nor a MONSTER, unmodified hit and wound rolls of 2+ both succeed."
   },
   "e95327c52315": {
     "name": "Savage Fury",
     "kind": "ability",
     "plain": "While the Assault Doctrine is active, each unmodified hit roll of 6 for a melee attack by a unit with this ability scores 1 extra hit on the target."
   },
+  "ea3966ff0a6b": {
+    "name": "Hunters Unleashed",
+    "kind": "rule",
+    "plain": "Units with this tactic hit more easily in melee in turns they charge, are charged or Heroically Intervene, and can Heroically Intervene like CHARACTERS.\n• Add 1 to the hit roll of a melee attack by a model with this tactic if, this turn, its unit was charged, made a charge move or performed a Heroic Intervention.\n• Units with this tactic can make Heroic Interventions just like CHARACTERS."
+  },
+  "ecec57695f3e": {
+    "name": "The Armour of Russ",
+    "kind": "ability",
+    "plain": "The bearer gets a 2+ save and a 4+ invulnerable save, and can hold back one enemy unit in the Fight phase.\n• The bearer has a 4+ invulnerable save and a Save characteristic of 2+.\n• At the start of the Fight phase, you may choose one enemy unit in Engagement Range of the bearer. It can't fight this phase until all eligible units from your army have fought."
+  },
+  "f1468a693557": {
+    "name": "The Pelt of Balewolf",
+    "kind": "ability",
+    "plain": "Subtract 1 from both the hit roll and the wound roll of every melee attack made against the bearer."
+  },
   "f1d9a4f92684": {
     "name": "Deed Worthy of a Saga",
     "kind": "stratagem",
     "plain": "Use in any phase, when a SPACE WOLVES CHARACTER model in your army (excluding VEHICLE models) that has no Warlord Trait fulfils a Deed's requirements. At the end of that phase, that model gains the Deed's associated Saga ability for the rest of the battle."
+  },
+  "f53f32350099": {
+    "name": "Totem of Storms",
+    "kind": "ability",
+    "plain": "Once per battle round, you can re-roll one of this model's Psychic tests or Deny the Witch tests."
   },
   "f99e1db29f26": {
     "name": "Healing Balms",

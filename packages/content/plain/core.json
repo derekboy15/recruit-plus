@@ -1,52 +1,234 @@
 {
+  "0140fda3cce5": {
+    "name": "Comms Antenna",
+    "kind": "ability",
+    "plain": "In your Command phase, if any CHARACTER units are embarked inside this BUILDING model, roll one D6: on a 5+, you get 1 Command point."
+  },
+  "24995c69e56c": {
+    "name": "Automated Weapons",
+    "kind": "ability",
+    "plain": "If no friendly unit is embarked aboard this model, its attacks can only target the nearest enemy unit it can see. When two or more units are tied for nearest, you pick which one it targets."
+  },
+  "261963a86097": {
+    "name": "Containment Failure",
+    "kind": "ability",
+    "plain": "When this model is destroyed, its vortex missiles explode before any embarked models disembark, and each unit within 2D6\" suffers D6 mortal wounds. Roll another D6 for each model that loses wounds to those mortal wounds but isn't destroyed: on a 6, it suffers D6 more mortal wounds."
+  },
   "2a6de61c4ca4": {
     "name": "Counter-offensive",
     "kind": "stratagem",
-    "plain": "Use after an enemy unit has fought this turn. Pick one of your units that is eligible to fight: it fights next."
+    "plain": "After an enemy unit has fought this turn, pick one of your units that is eligible to fight: it fights next."
+  },
+  "31da5b676624": {
+    "name": "Magazine Explosion (Macro-cannon)",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, it might explode: roll a D6 before you remove it and before any embarked models disembark. On a 6, its magazine blows up and every unit within 2D6\" suffers D6 mortal wounds."
+  },
+  "3244febd8760": {
+    "name": "Stratagem: Warlord Trait",
+    "kind": "ability",
+    "plain": "Use once, while mustering your army before the battle and after picking your WARLORD: if that WARLORD is a CHARACTER model, determine a Warlord Trait for them.\nIt has to be a Warlord Trait they are allowed to have."
+  },
+  "37e8667cabe4": {
+    "name": "Immobile (Fortification)",
+    "kind": "ability",
+    "plain": "This model can never move, and it can't fight in the Fight phase. Attacks against it in the Fight phase hit automatically, with no hit roll made. It can shoot in your Shooting phase even with enemy models within 1\" of it, and your units can still target enemy units that are within 1\" of it."
+  },
+  "3a4f1dfca935": {
+    "name": "Superior Boarding Tactics",
+    "kind": "ability",
+    "plain": "You start the battle with 2 extra Command points, gained in the Generate Starting Command Points step before the battle."
+  },
+  "3a6e44874b38": {
+    "name": "Primaris Rebout Turbo-Laser Destructor",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and each unmodified wound roll of 6 it makes also inflicts D3 mortal wounds on the target, on top of the normal damage."
   },
   "45500058f30e": {
     "name": "Fire Overwatch",
     "kind": "stratagem",
     "plain": "Use after an enemy unit declares a charge against one or more of your units. One of the units that charge is targeting can fire Overwatch, before the charge roll is made."
   },
+  "4b7878a788f4": {
+    "name": "Roof Hatch",
+    "kind": "ability",
+    "plain": "When this model is chosen to shoot, its Fire Points ability lets up to 15 embarked models shoot, rather than the usual 10."
+  },
   "52b2af908801": {
     "name": "Heroic Support",
     "kind": "stratagem",
     "plain": "Use before the battle, while you are mustering your army. If a Detachment ability (other than Gene-sect) would only let you include a unit 1 time in that Detachment, you can instead include up to 2 of that unit in it. You can use this Stratagem only once."
   },
+  "53a4c841a1a2": {
+    "name": "Expert Breacher",
+    "kind": "ability",
+    "plain": "When the bearer is picked to make a Normal Move, it can perform the Operate Hatchway action, and that action is completed at once.\nIt can't perform that action again this turn. An enemy unit within 1\" of that Hatchway can still try to stop the action completing in the usual way; whatever the result, the bearer can't perform Operate Hatchway again this turn."
+  },
   "66913550c460": {
     "name": "Relic",
     "kind": "stratagem",
-    "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. Pick one CHARACTER model in your army that isn't a named character and give it one Relic (it must be a Relic that model is allowed to have). You can use this Stratagem only once."
+    "plain": "Before the battle, while mustering your army and after picking your WARLORD, give one Relic to one CHARACTER model in your army that isn't a named character. It must be a Relic that model is allowed to have. You can use this Stratagem only once."
   },
   "67fbe1c4b2b3": {
     "name": "Command Re-roll",
     "kind": "stratagem",
-    "plain": "Use right after you make one of these rolls: a hit roll, wound roll, damage roll, saving throw, Advance roll, charge roll, Psychic test or Deny the Witch test, or the roll that sets how many attacks a weapon makes. You re-roll that roll, test or save."
+    "plain": "Re-roll a hit, wound, damage, Advance or charge roll, a saving throw, a Psychic or Deny the Witch test, or the roll for how many attacks a weapon makes. Use it right after you make that roll or test."
+  },
+  "70fdb47a8feb": {
+    "name": "Fire Overwatch - 1 CP",
+    "kind": "rule",
+    "plain": "After an enemy unit declares a charge against any of your units, one of the units it targeted can fire Overwatch before the charge roll is made.",
+    "waive": {
+      "227": "page reference (pg 227) for the Overwatch rules, not part of the rule"
+    }
+  },
+  "723b7542fd06": {
+    "name": "Vortex Missile Battery",
+    "kind": "weapon",
+    "plain": "This weapon can target units the bearer can't see, even when it fires under the Automated Weapons ability. Each hit it scores makes the target suffer D6 mortal wounds. If a model loses wounds to this attack but isn't slain, roll another D6: on a 6, that model suffers D6 more mortal wounds."
+  },
+  "7812cb006870": {
+    "name": "Emergency Disembarkation - 1 CP",
+    "kind": "rule",
+    "plain": "When one of your TRANSPORT models is destroyed, the units inside can disembark wholly within 6\" of it, rather than the normal 3\".\nThey do this before the model is removed from the battlefield. The destroyed model's Explodes ability (or similar) doesn't affect them; instead, roll one D6 for each model you just set up. For each roll of 1 or 2, one disembarked model of your choice is destroyed (rather than one model on a roll of 1). In the turn they disembarked from a destroyed TRANSPORT model, these units can't declare a charge or perform a Heroic Intervention.",
+    "waive": {
+      "224": "page reference (pg 224) for the charge rules, not part of the rule",
+      "255": "page reference (pg 255) for the Heroic Intervention rules, not part of the rule"
+    }
   },
   "8095b524686a": {
     "name": "Warlord Trait",
     "kind": "stratagem",
     "plain": "Use before the battle, while you are mustering your army, after you have picked your WARLORD. If your WARLORD is a CHARACTER model, give them a Warlord Trait (it must be one they are allowed to have). If your WARLORD is a named character who can have more than one specified Warlord Trait, a single use of this Stratagem gives them every one of those traits. You can use this Stratagem only once."
   },
+  "87e47df34e48": {
+    "name": "Aquila Macro-cannon (Macro Shell)",
+    "kind": "weapon",
+    "plain": "Each damage roll of 1 or 2 made for this weapon counts as a 3."
+  },
   "88145666ca30": {
     "name": "Desperate Breakout",
     "kind": "stratagem",
     "plain": "Use in your Movement phase. Pick one of your units that is within Engagement Range of at least one enemy unit and hasn't yet been picked to move this phase. Roll one D6 for each model in that unit: for every 1, you destroy one model of your choice from it. If the unit survives, it can now try to Fall Back, and its models can move across enemy models as if they weren't there. Any of its models that end the Fall Back move within Engagement Range of any enemy model are destroyed. If the unit still survives, it can't do anything else this turn (for example it can't try to manifest psychic powers, shoot, declare a charge or be picked to fight), even if it has a rule that would normally let it do so after Falling Back."
+  },
+  "8aaa8336b8c4": {
+    "name": "Orbital comms array",
+    "kind": "weapon",
+    "plain": "This weapon can fire only once per battle, and it can target units the bearer can't see. Against a unit of 10 or more models, its Type becomes Heavy D6."
+  },
+  "8b2f79dbb1d6": {
+    "name": "Shared Faction Bonus",
+    "kind": "rule",
+    "plain": "If a player's army has any Super-Heavy Auxiliary Detachments, one of them can swap its Command Benefits for a bonus of +3 Command points.\nTo earn it, that Detachment's unit must not be your WARLORD, it must share a Faction with your WARLORD's Detachment, and that Faction can't be CHAOS, IMPERIUM, AELDARI, YNNARI or TYRANIDS."
+  },
+  "939728537038": {
+    "name": "Psyk-out grenades",
+    "kind": "weapon",
+    "plain": "Against a PSYKER or DAEMON target, each hit roll of 6+ with this weapon inflicts 1 mortal wound on the target in place of its normal damage. It is also a Blast weapon."
+  },
+  "987d28c03f28": {
+    "name": "Trademark Weapon",
+    "kind": "ability",
+    "plain": "One weapon of the bearer's gets 1 added to its Strength and Damage characteristics and counts as a Relic for every rule.\nPick that weapon when you take this Enhancement, and note it on your army roster."
+  },
+  "9d7835bc7128": {
+    "name": "Tower Section",
+    "kind": "ability",
+    "plain": "This building has room for 20 INFANTRY models. Any model whose Wounds characteristic is 3 or more takes up 2 spaces, and models with a Wounds characteristic of 4 or more can only embark if they are CHARACTERS. At most two units can be inside it at once."
+  },
+  "a316e5d7c103": {
+    "name": "Twin Icarus Lascannon",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for attacks with this weapon against a target that can FLY, and subtract 1 from the hit roll against any other target."
+  },
+  "a63fa13c9ec8": {
+    "name": "Quad Icarus Lascannon",
+    "kind": "weapon",
+    "plain": "Add 1 to the hit roll for attacks with this weapon against a target that can FLY, and subtract 1 from the hit roll against any other target."
   },
   "a90c70874562": {
     "name": "Emergency Disembarkation",
     "kind": "stratagem",
     "plain": "Use when one of your TRANSPORT models is destroyed. Before that model is removed from the battlefield, every unit embarked inside it can disembark and be set up wholly within 6\" of it, instead of the usual 3\". These units aren't affected by the destroyed model's Explodes ability (or similar ability). Instead, roll one D6 for each model you just set up: for each roll of 1 or 2, one model of your choice that disembarked is destroyed (normally this only happens on a 1). Units that disembarked from a destroyed TRANSPORT model can't declare a charge or perform a Heroic Intervention in that same turn."
   },
+  "a964be372e6e": {
+    "name": "Aquila Macro-cannon (Macro Shell)",
+    "kind": "weapon",
+    "plain": "This is a Blast weapon, and each damage roll of 1 or 2 made for it counts as a 3."
+  },
+  "a99f82a874d1": {
+    "name": "Shadow Assignment",
+    "kind": "ability",
+    "plain": "Before the battle begins, if your army has exactly 1 OFFICIO ASSASSINORUM unit, you can swap it for 1 OFFICIO ASSASSINORUM unit of your choice.\nThe unit you take out doesn't count as destroyed for any rule. Unlike other units added to your army, the new unit costs no reinforcement points, even in matched play."
+  },
+  "ac24761b92f8": {
+    "name": "Command Benefit",
+    "kind": "ability",
+    "plain": "You get +1 Command point if all units in this Detachment share one Faction, and it matches the Faction of your WARLORD's Detachment."
+  },
+  "b60ad4e29e7d": {
+    "name": "Field Commander",
+    "kind": "ability",
+    "plain": "Before the battle, spend 1 CP to give one CHARACTER that isn't your Warlord the Warlord Trait of its Specialist Detachment.\nYou can only do this if you used any Specialist Detachment Stratagems when choosing your army. The CHARACTER must be from your army, must have gained a keyword from a Specialist Detachment Stratagem, and can't be a named character. It counts as your Warlord only for that Warlord Trait. You can use this Stratagem once for each Specialist Detachment Stratagem you used, paying 1 CP every time, and two characters can't share the same Warlord Trait."
+  },
+  "bd52fd05cc41": {
+    "name": "Containment Failure",
+    "kind": "ability",
+    "plain": "When this model drops to 0 wounds, its vortex missiles explode before you remove it and before any embarked models disembark. Every unit within 2D6\" suffers D6 mortal wounds. Roll another D6 for each model that loses wounds this way but isn't slain: on a 6, that model is slain."
+  },
   "bd5d8700372e": {
     "name": "Cut Them Down",
     "kind": "stratagem",
-    "plain": "Use when an enemy unit Falls Back, before any of its models are moved. For each of your models within Engagement Range of that enemy unit, roll one D6. For every 6, that enemy unit suffers 1 mortal wound."
+    "plain": "When an enemy unit Falls Back, roll one D6 for each of your models within Engagement Range of it; each 6 inflicts 1 mortal wound on that enemy unit. Use this before any of the Falling Back unit's models are moved."
+  },
+  "c66c8ae4fba5": {
+    "name": "Beta Rules",
+    "kind": "rule",
+    "plain": "Units marked \"(Beta)\" use early, fully experimental rules that may change in later publications. It's best to try these units out only when every player in the game agrees."
+  },
+  "c8c8a9d4c2d3": {
+    "name": "Close-quarters Killer",
+    "kind": "ability",
+    "plain": "You can re-roll the wound roll for every melee attack the bearer makes."
+  },
+  "cfd4d56fd025": {
+    "name": "Desperate Breakout - 2 CP",
+    "kind": "rule",
+    "plain": "In your Movement phase, one of your units within Engagement Range of an enemy unit can risk losing models to Fall Back straight through enemy models.\nPick a unit from your army that is within Engagement Range of at least one enemy unit and hasn't been picked to move this phase. Roll one D6 for each of its models: for each 1, a model of your choice from that unit is destroyed. If the unit survives, it can then try to Fall Back, and its models can move across enemy models as though they weren't there. Any of its models that end that Fall Back move within Engagement Range of an enemy model are destroyed. If the unit still survives, it can't do anything else this turn (it can't attempt to manifest psychic powers, shoot, declare a charge, be picked to fight and so on), even if a rule would normally let it act after Falling Back."
+  },
+  "d985440b34ab": {
+    "name": "Melta bomb",
+    "kind": "weapon",
+    "plain": "Against a VEHICLE target, you can re-roll failed wound rolls made with this weapon."
   },
   "dfdced1955e6": {
     "name": "Insane Bravery",
     "kind": "stratagem",
-    "plain": "Once per battle, use before you take a Morale test for one of your units. That unit passes the test automatically, so you don't roll any dice for it."
+    "plain": "Once per battle, one of your units automatically passes a Morale test. Use this before you take the test; you don't roll any dice for it."
+  },
+  "e07849049c5b": {
+    "name": "Shared Faction Bonus",
+    "kind": "rule",
+    "plain": "If your army has any Super-Heavy Auxiliary Detachments, one of them can swap its Command Benefits for a bonus of +2 Command points.\nTo earn it, that Detachment's unit must not be your WARLORD, it must share a Faction with your WARLORD's Detachment, and that Faction can't be CHAOS, IMPERIUM, AELDARI, YNNARI or TYRANIDS."
+  },
+  "e402de0539fa": {
+    "name": "Plasma Obliterator",
+    "kind": "weapon",
+    "plain": "For each hit roll of 1 you get when this weapon fires, this model suffers 1 mortal wound once all its shots are resolved."
+  },
+  "ea93e9e099c6": {
+    "name": "Personal Teleporter",
+    "kind": "ability",
+    "plain": "Arriving from Strategic Reserves, the bearer can be set up wholly within any of your Entry Zones, or anywhere on the battlefield over 9\" from all enemy models."
+  },
+  "eddbeec8534c": {
+    "name": "Defensive Lynchpin (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your units is within 6\" of the bearer, that unit can Hold Steady each time one of its models fires Overwatch."
+  },
+  "f6388ccd66c1": {
+    "name": "Gate Tower Section",
+    "kind": "ability",
+    "plain": "This building has room for 12 INFANTRY models. Any model whose Wounds characteristic is 3 or more takes up 2 spaces, and models with a Wounds characteristic of 4 or more can only embark if they are CHARACTERS. At most two units can be inside it at once."
   }
 }

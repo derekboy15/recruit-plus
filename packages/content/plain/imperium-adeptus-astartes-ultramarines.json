@@ -1,13 +1,31 @@
 {
+  "02bfd967f35e": {
+    "name": "Bolter Fusillades",
+    "kind": "ability",
+    "plain": "Models with this tactic re-roll hit rolls of 1 for ranged attacks made with bolt weapons.",
+    "waive": {
+      "195": "page reference (pg 195) for the list of bolt weapons, not part of the rule"
+    }
+  },
   "047435300fcb": {
     "name": "5) Psychic Shackles",
     "kind": "psychic",
-    "plain": "Warp charge 6. If it's manifested, pick one enemy unit within 18\" of this psyker that it can see. Until the start of your next Psychic phase, models in that unit have their Move halved (round up), and subtract 1 from that unit's charge rolls and Advance rolls. A unit can't be under this power and the Tenebrous Curse power at the same time."
+    "plain": "If manifested, a visible enemy unit within 18\" of this psyker has its Move halved and 1 off its charge and Advance rolls until your next Psychic phase starts.\nHalve the Move characteristic of each model in that unit, rounding up. A unit can't be under this power and the Tenebrous Curse power at the same time. Warp charge 6."
+  },
+  "076df37ac9a6": {
+    "name": "Standard of Macragge Inviolate",
+    "kind": "ability",
+    "plain": "ANCIENT model only: the bearer has two auras, giving extra attacks to nearby ULTRAMARINES CORE units and automatic Morale passes to nearby ULTRAMARINES units.\n• Unshakable Pride (Aura): while one of your ULTRAMARINES CORE units is within 6\" of the bearer, models in that unit get 1 extra attack.\n• Unshakable Determination (Aura): while one of your ULTRAMARINES units is within 12\" of the bearer, it passes every Morale test it takes automatically."
+  },
+  "087b72909f30": {
+    "name": "Armor of Kronor",
+    "kind": "ability",
+    "plain": "TERMINATOR only: the model with this Relic has a 4+ invulnerable save, and the damage from each attack against it is halved (rounding up)."
   },
   "08cb0c615b5b": {
     "name": "1) Precognition",
     "kind": "psychic",
-    "plain": "Warp charge 5. When manifested: this psyker gets a 5+ invulnerable save, and attacks that target it subtract 1 from their hit rolls. Both effects last until your next Psychic phase starts."
+    "plain": "If manifested, until your next Psychic phase starts, this psyker has a 5+ invulnerable save and every attack against it subtracts 1 from the hit roll. Warp charge 5."
   },
   "0936a16027a0": {
     "name": "Strike First, for Ultramar!",
@@ -19,10 +37,20 @@
     "kind": "ability",
     "plain": "If this model gets a Warlord Trait, that trait has to be Iron Resolve. No other model in your army can take the Benediction of Fury Relic."
   },
+  "0d5013c406af": {
+    "name": "Bloodied but Unbroken",
+    "kind": "ability",
+    "plain": "Add 1 to this Warlord's Attacks characteristic, and add another 1 while it has fewer wounds left than its starting number."
+  },
   "131cd06c6419": {
     "name": "Exemplar of the Chapter",
     "kind": "stratagem",
     "plain": "Once per battle, after you choose an ULTRAMARINES model that isn't a named character as your WARLORD: give it one extra Warlord Trait, taken from the Ultramarines Warlord Traits table. Every Warlord Trait in your army has to be different (re-roll any duplicates you roll randomly)."
+  },
+  "14794d5ac1c4": {
+    "name": "Exemplar of the Chapter",
+    "kind": "ability",
+    "plain": "This WARLORD gets 1 extra attack, and attacks against it always fail on an unmodified wound roll of 1-3. That applies whatever abilities the weapon or the attacker has."
   },
   "1579ff6ef93c": {
     "name": "Defensive Focus",
@@ -37,7 +65,12 @@
   "16f7af0274f7": {
     "name": "Mobidus Bolts",
     "kind": "ability",
-    "plain": "When you give this Relic to a model, choose one bolt weapon that model has. Each time the model is picked to shoot, you can have that weapon fire a Morbidus bolt. If you do, that weapon makes only 1 attack, but if it hits:\n• the target suffers 2 mortal wounds and the attack sequence stops;\n• until the end of the turn, subtract 1 from that enemy unit's Combat Attrition tests."
+    "plain": "This Relic lets one bolt weapon fire a Morbidus bolt: a single attack that deals 2 mortal wounds if it hits.\nWhen you give this Relic to a model, choose one bolt weapon that model has. Each time the model is picked to shoot, you can have that weapon fire a Morbidus bolt. If you do, that weapon makes only 1 attack, but if it hits:\n• the target suffers 2 mortal wounds and the attack sequence stops;\n• until the end of the turn, subtract 1 from that enemy unit's Combat Attrition tests."
+  },
+  "182840c86926": {
+    "name": "Codex Discipline",
+    "kind": "rule",
+    "plain": "Models with this tactic get 1 more Leadership, and their units can shoot in a turn in which they Fell Back, with a hit roll penalty if they do.\n• Models with this tactic get 1 added to their Leadership characteristic.\n• Units with this tactic can shoot in a turn in which they Fell Back. If a unit does, then until that turn ends, subtract 1 from the hit roll for each ranged attack its models make."
   },
   "1a716bcd9bc8": {
     "name": "Unfailing Nerve",
@@ -53,6 +86,11 @@
     "name": "Rites of Battle (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your ULTRAMARINES CORE units is within 6\" of this model, its models re-roll hit rolls of 1 on every attack they make."
+  },
+  "1fcdfb74cc69": {
+    "name": "Spiritual Synergy",
+    "kind": "ability",
+    "plain": "Pick one non-Relic weapon this Warlord has: each unmodified wound roll of 6 for its attacks with that weapon also deals 1 mortal wound, on top of normal damage. That mortal wound is inflicted on the target of the attack."
   },
   "2104f5347cd1": {
     "name": "Rapid Redeployment",
@@ -79,10 +117,20 @@
     "kind": "psychic",
     "plain": "This model knows Smite plus 3 powers from the Librarius or Indomitus discipline."
   },
+  "265158ab7408": {
+    "name": "Tribal Heritage",
+    "kind": "ability",
+    "plain": "This Warlord fights first in the Fight phase, and can perform a Heroic Intervention from further away, moving up to 6\".\n• This Warlord can perform a Heroic Intervention when any enemy unit is within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically.\n• Its Heroic Intervention moves can be up to 6\" rather than 3\". All other Heroic Intervention rules still apply.\n• This Warlord fights first in the Fight phase."
+  },
   "272874727638": {
     "name": "Chapter Master",
     "kind": "ability",
     "plain": "In your Command phase, choose one of your ULTRAMARINES CORE or ULTRAMARINES CHARACTER units that is within 6\" of this model. Its models can re-roll hit rolls for their attacks until your next Command phase starts."
+  },
+  "277b3766b050": {
+    "name": "Unyielding Resistance",
+    "kind": "rule",
+    "plain": "Units with this tactic add 1 to melee hit rolls in a turn they made a charge move, and attacks against them always fail on an unmodified wound roll of 1 or 2.\n• Each time a model with this tactic attacks in melee, add 1 to the hit roll if its unit made a charge move this turn.\n• Attacks against a unit with this tactic always fail on an unmodified wound roll of 1 or 2, no matter what abilities the weapon or the attacker has."
   },
   "27b9c1c05e0e": {
     "name": "Bane of Tyranids",
@@ -94,10 +142,25 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save, and all damage Marneus Calgar suffers is halved (round up)."
   },
+  "2eb717e4e093": {
+    "name": "Armour of Phourion",
+    "kind": "ability",
+    "plain": "The bearer can fight first if it starts the Fight phase in Engagement Range, and can perform a Heroic Intervention from further away, moving up to 6\".\n• If the bearer is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first in that phase.\n• The bearer can perform a Heroic Intervention when any enemy units are within 6\" horizontally and 5\" vertically of it, rather than 3\" horizontally and 5\" vertically.\n• When it makes a Heroic Intervention move, it can move up to 6\". Every other Heroic Intervention rule still applies."
+  },
   "33de3ac061f2": {
     "name": "Psyker",
     "kind": "psychic",
     "plain": "This model knows Smite plus 2 powers from the Librarius or Indomitus discipline."
+  },
+  "3404b1b0a484": {
+    "name": "Vengeance of Ultramar",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon, unless the target is a VEHICLE unit."
+  },
+  "34339a37287a": {
+    "name": "Tip of the Sword",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, pick an enemy unit within 12\" of this WARLORD that it can see; your CASTELLANS OF THE RIFT CORE units get bonuses against it.\nUntil the end of the turn:\n• Each time one of your CASTELLANS OF THE RIFT CORE units declares a charge, if that enemy unit is among the charge's targets, you can re-roll the charge roll.\n• Each time one of your CASTELLANS OF THE RIFT CORE models makes a melee attack against that enemy unit, add 1 to that attack's Strength characteristic."
   },
   "34de3b7054e0": {
     "name": "Honoured Sergeant",
@@ -119,10 +182,25 @@
     "kind": "ability",
     "plain": "Each time this Warlord attacks, an unmodified wound roll of 6 also deals 1 mortal wound to the target, on top of the attack's normal damage."
   },
+  "469c3c82f74d": {
+    "name": "Precision Commander",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your SILVER TEMPLARS PRIMARIS CORE units within 6\" of this Warlord to get hit and wound re-rolls. Until your next Command phase starts, whenever that unit is chosen to shoot or fight, you can re-roll one hit roll and one wound roll for its attacks."
+  },
+  "478dc280a4f7": {
+    "name": "Horizon Blade",
+    "kind": "weapon",
+    "plain": "In any turn when the bearer made a charge move or Heroic Intervention, this weapon's Damage characteristic is 3 and its AP is -5."
+  },
   "50928db44597": {
     "name": "Chapter Master (Calgar)",
     "kind": "ability",
     "plain": "Your ULTRAMARINES units within 6\" of Marneus Calgar can re-roll their hit rolls."
+  },
+  "540f15acb559": {
+    "name": "The Bond Martial",
+    "kind": "rule",
+    "plain": "Units with this tactic can re-roll one hit roll when they shoot or fight, and auto-wound on unmodified 6s to hit in melee against INFANTRY or BIKER units.\n• Each time a model with this tactic attacks an INFANTRY or BIKER unit in melee, an unmodified hit roll of 6 wounds the target automatically.\n• Each time a unit with this tactic is chosen to shoot or fight, you can re-roll one of the hit rolls for its attacks."
   },
   "5592c6025739": {
     "name": "Claim Runes",
@@ -132,7 +210,12 @@
   "55a23c71f231": {
     "name": "2) Scryer's Gaze",
     "kind": "psychic",
-    "plain": "Warp charge 7. If it's manifested and your army is Battle-forged, you can gain 1 Command Point straight away. If you don't take the point, then once this turn, when a model from one of your ULTRAMARINES units attacks while its unit is within 18\" of this psyker, you can re-roll that attack's hit roll, wound roll or damage roll."
+    "plain": "If manifested, gain 1 Command Point at once, or get one hit, wound or damage re-roll this turn for your ULTRAMARINES units within 18\" of this psyker.\nYou can only take the Command Point if your army is Battle-forged. If you don't take it, then once this turn, when a model from one of your ULTRAMARINES units attacks while that unit is within 18\" of this psyker, you can re-roll that attack's hit roll, wound roll or damage roll. Warp charge 7."
+  },
+  "57ac7ee69650": {
+    "name": "Indomitable",
+    "kind": "ability",
+    "plain": "Units with this tactic automatically pass every Combat Attrition test they take."
   },
   "58d5d55e5a45": {
     "name": "The Armour Umbral",
@@ -142,7 +225,12 @@
   "58fe894d8772": {
     "name": "Master of Strategy",
     "kind": "ability",
-    "plain": "Once per battle round, while this Warlord is on the battlefield, you can pick one of your ULTRAMARINES units within 6\" of it. Until that battle round ends, the Tactical Doctrine counts as active for every attack made by a model in that unit."
+    "plain": "Once per battle round, pick one of your ULTRAMARINES units within 6\" of this Warlord: its attacks count the Tactical Doctrine as active this battle round. This Warlord must be on the battlefield to do this."
+  },
+  "633e9b0d67df": {
+    "name": "Tarentian Cloak",
+    "kind": "ability",
+    "plain": "The model with this Relic gets a 5+ invulnerable save, and at the beginning of each of your Movement phases it gets back D3 lost wounds."
   },
   "644f21f1e469": {
     "name": "This Is Our Ground!",
@@ -194,6 +282,11 @@
     "kind": "ability",
     "plain": "This model knows the Litany of Hate and two other Litanies of Battle. In your Command phase, while it is on the battlefield, it can recite two of its litanies, as long as no friendly model has already recited them this turn. Roll one D6 per litany: on a 3+ it is inspiring and lasts until your next Command phase starts."
   },
+  "879d2ab1fd4a": {
+    "name": "Banner of Echoes",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, the bearer can activate this Relic to give nearby SILVER TEMPLAR PRIMARIS CORE units extra attacks. When it does, the bearer has this ability until your next Command phase starts: while one of your SILVER TEMPLAR PRIMARIS CORE units is within 6\" of the bearer, models in that unit get 1 extra attack."
+  },
   "88dd6739adc1": {
     "name": "Fight Like Demigods",
     "kind": "stratagem",
@@ -212,17 +305,22 @@
   "8b5f7d17a83f": {
     "name": "4) Storm of the Emperor's Wrath",
     "kind": "psychic",
-    "plain": "Warp charge 6. If it's manifested, pick the closest enemy unit within 18\" of this psyker that it can see. Roll one D6 per model in that unit; each 6 deals 1 mortal wound to the unit."
+    "plain": "If manifested, roll one D6 for each model in the closest enemy unit within 18\" of this psyker that it can see: each 6 deals 1 mortal wound to that unit. Warp charge 6."
   },
   "981d9252cbbe": {
     "name": "Heroes of Ultramar",
     "kind": "ability",
     "plain": "This unit can Heroically Intervene as though it were a CHARACTER."
   },
+  "981fd5484623": {
+    "name": "Redden the Earth",
+    "kind": "rule",
+    "plain": "Units with this tactic add 1 to Advance and charge rolls, and score extra melee hits on unmodified 6s in a turn they charge, are charged or intervene.\n• Add 1 to Advance rolls and charge rolls for units with this tactic.\n• When a model with this tactic attacks in melee in a turn in which its unit made a charge move, was charged or made a Heroic Intervention, each unmodified hit roll of 6 scores 1 extra hit."
+  },
   "9b2bbc294ae1": {
     "name": "Quietus",
     "kind": "weapon",
-    "plain": "This weapon can pick targets while ignoring the Look Out, Sir rule. Each wound roll of 6+ with it also deals 1 mortal wound on top of its other damage."
+    "plain": "This weapon ignores the Look Out, Sir rule when you pick its targets, and each wound roll of 6+ with it also deals 1 mortal wound on top of any other damage."
   },
   "9e0b32d3a102": {
     "name": "Hood of Hellfire",
@@ -233,6 +331,11 @@
     "name": "Martial Superiority",
     "kind": "ability",
     "plain": "When the Fight phase starts, this model fights first that phase if any enemy Character units are within Engagement Range of it."
+  },
+  "a06313b8df15": {
+    "name": "Armor of Zanaris",
+    "kind": "ability",
+    "plain": "The bearer treats incoming Armour Penetration of -1 or -2 as 0, and rolls to ignore wounds it would lose to mortal wounds.\n• When an attack is allocated to the bearer and has an Armour Penetration characteristic of -1 or -2, change it to 0 for that attack.\n• Each time the bearer would lose a wound because of a mortal wound, roll one D6: on a 6+, it doesn't lose that wound."
   },
   "a2218b67cbf6": {
     "name": "Unorthodox Strategist",
@@ -249,10 +352,15 @@
     "kind": "stratagem",
     "plain": "Use when one of your ULTRAMARINES units is picked to fight in the Fight phase. Until the end of the phase, each melee weapon attack a model in that unit makes against a WORD BEARERS unit can re-roll the hit roll and can re-roll the wound roll."
   },
+  "a5ef3f1eb1c1": {
+    "name": "The Sanctic Halo",
+    "kind": "ability",
+    "plain": "The bearer has a 3+ invulnerable save, and in each of your opponent's Psychic phases it can try to deny one psychic power the way a Psyker would."
+  },
   "a67911d86d79": {
     "name": "Warden of Macragge",
     "kind": "ability",
-    "plain": "This Warlord can Heroically Intervene when any enemy unit is within 6\" of it (rather than 3\"), and its Heroic Intervention move can be up to 6\" (rather than 3\")."
+    "plain": "This Warlord can Heroically Intervene if any enemy unit is within 6\" of it (instead of 3\"), and can then move up to 6\" (instead of 3\")."
   },
   "a771313044b7": {
     "name": "Honour Guard",
@@ -287,12 +395,17 @@
   "c0cc316eb8b2": {
     "name": "6) Empyric Channeling",
     "kind": "psychic",
-    "plain": "Warp charge 5. If it's manifested, pick another of your ULTRAMARINES LIBRARIAN models within 12\" of this psyker. Until this Psychic phase ends, add 2 to the total of that model's Psychic tests, and it doesn't suffer Perils of the Warp when it rolls a double 1 or double 6."
+    "plain": "If manifested, another of your ULTRAMARINES LIBRARIAN models within 12\" of this psyker adds 2 to the total of its Psychic tests until this Psychic phase ends. Until then, it also doesn't suffer Perils of the Warp when it rolls a double 1 or double 6. Warp charge 5."
   },
   "c271589c734b": {
     "name": "Victrix Guard",
     "kind": "stratagem",
     "plain": "When you choose your army: pick one ULTRAMARINES Detachment in your army to be a Victrix Guard Specialist Detachment. The VANGUARD VETERAN SQUADS, STERNGUARD VETERAN SQUADS, CAPTAINS, ANCIENTS, HONOUR GUARD and VICTRIX HONOUR GUARD in that Detachment get the VICTRIX GUARD keyword."
+  },
+  "c2cade29f28e": {
+    "name": "Primarch's Codex",
+    "kind": "ability",
+    "plain": "You can re-roll the bearer's rolls to see if its litanies are inspiring, and each litany it recites gets 3\" more range (to a maximum of 12\")."
   },
   "cd52d1908526": {
     "name": "Bearer of the Tome Empiricus",
@@ -304,10 +417,15 @@
     "kind": "ability",
     "plain": "Aura: subtract 1 from Psychic tests taken for any enemy PSYKER unit while it is within 18\" of the bearer. Whenever such a unit fails a Psychic test, roll one D6; on a 4+ it suffers D3 mortal wounds."
   },
+  "d2e0afb16635": {
+    "name": "Druidic Talisman",
+    "kind": "ability",
+    "plain": "LIBRARIAN or CHAPLAIN model only: once per turn, you can re-roll one Psychic test for the bearer, or the roll to see if a litany it recites is inspiring."
+  },
   "d3845a311c03": {
     "name": "Iron Resolve",
     "kind": "ability",
-    "plain": "Your warlord's Wounds characteristic goes up by 1. Whenever your warlord loses a wound, roll one D6: on a 6 the wound isn't lost."
+    "plain": "Your warlord's Wounds characteristic goes up by 1, and whenever your warlord loses a wound, roll one D6: on a 6, the wound isn't lost."
   },
   "d7b17b545fc7": {
     "name": "The Swordsman’s Strike",
@@ -322,7 +440,7 @@
   "db183ebac060": {
     "name": "Shadow's Touch",
     "kind": "weapon",
-    "plain": "If the bearer manifests any Obscuration discipline power in your Psychic phase, then until the start of your next Psychic phase your opponent can't take invulnerable saves against attacks made with this weapon."
+    "plain": "If the bearer manifests any Obscuration discipline power in your Psychic phase, your opponent can't take invulnerable saves against this weapon's attacks. This lasts until the start of your next Psychic phase."
   },
   "dca960b51ead": {
     "name": "Astartes Banner (Aura)",
@@ -354,10 +472,15 @@
     "kind": "ability",
     "plain": "If Marneus Calgar is your Warlord and your army is Battle-forged, you get 2 extra Command Points."
   },
+  "e4d4e94f6626": {
+    "name": "Helm of Censure",
+    "kind": "ability",
+    "plain": "The model with this Relic can re-roll hit rolls of 1 and wound rolls of 1, and adds 1 to both rolls when it attacks ADEPTUS ASTARTES or HERETIC ASTARTES units."
+  },
   "e9b138c93ca6": {
     "name": "Calm Under Fire (Aura)",
     "kind": "ability",
-    "plain": "Aura: while one of your ULTRAMARINES units is within 6\" of this Warlord, its models' ranged attacks in a turn when the unit Fell Back don't take the 1 hit roll penalty from the Codex Discipline Chapter Tactic."
+    "plain": "Aura: while one of your ULTRAMARINES units is within 6\" of this Warlord, its ranged attacks ignore the Codex Discipline Chapter Tactic's hit roll penalty. In a turn when that unit Fell Back, you don't subtract 1 from the hit roll for its models' ranged attacks."
   },
   "eabb41f48f0d": {
     "name": "Adept of the Codex",
@@ -367,12 +490,17 @@
   "ebdf9de31c51": {
     "name": "3) Telepathic Assault",
     "kind": "psychic",
-    "plain": "Warp charge 7. If it's manifested, pick one enemy unit within 24\" of this psyker that it can see. Roll 2D6 and add 2. For every point the total beats the highest Leadership in that unit, it suffers 1 mortal wound."
+    "plain": "If manifested, roll 2D6 and add 2: a visible enemy unit within 24\" of this psyker suffers 1 mortal wound per point the total is above its highest Leadership. Pick the unit before you roll. Warp charge 7."
   },
   "edbc16fcbbe9": {
     "name": "Chapter Banner",
     "kind": "ability",
     "plain": "In your Command phase, choose one of your ULTRAMARINES CORE units within 6\" of this model. Its models add 1 to the hit roll of their melee attacks until your next Command phase starts."
+  },
+  "ef1febad38e2": {
+    "name": "Sentinel of the Veil",
+    "kind": "ability",
+    "plain": "Once per battle, this Warlord gets a free re-roll, and once per battle, if your army is Battle-forged, it can be the target of a free Epic Deed Stratagem.\n• Once per battle, you can re-roll one of this Warlord's failed hit rolls, wound rolls or saving throws.\n• Once per battle, if your army is Battle-forged, you can use one Epic Deed Stratagem on this Warlord for free (no Command points spent)."
   },
   "ef876ed36609": {
     "name": "Captain of the Third Company",
@@ -384,6 +512,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase, before an attack by one of your ULTRAMARINES models is resolved: skip the hit roll for that attack; it hits automatically."
   },
+  "f04ddd78edfa": {
+    "name": "Hit-and-Run Master",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your CASTELLANS OF THE RIFT units within 9\" of this WARLORD: this turn, it can shoot even if it Fell Back."
+  },
   "f2e192f187a5": {
     "name": "Regroup and Strike",
     "kind": "stratagem",
@@ -392,7 +525,12 @@
   "f374e89e50e3": {
     "name": "Ultima Storm Shield",
     "kind": "ability",
-    "plain": "This model has a 3+ invulnerable save."
+    "plain": "This model gets a 3+ invulnerable save."
+  },
+  "f3f49878789e": {
+    "name": "Accomplished Duellist",
+    "kind": "ability",
+    "plain": "This Warlord can fight first if it starts the Fight phase in Engagement Range, and re-roll melee wound rolls in a turn it charged, was charged or intervened.\n• If this model is within Engagement Range of any enemy units at the start of the Fight phase, it can fight first in that phase.\n• Each time this Warlord makes a melee attack in a turn in which it made a charge move, performed a Heroic Intervention or was charged, you can re-roll the wound roll."
   },
   "f826077b9369": {
     "name": "Battle-forged Heroes",

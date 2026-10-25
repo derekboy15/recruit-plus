@@ -1,8 +1,13 @@
 {
+  "0524ed00f235": {
+    "name": "Lord of Terror",
+    "kind": "ability",
+    "plain": "When your opponent takes a Morale test for a unit within 6\" of your Warlord, they must roll one extra dice and keep the highest result."
+  },
   "0ac551802ab0": {
     "name": "Gift of Chaos",
     "kind": "psychic",
-    "plain": "If manifested, pick an enemy unit within 6\" of the psyker that the psyker can see, and roll a D6. If the roll is higher than that unit's Toughness, it suffers D3+3 mortal wounds. If this power slays a CHARACTER, you may put a new Chaos Spawn into your army: before that character's model is removed, place the Spawn within 1\" of it."
+    "plain": "If manifested, roll a D6 for one visible enemy unit within 6\" of the psyker: if the roll is higher than that unit's Toughness, it suffers D3+3 mortal wounds. If this power slays a CHARACTER, you may put a new Chaos Spawn into your army: before that character's model is removed, place the Spawn within 1\" of it."
   },
   "0c61f4f7b6c8": {
     "name": "Self-repair",
@@ -19,15 +24,30 @@
     "kind": "ability",
     "plain": "Once per battle, you can take this model off the battlefield at the end of any Fight phase or Shooting phase and put it into Strategic Reserves. If it isn't on the battlefield when the battle ends, it is destroyed."
   },
+  "14c92df4a75e": {
+    "name": "Eternal Vendetta",
+    "kind": "ability",
+    "plain": "In the Fight phase, your Warlord can re-roll failed wound rolls for its attacks against targets that have the ADEPTUS ASTARTES keyword."
+  },
   "15cbf70a0db2": {
     "name": "Blazing Weapons",
     "kind": "ability",
     "plain": "Cypher can shoot his pistols in your Shooting phase even if he Advanced or Fell Back earlier that turn."
   },
+  "1693b4ec13a7": {
+    "name": "Unholy Fortitude",
+    "kind": "ability",
+    "plain": "Your Warlord adds 1 to its Wounds characteristic, and each time it loses a wound, roll a dice: on a 6, it shrugs off the damage and keeps that wound."
+  },
   "1afe2285c1a2": {
     "name": "Diabolic Strength",
     "kind": "psychic",
-    "plain": "If manifested, choose a HERETIC ASTARTES model within 12\" of the psyker. Its Strength goes up by 2 and its Attacks go up by 1 until your next Psychic phase starts."
+    "plain": "If manifested, one HERETIC ASTARTES model within 12\" of the psyker gets 2 more Strength and 1 more attack until your next Psychic phase starts."
+  },
+  "2be946dfae02": {
+    "name": "Hatred Incarnate",
+    "kind": "ability",
+    "plain": "Your Warlord's attacks can re-roll wound rolls of 1."
   },
   "3c2a79ca5e33": {
     "name": "Malicious Volleys",
@@ -42,7 +62,7 @@
   "559986ea1239": {
     "name": "Infernal Gaze",
     "kind": "psychic",
-    "plain": "If manifested, roll 3 dice for one enemy unit that is visible and within 18\" of the psyker. Each 4+ inflicts one mortal wound on that unit."
+    "plain": "If manifested, roll 3 dice for one visible enemy unit within 18\" of the psyker: that unit suffers one mortal wound for each 4+."
   },
   "629d45524732": {
     "name": "Fallen Angels",
@@ -52,22 +72,37 @@
   "6736a9a19599": {
     "name": "Smoke Launchers",
     "kind": "ability",
-    "plain": "Once per game, in the Shooting phase, this model can use its Smoke Launchers instead of shooting any of its weapons. If it does, until your next Shooting phase your opponent must subtract 1 from every hit roll made with ranged weapons that target this vehicle."
+    "plain": "Once per game, this model can fire its Smoke Launchers: until your next Shooting phase, ranged attacks that target it subtract 1 from the hit roll. It does this in the Shooting phase, instead of shooting any of its weapons."
   },
   "6fe39d097642": {
     "name": "Daemon Weapon",
     "kind": "ability",
-    "plain": "In the Fight phase, the first time this model is chosen to fight that phase, roll one D6. On a 1, it suffers 1 mortal wound and can't use this weapon for the rest of the phase. On a 2+, it fights with this weapon as normal."
+    "plain": "In each Fight phase, roll one D6 the first time this model is chosen to fight: on a 1, it suffers 1 mortal wound and can't use this weapon that phase. On a 2+, it fights with this weapon as normal."
   },
   "7522b6538716": {
     "name": "The Black Mace",
     "kind": "ability",
     "plain": "Only a model with a power maul or accursed crozius can take this. It replaces that model's power maul or accursed crozius."
   },
+  "78eb280ee484": {
+    "name": "Fallen Angels",
+    "kind": "rule",
+    "plain": "Lets your army include one Fallen Angels Specialist Detachment: a Vanguard Detachment made up only of FALLEN, Sorcerer and Chaos Rhino units.\nUse this Stratagem before the battle, while you are mustering your army.\n• Sorcerer units and Chaos Rhinos in this Detachment lose their <MARK OF CHAOS>, HERETIC ASTARTES and <LEGION> Faction keywords and gain the IMPERIUM and FALLEN Faction keywords instead.\n• Sorcerer units also swap their Death to the False Emperor ability for the Fallen Angels ability.\n• Chaos Rhinos get a new Transport section: each can carry 10 FALLEN INFANTRY models, and can't carry JUMP PACK models.\n• Every unit in this Detachment gains the FALLEN ANGELS keyword."
+  },
+  "88c7e5e8a19f": {
+    "name": "Flames of Spite",
+    "kind": "ability",
+    "plain": "Each wound roll of 6+ for a melee weapon attack by your Warlord also deals 1 mortal wound to the target, on top of any other damage."
+  },
   "8ff564ae0bfd": {
     "name": "Jump Pack Assault",
     "kind": "ability",
     "plain": "When you deploy, if this model has a jump pack, you can keep it high in the skies rather than putting it on the battlefield. It can then assault from above at the end of any of your Movement phases: place it anywhere on the battlefield over 9\" away from every enemy model."
+  },
+  "99ae1d1c7555": {
+    "name": "Exalted Champion",
+    "kind": "ability",
+    "plain": "Your Warlord adds 1 to its Attacks characteristic."
   },
   "9ab6d609bc53": {
     "name": "The Murder Sword",
@@ -92,7 +127,7 @@
   "bb23393fe385": {
     "name": "Warptime",
     "kind": "psychic",
-    "plain": "If manifested, choose a friendly HERETIC ASTARTES unit within 3\" of the psyker. It can make a move right now, as though it were its Movement phase. Each unit can be affected by Warptime no more than once in each Psychic phase."
+    "plain": "If manifested, choose a friendly HERETIC ASTARTES unit within 3\" of the psyker: it can make a move right now, as though it were its Movement phase. Each unit can be affected by Warptime no more than once in each Psychic phase."
   },
   "bce5aca4f1bf": {
     "name": "Ul'o'cca, The Black Axe",
@@ -102,7 +137,7 @@
   "c049f5d15a47": {
     "name": "Death Hex",
     "kind": "psychic",
-    "plain": "If manifested, choose an enemy unit that is visible and within 12\" of the psyker. That unit can't take invulnerable saves until your next Psychic phase starts."
+    "plain": "If manifested, pick one enemy unit within 12\" of the psyker that it can see: that unit can't take invulnerable saves until your next Psychic phase starts."
   },
   "c2db50a07b87": {
     "name": "Caliban Steel Blade",
@@ -127,6 +162,6 @@
   "fd9205713a1e": {
     "name": "Prescience",
     "kind": "psychic",
-    "plain": "If manifested, pick a HERETIC ASTARTES unit within 18\" of the psyker. Until the start of your next Psychic phase, you can add 1 to every hit roll made for that unit."
+    "plain": "If manifested, choose one HERETIC ASTARTES unit within 18\" of the psyker: until your next Psychic phase starts, you can add 1 to every hit roll made for it."
   }
 }

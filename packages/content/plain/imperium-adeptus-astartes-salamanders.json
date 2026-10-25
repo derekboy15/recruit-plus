@@ -14,6 +14,21 @@
     "kind": "stratagem",
     "plain": "At the start of the Fight phase: pick one of your SALAMANDERS units. Until the end of the phase, models in that unit add 1 to their Strength characteristic, and each time one of them attacks with a melee weapon, an unmodified wound roll of 6 doubles that weapon's Damage characteristic for that attack."
   },
+  "0bd381a20704": {
+    "name": "Patient and Determined",
+    "kind": "ability",
+    "plain": "Once per Shooting phase and once per Fight phase, one attack made by this Warlord skips its hit roll and hits automatically."
+  },
+  "0fb210f2409e": {
+    "name": "Vulkan's Sigil",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its Attacks, and once per battle, at the start of the Fight phase, it can raise the Sigil for 1 more attack and an aura.\n• The bearer always gets 1 extra attack.\n• Once per battle, when the Fight phase starts, the bearer can raise Vulkan's Sigil. If it does, until that phase ends it gets another 1 extra attack (+2 Attacks in total), and it has this ability: 'Vulkan's Sigil (Aura): while one of your SALAMANDERS CORE units is within 6\" of the bearer, models in that unit get 1 extra attack.'"
+  },
+  "1726cdecc574": {
+    "name": "Helm of Draklos",
+    "kind": "ability",
+    "plain": "PRIMARIS model only: the model with this Relic adds 1 to its Wounds and has an aura that lowers the Leadership of enemy units near it.\n• Its Wounds characteristic goes up by 1.\n• Aura: while any enemy unit is within 6\" of the bearer, that unit's models subtract 1 from their Leadership characteristic."
+  },
   "1906331d61bc": {
     "name": "Master Artisans",
     "kind": "stratagem",
@@ -23,6 +38,11 @@
     "name": "Exemplar of the Promethean Creed",
     "kind": "stratagem",
     "plain": "Once per battle, after you nominate a SALAMANDERS model that is not a named character as your WARLORD: it can have one extra Warlord Trait, which must come from the Salamanders Warlord Traits table. Every Warlord Trait in your army must be different (re-roll duplicates if you roll randomly)."
+  },
+  "2ac074d13544": {
+    "name": "4) Drakeskin",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your SALAMANDERS units within 12\" of this psyker; its models add 1 to their Toughness until your next Psychic phase starts."
   },
   "2cb16325b789": {
     "name": "Dreadfire heavy flamer",
@@ -49,6 +69,14 @@
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, every flame weapon carried by models in that unit becomes the Pistol type (so an Assault D6 flame weapon becomes Pistol D6)."
   },
+  "3c7449f2df78": {
+    "name": "3) Burning Hands",
+    "kind": "psychic",
+    "plain": "Warp charge 6: this Psyker can switch its melee attacks to the close combat weapon profile, and each hit with that profile deals 1 mortal wound. Until your next Psychic phase starts, whenever this Psyker attacks in melee, you can have it use the close combat weapon profile in place of a melee weapon it is equipped with. Whenever an attack by this Psyker using the close combat weapon profile scores a hit, the target suffers 1 mortal wound, and that attack's sequence ends there.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\", not part of the rule"
+    }
+  },
   "418e986bbb2f": {
     "name": "Self Sacrifice",
     "kind": "stratagem",
@@ -64,10 +92,41 @@
     "kind": "ability",
     "plain": "Aura: while their unit is within 6\" of this Warlord, you can re-roll the dice that set how many attacks your SALAMANDERS models make with flame weapons."
   },
+  "58b3a8c1498d": {
+    "name": "6) Draconic Aspect",
+    "kind": "psychic",
+    "plain": "Warp charge 6: until your next Psychic phase starts, enemy models subtract 2 from their Leadership characteristic while their unit is within 12\" of this psyker."
+  },
+  "5bf068b4d772": {
+    "name": "Never Give Up",
+    "kind": "ability",
+    "plain": "At the end of your Command phase, you can pick one of your SALAMANDERS CORE or SALAMANDERS CHARACTER units within 6\" of this Warlord to gain Objective Secured. It keeps that ability until the end of your next Command phase.",
+    "waive": {
+      "40000": "part of the book title \"Warhammer 40,000 Core Book\", not part of the rule"
+    }
+  },
   "5c9f10322af8": {
     "name": "Rites of Vulkan",
     "kind": "stratagem",
     "plain": "Once per battle, use at the start of your Movement phase while the Tactical Doctrine is active. From then until the start of the next battle round, when one of your SALAMANDERS models attacks with a Rapid Fire or Assault weapon and the wound roll is an unmodified 6, that weapon's Armour Penetration characteristic improves by a further 1 for that attack."
+  },
+  "5f11b7bd8dca": {
+    "name": "Nocturne's Vengeance - Flamer",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon's master-crafted flamer profile hit automatically; don't make hit rolls for them."
+  },
+  "6113e796d2bc": {
+    "name": "Forge Master",
+    "kind": "ability",
+    "plain": "Increase this Warlord's Toughness characteristic by 2."
+  },
+  "70157d6d5f95": {
+    "name": "Tome of Vel'cona",
+    "kind": "ability",
+    "plain": "LIBRARIAN model only: the model with this Relic knows an extra Promethean discipline power, and you can add 1 to its Psychic tests for that discipline. The extra power is on top of any other powers it knows, and the bonus applies whenever it takes a Psychic test to manifest a Promethean discipline power.",
+    "waive": {
+      "62": "page reference (pg 62) for the Promethean discipline, not part of the rule"
+    }
   },
   "7532b20d08a2": {
     "name": "Born Protectors",
@@ -89,6 +148,11 @@
     "kind": "ability",
     "plain": "This model gets a 5+ invulnerable save. Roll one D6 each time it would lose a wound; on a 5+, it doesn't lose that wound."
   },
+  "8ba03b0f9054": {
+    "name": "1) Flaming Blast",
+    "kind": "psychic",
+    "plain": "Warp charge 6: roll one D6 for each enemy unit within 3\" of a point you pick; on a 4+, it suffers 1 mortal wound. The point must be on the battlefield, within 24\" of this psyker and visible to it."
+  },
   "8bd1c54aac9d": {
     "name": "Rise from the Ashes",
     "kind": "stratagem",
@@ -109,6 +173,11 @@
     "kind": "ability",
     "plain": "Add 2 to this Warlord's Strength characteristic."
   },
+  "b3df88993165": {
+    "name": "Miraculous Constitution",
+    "kind": "ability",
+    "plain": "Each time this Warlord would lose a wound, roll one D6 and on a 6 it isn't lost; this Warlord also gets back 1 lost wound as your Movement phase starts."
+  },
   "bc550af4a029": {
     "name": "Bloodfire",
     "kind": "weapon",
@@ -124,15 +193,35 @@
     "kind": "weapon",
     "plain": "This weapon automatically hits."
   },
+  "c348e72d8a72": {
+    "name": "2) Fire Shield",
+    "kind": "psychic",
+    "plain": "Warp charge 6: pick one of your SALAMANDERS units within 18\" of this psyker; subtract 1 from ranged hit rolls against it and from charge rolls that target it. Until the start of your next Psychic phase, subtract 1 from the hit roll of each attack made with a ranged weapon against that unit, and subtract 1 from the result of any charge roll for a charge that targets it."
+  },
   "d3965da90c0e": {
     "name": "Flamecraft",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase, when one of your SALAMANDERS units is chosen to shoot. Until the end of the phase, flame weapons fired by models in that unit don't roll for their number of attacks; each one makes the maximum number instead (so a Heavy D6 weapon makes 6 attacks)."
   },
+  "e0b578c155db": {
+    "name": "Drake-Smiter",
+    "kind": "weapon",
+    "plain": "Subtract 1 from the hit roll for attacks with this weapon; each unmodified wound roll of 6 adds 3 to its Damage characteristic for that attack."
+  },
+  "e264d6d5fe9d": {
+    "name": "5) Fury of Nocturne",
+    "kind": "psychic",
+    "plain": "Warp charge 6: one enemy unit within 18\" of this psyker that it can see suffers D3 mortal wounds if you roll higher than its best Toughness on 2D6. Roll 2D6 after picking the unit; the total must be greater than the highest Toughness characteristic among that unit's models."
+  },
   "e963b89f602d": {
     "name": "Kesare's Mantle",
     "kind": "ability",
     "plain": "Vulkan He'stan gets a 3+ invulnerable save."
+  },
+  "ea68f211b2de": {
+    "name": "Forged in Battle",
+    "kind": "rule",
+    "plain": "Units with this tactic can re-roll one wound roll when they shoot or fight, and attacks with an Armour Penetration of -1 count as 0 against them.\n• Each time one of these units is chosen to shoot or fight, you can re-roll one of the wound rolls for its attacks.\n• When an attack is allocated to one of these models and has an Armour Penetration characteristic of -1, it counts as 0 for that attack instead."
   },
   "fa8c0d357977": {
     "name": "Trust of Prometheus",
@@ -143,5 +232,10 @@
     "name": "Steelsliver",
     "kind": "weapon",
     "plain": "Each time the bearer is picked to fight, it makes extra attacks with this weapon: one for each enemy model within Engagement Range of it."
+  },
+  "fe99e5583083": {
+    "name": "The Salamander's Mantle",
+    "kind": "ability",
+    "plain": "Subtract 1 from the wound roll for each attack made against the model with this Relic."
   }
 }
