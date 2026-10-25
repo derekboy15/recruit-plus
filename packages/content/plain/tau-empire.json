@@ -77,6 +77,11 @@
     "kind": "ability",
     "plain": "Targets of ranged attacks made by models in the bearer's unit don't get the benefits of cover against those attacks."
   },
+  "0ca689062dea": {
+    "name": "Overdrive Power Systems",
+    "kind": "ability",
+    "plain": "COMMANDER model only: pick up to two of the bearer's ranged weapons; its ranged attacks with them against units within half range add 1 to the wound roll."
+  },
   "0d3dc8f3ef63": {
     "name": "Bounty Hunters",
     "kind": "ability",
@@ -216,6 +221,11 @@
     "kind": "ability",
     "plain": "Aura: models in your KROOT units can use this model's Leadership characteristic in place of their own while their unit is within 6\" of this model."
   },
+  "20aac66831c4": {
+    "name": "Grav-Inhibitor Field",
+    "kind": "ability",
+    "plain": "The bearer:\n- makes enemy units in its Engagement Range at the start of the Fight phase ineligible to fight that phase until all your eligible units have fought.\n- has 1 subtracted from the hit roll of each melee attack made against it."
+  },
   "211e994c2491": {
     "name": "Master of War (Aura) (Coldstar)",
     "kind": "ability",
@@ -240,6 +250,11 @@
     "name": "Hardened Armour",
     "kind": "ability",
     "plain": "Whenever an attack is allocated to this unit's ENFORCER BATTLESUIT COMMANDER model, reduce that attack's Damage characteristic by 1 (minimum 1)."
+  },
+  "25d8437e795c": {
+    "name": "Solid-image Projection Unit",
+    "kind": "ability",
+    "plain": "The bearer:\n- once per turn, the first time it fails a saving throw, makes that attack's Damage characteristic 0.\n- has a 4+ invulnerable save."
   },
   "27734539cb1c": {
     "name": "Mobile Defences (Action)",
@@ -268,6 +283,11 @@
     "name": "Grenade Belt",
     "kind": "weapon",
     "plain": "Blast. The bearer can shoot this weapon only once per battle."
+  },
+  "2b806bf69d7a": {
+    "name": "Ka'chak'tarr",
+    "kind": "weapon",
+    "plain": "You can ignore the Look Out, Sir rule when picking targets for this weapon. Each unmodified wound roll of 6 for an attack with it also deals 1 mortal wound to the target, on top of any normal damage."
   },
   "2cd232be4eb7": {
     "name": "Crushing Feet",
@@ -434,6 +454,11 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Book\""
     }
   },
+  "422108c4b3af": {
+    "name": "Neuro-empathic Nullfier",
+    "kind": "ability",
+    "plain": "ETHEREAL model only: the bearer can try, once per battle in your Command phase, to stop a visible enemy unit within 18\" of it from performing actions. To do so it uses this Relic: pick that unit and roll one D6. On a 2+, the unit can't perform actions until the start of the next Command phase, and if it is performing an action right now, that action fails immediately."
+  },
   "428007b6eeb3": {
     "name": "2. Pack Leader (Aura)",
     "kind": "ability",
@@ -457,6 +482,11 @@
     "kind": "ability",
     "plain": "At the start of the first battle round, each INFANTRY unit with this tenet that began wholly in your deployment zone may make a Normal Move of up to 6\". This happens before the first turn begins, and the move can't end within 9\" of the enemy deployment zone or of any enemy models."
   },
+  "44879162bdfa": {
+    "name": "Advanced EM Scrambler",
+    "kind": "ability",
+    "plain": "Two effects:\n- enemy units can't be set up as Reinforcements within 12\" of the bearer.\n- in your Command phase, pick one enemy unit within 6\" of the bearer. Until your next Command phase starts, aura abilities of other units in your opponent's army can't affect it, unless those auras are psychic powers."
+  },
   "456e1299bfba": {
     "name": "Wall of Mirrors",
     "kind": "stratagem",
@@ -474,6 +504,11 @@
     "waive": {
       "55": "page reference (pg 55) to where Sept Tenets are printed; not part of the rule"
     }
+  },
+  "4a16c7f98f0d": {
+    "name": "Talisman of Arthas Moloch",
+    "kind": "ability",
+    "plain": "The bearer:\n- can try to deny one psychic power in your opponent's Psychic phase, as though it were a PSYKER.\n- adds 1 to its Deny the Witch tests."
   },
   "4a4e0527290b": {
     "name": "Failure Is Not An Option (Aura)",
@@ -561,6 +596,14 @@
     "kind": "ability",
     "plain": "Ignore DRONE models when: using the Look Out, Sir rule; working out this unit's Starting Strength and whether it is below Half-strength; and working out this unit's Toughness if the unit also has models without the DRONE keyword."
   },
+  "56d8f0d593b2": {
+    "name": "Ohr'tu's Lantern",
+    "kind": "ability",
+    "plain": "Model with a markerlight only: each time it performs the Fire Markerlights action, roll 5 extra D6s; each 3+ gives the enemy unit one Markerlight token.",
+    "waive": {
+      "93": "page reference (pg 93) to where the Fire Markerlights action are printed; not part of the rule"
+    }
+  },
   "5ac606f05549": {
     "name": "Sworn Protectors",
     "kind": "ability",
@@ -590,6 +633,11 @@
     "name": "Submunitions",
     "kind": "stratagem",
     "plain": "In your Shooting phase, when one of your HAMMERHEAD models with a railgun is picked to shoot: rather than attacking with the railgun this phase, choose an enemy unit within 36\" of the model and visible to it that isn't within Engagement Range of any of your units. Roll a D6 per model in that unit, adding 1 to each roll if the unit has 11 or more models. Each 4+ inflicts 1 mortal wound on it, up to a maximum of 8 mortal wounds."
+  },
+  "60dcc71983fe": {
+    "name": "Puretide Engram Neurochip",
+    "kind": "ability",
+    "plain": "You may get back Command points spent on T'au Empire Battle Tactic and Epic Deed Stratagems. While the bearer is on the battlefield, roll one D6 for each Command point you spend on a T'au Empire Stratagem of either kind: on a 3+, that point is refunded."
   },
   "612e38e461cf": {
     "name": "Twin heavy fusion cannon",
@@ -628,6 +676,11 @@
     "name": "Tracker",
     "kind": "ability",
     "plain": "During deployment, you may put Dahyak Grekh in pursuit instead of setting him up on the battlefield. He can then emerge at the end of any of your Movement phases: set him up anywhere on the battlefield more than 9\" away from any enemy models."
+  },
+  "67c3172b5166": {
+    "name": "The Kindled Blade",
+    "kind": "ability",
+    "plain": "CADRE FIREBLADE model only: the bearer can use this Relic once per battle, in your Command phase, gaining the aura below until your next Command phase starts. Bonding Ritual (Aura): your <SEPT> FIRE WARRIOR TEAM units pass Morale tests automatically while they are within 6\" of this model."
   },
   "681ac29bb68a": {
     "name": "Cloaked Insertion",
@@ -1007,6 +1060,11 @@
       "40000": "part of the book title \"Warhammer 40,000 Core Book\" in the designer's note; not part of the rule"
     }
   },
+  "9d6399bafc7f": {
+    "name": "Dynamic Mirror Field",
+    "kind": "ability",
+    "plain": "The bearer:\n- can only be targeted by ranged attacks from a firing model that is within 12\" of it, or for which it is the closest target.\n- gets a 5+ invulnerable save."
+  },
   "9fa46f3a94a2": {
     "name": "Shocking Firestorm",
     "kind": "stratagem",
@@ -1097,6 +1155,16 @@
     "name": "Twin Smart Missile System",
     "kind": "weapon",
     "plain": "This weapon can target units the bearer can't see. Targets of attacks with this weapon don't get the benefits of Light Cover against them."
+  },
+  "aa84aa2f5601": {
+    "name": "Multi-sensory Discouragement Array",
+    "kind": "ability",
+    "plain": "At the end of your Movement phase, roll 3D6 for one enemy unit within 12\" of the bearer. If the total is greater than that unit's Leadership characteristic, choose one of these effects, which lasts until the start of your next Movement phase:\n- That unit loses the Objective Secured ability.\n- Halve the Move characteristic of that unit's models, and halve its charge rolls.\n- That unit's models can only make ranged attacks against the closest eligible target."
+  },
+  "aaa171bdd935": {
+    "name": "Borthrod Gland",
+    "kind": "ability",
+    "plain": "KROOT model only: the bearer can use this Relic once per battle, in your Command phase, gaining the Alien Glands aura until your next Command phase starts. Alien Glands (Aura): while one of your KROOT units is within 6\" of this model, add 1 to both the Attacks and the Strength characteristics of that unit's models."
   },
   "aacd1b24e1ae": {
     "name": "Farsight Enclaves Tenet: Devastating Counterstrike",
@@ -1277,6 +1345,14 @@
     "kind": "ability",
     "plain": "Any DRONE models in this unit start the battle docked with this unit's TIDEWALL DRONEPORT model."
   },
+  "c4dc81c2572d": {
+    "name": "The Humble Stave",
+    "kind": "ability",
+    "plain": "The bearer:\n- in your Command phase, if it is on the battlefield, can intone one extra invocation it knows. That invocation, from the Invocations of the Ethereals, must not already have been intoned by a friendly model this turn.\n- adds 1 to the roll to see whether an invocation it intones is inspiring.",
+    "waive": {
+      "76": "page reference (pg 76) to where the Invocations of the Ethereals are printed; not part of the rule"
+    }
+  },
   "c523d1427918": {
     "name": "Nova Reactor",
     "kind": "ability",
@@ -1296,6 +1372,11 @@
     "name": "Set up Turret",
     "kind": "ability",
     "plain": "If this unit includes a Support Turret, that model isn't set up until the unit performs this action. Deploy Turret (Action): BREACHER TEAM or STRIKE TEAM units from your army, in any number, can start this action in your Command phase. It completes at the end of your next Movement phase. When it does, if the unit has a Support Turret model that is neither on the battlefield nor destroyed, set that model up on the battlefield in Unit Coherency with its unit."
+  },
+  "c790719c7f7e": {
+    "name": "Automated Armour Defences",
+    "kind": "ability",
+    "plain": "COMMANDER model only: roll one D6 at the start of your Shooting phase to see whether the closest visible enemy unit suffers mortal wounds. On a 2-4, the closest enemy unit that is visible to the bearer and within 18\" of it suffers 1 mortal wound; on a 5+, the closest enemy unit that is visible to the bearer and within 12\" of it suffers D3 mortal wounds."
   },
   "c791068bda9c": {
     "name": "Seeker Missile",
@@ -1451,6 +1532,11 @@
     "kind": "stratagem",
     "plain": "In any phase, when one of your BATTLESUIT models is destroyed: before it is removed from play, skip any rules that its destruction would trigger (such as Explodes). Instead, roll a D6 for each unit within 3\" of the model; add 1 to each roll if the model's Wounds characteristic is 12 or more. On a 3-5, the unit being rolled for suffers D3 mortal wounds; on a 6+, it suffers 3 mortal wounds."
   },
+  "dc32659eee74": {
+    "name": "Vectored Manoeuvring Thrusters",
+    "kind": "ability",
+    "plain": "BATTLESUIT model only:\n- The bearer's Move characteristic goes up by 2\".\n- Once per battle round, when the bearer is picked as a target of a charge while not within Engagement Range of any enemy units, it can make a Normal Move by using this Relic. If it does, it can't fire Overwatch or Set to Defend until the end of the phase. Your opponent can choose new targets for the charge."
+  },
   "dc4adfe6793b": {
     "name": "Dal'yth Sept Tenet: Trading Partners",
     "kind": "ability",
@@ -1484,6 +1570,11 @@
     "name": "Targeting Array",
     "kind": "ability",
     "plain": "Whenever this unit's HAMMERHEAD model is picked to shoot, you may re-roll a single hit roll while resolving its attacks."
+  },
+  "e160607ad821": {
+    "name": "The Be'gel Hunter's Plate",
+    "kind": "ability",
+    "plain": "The bearer:\n- adds 1 to its armour saving throws.\n- doesn't lose a wound on a 5+: roll one D6 each time it would lose one."
   },
   "e22e0d616b6c": {
     "name": "Positional Relay (Aura)",

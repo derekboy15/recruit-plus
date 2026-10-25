@@ -39,6 +39,11 @@
     "kind": "ability",
     "plain": "When the Fight phase starts, roll a D6 for each enemy unit that is within 6\" of this model; each unit you roll a 4+ for takes 1 mortal wound."
   },
+  "0ca828497593": {
+    "name": "Voidreaper",
+    "kind": "weapon",
+    "plain": "When an attack is made with this weapon, no rules that ignore wounds can be used. This Relic takes the place of a warscythe or voidscythe."
+  },
   "0ccb4a882a9c": {
     "name": "Aggressively Territorial",
     "kind": "ability",
@@ -63,6 +68,16 @@
     "name": "Lord of the Storm",
     "kind": "ability",
     "plain": "In your Shooting phase, once per battle, this model can call the storm. To do so, choose an enemy model that it can see within 48\" (a CHARACTER model with a Wounds characteristic of 9 or less is only a valid choice if it is the closest enemy model to Imotekh). For every other enemy unit within 6\" of the chosen model, roll a D6: on a 4+ that unit takes D3 mortal wounds. After that, roll a single D6: on a 4+ the chosen model takes 3 mortal wounds."
+  },
+  "1281a00774f6": {
+    "name": "Gauntlet of the Conflagrator",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit the target automatically. Don't make a wound roll: instead, roll one D6 for each model in the target unit, and that unit suffers 1 mortal wound for every 6 rolled; then the attack sequence ends."
+  },
+  "12b4b5ada8c5": {
+    "name": "Voltaic Staff (Melee)",
+    "kind": "weapon",
+    "plain": "This Relic takes the place of a staff of light."
   },
   "135f6eed05b7": {
     "name": "Cult of Annihilation",
@@ -114,6 +129,11 @@
     "kind": "stratagem",
     "plain": "In your Shooting phase: pick one of your NIHILAKH INFANTRY units that is in the middle of performing an action. It can shoot this phase and the action does not fail."
   },
+  "1e068ccc1262": {
+    "name": "Veil of Darkness",
+    "kind": "ability",
+    "plain": "Once per battle, in your Movement phase, you can take the bearer's unit and up to one of your <DYNASTY> CORE units within 3\" of the bearer off the battlefield. Set them up again anywhere on the battlefield more than 9\" from all enemy models. If 2 units are set up again this way, they must both end up wholly within 6\" of each other."
+  },
   "204acb6479dc": {
     "name": "Rarefied Nobility",
     "kind": "stratagem",
@@ -146,6 +166,11 @@
     "name": "Immortal Pride (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your <DYNASTY> CORE units is within 6\" of this model, you can ignore any or all modifiers to its Combat Attrition tests."
+  },
+  "22d2f390af46": {
+    "name": "Orb of Eternity",
+    "kind": "ability",
+    "plain": "Once per battle, in your Command phase, you can use this Relic to enact the reanimation protocols of one of your <DYNASTY> units within 6\" of the bearer. That unit must be below its Starting Strength and must not have had its reanimation protocols enacted this phase. Every destroyed model in it begins to reassemble, and you add 1 to each Reanimation Protocol roll made for those protocols. This Relic takes the place of a resurrection orb."
   },
   "22fd57c533af": {
     "name": "Ancient Collector",
@@ -230,6 +255,11 @@
     "kind": "ability",
     "plain": "This unit can benefit from this ability, and the rules below apply, if every unit in your army (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units) comes from the same dynasty and your WARLORD is a NECRONS CHARACTER model.\n\nOnce both sides have deployed, and before you determine who takes the first turn, you must secretly assign a different command protocol to each of the first five battle rounds and write this on your army roster.\n\nAt the start of every battle round, if at least one NECRONS CHARACTER unit from your army is on the battlefield, the command protocol assigned to that round becomes active for your army until that round ends. Every command protocol has two directives. When one becomes active, show it to your opponent and choose one of its directives. For as long as that protocol stays active, each unit eligible for this ability that is on the battlefield gets the benefit of the chosen directive.\n\nAlso, if all your army's units are from the same dynasty (not counting DYNASTIC AGENT, C'TAN SHARD and UNALIGNED units), pick one command protocol that wasn't assigned to any battle round (normally there is only one left). It is active in every battle round on top of that round's assigned protocol; at the start of each battle round, choose which of its directives your units benefit from. If this extra protocol is the one named in your dynasty's code, then both of its directives apply to every unit with this ability in your army in every battle round, on top of the protocol assigned to that round."
   },
+  "2ffb2f94a978": {
+    "name": "Nightcull Scythe",
+    "kind": "weapon",
+    "plain": "Excess damage from this weapon's attacks isn't lost: keep allocating it to other models in the target unit until none is left or the unit is destroyed. This Relic takes the place of a Hyperphase Harvester."
+  },
   "30206059fae5": {
     "name": "Guardian Protocols (Aura)",
     "kind": "ability",
@@ -275,6 +305,11 @@
     "kind": "ability",
     "plain": "Aura: your units add 1 to their Leadership characteristic while they are within 6\" of this WARLORD."
   },
+  "36a610f7318f": {
+    "name": "Mask of Obliteration (Details)",
+    "kind": "ability",
+    "plain": "When the bearer is picked to shoot, it can merge the shots of its enmitic disintegrator pistols into one obliteration beam rather than shooting normally. If it does, it uses the following profile instead of attacking with each of those pistols."
+  },
   "3a54c9b9fce7": {
     "name": "Adaptive Strategy",
     "kind": "ability",
@@ -315,6 +350,11 @@
     "kind": "weapon",
     "plain": "Blast. Add 2 to the hit roll of each attack this weapon makes against an AIRCRAFT unit."
   },
+  "42a8e6e734e0": {
+    "name": "Solar Staff (Ranged)",
+    "kind": "weapon",
+    "plain": "If an attack with this weapon hits an INFANTRY unit, that unit is blinded until the end of the turn. A blinded unit can't fire Overwatch or Set to Defend. This Relic takes the place of a staff of light."
+  },
   "4307a65911ef": {
     "name": "Arkana: Obedience Nanoscarabs",
     "kind": "ability",
@@ -344,6 +384,16 @@
     "name": "Repair Barge",
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your <DYNASTY> NECRON WARRIORS units within 6\" of this model. If you do, up to D3 of that unit's destroyed models Reanimate. A unit can't be picked for this ability more than once per phase."
+  },
+  "44fe442c3f98": {
+    "name": "Nanoscarab Casket",
+    "kind": "ability",
+    "plain": "Whenever the bearer uses its Living Metal ability, it gets back 1 extra lost wound."
+  },
+  "45a7a11d53fa": {
+    "name": "Voltaic Staff (Shooting)",
+    "kind": "weapon",
+    "plain": "Each unmodified hit roll of 6 with this weapon scores 2 extra hits. This Relic takes the place of a staff of light."
   },
   "462f970e1b17": {
     "name": "Exalted Cryptek",
@@ -379,6 +429,11 @@
     "name": "Merciless Tyrant",
     "kind": "ability",
     "plain": "This WARLORD's Strength and Attacks characteristics are each increased by 1."
+  },
+  "4f05e5954866": {
+    "name": "Sempiternal Weave",
+    "kind": "ability",
+    "plain": "The bearer's Toughness and Wounds characteristics are each increased by 1."
   },
   "5218e93a1768": {
     "name": "Resurrection Orb",
@@ -494,6 +549,11 @@
     "name": "Arkana: Neutron Shroud",
     "kind": "ability",
     "plain": "The bearer's Save characteristic is 2+. Once per battle, the bearer can activate the shroud before you make a saving throw for it; if it does, it has a 3+ invulnerable save until the phase ends."
+  },
+  "6b1698f18f57": {
+    "name": "Conduit of Stars",
+    "kind": "weapon",
+    "plain": "This Relic takes the place of a relic gauss blaster."
   },
   "6c0cbab1d07b": {
     "name": "Transient Madness",
@@ -665,6 +725,11 @@
     "kind": "ability",
     "plain": "In your Command phase, you can choose one of your <DYNASTY> CORE units that is within 9\" of this model. Until your next Command phase begins, re-roll any hit roll of 1 for attacks made by models in that unit."
   },
+  "9b3cca5e24af": {
+    "name": "Blood Scythe",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 2 extra attacks with this weapon. This Relic takes the place of a warscythe or voidscythe."
+  },
   "9b5a00976343": {
     "name": "Curator of Deadly Curiosities",
     "kind": "ability",
@@ -704,6 +769,11 @@
     "name": "Relentless March (Necrons) (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your NECRONS CORE units is within 6\" of this model, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
+  },
+  "9dc0fa1979fa": {
+    "name": "Chariot of the Hierarchs",
+    "kind": "ability",
+    "plain": "The bearer:\n- can't be wounded by an attack on an unmodified wound roll of 1-3, whatever abilities the attacking weapon or model has.\n- can move an extra 3\" each time it piles in or consolidates."
   },
   "9e47e705a136": {
     "name": "Harbinger of Destruction",
@@ -795,6 +865,11 @@
     "kind": "ability",
     "plain": "For this WARLORD:\n- you can ignore any or all modifiers to its Move characteristic, Advance rolls and charge rolls.\n- the first time in each turn that a saving throw is failed for it, change that attack's Damage characteristic to 0."
   },
+  "ae8366e4a11a": {
+    "name": "Mask of Obliteration",
+    "kind": "weapon",
+    "plain": "If the bearer hits with this profile, make one wound roll against the target unit and one against each other unit a straight line passes over or through. Draw that line from the nearest point of this model's base to the nearest point of the closest target model's base (or hull)."
+  },
   "afc88ffeea20": {
     "name": "Power Crucible Terrain Features",
     "kind": "ability",
@@ -867,6 +942,11 @@
     "name": "Phaeron of the Blades (Aura)",
     "kind": "ability",
     "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, you can re-roll the wound roll for each melee attack made by a model in that unit."
+  },
+  "b8dd490b98ea": {
+    "name": "Infinity Mantle",
+    "kind": "ability",
+    "plain": "The bearer adds 1 to its armour saving throws. Whenever it would lose a wound, roll one D6, and on a 6 it doesn't lose that wound."
   },
   "b960f9e49bf9": {
     "name": "Scarab Hive",
@@ -1216,6 +1296,11 @@
     "kind": "ability",
     "plain": "This model has a 4+ invulnerable save."
   },
+  "eb193eb725ca": {
+    "name": "Command-wave Amplifier (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your SZAREKHAN units within 9\" of the bearer get the active command protocol's selected directive within 9\" (not 6\") of a friendly NECRONS CHARACTER. C'TAN SHARD models don't count for this."
+  },
   "ec2016adad95": {
     "name": "Self-destruction",
     "kind": "stratagem",
@@ -1231,6 +1316,11 @@
     "kind": "ability",
     "plain": "Aura: while one of your NECRONS CORE or TRIARCH PRAETORIANS units is within 6\" of Szarekh, whenever that unit is picked to make a Normal Move or Advance, its models' Move characteristic goes up by 1\" until the phase ends."
   },
+  "f16af1352d0c": {
+    "name": "Synthetic Cortex Enhancer (Aura)",
+    "kind": "ability",
+    "plain": "Aura: your SZAREKHAN CORE units within 9\" of the bearer get both directives of your army's active command protocol, not just the selected one."
+  },
   "f286e92eba6e": {
     "name": "Illuminor",
     "kind": "ability",
@@ -1245,6 +1335,11 @@
     "name": "Empyric Overcharger (Aura)",
     "kind": "ability",
     "plain": "Aura: whenever a Psychic test is taken for an enemy PSYKER unit that is within 12\" of this model, any double rolled on it, not only a double 1 or double 6, makes that unit suffer Perils of the Warp."
+  },
+  "f6fa68609bdd": {
+    "name": "The Sovereign Coronal",
+    "kind": "ability",
+    "plain": "The bearer gets the Command-wave Amplifier (Aura) and Synthetic Cortex Enhancer (Aura) abilities."
   },
   "f70f3dcee6f1": {
     "name": "Translocation Crypt",

@@ -9,6 +9,19 @@
     "kind": "ability",
     "plain": "Once per battle, in your Command phase, you can roll one D3 on the Combat Drugs table. Until the end of the turn, every unit with this Obsession and the Combat Drugs ability gets the result as an extra ability, on top of the abilities it already has."
   },
+  "061a9b823564": {
+    "name": "The Djin Blade",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets 2 extra attacks with this weapon. If it attacked with this weapon at all, roll one D6 at the end of the Fight phase: on a 1, the bearer suffers 1 mortal wound."
+  },
+  "085bcfe3822f": {
+    "name": "The Weeping Stones",
+    "kind": "ability",
+    "plain": "While the bearer is on the battlefield, you can roll one extra D6 whenever you make a Strand of Fate roll. Only an ASURYANI PSYKER can have this Relic.",
+    "waive": {
+      "143": "page number reference (\"pg 143\") to where the Strand of Fate rule is printed; the style guide forbids page references"
+    }
+  },
   "08cfb17d8f3c": {
     "name": "Elite Citizenry",
     "kind": "ability",
@@ -18,6 +31,16 @@
     "name": "A Foot in the Future",
     "kind": "ability",
     "plain": "When this Warlord Advances, don't make an Advance roll: add D3+3\" to its Move characteristic until the end of the phase instead.\nYou can add 6 to any charge roll made for this Warlord."
+  },
+  "0c16c98dd294": {
+    "name": "Soulheim",
+    "kind": "ability",
+    "plain": "The bearer gains these abilities:\n- Subtract 1 from the hit roll of every attack that targets the bearer.\n- Roll one D6 each time the bearer would lose a wound: on a 5+, that wound isn't lost."
+  },
+  "0c2bdf30ce10": {
+    "name": "Spirit-Sting",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and invulnerable saves can't be taken against its attacks."
   },
   "0ee496278fc1": {
     "name": "Kabal of the Black Heart: Thirst for Power",
@@ -31,6 +54,11 @@
     "name": "Dark Technomancers (All-Consuming)",
     "kind": "ability",
     "plain": "When a unit with this Obsession is chosen to shoot, you can enhance any or all of its models' ranged weapons, except liquifier guns and twin liquifier guns. Until the end of the phase, attacks with an enhanced weapon add 1 to their wound roll and 1 to their Damage characteristic, but their hit roll can't be re-rolled. If any attack with an enhanced weapon has an unmodified hit roll of 1, the bearer's unit suffers 1 mortal wound once it has shot with that weapon; a VEHICLE or MONSTER bearer suffers D3 mortal wounds instead."
+  },
+  "15e7224173ae": {
+    "name": "Crescendo",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with a shuriken pistol can take this Relic. It replaces that shuriken pistol and uses its own weapon profile."
   },
   "1600085ac236": {
     "name": "Player of the Dark",
@@ -62,6 +90,11 @@
     "kind": "ability",
     "plain": "Your opponent can't re-roll hit rolls, wound rolls or damage rolls for attacks made against this Warlord."
   },
+  "1984d7a0bb56": {
+    "name": "Shard of Anaris",
+    "kind": "weapon",
+    "plain": "Whenever the bearer fights, it gets D3+3 extra attacks with this weapon."
+  },
   "1a11c2f49fdc": {
     "name": "Obsessive Collectors",
     "kind": "ability",
@@ -77,10 +110,38 @@
     "kind": "rule",
     "plain": "The battle-size table in the Luck of the Laughing God ability no longer applies. At the start of the battle round you get 0 Luck re-rolls, whatever the battle size: the only way to gain Luck re-rolls is to make a Luck of the Laughing God roll."
   },
+  "1ba183f8627f": {
+    "name": "The Storied Sword",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with an Aeldari power sword can take this Relic. It replaces that Aeldari power sword and uses its own weapon profile."
+  },
+  "1c7bdeececef": {
+    "name": "The Glaive Exquisite",
+    "kind": "weapon",
+    "plain": "Add 1 to the wound roll for attacks with this weapon that target an enemy unit with a Leadership characteristic of 8 or more. If the bearer fought with this weapon in a phase but didn't target any such enemy unit, it suffers 1 mortal wound at the end of that phase."
+  },
+  "1dd5ceb4729b": {
+    "name": "The Twilight Fang",
+    "kind": "ability",
+    "plain": "Only a TWILIGHT TROUPE MASTER model with an Aeldari power sword can take this Relic. It replaces that Aeldari power sword and uses its own weapon profile.",
+    "waive": {
+      "TWIGHLIGHT TROUPE MASTER": "typo in the official text for TWILIGHT TROUPE MASTER; the plain text uses the correctly spelled TWILIGHT TROUPE MASTER keyword"
+    }
+  },
   "1f74707af8de": {
     "name": "Children of Prophecy",
     "kind": "ability",
     "plain": "When a PSYKER unit with this attribute takes a Psychic test or Deny the Witch test, you can re-roll any or all of its dice that show a 1 or 2."
+  },
+  "2075bec7eac9": {
+    "name": "Poisoner's Ampule",
+    "kind": "ability",
+    "plain": "Once per battle, at the end of your Movement phase, pick one enemy unit within 9\" of the bearer:\n- roll one D6, and on a 2+ it suffers D3 mortal wounds.\n- the unit's own Aura abilities stop working until the start of your next turn.\n- until the start of your next turn, the unit can't be affected by Aura abilities of friendly models."
+  },
+  "210c43f77bf4": {
+    "name": "The Flensing Blade",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and its attacks against a CHARACTER unit have a Damage characteristic of 3."
   },
   "21c2e776e6ed": {
     "name": "3. Artist of Dark Alchemy",
@@ -135,6 +196,11 @@
     "kind": "ability",
     "plain": "While this Warlord is on the battlefield, you can roll one D6 per Command point either player spends on a Stratagem: each 6 gains you 1 Command point."
   },
+  "2a9317d63d51": {
+    "name": "The Animus Vitae",
+    "kind": "weapon",
+    "plain": "Once per battle, the bearer can shoot this weapon: if it hits, the target suffers D3 mortal wounds (D3+3 instead if the target unit has 11 or more models). Until the end of the turn, your units with the Power from Pain ability count the battle round as one higher than it really is when working out which of its effects they get."
+  },
   "2bfe46b5254e": {
     "name": "The Coven of Twelve: Butchers of Flesh",
     "kind": "ability",
@@ -155,10 +221,20 @@
     "kind": "rule",
     "plain": "Advancing doesn't stop this unit from shooting that turn, but if it does shoot after Advancing, then until the end of the phase its models can only attack with Assault or Pistol weapons they have, and the unit counts as having Remained Stationary when those attacks are resolved. In your Shooting phase, once this unit has finished its attacks, it can make a Battle Focus move unless it Fell Back or Advanced this turn: roll one D6, and each model in the unit can make a Normal Move of up to that many inches, as if it were your Movement phase. After a Battle Focus move, the unit can't embark within a TRANSPORT model when that move ends, and it can't declare a charge until the end of the turn. A unit that arrived as Reinforcements this turn can't make a Battle Focus move, and no unit can make more than one Battle Focus move in a turn. Note (Area Terrain): if any model in the unit wants to cross any part of an Area Terrain feature during a Battle Focus move, subtract 3\" from how far the unit's models can move for that move (to a minimum of 0). The penalty still applies when no part of that Area Terrain feature is taller than 1\", but it doesn't stack with other penalties that terrain feature imposes (such as the Difficult Ground terrain trait)."
   },
+  "330c5728f201": {
+    "name": "Howling Skysword of Galaleth",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon always wound on a 2+."
+  },
   "33f07c2fc916": {
     "name": "Poisoned Weapon",
     "kind": "rule",
     "plain": "Many Drukhari weapons have the Poisoned Weapon ability, shown as 'Poisoned Weapon' followed by a value such as (4+) or (2+). When an attack with a poisoned weapon targets a unit that isn't a VEHICLE or TITANIC unit, an unmodified wound roll of that value always succeeds."
+  },
+  "342171fde948": {
+    "name": "The Helm of Spite",
+    "kind": "ability",
+    "plain": "In your opponent's Psychic phase, the bearer can try to deny one psychic power as though it were a PSYKER. If it succeeds, the PSYKER that tried to manifest that power suffers Perils of the Warp."
   },
   "3424fa76d68a": {
     "name": "Twisted Animator",
@@ -185,10 +261,20 @@
     "kind": "ability",
     "plain": "Targets of ranged attacks made by models with this attribute don't get the benefits of Light Cover against those attacks."
   },
+  "3804c6b458b9": {
+    "name": "The Nightmare Doll",
+    "kind": "ability",
+    "plain": "Roll one D6 each time the bearer would lose a wound: on a 4+, that wound isn't lost."
+  },
   "38c7e535be13": {
     "name": "Masters of Mutagens",
     "kind": "ability",
     "plain": "Melee attacks by models with this Obsession using a poisoned weapon (not a Relic) automatically wound on an unmodified hit roll of 6. This doesn't apply against VEHICLE or TITANIC units."
+  },
+  "39f068c655f6": {
+    "name": "Garland of Spite",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, halve the Attacks characteristic of one enemy model within Engagement Range of the bearer until the end of the phase. That model can't be a MONSTER or VEHICLE model.\nThe bearer's melee attacks hit the target automatically."
   },
   "3b362f7bb33a": {
     "name": "Acrobatic Display",
@@ -205,6 +291,11 @@
     "kind": "rule",
     "plain": "Each time one of this unit's models would lose a wound, roll one D6; the wound isn't lost on a 5+."
   },
+  "3f38785f2997": {
+    "name": "Transfuser of Excruciation",
+    "kind": "weapon",
+    "plain": "The bearer can make only one attack with this weapon each time it fights. If that attack hits, the target suffers 1 mortal wound and the attack sequence ends. Whenever a unit (other than a VEHICLE unit) takes a mortal wound from this weapon, its models get 1 subtracted from their Ballistic Skill, Weapon Skill and Strength characteristics."
+  },
   "3fad5802dc04": {
     "name": "Treacherous Deceiver",
     "kind": "ability",
@@ -220,20 +311,45 @@
     "kind": "ability",
     "plain": "Whenever this Warlord would lose a wound, roll one D6: on a 5+, it doesn't lose that wound."
   },
+  "4473edb7db29": {
+    "name": "Soul-Seeker",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and it can ignore the Look Out, Sir rule when you pick its targets. Targets don't get the benefits of cover against its attacks."
+  },
+  "4668068713d6": {
+    "name": "Writ of the Living Muse (Aura)",
+    "kind": "ability",
+    "plain": "Aura: while one of your KABAL OF THE BLACK HEART CORE units is within 6\" of the bearer, re-roll wound rolls of 1 for attacks made by its models. If the bearer is a REALSPACE RAIDER unit, this also works for BLADES FOR HIRE units."
+  },
   "491db814be61": {
     "name": "Warden of Souls",
     "kind": "ability",
     "plain": "This WARLORD regains 1 lost wound at the start of your Command phase.\nWhen this WARLORD is chosen to fight, if any enemy unit within its Engagement Range is below Starting Strength, add 1 to its Strength and Attacks characteristics until the end of the phase."
+  },
+  "49ce28f8cc50": {
+    "name": "Sunstorm",
+    "kind": "ability",
+    "plain": "The bearer's Move characteristic is 20\", and it has the Objective Secured ability. Only an ASURYANI BIKER model can have this Relic."
   },
   "4a341fe69aa9": {
     "name": "Wrath of the Dead",
     "kind": "ability",
     "plain": "WRAITH CONSTRUCT units with this attribute (but not AIRCRAFT units) can perform Heroic Interventions as if they were CHARACTER units."
   },
+  "4aabdd89e5b3": {
+    "name": "Parasite's Kiss",
+    "kind": "weapon",
+    "plain": "This weapon has Poisoned Weapon (2+), and the bearer regains 1 lost wound each time one of its attacks destroys an enemy model."
+  },
   "4b5f2e857ae5": {
     "name": "Altansar 2. A Beacon of Light in the Darkness",
     "kind": "ability",
     "plain": "In your Command phase, pick one of your ALTANSAR units within 9\" of this WARLORD. It gains these until your next Command phase starts:\n- it can make ranged attacks while performing an action without the action failing.\n- Advancing or Falling Back doesn't stop it performing actions that turn."
+  },
+  "4c2bf09604a4": {
+    "name": "Cegorach's Rose",
+    "kind": "weapon",
+    "plain": "You can re-roll the wound roll for attacks made with this weapon. The bearer gains the HARLEQUIN'S KISS keyword."
   },
   "50b5da0444b9": {
     "name": "Unparalleled Agility",
@@ -255,6 +371,21 @@
     "kind": "rule",
     "plain": "If every model in this unit has this ability, then during deployment you can set it up preparing a sudden assault instead of on the battlefield. In that case, in the Reinforcements step of any one of your Movement phases it can be placed anywhere on the battlefield more than 9\" from every enemy model."
   },
+  "54a8ddbb9c16": {
+    "name": "Psytronome of Iyanden",
+    "kind": "ability",
+    "plain": "In your Command phase, you can pick one of your IYANDEN SPIRIT HOST units within 9\" of the bearer to get 1 extra attack per model until your next Command phase. If it is a WRAITHGUARD unit, it also gains the Battle Focus ability for that time. Only an IYANDEN model can have this Relic."
+  },
+  "5651aae24b4e": {
+    "name": "Mask of Torment",
+    "kind": "ability",
+    "plain": "At the start of the Morale phase, subtract 4 from the Leadership of models in one enemy unit within 12\" of the bearer, until your next Command phase starts. Only a COTERIES OF THE HAEMONCULI model can have this Relic."
+  },
+  "5795f74db421": {
+    "name": "Saviour Stone",
+    "kind": "ability",
+    "plain": "When you make a Strands of Fate roll at the start of the battle round, you can raise or lower one of the dice by 1 (to a maximum of 6 or a minimum of 1). The bearer must be on the battlefield to do this."
+  },
   "57fed34529c3": {
     "name": "Player of the Twilight",
     "kind": "ability",
@@ -274,6 +405,11 @@
     "name": "Expert Crafters",
     "kind": "ability",
     "plain": "When a unit with this attribute shoots or fights, you can re-roll one of its wound rolls."
+  },
+  "5d23963dd00c": {
+    "name": "The Lost Shroud",
+    "kind": "ability",
+    "plain": "Whenever an attack is allocated to the bearer:\n- subtract 1 from its Damage characteristic (to a minimum of 1).\n- if its unmodified Damage characteristic is 1, add 1 to any armour saving throw made against it.\nOnly a YNNARI model can have this Relic."
   },
   "5d987d479f7f": {
     "name": "Fear Incarnate",
@@ -304,6 +440,16 @@
     "name": "Children of Khaine",
     "kind": "ability",
     "plain": "For melee attacks made by models with this attribute, an unmodified wound roll of 6 adds 1 to that attack's Damage characteristic."
+  },
+  "6694c7e4ae10": {
+    "name": "Cegorach's Rose",
+    "kind": "ability",
+    "plain": "Only a HARLEQUINS model with a Harlequin's kiss can take this Relic. It replaces that Harlequin's kiss and uses its own weapon profile."
+  },
+  "6730e1f281b6": {
+    "name": "Firesabre",
+    "kind": "ability",
+    "plain": "Only an ASURYANI model with a Banshee blade or star glaive can take this Relic. It replaces that Banshee blade or star glaive and uses its own weapon profile."
   },
   "69edd26c6ed9": {
     "name": "Savage Blades",
@@ -338,6 +484,21 @@
       "142": "page number reference (\"pg 142\") to where the Battle Focus rule is printed; the style guide forbids page references"
     }
   },
+  "702d65a8a4c0": {
+    "name": "Warp-Spawn Bane",
+    "kind": "weapon",
+    "plain": "Attacks made with this weapon always wound on a 2+, and invulnerable saves are ignored for its attacks against enemy PSYKERS or DAEMONS."
+  },
+  "7070c2caa908": {
+    "name": "The Armour of Misery",
+    "kind": "ability",
+    "plain": "The bearer has these benefits:\n- its Save characteristic is 3+.\n- subtract 1 from the hit roll of each melee attack made against it."
+  },
+  "712353e317f8": {
+    "name": "Biotargeting Orb (Aura)",
+    "kind": "ability",
+    "plain": "Aura: within 6\" of this model, friendly <HAEMONCULUS COVEN> CORE or <HAEMONCULUS COVEN> CHARACTER units add 1 to hit rolls against your chosen enemy unit. That is the enemy unit you picked at the start of the first battle round."
+  },
   "7404605b3264": {
     "name": "Deadly Deceivers (All-Consuming)",
     "kind": "ability",
@@ -363,6 +524,11 @@
     "kind": "ability",
     "plain": "This WARLORD's Strength and Attacks characteristics are both increased by 1."
   },
+  "7a1fbb614627": {
+    "name": "Talisman of Tionchar",
+    "kind": "ability",
+    "plain": "If the bearer charged or Heroically Intervened this turn, its melee attacks have 1 more Strength and Damage, and 1 better Armour Penetration. Only a Saim-Hann model can have this Relic."
+  },
   "7a44d12220e6": {
     "name": "Stratagem: Alliance of Agony",
     "kind": "ability",
@@ -372,6 +538,16 @@
     "name": "Wild Rider",
     "kind": "ability",
     "plain": "Falling Back this turn doesn't stop your Warlord, or any of your WINDRIDER HOST units within 6\" of your Warlord, from charging."
+  },
+  "7afcbef39be5": {
+    "name": "The Suit of Hidden Knives",
+    "kind": "ability",
+    "plain": "HARLEQUINS model only: when the Fight phase ends, the bearer can make 3 extra melee attacks, which can't target TITANIC units. For these attacks, every hit deals 1 mortal wound to the target and ends the attack sequence."
+  },
+  "7b0da48c5c7b": {
+    "name": "Stinger-Engorger Pistol",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (its value is missing from the official text). When the bearer shoots, once its attacks are resolved: if any model in an enemy unit (not a VEHICLE unit) lost one or more wounds to those attacks, then until the end of the turn, every attack your models make against that enemy unit has its Armour Penetration characteristic improved by 1."
   },
   "7ca953aa3f18": {
     "name": "Deathly Perfectionist",
@@ -462,10 +638,20 @@
     "kind": "ability",
     "plain": "This WARLORD's Attacks characteristic goes up by 1. Once per turn, when an enemy model within 6\" of this WARLORD is destroyed, this model gets back 1 lost wound."
   },
+  "940064fa575a": {
+    "name": "Aegis of Eldanesh",
+    "kind": "ability",
+    "plain": "AUTARCH model only: the bearer's Save characteristic is 2+, and every attack allocated to it has its Damage characteristic reduced by 1 (to a minimum of 1)."
+  },
   "9415836164fd": {
     "name": "Masters of Concealment",
     "kind": "ability",
     "plain": "A unit with this attribute gets the benefits of Light Cover against ranged attacks made by an attacker more than 12\" away."
+  },
+  "95b98fe6e5f6": {
+    "name": "Dancer's Edge",
+    "kind": "weapon",
+    "plain": "If an attack made with this weapon has an unmodified wound roll of 6, no invulnerable saving throw can be taken against it."
   },
   "96a68420ede3": {
     "name": "Kabal of the Flayed Skull: Slay From The Skies",
@@ -477,6 +663,11 @@
     "kind": "ability",
     "plain": "When this WARLORD attacks in melee, each unmodified hit roll of 6 scores 2 extra hits."
   },
+  "97b5ef38b5f4": {
+    "name": "Kurnous' Bow",
+    "kind": "ability",
+    "plain": "ASURYANI model with a shuriken pistol only: this Relic takes the place of its shuriken pistol and uses its own weapon profile."
+  },
   "9a0dd763bda8": {
     "name": "Hungry for Flesh",
     "kind": "ability",
@@ -486,6 +677,11 @@
     "name": "Splinterblades",
     "kind": "ability",
     "plain": "When a model with this Obsession attacks with a melee weapon, each unmodified hit roll of 6 scores 1 extra hit."
+  },
+  "9a8b0f1d6f7a": {
+    "name": "Traitor's Embrace",
+    "kind": "ability",
+    "plain": "When a melee attack destroys the bearer, roll one D6. On a 2+, the attacking model's unit suffers D3+3 wounds once it has finished making its attacks."
   },
   "9b395b5e38e8": {
     "name": "Whirling Death",
@@ -520,10 +716,25 @@
     "kind": "ability",
     "plain": "If a mortal wound would make a model with this Obsession lose a wound, roll a D6; that wound isn't lost on a 5+."
   },
+  "a3225e7633d8": {
+    "name": "The Spirit Stone of Anath'lan",
+    "kind": "ability",
+    "plain": "BIEL-TAN PSYKER model only: the bearer knows one extra psychic power from its chosen discipline. Once per Psychic phase, you can re-roll one of its failed Psychic tests."
+  },
   "a4b7d5b542cb": {
     "name": "Altansar 3. Weaver of the Blade Storm",
     "kind": "ability",
     "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 9\" of this WARLORD. Until your next Command phase starts, when a model in that unit attacks with a shuriken weapon, an unmodified hit roll of 6 wounds the target automatically."
+  },
+  "a5fa0e125c70": {
+    "name": "The Vexator Mask",
+    "kind": "ability",
+    "plain": "The bearer:\n- can't be shot at with Overwatch by enemy units.\n- lets you pick, at the start of the Fight phase, one enemy unit within 3\" of it: that unit isn't eligible to fight this phase until every eligible unit from your army has fought."
+  },
+  "a7c6d3db53b7": {
+    "name": "Faolchu's Wing",
+    "kind": "ability",
+    "plain": "ASURYANI INFANTRY model only: the bearer has a 12\" Move characteristic and the FLY keyword. When your Movement phase ends, choose one enemy unit that the bearer moved over during the phase and roll a D6: that unit suffers D3 mortal wounds on a 2+."
   },
   "a879514e6b55": {
     "name": "Merciless Razorkin",
@@ -548,6 +759,21 @@
     "kind": "ability",
     "plain": "While this WARLORD is on the battlefield: whenever your opponent spends a Command Point on a Stratagem, you can roll one D6, gaining 1 Command Point on a 5+."
   },
+  "b7695c10c930": {
+    "name": "The Phoenix Gem",
+    "kind": "ability",
+    "plain": "ASURYANI model only: when the bearer is destroyed for the first time, roll a D6, and on a 2+ set it to one side. When that phase ends, set the bearer up again as near as possible to where it was, not within Engagement Range of any enemy models, with D3 wounds left."
+  },
+  "b9aab1c67939": {
+    "name": "Firesabre",
+    "kind": "weapon",
+    "plain": "For attacks made with this weapon, an unmodified hit roll of 6 also deals a mortal wound to the target, on top of any normal damage."
+  },
+  "bb1d54f73ef2": {
+    "name": "Biotargeting Orb",
+    "kind": "ability",
+    "plain": "COTERIES OF THE HAEMONCULI model only: when the first battle round starts, choose one enemy unit on the battlefield (not a VEHICLE unit). For the rest of the battle, the bearer has the ability below."
+  },
   "bb8580c7f229": {
     "name": "Master Regenerist",
     "kind": "ability",
@@ -568,6 +794,11 @@
     "kind": "rule",
     "plain": "This model has a 4+ invulnerable save, can't lose more than 3 wounds in any one phase, and can never be given a Relic or a Warlord Trait."
   },
+  "c84d4a87ebc9": {
+    "name": "Morvaines's Agoniser",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (4+). Each time the bearer fights, once all its attacks are resolved, pick one enemy unit that was hit by this weapon's attacks (you can't pick a VEHICLE or MONSTER unit). That unit can't Fall Back until your next turn starts."
+  },
   "c8ff1721cc0e": {
     "name": "Test of Skill",
     "kind": "ability",
@@ -577,6 +808,11 @@
     "name": "Master Artisan",
     "kind": "ability",
     "plain": "This WARLORD's Toughness and Wounds characteristics each go up by 1."
+  },
+  "cb67b5fdd7bf": {
+    "name": "Dark Lotus Toxin",
+    "kind": "ability",
+    "plain": "Every melee weapon the bearer has, other than Relics, gets 1 added to its Strength and Damage characteristics."
   },
   "cc9adabb4b06": {
     "name": "Mobile Fighters",
@@ -592,6 +828,16 @@
     "name": "The Dark Creed: Distillers of Fear",
     "kind": "ability",
     "plain": "Units with this Obsession have Aura of Terror (Aura): enemy units within 6\" of them subtract 1 from their Leadership and their Combat Attrition tests. Units with this Obsession also add 1 to the hit roll of each melee attack they make against a unit whose Leadership characteristic is equal to or lower than the attacking unit's."
+  },
+  "cee34e12097c": {
+    "name": "The Starmist Raiment",
+    "kind": "ability",
+    "plain": "HARLEQUINS model only: hit rolls and wound rolls for attacks against the bearer can't be re-rolled. Once per battle, in your Command phase, you may have the bearer mimic Aelos, giving it a 3+ invulnerable save until your next Command phase starts."
+  },
+  "d2052c5d8499": {
+    "name": "Kurnous' Bow",
+    "kind": "weapon",
+    "plain": "Shuriken; also, any attack made with this weapon that wounds the target deals 1 mortal wound to it and ends the attack sequence."
   },
   "d264fdbb5b4e": {
     "name": "1. Calculating Gaze (Aura)",
@@ -636,10 +882,23 @@
     "kind": "ability",
     "plain": "When a model with this Obsession attacks with a poisoned weapon, an unmodified hit roll of 6 gives that attack Poisoned Weapon (2+) instead. These attacks also re-roll a wound roll of 1."
   },
+  "d771c2bf79a2": {
+    "name": "The Ghosthelm of Alishazier",
+    "kind": "ability",
+    "plain": "ULTHWE PSYKER model only: the bearer knows one extra psychic power from the Runes of Fortune discipline. When a Psychic test is taken for it, an unmodified result of 9+ means that psychic power or psychic action can't be denied.",
+    "waive": {
+      "123": "page reference (pg 123); page references are left out of plain texts"
+    }
+  },
   "d8e18aa4325a": {
     "name": "Experimental Creations",
     "kind": "ability",
     "plain": "Models with this Obsession get 1 added to their Strength characteristic."
+  },
+  "daedeb35eccd": {
+    "name": "The Phial Bouquet",
+    "kind": "ability",
+    "plain": "At the start of each battle round, roll one D6: until that battle round ends, the bearer gets the matching effect from the Combat Drugs ability table. The effect can be one the bearer already has, and it stacks with it."
   },
   "db5e569aaf96": {
     "name": "Advanced Positions",
@@ -671,15 +930,35 @@
     "kind": "ability",
     "plain": "Models with this attribute get a 6+ invulnerable save. Whenever one of them would lose a wound to a mortal wound, roll one D6; on a 5+, the wound isn't lost."
   },
+  "e242bd2a0ccb": {
+    "name": "The Triptych Whip",
+    "kind": "weapon",
+    "plain": "Poisoned Weapon (2+), and each time the bearer is chosen to fight, its Attacks characteristic goes up by 3 until the end of the phase."
+  },
   "e271af2c66eb": {
     "name": "Artists of the Flesh (All-Consuming)",
     "kind": "ability",
     "plain": "Attacks with Strength below 8 allocated to a model with this Obsession (not a VEHICLE model) have their Damage characteristic reduced by 1 (to a minimum of 1)."
   },
+  "e35c18538fbe": {
+    "name": "Emblem of the Broken Chain",
+    "kind": "ability",
+    "plain": "In your Command phase, pick one of your ALTANSAR CORE units within 6\" of the bearer. Until your next Command phase starts, that unit can re-roll its Advance rolls and charge rolls."
+  },
   "e37e0e231d90": {
     "name": "Children of the Open Skies",
     "kind": "ability",
     "plain": "Models with this attribute add 1\" to their Move characteristic, or 2\" instead of 1\" if they can FLY. When an Advance roll is made for a unit with this attribute, a roll of 1-2 counts as a 3."
+  },
+  "e496c8b80aba": {
+    "name": "Shard of Anaris",
+    "kind": "ability",
+    "plain": "ASURYANI model with a Banshee Blade or Star Glaive only: this Relic takes the place of that Banshee Blade or Star Glaive and uses its own weapon profile."
+  },
+  "e59b1fee645a": {
+    "name": "The Ghoulmask",
+    "kind": "ability",
+    "plain": "DARK model only: the bearer can try to deny one psychic power in your opponent's Psychic phase, just as a PSYKER could. If it is a PSYKER, it can try to deny one more psychic power than usual in each of your opponent's Psychic phases. The bearer also has the Hideous Form (Aura) ability: an enemy unit within 3\" of this model loses the Objective Secured ability."
   },
   "e878dff96957": {
     "name": "Twisted Hunters",
@@ -690,6 +969,11 @@
     "name": "Trophy Takers",
     "kind": "ability",
     "plain": "Enemy units that had any models destroyed by melee attacks from a unit with this Obsession roll one extra D6 for Morale tests and discard the lowest result."
+  },
+  "ebbd636b861e": {
+    "name": "The Laughing God's Eye",
+    "kind": "ability",
+    "plain": "HARLEQUINS model only: while one of your HARLEQUINS units is within 6\" of the bearer, roll one D6 whenever a model in it would lose a wound to a mortal wound. On a 5+, that wound isn't lost. This is an aura ability called The Laughing God's Eye."
   },
   "ec9e20bfe40d": {
     "name": "Precision Blows",
@@ -710,6 +994,16 @@
     "name": "Biel-Tan: Natural Leader",
     "kind": "ability",
     "plain": "In your Command phase, you can pick one of your BIEL-TAN CORE units within 6\" of this Warlord. Until the end of the turn, you can re-roll the hit roll for every attack made by models in that unit."
+  },
+  "f20dfeb694d9": {
+    "name": "Shiftshroud of Alanssair",
+    "kind": "ability",
+    "plain": "ALAITOC INFANTRY model only: while it has the benefits of cover, the bearer can't be picked as a ranged attack's target, with one exception. It can be picked if the attacker is within 12\" and the bearer is the closest eligible target for that attack."
+  },
+  "f3eb6aa21b6c": {
+    "name": "The Twilight Fang",
+    "kind": "weapon",
+    "plain": "When the bearer fights, add the number of the current battle round to its Attacks characteristic until that fight is resolved."
   },
   "f67fa6f14c7c": {
     "name": "4: Fate's Messenger",
@@ -743,6 +1037,11 @@
     "name": "Blade Artists",
     "kind": "rule",
     "plain": "When a model in this unit attacks with a melee weapon, an unmodified wound roll of 6 improves that attack's Armour Penetration characteristic by 1."
+  },
+  "fe3d0e77509a": {
+    "name": "Shadow Stone",
+    "kind": "ability",
+    "plain": "LIGHT SHADOWSEER model only: the bearer's aura abilities get 3\" more range, up to a maximum of 9\". When the bearer successfully manifests a psychic power from the Phantasmancy discipline, that power's effects get 3\" more range."
   },
   "ff2dc69ae01f": {
     "name": "Iyanden: Stoic Endurance",

@@ -9,6 +9,11 @@
     "kind": "ability",
     "plain": "Before the battle, at the start of the mission sequence's Declare Reserves and Transports step, if this unit has 2 models, you can choose a HEARTHKYN WARRIORS or BERSERKS unit with 10 models. If you do, split it into two units of 5 models each (write down which models make up each new unit); they must begin the battle embarked within one of these two SAGITAUR models. In a Crusade mission, the Split Unit rules don't apply to INFANTRY units split this way: if the unit has any Battle Honours or Battle Scars, both halves count as having them, and you only take an Out of Action test for it if both halves are destroyed during the battle."
   },
+  "013a001818d3": {
+    "name": "The Last Crest of Jâluk",
+    "kind": "ability",
+    "plain": "The bearer:\n- once per battle, can activate this Relic before a saving throw is made for it, to have a 3+ invulnerable save until the end of the phase.\n- has a chance to avoid losing wounds to mortal wounds: each time it would lose one that way, roll one D6, and on a 4+ that wound isn't lost."
+  },
   "01aae7773335": {
     "name": "Grimwrought Barrier",
     "kind": "stratagem",
@@ -64,10 +69,20 @@
     "kind": "ability",
     "plain": "Every model in this unit has a 4+ invulnerable save."
   },
+  "11a3b06e4fb9": {
+    "name": "The Murmuring Stave",
+    "kind": "ability",
+    "plain": "The bearer:\n- knows 1 extra power from the Skeinwrought discipline.\n- can still try to manifest one psychic power in your Psychic phase after it attempts a psychic action."
+  },
   "165c4e45c004": {
     "name": "Cyberstimms",
     "kind": "ability",
     "plain": "You can re-roll this unit's charge rolls. When a model in this unit is destroyed by a melee attack before it has fought this phase, leave it on the battlefield: it can fight once the attacking model's unit has finished its attacks, and is then removed."
+  },
+  "1cbde6597193": {
+    "name": "Vôlumm's Master Artifice",
+    "kind": "weapon",
+    "plain": "Beam weapon: its attacks have a Damage characteristic of 3 when allocated to any model whose Save characteristic is 3+ or better."
   },
   "1cdbda820118": {
     "name": "Crushing Contempt",
@@ -99,6 +114,11 @@
     "kind": "ability",
     "plain": "Add 2 to the charge roll of a unit with this custom if it declares a charge against only one target and that target has 1 or more Judgement tokens."
   },
+  "2f44d440f97b": {
+    "name": "Exactor",
+    "kind": "weapon",
+    "plain": "When an attack with this weapon gets an unmodified hit roll of 6, the attack sequence ends and the target suffers D3+3 mortal wounds."
+  },
   "32f5edf458af": {
     "name": "Weavefield crest",
     "kind": "ability",
@@ -128,6 +148,11 @@
     "name": "Taking It Personally",
     "kind": "ability",
     "plain": "A unit with this custom has a chance to give 1 Judgement token to an enemy unit it damages but doesn't destroy. When it is picked to shoot or fight and all of its attacking models aim at the same enemy unit, then once those attacks are resolved, if that enemy unit took damage from them but survived, roll one D6, adding 1 if that enemy unit is now below Half-strength. On a 5+, it gains 1 Judgement token."
+  },
+  "3caaad3fb189": {
+    "name": "Kôrvyk's Cuirass",
+    "kind": "ability",
+    "plain": "The bearer:\n- gains a 4+ invulnerable save.\n- reduces the Armour Penetration characteristic of each attack allocated to it by 1 (to a minimum of 0). This stacks with the similar bonus from the Void Armour ability."
   },
   "3cfbfba12546": {
     "name": "Superior Beam Capacitors",
@@ -183,6 +208,11 @@
     "name": "Multispectral Visor",
     "kind": "ability",
     "plain": "In your Command phase, if this unit has a BRÔKHYR IRON-MASTER model, you can pick one of your <LEAGUE> CORE or <LEAGUE> VEHICLE units within 9\" of this unit. Until the start of your next Command phase, add 1 to the hit roll whenever a model in that unit attacks with a ranged weapon."
+  },
+  "5f7ca3d2219d": {
+    "name": "Ancestral Crest",
+    "kind": "ability",
+    "plain": "This Relic gives three effects:\n- once per battle, you can use an Epic Deed Stratagem on the bearer for 0 Command points.\n- once per battle, after a hit roll, wound roll or saving throw is made for the bearer, you can make that roll's result a 6; it counts as an unmodified 6 for all rules purposes.\n- if the bearer is destroyed by an enemy unit, roll one D6 at the end of the phase. That enemy unit suffers D3 mortal wounds on a 2-5, or 3 mortal wounds on a 6."
   },
   "60732116656e": {
     "name": "Experienced Eye",
@@ -254,6 +284,11 @@
     "kind": "ability",
     "plain": "During any Normal Move, Advance, Fall Back or charge move the bearer makes, it can pass horizontally through models and terrain features (though it can't finish that move on top of another model or that model's base). Once per battle, using the Site-to-Site Teleport Stratagem on the bearer's unit costs 0 CP. Enemy units arriving on the battlefield as Reinforcements can't be set up within 12\" of this model's unit."
   },
+  "8449038b1349": {
+    "name": "Wayfarer's Grace",
+    "kind": "ability",
+    "plain": "With this Relic:\n- the bearer gets back 1 lost wound at the start of each of your Command phases.\n- the first time the bearer is destroyed, you can use this Relic in place of any rules that trigger on its destruction. If you do, roll one D6 when the phase ends; on a 3+, put it back on the battlefield as close as possible to where it was destroyed, not within Engagement Range of any enemy models, with D3 wounds left."
+  },
   "852d1cded945": {
     "name": "War Songs",
     "kind": "ability",
@@ -319,6 +354,11 @@
     "kind": "ability",
     "plain": "If this unit has 2 models, then the first time it is set up on the battlefield, its models must be placed within 6\" of each other. After that, each model acts on its own and counts as a separate unit."
   },
+  "9cc6c645887b": {
+    "name": "Ymmâ's Shield",
+    "kind": "ability",
+    "plain": "Once per battle round, when the bearer fails a saving throw, it can use this Relic to change that attack's Damage characteristic to 0. Each time it does, roll one D6. On a 5+, the unit that made the attack gains 1 Judgement token, but only if every model in your army has the VOTANN keyword and comes from the same League (UNALIGNED units excluded)."
+  },
   "9ccd30510692": {
     "name": "Waste Not Your Last Breath",
     "kind": "stratagem",
@@ -348,6 +388,11 @@
     "name": "SP conversion beamer",
     "kind": "weapon",
     "plain": "Beam. When an attack with this weapon hits a unit that is wholly more than 15\" away from the firing model, score one extra hit against that unit."
+  },
+  "a4ebd776990b": {
+    "name": "The First Knife",
+    "kind": "ability",
+    "plain": "Each time the bearer fights, it can make 1 extra attack using this weapon's close combat weapon profile. If that extra attack hits, the attack sequence ends and the target suffers D3 mortal wounds, plus 1 extra mortal wound per Judgement token on the target's unit."
   },
   "a533566a551b": {
     "name": "Unwavering Discipline",
@@ -443,6 +488,11 @@
     "name": "Warrior Lord",
     "kind": "ability",
     "plain": "For this WARLORD's melee attacks:\n- you may re-roll the wound roll.\n- an enemy model that one of them is allocated to can't use any rules to ignore the wounds it loses."
+  },
+  "c0581226c89b": {
+    "name": "Aktôl's Fortress",
+    "kind": "ability",
+    "plain": "At the start of the Fight phase, you can pick one enemy unit within 3\" of the bearer: it can't fight this phase until all your eligible units have fought."
   },
   "c16056339eba": {
     "name": "Exemplary Hero",
@@ -653,5 +703,10 @@
     "name": "Medipack",
     "kind": "ability",
     "plain": "The bearer's unit gains the MEDIC keyword. Also, once per turn, the first time the bearer's unit fails a saving throw, the Damage characteristic of that attack becomes 0."
+  },
+  "ffb8565aab5f": {
+    "name": "The CORV Duas",
+    "kind": "ability",
+    "plain": "With this Relic:\n- this unit's CORV gets 1 added to its Wounds characteristic.\n- while the bearer's unit includes 1 or more CORV models, the bearer can try to deny 1 extra psychic power during each of your opponent's Psychic phases.\n- as long as the bearer's unit includes 1 or more CORV models, the bearer adds 1 to its Deny the Witch tests."
   }
 }
