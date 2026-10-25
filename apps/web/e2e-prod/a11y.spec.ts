@@ -238,7 +238,7 @@ for (const font of [null, 'Verdana, "DejaVu Sans", sans-serif']) {
       if (font) await page.addStyleTag({ content: `*{font-family:${font} !important}` });
       await heading(page);
       await page.waitForTimeout(300);
-      const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      const over = await page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth) - document.documentElement.clientWidth);
       if (over > 0) wide.push(`${path}: ${over}px`);
     }
     expect(wide).toEqual([]);

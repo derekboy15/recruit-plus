@@ -201,6 +201,8 @@
 
 /* The army's chips wrap under the sticky points strip (Main artboard). */
 .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0 4px; }
+/* A long chip ("Arks of Omen Compulsory Type: Troops") wraps its own text rather than push a 320px phone sideways. */
+.summary-chips .chip { max-width: 100%; white-space: normal; text-align: left; line-height: 1.25; padding-top: 6px; padding-bottom: 6px; }
 .editor-top__play { min-height: var(--touch); height: var(--touch); }
 
 /* ---------- Export: the text wraps on phones instead of scrolling sideways ---------- */
