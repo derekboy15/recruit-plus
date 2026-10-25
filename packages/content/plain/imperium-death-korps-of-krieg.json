@@ -3,5 +3,10 @@
     "name": "Commanding Authority",
     "kind": "ability",
     "plain": "This model knows Regimental Orders and can issue one Order in your Command phase, to CAVALRY units as well as INFANTRY units."
+  },
+  "6f4491bcf155": {
+    "name": "Demolition Charge",
+    "kind": "weapon",
+    "plain": "No demolition charge can be used more than once per battle."
   }
 }

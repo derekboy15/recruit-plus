@@ -9,6 +9,11 @@
     "kind": "ability",
     "plain": "Aura: your AGRIPINAA CORE and AGRIPINAA KATAPHRON SERVITORS units within 6\" of this model can re-roll wound rolls against the selected VEHICLE unit. This covers every attack their models make that targets that unit."
   },
+  "01e3a778e5b5": {
+    "name": "Artisans Initial - Enhanced Biomechanical Interface",
+    "kind": "ability",
+    "plain": "If this part is active for this model, at the end of your Movement phase it lets one nearby unit shoot and charge after Falling Back, with a hit penalty. Pick one of your <FORGE WORLD> CORE or <FORGE WORLD> KATAPHRON SERVITORS models within 6\" of this model. Until your next Movement phase starts, that model's unit can shoot and declare a charge even in a turn in which it Fell Back; if it does, each ranged attack made by a model in that unit subtracts 1 from its hit roll."
+  },
   "02518d23fc19": {
     "name": "Supervisory Radiance",
     "kind": "ability",
@@ -79,6 +84,11 @@
     "kind": "ability",
     "plain": "Aura: while an enemy unit is within 3\" of the bearer, its models subtract 1 from the hit roll of every attack they make."
   },
+  "0aa532015fcf": {
+    "name": "Logi Initial - Predicted Barrage",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, one nearby unit can be picked to treat attacks with an Armour Penetration of -1 or -2 against it as 0. Pick one of your <FORGE WORLD> CORE units within 6\" of this model. Until your next Command phase starts, treat any attack with an Armour Penetration of -1 or -2 as having an Armour Penetration of 0 when it is allocated to a model in that unit."
+  },
   "0b225dc8bd75": {
     "name": "Combined Landing",
     "kind": "ability",
@@ -113,6 +123,15 @@
     "name": "Booster Thrust",
     "kind": "stratagem",
     "plain": "At the end of your turn, pick one of your PTERAXII units that wasn't set up on the battlefield this turn and take it off the battlefield. Then, during the Reinforcements step of your next Movement phase, you may put it back anywhere on the battlefield that is over 9\" from every enemy model. A unit still off the battlefield when the battle ends is destroyed."
+  },
+  "0e97c9417d2f": {
+    "name": "Genetors Advanced - Hypercybernetic Physiology",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, one nearby servitor unit can be picked to ignore lost wounds on a roll of 6. Pick one of your <FORGE WORLD> KATAPHRON SERVITORS or <FORGE WORLD> SERVITORS units within 6\" of this model. Until your next Command phase starts, whenever one of that unit's models would lose a wound, roll one D6; on a 6, the wound is not lost.",
+    "waive": {
+      "KAPTAPHRON SERVITORS": "typo in the official text for the KATAPHRON SERVITORS keyword; the plain text uses the correct keyword <FORGE WORLD> KATAPHRON SERVITORS",
+      "FORGE WORLD": "the official text writes the keyword with stray spaces as '< FORGE WORLD >'; the plain text has it in its normal form <FORGE WORLD>, which the checker's bracket rule does not match against the spaced form"
+    }
   },
   "0f79d1f4b852": {
     "name": "Doctrina Imperatives",
@@ -258,6 +277,11 @@
     "kind": "ability",
     "plain": "While this protocol is active, this unit's models have a Sv characteristic of 2+."
   },
+  "2cc3d418b7c7": {
+    "name": "Smoke Launchers",
+    "kind": "ability",
+    "plain": "Once per game, a model with smoke launchers can use them instead of shooting, so ranged attacks against it subtract 1 from their hit rolls. Use them in the Shooting phase in place of shooting any weapons. Until your next Shooting phase, your opponent subtracts 1 from each hit roll made with a ranged weapon targeting this vehicle."
+  },
   "2d0cdbbe1610": {
     "name": "Broad Spectrum Data-tether",
     "kind": "ability",
@@ -293,6 +317,11 @@
     "kind": "stratagem",
     "plain": "Before the battle, while mustering your army, if your WARLORD has the ADEPTUS MECHANICUS keyword: pick one SKITARII model in your army that has 'Alpha' or 'Princeps' in its profile, and give it one Skitarii Warlord Trait (chosen or rolled). That model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be different (re-roll duplicates if you roll them randomly), and this Stratagem can't give one model two Warlord Traits. You can use this Stratagem only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
+  "31e9db013b99": {
+    "name": "Genetors Initial - Biochemical Aggression",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, one nearby unit can be picked to automatically wound with melee attacks on an unmodified hit roll of 6+. Pick one of your <FORGE WORLD> CORE or <FORGE WORLD> KATAPHRON SERVITORS units within 6\" of this model. Until your next Command phase starts, each melee attack made by a model in that unit automatically wounds the target on an unmodified hit roll of 6+."
+  },
   "33ab12817aa3": {
     "name": "Tribute of Emphatic Veneration",
     "kind": "ability",
@@ -302,6 +331,11 @@
     "name": "Magnabond Alloys",
     "kind": "rule",
     "plain": "Whenever a VEHICLE model with this dogma is about to lose a wound, roll one D6; on a 6, the wound is not lost."
+  },
+  "33d0bd9a41fb": {
+    "name": "Artisans Advanced - Exquisite Calibration",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, pick one of your <FORGE WORLD> CORE units within 6\" of this model to add 1 to its ranged attacks' Strength. This lasts until your next Command phase starts and applies to every ranged attack a model in that unit makes."
   },
   "33e4a192618e": {
     "name": "Blaring Glory",
@@ -533,6 +567,11 @@
     "kind": "stratagem",
     "plain": "In your Movement phase, when one of your METALICA units Advances, don't make an Advance roll. Instead, add 6\" to that unit's Move characteristic until the end of the phase. This doesn't stack with the Dunestriders Stratagem."
   },
+  "642616324e9b": {
+    "name": "Logi Advanced - Flaws of the Foe",
+    "kind": "ability",
+    "plain": "If this part is active for this model, in your Command phase one nearby unit's ranged attacks can be made to deny their targets the benefits of cover. Pick one of your <FORGE WORLD> CORE or <FORGE WORLD> KATAPHRON SERVITORS units within 6\" of this model. Until your next Command phase starts, the target of each ranged attack made by a model in that unit gets no benefit from cover against it."
+  },
   "68d1ffac4a44": {
     "name": "Citation of Ruin",
     "kind": "stratagem",
@@ -587,6 +626,11 @@
     "name": "Anzion's Pseudogenetor",
     "kind": "weapon",
     "plain": "Whenever the bearer fights, it can make 3D3 extra attacks with this weapon."
+  },
+  "726996e32433": {
+    "name": "Magi Initial - Predatory Programming",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, pick one of your <FORGE WORLD> CORE units within 6\" of this model to add 2 to its Advance rolls. This lasts until your next Command phase starts."
   },
   "72d372351390": {
     "name": "Titan Guard",
@@ -1072,6 +1116,11 @@
     "name": "Arc Rifle",
     "kind": "weapon",
     "plain": "When this weapon attacks a VEHICLE unit, the attack has Damage 3 and successfully wounds on any unmodified wound roll of 4+."
+  },
+  "dfc1fa344831": {
+    "name": "Magi Advanced - Overloaded Safeguards",
+    "kind": "ability",
+    "plain": "In your Command phase, if this part is active, one nearby unit can be picked to score an extra hit on each unmodified 6 when it shoots. Pick one of your <FORGE WORLD> CORE units within 6\" of this model. Until your next Command phase starts, an unmodified roll of 6 for a ranged attack by a model in that unit scores 1 extra hit."
   },
   "e006402d616a": {
     "name": "Field Reprogramming (Action)",

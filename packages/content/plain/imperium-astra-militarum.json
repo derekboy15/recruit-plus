@@ -19,6 +19,11 @@
     "kind": "ability",
     "plain": "During deployment, you can have this unit ride around the flanks rather than placing it on the battlefield. It can then join the battle at the end of any of your Movement phases: set it up with all its models within 7\" of a battlefield edge you choose and more than 9\" from all enemy models."
   },
+  "087db1d06021": {
+    "name": "Grinding Advance",
+    "kind": "ability",
+    "plain": "This model can fire its turret weapon twice in the following Shooting phase if it Remained Stationary or moved under half speed in its Movement phase. Moving under half speed means moving fewer inches than half its current Move characteristic. Both times, the turret weapon must target the same unit. Turret weapons are the battle cannon, the Conqueror battle cannon, the demolisher cannon, the Eradicator nova cannon, the Executioner plasma cannon, the Exterminator autocannon, the Punisher gatling cannon, the Stygies Vanquisher battle cannon, the twin lascannon and the Vanquisher battle cannon."
+  },
   "0bdeb1a97836": {
     "name": "Tanith Camo-cloak",
     "kind": "ability",
@@ -203,6 +208,11 @@
     "name": "Colonel Colm Corbec",
     "kind": "ability",
     "plain": "Once per battle round, if Colonel Colm Corbec is in this unit and this unit uses an Astra Militarum or Core Stratagem, that Stratagem costs 1 CP less to use (minimum 0 CP). The reduction applies only to that one use; later uses cost the normal amount."
+  },
+  "47c4078dcb88": {
+    "name": "Emergency Plasma Vents",
+    "kind": "ability",
+    "plain": "Hit rolls of 1 with this model's supercharged plasma cannon don't automatically destroy it; instead it suffers 1 mortal wound for each 1 rolled. Those mortal wounds are suffered once all of the weapon's shots have been resolved."
   },
   "4982dbd2529d": {
     "name": "Explodes (4+/6\"/D6)",
@@ -573,6 +583,11 @@
     "name": "Explodes",
     "kind": "ability",
     "plain": "When this model is destroyed, roll a D6 before any embarked models disembark and before you remove it from play. On a 6+, every unit within 6\" of it suffers D3 mortal wounds as it explodes."
+  },
+  "ceb100c36637": {
+    "name": "Knight Commander",
+    "kind": "ability",
+    "plain": "In each of your turns, Knight Commander Pask can use the Tank Orders ability twice. Resolve the first order's effects before you issue the second."
   },
   "d1fe1699eea0": {
     "name": "Storm Eagle Rockets",

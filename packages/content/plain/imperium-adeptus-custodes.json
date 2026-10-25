@@ -4,6 +4,14 @@
     "kind": "ability",
     "plain": "The bearer adds 1 to its Wounds characteristic, and once per battle it can gain a 3+ invulnerable save for the rest of a phase. INFANTRY model only. To use the save, the bearer activates the helm just before a saving throw is made for it; it then has a 3+ invulnerable save until the end of that phase."
   },
+  "0168a07564db": {
+    "name": "Stratagem: Eternal Penitent",
+    "kind": "ability",
+    "plain": "One of your ADEPTUS CUSTODES DREADNOUGHT units gets 1 added to its Attacks characteristics and can re-roll its charge rolls. Use this Stratagem before the battle, while mustering your army, and pick that unit then. If the unit could already re-roll its charge rolls (for example, thanks to the Instruments of the Emperor's Wrath fighting style), add 1 to its charge rolls instead. This Stratagem can only be used once.",
+    "waive": {
+      "56": "page number reference in the official text (\"on page 56\"), not a rules value"
+    }
+  },
   "03f9d679e4b3": {
     "name": "Shield Host Fighting Style: Gilded Guardians",
     "kind": "ability",
@@ -232,6 +240,11 @@
     "name": "The Emperor’s Heroes",
     "kind": "stratagem",
     "plain": "Use before the battle, while mustering your army, if your WARLORD has either the ADEPTUS CUSTODES or the ANATHEMA PSYKANA keyword. Pick one of your ADEPTUS CUSTODES CHARACTER or ANATHEMA PSYKANA CHARACTER models and determine a Warlord Trait for it (one it is allowed to have); that model counts as your WARLORD only for that Warlord Trait. All Warlord Traits in your army must be unique (re-roll duplicates if generating them randomly), and this Stratagem can't give one model two Warlord Traits. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
+  "408bfcd64e48": {
+    "name": "Stratagem: Open the Vaults",
+    "kind": "ability",
+    "plain": "Before the battle, give one of your ADEPTUS CUSTODES CHARACTER models a Relic of Terra, or one of your ANATHEMA PSYKANA CHARACTER models a Relic of the Vigil. Use it while mustering your army, and only if your WARLORD has either the ADEPTUS CUSTODES keyword or the ANATHEMA PSYKANA keyword. Either way, the model must be able to have that Relic. Every Relic in your army must be unique, and you can't use this Stratagem to give one model two Relics. You can use it only once, or twice in a Strike Force battle, or three times in an Onslaught battle."
   },
   "40ae64f7039a": {
     "name": "Voice of the Emperor",

@@ -14,6 +14,11 @@
     "kind": "ability",
     "plain": "Psychic powers: Smite, plus 2 from the Telethesia discipline."
   },
+  "20786fba5673": {
+    "name": "Unholy gaze",
+    "kind": "weapon",
+    "plain": "An attack with this weapon that gets an unmodified wound roll of 6 has a Damage characteristic of 3."
+  },
   "2c933d44e441": {
     "name": "Tainted Blade",
     "kind": "weapon",
@@ -73,5 +78,10 @@
     "name": "Arias",
     "kind": "weapon",
     "plain": "When an attack with this weapon wounds a DAEMON unit, that unit also suffers 1 mortal wound on top of the normal damage."
+  },
+  "df297a0d6e6e": {
+    "name": "Alpha-Class Psyker",
+    "kind": "ability",
+    "plain": "This model knows one more psychic power, taken from the Telethesia discipline, and can try to deny one more psychic power in your opponent's Psychic phase. You can use this Stratagem only once per battle."
   }
 }

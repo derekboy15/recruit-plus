@@ -903,6 +903,14 @@
     "kind": "ability",
     "plain": "If, this turn, this unit made a charge move, was charged or made a Heroic Intervention, you can re-roll hit rolls for melee attacks by its models."
   },
+  "a1a3a84186a8": {
+    "name": "Stratagem: Saint in the Making",
+    "kind": "ability",
+    "plain": "Give one ADEPTUS MINISTORUM CHARACTER model from your army (not a named character) a Warlord Trait, if your WARLORD has the ADEPTUS MINISTORUM keyword. Use this Stratagem before the battle, while mustering your army. The trait must be one the model can have, and the model counts as your WARLORD only for that trait's rules. Every Warlord Trait in your army must be unique (re-roll duplicates if you generate them randomly), and you can't use this Stratagem to give a model two Warlord Traits. It can be used once, or twice in a Strike Force battle, or three times in an Onslaught battle.",
+    "waive": {
+      "ADEPTUS MINISTORM CHARACTER": "misspelling of ADEPTUS MINISTORUM CHARACTER in the source; ADEPTUS MINISTORUM CHARACTER is present"
+    }
+  },
   "a30c9edf2936": {
     "name": "Warlord Trait: Blazing Ire",
     "kind": "ability",
@@ -950,6 +958,20 @@
     "name": "Mina's Wrath",
     "kind": "weapon",
     "plain": "When the bearer attacks with this weapon, an unmodified wound roll of 6 deals 2 mortal wounds to the target and ends the attack sequence."
+  },
+  "ae4370d2f131": {
+    "name": "Vindictor (shooting)",
+    "kind": "weapon",
+    "plain": "Attacks with this weapon hit the target automatically. Against a CHAOS unit, roll two D6 for this weapon's number of attacks and discard the lower result."
+  },
+  "aea6b6c2d0b2": {
+    "name": "Stratagem: A Sacred Burden",
+    "kind": "ability",
+    "plain": "Before the battle, one ADEPTA SORORITAS model that isn't a CHARACTER but has 'Superior' in its profile can take one of four Relics of the Ecclesiarchy. Pick one ADEPTA SORORITAS model in your army (excluding CHARACTER models) whose profile includes the word 'Superior'. Even though it isn't a CHARACTER model, it can have one of these Relics of the Ecclesiarchy: Blessings of Sebastian Thor, The Ecclesiarch's Fury, Litanies of Faith or Redemption. Every Relic in your army must be unique, and you can't use this Stratagem to give a model two Relics. It can be used once, or twice in a Strike Force battle, or three times in an Onslaught battle.",
+    "waive": {
+      "74": "page reference (pg 74-75) to the codex, not rules content",
+      "75": "page reference (pg 74-75) to the codex, not rules content"
+    }
   },
   "aef33679c71b": {
     "name": "A Sacred Burden",
@@ -1208,6 +1230,11 @@
     "kind": "ability",
     "plain": "This WARLORD can make Vengeance Miracle dice 6s, and can re-roll melee hit rolls in turns it charged, was charged or made a Heroic Intervention.\n- Whenever Vengeance gives you a Miracle dice at the end of a phase in which this WARLORD destroyed any enemy units, that dice is automatically a 6.\n- When this WARLORD makes a melee attack, you can re-roll the hit roll if, this turn, it was charged, made a charge move or performed a Heroic Intervention."
   },
+  "d365059bd658": {
+    "name": "Stratagem: Open the Reliquaries",
+    "kind": "ability",
+    "plain": "Give one ADEPTUS MINISTORUM CHARACTER model from your army a Relic of the Ecclesiarchy, if your WARLORD has the ADEPTUS MINISTORUM keyword. Use this Stratagem before the battle, while mustering your army. The Relic must be one that model could have. Every Relic in your army must be unique, and you can't use this Stratagem to give a model two Relics. You can use it once, or twice in a Strike Force battle, or three times in an Onslaught battle."
+  },
   "d4819a0c9094": {
     "name": "Judgement of the Faithful",
     "kind": "stratagem",
@@ -1370,6 +1397,14 @@
     "name": "Purity of Faith",
     "kind": "stratagem",
     "plain": "In your opponent's Psychic phase, once an enemy PSYKER unit has passed a Psychic test and any Deny the Witch attempt has been made: if any ADEPTA SORORITAS units of yours are within 24\" of that PSYKER unit, roll one D6; on a 4+, the power is denied."
+  },
+  "f86cd7f7a198": {
+    "name": "Stratagem: Exemplar of the Order",
+    "kind": "ability",
+    "plain": "After you make an ORDER OF OUR MARTYRED LADY model (not a named character) your WARLORD, it gains an extra Warlord Trait from that Order's Warlord Traits table. The extra trait must come from the Order of Our Martyred Lady Warlord Traits table. Every Warlord Trait in your army must be unique (re-roll duplicates if you generate them randomly). You can use this Stratagem only once.",
+    "waive": {
+      "68": "page reference (pg 68) to the codex, not rules content"
+    }
   },
   "faae66ca6bc1": {
     "name": "Terrain Feature",

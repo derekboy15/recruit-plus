@@ -634,6 +634,11 @@
     "kind": "ability",
     "plain": "Once per battle, this model can experience this vision when one of your GREY KNIGHTS CORE or GREY KNIGHTS CHARACTER units within 12\" of it is chosen to fire Overwatch. When it does so, until the end of the phase, Overwatch attacks by models in that unit score hits on an unmodified 4+."
   },
+  "b1f99a78d472": {
+    "name": "Thunderhawk Cluster Bombs",
+    "kind": "ability",
+    "plain": "Once per battle, after the bearer moves, you can pick one unit it moved over and roll dice against it: each 4+ inflicts 1 mortal wound on that unit. Roll six D6 for each VEHICLE or MONSTER model in that unit and one D6 for each of its other models, up to a maximum of eighteen D6 in total."
+  },
   "b4891aec8864": {
     "name": "Heroism's Favour",
     "kind": "ability",

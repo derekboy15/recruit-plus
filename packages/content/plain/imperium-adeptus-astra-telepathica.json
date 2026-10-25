@@ -19,10 +19,23 @@
     "kind": "stratagem",
     "plain": "Use in your Command phase. Pick one of your ASTRA MILITARUM MEDIC units that is under its Starting Strength and is not within Engagement Range of any enemy units. Up to D3 of its destroyed models (not OFFICER models) can be returned to it, each with its full wounds."
   },
+  "22d573562f51": {
+    "name": "6) Psychic Maelstrom",
+    "kind": "psychic",
+    "plain": "Pick an enemy unit within 18\" of the psyker and roll a D6: on a 2+ it suffers a mortal wound, and you can keep rolling for more, needing 1 higher each time. If that mortal wound isn't negated, you can roll another die: on a 3+ the unit suffers another mortal wound. Keep going, adding 1 to the score needed each time (4+ for the next roll, then 5+, and so on), and stop once you fail to inflict a mortal wound or the enemy unit is destroyed.",
+    "waive": {
+      "10": "the official text's \"ten\" is a typo for \"then\" (\"you can ten roll another die\"), not a rules value"
+    }
+  },
   "29940542b1ae": {
     "name": "Aerial Fire Support",
     "kind": "stratagem",
     "plain": "Use in the enemy Charge phase, once an enemy unit has declared a charge that targets one of your TEMPESTUS DROP FORCE INFANTRY units. Pick one TEMPESTUS DROP FORCE VALKYRIE of yours that is within 6\" of the unit being charged. That VALKYRIE may fire Overwatch at the charging unit even when the charge is not aimed at it, and when it does, it hits the enemy on hit rolls of 4+, whatever the modifiers."
+  },
+  "2a59aded5a8b": {
+    "name": "5) Mental Fortitude",
+    "kind": "psychic",
+    "plain": "One of your ASTRA MILITARUM units within 12\" of the psyker automatically passes Morale tests until your next Psychic phase starts."
   },
   "2d756c2568ca": {
     "name": "Tempestus Drop Force",
@@ -64,6 +77,11 @@
     "kind": "stratagem",
     "plain": "When one of your ATTILAN ROUGH RIDERS units is picked to Fall Back in your Movement phase, you can use this Stratagem. For the rest of the turn, that unit can shoot and declare a charge even though it Fell Back this turn."
   },
+  "525c546ea95c": {
+    "name": "3) Psychic Barrier",
+    "kind": "psychic",
+    "plain": "One of your ASTRA MILITARUM units within 12\" of the psyker adds 1 to its saving throws until the start of your next Psychic phase."
+  },
   "566a12c26b80": {
     "name": "Emperor’s Fist Tank Company",
     "kind": "stratagem",
@@ -94,6 +112,11 @@
     "kind": "psychic",
     "plain": "Witchfire. When this power is manifested, pick one enemy model that is visible to this Psyker and within 12\" of it. Draw a straight line from any part of that model's base (or hull) to this Psyker's base. Roll a D6 for every unit the line crosses, and one D6 for the target model's unit: each unit whose roll is 1-5 suffers 1 mortal wound, and each whose roll is a 6 suffers D3 mortal wounds."
   },
+  "6e18da0f6cf4": {
+    "name": "4) Nightshroud",
+    "kind": "psychic",
+    "plain": "Pick one of your ASTRA MILITARUM units within 12\" of the psyker; any enemy unit that targets it with a ranged weapon takes -1 to its hit rolls. This lasts until the start of your next turn."
+  },
   "7308e14b5468": {
     "name": "Smoke Launchers",
     "kind": "stratagem",
@@ -113,6 +136,11 @@
     "name": "Vengeance for Cadia",
     "kind": "stratagem",
     "plain": "Use in your Shooting phase or the Fight phase, when one of these units from your army is chosen to shoot or fight: a CADIAN unit, or a PLATOON unit that is itself within 6\" of a friendly CADIAN OFFICER unit. Until the end of the phase, whenever a model in that unit attacks a CHAOS unit, add 1 to that attack's wound roll."
+  },
+  "7cb55897f7e3": {
+    "name": "2) Gaze of the Emperor",
+    "kind": "psychic",
+    "plain": "Each model under a 2D6\" line drawn directly away from the psyker gives its unit a mortal wound on a 4+. Draw the straight line, then roll a die for each model that the centre of the line passes over; on a 4+, the unit that model belongs to suffers a mortal wound."
   },
   "7d51e9dd6733": {
     "name": "Suppressive Fire",
@@ -198,6 +226,11 @@
     "name": "Thunderous Charge",
     "kind": "stratagem",
     "plain": "When one of your OGRYNS or ATTILAN ROUGH RIDERS units ends a charge move in your Charge phase, you can use this Stratagem. Pick an enemy unit within Engagement Range of it. Roll a D6 for every model in your unit that is within Engagement Range of the chosen enemy unit; that enemy unit suffers 1 mortal wound for each roll that equals or beats its Toughness characteristic."
+  },
+  "b8a640816ad3": {
+    "name": "1) Terrifying Visions",
+    "kind": "psychic",
+    "plain": "Pick an enemy unit within 18\" of the psyker: it subtracts 2 from its Leadership until your next turn starts."
   },
   "ba3d3f52ff72": {
     "name": "5. Mental Shackles",
