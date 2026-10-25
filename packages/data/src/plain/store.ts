@@ -1,6 +1,7 @@
 /** Authored plain-English texts (packages/content/plain/<shard>.json): loading, checking, and attaching them to the output. */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import type { OptionTier } from '../info/tiers';
 import type { CatalogueOut, StratagemOut } from '../model/types';
 import { checkPlain, type PlainVerdict } from './check';
 import { allItems, textKey, type TextKind } from './collect';
@@ -41,6 +42,14 @@ export interface ShardReport {
 export interface PlainReport {
   shards: Record<string, ShardReport>;
   orphans: { shard: string; key: string; name: string }[];
+}
+/** An option-text shard's coverage, with each tier's share (army choices first). */
+export interface OptionShardReport extends ShardReport {
+  tiers: Record<OptionTier, { total: number; written: number }>;
+}
+/** generated/plain-report.json: the pages' texts by shard and the orphans, then the option texts (info files) by owning shard. */
+export interface CoverageReport extends PlainReport {
+  options: Record<string, OptionShardReport>;
 }
 
 /**

@@ -3,11 +3,10 @@ import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, test } from 'vitest';
 import { loadGameData } from '../src/bsdata/gamedata';
-import { attachInfoPlain, emitInfoFile, infoTextKeys } from '../src/info';
+import { attachInfoPlain, emitInfoFile, infoTextKeys, type TierOf } from '../src/info';
 import type { DataIndex, InfoFile } from '../src/model/types';
 import { textKey } from '../src/plain/collect';
-import type { PlainStore } from '../src/plain/store';
-import type { PlainReport } from '../src/plain/store';
+import type { CoverageReport, PlainStore } from '../src/plain/store';
 import { buildScope, resolve } from '../src/roster/scope';
 import type { RosterFile } from '../src/roster/types';
 
@@ -78,26 +77,35 @@ describe('attachInfoPlain', () => {
   });
   const store = (entries: [string, string][]): PlainStore =>
     new Map(entries.map(([official, plain]) => [textKey(official), { name: 'x', kind: 'ability' as const, plain, shard: 'necrons' }]));
+  const unitOption: TierOf = () => 4;
 
   test('plain English that passes the checks is attached to rules and profile text', () => {
     const f = file();
-    const report = attachInfoPlain([f], store([[RULE, 'This unit adds 1 to its charge rolls.'], [DESC, 'Attacks on this unit get 1 worse AP.']]));
+    const report = attachInfoPlain([f], store([[RULE, 'This unit adds 1 to its charge rolls.'], [DESC, 'Attacks on this unit get 1 worse AP.']]), unitOption);
     expect(f.entries.a.rules?.[0].plain).toBe('This unit adds 1 to its charge rolls.');
     expect(f.entries.b.profiles?.[0].plain).toEqual({ Description: 'Attacks on this unit get 1 worse AP.' });
     expect(f.entries.c.profiles?.[0].plain).toBeUndefined();
-    expect(report).toEqual({ total: 2, written: 2, missing: [] });
+    const none = { total: 0, written: 0 };
+    expect(report).toEqual({
+      total: 2,
+      written: 2,
+      flagged: 0,
+      shards: { necrons: { total: 2, written: 2, flagged: [], copied: [], tiers: { 1: none, 2: none, 3: none, 4: { total: 2, written: 2 } } } },
+    });
   });
 
-  test('plain English that fails the checks is not attached and the text is reported missing', () => {
-    const f = file();
-    const report = attachInfoPlain([f], store([[RULE, 'This unit adds 2 to its charge rolls.']]));
-    expect(f.entries.a.rules?.[0].plain).toBeUndefined();
-    expect(report.total).toBe(2);
-    expect(report.written).toBe(0);
-    expect(report.missing).toEqual([
-      { slug: 'necrons', entryId: 'a', name: 'Awakened', key: textKey(RULE) },
-      { slug: 'necrons', entryId: 'b', name: 'Indomitable', key: textKey(DESC) },
-    ]);
+  test('the report counts each text under its owning shard: written, flagged with its missing tokens, and by tier', () => {
+    const HIT = 'Add 1 to hit rolls made for this unit.';
+    const SYS = 'Each time this model fights, it can make one extra attack.';
+    const nec: InfoFile = { schema: 1, slug: 'necrons', entries: { a: { rules: [{ name: 'Awakened', text: RULE }] }, b: { rules: [{ name: 'Hits', text: HIT }] } } };
+    const sys: InfoFile = { schema: 1, slug: 'system', entries: { s: { rules: [{ name: 'Fights', text: SYS }] } } };
+    const report = attachInfoPlain([nec, sys], store([[RULE, 'This unit adds 1 to its charge rolls.'], [HIT, 'This unit adds 2 to its hit rolls.']]), unitOption);
+    expect(report.shards.necrons).toMatchObject({ total: 2, written: 1 });
+    expect(report.shards.necrons.flagged).toEqual([{ key: textKey(HIT), name: 'Hits', missing: ['1'], extra: [] }]);
+    expect(report.shards.necrons.tiers[4]).toEqual({ total: 2, written: 1 });
+    expect(report.shards.core.total).toBe(1);
+    expect(report).toMatchObject({ total: 3, written: 1, flagged: 1 });
+    expect(nec.entries.b.rules?.[0].plain).toBeUndefined();
   });
 
   test('infoTextKeys gives the keys of the texts attachInfoPlain looks up', () => {
@@ -107,7 +115,7 @@ describe('attachInfoPlain', () => {
   test('the same text in many entries counts once', () => {
     const f = file();
     f.entries.d = { rules: [{ name: 'Awakened', text: RULE }] };
-    const report = attachInfoPlain([f], store([[RULE, 'This unit adds 1 to its charge rolls.']]));
+    const report = attachInfoPlain([f], store([[RULE, 'This unit adds 1 to its charge rolls.']]), unitOption);
     expect(f.entries.d.rules?.[0].plain).toBe('This unit adds 1 to its charge rolls.');
     expect(report).toMatchObject({ total: 2, written: 1 });
   });
@@ -182,13 +190,17 @@ describe('generated info files', () => {
     for (const f of readdirSync(INFO)) expect(gzipSync(readFileSync(join(INFO, f))).length, f).toBeLessThanOrEqual(150_000);
   });
 
-  test('info texts are not part of plain-English coverage', () => {
-    const report: PlainReport = JSON.parse(readFileSync(join(GEN, 'plain-report.json'), 'utf8'));
-    const totals = Object.values(report.shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
+  test('option texts are counted apart from page texts', () => {
+    const report: CoverageReport = JSON.parse(readFileSync(join(GEN, 'plain-report.json'), 'utf8'));
+    const sum = (shards: Record<string, { total: number; written: number }>) =>
+      Object.values(shards).reduce((a, r) => ({ total: a.total + r.total, written: a.written + r.written }), { total: 0, written: 0 });
     // 5034 before info files existed; 4742 once relics and other list-building options left the datasheets' own texts
-    // (Task 4: their texts are option texts, in the info files, and keep their plain English there). Info files add none.
-    expect(totals).toEqual({ total: 4742, written: 4742 });
-    const infoReport = JSON.parse(readFileSync(join(GEN, 'info-plain-report.json'), 'utf8'));
-    expect(infoReport).toMatchObject({ total: expect.any(Number), written: expect.any(Number), missing: expect.any(Array) });
+    // (Plan D Task 4: their texts are option texts, in the info files, and keep their plain English there).
+    expect(sum(report.shards)).toEqual({ total: 4742, written: 4742 });
+    // Plan F writes the option texts' plain English; 1662 of them were written before it (shared with datasheet texts).
+    const options = sum(report.options);
+    expect(options.total).toBe(3416);
+    expect(options.written).toBeGreaterThanOrEqual(1662);
+    expect(existsSync(join(GEN, 'info-plain-report.json'))).toBe(false);
   });
 });

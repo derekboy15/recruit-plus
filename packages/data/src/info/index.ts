@@ -1,18 +1,20 @@
 /** Info files (generated/info/<slug>.json) and their plain English. */
 import { TEXT_CHARS, type InfoFile, type InfoProfile } from '../model/types';
-import { checkPlain } from '../plain/check';
+import { checkPlain, type PlainVerdict } from '../plain/check';
 import { CORE_SHARD, spotSample, textKey, type OfficialText, type TextKind } from '../plain/collect';
-import type { PlainStore } from '../plain/store';
+import type { OptionShardReport, PlainStore } from '../plain/store';
 import type { OptionTier, TierOf } from './tiers';
 
 export { emitInfoFile } from './extract';
 export { optionTierOf, TIER_NAMES, type OptionTier, type TierOf } from './tiers';
 
-/** generated/info-plain-report.json: distinct option texts, how many have plain English, and the first entry of each that hasn't (for Plan F). */
+/** The option texts' plain-English coverage: totals, flagged or copied entries, and each owning shard's report. */
 export interface InfoPlainReport {
   total: number;
   written: number;
-  missing: { slug: string; entryId: string; name: string; key: string }[];
+  /** Entries that fail the checks: missing or invented tokens, or copied wording. */
+  flagged: number;
+  shards: Record<string, OptionShardReport>;
 }
 
 const wordCount = (s: string) => s.trim().split(/\s+/).length;
@@ -87,36 +89,52 @@ export function optionSample(texts: OptionText[], shard: string): OptionText[] {
 
 /**
  * Attaches plain English to the info files' rules and profile text characteristics (in place), as applyPlain does for
- * catalogues: only where the store has an entry for the text's key that passes checkPlain. These texts are not part of
- * the plain-English coverage of the pages (generated/plain-report.json).
+ * catalogues: only where the store has an entry for the text's key that passes checkPlain. Reports each option text
+ * (collectOptionTexts) once, under its owning shard and tier: written, flagged (missing or invented tokens) or copied.
+ * These counts are generated/plain-report.json's `options`, apart from the pages' coverage.
  */
-export function attachInfoPlain(files: InfoFile[], store: PlainStore): InfoPlainReport {
-  const verdicts = new Map<string, boolean>();
-  const missing: InfoPlainReport['missing'] = [];
-  const plainFor = (official: string, at: { slug: string; entryId: string; name: string }): string | undefined => {
+export function attachInfoPlain(files: InfoFile[], store: PlainStore, tierOf: TierOf): InfoPlainReport {
+  const verdicts = new Map<string, PlainVerdict | null>();
+  const plainFor = (official: string): string | undefined => {
     const key = textKey(official);
     if (!verdicts.has(key)) {
       const entry = store.get(key);
-      const ok = !!entry && checkPlain(official, entry.plain, entry.waive).ok;
-      verdicts.set(key, ok);
-      if (!ok) missing.push({ ...at, key });
+      verdicts.set(key, entry ? checkPlain(official, entry.plain, entry.waive) : null);
     }
-    return verdicts.get(key) ? store.get(key)!.plain : undefined;
+    return verdicts.get(key)?.ok ? store.get(key)!.plain : undefined;
   };
   for (const f of files) {
-    for (const [entryId, info] of Object.entries(f.entries)) {
+    for (const info of Object.values(f.entries)) {
       for (const r of info.rules ?? []) {
-        const plain = plainFor(r.text, { slug: f.slug, entryId, name: r.name });
+        const plain = plainFor(r.text);
         if (plain) r.plain = plain;
       }
       for (const p of info.profiles ?? []) {
         for (const c of textChars(p)) {
-          const plain = plainFor(p.chars[c], { slug: f.slug, entryId, name: p.name });
+          const plain = plainFor(p.chars[c]);
           if (plain) p.plain = { ...p.plain, [c]: plain };
         }
       }
     }
   }
-  const written = [...verdicts.values()].filter(Boolean).length;
-  return { total: verdicts.size, written, missing };
+
+  const shards: Record<string, OptionShardReport> = {};
+  const tally = { total: 0, written: 0, flagged: 0 };
+  const count = () => ({ total: 0, written: 0 });
+  for (const t of collectOptionTexts(files, store, tierOf)) {
+    const v = verdicts.get(t.key);
+    const r = (shards[t.shard] ??= { total: 0, written: 0, flagged: [], copied: [], tiers: { 1: count(), 2: count(), 3: count(), 4: count() } });
+    r.total++;
+    r.tiers[t.tier].total++;
+    tally.total++;
+    if (v?.ok) {
+      r.written++;
+      r.tiers[t.tier].written++;
+      tally.written++;
+    }
+    if (v && (v.missing.length || v.extra.length)) r.flagged.push({ key: t.key, name: t.name, missing: v.missing.map((x) => x.value), extra: v.extra.map((x) => x.value) });
+    if (v?.copy.copied) r.copied.push({ key: t.key, name: t.name, longestRun: v.copy.longestRun });
+    if (v && !v.ok) tally.flagged++;
+  }
+  return { ...tally, shards };
 }
