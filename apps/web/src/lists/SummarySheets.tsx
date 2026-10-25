@@ -6,15 +6,25 @@ import { Sheet } from '../ui/Sheet';
 import { fmt, plural } from './editorView';
 import type { ReadyEditor } from './useRosterEditor';
 
-/** The battle sizes as a pick-one list with their points; picking one changes the list's size and closes. */
+/**
+ * The battle sizes as a pick-one list with their points. Picking one changes the list's size at once (it can be
+ * undone); the sheet stays open until Done, so arrow keys can move through the sizes.
+ */
 export function SizeSheet({ editor, onClose }: { editor: ReadyEditor; onClose: () => void }) {
   const { roster, dispatch } = editor;
   const pick = (size: BattleSizeId) => {
     if (size !== roster.battleSize) dispatch({ type: 'battle-size', size });
-    onClose();
   };
   return (
-    <Sheet title="Battle size" onClose={onClose}>
+    <Sheet
+      title="Battle size"
+      onClose={onClose}
+      footer={
+        <button type="button" className="btn btn--primary" onClick={onClose}>
+          Done
+        </button>
+      }
+    >
       <fieldset className="choice-list">
         <legend className="sr-only">Battle size</legend>
         {Object.values(BATTLE_SIZES).map((s) => (

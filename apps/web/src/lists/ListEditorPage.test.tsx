@@ -623,10 +623,28 @@ test('the size chip opens Battle size; choosing Strike Force changes the points 
   const sheet = screen.getByRole('dialog', { name: 'Battle size' });
   expect(within(sheet).getByRole('radio', { name: /Incursion/ })).toBeChecked();
   await u.click(within(sheet).getByRole('radio', { name: /Strike Force/ }));
-  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Battle size' })).not.toBeInTheDocument());
   expect(points()).toHaveTextContent('0 / 2,000 pts');
   expect(screen.getByRole('button', { name: 'Strike Force · 2,000 pts' })).toBeInTheDocument();
   expect(screen.getByText('Necrons · Strike Force')).toBeInTheDocument();
+  // It stays open until Done, so the sizes can be looked through.
+  expect(screen.getByRole('dialog', { name: 'Battle size' })).toBe(sheet);
+  await u.click(within(sheet).getByRole('button', { name: 'Done' }));
+  await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Battle size' })).not.toBeInTheDocument());
+});
+
+test('arrow keys move through the battle sizes without closing the sheet', async () => {
+  const u = user();
+  renderEditor(await necronsList('incursion'));
+  await opened();
+  await u.click(screen.getByRole('button', { name: 'Incursion · 1,000 pts' }));
+  const sheet = screen.getByRole('dialog', { name: 'Battle size' });
+  within(sheet).getByRole('radio', { name: /Incursion/ }).focus();
+  await u.keyboard('{ArrowDown}');
+  expect(within(sheet).getByRole('radio', { name: /Strike Force/ })).toBeChecked();
+  await u.keyboard('{ArrowDown}');
+  expect(within(sheet).getByRole('radio', { name: /Onslaught/ })).toBeChecked();
+  expect(screen.getByRole('dialog', { name: 'Battle size' })).toBe(sheet);
+  expect(points()).toHaveTextContent('0 / 3,000 pts');
 });
 
 test('the detachment chip names the detachment and opens Detachments', async () => {
